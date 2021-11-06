@@ -9,7 +9,7 @@
     <atom:link href="https://hyper18.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>blog</description>
-    <pubDate>Sat, 06 Nov 2021 12:43:00 GMT</pubDate>
+    <pubDate>Sat, 06 Nov 2021 12:57:39 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -32,12 +32,14 @@
       
       <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/">课程</category>
       
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/JavaWeb/">JavaWeb</category>
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/">Java</category>
+      
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/JavaWeb/">JavaWeb</category>
       
       
       <category domain="https://hyper18.github.io/tags/html/">html</category>
       
-      <category domain="https://hyper18.github.io/tags/%E5%9F%BA%E7%A1%80/">基础</category>
+      <category domain="https://hyper18.github.io/tags/css/">css</category>
       
       
       <comments>https://hyper18.github.io/2021/11/04/%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89/#disqus_thread</comments>

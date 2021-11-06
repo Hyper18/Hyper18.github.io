@@ -1296,32 +1296,33 @@
       </tags>
   </entry>
   <entry>
-    <title>基础补全计划（一）</title>
-    <url>/2021/11/04/%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h3 id="统一资源定位符-URL"><a href="#统一资源定位符-URL" class="headerlink" title="统一资源定位符 URL"></a>统一资源定位符 URL</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scheme://login:password@address:port/path_to_resource?query_string#fragment</span><br></pre></td></tr></table></figure>
-
-<h4 id="URL样式"><a href="#URL样式" class="headerlink" title="URL样式"></a>URL样式</h4><ul>
-<li>Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如：</li>
+    <title>Java面向对象（四）</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="第四章-控制执行流程"><a href="#第四章-控制执行流程" class="headerlink" title="第四章 控制执行流程"></a>第四章 控制执行流程</h2><p>1、foreach（SE5+）</p>
+<ul>
+<li>对于任何返回一个<strong>数组</strong>的方法，不必创建int变量计即可自动计数</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8090/api/query?id=3</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> HelloWorld;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForEachFloat</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Random rand = <span class="keyword">new</span> Random(<span class="number">47</span>);</span><br><span class="line">        <span class="keyword">float</span>[] f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">            f[i] = rand.nextFloat();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">float</span> x:f) <span class="comment">// 定义一个float类型变量x，将每个f元素赋给x</span></span><br><span class="line">            System.out.println(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>Post方法：发送给服务器端的数据保存在信息的body中</p>
-</li>
-<li><p>2</p>
-</li>
-<li><p>3</p>
+<li>还可用于任何Iterable对象<ul>
+<li>Iterable：Java中的迭代器对象，是能够对List这样的集合进行迭代遍历的底层依赖</li>
+</ul>
 </li>
 </ul>
+<p>2、迭代前的标签：嵌套另一迭代或开关时使用</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">label1:</span><br><span class="line">outer-iteration &#123;</span><br><span class="line">    inner-iteration&#123;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span> label1; <span class="comment">// 转至label1</span></span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span> label1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>笔记</category>
         <category>课程</category>
-        <category>JavaWeb</category>
+        <category>Java</category>
+        <category>面向对象</category>
       </categories>
       <tags>
-        <tag>html</tag>
-        <tag>基础</tag>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
       </tags>
   </entry>
   <entry>
@@ -1442,33 +1443,33 @@
       </tags>
   </entry>
   <entry>
-    <title>Java面向对象（四）</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="第四章-控制执行流程"><a href="#第四章-控制执行流程" class="headerlink" title="第四章 控制执行流程"></a>第四章 控制执行流程</h2><p>1、foreach（SE5+）</p>
-<ul>
-<li>对于任何返回一个<strong>数组</strong>的方法，不必创建int变量计即可自动计数</li>
+    <title>基础补全计划（一）</title>
+    <url>/2021/11/04/%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="统一资源定位符-URL"><a href="#统一资源定位符-URL" class="headerlink" title="统一资源定位符 URL"></a>统一资源定位符 URL</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scheme://login:password@address:port/path_to_resource?query_string#fragment</span><br></pre></td></tr></table></figure>
+
+<h4 id="URL样式"><a href="#URL样式" class="headerlink" title="URL样式"></a>URL样式</h4><ul>
+<li>Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如：</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> HelloWorld;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForEachFloat</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Random rand = <span class="keyword">new</span> Random(<span class="number">47</span>);</span><br><span class="line">        <span class="keyword">float</span>[] f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">            f[i] = rand.nextFloat();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">float</span> x:f) <span class="comment">// 定义一个float类型变量x，将每个f元素赋给x</span></span><br><span class="line">            System.out.println(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8090/api/query?id=3</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>还可用于任何Iterable对象<ul>
-<li>Iterable：Java中的迭代器对象，是能够对List这样的集合进行迭代遍历的底层依赖</li>
-</ul>
+<li><p>Post方法：发送给服务器端的数据保存在信息的body中</p>
+</li>
+<li><p>2</p>
+</li>
+<li><p>3</p>
 </li>
 </ul>
-<p>2、迭代前的标签：嵌套另一迭代或开关时使用</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">label1:</span><br><span class="line">outer-iteration &#123;</span><br><span class="line">    inner-iteration&#123;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span> label1; <span class="comment">// 转至label1</span></span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span> label1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>笔记</category>
         <category>课程</category>
         <category>Java</category>
-        <category>面向对象</category>
+        <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
+        <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
