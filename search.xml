@@ -1,132 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Chapter1 Computer Networks and the Internet</title>
-    <url>/2020/07/20/Chapter1%20Computer%20Networks%20and%20the%20Internet/</url>
-    <content><![CDATA[<h1 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h1><p>1、<strong>主机</strong> host（<strong>端系统</strong> end system）：所有计算机器的统称，通过<strong>通信链路</strong>（communication link）与<strong>分组交换机</strong>相互连接</p>
-<ul>
-<li>概念辨析：主机 = 端系统</li>
-<li>主机的两大类型：客户（client）和服务器（server）</li>
-</ul>
-<p>2、分组交换机：常用类型为路由器（router）和 链路层交换机（link-layer switch）两种，均朝最终目的地转发分组</p>
-<p>3、<strong>分组</strong> packet：一台端系统向另一台端系统发送数据时，发送端系统将数据分段并为每段加上首部字节所形成的信息包</p>
-<p>4、<strong>路径</strong> path/route：一个分组所经历的一系列通信链路和分组交换机为通过该网络的路径</p>
-<p>5、<strong>因特网服务提供商</strong> ISP：一个由多个分组交换机和多段通信链路组成的网络，提供不同类型的网络接入服务</p>
-<ul>
-<li>可为内容提供者提供因特网接入服务用于直连</li>
-<li>各个ISP相互独立管理</li>
-</ul>
-<p>6、<strong>协议</strong> protocol：控制因特网中信息的接收和发送，定义了通信实体间交换、发送和接收报文的<strong>格式</strong>和<strong>顺序</strong>，及报文发送和/或接收一条报文或其他事件所采取的动作。</p>
-<ul>
-<li>因特网的主体协议：TCP/IP</li>
-</ul>
-<p>7、分布式应用程序 distributed application：涉及多个相互交换数据的端系统的应用程序</p>
-<p>8、套接字接口 socket interface:一套发送程序必须遵循的规则集合，规定了交付数据的方式</p>
-<h1 id="二、The-Network-Edge"><a href="#二、The-Network-Edge" class="headerlink" title="二、The Network Edge"></a>二、The Network Edge</h1><p>1、接入网</p>
-<ul>
-<li>数据用户线（DSL）：从本地电话接入的本地电话公司获得</li>
-<li>电缆因特网接入（cable Internet access）：从提供有线电视的公司获得<ul>
-<li>*混合光纤同轴系统（HFC）</li>
-</ul>
-</li>
-<li>光纤到户（FTTH）</li>
-<li>以太网、WiFi</li>
-<li>4G、LTE（长期演进）</li>
-</ul>
-<p>2、物理媒体：成本相对小</p>
-<ul>
-<li>导引型媒体：双绞铜线、同轴电缆、光纤</li>
-<li>非导引型媒体：无线局域网、数字卫星频道</li>
-</ul>
-<h1 id="三、The-Network-Core"><a href="#三、The-Network-Core" class="headerlink" title="三、The Network Core"></a>三、The Network Core</h1><h2 id="分组交换-packet-switching"><a href="#分组交换-packet-switching" class="headerlink" title="分组交换 packet switching"></a>分组交换 packet switching</h2><p>1、<strong>存储转发传输</strong> store-and-forward transmission</p>
-<ul>
-<li><p>定义def：在交换机能够开始向输出链路传输该分组的第一个比特之前，必须接收到整个分组</p>
-</li>
-<li><p>端到端时延（简化式）：<br>$$<br>d_{端到端} = N\frac LR<br>$$<br>其中，N：路径条数，R：速率 ，L bit/s：分组大小 bit</p>
-</li>
-</ul>
-<p>2、排队时延和分组丢失</p>
-<p>​    对于每条相连的链路，分组交换机具有一个<strong>输出缓存</strong>（ouput buffer），如果已到达分组的链路正在进行另一分组的传输，此时分组承受<strong>排队时延</strong>（queuing delay）；若缓存已占满，新进入的分组出现<strong>丢包</strong>（packet loss）</p>
-<p>3、转发表和路由选择协议</p>
-<p>​    路由器通过<strong>路由选择协议</strong>（routing protocol）自动设置<strong>转发表</strong>（forwarding table），转发表映射目的地址成为输出链路</p>
-<h2 id="电路交换-circuit-switching"><a href="#电路交换-circuit-switching" class="headerlink" title="电路交换 circuit switching"></a>电路交换 circuit switching</h2><p>1、def：通信时创建<strong>端到端连接</strong>（end-to-end connection），预留电路<strong>带宽</strong>（bandwidth）并加以维护，尽最大努力实时交付分组</p>
-<p>2、实现方式</p>
-<ul>
-<li>频分复用（FDM）：在连接期间，链路为每条连接专用一个频段</li>
-<li>时分复用（TDM）：时间划分为固定期间的<strong>帧</strong>，每个帧划分为固定数量的<strong>时隙</strong>；当网络跨越一条链路创建一条链接时，网络为每个帧指定一个时隙，并把这些时隙用于该链接的专用传输</li>
-</ul>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p> 分组交换不适合实时服务（原因：端到端时延不可预测），但提供更好的宽带共享、按需分配也较简单经济；电路交换实时传输，但不考虑需求，即便链接处于<strong>静默期</strong></p>
-<h2 id="网络的网络"><a href="#网络的网络" class="headerlink" title="网络的网络"></a>网络的网络</h2><p>1、ISP的互联模型（P24）</p>
-<p>2、一些概念</p>
-<ul>
-<li>存在点 PoP：存在于所有层次，提供对接</li>
-<li>多宿 multi-home：可与两个或更多提供商连接</li>
-<li>对等 peer：层次同一级不进行结算，即无需相互付费</li>
-<li>因特网交换点 IXP：一个或多个ISP在此处一起对等</li>
-<li>*我国国家级ISP：Tian</li>
-</ul>
-<h1 id="四、分组交换网-Packet-Switched-Networks"><a href="#四、分组交换网-Packet-Switched-Networks" class="headerlink" title="四、分组交换网 Packet-Switched Networks"></a>四、分组交换网 Packet-Switched Networks</h1><h2 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h2><p>1、总时延：<br>$$<br>d_{nodel} = d_{proc} + d_{queue} + d_{trans} + d_{prop}<br>$$</p>
-<center>总时延 = 处理时延 + 排队时延 + 传输时延 + 传播时延
-
-
-
-<ul>
-<li>流量强度：用于估计排队时延的范围<br>$$<br>\frac LR<br>$$</li>
-</ul>
-<p>​    设计系统的流量强度不能大于1，否则排队时延趋于+∞</p>
-<p>2、端到端时延（一般式）<br>$$<br>d_{end-end} = N(d_{proc} + d_{trans} + d_{prop})<br>$$<br>​    适用情况：各节点具有不同的时延 / 每个节点具有不同的时延和每个节点存在平均排队时延</p>
-<p>3、瞬时/平均吞吐量 instantaneous / average throughtout </p>
-<ul>
-<li>瓶颈链路（bottleneck link）：传输速率前大后小（进水管道宽于出水），吞吐量由两者中的较小者决定。因特网连接中，<strong>接入网</strong>是吞吐量的主要限制因素</li>
-</ul>
-<p>$$<br>min{R_c,R_s}<br>$$</p>
-<h1 id="五、协议层次及其服务模型-Protocol-Layers-and-Their-Service-Models"><a href="#五、协议层次及其服务模型-Protocol-Layers-and-Their-Service-Models" class="headerlink" title="五、协议层次及其服务模型 Protocol Layers and Their Service Models"></a>五、协议层次及其服务模型 Protocol Layers and Their Service Models</h1><h2 id="协议分层"><a href="#协议分层" class="headerlink" title="协议分层"></a>协议分层</h2><p>1、优点：概念化 结构化 缺点：单一层可能冗余较低层的功能 违反了层次分离的目标</p>
-<p>2、协议栈 protocol stack</p>
-<ul>
-<li>5层因特网协议栈：物 链 网 运 应</li>
-<li>7层ISO OSI参考模型：物 链 网 运 <strong>会话 表示</strong> 应<ul>
-<li>表示层：使通讯的应用程序能够解释交换数据的含义</li>
-<li>会话层：提供数据交换的<strong>定界</strong>和<strong>同步</strong>功能</li>
-</ul>
-</li>
-</ul>
-<p>3、封装 encapsulation</p>
-<h1 id="六、Networks-Under-Attack"><a href="#六、Networks-Under-Attack" class="headerlink" title="*六、Networks Under Attack"></a>*六、Networks Under Attack</h1><p>1、常见有害程序</p>
-<ul>
-<li>僵尸网络（botnet）</li>
-<li>病毒</li>
-<li>蠕虫</li>
-</ul>
-<p>2、针对服务器 / 网络基础设施</p>
-<ul>
-<li>弱点攻击</li>
-<li>带宽洪泛：短时间大量分组阻塞合法分组到达服务器，如：DDoS攻击</li>
-<li>连接洪泛：创建大量伪造的半开/全开的TCP连接，使得主机受困、停止接收合法连接</li>
-</ul>
-<p>3、分组嗅探、伪装</p>
-<ul>
-<li>分组嗅探器（packet sniffer）：记录每个流经的分组副本的<strong>被动</strong>接收机（不向信道注入信息）。难以发觉，可应用密码学规避</li>
-<li>IP哄骗（IP Spoofing）：将具有虚假源地址的分组注入因特网（主动），可采用端点鉴别</li>
-</ul>
-<h1 id="七、History-of-Computer-Networking"><a href="#七、History-of-Computer-Networking" class="headerlink" title="*七、History of Computer Networking"></a>*七、History of Computer Networking</h1><ul>
-<li>分组交换的发展（1961-1972）<ul>
-<li>NCP：ARPAnet端系统间第一台主机-主机协议</li>
-</ul>
-</li>
-<li>专用网络和网络互联 Interneting（1972-1980）</li>
-<li>激增和爆炸（1980 - 至今）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>课程</category>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Chapter2 Application Layer</title>
     <url>/2020/07/25/Chapter2%20Application%20Layer/</url>
     <content><![CDATA[<h1 id="应用层协议原理"><a href="#应用层协议原理" class="headerlink" title="应用层协议原理"></a>应用层协议原理</h1><h2 id="网络应用程序体系结构"><a href="#网络应用程序体系结构" class="headerlink" title="网络应用程序体系结构"></a>网络应用程序体系结构</h2><p>1、<strong>客户 - 服务器体系架构</strong>（client-server architecture）</p>
@@ -447,6 +321,132 @@
 <ul>
 <li>欢迎套接字和连接套接字</li>
 <li>仅需将数据放入TCP连接</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>课程</category>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Chapter1 Computer Networks and the Internet</title>
+    <url>/2020/07/20/Chapter1%20Computer%20Networks%20and%20the%20Internet/</url>
+    <content><![CDATA[<h1 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h1><p>1、<strong>主机</strong> host（<strong>端系统</strong> end system）：所有计算机器的统称，通过<strong>通信链路</strong>（communication link）与<strong>分组交换机</strong>相互连接</p>
+<ul>
+<li>概念辨析：主机 = 端系统</li>
+<li>主机的两大类型：客户（client）和服务器（server）</li>
+</ul>
+<p>2、分组交换机：常用类型为路由器（router）和 链路层交换机（link-layer switch）两种，均朝最终目的地转发分组</p>
+<p>3、<strong>分组</strong> packet：一台端系统向另一台端系统发送数据时，发送端系统将数据分段并为每段加上首部字节所形成的信息包</p>
+<p>4、<strong>路径</strong> path/route：一个分组所经历的一系列通信链路和分组交换机为通过该网络的路径</p>
+<p>5、<strong>因特网服务提供商</strong> ISP：一个由多个分组交换机和多段通信链路组成的网络，提供不同类型的网络接入服务</p>
+<ul>
+<li>可为内容提供者提供因特网接入服务用于直连</li>
+<li>各个ISP相互独立管理</li>
+</ul>
+<p>6、<strong>协议</strong> protocol：控制因特网中信息的接收和发送，定义了通信实体间交换、发送和接收报文的<strong>格式</strong>和<strong>顺序</strong>，及报文发送和/或接收一条报文或其他事件所采取的动作。</p>
+<ul>
+<li>因特网的主体协议：TCP/IP</li>
+</ul>
+<p>7、分布式应用程序 distributed application：涉及多个相互交换数据的端系统的应用程序</p>
+<p>8、套接字接口 socket interface:一套发送程序必须遵循的规则集合，规定了交付数据的方式</p>
+<h1 id="二、The-Network-Edge"><a href="#二、The-Network-Edge" class="headerlink" title="二、The Network Edge"></a>二、The Network Edge</h1><p>1、接入网</p>
+<ul>
+<li>数据用户线（DSL）：从本地电话接入的本地电话公司获得</li>
+<li>电缆因特网接入（cable Internet access）：从提供有线电视的公司获得<ul>
+<li>*混合光纤同轴系统（HFC）</li>
+</ul>
+</li>
+<li>光纤到户（FTTH）</li>
+<li>以太网、WiFi</li>
+<li>4G、LTE（长期演进）</li>
+</ul>
+<p>2、物理媒体：成本相对小</p>
+<ul>
+<li>导引型媒体：双绞铜线、同轴电缆、光纤</li>
+<li>非导引型媒体：无线局域网、数字卫星频道</li>
+</ul>
+<h1 id="三、The-Network-Core"><a href="#三、The-Network-Core" class="headerlink" title="三、The Network Core"></a>三、The Network Core</h1><h2 id="分组交换-packet-switching"><a href="#分组交换-packet-switching" class="headerlink" title="分组交换 packet switching"></a>分组交换 packet switching</h2><p>1、<strong>存储转发传输</strong> store-and-forward transmission</p>
+<ul>
+<li><p>定义def：在交换机能够开始向输出链路传输该分组的第一个比特之前，必须接收到整个分组</p>
+</li>
+<li><p>端到端时延（简化式）：<br>$$<br>d_{端到端} = N\frac LR<br>$$<br>其中，N：路径条数，R：速率 ，L bit/s：分组大小 bit</p>
+</li>
+</ul>
+<p>2、排队时延和分组丢失</p>
+<p>​    对于每条相连的链路，分组交换机具有一个<strong>输出缓存</strong>（ouput buffer），如果已到达分组的链路正在进行另一分组的传输，此时分组承受<strong>排队时延</strong>（queuing delay）；若缓存已占满，新进入的分组出现<strong>丢包</strong>（packet loss）</p>
+<p>3、转发表和路由选择协议</p>
+<p>​    路由器通过<strong>路由选择协议</strong>（routing protocol）自动设置<strong>转发表</strong>（forwarding table），转发表映射目的地址成为输出链路</p>
+<h2 id="电路交换-circuit-switching"><a href="#电路交换-circuit-switching" class="headerlink" title="电路交换 circuit switching"></a>电路交换 circuit switching</h2><p>1、def：通信时创建<strong>端到端连接</strong>（end-to-end connection），预留电路<strong>带宽</strong>（bandwidth）并加以维护，尽最大努力实时交付分组</p>
+<p>2、实现方式</p>
+<ul>
+<li>频分复用（FDM）：在连接期间，链路为每条连接专用一个频段</li>
+<li>时分复用（TDM）：时间划分为固定期间的<strong>帧</strong>，每个帧划分为固定数量的<strong>时隙</strong>；当网络跨越一条链路创建一条链接时，网络为每个帧指定一个时隙，并把这些时隙用于该链接的专用传输</li>
+</ul>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p> 分组交换不适合实时服务（原因：端到端时延不可预测），但提供更好的宽带共享、按需分配也较简单经济；电路交换实时传输，但不考虑需求，即便链接处于<strong>静默期</strong></p>
+<h2 id="网络的网络"><a href="#网络的网络" class="headerlink" title="网络的网络"></a>网络的网络</h2><p>1、ISP的互联模型（P24）</p>
+<p>2、一些概念</p>
+<ul>
+<li>存在点 PoP：存在于所有层次，提供对接</li>
+<li>多宿 multi-home：可与两个或更多提供商连接</li>
+<li>对等 peer：层次同一级不进行结算，即无需相互付费</li>
+<li>因特网交换点 IXP：一个或多个ISP在此处一起对等</li>
+<li>*我国国家级ISP：Tian</li>
+</ul>
+<h1 id="四、分组交换网-Packet-Switched-Networks"><a href="#四、分组交换网-Packet-Switched-Networks" class="headerlink" title="四、分组交换网 Packet-Switched Networks"></a>四、分组交换网 Packet-Switched Networks</h1><h2 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h2><p>1、总时延：<br>$$<br>d_{nodel} = d_{proc} + d_{queue} + d_{trans} + d_{prop}<br>$$</p>
+<center>总时延 = 处理时延 + 排队时延 + 传输时延 + 传播时延
+
+
+
+<ul>
+<li>流量强度：用于估计排队时延的范围<br>$$<br>\frac LR<br>$$</li>
+</ul>
+<p>​    设计系统的流量强度不能大于1，否则排队时延趋于+∞</p>
+<p>2、端到端时延（一般式）<br>$$<br>d_{end-end} = N(d_{proc} + d_{trans} + d_{prop})<br>$$<br>​    适用情况：各节点具有不同的时延 / 每个节点具有不同的时延和每个节点存在平均排队时延</p>
+<p>3、瞬时/平均吞吐量 instantaneous / average throughtout </p>
+<ul>
+<li>瓶颈链路（bottleneck link）：传输速率前大后小（进水管道宽于出水），吞吐量由两者中的较小者决定。因特网连接中，<strong>接入网</strong>是吞吐量的主要限制因素</li>
+</ul>
+<p>$$<br>min{R_c,R_s}<br>$$</p>
+<h1 id="五、协议层次及其服务模型-Protocol-Layers-and-Their-Service-Models"><a href="#五、协议层次及其服务模型-Protocol-Layers-and-Their-Service-Models" class="headerlink" title="五、协议层次及其服务模型 Protocol Layers and Their Service Models"></a>五、协议层次及其服务模型 Protocol Layers and Their Service Models</h1><h2 id="协议分层"><a href="#协议分层" class="headerlink" title="协议分层"></a>协议分层</h2><p>1、优点：概念化 结构化 缺点：单一层可能冗余较低层的功能 违反了层次分离的目标</p>
+<p>2、协议栈 protocol stack</p>
+<ul>
+<li>5层因特网协议栈：物 链 网 运 应</li>
+<li>7层ISO OSI参考模型：物 链 网 运 <strong>会话 表示</strong> 应<ul>
+<li>表示层：使通讯的应用程序能够解释交换数据的含义</li>
+<li>会话层：提供数据交换的<strong>定界</strong>和<strong>同步</strong>功能</li>
+</ul>
+</li>
+</ul>
+<p>3、封装 encapsulation</p>
+<h1 id="六、Networks-Under-Attack"><a href="#六、Networks-Under-Attack" class="headerlink" title="*六、Networks Under Attack"></a>*六、Networks Under Attack</h1><p>1、常见有害程序</p>
+<ul>
+<li>僵尸网络（botnet）</li>
+<li>病毒</li>
+<li>蠕虫</li>
+</ul>
+<p>2、针对服务器 / 网络基础设施</p>
+<ul>
+<li>弱点攻击</li>
+<li>带宽洪泛：短时间大量分组阻塞合法分组到达服务器，如：DDoS攻击</li>
+<li>连接洪泛：创建大量伪造的半开/全开的TCP连接，使得主机受困、停止接收合法连接</li>
+</ul>
+<p>3、分组嗅探、伪装</p>
+<ul>
+<li>分组嗅探器（packet sniffer）：记录每个流经的分组副本的<strong>被动</strong>接收机（不向信道注入信息）。难以发觉，可应用密码学规避</li>
+<li>IP哄骗（IP Spoofing）：将具有虚假源地址的分组注入因特网（主动），可采用端点鉴别</li>
+</ul>
+<h1 id="七、History-of-Computer-Networking"><a href="#七、History-of-Computer-Networking" class="headerlink" title="*七、History of Computer Networking"></a>*七、History of Computer Networking</h1><ul>
+<li>分组交换的发展（1961-1972）<ul>
+<li>NCP：ARPAnet端系统间第一台主机-主机协议</li>
+</ul>
+</li>
+<li>专用网络和网络互联 Interneting（1972-1980）</li>
+<li>激增和爆炸（1980 - 至今）</li>
 </ul>
 ]]></content>
       <categories>
@@ -795,6 +795,78 @@
       </tags>
   </entry>
   <entry>
+    <title>Java面向对象（七）</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
+<ul>
+<li>在新类中产生现有类的对象</li>
+<li>继承</li>
+</ul>
+<p>2、组合语法</p>
+<ul>
+<li>将对象引用置于新类</li>
+<li>初始化引用的位置<ul>
+<li>定义处</li>
+<li>类构造器中</li>
+<li>惰性初始化（Delay Initialization）于使用对象前</li>
+</ul>
+</li>
+</ul>
+<p>3、继承</p>
+<ul>
+<li>声明新类与旧类类似<ul>
+<li>书写紧跟基类名称关键字extends</li>
+</ul>
+</li>
+<li>super为超类，类从超类继承</li>
+<li>使用+=可连接多个String对象</li>
+<li>构建过程（初始化过程同）是向外“扩散”的<ul>
+<li>若类带有参数，则需要用super显式编写调用</li>
+</ul>
+</li>
+</ul>
+<p>4、代理：继承与组合的中间体</p>
+<ul>
+<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
+<li>java不直接支持代理，可使用部分支持ide自动生成</li>
+</ul>
+<p>5、结合使用组合和继承</p>
+<ul>
+<li>finally()子句确保正确清理，采用自己编写的顺序清理</li>
+<li>dispose()：清理方法</li>
+<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别C++）<ul>
+<li>需要覆写：Override()，不是关键字但按关键字处理</li>
+</ul>
+</li>
+</ul>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
+<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
+<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
+<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
+<li>is-a关系 - 继承，has-a关系 - 组合</li>
+</ul>
+<p>6、protected关键字</p>
+<ul>
+<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
+</ul>
+<p>7、final关键字</p>
+<ul>
+<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
+<li>类常量 static final</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>课程</category>
+        <category>Java</category>
+        <category>面向对象</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java面向对象（一）</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h2 id="第一章-对象导论"><a href="#第一章-对象导论" class="headerlink" title="第一章 对象导论"></a>第一章 对象导论</h2><p>1、基本特性</p>
@@ -868,142 +940,101 @@
       </tags>
   </entry>
   <entry>
-    <title>Java面向对象（七）</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
+    <title>Java面向对象（五）</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%94%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="第五章-初始化与清理"><a href="#第五章-初始化与清理" class="headerlink" title="第五章 初始化与清理"></a>第五章 初始化与清理</h2><h3 id="一、初始化"><a href="#一、初始化" class="headerlink" title="一、初始化"></a>一、初始化</h3><p>1、构造器 constructor</p>
 <ul>
-<li>在新类中产生现有类的对象</li>
-<li>继承</li>
+<li>自动调用对应构造器保证初始化</li>
+<li>构造器采用与类相同的名称（因此构造器方法首字母无需小写）</li>
+<li>绑定初始化和创建</li>
+<li>不返回任何值</li>
 </ul>
-<p>2、组合语法</p>
+<p>2、方法重载：不同构造器，参数列表独一无二</p>
+<p>3、默认构造器（无参）</p>
 <ul>
-<li>将对象引用置于新类</li>
-<li>初始化引用的位置<ul>
-<li>定义处</li>
-<li>类构造器中</li>
-<li>惰性初始化（Delay Initialization）于使用对象前</li>
+<li>创建默认对象</li>
+<li>this关键字<ul>
+<li>表：对调用方法的按个对象的应用</li>
+<li>若为同一个类的另一个方法，不使用this关键字，精简</li>
+<li>若要明确指出对当前对象的引用，使用this关键字</li>
 </ul>
 </li>
 </ul>
-<p>3、继承</p>
-<ul>
-<li>声明新类与旧类类似<ul>
-<li>书写紧跟基类名称关键字extends</li>
-</ul>
-</li>
-<li>super为超类，类从超类继承</li>
-<li>使用+=可连接多个String对象</li>
-<li>构建过程（初始化过程同）是向外“扩散”的<ul>
-<li>若类带有参数，则需要用super显式编写调用</li>
-</ul>
-</li>
-</ul>
-<p>4、代理：继承与组合的中间体</p>
-<ul>
-<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
-<li>java不直接支持代理，可使用部分支持ide自动生成</li>
-</ul>
-<p>5、结合使用组合和继承</p>
-<ul>
-<li>finally()子句确保正确清理，采用自己编写的顺序清理</li>
-<li>dispose()：清理方法</li>
-<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别C++）<ul>
-<li>需要覆写：Override()，不是关键字但按关键字处理</li>
-</ul>
-</li>
-</ul>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
-<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
-<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
-<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
-<li>is-a关系 - 继承，has-a关系 - 组合</li>
-</ul>
-<p>6、protected关键字</p>
-<ul>
-<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
-</ul>
-<p>7、final关键字</p>
-<ul>
-<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
-<li>类常量 static final</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>课程</category>
-        <category>Java</category>
-        <category>面向对象</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java面向对象（三）</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="第三章-操作符"><a href="#第三章-操作符" class="headerlink" title="第三章 操作符"></a>第三章 操作符</h2><p>1、别名现象</p>
-<p>赋值操作是对一个对象的引用，对象与对象相互赋值则丢失信息</p>
-<p>2、生成数字：Random类</p>
-<ul>
-<li>nextInt / nextFloat …</li>
-</ul>
-<p>3、可使用一元加减号</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下操作均合法</span></span><br><span class="line">x = -a;</span><br><span class="line">x = a * -b;</span><br><span class="line">s = a * (-b);</span><br></pre></td></tr></table></figure>
-
-<p>4、关系操作符</p>
-<ul>
-<li>若为基本类型，直接比较</li>
-<li>不为基本类型，使用所有对象都适用的特殊方法equals()<ul>
-<li>默认执行比较引用，不可用于自己的新类</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">n1.equals(n2)</span><br><span class="line"><span class="comment">// 以下返回行为不正确</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myclass</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">wrongdoing</span></span>&#123;</span><br><span class="line">    myclass v1 = <span class="keyword">new</span> v1;</span><br><span class="line">    myclass v2 = <span class="keyword">new</span> v2;</span><br><span class="line">    System.out.println(v1.equals(v2));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 例1</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apricot</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pick</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">void</span> pit&#123; pick() &#125;;</span><br><span class="line">    <span class="comment">// 以下写法没有必要</span></span><br><span class="line">    <span class="keyword">void</span> pit&#123; <span class="keyword">this</span>.pick() &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 例2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leaf</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="function">Leaf <span class="title">increment</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        i++;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>; <span class="comment">// 返回对当前对象的引用</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;i = &quot;</span> + i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Leaf x = <span class="keyword">new</span> Leaf();</span><br><span class="line">    x.increment().increment().increment().print();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Output: </span></span><br><span class="line"><span class="comment">i = 3</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//:~</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>三元操作符</li>
+<li>构造器中调用构造器：仅可用this调用一个，且调用位于最起始处</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// condition ? ex1 : ex2;</span></span><br><span class="line">x &lt; y ? x : y;</span><br></pre></td></tr></table></figure>
-
-<p>5、逻辑运算符</p>
-<p>与或非仅可用于布尔值</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 错误实例</span></span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + (i &amp;&amp; j));</span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + (i || j));</span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + !i);</span><br></pre></td></tr></table></figure>
-
-<p>6、直接常量</p>
+<p>4、成员初始化</p>
 <ul>
-<li>后缀L / F /D …</li>
-<li>前缀0x / 0 / 0b</li>
-<li>可为数字字面量添加下划线，更可读（e.g. 1_000_000)</li>
-<li>指数<ul>
-<li>注：结果不为一个数，返回NaN（e.g. 0/0）</li>
+<li>基本数据类型有默认初值，自定义的局部变量则必须给出初始化值</li>
+<li>注意初始化的顺序</li>
+</ul>
+<p>5、构造器初始化</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// i先置为0，后变为7</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    Counter() &#123;</span><br><span class="line">        i = <span class="number">7</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>初始化将在构造器<strong>被调用前</strong>发生</li>
+<li>类内部，变量定义顺序决定了初始化顺序</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Window</span> </span>&#123;</span><br><span class="line">    Window(<span class="keyword">int</span> marker) &#123;</span><br><span class="line">        print(<span class="string">&quot;Windows(&quot;</span> + marker + <span class="string">&quot;)&quot;</span>); <span class="comment">// 初始化时打印</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">House</span> </span>&#123;</span><br><span class="line">    Window w1 = <span class="keyword">new</span> Window(<span class="number">1</span>); <span class="comment">// 调用构造器前</span></span><br><span class="line">    House() &#123;</span><br><span class="line">        print(<span class="string">&quot;House()&quot;</span>);</span><br><span class="line">        w3 = <span class="keyword">new</span> Window(<span class="number">33</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Window w2 = <span class="keyword">new</span> Window(<span class="number">2</span>); <span class="comment">// 调用构造器后</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">finished</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        print(<span class="string">&quot;finished()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Window w3 = <span class="keyword">new</span> Window(<span class="number">3</span>); <span class="comment">// 末尾</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderOfInitialization</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        House h = <span class="keyword">new</span> House();</span><br><span class="line">        h.finished();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Output:</span></span><br><span class="line"><span class="comment">Window(1)</span></span><br><span class="line"><span class="comment">Window(2)</span></span><br><span class="line"><span class="comment">Window(3)</span></span><br><span class="line"><span class="comment">House()</span></span><br><span class="line"><span class="comment">Window(33)</span></span><br><span class="line"><span class="comment">finished()</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//~</span></span><br></pre></td></tr></table></figure>
+
+<p>上例说明，即使对象散布在Window的不同部分，仍会在调用构造器或其他方法前得到初始化。</p>
+<ul>
+<li>先初始化静态对象，后其他对象</li>
+<li>静态块：显式的静态初始化</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">	代码块<span class="number">1</span></span><br><span class="line">    代码块<span class="number">2</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>静态初始化动作只进行一次</p>
+<p>6、数组的初始化</p>
+<p>以下两种均可（前者更合理，后者符合C、C++习惯）：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a;</span><br><span class="line"><span class="keyword">int</span> a[];</span><br><span class="line"><span class="comment">// 尽量在定义时初始化</span></span><br><span class="line"><span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[rand.nextInt(<span class="number">20</span>)];</span><br><span class="line"><span class="comment">// 产生一维数组的可打印版本</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line">print(Arrays.toString(a));</span><br><span class="line"><span class="comment">// 注：toString默认打印 类名 和 对象的地址（@+16进制数字）</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不允许指定数组的大小，分配空间必须写初始化表达式</li>
+<li>使用花括号括起来的列表初始化</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">    <span class="comment">// 形式1</span></span><br><span class="line">    Interger[] a = &#123;</span><br><span class="line">    <span class="keyword">new</span> Interger(<span class="number">1</span>),</span><br><span class="line">    <span class="keyword">new</span> Interger(<span class="number">2</span>),</span><br><span class="line">    <span class="number">3</span>,</span><br><span class="line">&#125;;</span><br><span class="line">	<span class="comment">// 形式2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicArray</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Other.main(<span class="keyword">new</span> String[])&#123; <span class="string">&quot;fiddle&quot;</span>, <span class="string">&quot;de&quot;</span>, <span class="string">&quot;dum&quot;</span>&#125;;</span><br><span class="line">        <span class="comment">// 在方法调用处创建数组，可在调用时提供可替换的参数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Other</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(String s : args) </span><br><span class="line">            System.out.print(s + <span class="string">&quot; &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Output:</span></span><br><span class="line"><span class="comment">fiddle de dum</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//~</span></span><br></pre></td></tr></table></figure>
+
+<p>7、可变参数列表</p>
+<ul>
+<li>将0个参数传递给可变参数列表是可行的</li>
+<li>不依赖于自动包装机制，使用基本类型</li>
+<li>使得重载变得复杂，编译器在各个情况均要使用自动包装机制来匹配重载<ul>
+<li>在不适用参数调用时，则无法确定了。此时应添加一个非可变参数</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">expfloat = <span class="number">1.39E-43f</span>；</span><br></pre></td></tr></table></figure>
-
-<p>7、按位操作符</p>
-<p>&amp;= |= ^= 均合法</p>
-<p>8、移位操作符 &gt;&gt; &lt;&lt;</p>
+<h3 id="二、清理"><a href="#二、清理" class="headerlink" title="二、清理"></a>二、清理</h3><p>1、finalize()：清理不是new创建的内存</p>
 <ul>
-<li>无符号右移：&gt;&gt;&gt;，无论正负均在高位插入0<ul>
-<li>对byte / short：会先转为int，右移、截断、赋值，可能得到-1结果</li>
-<li>推广：只要类型比int小均会被转换，可根据需求使用cast手动类型转换 / 提升</li>
+<li>使用原因：回收程序不再使用的内存</li>
+<li>终结条件的验证</li>
+</ul>
+<p>2、辨析：并非所有对象都会被垃圾回收</p>
+<p>3、回收</p>
+<ul>
+<li>引用计数：释放引用计数为9的空间<ul>
+<li>简单，速度很慢</li>
+<li>缺陷：对循环引用不适用，应被回收的值，其引用计数不为0</li>
 </ul>
 </li>
-<li>与等号组合：&gt;&gt;= &lt;&lt;=，移动等号左边指定的位数</li>
+<li>停止 - 复制（自适应）技术：动作发生时，程序暂停</li>
+<li>JIT 即时编译器技术：翻译程序为本地机器码以提升速度<ul>
+<li>即时编译<ul>
+<li>缺陷：累加时长长，且会增加可执行代码的长度，导致页面调度</li>
 </ul>
-<p>9、移植：无需考虑，不同机器均相同</p>
+</li>
+<li>惰性评估：尽在必要时编译</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、枚举类型-enum"><a href="#三、枚举类型-enum" class="headerlink" title="三、枚举类型 enum"></a>三、枚举类型 enum</h3><p>1、toString</p>
+<p>2、ordinal：用于表示特定枚举常量的声明顺序</p>
+<p>3、可把enum视作类，具有自己的方法</p>
 <ul>
-<li>因而无sizeof操作符</li>
+<li>可在switch语句中使用，配合在有限可能值集合中选择</li>
 </ul>
-<p>注：溢出结果不会收到警告或出错</p>
-<p>10、浮点数四舍五入</p>
-<ul>
-<li>得到最接近整数：使用Max.round() 方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">9.997</span></span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) Math.round(x);</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1124,6 +1155,36 @@
       </tags>
   </entry>
   <entry>
+    <title>基础补全计划（一）</title>
+    <url>/2021/11/04/%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="统一资源定位符-URL"><a href="#统一资源定位符-URL" class="headerlink" title="统一资源定位符 URL"></a>统一资源定位符 URL</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scheme://login:password@address:port/path_to_resource?query_string#fragment</span><br></pre></td></tr></table></figure>
+
+<h4 id="URL样式"><a href="#URL样式" class="headerlink" title="URL样式"></a>URL样式</h4><ul>
+<li>Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8090/api/query?id=3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Post方法：发送给服务器端的数据保存在信息的body中</p>
+</li>
+<li><p>2</p>
+</li>
+<li><p>3</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>课程</category>
+        <category>Java</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java面向对象（六）</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%85%AD%EF%BC%89/</url>
     <content><![CDATA[<h2 id="第六章-访问权限控制"><a href="#第六章-访问权限控制" class="headerlink" title="第六章 访问权限控制"></a>第六章 访问权限控制</h2><p>1、类库 library：将不变的内容和重构的代码内容区分开</p>
@@ -1188,101 +1249,70 @@
       </tags>
   </entry>
   <entry>
-    <title>Java面向对象（五）</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%94%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="第五章-初始化与清理"><a href="#第五章-初始化与清理" class="headerlink" title="第五章 初始化与清理"></a>第五章 初始化与清理</h2><h3 id="一、初始化"><a href="#一、初始化" class="headerlink" title="一、初始化"></a>一、初始化</h3><p>1、构造器 constructor</p>
+    <title>Java面向对象（三）</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="第三章-操作符"><a href="#第三章-操作符" class="headerlink" title="第三章 操作符"></a>第三章 操作符</h2><p>1、别名现象</p>
+<p>赋值操作是对一个对象的引用，对象与对象相互赋值则丢失信息</p>
+<p>2、生成数字：Random类</p>
 <ul>
-<li>自动调用对应构造器保证初始化</li>
-<li>构造器采用与类相同的名称（因此构造器方法首字母无需小写）</li>
-<li>绑定初始化和创建</li>
-<li>不返回任何值</li>
+<li>nextInt / nextFloat …</li>
 </ul>
-<p>2、方法重载：不同构造器，参数列表独一无二</p>
-<p>3、默认构造器（无参）</p>
+<p>3、可使用一元加减号</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下操作均合法</span></span><br><span class="line">x = -a;</span><br><span class="line">x = a * -b;</span><br><span class="line">s = a * (-b);</span><br></pre></td></tr></table></figure>
+
+<p>4、关系操作符</p>
 <ul>
-<li>创建默认对象</li>
-<li>this关键字<ul>
-<li>表：对调用方法的按个对象的应用</li>
-<li>若为同一个类的另一个方法，不使用this关键字，精简</li>
-<li>若要明确指出对当前对象的引用，使用this关键字</li>
+<li>若为基本类型，直接比较</li>
+<li>不为基本类型，使用所有对象都适用的特殊方法equals()<ul>
+<li>默认执行比较引用，不可用于自己的新类</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 例1</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apricot</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pick</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">void</span> pit&#123; pick() &#125;;</span><br><span class="line">    <span class="comment">// 以下写法没有必要</span></span><br><span class="line">    <span class="keyword">void</span> pit&#123; <span class="keyword">this</span>.pick() &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 例2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leaf</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="function">Leaf <span class="title">increment</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        i++;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>; <span class="comment">// 返回对当前对象的引用</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;i = &quot;</span> + i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Leaf x = <span class="keyword">new</span> Leaf();</span><br><span class="line">    x.increment().increment().increment().print();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Output: </span></span><br><span class="line"><span class="comment">i = 3</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//:~</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">n1.equals(n2)</span><br><span class="line"><span class="comment">// 以下返回行为不正确</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myclass</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">wrongdoing</span></span>&#123;</span><br><span class="line">    myclass v1 = <span class="keyword">new</span> v1;</span><br><span class="line">    myclass v2 = <span class="keyword">new</span> v2;</span><br><span class="line">    System.out.println(v1.equals(v2));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>构造器中调用构造器：仅可用this调用一个，且调用位于最起始处</li>
+<li>三元操作符</li>
 </ul>
-<p>4、成员初始化</p>
-<ul>
-<li>基本数据类型有默认初值，自定义的局部变量则必须给出初始化值</li>
-<li>注意初始化的顺序</li>
-</ul>
-<p>5、构造器初始化</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// i先置为0，后变为7</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    Counter() &#123;</span><br><span class="line">        i = <span class="number">7</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// condition ? ex1 : ex2;</span></span><br><span class="line">x &lt; y ? x : y;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>初始化将在构造器<strong>被调用前</strong>发生</li>
-<li>类内部，变量定义顺序决定了初始化顺序</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Window</span> </span>&#123;</span><br><span class="line">    Window(<span class="keyword">int</span> marker) &#123;</span><br><span class="line">        print(<span class="string">&quot;Windows(&quot;</span> + marker + <span class="string">&quot;)&quot;</span>); <span class="comment">// 初始化时打印</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">House</span> </span>&#123;</span><br><span class="line">    Window w1 = <span class="keyword">new</span> Window(<span class="number">1</span>); <span class="comment">// 调用构造器前</span></span><br><span class="line">    House() &#123;</span><br><span class="line">        print(<span class="string">&quot;House()&quot;</span>);</span><br><span class="line">        w3 = <span class="keyword">new</span> Window(<span class="number">33</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Window w2 = <span class="keyword">new</span> Window(<span class="number">2</span>); <span class="comment">// 调用构造器后</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">finished</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        print(<span class="string">&quot;finished()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Window w3 = <span class="keyword">new</span> Window(<span class="number">3</span>); <span class="comment">// 末尾</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderOfInitialization</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        House h = <span class="keyword">new</span> House();</span><br><span class="line">        h.finished();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Output:</span></span><br><span class="line"><span class="comment">Window(1)</span></span><br><span class="line"><span class="comment">Window(2)</span></span><br><span class="line"><span class="comment">Window(3)</span></span><br><span class="line"><span class="comment">House()</span></span><br><span class="line"><span class="comment">Window(33)</span></span><br><span class="line"><span class="comment">finished()</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//~</span></span><br></pre></td></tr></table></figure>
+<p>5、逻辑运算符</p>
+<p>与或非仅可用于布尔值</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 错误实例</span></span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + (i &amp;&amp; j));</span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + (i || j));</span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + !i);</span><br></pre></td></tr></table></figure>
 
-<p>上例说明，即使对象散布在Window的不同部分，仍会在调用构造器或其他方法前得到初始化。</p>
+<p>6、直接常量</p>
 <ul>
-<li>先初始化静态对象，后其他对象</li>
-<li>静态块：显式的静态初始化</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">	代码块<span class="number">1</span></span><br><span class="line">    代码块<span class="number">2</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>静态初始化动作只进行一次</p>
-<p>6、数组的初始化</p>
-<p>以下两种均可（前者更合理，后者符合C、C++习惯）：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a;</span><br><span class="line"><span class="keyword">int</span> a[];</span><br><span class="line"><span class="comment">// 尽量在定义时初始化</span></span><br><span class="line"><span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[rand.nextInt(<span class="number">20</span>)];</span><br><span class="line"><span class="comment">// 产生一维数组的可打印版本</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line">print(Arrays.toString(a));</span><br><span class="line"><span class="comment">// 注：toString默认打印 类名 和 对象的地址（@+16进制数字）</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>不允许指定数组的大小，分配空间必须写初始化表达式</li>
-<li>使用花括号括起来的列表初始化</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">    <span class="comment">// 形式1</span></span><br><span class="line">    Interger[] a = &#123;</span><br><span class="line">    <span class="keyword">new</span> Interger(<span class="number">1</span>),</span><br><span class="line">    <span class="keyword">new</span> Interger(<span class="number">2</span>),</span><br><span class="line">    <span class="number">3</span>,</span><br><span class="line">&#125;;</span><br><span class="line">	<span class="comment">// 形式2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicArray</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Other.main(<span class="keyword">new</span> String[])&#123; <span class="string">&quot;fiddle&quot;</span>, <span class="string">&quot;de&quot;</span>, <span class="string">&quot;dum&quot;</span>&#125;;</span><br><span class="line">        <span class="comment">// 在方法调用处创建数组，可在调用时提供可替换的参数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Other</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(String s : args) </span><br><span class="line">            System.out.print(s + <span class="string">&quot; &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Output:</span></span><br><span class="line"><span class="comment">fiddle de dum</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//~</span></span><br></pre></td></tr></table></figure>
-
-<p>7、可变参数列表</p>
-<ul>
-<li>将0个参数传递给可变参数列表是可行的</li>
-<li>不依赖于自动包装机制，使用基本类型</li>
-<li>使得重载变得复杂，编译器在各个情况均要使用自动包装机制来匹配重载<ul>
-<li>在不适用参数调用时，则无法确定了。此时应添加一个非可变参数</li>
+<li>后缀L / F /D …</li>
+<li>前缀0x / 0 / 0b</li>
+<li>可为数字字面量添加下划线，更可读（e.g. 1_000_000)</li>
+<li>指数<ul>
+<li>注：结果不为一个数，返回NaN（e.g. 0/0）</li>
 </ul>
 </li>
 </ul>
-<h3 id="二、清理"><a href="#二、清理" class="headerlink" title="二、清理"></a>二、清理</h3><p>1、finalize()：清理不是new创建的内存</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">expfloat = <span class="number">1.39E-43f</span>；</span><br></pre></td></tr></table></figure>
+
+<p>7、按位操作符</p>
+<p>&amp;= |= ^= 均合法</p>
+<p>8、移位操作符 &gt;&gt; &lt;&lt;</p>
 <ul>
-<li>使用原因：回收程序不再使用的内存</li>
-<li>终结条件的验证</li>
-</ul>
-<p>2、辨析：并非所有对象都会被垃圾回收</p>
-<p>3、回收</p>
-<ul>
-<li>引用计数：释放引用计数为9的空间<ul>
-<li>简单，速度很慢</li>
-<li>缺陷：对循环引用不适用，应被回收的值，其引用计数不为0</li>
+<li>无符号右移：&gt;&gt;&gt;，无论正负均在高位插入0<ul>
+<li>对byte / short：会先转为int，右移、截断、赋值，可能得到-1结果</li>
+<li>推广：只要类型比int小均会被转换，可根据需求使用cast手动类型转换 / 提升</li>
 </ul>
 </li>
-<li>停止 - 复制（自适应）技术：动作发生时，程序暂停</li>
-<li>JIT 即时编译器技术：翻译程序为本地机器码以提升速度<ul>
-<li>即时编译<ul>
-<li>缺陷：累加时长长，且会增加可执行代码的长度，导致页面调度</li>
+<li>与等号组合：&gt;&gt;= &lt;&lt;=，移动等号左边指定的位数</li>
 </ul>
-</li>
-<li>惰性评估：尽在必要时编译</li>
-</ul>
-</li>
-</ul>
-<h3 id="三、枚举类型-enum"><a href="#三、枚举类型-enum" class="headerlink" title="三、枚举类型 enum"></a>三、枚举类型 enum</h3><p>1、toString</p>
-<p>2、ordinal：用于表示特定枚举常量的声明顺序</p>
-<p>3、可把enum视作类，具有自己的方法</p>
+<p>9、移植：无需考虑，不同机器均相同</p>
 <ul>
-<li>可在switch语句中使用，配合在有限可能值集合中选择</li>
+<li>因而无sizeof操作符</li>
 </ul>
+<p>注：溢出结果不会收到警告或出错</p>
+<p>10、浮点数四舍五入</p>
+<ul>
+<li>得到最接近整数：使用Max.round() 方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">9.997</span></span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) Math.round(x);</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1440,36 +1470,6 @@
       </categories>
       <tags>
         <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基础补全计划（一）</title>
-    <url>/2021/11/04/%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h3 id="统一资源定位符-URL"><a href="#统一资源定位符-URL" class="headerlink" title="统一资源定位符 URL"></a>统一资源定位符 URL</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scheme://login:password@address:port/path_to_resource?query_string#fragment</span><br></pre></td></tr></table></figure>
-
-<h4 id="URL样式"><a href="#URL样式" class="headerlink" title="URL样式"></a>URL样式</h4><ul>
-<li>Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8090/api/query?id=3</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>Post方法：发送给服务器端的数据保存在信息的body中</p>
-</li>
-<li><p>2</p>
-</li>
-<li><p>3</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>课程</category>
-        <category>Java</category>
-        <category>JavaWeb</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-        <tag>css</tag>
       </tags>
   </entry>
   <entry>
