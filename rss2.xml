@@ -9,23 +9,23 @@
     <atom:link href="https://hyper18.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>blog</description>
-    <pubDate>Sat, 06 Nov 2021 12:57:39 GMT</pubDate>
+    <pubDate>Sat, 06 Nov 2021 13:50:04 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>基础补全计划（一）</title>
-      <link>https://hyper18.github.io/2021/11/04/%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89/</link>
-      <guid>https://hyper18.github.io/2021/11/04/%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89/</guid>
+      <title>分题型基础补全计划（一）</title>
+      <link>https://hyper18.github.io/2021/11/04/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20HTML%E3%80%81CSS/</link>
+      <guid>https://hyper18.github.io/2021/11/04/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20HTML%E3%80%81CSS/</guid>
       <pubDate>Thu, 04 Nov 2021 14:34:37 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;统一资源定位符-URL&quot;&gt;&lt;a href=&quot;#统一资源定位符-URL&quot; class=&quot;headerlink&quot; title=&quot;统一资源定位符 URL&quot;&gt;&lt;/a&gt;统一资源定位符 URL&lt;/h3&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;</description>
+      <description>&lt;h3 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h3&gt;&lt;h4 id=&quot;URL样式&quot;&gt;&lt;a href=&quot;#URL样式&quot; class=&quot;headerlink&quot; title=&quot;URL样式&quot;&gt;</description>
         
       
       
       
-      <content:encoded><![CDATA[<h3 id="统一资源定位符-URL"><a href="#统一资源定位符-URL" class="headerlink" title="统一资源定位符 URL"></a>统一资源定位符 URL</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scheme://login:password@address:port/path_to_resource?query_string#fragment</span><br></pre></td></tr></table></figure><h4 id="URL样式"><a href="#URL样式" class="headerlink" title="URL样式"></a>URL样式</h4><ul><li>Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如：</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8090/api/query?id=3</span><br></pre></td></tr></table></figure><ul><li><p>Post方法：发送给服务器端的数据保存在信息的body中</p></li><li><p>2</p></li><li><p>3</p></li></ul>]]></content:encoded>
+      <content:encoded><![CDATA[<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><h4 id="URL样式"><a href="#URL样式" class="headerlink" title="URL样式"></a>URL样式</h4><p>题型：使用<a href="http://localhost:8080/web01/test.jsp?user=admin&amp;password=admin">http://localhost:8080/web01/test.jsp?user=admin&amp;password=admin</a> 进行访问WEB应用时候，下列说法哪个是错误的：( )</p><ul><li>A. 表示访问的web应用的主机名是localhost，服务端口是8080端口</li><li>B. URL地址中包含了两个参数user与password</li><li>C. 使用HTTP协议进行访问</li><li>D. 使用POST请求方法</li></ul><p><em>我的答案:</em> D</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scheme://login:password@address:port/path_to_resource?query_string#fragment</span><br></pre></td></tr></table></figure><ul><li>Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如：</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8090/api/query?id=3</span><br></pre></td></tr></table></figure><ul><li>Post方法：发送给服务器端的数据保存在信息的body中</li></ul><h4 id="HTTP报文头"><a href="#HTTP报文头" class="headerlink" title="HTTP报文头"></a>HTTP报文头</h4><p>题型：(单选题)在HTTP请求报文中，发送给服务器的消息主体的媒体类型保存在（ ）中。</p><ul><li>A. Accept</li><li>B. Accept-Language</li><li>C. User-Agent</li><li>D. Content-Type</li></ul><p><em>我的答案:</em> D</p><p>Http报头分为：通用报头 请求报头 响应报头 实体报头</p><ul><li><p>Accept属于请求头，代表发送端（客户端）希望接受的数据类型</p></li><li><p>Content-Type属于实体头，代表发送端（客户端|服务器）发送的实体数据的数据类型</p></li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Accept:text/xml；</span><br><span class="line">Content-Type:text/html</span><br></pre></td></tr></table></figure><h4 id="背景颜色与背景图像"><a href="#背景颜色与背景图像" class="headerlink" title="背景颜色与背景图像"></a>背景颜色与背景图像</h4><p>题型1：在下列的 HTML 中，哪个可以添加背景颜色？ </p><ul><li>A &lt;body color=”yellow”&gt;</li><li>B &lt;background&gt;yellow&lt;/background&gt;</li><li>C &lt;body bgcolor=”yellow”&gt;</li><li>D &lt;body background=”yellow”&gt;</li></ul><p><em>我的答案:</em> C</p><h5 id="设置背景颜色"><a href="#设置背景颜色" class="headerlink" title="设置背景颜色"></a>设置背景颜色</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">bgcolor</span>=<span class="string">&quot;sample-color&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure><p>题型2：在下列的 HTML 中，哪个可以插入背景图像？</p><ul><li>A &lt;body background=”background.gif”&gt;</li><li>B &lt;background img=”background.gif”&gt;</li><li>C &lt;img src=”background.gif” background&gt;</li><li>D &lt;img src=”background.gif” body&gt;</li></ul><p><em>我的答案:</em> A</p><h5 id="设置背景图像"><a href="#设置背景图像" class="headerlink" title="设置背景图像"></a>设置背景图像</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">background</span>=<span class="string">&quot;sample.png&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content:encoded>
       
       
       <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/">笔记</category>
@@ -42,7 +42,7 @@
       <category domain="https://hyper18.github.io/tags/css/">css</category>
       
       
-      <comments>https://hyper18.github.io/2021/11/04/%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89/#disqus_thread</comments>
+      <comments>https://hyper18.github.io/2021/11/04/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20HTML%E3%80%81CSS/#disqus_thread</comments>
       
     </item>
     

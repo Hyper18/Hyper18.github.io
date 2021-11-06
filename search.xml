@@ -459,6 +459,79 @@
       </tags>
   </entry>
   <entry>
+    <title>Java面向对象（一）</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="第一章-对象导论"><a href="#第一章-对象导论" class="headerlink" title="第一章 对象导论"></a>第一章 对象导论</h2><p>1、基本特性</p>
+<p>普适性 组成程序 可互相嵌套 有对应类型 可替代性</p>
+<p>2、观点：任何程序都是程序员所设计系统的一种仿真</p>
+<p>3、对象提供服务</p>
+<p>视作对象的优点：提高对象的内聚性</p>
+<ul>
+<li>高内聚：各方面组合的很好</li>
+</ul>
+<p>4、隐藏的具体实现</p>
+<ul>
+<li>类创建者 / 客户端程序员：访问控制<ul>
+<li>边界：public private protected</li>
+</ul>
+</li>
+</ul>
+<p>5、复用的具体实现</p>
+<ul>
+<li>组合 / 聚合（动态的组合）：创建成员对象</li>
+<li>先考虑组合，后继承：前者较简单灵活</li>
+</ul>
+<p>6、继承</p>
+<ul>
+<li>可构建类型层次结构</li>
+<li>类型等价性：导出类和基类拥有相同的类型<ul>
+<li>修改：为导出类添加新方法 / 覆盖（纯粹替代 or 扩展）</li>
+</ul>
+</li>
+</ul>
+<p>7、多态</p>
+<ul>
+<li>泛化：视作基类而非对象</li>
+<li>后期绑定：直到运行才可确定代码地址</li>
+<li>向上转型 up cast：一个基类在继承图中向上移动</li>
+</ul>
+<p>8、单根继承结构</p>
+<ul>
+<li>终极基类：Object</li>
+<li>相对C++可实现垃圾回收</li>
+</ul>
+<p>9、容器</p>
+<ul>
+<li>定义上近似等同于集合，如C++中的STL容器</li>
+<li>提供不同类型的接口和外部行为</li>
+<li>对同一操作不同容器效率可能不同</li>
+<li>参数化类型（范型）：向下转型（不安全）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建一个存储Shape的顺序表</span></span><br><span class="line">ArrayList&lt;shape&gt; shapes = new.ArrayList&lt;shape&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>10、对象的创建和生命期</p>
+<ul>
+<li>基本逻辑假设：对象复杂化 - 查找和释放空间的开销不会对创建对象造成过大冲击</li>
+<li>Java是在堆栈中存储和释放空间的动态内存分配方式<ul>
+<li>反观C++：需要在编程时就确定生命周期，牺牲了部分灵活性，侧重效率控制</li>
+</ul>
+</li>
+<li>使用垃圾回收器，自发发现不再被使用的对象，有效避免内存泄漏</li>
+</ul>
+<p>11、必须编写异常处理的代码</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>课程</category>
+        <category>Java</category>
+        <category>面向对象</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Chapter3 Transport Layer</title>
     <url>/2020/07/29/Chapter3%20Transport%20Layer/</url>
     <content><![CDATA[<h1 id="运输层服务"><a href="#运输层服务" class="headerlink" title="运输层服务"></a>运输层服务</h1><p>1、工作位置：端系统</p>
@@ -792,79 +865,6 @@
       </categories>
       <tags>
         <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java面向对象（一）</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="第一章-对象导论"><a href="#第一章-对象导论" class="headerlink" title="第一章 对象导论"></a>第一章 对象导论</h2><p>1、基本特性</p>
-<p>普适性 组成程序 可互相嵌套 有对应类型 可替代性</p>
-<p>2、观点：任何程序都是程序员所设计系统的一种仿真</p>
-<p>3、对象提供服务</p>
-<p>视作对象的优点：提高对象的内聚性</p>
-<ul>
-<li>高内聚：各方面组合的很好</li>
-</ul>
-<p>4、隐藏的具体实现</p>
-<ul>
-<li>类创建者 / 客户端程序员：访问控制<ul>
-<li>边界：public private protected</li>
-</ul>
-</li>
-</ul>
-<p>5、复用的具体实现</p>
-<ul>
-<li>组合 / 聚合（动态的组合）：创建成员对象</li>
-<li>先考虑组合，后继承：前者较简单灵活</li>
-</ul>
-<p>6、继承</p>
-<ul>
-<li>可构建类型层次结构</li>
-<li>类型等价性：导出类和基类拥有相同的类型<ul>
-<li>修改：为导出类添加新方法 / 覆盖（纯粹替代 or 扩展）</li>
-</ul>
-</li>
-</ul>
-<p>7、多态</p>
-<ul>
-<li>泛化：视作基类而非对象</li>
-<li>后期绑定：直到运行才可确定代码地址</li>
-<li>向上转型 up cast：一个基类在继承图中向上移动</li>
-</ul>
-<p>8、单根继承结构</p>
-<ul>
-<li>终极基类：Object</li>
-<li>相对C++可实现垃圾回收</li>
-</ul>
-<p>9、容器</p>
-<ul>
-<li>定义上近似等同于集合，如C++中的STL容器</li>
-<li>提供不同类型的接口和外部行为</li>
-<li>对同一操作不同容器效率可能不同</li>
-<li>参数化类型（范型）：向下转型（不安全）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建一个存储Shape的顺序表</span></span><br><span class="line">ArrayList&lt;shape&gt; shapes = new.ArrayList&lt;shape&gt;();</span><br></pre></td></tr></table></figure>
-
-<p>10、对象的创建和生命期</p>
-<ul>
-<li>基本逻辑假设：对象复杂化 - 查找和释放空间的开销不会对创建对象造成过大冲击</li>
-<li>Java是在堆栈中存储和释放空间的动态内存分配方式<ul>
-<li>反观C++：需要在编程时就确定生命周期，牺牲了部分灵活性，侧重效率控制</li>
-</ul>
-</li>
-<li>使用垃圾回收器，自发发现不再被使用的对象，有效避免内存泄漏</li>
-</ul>
-<p>11、必须编写异常处理的代码</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>课程</category>
-        <category>Java</category>
-        <category>面向对象</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
       </tags>
   </entry>
   <entry>
@@ -1296,6 +1296,76 @@
       </tags>
   </entry>
   <entry>
+    <title>分题型基础补全计划（一）</title>
+    <url>/2021/11/04/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20HTML%E3%80%81CSS/</url>
+    <content><![CDATA[<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><h4 id="URL样式"><a href="#URL样式" class="headerlink" title="URL样式"></a>URL样式</h4><p>题型：使用<a href="http://localhost:8080/web01/test.jsp?user=admin&amp;password=admin">http://localhost:8080/web01/test.jsp?user=admin&amp;password=admin</a> 进行访问WEB应用时候，下列说法哪个是错误的：( )</p>
+<ul>
+<li>A. 表示访问的web应用的主机名是localhost，服务端口是8080端口</li>
+<li>B. URL地址中包含了两个参数user与password</li>
+<li>C. 使用HTTP协议进行访问</li>
+<li>D. 使用POST请求方法</li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scheme://login:password@address:port/path_to_resource?query_string#fragment</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8090/api/query?id=3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Post方法：发送给服务器端的数据保存在信息的body中</li>
+</ul>
+<h4 id="HTTP报文头"><a href="#HTTP报文头" class="headerlink" title="HTTP报文头"></a>HTTP报文头</h4><p>题型：(单选题)在HTTP请求报文中，发送给服务器的消息主体的媒体类型保存在（ ）中。</p>
+<ul>
+<li>A. Accept</li>
+<li>B. Accept-Language</li>
+<li>C. User-Agent</li>
+<li>D. Content-Type</li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<p>Http报头分为：通用报头 请求报头 响应报头 实体报头</p>
+<ul>
+<li><p>Accept属于请求头，代表发送端（客户端）希望接受的数据类型</p>
+</li>
+<li><p>Content-Type属于实体头，代表发送端（客户端|服务器）发送的实体数据的数据类型</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Accept:text/xml；</span><br><span class="line">Content-Type:text/html</span><br></pre></td></tr></table></figure>
+
+<h4 id="背景颜色与背景图像"><a href="#背景颜色与背景图像" class="headerlink" title="背景颜色与背景图像"></a>背景颜色与背景图像</h4><p>题型1：在下列的 HTML 中，哪个可以添加背景颜色？ </p>
+<ul>
+<li>A &lt;body color=”yellow”&gt;</li>
+<li>B &lt;background&gt;yellow&lt;/background&gt;</li>
+<li>C &lt;body bgcolor=”yellow”&gt;</li>
+<li>D &lt;body background=”yellow”&gt;</li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="设置背景颜色"><a href="#设置背景颜色" class="headerlink" title="设置背景颜色"></a>设置背景颜色</h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">bgcolor</span>=<span class="string">&quot;sample-color&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>题型2：在下列的 HTML 中，哪个可以插入背景图像？</p>
+<ul>
+<li>A &lt;body background=”background.gif”&gt;</li>
+<li>B &lt;background img=”background.gif”&gt;</li>
+<li>C &lt;img src=”background.gif” background&gt;</li>
+<li>D &lt;img src=”background.gif” body&gt;</li>
+</ul>
+<p><em>我的答案:</em> A</p>
+<h5 id="设置背景图像"><a href="#设置背景图像" class="headerlink" title="设置背景图像"></a>设置背景图像</h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">background</span>=<span class="string">&quot;sample.png&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>课程</category>
+        <category>Java</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java面向对象（四）</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
     <content><![CDATA[<h2 id="第四章-控制执行流程"><a href="#第四章-控制执行流程" class="headerlink" title="第四章 控制执行流程"></a>第四章 控制执行流程</h2><p>1、foreach（SE5+）</p>
@@ -1323,36 +1393,6 @@
       <tags>
         <tag>Java</tag>
         <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基础补全计划（一）</title>
-    <url>/2021/11/04/%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h3 id="统一资源定位符-URL"><a href="#统一资源定位符-URL" class="headerlink" title="统一资源定位符 URL"></a>统一资源定位符 URL</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scheme://login:password@address:port/path_to_resource?query_string#fragment</span><br></pre></td></tr></table></figure>
-
-<h4 id="URL样式"><a href="#URL样式" class="headerlink" title="URL样式"></a>URL样式</h4><ul>
-<li>Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8090/api/query?id=3</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>Post方法：发送给服务器端的数据保存在信息的body中</p>
-</li>
-<li><p>2</p>
-</li>
-<li><p>3</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>课程</category>
-        <category>Java</category>
-        <category>JavaWeb</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -1462,6 +1502,154 @@
 </ul>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>课程</category>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库操作（二）—— 进阶篇</title>
+    <url>/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/</url>
+    <content><![CDATA[<h2 id="进阶操作-第9-13章"><a href="#进阶操作-第9-13章" class="headerlink" title="进阶操作 第9-13章"></a>进阶操作 第9-13章</h2><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ul>
+<li>作用：匹配文本</li>
+<li>基本字符匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值’ ORDER BY 子句名<ul>
+<li> .特殊字符表匹配任意一个字符，如‘.000’可匹配1000和2000，etc</li>
+<li> 与LIKE匹配的区别：出现的匹配文本，其相应行将被REGEXP返回</li>
+<li> 默认匹配不区分大小写，使用BINARY可区分大小写</li>
+</ul>
+</li>
+<li>OR匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值1 | 值2’ ORDER BY 子句名<ul>
+<li>匹配一组特定字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1值2值3]’ ORDER BY 子句名</li>
+</ul>
+</li>
+<li>匹配范围：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1-值2]’ ORDER BY 子句名</li>
+<li>匹配特殊字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘\\.’ ORDER BY 子句名<ul>
+<li>引用元字符：\\f换页 \\n \\r回车 \\t \\v 横、纵向制表</li>
+<li>匹配反斜杠：\\\<ul>
+<li>解释：第一个反斜杠由Mysql解释，第二个才是正则表达式解释</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>匹配字符类 character class（P58）</li>
+<li>匹配多个实例：如结尾s可选用?</li>
+<li>匹配特定位置文本：定位符<ul>
+<li>^文本开始 $文本结尾 :&lt;:词的开始  :&gt;:词的结尾<ul>
+<li>注意^的另一种用法是集合中作[]取和</li>
+<li>可以配套使用^$，使用法同LIKE</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>正则表达式的测试：使用SELECT，返回1匹配，反之不匹配<ul>
+<li>优点：无需调用数据库表</li>
+</ul>
+</li>
+</ul>
+<h3 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h3><p>1、字段 field：意义同列，用于计算字段的连接</p>
+<p>2、拼接 concatenate：联结值成为一个单个值</p>
+<ul>
+<li>实际操作：在SELECT中使用Concat()函数<ul>
+<li>SELECT Concat(值1，值2) FROM 表名 ORDER BY 子句名</li>
+<li>或使用RTrim() / LTrim()函数，可删除数据右侧 / 左侧多余空格来整理数据</li>
+</ul>
+</li>
+</ul>
+<p>3、别名 alias / 导出列 derived column：字段或值的替换名</p>
+<ul>
+<li>SELECT Concat(值1，值2) AS 别名 FROM 表名 ORDER BY 子句名</li>
+</ul>
+<p>4、基本计算：四则运算符</p>
+<ul>
+<li>测试计算：省略FROM子句</li>
+</ul>
+<h3 id="数据处理函数"><a href="#数据处理函数" class="headerlink" title="数据处理函数"></a>数据处理函数</h3><p>1、可移植性：多数函数不同SQL存在差异，做好注释</p>
+<p>2、文本处理（P69）</p>
+<ul>
+<li>Left / Right()：返回左 / 右侧字符</li>
+<li>Length()：返回串长</li>
+<li>Locate()：找出某子串</li>
+<li>SubString()：返回子串字符</li>
+<li>Lower/Upper()：返回小 / 大写</li>
+<li>LTrim/Rtrim()：去掉左 / 右侧空格</li>
+<li>Soundex()：将任何文本串转换为描述其语音表示的字母数字模式<ul>
+<li>对串进行发音比较（输入纠正，匹配输入项读音接近字串）</li>
+</ul>
+</li>
+</ul>
+<p>3、时间和日期处理（P71）</p>
+<ul>
+<li>Date()：返回日期</li>
+<li>Time()：返回时间</li>
+</ul>
+<p>4、数值处理（P74）</p>
+<ul>
+<li>Abs()：返回绝对值</li>
+<li>Sin() / Cos() / Tan()</li>
+<li>Exp() / Sqrt()</li>
+<li>Mod()</li>
+<li>Pi()：返回圆周率</li>
+<li>Rand()：返回一个随机数</li>
+</ul>
+<h3 id="汇总数据"><a href="#汇总数据" class="headerlink" title="汇总数据"></a>汇总数据</h3><p>1、聚集函数 aggregate function</p>
+<ul>
+<li>def：行组上计算和返回单个值的函数</li>
+<li>AVG()：SELECT AVG(列名) FROM 表名<ul>
+<li>仅用于确定特定数列，且列名必须以函数参数给出</li>
+<li>忽略值为NULL的行</li>
+</ul>
+</li>
+<li>COUNT()：SELECT COUNT(*) AS 别名 FROM 表名，统计行个数<ul>
+<li>COUNT(*) 统计NULL和非空值</li>
+<li>COUNT（列名）统计特定值，忽略值为NULL的行</li>
+</ul>
+</li>
+<li>MAX()：SELECT MAX(列名)  AS 别名 FROM 表名<ul>
+<li>可作返回任意列的最大值，按列排序的文本数据返回尾行</li>
+<li>忽略值为NULL的行</li>
+</ul>
+</li>
+<li>MIN()：SELECT MIN(列名)  AS 别名 FROM 表名<ul>
+<li>可作返回任意列的最小值，按列排序的文本数据返回首行</li>
+<li>忽略值为NULL的行</li>
+</ul>
+</li>
+<li>SUM()：SELECT SUM(列名)  AS 别名 FROM 表名<ul>
+<li>Sum(列名)返回各行该列数据之和</li>
+<li>忽略值为NULL的行</li>
+</ul>
+</li>
+<li>指定聚集范围ALL / DISTINCT</li>
+<li>组合聚集函数：SELECT COUNT(*) AS 别名， MIN(列名)  AS 别名，MAX(列名)  AS 别名，……，FROM 表名</li>
+</ul>
+<h3 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h3><p>1、创建分组：SELECT COUNT(*) AS 别名 FROM 表名 GROUP BY 列名</p>
+<ul>
+<li>对每个组的结果分别进行聚集，所有列结果一同计算<ul>
+<li>可包含任意数目的列</li>
+<li>每列可为检索列或有效表达式，不能为聚集函数</li>
+<li>SELECT使用表达式 - GROUP BY 必须使用相同表达式，不能使用别名</li>
+</ul>
+</li>
+<li>WITH ROLLUP：得到每个分组及其汇总级别的值<ul>
+<li>SELECT 列名，COUNT(*) AS 别名 FROM 表名 GROUP BY 列名 WITH ROLLUP</li>
+</ul>
+</li>
+</ul>
+<p>2、过滤分组：HAVING（WHERE仅可过滤行）</p>
+<ul>
+<li>适用所有WHERE句法</li>
+<li>在数据分组后进行<ul>
+<li>WHERE在数据过滤前进行，因此分组中不包含WHERE排除的行</li>
+</ul>
+</li>
+</ul>
+<p>3、分组和排序</p>
+<p>保证数据正确排序：GROUP BY + ORDER BY</p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1733,154 +1921,6 @@
 <p>3、删除表：DROP TABLE</p>
 <p>4、重命名表：RENAME TABLE</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">RENAME TABLE table1 TO table2</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>课程</category>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库操作（二）—— 进阶篇</title>
-    <url>/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/</url>
-    <content><![CDATA[<h2 id="进阶操作-第9-13章"><a href="#进阶操作-第9-13章" class="headerlink" title="进阶操作 第9-13章"></a>进阶操作 第9-13章</h2><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ul>
-<li>作用：匹配文本</li>
-<li>基本字符匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值’ ORDER BY 子句名<ul>
-<li> .特殊字符表匹配任意一个字符，如‘.000’可匹配1000和2000，etc</li>
-<li> 与LIKE匹配的区别：出现的匹配文本，其相应行将被REGEXP返回</li>
-<li> 默认匹配不区分大小写，使用BINARY可区分大小写</li>
-</ul>
-</li>
-<li>OR匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值1 | 值2’ ORDER BY 子句名<ul>
-<li>匹配一组特定字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1值2值3]’ ORDER BY 子句名</li>
-</ul>
-</li>
-<li>匹配范围：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1-值2]’ ORDER BY 子句名</li>
-<li>匹配特殊字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘\\.’ ORDER BY 子句名<ul>
-<li>引用元字符：\\f换页 \\n \\r回车 \\t \\v 横、纵向制表</li>
-<li>匹配反斜杠：\\\<ul>
-<li>解释：第一个反斜杠由Mysql解释，第二个才是正则表达式解释</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>匹配字符类 character class（P58）</li>
-<li>匹配多个实例：如结尾s可选用?</li>
-<li>匹配特定位置文本：定位符<ul>
-<li>^文本开始 $文本结尾 :&lt;:词的开始  :&gt;:词的结尾<ul>
-<li>注意^的另一种用法是集合中作[]取和</li>
-<li>可以配套使用^$，使用法同LIKE</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>正则表达式的测试：使用SELECT，返回1匹配，反之不匹配<ul>
-<li>优点：无需调用数据库表</li>
-</ul>
-</li>
-</ul>
-<h3 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h3><p>1、字段 field：意义同列，用于计算字段的连接</p>
-<p>2、拼接 concatenate：联结值成为一个单个值</p>
-<ul>
-<li>实际操作：在SELECT中使用Concat()函数<ul>
-<li>SELECT Concat(值1，值2) FROM 表名 ORDER BY 子句名</li>
-<li>或使用RTrim() / LTrim()函数，可删除数据右侧 / 左侧多余空格来整理数据</li>
-</ul>
-</li>
-</ul>
-<p>3、别名 alias / 导出列 derived column：字段或值的替换名</p>
-<ul>
-<li>SELECT Concat(值1，值2) AS 别名 FROM 表名 ORDER BY 子句名</li>
-</ul>
-<p>4、基本计算：四则运算符</p>
-<ul>
-<li>测试计算：省略FROM子句</li>
-</ul>
-<h3 id="数据处理函数"><a href="#数据处理函数" class="headerlink" title="数据处理函数"></a>数据处理函数</h3><p>1、可移植性：多数函数不同SQL存在差异，做好注释</p>
-<p>2、文本处理（P69）</p>
-<ul>
-<li>Left / Right()：返回左 / 右侧字符</li>
-<li>Length()：返回串长</li>
-<li>Locate()：找出某子串</li>
-<li>SubString()：返回子串字符</li>
-<li>Lower/Upper()：返回小 / 大写</li>
-<li>LTrim/Rtrim()：去掉左 / 右侧空格</li>
-<li>Soundex()：将任何文本串转换为描述其语音表示的字母数字模式<ul>
-<li>对串进行发音比较（输入纠正，匹配输入项读音接近字串）</li>
-</ul>
-</li>
-</ul>
-<p>3、时间和日期处理（P71）</p>
-<ul>
-<li>Date()：返回日期</li>
-<li>Time()：返回时间</li>
-</ul>
-<p>4、数值处理（P74）</p>
-<ul>
-<li>Abs()：返回绝对值</li>
-<li>Sin() / Cos() / Tan()</li>
-<li>Exp() / Sqrt()</li>
-<li>Mod()</li>
-<li>Pi()：返回圆周率</li>
-<li>Rand()：返回一个随机数</li>
-</ul>
-<h3 id="汇总数据"><a href="#汇总数据" class="headerlink" title="汇总数据"></a>汇总数据</h3><p>1、聚集函数 aggregate function</p>
-<ul>
-<li>def：行组上计算和返回单个值的函数</li>
-<li>AVG()：SELECT AVG(列名) FROM 表名<ul>
-<li>仅用于确定特定数列，且列名必须以函数参数给出</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>COUNT()：SELECT COUNT(*) AS 别名 FROM 表名，统计行个数<ul>
-<li>COUNT(*) 统计NULL和非空值</li>
-<li>COUNT（列名）统计特定值，忽略值为NULL的行</li>
-</ul>
-</li>
-<li>MAX()：SELECT MAX(列名)  AS 别名 FROM 表名<ul>
-<li>可作返回任意列的最大值，按列排序的文本数据返回尾行</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>MIN()：SELECT MIN(列名)  AS 别名 FROM 表名<ul>
-<li>可作返回任意列的最小值，按列排序的文本数据返回首行</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>SUM()：SELECT SUM(列名)  AS 别名 FROM 表名<ul>
-<li>Sum(列名)返回各行该列数据之和</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>指定聚集范围ALL / DISTINCT</li>
-<li>组合聚集函数：SELECT COUNT(*) AS 别名， MIN(列名)  AS 别名，MAX(列名)  AS 别名，……，FROM 表名</li>
-</ul>
-<h3 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h3><p>1、创建分组：SELECT COUNT(*) AS 别名 FROM 表名 GROUP BY 列名</p>
-<ul>
-<li>对每个组的结果分别进行聚集，所有列结果一同计算<ul>
-<li>可包含任意数目的列</li>
-<li>每列可为检索列或有效表达式，不能为聚集函数</li>
-<li>SELECT使用表达式 - GROUP BY 必须使用相同表达式，不能使用别名</li>
-</ul>
-</li>
-<li>WITH ROLLUP：得到每个分组及其汇总级别的值<ul>
-<li>SELECT 列名，COUNT(*) AS 别名 FROM 表名 GROUP BY 列名 WITH ROLLUP</li>
-</ul>
-</li>
-</ul>
-<p>2、过滤分组：HAVING（WHERE仅可过滤行）</p>
-<ul>
-<li>适用所有WHERE句法</li>
-<li>在数据分组后进行<ul>
-<li>WHERE在数据过滤前进行，因此分组中不包含WHERE排除的行</li>
-</ul>
-</li>
-</ul>
-<p>3、分组和排序</p>
-<p>保证数据正确排序：GROUP BY + ORDER BY</p>
 ]]></content>
       <categories>
         <category>笔记</category>
