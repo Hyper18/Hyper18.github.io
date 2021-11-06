@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>基础补全计划（一）</title>
+    <url>/2021/11/04/%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="统一资源定位符-URL"><a href="#统一资源定位符-URL" class="headerlink" title="统一资源定位符 URL"></a>统一资源定位符 URL</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scheme://login:password@address:port/path_to_resource?query_string#fragment</span><br></pre></td></tr></table></figure>
+
+<h4 id="URL样式"><a href="#URL样式" class="headerlink" title="URL样式"></a>URL样式</h4><ul>
+<li>Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8090/api/query?id=3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Post方法：发送给服务器端的数据保存在信息的body中</p>
+</li>
+<li><p>2</p>
+</li>
+<li><p>3</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+</search>
