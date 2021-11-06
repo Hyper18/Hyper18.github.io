@@ -534,6 +534,1474 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" itemprop="url">机器学习题解（六）—— 异常探测与推荐系统</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-10-29T21:26:18+08:00">
+                2021-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">课程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" class="leancloud_visitors" data-flag-title="机器学习题解（六）—— 异常探测与推荐系统">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  171
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="ex8-m"><a href="#ex8-m" class="headerlink" title="ex8.m"></a>ex8.m</h3><h4 id="Part-2-Estimate-the-dataset-statistics"><a href="#Part-2-Estimate-the-dataset-statistics" class="headerlink" title="Part 2: Estimate the dataset statistics"></a>Part 2: Estimate the dataset statistics</h4><ul>
+<li>Compute the mean of the data and the variances</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mu = sum(X) / m;</span><br><span class="line">sigma2 = sum((X - <span class="built_in">repmat</span>(mu, m, <span class="number">1</span>)).^<span class="number">2</span>) / m; <span class="comment">% X - 307 * 1 matrix</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-3-Find-Outliers"><a href="#Part-3-Find-Outliers" class="headerlink" title="Part 3: Find Outliers"></a>Part 3: Find Outliers</h4><ul>
+<li>Compute the F1 score of choosing epsilon as the threshold and place the value in F1</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% define the anomolous condition</span></span><br><span class="line">    condition = pval &lt; epsilon;</span><br><span class="line">    <span class="comment">% sum up to get each parameter</span></span><br><span class="line">    fp = sum((condition == <span class="number">1</span>) &amp; (yval == <span class="number">0</span>));</span><br><span class="line">    fn = sum((condition == <span class="number">0</span>) &amp; (yval == <span class="number">1</span>));</span><br><span class="line">    tp = sum((condition == <span class="number">1</span>) &amp; (yval == <span class="number">1</span>));</span><br><span class="line">    <span class="comment">% define precision and recall</span></span><br><span class="line">    prec = tp / (tp + fp);</span><br><span class="line">    rec = tp / (tp + fn);</span><br><span class="line">    <span class="comment">% use F1 score to estimate its performance</span></span><br><span class="line">    F1 = (<span class="number">2</span> * prec * rec) / (prec + rec);</span><br></pre></td></tr></table></figure>
+
+<h3 id="ex8-cofi-m"><a href="#ex8-cofi-m" class="headerlink" title="ex8_cofi.m"></a>ex8_cofi.m</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% compute cost function</span></span><br><span class="line">J = sum(sum((((X * Theta&#x27; - Y) .* R) .^ <span class="number">2</span>))) / <span class="number">2</span>;</span><br><span class="line"><span class="comment">% compute gradient</span></span><br><span class="line">X_grad = ((X * Theta&#x27; - Y) .* R) * Theta;</span><br><span class="line">Theta_grad = ((X * Theta&#x27; - Y) .* R)&#x27; * X;</span><br><span class="line"><span class="comment">% compute cost function with regularization</span></span><br><span class="line">J = J + lambda / <span class="number">2</span> * ((sum(sum(Theta .^ <span class="number">2</span>)) + sum(sum(X .^ <span class="number">2</span>))));</span><br><span class="line"><span class="comment">% compute gradient with regularization</span></span><br><span class="line">X_grad = X_grad + lambda * X;</span><br><span class="line">Theta_grad = Theta_grad + lambda * Theta;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/10/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20KNN%E4%B8%8EPCA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/10/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20KNN%E4%B8%8EPCA/" itemprop="url">机器学习题解（五）—— KNN与PCA</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-10-17T21:10:40+08:00">
+                2021-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">课程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/10/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20KNN%E4%B8%8EPCA/" class="leancloud_visitors" data-flag-title="机器学习题解（五）—— KNN与PCA">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  287
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="ex7-m"><a href="#ex7-m" class="headerlink" title="ex7.m"></a>ex7.m</h3><h4 id="Part-1-Find-Closest-Centroids"><a href="#Part-1-Find-Closest-Centroids" class="headerlink" title="Part 1: Find Closest Centroids"></a>Part 1: Find Closest Centroids</h4><ul>
+<li>Go over every example, find its closest centroid, and store the index inside idx at the appropriate location</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X,<span class="number">1</span>) <span class="comment">% query from 1 to 300</span></span><br><span class="line">    d = <span class="built_in">zeros</span>(<span class="number">1</span>, K); <span class="comment">% distance: 1*3 matrix</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: K</span><br><span class="line">        d(<span class="number">1</span>, <span class="built_in">j</span>) = <span class="built_in">sqrt</span>(sum(power(X(<span class="built_in">i</span>, :) - centroids(<span class="built_in">j</span>, :), <span class="number">2</span>))); <span class="comment">% use Euclidean Distance, centroids: 3*2 matrix</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    [~, idx(<span class="built_in">i</span>)] = <span class="built_in">min</span>(d); <span class="comment">% get the 2nd parameter from distance matrix only</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-2-Compute-Means"><a href="#Part-2-Compute-Means" class="headerlink" title="Part 2: Compute Means"></a>Part 2: Compute Means</h4><ul>
+<li>Go over every centroid and compute mean of all points that belong to it</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : K</span><br><span class="line">    <span class="comment">% find all the points that is nearest to No.i centroid, then count their</span></span><br><span class="line">    <span class="comment">% mean</span></span><br><span class="line">    points = X(idx==<span class="built_in">i</span>, :);</span><br><span class="line">    centroids(<span class="built_in">i</span>, :) = <span class="built_in">mean</span>(points);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ex7-pca-m"><a href="#ex7-pca-m" class="headerlink" title="ex7 pca.m"></a>ex7 pca.m</h3><h4 id="Part-2-Principal-Component-Analysis"><a href="#Part-2-Principal-Component-Analysis" class="headerlink" title="Part 2: Principal Component Analysis"></a>Part 2: Principal Component Analysis</h4><ul>
+<li>You should first compute the covariance matrix. Then, you should use the “svd” function to compute the eigenvectors and eigenvalues of the covariance matrix</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% compute sigma</span></span><br><span class="line">sigma = (X&#x27; * X) / m;</span><br><span class="line"><span class="comment">% use SVD to compute the eigenvectors and eigenvalues of the covariance matrix</span></span><br><span class="line">[U, S, V] = svd(sigma);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-3-Dimension-Reduction"><a href="#Part-3-Dimension-Reduction" class="headerlink" title="Part 3: Dimension Reduction"></a>Part 3: Dimension Reduction</h4><ul>
+<li>Compute the projection of the data using only the top K  eigenvectors in U (first K columns)</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% using only the top K eigenvectors in U</span></span><br><span class="line">U_reduce = U(:, <span class="number">1</span>:K);</span><br><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X, <span class="number">1</span>)</span><br><span class="line">    x = X(<span class="built_in">i</span>, :)&#x27;;</span><br><span class="line">    <span class="keyword">for</span> k = <span class="number">1</span>: K</span><br><span class="line">        projection_k = x&#x27; * U_reduce;</span><br><span class="line">        Z(<span class="built_in">i</span>, :) = projection_k;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Compute the approximation of the data by projecting back onto the original space using the top K eigenvectors in U</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(Z, <span class="number">1</span>)</span><br><span class="line">    v = Z(<span class="built_in">i</span>, :)&#x27;;</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: <span class="built_in">size</span>(U, <span class="number">1</span>)</span><br><span class="line">        recovered_j = v&#x27; * U(:, <span class="number">1</span>:K)&#x27;;</span><br><span class="line">        <span class="comment">% 2D -&gt; 1D</span></span><br><span class="line">        X_rec(<span class="built_in">i</span>, :) = recovered_j;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/09/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20SVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20SVM/" itemprop="url">机器学习题解（四）—— SVM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-15T21:10:01+08:00">
+                2021-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">课程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/09/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20SVM/" class="leancloud_visitors" data-flag-title="机器学习题解（四）—— SVM">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  242
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="ex6-m"><a href="#ex6-m" class="headerlink" title="ex6.m"></a>ex6.m</h3><h4 id="Part-2-Training-Linear-SVM"><a href="#Part-2-Training-Linear-SVM" class="headerlink" title="Part 2: Training Linear SVM"></a>Part 2: Training Linear SVM</h4><ul>
+<li>Try different value of C, sp. changing the  value of C from 1 to 100 in ex6.m makes the classification work out correctly</li>
+</ul>
+<h4 id="Part-3-Implementing-Gaussian-Kernel"><a href="#Part-3-Implementing-Gaussian-Kernel" class="headerlink" title="Part 3: Implementing Gaussian Kernel"></a>Part 3: Implementing Gaussian Kernel</h4><ul>
+<li>Fill in this function to return the similarity between x1 and x2 computed using a Gaussian kernel with bandwidth sigma</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sim = <span class="built_in">exp</span>(-sum((x1-x2).^<span class="number">2</span>) / (<span class="number">2</span>*(sigma^<span class="number">2</span>)))</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-7-Training-SVM-with-RBF-Kernel-Dataset-3"><a href="#Part-7-Training-SVM-with-RBF-Kernel-Dataset-3" class="headerlink" title="Part 7: Training SVM with RBF Kernel (Dataset 3)"></a>Part 7: Training SVM with RBF Kernel (Dataset 3)</h4><ul>
+<li>Fill in this function to return the optimal C and sigma learning parameters found using the cross validation set</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">val = [<span class="number">0.01</span> <span class="number">0.03</span> <span class="number">0.1</span> <span class="number">0.3</span> <span class="number">1</span> <span class="number">3</span> <span class="number">10</span> <span class="number">30</span>];</span><br><span class="line"><span class="built_in">min</span> = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="number">8</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="number">8</span></span><br><span class="line">        C_test = val(<span class="built_in">i</span>);</span><br><span class="line">        sigma_test = val(<span class="built_in">j</span>);</span><br><span class="line">        model = svmTrain(X, y, C_test, @(x1, x2) gaussianKernel(x1, x2, sigma_test));</span><br><span class="line">        predictions = svmPredict(model, Xval);</span><br><span class="line">        <span class="comment">% compute the prediction error</span></span><br><span class="line">        err = <span class="built_in">mean</span>(double(predictions ~= yval));</span><br><span class="line">        <span class="keyword">if</span> err &lt; <span class="built_in">min</span></span><br><span class="line">           C = C_test;</span><br><span class="line">           sigma = sigma_test;</span><br><span class="line">           <span class="built_in">min</span> = err;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ex6-spam-m"><a href="#ex6-spam-m" class="headerlink" title="ex6_spam.m"></a>ex6_spam.m</h3><h4 id="Part-1-Email-Preprocessing"><a href="#Part-1-Email-Preprocessing" class="headerlink" title="Part 1: Email Preprocessing"></a>Part 1: Email Preprocessing</h4><ul>
+<li>Fill in this function to add the index of str to word_indices if it is in the vocabulary</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : <span class="built_in">length</span>(vocabList)</span><br><span class="line">    <span class="comment">% compare two strings (str1 and str2)</span></span><br><span class="line">    <span class="keyword">if</span>(strcmp(vocabList&#123;<span class="built_in">i</span>&#125;, str) == <span class="number">1</span>)</span><br><span class="line">        word_indices = [word_indices;<span class="built_in">i</span>];</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-2-Feature-Extraction"><a href="#Part-2-Feature-Extraction" class="headerlink" title="Part 2: Feature Extraction"></a>Part 2: Feature Extraction</h4><ul>
+<li>Fill in this function to return a feature vector for the  given email (word_indices)</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : <span class="built_in">length</span>(word_indices)</span><br><span class="line">   x(word_indices(<span class="built_in">i</span>)) = <span class="number">1</span>; </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>​    or a better and simpler approach</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x(word_indices(<span class="built_in">i</span>)) = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/" itemprop="url">机器学习题解（三）—— 模型评估</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-14T21:09:52+08:00">
+                2021-09-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">课程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/" class="leancloud_visitors" data-flag-title="机器学习题解（三）—— 模型评估">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  355
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="ex5-m"><a href="#ex5-m" class="headerlink" title="ex5.m"></a>ex5.m</h3><h4 id="Part-2-Regularized-Linear-Regression-Cost"><a href="#Part-2-Regularized-Linear-Regression-Cost" class="headerlink" title="Part 2: Regularized Linear Regression Cost"></a>Part 2: Regularized Linear Regression Cost</h4><ul>
+<li>Compute the cost and gradient of regularized linear regression for a particular choice of theta.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% cost function</span></span><br><span class="line">J = <span class="number">1</span> / (<span class="number">2</span> * m) * (X * theta - y)&#x27; * (X * theta - y);</span><br><span class="line">J = J + lambda / (<span class="number">2</span> * m) * (theta(<span class="number">2</span>:<span class="keyword">end</span>)&#x27; * (theta(<span class="number">2</span>:<span class="keyword">end</span>)));</span><br><span class="line"></span><br><span class="line"><span class="comment">% for j = 0</span></span><br><span class="line">theta_temp = theta;</span><br><span class="line">theta_temp(<span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line"><span class="comment">% for j = 1</span></span><br><span class="line">grad = (<span class="number">1</span> / m) * (X * theta - y)&#x27; * X + (lambda / m) * theta_temp&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-4-Train-Linear-Regression"><a href="#Part-4-Train-Linear-Regression" class="headerlink" title="Part 4: Train Linear Regression"></a>Part 4: Train Linear Regression</h4><ul>
+<li>In this part, we set regularization parameter λ to zero. <ul>
+<li>Because our current implementation of linear regression is trying to fit a 2-dimensional θ, regularization will not be incredibly helpful for a θ of such low dimension.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Initialize Theta</span></span><br><span class="line">initial_theta = <span class="built_in">zeros</span>(<span class="built_in">size</span>(X, <span class="number">2</span>), <span class="number">1</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">% Create &quot;short hand&quot; for the cost function to be minimized</span></span><br><span class="line">costFunction = @(t) linearRegCostFunction(X, y, t, lambda);</span><br><span class="line"></span><br><span class="line"><span class="comment">% Now, costFunction is a function that takes in only one argument</span></span><br><span class="line">options = optimset(<span class="string">&#x27;MaxIter&#x27;</span>, <span class="number">200</span>, <span class="string">&#x27;GradObj&#x27;</span>, <span class="string">&#x27;on&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% Minimize using fmincg</span></span><br><span class="line">theta = fmincg(costFunction, initial_theta, options);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-5-Learning-Curve-for-Linear-Regression"><a href="#Part-5-Learning-Curve-for-Linear-Regression" class="headerlink" title="Part 5: Learning Curve for Linear Regression"></a>Part 5: Learning Curve for Linear Regression</h4><ul>
+<li>Fill in this function to return training errors in error_train and the cross validation errors in error_val.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: m</span><br><span class="line">   subset_x = X(<span class="number">1</span>: <span class="built_in">i</span>, :);</span><br><span class="line">   subset_y = y(<span class="number">1</span>: <span class="built_in">i</span>);</span><br><span class="line">   theta = trainLinearReg(subset_x, subset_y, lambda);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">% for training set error, compute on the training subset</span></span><br><span class="line">   error_train(<span class="built_in">i</span>) = linearRegCostFunction(subset_x, subset_y, theta, <span class="number">0</span>); <span class="comment">% set λ to 0</span></span><br><span class="line">   <span class="comment">% for cross validation error, compute over the entire cross validation set</span></span><br><span class="line">   error_val(<span class="built_in">i</span>) = linearRegCostFunction(Xval, yval, theta, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-6-Feature-Mapping-for-Polynomial-Regression"><a href="#Part-6-Feature-Mapping-for-Polynomial-Regression" class="headerlink" title="Part 6: Feature Mapping for Polynomial Regression"></a>Part 6: Feature Mapping for Polynomial Regression</h4><ul>
+<li>Given a vector X, return a matrix X_poly where the p-th column of X contains the values of X to the p-th power.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">m = <span class="built_in">size</span>(X, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: m</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:p</span><br><span class="line">        X_poly(<span class="built_in">i</span>, <span class="built_in">j</span>) = X(<span class="built_in">i</span>) .^<span class="built_in">j</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-8-Validation-for-Selecting-Lambda"><a href="#Part-8-Validation-for-Selecting-Lambda" class="headerlink" title="Part 8: Validation for Selecting Lambda"></a>Part 8: Validation for Selecting Lambda</h4><ul>
+<li>Fill in this function to return training errors in error_train and the validation errors in error_val.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">length</span>(lambda_vec)</span><br><span class="line">    <span class="comment">% take each lambda and test</span></span><br><span class="line">    lambda = lambda_vec(<span class="built_in">i</span>);</span><br><span class="line">    theta = trainLinearReg(X, y, lambda);</span><br><span class="line">    </span><br><span class="line">    error_train(<span class="built_in">i</span>) = linearRegCostFunction(X, y, theta, <span class="number">0</span>); <span class="comment">% set λ to 0</span></span><br><span class="line">    error_val(<span class="built_in">i</span>) = linearRegCostFunction(Xval, yval, theta, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" itemprop="url">机器学习题解（二）—— 神经网络</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-10T21:08:42+08:00">
+                2021-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">课程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="leancloud_visitors" data-flag-title="机器学习题解（二）—— 神经网络">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  719
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="ex3-m"><a href="#ex3-m" class="headerlink" title="ex3.m"></a>ex3.m</h3><h4 id="Part-1-Loading-and-Visualizing-Data"><a href="#Part-1-Loading-and-Visualizing-Data" class="headerlink" title="Part 1: Loading and Visualizing Data"></a>Part 1: Loading and Visualizing Data</h4><ul>
+<li>Load Training Data</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load(<span class="string">&#x27;ex3data1.mat&#x27;</span>); <span class="comment">% training data stored in arrays X, y</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Visualization</li>
+</ul>
+<p><img src="C:\Users\Vincent\AppData\Roaming\Typora\typora-user-images\image-20210910203101080.png" alt="image-20210910203101080"></p>
+<h4 id="Part-2a-Vectorize-Logistic-Regression"><a href="#Part-2a-Vectorize-Logistic-Regression" class="headerlink" title="Part 2a: Vectorize Logistic Regression"></a>Part 2a: Vectorize Logistic Regression</h4><ul>
+<li>Compute the cost of a particular choice of theta. You should set J to the cost.<br>Compute the partial derivatives and set grad to the partial derivatives of the cost w.r.t. each parameter in theta</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">J = (<span class="number">1</span> / m) * sum(-y .* <span class="built_in">log</span>(sigmoid(X * theta)) - (<span class="number">1</span> - y) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(X * theta))) + (lambda / (<span class="number">2</span> * m)) * sum(theta(<span class="number">2</span>:<span class="built_in">size</span>(theta)) .^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">temp = theta;</span><br><span class="line">temp(<span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">grad = (<span class="number">1</span> / m) * (X&#x27; * (sigmoid(X * theta) - y)) + (lambda / m) * temp;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-2b-One-vs-All-Training"><a href="#Part-2b-One-vs-All-Training" class="headerlink" title="Part 2b: One-vs-All Training"></a>Part 2b: One-vs-All Training</h4><ul>
+<li>You should complete the following code to train num_labels logistic regression classifiers with regularization parameter lambda.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Set Initial theta</span></span><br><span class="line">initial_theta = <span class="built_in">zeros</span>(n + <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">% Set options for fminunc</span></span><br><span class="line">options = optimset(<span class="string">&#x27;GradObj&#x27;</span>, <span class="string">&#x27;on&#x27;</span>, <span class="string">&#x27;MaxIter&#x27;</span>, <span class="number">50</span>);</span><br><span class="line"><span class="keyword">for</span> c = <span class="number">1</span>: num_labels</span><br><span class="line">      all_theta(c, :) = fmincg (@(t)(lrCostFunction(t, X, (y == c), lambda)), initial_theta, options);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-3-Predict-for-One-Vs-All"><a href="#Part-3-Predict-for-One-Vs-All" class="headerlink" title="Part 3: Predict for One-Vs-All"></a>Part 3: Predict for One-Vs-All</h4><ul>
+<li>Complete the following code to make predictions using your learned logistic regression parameters (one-vs-all).</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">predict = sigmoid(X * all_theta&#x27;);</span><br><span class="line">[~,p] = <span class="built_in">max</span>(predict, [], <span class="number">2</span>); <span class="comment">% ~ means ignore this 1st parameter output</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ex3-nn-m"><a href="#ex3-nn-m" class="headerlink" title="ex3_nn.m"></a>ex3_nn.m</h3><ul>
+<li>Complete the following code to make predictions using your learned neural network.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">X = [<span class="built_in">ones</span>(m, <span class="number">1</span>) X];</span><br><span class="line">z1 = sigmoid(X * Theta1&#x27;);</span><br><span class="line">z1 = [<span class="built_in">ones</span>(m, <span class="number">1</span>) z1];</span><br><span class="line">z2 = sigmoid(z1 * Theta2&#x27;);</span><br><span class="line"></span><br><span class="line">[~, p] = <span class="built_in">max</span>(z2, [], <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ex4-m"><a href="#ex4-m" class="headerlink" title="ex4.m"></a>ex4.m</h3><h4 id="Part-3-Compute-Cost-Feedforward"><a href="#Part-3-Compute-Cost-Feedforward" class="headerlink" title="Part 3: Compute Cost (Feedforward)"></a>Part 3: Compute Cost (Feedforward)</h4><ul>
+<li>Feedforward the neural network and return the cost in the variable J. After implementing Part 1, you can verify that your cost function computation is correct by verifying the cost computed in ex4.m</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% input layer</span></span><br><span class="line">a1 = X;</span><br><span class="line"></span><br><span class="line"><span class="comment">% hidden layer</span></span><br><span class="line">X = [<span class="built_in">ones</span>(m, <span class="number">1</span>) X];  <span class="comment">% 5000 * (1 + 400) = 5000 * 401</span></span><br><span class="line">z2 = Theta1 * X&#x27;; <span class="comment">% (25 * 401) * (401 * 5000) = 25 * 5000</span></span><br><span class="line">a2 = sigmoid(z2); <span class="comment">% 25 * 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% output layer</span></span><br><span class="line">a2 = [<span class="built_in">ones</span>(m, <span class="number">1</span>) a2&#x27;]; <span class="comment">% 5000 * (1 + 25) = 5000 * 26</span></span><br><span class="line">z3 = Theta2 * a2&#x27;; <span class="comment">% (10 * 26) * (26 * 5000) = 10 * 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% recode the labels as vectors containing only values 0 or 1</span></span><br><span class="line">y_vec = <span class="built_in">zeros</span>(num_labels, m); <span class="comment">% 10 * 5000</span></span><br><span class="line"><span class="comment">% put value 1 for every iterated column</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: m</span><br><span class="line">    y_vec(y(<span class="built_in">i</span>), <span class="built_in">i</span>) = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% cost function</span></span><br><span class="line">h_theta = sigmoid(z3);</span><br><span class="line">J = (<span class="number">-1</span> / m) * sum(sum(y_vec .* <span class="built_in">log</span>(h_theta) + (<span class="number">1</span> - y_vec) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(h_theta))));</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-4-Implement-Regularization"><a href="#Part-4-Implement-Regularization" class="headerlink" title="Part 4: Implement Regularization"></a>Part 4: Implement Regularization</h4><ul>
+<li>You should now add regularization to your cost function. Notice that you can first compute the unregularized cost function J using your existing nnCostFunction.m and then later add the cost for the regularization terms.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% regularized cost function</span></span><br><span class="line">theta1 = Theta1(:, <span class="number">2</span>:<span class="built_in">size</span>(Theta1, <span class="number">2</span>)); <span class="comment">% size(Theta1, 2) returns the nums of locumns in the matrix</span></span><br><span class="line">theta2 = Theta2(:, <span class="number">2</span>:<span class="built_in">size</span>(Theta2, <span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">J = J + lambda / (<span class="number">2</span> * m) * ( sum(sum(theta1 .^ <span class="number">2</span>)) + sum(sum(theta2 .^ <span class="number">2</span>)) ); <span class="comment">% !sum up separately</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-5-Sigmoid-Gradient"><a href="#Part-5-Sigmoid-Gradient" class="headerlink" title="Part 5: Sigmoid Gradient"></a>Part 5: Sigmoid Gradient</h4><ul>
+<li> Implement the sigmoid gradient function</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g = sigmoid(z) .* (<span class="number">1</span> - sigmoid(z));</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-6-Initializing-Pameters"><a href="#Part-6-Initializing-Pameters" class="headerlink" title="Part 6: Initializing Pameters"></a>Part 6: Initializing Pameters</h4><ul>
+<li>Initialize W randomly so that we break the symmetry while training the neural network</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Randomly initialize the weights to small values</span></span><br><span class="line">epsilon_init = <span class="number">0.12</span>;</span><br><span class="line">W = <span class="built_in">rand</span>(L_out, <span class="number">1</span> + L_in) * <span class="number">2</span> * epsilon_init - epsilon_init;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-7-Implement-Backpropagation"><a href="#Part-7-Implement-Backpropagation" class="headerlink" title="Part 7: Implement Backpropagation"></a>Part 7: Implement Backpropagation</h4><ul>
+<li>Implement the backpropagation algorithm to compute the gradients Theta1_grad and Theta2_grad.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> t = <span class="number">1</span>:m</span><br><span class="line">    <span class="comment">% Step1</span></span><br><span class="line">    a1 = X(t, :); <span class="comment">% 1 * 401</span></span><br><span class="line">    a1 = a1&#x27;; <span class="comment">% 401 * 1</span></span><br><span class="line">    z2 = Theta1 * a1; <span class="comment">% (25 * 401) * (401 * 1) = 25 * 1</span></span><br><span class="line">    a2 = sigmoid(z2); <span class="comment">% 25 * 1</span></span><br><span class="line">    </span><br><span class="line">    a2 = [<span class="number">1</span>; a2]; <span class="comment">% add bais, (25 + 1) * 1 = 26 * 1</span></span><br><span class="line">    z3 = Theta2 * a2; <span class="comment">% (10 * 26) * (26 * 1) = 10 * 1</span></span><br><span class="line">    a3 = sigmoid(z3); <span class="comment">% 10 * 1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Step2</span></span><br><span class="line">    delta_3 = a3 - y_vec(:, t); <span class="comment">% 10 * 1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">% Step3</span></span><br><span class="line">    delta_2 = (Theta2&#x27; * delta_3) .* sigmoidGradient([<span class="number">1</span>; z2]); <span class="comment">% add bais, 26 * 1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Step4</span></span><br><span class="line">    delta_2 = delta_2(<span class="number">2</span>: <span class="keyword">end</span>); <span class="comment">% 25 * 1</span></span><br><span class="line">    </span><br><span class="line">    Theta1_grad = Theta1_grad + delta_2 * a1&#x27;; <span class="comment">% 10 * 25, !sum up grad</span></span><br><span class="line">    Theta2_grad = Theta2_grad + delta_3 * a2&#x27;; <span class="comment">% 10 * 25</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">    <span class="comment">%Step5</span></span><br><span class="line">    Theta1_grad = (<span class="number">1</span> / m) * Theta1_grad;</span><br><span class="line">    Theta2_grad = (<span class="number">1</span> / m) * Theta2_grad;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Gradient-checking"><a href="#Gradient-checking" class="headerlink" title="Gradient checking"></a>Gradient checking</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% take a look and try to understand</span></span><br><span class="line">numgrad = <span class="built_in">zeros</span>(<span class="built_in">size</span>(theta));</span><br><span class="line">perturb = <span class="built_in">zeros</span>(<span class="built_in">size</span>(theta));</span><br><span class="line">e = <span class="number">1e-4</span>;</span><br><span class="line"><span class="keyword">for</span> p = <span class="number">1</span>:<span class="built_in">numel</span>(theta)</span><br><span class="line">    <span class="comment">% Set perturbation vector</span></span><br><span class="line">    perturb(p) = e;</span><br><span class="line">    loss1 = J(theta - perturb);</span><br><span class="line">    loss2 = J(theta + perturb);</span><br><span class="line">    <span class="comment">% Compute Numerical Gradient</span></span><br><span class="line">    numgrad(p) = (loss2 - loss1) / (<span class="number">2</span>*e);</span><br><span class="line">    perturb(p) = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-8-Implement-Regularization"><a href="#Part-8-Implement-Regularization" class="headerlink" title="Part 8: Implement Regularization"></a>Part 8: Implement Regularization</h4><ul>
+<li>Implement regularization with the cost function and gradients.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Theta1_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) = Theta1_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) + (lambda / m) * Theta1(:, <span class="number">2</span>:<span class="keyword">end</span>);</span><br><span class="line">Theta2_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) = Theta2_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) + (lambda / m) * Theta2(:, <span class="number">2</span>:<span class="keyword">end</span>);</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/09/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%8E%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%8E%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" itemprop="url">机器学习题解（一）—— 线性回归与逻辑回归</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-05T21:08:14+08:00">
+                2021-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">课程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/09/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%8E%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" class="leancloud_visitors" data-flag-title="机器学习题解（一）—— 线性回归与逻辑回归">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  488
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="ex1-m"><a href="#ex1-m" class="headerlink" title="ex1.m"></a>ex1.m</h3><h4 id="Part-1-Basic-Function"><a href="#Part-1-Basic-Function" class="headerlink" title="Part 1: Basic Function"></a>Part 1: Basic Function</h4><ul>
+<li>Modify warmUpExercise.m to return a 5 x 5 identity matrix</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = <span class="built_in">eye</span>(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Part-2-Plotting"><a href="#Part-2-Plotting" class="headerlink" title="Part 2: Plotting"></a>Part 2: Plotting</h4><ul>
+<li>Plot the training data into a figure in plotData.m</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data = load(<span class="string">&#x27;ex1data1.txt&#x27;</span>)</span><br><span class="line">x = data(:, <span class="number">1</span>);y = data(:,<span class="number">2</span>)</span><br><span class="line">m = <span class="built_in">length</span>(y)</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x, y, <span class="string">&#x27;rx&#x27;</span>, <span class="string">&#x27;MarkerSize&#x27;</span>, <span class="number">10</span>);</span><br><span class="line">ylabel(<span class="string">&#x27;Profit in $10,000s&#x27;</span>)</span><br><span class="line">xlabel(<span class="string">&#x27;Population of City in 10,000s&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Part-3-Cost-and-Gradient-descent"><a href="#Part-3-Cost-and-Gradient-descent" class="headerlink" title="Part 3: Cost and Gradient descent"></a>Part 3: Cost and Gradient descent</h4><ul>
+<li>complete the code in the file computeCost.m, which is a function that computes J(θ)</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">J = sum(((X * theta) - y).^<span class="number">2</span>) / (<span class="number">2</span> * m);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li> Perform a single gradient step on the parameter vector theta in gradientDescent.m</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> iter = <span class="number">1</span>:num_iters</span><br><span class="line">    theta = theta - alpha * (<span class="number">1</span> / m) * (X&#x27;* ((X * theta) - y) );</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ex2-m"><a href="#ex2-m" class="headerlink" title="ex2.m"></a>ex2.m</h3><h4 id="Part-1-Plotting"><a href="#Part-1-Plotting" class="headerlink" title="Part 1: Plotting"></a>Part 1: Plotting</h4><ul>
+<li>Plot the positive and negative examples on a 2D plot, using the option ‘k+’ for the positive examples and ‘ko’ for the negative examples</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">positive = <span class="built_in">find</span>(y == <span class="number">1</span>); negative = <span class="built_in">find</span>(y == <span class="number">0</span>);</span><br><span class="line"><span class="built_in">plot</span>(X(positive, <span class="number">1</span>), X(positive, <span class="number">2</span>), <span class="string">&#x27;k+&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span>, <span class="number">1.2</span>, <span class="string">&#x27;MarkerSize&#x27;</span>, <span class="number">8</span>);</span><br><span class="line"><span class="built_in">plot</span>(X(negative, <span class="number">1</span>), X(negative, <span class="number">2</span>), <span class="string">&#x27;ko&#x27;</span>,<span class="string">&#x27;MarkerFaceColor&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;MarkerSize&#x27;</span>, <span class="number">8</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-2-Compute-Cost-and-Gradient"><a href="#Part-2-Compute-Cost-and-Gradient" class="headerlink" title="Part 2: Compute Cost and Gradient"></a>Part 2: Compute Cost and Gradient</h4><ul>
+<li>Compute the sigmoid of each value of z (z can be a matrix, vector or scalar)</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Y = exp(X) 为数组 X 中的每个元素返回指数 e^x</span></span><br><span class="line">g = <span class="number">1</span> ./ (<span class="number">1</span> + <span class="built_in">exp</span>(<span class="number">1</span>) .^ (-z));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Compute the cost of a particular choice of theta. You should set J to the cost</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">J = (<span class="number">1</span> / m) * sum(</span><br><span class="line">	-y .* <span class="built_in">log</span>(sigmoid(X * theta)) - (<span class="number">1</span> - y) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(X * theta</span><br><span class="line">)));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Compute the partial derivatives and set grad to the partial derivatives of the cost w.r.t. each parameter in theta</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="built_in">size</span>(theta)</span><br><span class="line">    grad(<span class="built_in">j</span>) = (<span class="number">1</span> / m) * sum((sigmoid(X * theta) - y) .* X(:, <span class="built_in">j</span>));</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-3-Optimizing-using-fminunc"><a href="#Part-3-Optimizing-using-fminunc" class="headerlink" title="Part 3: Optimizing using fminunc"></a>Part 3: Optimizing using fminunc</h4><p><img src="C:\Users\Vincent\AppData\Roaming\Typora\typora-user-images\image-20210905193014755.png" alt="image-20210905193014755"></p>
+<h4 id="Part-4-Predict-and-Accuracies"><a href="#Part-4-Predict-and-Accuracies" class="headerlink" title="Part 4: Predict and Accuracies"></a>Part 4: Predict and Accuracies</h4><ul>
+<li> Complete the following code to make predictions using your learned logistic regression parameters. You should set p to a vector of 0’s and 1’s</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p = sigmoid(X * theta) &gt;= <span class="number">0.5</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ex2-reg-m"><a href="#ex2-reg-m" class="headerlink" title="ex2_reg.m"></a>ex2_reg.m</h3><h4 id="Part-1-Regularized-Logistic-Regression"><a href="#Part-1-Regularized-Logistic-Regression" class="headerlink" title="Part 1: Regularized Logistic Regression"></a>Part 1: Regularized Logistic Regression</h4><ul>
+<li>Compute the cost of a particular choice of theta. You should set J to the cost<ul>
+<li>tip: In Octave/MATLAB, recall that indexing <strong>starts from 1</strong>, hence, you should not be regularizing the theta(1) parameter (which corresponds to θ0) in the code</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">J = (<span class="number">1</span> / m) * sum(-y .* <span class="built_in">log</span>(sigmoid(X * theta)) - (<span class="number">1</span> - y) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(X * theta))) + (lambda / (<span class="number">2</span> * m)) * sum(theta(<span class="number">2</span>:<span class="built_in">size</span>(theta)) .^<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Compute the partial derivatives and set grad to the partial derivatives of the cost w.r.t. each parameter in theta</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grad(<span class="number">1</span>) = sum((sigmoid(X * theta) - y) .* X(:, <span class="number">1</span>)) / m;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">2</span> : <span class="built_in">size</span>(theta)</span><br><span class="line">    grad(<span class="built_in">j</span>) = sum((sigmoid(X * theta) - y) .* X(:, <span class="built_in">j</span>)) / m + (lambda / m) * theta(<span class="built_in">j</span>);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1377,2036 +2845,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%9B%9B%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%9B%9B%EF%BC%89/" itemprop="url">Java面向对象（四）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-26T20:47:50+08:00">
-                2020-08-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">课程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">面向对象</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%9B%9B%EF%BC%89/" class="leancloud_visitors" data-flag-title="Java面向对象（四）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  182
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="第四章-控制执行流程"><a href="#第四章-控制执行流程" class="headerlink" title="第四章 控制执行流程"></a>第四章 控制执行流程</h2><p>1、foreach（SE5+）</p>
-<ul>
-<li>对于任何返回一个<strong>数组</strong>的方法，不必创建int变量计即可自动计数</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> HelloWorld;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForEachFloat</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Random rand = <span class="keyword">new</span> Random(<span class="number">47</span>);</span><br><span class="line">        <span class="keyword">float</span>[] f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">            f[i] = rand.nextFloat();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">float</span> x:f) <span class="comment">// 定义一个float类型变量x，将每个f元素赋给x</span></span><br><span class="line">            System.out.println(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>还可用于任何Iterable对象<ul>
-<li>Iterable：Java中的迭代器对象，是能够对List这样的集合进行迭代遍历的底层依赖</li>
-</ul>
-</li>
-</ul>
-<p>2、迭代前的标签：嵌套另一迭代或开关时使用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">label1:</span><br><span class="line">outer-iteration &#123;</span><br><span class="line">    inner-iteration&#123;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span> label1; <span class="comment">// 转至label1</span></span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span> label1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89/" itemprop="url">Java面向对象（三）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-26T20:47:45+08:00">
-                2020-08-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">课程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">面向对象</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89/" class="leancloud_visitors" data-flag-title="Java面向对象（三）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  459
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="第三章-操作符"><a href="#第三章-操作符" class="headerlink" title="第三章 操作符"></a>第三章 操作符</h2><p>1、别名现象</p>
-<p>赋值操作是对一个对象的引用，对象与对象相互赋值则丢失信息</p>
-<p>2、生成数字：Random类</p>
-<ul>
-<li>nextInt / nextFloat …</li>
-</ul>
-<p>3、可使用一元加减号</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下操作均合法</span></span><br><span class="line">x = -a;</span><br><span class="line">x = a * -b;</span><br><span class="line">s = a * (-b);</span><br></pre></td></tr></table></figure>
-
-<p>4、关系操作符</p>
-<ul>
-<li>若为基本类型，直接比较</li>
-<li>不为基本类型，使用所有对象都适用的特殊方法equals()<ul>
-<li>默认执行比较引用，不可用于自己的新类</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">n1.equals(n2)</span><br><span class="line"><span class="comment">// 以下返回行为不正确</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myclass</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">wrongdoing</span></span>&#123;</span><br><span class="line">    myclass v1 = <span class="keyword">new</span> v1;</span><br><span class="line">    myclass v2 = <span class="keyword">new</span> v2;</span><br><span class="line">    System.out.println(v1.equals(v2));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>三元操作符</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// condition ? ex1 : ex2;</span></span><br><span class="line">x &lt; y ? x : y;</span><br></pre></td></tr></table></figure>
-
-<p>5、逻辑运算符</p>
-<p>与或非仅可用于布尔值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 错误实例</span></span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + (i &amp;&amp; j));</span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + (i || j));</span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + !i);</span><br></pre></td></tr></table></figure>
-
-<p>6、直接常量</p>
-<ul>
-<li>后缀L / F /D …</li>
-<li>前缀0x / 0 / 0b</li>
-<li>可为数字字面量添加下划线，更可读（e.g. 1_000_000)</li>
-<li>指数<ul>
-<li>注：结果不为一个数，返回NaN（e.g. 0/0）</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expfloat = <span class="number">1.39E-43f</span>；</span><br></pre></td></tr></table></figure>
-
-<p>7、按位操作符</p>
-<p>&amp;= |= ^= 均合法</p>
-<p>8、移位操作符 &gt;&gt; &lt;&lt;</p>
-<ul>
-<li>无符号右移：&gt;&gt;&gt;，无论正负均在高位插入0<ul>
-<li>对byte / short：会先转为int，右移、截断、赋值，可能得到-1结果</li>
-<li>推广：只要类型比int小均会被转换，可根据需求使用cast手动类型转换 / 提升</li>
-</ul>
-</li>
-<li>与等号组合：&gt;&gt;= &lt;&lt;=，移动等号左边指定的位数</li>
-</ul>
-<p>9、移植：无需考虑，不同机器均相同</p>
-<ul>
-<li>因而无sizeof操作符</li>
-</ul>
-<p>注：溢出结果不会收到警告或出错</p>
-<p>10、浮点数四舍五入</p>
-<ul>
-<li>得到最接近整数：使用Max.round() 方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">9.997</span></span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) Math.round(x);</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%8C%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="url">Java面向对象（二）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-26T20:47:40+08:00">
-                2020-08-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">课程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">面向对象</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%8C%EF%BC%89/" class="leancloud_visitors" data-flag-title="Java面向对象（二）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  573
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="第二章-一切都是对象"><a href="#第二章-一切都是对象" class="headerlink" title="第二章 一切都是对象"></a>第二章 一切都是对象</h2><p>1、引用 ref：操纵对象</p>
-<p>2、存储位置</p>
-<ul>
-<li>常规位置：寄存器 堆栈 堆</li>
-<li>常量存储：程序代码内部</li>
-<li>非RAM存储：存活于程序外，不受程序任何控制<ul>
-<li>实例：流对象 持久化对象</li>
-</ul>
-</li>
-</ul>
-<p>3、基本类型（P23）</p>
-<ul>
-<li>byte 8比特的比特值</li>
-<li>具有包装器类，可在堆中创建一个非基本对象表示对应基本类型</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c = <span class="string">&quot;hhh&quot;</span>;</span><br><span class="line">Character ch = <span class="keyword">new</span> Character(c);</span><br><span class="line"><span class="comment">// 还可以反向转换</span></span><br><span class="line"><span class="keyword">char</span> c = ch;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>高精度数字：BigInteger BigDecimal</p>
-</li>
-<li><p>对象的生命周期独立于作用域之外</p>
-</li>
-</ul>
-<p>4、<strong>类  class</strong></p>
-<ul>
-<li>构成：字段（数据成员）和 方法（成员函数）</li>
-<li>DataOnly类：如名，仅作保存数据使用</li>
-<li>基本成员默认值（P26）</li>
-</ul>
-<p>5、方法（函数）</p>
-<ul>
-<li>组成：名称 参数 返回值 方法体</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ReturnType <span class="title">methodName</span><span class="params">( <span class="comment">/* 参数列表 */</span> )</span></span>&#123;</span><br><span class="line">    <span class="comment">/* 方法体 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>6、构建</p>
-<ul>
-<li>名字可见性：反转域名，句点则表示子目录的划分，每个类标识符唯一</li>
-<li>使用构件</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用util中的ArrayList类</span></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="comment">// 使用util中的几个类（一次说明）</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>static关键字：<ul>
-<li>为特定域分配单一存储空间</li>
-<li>不与包含它的类的任何对象实例关联</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StaticTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">47</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 两者指向同一片存储空间</span></span><br><span class="line">StaticTest st1 = <span class="keyword">new</span> StaticTest();</span><br><span class="line">StaticTest st2 = <span class="keyword">new</span> StaticTest();</span><br><span class="line"><span class="comment">// 可通过类名直接引用</span></span><br><span class="line">StaticTest.i++;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>定义静态方法<ul>
-<li>可用它的类直接调用，或用对象调用</li>
-<li>可在不创建任何对象时调用</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Incrementable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">increment</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        StaticTest.i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 通过对象调用</span></span><br><span class="line">Incrementable sf = <span class="keyword">new</span> Incrementable();</span><br><span class="line">sf.increment();</span><br><span class="line"><span class="comment">// 通过类调用</span></span><br><span class="line">Incrementable.increment();</span><br></pre></td></tr></table></figure>
-
-<p>7、使用</p>
-<ul>
-<li>java.lang默认导入</li>
-<li>println()：控制台输出，完成后换行<ul>
-<li>sout + enter/tab</li>
-</ul>
-</li>
-<li>注释风格：同C++</li>
-<li>javadoc<ul>
-<li>提取注释：输出HTML文档</li>
-<li>语法：*//</li>
-<li>使用：嵌入HTML 或 使用文档标签（以@开头命令）<ul>
-<li>@see：引用其他类</li>
-<li>@version version-information</li>
-<li>@param parameter-name description：参数列表标识符</li>
-<li>deprecated：旧特性，已由新特性取代</li>
-</ul>
-</li>
-<li>构成：类、域和方法</li>
-<li>访问权限：仅可公共或受限，忽略私有注释</li>
-</ul>
-</li>
-</ul>
-<p>8、编码风格</p>
-<ul>
-<li>类名的首字母大写</li>
-<li>驼峰风格：<ul>
-<li>多个单词类名合并（无下划线），每个首部大写</li>
-<li>标识符同上，但第一个字母小写</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url">Java面向对象（一）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-26T20:47:26+08:00">
-                2020-08-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">课程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">面向对象</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89/" class="leancloud_visitors" data-flag-title="Java面向对象（一）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  492
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="第一章-对象导论"><a href="#第一章-对象导论" class="headerlink" title="第一章 对象导论"></a>第一章 对象导论</h2><p>1、基本特性</p>
-<p>普适性 组成程序 可互相嵌套 有对应类型 可替代性</p>
-<p>2、观点：任何程序都是程序员所设计系统的一种仿真</p>
-<p>3、对象提供服务</p>
-<p>视作对象的优点：提高对象的内聚性</p>
-<ul>
-<li>高内聚：各方面组合的很好</li>
-</ul>
-<p>4、隐藏的具体实现</p>
-<ul>
-<li>类创建者 / 客户端程序员：访问控制<ul>
-<li>边界：public private protected</li>
-</ul>
-</li>
-</ul>
-<p>5、复用的具体实现</p>
-<ul>
-<li>组合 / 聚合（动态的组合）：创建成员对象</li>
-<li>先考虑组合，后继承：前者较简单灵活</li>
-</ul>
-<p>6、继承</p>
-<ul>
-<li>可构建类型层次结构</li>
-<li>类型等价性：导出类和基类拥有相同的类型<ul>
-<li>修改：为导出类添加新方法 / 覆盖（纯粹替代 or 扩展）</li>
-</ul>
-</li>
-</ul>
-<p>7、多态</p>
-<ul>
-<li>泛化：视作基类而非对象</li>
-<li>后期绑定：直到运行才可确定代码地址</li>
-<li>向上转型 up cast：一个基类在继承图中向上移动</li>
-</ul>
-<p>8、单根继承结构</p>
-<ul>
-<li>终极基类：Object</li>
-<li>相对C++可实现垃圾回收</li>
-</ul>
-<p>9、容器</p>
-<ul>
-<li>定义上近似等同于集合，如C++中的STL容器</li>
-<li>提供不同类型的接口和外部行为</li>
-<li>对同一操作不同容器效率可能不同</li>
-<li>参数化类型（范型）：向下转型（不安全）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个存储Shape的顺序表</span></span><br><span class="line">ArrayList&lt;shape&gt; shapes = new.ArrayList&lt;shape&gt;();</span><br></pre></td></tr></table></figure>
-
-<p>10、对象的创建和生命期</p>
-<ul>
-<li>基本逻辑假设：对象复杂化 - 查找和释放空间的开销不会对创建对象造成过大冲击</li>
-<li>Java是在堆栈中存储和释放空间的动态内存分配方式<ul>
-<li>反观C++：需要在编程时就确定生命周期，牺牲了部分灵活性，侧重效率控制</li>
-</ul>
-</li>
-<li>使用垃圾回收器，自发发现不再被使用的对象，有效避免内存泄漏</li>
-</ul>
-<p>11、必须编写异常处理的代码</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%AB%98%E7%BA%A7%E7%AF%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%AB%98%E7%BA%A7%E7%AF%87/" itemprop="url">数据库操作（四）—— 高级篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-06T20:39:34+08:00">
-                2020-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">课程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/08/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%AB%98%E7%BA%A7%E7%AF%87/" class="leancloud_visitors" data-flag-title="数据库操作（四）—— 高级篇">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.7k
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  6
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="高级操作-第22-30章"><a href="#高级操作-第22-30章" class="headerlink" title="高级操作 第22 - 30章"></a>高级操作 第22 - 30章</h2><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>1、def：虚拟表，仅包含使用时动态检索的一个SQL查询</p>
-<p>2、规则</p>
-<ul>
-<li>必须唯一命名</li>
-<li>需要访问权限</li>
-<li>视图可嵌套</li>
-<li>视图中的ORDER BY语句会被检索中的ORDER BY（如果有）覆盖</li>
-<li>不可添加索引或触发器、默认值，但可与表一同使用</li>
-</ul>
-<p>3、使用</p>
-<ul>
-<li>创建：CREATE VIEW</li>
-<li>查看所创建视图：SHOW CREATE VIEW viewname</li>
-<li>删除视图：DROP VIEW viewname</li>
-<li>过滤视图、简化计算字段</li>
-</ul>
-<p>4、重新格式化检索出的数据</p>
-<p>把多次需要的结果通过转化为视图存放</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW vendorlocations AS</span><br><span class="line">SELECT Concat(RTrim(vend_name),&#x27;(&#x27;, RTrim(vend_country),&#x27;)&#x27;)</span><br><span class="line">		AS vend_title</span><br><span class="line">FROM vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
-
-<p>再次检索出数据：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM vendorlocations;</span><br></pre></td></tr></table></figure>
-
-<p>5、更新视图：CREATE OR REPLACE VIEW</p>
-<ul>
-<li>以下情况视图不可更新：<ul>
-<li>存在GRUOP BY分组</li>
-<li>联结、子查询、并</li>
-<li>聚集函数、DISTINCT</li>
-<li>导出计算列</li>
-</ul>
-</li>
-</ul>
-<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>1、使用原因</p>
-<ul>
-<li>封装处理，简化操作、提高性能</li>
-<li>无需反复建立处理步骤，保证了数据完整性</li>
-<li>简化变动管理 - 安全性</li>
-</ul>
-<p>2、执行存储过程：CALL</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CALL productpricing(@pricelow,</span><br><span class="line">                   @pricehigh,</span><br><span class="line">                   @priceaverage);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>mysql中所有变量名都必须以@开始</li>
-<li>mysql中注释以–开头</li>
-</ul>
-<p>3、创建存储过程：CREATE PROCEDURE </p>
-<p>创建一个新的存储过程，没有返回数据：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE PROCEDURE productpricing()</span><br><span class="line">BEGIN</span><br><span class="line">	SELECT Avg(prod_price) AS priceaverage</span><br><span class="line">	FROM products;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>DELEMITER：指定新的语句分隔符，避免；被mysql命令行实用程序解释为存储过程的成分</li>
-</ul>
-<p>4、删除存储过程：DROP PROCEDURE</p>
-<p>5、使用参数</p>
-<ul>
-<li>存储过程的参数允许的数据类型与表中一致<ul>
-<li>记录集不是允许的类型。记录集：从指定数据库中检索到的数据的集合</li>
-</ul>
-</li>
-<li>创建布尔值：IN 参数名 BOOLEAN</li>
-<li>IF / ELSEIF / ELSE子句</li>
-</ul>
-<p>6、检查存储过程：SHOW CREATE PROCEDURE </p>
-<ul>
-<li>获取详细信息的存储过程列表：SHOW PROCUDURE STATUS</li>
-</ul>
-<h3 id="游标-cursor"><a href="#游标-cursor" class="headerlink" title="游标 cursor"></a>游标 cursor</h3><p>1、使用游标</p>
-<ul>
-<li>必须先声明再打开，结束后关闭</li>
-<li>创建与访问：DECLARE / FETCH</li>
-<li>打开与关闭：OPEN / CLOSE CURSOR</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CREATE PROCEDURE processorders()</span><br><span class="line">BEGIN</span><br><span class="line">	DECLARE ordernumbers CURSOR</span><br><span class="line">	FOR</span><br><span class="line">	SELECT order_num FROM orders</span><br><span class="line">END;</span><br><span class="line"></span><br><span class="line">-- 打开游标</span><br><span class="line">OPEN ordernumbers;</span><br><span class="line">-- 关闭游标</span><br><span class="line">CLOSE ordernumbers;</span><br><span class="line">-- 检索order_num列到一名为o的局部变量中（不处理检索出的数据）</span><br><span class="line">FETCH ordernumbers INTO o;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>UNTIL done END REPEAT：反复执行直到布尔值done为真<ul>
-<li>手动退出：LEAVE</li>
-</ul>
-</li>
-<li>CONTINUE HANDLER：条件出现时才被执行</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DECLARE done BOOLEAN DEFAULT 0;</span><br><span class="line">DECLARE CONTINUE HANDLER FOR SQLSTATE ‘02000’ SET done = 1;</span><br></pre></td></tr></table></figure>
-
-<p>说明在SQLSTATE ‘02000’出现时，把done的值从默认值0设置为1</p>
-<p>2、DECLARE的次序</p>
-<ul>
-<li>定义顺序：DECLARE定义的局部变量 - 游标 - 句柄<ul>
-<li>句柄（Handle）：用来标识对象或者项目的标识符</li>
-</ul>
-</li>
-</ul>
-<h3 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h3><p>1、需给出信息：</p>
-<ul>
-<li>最好每个数据库中触发器名称唯一</li>
-<li>关联表</li>
-<li>应响应活动与执行时机</li>
-</ul>
-<p>2、创建：CREATE TRIGGER</p>
-<ul>
-<li>相应以下任意语句：DELETE INSERT UPDATE</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER newproduct AFTER INSERT ON products</span><br><span class="line">FOR EACH ROW SELECT &#x27;Product added&#x27;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>仅表可用触发器，视图不行<ul>
-<li>每张表最多支持6个触发器（3种语句*2个时机）</li>
-<li>某时机前触发BEFORE失败：则若有AFTER触发器，默认不执行</li>
-</ul>
-</li>
-</ul>
-<p>3、删除：DROP TRIGGER</p>
-<p>4、使用</p>
-<ul>
-<li>可引用NEW虚拟表，以访问被插入行<ul>
-<li>可在BEFORE INSERT触发器中更新NEW表中的值</li>
-<li>对于AUTO_INCREMENT，INSERT前置0，后为新值</li>
-</ul>
-</li>
-<li>DELETE触发器可引用OLD访问被删除行<ul>
-<li>仅只读，不可再更新</li>
-<li>BEFORE DELETE相对AFTER ~优点：不可存档，DELETE本身将被放弃</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER deleteorder BEFORE DELETE ON orders</span><br><span class="line">FOR EACH ROW </span><br><span class="line">BEGIN</span><br><span class="line">	INSERT INTO archive_orders(order_num, order_date, cust_id);</span><br><span class="line">	VALUES(OLD.order_num, OLD.order_date, OLD.cust_id);</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>UPDATE触发器可用NEW、OLD<ul>
-<li>BEFORE UPDATE触发器中，NEW中可改动的UPDATE值可被更新</li>
-<li>OLD表仅可读，不可更新</li>
-</ul>
-</li>
-<li>触发器是自动执行的，可能需要特殊权限</li>
-<li>不支持在触发器中使用CALL语句</li>
-</ul>
-<p>5、展望</p>
-<ul>
-<li>内容仍较初级，有诸多改进空间</li>
-<li>可用于保证数据一致性、创建审计跟踪</li>
-</ul>
-<h3 id="事务处理-transaction-processing"><a href="#事务处理-transaction-processing" class="headerlink" title="事务处理 transaction processing"></a>事务处理 transaction processing</h3><p>1、一些概念</p>
-<ul>
-<li>事务：一组SQL语句</li>
-<li>回退 rollback：撤销指定语句的过程</li>
-<li>（隐含）提交 commit：（自动）将未存储语句写入表</li>
-<li>保留点 savepoint：设置的临时占位符（placeholder），可回退</li>
-</ul>
-<p>2、使用事务处理</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-- 回退</span><br><span class="line">SELECT * FROM ordertotals;</span><br><span class="line">START TRANSACTION;</span><br><span class="line">DELETE FROM ordertotals;</span><br><span class="line">SELECT * FROM ordertotals;</span><br><span class="line">ROLLBACK;</span><br><span class="line">SELECT * FROM ordertotals;</span><br><span class="line"></span><br><span class="line">-- 提交（例中两个DELETE都返回成功才COMMIT）</span><br><span class="line">START TRANSACTION;</span><br><span class="line">DELETE FROM orderitems WHERE order_num = 20010;</span><br><span class="line">DELETE FROM orders WHERE order_num = 20010;</span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line">-- 使用保留点</span><br><span class="line">SAVEPOINT delete1;</span><br><span class="line">ROLLBACK TO delete1;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>回退后不再显示空结果</li>
-<li>三种操作执行流结束后事务均会自动关闭</li>
-<li>保留点个数越多越好，灵活回退</li>
-</ul>
-<p>3、更改默认的提交行为</p>
-<ul>
-<li>仅针对每个连接，不针对服务器</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 此时不自动提交</span><br><span class="line">SET autocommit =  0;</span><br></pre></td></tr></table></figure>
-
-<h3 id="全球化与本地化"><a href="#全球化与本地化" class="headerlink" title="*全球化与本地化"></a>*全球化与本地化</h3><p>1、使用</p>
-<ul>
-<li>显示字符集、校对顺序：SHOW CHARACTER SET / COLLATION；</li>
-<li>显示特定字符集：SHOW VARIABLES LIKE ‘character%’；</li>
-<li>与创建表不同的校对顺序查询</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM customers;</span><br><span class="line">ORDER BY lastname, firstname, CLLATE latin1_general_cs;</span><br></pre></td></tr></table></figure>
-
-<p>2、串在字符集间的转换：Cast() / Conver()函数</p>
-<h3 id="安全管理"><a href="#安全管理" class="headerlink" title="安全管理"></a>安全管理</h3><p>1、访问控制</p>
-<ul>
-<li>谨慎使用root登录</li>
-<li>给予用户适当的访问权</li>
-</ul>
-<p>2、管理用户</p>
-<ul>
-<li>获取所用用户列表</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">USE mysql；</span><br><span class="line">SELECT user FROM user；</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>创建用户账号<ul>
-<li>IDENTIFIED BY：指定纯文本口令</li>
-<li>或使用GRANT / INSERT语句（不好）</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER bob IDENTIFIED BY &#x27;mypassword&#x27;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>重命名：RENAME USER</li>
-<li>删除：DROP USER</li>
-<li>设置管理权限：SHOW GRANTS FOR 用户名<ul>
-<li>*表示无权限</li>
-</ul>
-</li>
-</ul>
-<p>3、GRANT / REVOKE语句</p>
-<ul>
-<li>需给出的信息：需授予权限 所需库或表 用户名</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 给予权限</span><br><span class="line">SHOW GRANTS FOR bob;</span><br><span class="line">GRANT SELECT ON crashcourse.* to bob;</span><br><span class="line">-- 撤销权限</span><br><span class="line">REVOKE GRANTS FOR bob;</span><br><span class="line">REVOKE SELECT ON crashcourse.* to bob;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>可更改权限（P202）</li>
-<li>可提前设置授权：对所涉及对象，可不存在就设定权限</li>
-<li>简化多次授权</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT SELECT, SELECT ON crashcourse.* TO bob;</span><br></pre></td></tr></table></figure>
-
-<p>4、更改口令：SET PASSWORD</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET PASSWORD FOR bob = PASSWORD(&#x27;newpassword&#x27;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="数据库维护"><a href="#数据库维护" class="headerlink" title="*数据库维护"></a>*数据库维护</h3><p>1、备份</p>
-<ul>
-<li>使用mysqldump转储到外部文件</li>
-<li>使用mysqlhotcopy复制到另一数据库</li>
-<li>使用BACKUP TABLE / SELECT INTO OUTFILE转储<ul>
-<li>复原：RESTORE TABLE</li>
-<li>刷新：FLUSH TABLES，保证所有数据及索引被写入磁盘</li>
-</ul>
-</li>
-</ul>
-<p>2、维护</p>
-<ul>
-<li>ANALYZE TABLE：检查表键是否正确</li>
-<li>CHECK TABLE：检查各类问题<ul>
-<li>CHANGED：最后一次检查以来改动的表</li>
-<li>ENTENDED：最彻底检查</li>
-<li>FAST：未正常关闭表</li>
-<li>MEDIUM：检验所有删除链接及键检验</li>
-<li>QUICK：快扫</li>
-</ul>
-</li>
-</ul>
-<p>3、诊断启动问题</p>
-<p>–safe-mode</p>
-<p>–help、–verbose：显示全文本消息</p>
-<p>4、日志文件</p>
-<ul>
-<li>错误日志：hostname.err</li>
-<li>查询日志：hostname.log</li>
-<li>缓慢查询日志：hostname-slow.log</li>
-</ul>
-<h3 id="改善性能"><a href="#改善性能" class="headerlink" title="改善性能"></a>改善性能</h3><p>1、EXPLAIN语句：使mysql解释如何解释一条SELECT语句</p>
-<p>2、DELAYED关键字：把控制立即返回给调用程序</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A0%B8%E5%BF%83%E7%AF%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A0%B8%E5%BF%83%E7%AF%87/" itemprop="url">数据库操作（三）—— 核心篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-04T20:39:31+08:00">
-                2020-08-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">课程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/08/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A0%B8%E5%BF%83%E7%AF%87/" class="leancloud_visitors" data-flag-title="数据库操作（三）—— 核心篇">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.9k
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  7
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="核心操作-第14-21章"><a href="#核心操作-第14-21章" class="headerlink" title="核心操作 第14 - 21章"></a>核心操作 第14 - 21章</h2><h3 id="子查询-subquery"><a href="#子查询-subquery" class="headerlink" title="子查询 subquery"></a>子查询 subquery</h3><p>1、处理顺序：从内向外</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust-name, cust_contact</span><br><span class="line">FROM customers</span><br><span class="line">WHERE cust_id IN (SELECT cust_id</span><br><span class="line">                  FROM orders</span><br><span class="line">                  WHERE order_num IN (SELECT order_num</span><br><span class="line">                                     FROM orderitems</span><br><span class="line">                                     WHERE prod_id = &#x27;TNT2&#x27;));</span><br></pre></td></tr></table></figure>
-
-<p>2、格式化：分解多行 适当缩进</p>
-<p>3、基本思想：将硬编码转换为子查询，减少代码量</p>
-<ul>
-<li>列必须匹配：SELECT子句和WHERE子句中的列数量相同</li>
-<li>最常见：用于WHERE子句的IN操作符和填充计算列</li>
-</ul>
-<p>4、相关子查询 correlated subquery</p>
-<ul>
-<li>使用完全限定列名，指定调用customers表中该列名（否则默认自身比较，相当于自检）；若非完全限定引用一个具有二义性的列名，将返回错误</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WHERE orders.cust_id = customers.cust.id;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>注意限制有歧义性的列名</li>
-</ul>
-<h3 id="联结表"><a href="#联结表" class="headerlink" title="联结表"></a>联结表</h3><p>1、关系</p>
-<ul>
-<li><p>主键 primary key：唯一标识</p>
-</li>
-<li><p>外键 foreign key：某个表的一列，包含另一表主键值</p>
-</li>
-</ul>
-<p>2、可伸缩性 scale well：可适应不断增加的工作量并良好运作</p>
-<p>3、创建联结（等值联结 equijoin）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price</span><br><span class="line">FROM vendors, products</span><br><span class="line">WHERE vendors.vend.id = products.vend.id</span><br><span class="line">ORDER BY vend_name, prod_name;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>笛卡尔积：由没有联结条件的表关系返回的结果（def离散）<ul>
-<li>因而需保证所有联结都有WHERE子句</li>
-<li>交叉联结 cross join</li>
-</ul>
-</li>
-</ul>
-<p>4、*内部联结</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price</span><br><span class="line">FROM vendors INNER JOIN products</span><br><span class="line">ON vendors.vend.id = products.vend_id;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>联结条件：使用特定的ON子句给出</li>
-</ul>
-<p>5、实例：相对子查询优化效率（具体问题具体分析）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM customers, orders, orderitems</span><br><span class="line">WHERE customers.cust_id = orders.cust_id</span><br><span class="line">	AND orderitems.order_num = orders.order_num</span><br><span class="line">	AND prod_id = &#x27;TNT2&#x27;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="高级联结"><a href="#高级联结" class="headerlink" title="高级联结"></a>高级联结</h3><p>1、使用表别名</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT Concat(RTrim(vend_name), &#x27;(&#x27;, RTrim(vend_country), &#x27;)&#x27;) AS</span><br><span class="line">vend_title</span><br><span class="line">FROM vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
-
-<p>作用：</p>
-<ul>
-<li>缩短语句</li>
-<li>允许单条SELECT多次使用相同表，如：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM customers AS a, orders AS i, orderitems AS ai</span><br><span class="line">WHERE a.cust_id = i.cust_id</span><br><span class="line">	AND ai.order_num = i.order_num</span><br><span class="line">	AND prod_id = &#x27;TNT2&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>2、自联结</p>
-<ul>
-<li>作为外部语句来替代从相同表中检索使用的子查询</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT p1.prod_id, p1.prod_name</span><br><span class="line">FROM products AS p1, products AS p2</span><br><span class="line">WHERE p1.vend_id = p2.vend_id</span><br><span class="line">	AND p2.prod_id = &#x27;DTNTR&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>注：实际问题，效率需具体分析，不一定优于子查询</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT p1.prod_id, p1.prod_name</span><br><span class="line">FROM products</span><br><span class="line">WHERE vend_id = (SELECT vend_id</span><br><span class="line">                FROM products</span><br><span class="line">                WHERE prod_id = &#x27;DTNTR&#x27;);</span><br></pre></td></tr></table></figure>
-
-<p>3、自然联结</p>
-<ul>
-<li>排除多次出现的列，仅使每个列返回一次（仅选择唯一列）<ul>
-<li>通常对表使用通配符SELECT *</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT c.*, o.order_num, o.order_date,</span><br><span class="line">		oi.prod_id, oi.quantity, OI.item_price</span><br><span class="line">FROM customers AS c, orders AS o, orderitems AS oi</span><br><span class="line">WHERE c.cust_id = o.cust_id</span><br><span class="line">	AND oi.order_num = o.order_num</span><br><span class="line">	AND prod_id = &#x27;FB&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>4、外部联结 OUTER JOIN （较少使用）</p>
-<ul>
-<li>联结包含了没有关联行的行</li>
-<li>类型：左外部联结 右外部联结<ul>
-<li>使用时需要用RIGHT / LEFT关键字指定行范围（从右 / 左侧的表中选择所有行）<ul>
-<li>mysql不支持*=等一系列简化操作符！</li>
-</ul>
-</li>
-<li>可通过颠倒FROM / WHERE子句互换使用</li>
-</ul>
-</li>
-</ul>
-<p>5、带聚集函数的联结</p>
-<h3 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h3><p>1、并 union：执行多个查询，将结果作为单个查询结果集返回</p>
-<ul>
-<li>使用情景：单个查询从多个表返回类似数据；对单个表多个查询，按单个返回</li>
-<li>多个WHERE子句的单条查询可以达到相同的作用</li>
-<li>使用于较为复杂过滤条件</li>
-</ul>
-<p>2、UNION规则</p>
-<ul>
-<li>由两条及以上SELECT语句构成</li>
-<li>每个查询包含相同表达式</li>
-<li>列数据类型兼容</li>
-</ul>
-<p>3、功能</p>
-<ul>
-<li>自动去重（默认）<ul>
-<li>返回所有匹配行：UNION ALL</li>
-</ul>
-</li>
-<li>与ORDER BY 排序：必须出现在最后一条SELECT语句后</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_id, prod_id, prod_price</span><br><span class="line">FROM products</span><br><span class="line">WHERE prod_price &lt;= 5</span><br><span class="line">UNION</span><br><span class="line">SELECT vend_id, prod_id, prod_price</span><br><span class="line">FROM products</span><br><span class="line">WHERE vend_id IN(1001, 1002)</span><br><span class="line">ORDER BY vend_id, prod_price;</span><br></pre></td></tr></table></figure>
-
-<h3 id="全文本搜索"><a href="#全文本搜索" class="headerlink" title="全文本搜索"></a>全文本搜索</h3><p>1、支持的数据库引擎：MyISAM（InnoDB不支持）</p>
-<p>2、使用全文本搜索：随数据改变不断索引被搜索的列</p>
-<ul>
-<li>FULLTEXT()：索引列<ul>
-<li>不要在导入数据使用，降低导入速率</li>
-</ul>
-</li>
-<li>Match()：指定被搜索的列<ul>
-<li>使用值必须与FULLTEXT()中定义相同</li>
-<li>多个列索引，其次序与FULLTEXT()中保持一致</li>
-</ul>
-</li>
-<li>Against()：指定要使用的搜索表达式<ul>
-<li>文本中，靠前的行的给定词等级值高于后继</li>
-<li>对多个搜索项，包含更多匹配词的行等级值更高</li>
-</ul>
-</li>
-<li>索引的搜索速度相当快</li>
-</ul>
-<p>3、查询扩展</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT note_text</span><br><span class="line">FROM productnotes</span><br><span class="line">WHERE Match(note_text) Against(&#x27;anvils&#x27; WITH QUERY EXPANSION);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>步骤<ul>
-<li>先进行全文本搜索</li>
-<li>检查匹配行，判定<strong>有用</strong>词（与给定词相关词）</li>
-<li>运用有用词和原给定词再次进行全文本搜索</li>
-</ul>
-</li>
-<li>文本行数越多，查询扩展结果越好</li>
-</ul>
-<p>4、布尔文本搜索</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT note_text</span><br><span class="line">FROM productnotes</span><br><span class="line">WHERE Match(note_text) Against(&#x27;heavy -rope*&#x27; IN BOOLEAN MODE)</span><br></pre></td></tr></table></figure>
-
-<p>匹配词heavy，但排除任何包含以rope开始的词</p>
-<ul>
-<li>布尔方式 boolean mode<ul>
-<li>提供：匹配词 排斥词 排列提示 表达式分组 etc.</li>
-<li>没有定义FULLTEXT索引也可使用</li>
-</ul>
-</li>
-<li>全文本布尔操作符（P128）<ul>
-<li>如+ / - ：包含 / 排除</li>
-<li>&lt; &gt;：包含，并减少 / 增加等级值</li>
-<li>-：取消一个</li>
-<li>*：词尾通配符</li>
-</ul>
-</li>
-</ul>
-<p>5、默认注意事项</p>
-<ul>
-<li>短词（&lt;=3个字符的词）从索引中被排除</li>
-<li>内建的非用词（stopword）被忽略</li>
-<li>出现行数高于50%的词作为非用词忽略</li>
-<li>少于三行的文本不返回结果</li>
-<li>忽略词中的单引号</li>
-<li>中文、日文等不具有词分隔符的语言无法正确返回结果</li>
-</ul>
-<h3 id="数据插入-INSERT"><a href="#数据插入-INSERT" class="headerlink" title="数据插入 INSERT"></a>数据插入 INSERT</h3><p>1、插入完整行</p>
-<ul>
-<li>每组值用一对圆括号括起来，以逗号分隔</li>
-<li>多使用cust_id明确插入，可在表结构改变后继续发挥作用</li>
-<li>INSERT一般无输出结果</li>
-<li>必须给出VALUES的正确数目；不提供列名则必须对每列给出一个值</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO customers(cust_name,</span><br><span class="line">                     cust_contact,</span><br><span class="line">                     cust_country)</span><br><span class="line">VALUES(&#x27;Peter&#x27;,</span><br><span class="line">      NULL,</span><br><span class="line">      &#x27;UK&#x27;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>省略列：NULL<ul>
-<li>表的定义中给出默认值：不给定值时使用</li>
-</ul>
-</li>
-<li>提高整体性能：用 INSERT LOW_PRIORITY INTO 降低插入的优先级</li>
-</ul>
-<p>2、插入多行</p>
-<ul>
-<li>使用多条INSERT语句（可一次性提交）</li>
-</ul>
-<p>3、插入检索所得数据</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO customers(cust_name,</span><br><span class="line">                     cust_contact,</span><br><span class="line">                     cust_country)</span><br><span class="line">VALUES(&#x27;Peter&#x27;,</span><br><span class="line">      NULL,</span><br><span class="line">      &#x27;UK&#x27;);</span><br><span class="line">SELECT cust_name,</span><br><span class="line">		cust_contact, </span><br><span class="line">		cust_country</span><br><span class="line">FROM custnew;</span><br></pre></td></tr></table></figure>
-
-<p>其中，列名不一定匹配，仅作顺序填充</p>
-<ul>
-<li>可包含WHERE子句以过滤插入数据</li>
-</ul>
-<h3 id="更新和删除数据"><a href="#更新和删除数据" class="headerlink" title="更新和删除数据"></a>更新和删除数据</h3><p>1、更新：UPDATE语句</p>
-<ul>
-<li>不省略WHERE语句，避免更新表中所有行</li>
-<li>语句组成：要更新的表名 列名及其新值 要更新行的条件</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UPDATE IGNORE customers</span><br><span class="line">SET cust_email = &#x27;balabala@qq.com&#x27;,</span><br><span class="line">	cust_name = &#x27;bob&#x27;</span><br><span class="line">WHERE cust_id = 10005;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>更新多个列：逗号分隔（最后一行除外）</li>
-<li>IGNORE关键字：在发生错误时依旧更新</li>
-<li>设为NULL：删除某列值</li>
-</ul>
-<p>2、删除：DELETE语句</p>
-<ul>
-<li>不省略WHERE语句</li>
-<li>语句组成：要删除的表名 要删除行的条件<ul>
-<li>注：即便删除表中所有行，DELETE不执行删除表操作</li>
-<li>删除所有行使用TRUNCATE TABLE </li>
-</ul>
-</li>
-</ul>
-<p>注：</p>
-<ul>
-<li>两者使用前最好先用SELECT语句测试，保证过滤的记录正确</li>
-<li>在使用强行引用完整数据库的更删时，仅可操作与其他表无关的数据行</li>
-</ul>
-<h3 id="创建和操纵表"><a href="#创建和操纵表" class="headerlink" title="创建和操纵表"></a>创建和操纵表</h3><p>1、创建：CREATE TABLE语句</p>
-<ul>
-<li>需给出信息：无冲突表名 列名及定义</li>
-<li>NULL、NOT NULL：允许 / 阻止插入没有值的列<ul>
-<li>空串‘ ’视为一有效值</li>
-</ul>
-</li>
-<li>主键可在创建时或创建后定义</li>
-<li>AUTO_INCREMENT：自动增量<ul>
-<li>每表仅一个列允许，以作为主键值</li>
-</ul>
-</li>
-<li>DEFAULT 数值：指定默认值<ul>
-<li>仅可为常量，mysql不支持函数</li>
-</ul>
-</li>
-<li>ENGINE=InnoDB（MyISAM，etc.）：指定所用引擎<ul>
-<li>外键不可跨引擎调取</li>
-</ul>
-</li>
-</ul>
-<p>2、更新表：ALTER TABLE</p>
-<ul>
-<li>常用于定义外键</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE orderitems</span><br><span class="line">ADD CONSTRAINT fk_orderitems_order</span><br><span class="line">FOREIGN KEY (order_num) REFERENCES orders (order_num);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>更改表步骤<ul>
-<li>用新布局创建新表</li>
-<li>INSERT SELECT 复制数据</li>
-<li>检验新表，重命名或删除旧表，命名新表</li>
-<li>重新创建触发器、索引等</li>
-</ul>
-</li>
-</ul>
-<p>3、删除表：DROP TABLE</p>
-<p>4、重命名表：RENAME TABLE</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RENAME TABLE table1 TO table2</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&gt;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">&gt;</a>
   </nav>
 
 
@@ -3456,7 +2899,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3467,7 +2910,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -3478,7 +2921,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
