@@ -2193,8 +2193,7 @@
 <figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">grad(<span class="number">1</span>) = sum((sigmoid(X * theta) - y) .* X(:, <span class="number">1</span>)) / m;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">2</span> : <span class="built_in">size</span>(theta)</span><br><span class="line">    grad(<span class="built_in">j</span>) = sum((sigmoid(X * theta) - y) .* X(:, <span class="built_in">j</span>)) / m + (lambda / m) * theta(<span class="built_in">j</span>);</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>笔记</category>
-        <category>课程</category>
+        <category>题解</category>
         <category>机器学习</category>
       </categories>
       <tags>
@@ -2236,8 +2235,7 @@
 
 ]]></content>
       <categories>
-        <category>笔记</category>
-        <category>课程</category>
+        <category>题解</category>
         <category>机器学习</category>
       </categories>
       <tags>
@@ -2312,8 +2310,7 @@
 
 ]]></content>
       <categories>
-        <category>笔记</category>
-        <category>课程</category>
+        <category>题解</category>
         <category>机器学习</category>
       </categories>
       <tags>
@@ -2351,8 +2348,7 @@
 
 ]]></content>
       <categories>
-        <category>笔记</category>
-        <category>课程</category>
+        <category>题解</category>
         <category>机器学习</category>
       </categories>
       <tags>
@@ -2378,8 +2374,7 @@
 
 ]]></content>
       <categories>
-        <category>笔记</category>
-        <category>课程</category>
+        <category>题解</category>
         <category>机器学习</category>
       </categories>
       <tags>
@@ -2418,8 +2413,7 @@
 
 ]]></content>
       <categories>
-        <category>笔记</category>
-        <category>课程</category>
+        <category>题解</category>
         <category>机器学习</category>
       </categories>
       <tags>
@@ -2709,6 +2703,91 @@
       </categories>
       <tags>
         <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode题解——简单题篇（1）</title>
+    <url>/2021/09/04/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%881%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a><a href="https://leetcode-cn.com/problems/two-sum/">1. 两数之和</a></h2><ul>
+<li>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。<ul>
+<li>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</li>
+<li>你可以按任意顺序返回答案。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>1.嵌套循环暴力求解，算法复杂度为O(n^2)<br>2.使用Hashmap，算法复杂度为O(n)</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
+<li>解法一</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> num1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            num1 = nums[i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; nums.length; j++)&#123;</span><br><span class="line">                num2 = nums[j];</span><br><span class="line">                <span class="keyword">if</span>(num1+ num2 == target)&#123;</span><br><span class="line">                    result[<span class="number">0</span>] = i;</span><br><span class="line">                    result[<span class="number">1</span>] = j;</span><br><span class="line">                &#125;     </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解法二</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = target - nums[i];</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(temp))&#123;</span><br><span class="line">                res[<span class="number">0</span>] = map.get(temp);</span><br><span class="line">                res[<span class="number">1</span>] = i;</span><br><span class="line">            &#125; <span class="keyword">else</span></span><br><span class="line">                map.put(nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/two-sum/solution/1liang-shu-zhi-he-by-hyperspace-fszg/">https://leetcode-cn.com/problems/two-sum/solution/1liang-shu-zhi-he-by-hyperspace-fszg/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h2 id="7-整数反转"><a href="#7-整数反转" class="headerlink" title="7. 整数反转"></a><a href="https://leetcode-cn.com/problems/reverse-integer/">7. 整数反转</a></h2><ul>
+<li>给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。<ul>
+<li>如果反转后整数超过 32 位的有符号整数的范围 [−231,  231 − 1] ，就返回 0。</li>
+<li>假设环境不允许存储 64 位整数（有符号或无符号）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><p>主要难点在于数据类型范围，考虑先处理正负，再在同个循环内部同时完成取当前位值和累加反转值操作，最后处理结果</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span>)&#123;</span><br><span class="line">            flag = <span class="keyword">true</span>;</span><br><span class="line">            x = -x;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; (Integer.MAX_VALUE - x % <span class="number">10</span>) / <span class="number">10</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            sum = sum * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> flag ? -sum : sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/">https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+]]></content>
+      <categories>
+        <category>题解</category>
+        <category>LeetCode</category>
+        <category>题库</category>
+        <category>简单题</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode题解——简单题篇（2）</title>
+    <url>/2021/09/08/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%882%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="9-回文数"><a href="#9-回文数" class="headerlink" title="9. 回文数"></a><a href="https://leetcode-cn.com/problems/palindrome-number/">9. 回文数</a></h2><ul>
+<li>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<ul>
+<li>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>借鉴第七题<a href="https://leetcode-cn.com/problems/reverse-integer/">7. 整数反转</a>思想，取反后比较两数是否相同</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = x;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(temp &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            sum = sum * <span class="number">10</span> + temp % <span class="number">10</span>;</span><br><span class="line">            temp /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> sum == x ? <span class="keyword">true</span> : <span class="keyword">false</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/palindrome-number/solution/9tong-wen-shu-by-hyperspace-gnuo/">https://leetcode-cn.com/problems/palindrome-number/solution/9tong-wen-shu-by-hyperspace-gnuo/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h2 id="13-罗马数字转整数"><a href="#13-罗马数字转整数" class="headerlink" title="13. 罗马数字转整数"></a><a href="https://leetcode-cn.com/problems/roman-to-integer/">13. 罗马数字转整数</a></h2><ul>
+<li>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。<ul>
+<li>I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。</li>
+<li>X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 </li>
+<li>C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><ul>
+<li>一开始想法很复杂，考虑前后位置上的减法</li>
+<li>后来借鉴思路是抓核心问题，对于第一个字符对应的数值，依次向后找，遇到比它还大的则减去，否则累加和。最后再处理最后一位上的加和，得到结果。</li>
+<li>值得多斟酌，单个for循环，算法复杂度为O(n)</li>
+</ul>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num_former = transform(s.charAt(<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> num_latter = transform(s.charAt(i));</span><br><span class="line">            <span class="keyword">if</span>(num_former &lt; num_latter)</span><br><span class="line">                sum -= num_former;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                sum += num_former;</span><br><span class="line">            num_former = num_latter;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum+num_former;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">transform</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span>(c)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;I&#x27;</span>: <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;V&#x27;</span>: <span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;X&#x27;</span>: <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;L&#x27;</span>: <span class="keyword">return</span> <span class="number">50</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;C&#x27;</span>: <span class="keyword">return</span> <span class="number">100</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;D&#x27;</span>: <span class="keyword">return</span> <span class="number">500</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;M&#x27;</span>: <span class="keyword">return</span> <span class="number">1000</span>;</span><br><span class="line">            <span class="keyword">default</span>: <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/roman-to-integer/solution/13luo-ma-shu-zi-zhuan-zheng-shu-by-hyper-9kae/">https://leetcode-cn.com/problems/roman-to-integer/solution/13luo-ma-shu-zi-zhuan-zheng-shu-by-hyper-9kae/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+]]></content>
+      <categories>
+        <category>题解</category>
+        <category>LeetCode</category>
+        <category>题库</category>
+        <category>简单题</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
 </search>

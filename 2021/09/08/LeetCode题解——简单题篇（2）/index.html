@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java,算法," />
 
 
 
@@ -83,14 +83,18 @@
 
 
 
-<meta name="description" content="blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hyperの个人博客">
-<meta property="og:url" content="https://hyper18.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+<meta name="description" content="9. 回文数 给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。 回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。    解题思路借鉴第七题7. 整数反转思想，取反后比较两数是否相同 代码123456789101112class Solution &amp;#123;    public boolean isPa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode题解——简单题篇（2）">
+<meta property="og:url" content="https://hyper18.github.io/2021/09/08/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%882%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hyperの个人博客">
-<meta property="og:description" content="blog">
+<meta property="og:description" content="9. 回文数 给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。 回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。    解题思路借鉴第七题7. 整数反转思想，取反后比较两数是否相同 代码123456789101112class Solution &amp;#123;    public boolean isPa">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-09-08T08:40:41.000Z">
+<meta property="article:modified_time" content="2021-11-07T08:53:58.650Z">
 <meta property="article:author" content="Hyper18">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
 
@@ -121,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://hyper18.github.io/tags/数据库/"/>
+  <link rel="canonical" href="https://hyper18.github.io/2021/09/08/LeetCode题解——简单题篇（2）/"/>
 
 
 
 
 
-  <title>标签: 数据库 | Hyperの个人博客</title>
+  <title>LeetCode题解——简单题篇（2） | Hyperの个人博客</title>
   
 
 
@@ -146,7 +150,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
     
       <a target="_blank" rel="noopener" href="https://github.com/Hyper18" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -285,138 +289,278 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>数据库<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/09/08/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%882%EF%BC%89/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/08/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%AB%98%E7%BA%A7%E7%AF%87/" itemprop="url">
-              
-                <span itemprop="name">数据库操作（四）—— 高级篇</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">LeetCode题解——简单题篇（2）</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-08-06T20:39:34+08:00"
-              content="2020-08-06" >
-          08-06
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-08T16:40:41+08:00">
+                2021-09-08
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index">
+                    <span itemprop="name">题解</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/LeetCode/%E9%A2%98%E5%BA%93/" itemprop="url" rel="index">
+                    <span itemprop="name">题库</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/LeetCode/%E9%A2%98%E5%BA%93/%E7%AE%80%E5%8D%95%E9%A2%98/" itemprop="url" rel="index">
+                    <span itemprop="name">简单题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/09/08/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%882%EF%BC%89/" class="leancloud_visitors" data-flag-title="LeetCode题解——简单题篇（2）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  546
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A0%B8%E5%BF%83%E7%AF%87/" itemprop="url">
-              
-                <span itemprop="name">数据库操作（三）—— 核心篇</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-08-04T20:39:31+08:00"
-              content="2020-08-04" >
-          08-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
+        <h2 id="9-回文数"><a href="#9-回文数" class="headerlink" title="9. 回文数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindrome-number/">9. 回文数</a></h2><ul>
+<li>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<ul>
+<li>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>借鉴第七题<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-integer/">7. 整数反转</a>思想，取反后比较两数是否相同</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = x;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(temp &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            sum = sum * <span class="number">10</span> + temp % <span class="number">10</span>;</span><br><span class="line">            temp /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> sum == x ? <span class="keyword">true</span> : <span class="keyword">false</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<p>作者：hyperspace<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindrome-number/solution/9tong-wen-shu-by-hyperspace-gnuo/">https://leetcode-cn.com/problems/palindrome-number/solution/9tong-wen-shu-by-hyperspace-gnuo/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h2 id="13-罗马数字转整数"><a href="#13-罗马数字转整数" class="headerlink" title="13. 罗马数字转整数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/roman-to-integer/">13. 罗马数字转整数</a></h2><ul>
+<li>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。<ul>
+<li>I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。</li>
+<li>X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 </li>
+<li>C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><ul>
+<li>一开始想法很复杂，考虑前后位置上的减法</li>
+<li>后来借鉴思路是抓核心问题，对于第一个字符对应的数值，依次向后找，遇到比它还大的则减去，否则累加和。最后再处理最后一位上的加和，得到结果。</li>
+<li>值得多斟酌，单个for循环，算法复杂度为O(n)</li>
+</ul>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num_former = transform(s.charAt(<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> num_latter = transform(s.charAt(i));</span><br><span class="line">            <span class="keyword">if</span>(num_former &lt; num_latter)</span><br><span class="line">                sum -= num_former;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                sum += num_former;</span><br><span class="line">            num_former = num_latter;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum+num_former;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">transform</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span>(c)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;I&#x27;</span>: <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;V&#x27;</span>: <span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;X&#x27;</span>: <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;L&#x27;</span>: <span class="keyword">return</span> <span class="number">50</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;C&#x27;</span>: <span class="keyword">return</span> <span class="number">100</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;D&#x27;</span>: <span class="keyword">return</span> <span class="number">500</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;M&#x27;</span>: <span class="keyword">return</span> <span class="number">1000</span>;</span><br><span class="line">            <span class="keyword">default</span>: <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/" itemprop="url">
-              
-                <span itemprop="name">数据库操作（二）—— 进阶篇</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-08-02T20:39:28+08:00"
-              content="2020-08-02" >
-          08-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/07/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%9F%BA%E7%A1%80%E7%AF%87/" itemprop="url">
-              
-                <span itemprop="name">数据库操作（一）—— 基础篇</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-07-28T20:32:41+08:00"
-              content="2020-07-28" >
-          07-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+<p>作者：hyperspace<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/roman-to-integer/solution/13luo-ma-shu-zi-zhuan-zheng-shu-by-hyper-9kae/">https://leetcode-cn.com/problems/roman-to-integer/solution/13luo-ma-shu-zi-zhuan-zheng-shu-by-hyper-9kae/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/09/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%8E%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="next" title="机器学习题解（一）—— 线性回归与逻辑回归">
+                <i class="fa fa-chevron-left"></i> 机器学习题解（一）—— 线性回归与逻辑回归
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="prev" title="机器学习题解（二）—— 神经网络">
+                机器学习题解（二）—— 神经网络 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -424,6 +568,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -444,8 +592,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -544,6 +701,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E5%9B%9E%E6%96%87%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">9. 回文数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">13. 罗马数字转整数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-1"><span class="nav-number">2.1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">2.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -693,6 +866,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
