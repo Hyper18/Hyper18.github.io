@@ -1296,76 +1296,6 @@
       </tags>
   </entry>
   <entry>
-    <title>分题型基础补全计划（一）</title>
-    <url>/2021/11/04/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20HTML%E3%80%81CSS/</url>
-    <content><![CDATA[<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><h4 id="URL样式"><a href="#URL样式" class="headerlink" title="URL样式"></a>URL样式</h4><p>题型：使用<a href="http://localhost:8080/web01/test.jsp?user=admin&amp;password=admin">http://localhost:8080/web01/test.jsp?user=admin&amp;password=admin</a> 进行访问WEB应用时候，下列说法哪个是错误的：( )</p>
-<ul>
-<li>A. 表示访问的web应用的主机名是localhost，服务端口是8080端口</li>
-<li>B. URL地址中包含了两个参数user与password</li>
-<li>C. 使用HTTP协议进行访问</li>
-<li>D. 使用POST请求方法</li>
-</ul>
-<p><em>我的答案:</em> D</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scheme://login:password@address:port/path_to_resource?query_string#fragment</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8090/api/query?id=3</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Post方法：发送给服务器端的数据保存在信息的body中</li>
-</ul>
-<h4 id="HTTP报文头"><a href="#HTTP报文头" class="headerlink" title="HTTP报文头"></a>HTTP报文头</h4><p>题型：(单选题)在HTTP请求报文中，发送给服务器的消息主体的媒体类型保存在（ ）中。</p>
-<ul>
-<li>A. Accept</li>
-<li>B. Accept-Language</li>
-<li>C. User-Agent</li>
-<li>D. Content-Type</li>
-</ul>
-<p><em>我的答案:</em> D</p>
-<p>Http报头分为：通用报头 请求报头 响应报头 实体报头</p>
-<ul>
-<li><p>Accept属于请求头，代表发送端（客户端）希望接受的数据类型</p>
-</li>
-<li><p>Content-Type属于实体头，代表发送端（客户端|服务器）发送的实体数据的数据类型</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Accept:text/xml；</span><br><span class="line">Content-Type:text/html</span><br></pre></td></tr></table></figure>
-
-<h4 id="背景颜色与背景图像"><a href="#背景颜色与背景图像" class="headerlink" title="背景颜色与背景图像"></a>背景颜色与背景图像</h4><p>题型1：在下列的 HTML 中，哪个可以添加背景颜色？ </p>
-<ul>
-<li>A &lt;body color=”yellow”&gt;</li>
-<li>B &lt;background&gt;yellow&lt;/background&gt;</li>
-<li>C &lt;body bgcolor=”yellow”&gt;</li>
-<li>D &lt;body background=”yellow”&gt;</li>
-</ul>
-<p><em>我的答案:</em> C</p>
-<h5 id="设置背景颜色"><a href="#设置背景颜色" class="headerlink" title="设置背景颜色"></a>设置背景颜色</h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">bgcolor</span>=<span class="string">&quot;sample-color&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>题型2：在下列的 HTML 中，哪个可以插入背景图像？</p>
-<ul>
-<li>A &lt;body background=”background.gif”&gt;</li>
-<li>B &lt;background img=”background.gif”&gt;</li>
-<li>C &lt;img src=”background.gif” background&gt;</li>
-<li>D &lt;img src=”background.gif” body&gt;</li>
-</ul>
-<p><em>我的答案:</em> A</p>
-<h5 id="设置背景图像"><a href="#设置背景图像" class="headerlink" title="设置背景图像"></a>设置背景图像</h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">background</span>=<span class="string">&quot;sample.png&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>课程</category>
-        <category>Java</category>
-        <category>JavaWeb</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java面向对象（四）</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
     <content><![CDATA[<h2 id="第四章-控制执行流程"><a href="#第四章-控制执行流程" class="headerlink" title="第四章 控制执行流程"></a>第四章 控制执行流程</h2><p>1、foreach（SE5+）</p>
@@ -2495,6 +2425,290 @@
       <tags>
         <tag>机器学习</tag>
         <tag>SVM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分题型基础补全计划（一）—— HTML篇</title>
+    <url>/2021/11/04/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20HTML%E7%AF%87/</url>
+    <content><![CDATA[<h4 id="URL样式"><a href="#URL样式" class="headerlink" title="URL样式"></a>URL样式</h4><p>题型：使用<code>http://localhost:8080/web01/test.jsp?user=admin&amp;password=admin</code> 进行访问WEB应用时候，下列说法哪个是错误的：( )</p>
+<ul>
+<li>A. 表示访问的web应用的主机名是localhost，服务端口是8080端口</li>
+<li>B. URL地址中包含了两个参数user与password</li>
+<li>C. 使用HTTP协议进行访问</li>
+<li>D. 使用POST请求方法</li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如："><a href="#Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如：" class="headerlink" title="Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如："></a>Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如：</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scheme://login:password@address:port/path_to_resource?query_string#fragment</span><br></pre></td></tr></table></figure>
+
+<h5 id="Post方法：发送给服务器端的数据保存在信息的body中"><a href="#Post方法：发送给服务器端的数据保存在信息的body中" class="headerlink" title="Post方法：发送给服务器端的数据保存在信息的body中"></a>Post方法：发送给服务器端的数据保存在信息的body中</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8090/api/query?id=3</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="HTTP报文头"><a href="#HTTP报文头" class="headerlink" title="HTTP报文头"></a>HTTP报文头</h4><p>题型：(单选题)在HTTP请求报文中，发送给服务器的消息主体的媒体类型保存在（ ）中。</p>
+<ul>
+<li>A. Accept</li>
+<li>B. Accept-Language</li>
+<li>C. User-Agent</li>
+<li>D. Content-Type</li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="Http报头分为：通用报头-请求报头-响应报头-实体报头"><a href="#Http报头分为：通用报头-请求报头-响应报头-实体报头" class="headerlink" title="Http报头分为：通用报头 请求报头 响应报头 实体报头"></a>Http报头分为：通用报头 请求报头 响应报头 实体报头</h5><ul>
+<li><p>Accept属于请求头，代表发送端（客户端）希望接受的数据类型</p>
+</li>
+<li><p>Content-Type属于实体头，代表发送端（客户端|服务器）发送的实体数据的数据类型</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Accept:text/xml；</span><br><span class="line">Content-Type:text/html</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="背景颜色与背景图像（body）"><a href="#背景颜色与背景图像（body）" class="headerlink" title="背景颜色与背景图像（body）"></a>背景颜色与背景图像<strong>（body）</strong></h4><p>题型1：在下列的 HTML 中，哪个可以添加背景颜色？ </p>
+<ul>
+<li>A <code>&lt;body color=&quot;yellow&quot;&gt;</code></li>
+<li>B <code>&lt;background&gt;yellow&lt;/background&gt;</code></li>
+<li>C <code>&lt;body bgcolor=&quot;yellow&quot;&gt;</code></li>
+<li>D <code>&lt;body background=&quot;yellow&quot;&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="设置背景颜色"><a href="#设置背景颜色" class="headerlink" title="设置背景颜色"></a>设置背景颜色</h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">bgcolor</span>=<span class="string">&quot;sample_color&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>题型2：在下列的 HTML 中，哪个可以插入背景图像？</p>
+<ul>
+<li>A <code>&lt;body background=&quot;background.gif&quot;&gt;</code></li>
+<li>B <code>&lt;background img=&quot;background.gif&quot;&gt;</code></li>
+<li>C <code>&lt;img src=&quot;background.gif&quot; background&gt;</code></li>
+<li>D <code>&lt;img src=&quot;background.gif&quot; body&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> A</p>
+<h5 id="设置背景图像"><a href="#设置背景图像" class="headerlink" title="设置背景图像"></a>设置背景图像</h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">background</span>=<span class="string">&quot;sample.png&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="超链接的使用（a）"><a href="#超链接的使用（a）" class="headerlink" title="超链接的使用（a）"></a>超链接的使用<strong>（a）</strong></h4><p>题型1：如何制作电子邮件链接？</p>
+<ul>
+<li>A <code>&lt;a href=&quot;xxx@yyy&quot;&gt;</code></li>
+<li>B <code>&lt;mail href=&quot;xxx@yyy&quot;&gt;</code></li>
+<li>C <code>&lt;a href=&quot;mailto:xxx@yyy&quot;&gt;</code></li>
+<li>D <code>&lt;mail&gt;xxx@yyy&lt;/mail&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="使用超链接制作电子邮件链接"><a href="#使用超链接制作电子邮件链接" class="headerlink" title="使用超链接制作电子邮件链接"></a>使用超链接制作电子邮件链接</h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:sample@qq.com&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>题型2：如何在新窗口打开链接？</p>
+<ul>
+<li>A <code>&lt;a href=&quot;url&quot; new&gt;</code></li>
+<li>B <code>&lt;a href=&quot;url&quot; target=&quot; _blank&quot; &gt;</code></li>
+<li>C <code>&lt;a href=&quot;url&quot; target=&quot;new&quot;&gt;</code></li>
+<li>D <code>&lt;a href=&quot;url&quot; &gt;</code></li>
+</ul>
+<p><em>我的答案:</em> B</p>
+<h5 id="在新窗口打开链接"><a href="#在新窗口打开链接" class="headerlink" title="在新窗口打开链接"></a>在新窗口打开链接</h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;sample-url&quot;</span> <span class="attr">target</span>=<span class="string">&quot; _blank&quot;</span> &gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>题型3：要将页面的当前位置定义成名为”vbpos”和锚，其定义方法正确的是</p>
+<ul>
+<li>A <code>&lt;a href=:vbpos&quot;&gt;&lt;/a&gt;</code></li>
+<li>B <code>&lt;a href=&quot;#vbpos&quot;&gt;vbpos&lt;/a&gt;</code></li>
+<li>C <code>&lt;a name=vbpos&gt;</code></li>
+<li>D <code>&lt;a name=&quot;vbpos&quot;&gt;&lt;/a&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="name参数：用于指定锚（anchor）的名称"><a href="#name参数：用于指定锚（anchor）的名称" class="headerlink" title="*name参数：用于指定锚（anchor）的名称"></a>*name参数：用于指定锚（anchor）的名称</h5><ul>
+<li>注：在HTML5中，其效果等同于id；为了与之前版本网页页面的兼容性，此参数保留了下来；可以把 id 属性视作是 name 属性的升级版本</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#C1&quot;</span>&gt;</span>第一章<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#C2&quot;</span>&gt;</span>第二章<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">&quot;#C3&quot;</span>&gt;</span>第三章<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">&quot;#C4&quot;</span>&gt;</span>第四章<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>呈现效果：</p>
+<p><a href="#C1">第一章</a><br><a href="#C2">第二章</a><br><a id="#C3">第三章</a><br><a id="#C4">第四章</a></p>
+<h4 id="列表标签的使用"><a href="#列表标签的使用" class="headerlink" title="列表标签的使用"></a>列表标签的使用</h4><p>题型1：如何产生带有数字列表符号的列表？</p>
+<ul>
+<li>A <code>&lt;ul&gt;</code></li>
+<li>B <code>&lt;dl&gt;</code></li>
+<li>C <code>&lt;ol&gt;</code></li>
+<li>D <code>&lt;list&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="有序列表（ol-li）"><a href="#有序列表（ol-li）" class="headerlink" title="有序列表（ol-li）"></a>有序列表<strong>（ol-li）</strong></h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 呈现：</span></span><br><span class="line"><span class="comment">	1. sample_line1</span></span><br><span class="line"><span class="comment">    2. sample_line2</span></span><br><span class="line"><span class="comment">    3. sample_line3 </span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>type参数：1、a、A、i、I(罗马数字)，表示列表前缀的格式</li>
+<li>start参数：属性值位数字，表示从type类型的第几个数字开始</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">&quot;A&quot;</span> <span class="attr">start</span>=<span class="string">&quot;3&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 呈现：</span></span><br><span class="line"><span class="comment">	C. sample_line1</span></span><br><span class="line"><span class="comment">    D. sample_line2</span></span><br><span class="line"><span class="comment">    E. sample_line3 </span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>题型2：如何产生带有圆点列表符号的列表？</p>
+<ul>
+<li>A <code>&lt;dl&gt;</code></li>
+<li>B <code>&lt;list&gt;</code></li>
+<li>C <code>&lt;ol&gt;</code></li>
+<li>D <code>&lt;ul&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="无序列表（ul-li）"><a href="#无序列表（ul-li）" class="headerlink" title="无序列表（ul-li）"></a>无序列表<strong>（ul-li）</strong></h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 呈现效果：</span></span><br><span class="line"><span class="comment">	· sample_line1</span></span><br><span class="line"><span class="comment">    · sample_line2</span></span><br><span class="line"><span class="comment">    · sample_line3 </span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>type参数：属性值有disc（实心圆默认）、circle（空心圆）、square（实心正方形）、none（取消前缀）</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">type</span>=<span class="string">&quot;none&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 呈现效果：</span></span><br><span class="line"><span class="comment">	sample_line1</span></span><br><span class="line"><span class="comment">    sample_line2</span></span><br><span class="line"><span class="comment">    sample_line3 </span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="自定义列表-（dl-dt-dd）"><a href="#自定义列表-（dl-dt-dd）" class="headerlink" title="自定义列表*（dl-dt-dd）"></a><em>自定义列表*<em>（dl-dt-dd）</em></em></h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>~哇咔咔，我是可有可无的标题~<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>一级boss1<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>二级喽喽1-1<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>二级喽喽1-2<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>一级boss2<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>二级喽喽2-1<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>二级喽喽2-2<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>呈现效果：</p>
+<h4>~哇咔咔，我是可有可无的标题~</h4>
+<dl>
+    <dt>一级boss1</dt>
+        <dd>二级喽喽1-1</dd>
+        <dd>二级喽喽1-2</dd>
+    <dt>一级boss2</dt>
+        <dd>二级喽喽2-1</dd>
+        <dd>二级喽喽2-2</dd>
+</dl>
+
+
+<ul>
+<li>需要注意，在自定义列表中，dt与dd在呈现效果上有一个缩进（tab）的效果。其余两种类型的列表，需要使用<code>&lt;list&gt;</code>嵌套完成。</li>
+<li>区别简析：自定义列表相比之下，<strong>有缩进、无前缀</strong></li>
+</ul>
+<h4 id="文本区与字体标签的使用"><a href="#文本区与字体标签的使用" class="headerlink" title="文本区与字体标签的使用"></a>文本区与字体标签的使用</h4><p>题型1：在下列的 HTML 中，哪个可以产生文本区（textarea）</p>
+<ul>
+<li>A <code>&lt;textarea&gt;</code></li>
+<li>B <code>&lt;input type=&quot;textarea&quot;&gt;</code></li>
+<li>C <code>&lt;input type=&quot;textbox&quot;&gt;</code></li>
+<li>D <code>&lt;input type=&quot;text&quot;&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> A</p>
+<h5 id="文本区-（textarea）"><a href="#文本区-（textarea）" class="headerlink" title="文本区 （textarea）"></a>文本区 <strong>（textarea）</strong></h5><ul>
+<li>用于定义多行输入</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">&quot;2&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;25&quot;</span>&gt;</span></span><br><span class="line">在Hyperの个人博客，交流技术、分享生活。</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>呈现效果：</p>
+<textarea rows="2" cols="25">
+在Hyperの个人博客，交流技术、分享生活。
+</textarea>
+
+<p>题型2：若要以加粗宋体、12号字显示“vbscript”以下用法中，正确的是</p>
+<ul>
+<li>A <code>&lt;b&gt;&lt;font size=12&gt;vbscript&lt;/b&gt;&lt;/font&gt;</code></li>
+<li>B <code>&lt;b&gt;&lt;font face=&quot;宋体&quot; size=12&gt;vbscript&lt;/font&gt;&lt;/b&gt;</code></li>
+<li>C <code>&lt;b&gt;&lt;font size=“宋体”size=12&gt;vbscript&lt;/b&gt;&lt;/font&gt;</code></li>
+<li>D <code>&lt;b&gt;&lt;font size=&quot;宋体&quot; fontsize=12&gt;vbscript&lt;/b&gt;&lt;/font&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> B</p>
+<h5 id="字体标签（font）"><a href="#字体标签（font）" class="headerlink" title="字体标签（font）"></a>字体标签<strong>（font）</strong></h5><ul>
+<li>规定采用字体的类型、大小、颜色等<ul>
+<li>face参数：采用什么字体</li>
+<li>color参数</li>
+<li>size参数：指定大小（默认<strong>3</strong>），注意只能为<strong>1~7</strong>中的整数值</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">&quot;verdana&quot;</span> <span class="attr">color</span>=<span class="string">&quot;red&quot;</span> <span class="attr">size</span>=<span class="string">4</span>&gt;</span>sample text<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>呈现效果：</p>
+<p><font face="verdana" color="red" size=4>sample text</font></p>
+<h4 id="表格与表单的使用"><a href="#表格与表单的使用" class="headerlink" title="表格与表单的使用"></a>表格与表单的使用</h4><p>题型1：要使表格的边框不显示，应设置border的值是</p>
+<ul>
+<li>A 1</li>
+<li>B 0</li>
+<li>C 2</li>
+<li>D -1</li>
+</ul>
+<p><em>我的答案:</em> B</p>
+<h5 id="表格标签（table）"><a href="#表格标签（table）" class="headerlink" title="表格标签（table）"></a>表格标签<strong>（table）</strong></h5><ul>
+<li>border参数：规定围绕表格的边框的宽度</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;3&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>Level1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>Level2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>小boss<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>大boss<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>呈现效果：</p>
+<table border="3">
+  <tr>
+    <th>Level1</th>
+    <th>Level2</th>
+  </tr>
+  <tr>
+    <td>小boss</td>
+    <td>大boss</td>
+  </tr>
+</table>
+
+<p>题型2：如果要表单提交信息不以附件的形式发送，只要将表单的“MTME类型”设置为</p>
+<ul>
+<li>A text/plain</li>
+<li>B password  </li>
+<li>C submit  </li>
+<li>D button</li>
+</ul>
+<p><em>我的答案:</em> A，本题中<strong>MTME类型</strong>意义不明（没有查到具体是什么定义），暂且认为指的是传输的数据格式</p>
+<h5 id="表单标签（form）"><a href="#表单标签（form）" class="headerlink" title="表单标签（form）"></a>表单标签<strong>（form）</strong></h5><ul>
+<li>表单标签用于收集用户输入<ul>
+<li>input参数：text（纯文本） radio（单选按钮输入） submit（提交按钮）</li>
+<li>action参数：定义在提交表单时执行的动作，一般为提交目标网页</li>
+<li>method参数：post或get</li>
+<li>name参数：为输入字段设置名称</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;sample_action_page.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;GET&quot;</span>&gt;</span></span><br><span class="line"> First name:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;firstname&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"> Last name:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;lastname&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;male&quot;</span> <span class="attr">checked</span>&gt;</span>Male</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;female&quot;</span>&gt;</span>Female</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<p>呈现效果：</p>
+<form action="sample_action_page.php" method="GET">
+ First name:<br>
+<input type="text" name="firstname">
+<br>
+ Last name:<br>
+<input type="text" name="lastname">
+<br>
+<input type="radio" name="sex" value="male" checked>Male
+<br>
+<input type="radio" name="sex" value="female">Female
+<br>
+<input type="submit" value="Submit">
+</form> 
+
+
+
+<h4 id="内嵌标签与隐藏域的使用"><a href="#内嵌标签与隐藏域的使用" class="headerlink" title="内嵌标签与隐藏域的使用"></a>内嵌标签与隐藏域的使用</h4><p>题型1：在网页中若要播放名为demo.avi的动画，以下用法中，正确的是</p>
+<ul>
+<li>A <code>&lt;Embed src=&quot;demo.avi&quot; autostart=true&gt;</code></li>
+<li>B <code>&lt;Embed src=&quot;demo.avi&quot; autoopen=true&gt;</code></li>
+<li>C <code>&lt;Embed src=&quot;demo.avi&quot; autoopen=true&gt;&lt;/Embed&gt;</code></li>
+<li>D <code>&lt;Embed src=&quot;demo.avi&quot; autostart=true&gt;&lt;/Embed&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> A</p>
+<h5 id="内嵌标签（embed）"><a href="#内嵌标签（embed）" class="headerlink" title="内嵌标签（embed）"></a>内嵌标签<strong>（embed）</strong></h5><ul>
+<li>定义嵌入的插件，注意没有<code>&lt;/embed&gt;</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">embed</span> <span class="attr">src</span>=<span class="string">&quot;sample_video.mp4&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>题型2：在HTML中，要创建一个隐藏域，则应设置<code>&lt;input&gt;</code>标签的type属性为</p>
+<ul>
+<li>A text</li>
+<li>B div</li>
+<li>C hidden</li>
+<li>D adio</li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="隐藏域"><a href="#隐藏域" class="headerlink" title="隐藏域"></a>隐藏域</h5><ul>
+<li>对用户不可见，其目的主要有：收集或发送信息、确认用户身份（sessionkey）、在表单具有多个提交按钮时，使用隐藏域予以区分、多表单虽不能同时提交，但可利用隐藏域将其联系起来、存放全局变量（供js使用）等，可见<a href="https://www.jb51.net/web/100210.html">html中隐藏域hidden的作用介绍及使用示例_HTML/Xhtml_网页制作_脚本之家 (jb51.net)</a></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 基本语法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;field＿name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;value&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 示例 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">hidden</span>&gt;</span>我会隐身哦<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>呈现效果（看不见喔）：</p>
+<!-- 基本语法 -->
+<input type="hidden" name="field＿name" value="value">
+<!-- 示例 -->
+
+<p hidden>我会隐身哦</p>
+
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>课程</category>
+        <category>Java</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
       </tags>
   </entry>
 </search>
