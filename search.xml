@@ -2926,4 +2926,183 @@
         <tag>css</tag>
       </tags>
   </entry>
+  <entry>
+    <title>分题型基础补全计划（三）—— JavaScript篇</title>
+    <url>/2021/11/11/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20JavaScript%E7%AF%87/</url>
+    <content><![CDATA[<h3 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h3><p>​    作为一门一切皆为对象的语言，首先需要搞明白指针this的指向问题。以下为常见的两种指向情况：</p>
+<h5 id="作为构造函数调用"><a href="#作为构造函数调用" class="headerlink" title="作为构造函数调用"></a><strong>作为构造函数调用</strong></h5><p>题型1</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">&quot;123&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> foo = <span class="string">&quot;456&quot;</span>;</span><br><span class="line">  <span class="built_in">this</span>.foo = <span class="string">&quot;789&quot;</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(foo);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print();</span><br></pre></td></tr></table></figure>
+
+<p><em>我的答案:</em> 456</p>
+<ul>
+<li>通过print()函数，可以生成一个新对象。这时，<code>this</code>就指这个新对象，this.foo就作为这个新对象的成员</li>
+</ul>
+<h5 id="纯粹的函数调用"><a href="#纯粹的函数调用" class="headerlink" title="纯粹的函数调用"></a><strong>纯粹的函数调用</strong></h5><p>题型2</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  a = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  alert(a);</span><br><span class="line">  alert(<span class="built_in">this</span>.a);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> a;</span><br><span class="line">  alert(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>我的答案:</em> 弹出0,5,0</p>
+<ul>
+<li>全局性调用，因此<code>this</code>就代表全局对象，this.a则调用全局变量a，故弹出结果为5</li>
+</ul>
+<p>其余详见：<a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html">Javascript 的 this 用法 - 阮一峰的网络日志 (ruanyifeng.com)</a>，讲的很透彻</p>
+<h3 id="鼠标事件与键盘事件"><a href="#鼠标事件与键盘事件" class="headerlink" title="鼠标事件与键盘事件"></a>鼠标事件与键盘事件</h3><p>题型：下列事件哪个不是由鼠标触发的事件（）</p>
+<p>A click</p>
+<p>B contextmenu</p>
+<p>C mouseout</p>
+<p>D keydown</p>
+<p><em>我的答案:</em> D</p>
+<h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1.鼠标点击左键触发</span></span><br><span class="line">onclick</span><br><span class="line"><span class="comment">//2.鼠标经过触发</span></span><br><span class="line">onmouseover</span><br><span class="line"><span class="comment">//3.鼠标离开触发</span></span><br><span class="line">onmouseout</span><br><span class="line"><span class="comment">//4.获得鼠标焦点触发</span></span><br><span class="line">onfocus</span><br><span class="line"><span class="comment">//5.失去鼠标触发</span></span><br><span class="line">onblur</span><br><span class="line"><span class="comment">//6.鼠标移动触发</span></span><br><span class="line">onmousemove</span><br><span class="line"><span class="comment">//7.鼠标弹起触发</span></span><br><span class="line">onmouseup</span><br><span class="line"><span class="comment">//8.鼠标按下触发</span></span><br><span class="line">onmousedown</span><br><span class="line"><span class="comment">//9.鼠标经过时触发,但是不会冒泡</span></span><br><span class="line">onmouseenter</span><br><span class="line"><span class="comment">//10.鼠标离开时触发,但是不会冒泡</span></span><br><span class="line">onmouseleave</span><br></pre></td></tr></table></figure>
+
+<h5 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1.返回鼠标相对于浏览器窗口可视区的X坐标</span></span><br><span class="line">e.clientX</span><br><span class="line"><span class="comment">//2.返回鼠标相对于浏览器窗口可视区的Y坐标</span></span><br><span class="line">e.clientY</span><br><span class="line"><span class="comment">//3.返回鼠标相对于文档页面的X坐标</span></span><br><span class="line">e.pageX</span><br><span class="line"><span class="comment">//4.返回鼠标相对于文档页面的Y坐标</span></span><br><span class="line">e.pageY</span><br><span class="line"><span class="comment">//5.返回鼠标相对于屏幕的X坐标</span></span><br><span class="line">e.screenX</span><br><span class="line"><span class="comment">//6.返回鼠标相对于屏幕的Y坐标</span></span><br><span class="line">e.screenY</span><br></pre></td></tr></table></figure>
+
+<h5 id="禁用鼠标事件"><a href="#禁用鼠标事件" class="headerlink" title="*禁用鼠标事件"></a>*禁用鼠标事件</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//禁止鼠标右键菜单</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&#x27;contextmenu&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//禁止鼠标选中</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&#x27;selectstart&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1.某个键盘按键被松开时触发</span></span><br><span class="line">onkeyup</span><br><span class="line"><span class="comment">//2.某个键盘按键被按下时触发</span></span><br><span class="line">onkeydown</span><br><span class="line"><span class="comment">//3.某个键盘被按下时触发,不识别功能键如ctrl、shift etc.</span></span><br><span class="line">onkeypress</span><br></pre></td></tr></table></figure>
+
+<p>注：<code>onkeypress</code>区分大小写，<code>onkeydown</code> 和<code>onkeyup</code> 不区分</p>
+<h3 id="作用域问题"><a href="#作用域问题" class="headerlink" title="作用域问题"></a>作用域问题</h3><p>题型：</p>
+<p><code>&lt;ul&gt; </code></p>
+<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
+<p><code>&lt;li&gt;click me&lt;/li&gt;</code> </p>
+<p><code>&lt;li&gt;click me&lt;/li&gt; </code></p>
+<p><code>&lt;li&gt;click me&lt;/li&gt; </code></p>
+<p><code>&lt;/ul&gt;</code></p>
+<p> 运行如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;li&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> length = elements.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">  elements[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(i);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>依次点击 4 个 li 标签，哪一个选项是正确的运行结果（） </p>
+<p>A 依次弹出 1， 2， 3， 4</p>
+<p>B 依次弹出 0， 1， 2， 3</p>
+<p>C 依次弹出 3， 3， 3， 3</p>
+<p>D 依次弹出 4， 4， 4， 4</p>
+<p><em>我的答案:</em> D</p>
+<ul>
+<li>在《JavaScript高级程序设计》有如下解释<ul>
+<li>这是由于作用域链的这种配置机制引出的一个副作用，即闭包只能取得包含函数中任何变量的最后一个值。<strong>闭包所保存的是整个变量对象</strong>，而不是某个特殊的变量。</li>
+</ul>
+</li>
+<li>回归具体问题，这里alert(i)中绑定的i实际上不是i的值，而是i本身。当循环结束后，因此执行onclick事件、执行alert()时，本身onclick绑定的function的作用域中没有变量i，i为w未定义的(undefined)，则解析引擎会寻找父级作用域，发现父级作用域中有i，则取得的i对应值始终为4。</li>
+</ul>
+<h5 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1、利用块级域</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;                </span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//2、利用自执行函数传参</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"> (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(i);</span><br><span class="line"> &#125;, <span class="number">1000</span>);</span><br><span class="line"> &#125;)(i);        </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3、利用设置延时的第三个参数传递</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(j);</span><br><span class="line"> &#125;, <span class="number">1000</span>, i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//4、利用promise</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">var</span> j = i;</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(j)</span><br><span class="line"> &#125;, <span class="number">1000</span>);</span><br><span class="line"> &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//5、利用async函数</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"> <span class="keyword">let</span> result = <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     resolve(i);</span><br><span class="line">         &#125;, <span class="number">1000</span>); <span class="comment">// 每隔1s打印数字 0 - 9</span></span><br><span class="line"> &#125;);</span><br><span class="line"> <span class="built_in">console</span>.log(result);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="js中的原始类型"><a href="#js中的原始类型" class="headerlink" title="js中的原始类型"></a>js中的原始类型</h3><p>题型：关于javascript的原始类型（primitive type），错误的是 </p>
+<p>A 有5种primitive type，分别是Undefined、Null、Boolean、Number 和 String。</p>
+<p>B var sTemp = “test string”;alert (typeof sTemp);结果为string</p>
+<p>C var oTemp;alert(oTemp == undefined)为true</p>
+<p>D alert(null == undefined);结果为false</p>
+<p><em>我的答案:</em> D</p>
+<h5 id="六大原始类型"><a href="#六大原始类型" class="headerlink" title="六大原始类型"></a>六大原始类型</h5><ul>
+<li>数字类型 number</li>
+<li>字符串类型 string</li>
+<li>布尔类型 boolean</li>
+<li>空值 null</li>
+<li>未定义 undefined</li>
+<li>独一无二类型(ES6新增) symbol：引入以防止属性名的冲突</li>
+</ul>
+<p>注：其他类型均为引用类型（Object）</p>
+<h3 id="最大值的求法"><a href="#最大值的求法" class="headerlink" title="最大值的求法"></a>最大值的求法</h3><p>题型：下面求a中最大值正确的是()</p>
+<p>A Math.max(a)</p>
+<p>B Array.max(a)</p>
+<p>C Math.max.call(null,a)</p>
+<p>D Math.max.apply(null,a)</p>
+<p><em>我的答案:</em> D</p>
+<h5 id="Math-max"><a href="#Math-max" class="headerlink" title="Math.max"></a>Math.max</h5><pre><code> 返回一组数中的最大值
+</code></pre>
+<h5 id="Math-max-apply"><a href="#Math-max-apply" class="headerlink" title="Math.max.apply"></a>Math.max.apply</h5><p>​    返回一个对象（如：数组）中的最大值</p>
+<h3 id="标准事件模型-IE9"><a href="#标准事件模型-IE9" class="headerlink" title="*标准事件模型 IE9+"></a>*标准事件模型 IE9+</h3><p>题型：w3c 制定的 javascript 标准事件模型，以下正确的顺序以及描述是？ </p>
+<p>A 事件捕获&gt;事件冒泡</p>
+<p>B 事件捕获-&gt;事件处理-&gt;事件冒泡</p>
+<p>C 事件冒泡-&gt;事件处理</p>
+<p>D 事件处理-&gt;事件捕获-&gt;事件冒泡</p>
+<p><em>我的答案:</em> B</p>
+<h3 id="异步执行调用"><a href="#异步执行调用" class="headerlink" title="异步执行调用"></a>异步执行调用</h3><p>题型：以下语句的执行结果是什么？</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;one&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;two&quot;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;three&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;four&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><em>我的答案:</em> “one” “three” “four” “two”</p>
+<ul>
+<li>这是由于setTimeout()方法是异步执行的。当调用该方法时，会把函数参数与函数体中的内容放入消息队列，直到当前主程序执行完成后，再予以调用</li>
+</ul>
+<h3 id="浮点数运算问题"><a href="#浮点数运算问题" class="headerlink" title="浮点数运算问题"></a>浮点数运算问题</h3><p>题型：写一个求和的函数 sum，达到下面的效果</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Should equal 15</span></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 0</span></span><br><span class="line">sum(<span class="number">5</span>, <span class="literal">null</span>, -<span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 10</span></span><br><span class="line">sum(<span class="string">&#x27;1.0&#x27;</span>, <span class="literal">false</span>, <span class="number">1</span>, <span class="literal">true</span>, <span class="number">1</span>, <span class="string">&#x27;A&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;B&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;C&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;D&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;E&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;F&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;G&#x27;</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// Should equal 0.3, not 0.30000000000000004</span></span><br><span class="line">sum(<span class="number">0.1</span>, <span class="number">0.2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>我的答案：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> add = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(<span class="keyword">typeof</span> <span class="built_in">arguments</span>[i] == <span class="string">&quot;boolean&quot;</span>)) &#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!<span class="built_in">isNaN</span>(<span class="built_in">arguments</span>[i])) &#123;</span><br><span class="line"></span><br><span class="line">        add += <span class="built_in">Number</span>(<span class="built_in">arguments</span>[i]);</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  alert(<span class="built_in">Math</span>.round(add * <span class="number">10</span>) / <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>为什么1+2≠3？因为js采用的是IEEE754标准处理浮点数，视作双精度数，结果为结果是0.30000000000000004（计组内容）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>课程</category>
+        <category>Java</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis初探之简单动态字符串</title>
+    <url>/2021/11/19/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E7%AE%80%E5%8D%95%E5%8A%A8%E6%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<h3 id="简单动态字符串（simple-dynamic-string，SDS）"><a href="#简单动态字符串（simple-dynamic-string，SDS）" class="headerlink" title="简单动态字符串（simple dynamic string，SDS）"></a>简单动态字符串（simple dynamic string，SDS）</h3><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><ul>
+<li>redis的默认字符表示，作为一个可被修改的字符串值</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">/* data */</span></span><br><span class="line">    <span class="keyword">int</span> len;    <span class="comment">//数组已使用字节数量</span></span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">free</span>;   <span class="comment">//数组未使用字节数量</span></span><br><span class="line">    <span class="keyword">char</span> buf[]; <span class="comment">//字节数组</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>注：buf[]的最后一个字节会用于保存空字符’\0’(C style)</p>
+<h5 id="使用SDS而非C-style字符串的好处"><a href="#使用SDS而非C-style字符串的好处" class="headerlink" title="使用SDS而非C style字符串的好处"></a>使用SDS而非C style字符串的好处</h5><ul>
+<li>获取字符串长度不为性能瓶颈<ul>
+<li>由定义可知，SDS的结构体中已经保存了数组的长度（len），从而只需使用STRLEN()获取值，其对应算法复杂度始终仅为O(1)；C字符串由于没有保存该信息，则需要对数组进行遍历得到长度，其算法复杂度为O(n)</li>
+</ul>
+</li>
+<li>排除了缓冲区溢出的风险<ul>
+<li>对于C字符串而言，缓冲区容易溢出其实是不记录数组长度的衍生问题。如考虑下述场景：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcat</span><span class="params">(<span class="keyword">char</span> *c1, <span class="keyword">const</span> <span class="keyword">char</span> *c2)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>​    strcat()方法会假定系统尚且分配了足够的内存给c1，以容纳c2中的所有内容；而c2数组长度过长且超出内存限制时，就造成了缓冲区的溢出。这可能会给相邻内存的内容带来意外的后果（如：未指定的意外修改，etc.）</p>
+<p>​    而SDS的API会自动对len进行修改和更新；当当前空间不能满足要求时，则会自动扩展当前SDS的空间。对应redis中字符串拼接方法为：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">sdscat(c1, c2);</span><br></pre></td></tr></table></figure>
+
+<h5 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h5><ul>
+<li>作为数据库中字符串值的存储</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">RPUSH fruits <span class="string">&quot;apple&quot;</span> <span class="string">&quot;banana&quot;</span> <span class="string">&quot;cherry&quot;</span></span><br><span class="line"><span class="comment">//output：(integer) 3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>作为缓冲区（buffer）</li>
+</ul>
+<h5 id="空间分配策略"><a href="#空间分配策略" class="headerlink" title="空间分配策略"></a>空间分配策略</h5><p>目的：减少连续执行字符串增长操作所需的内存重分配次数</p>
+<ul>
+<li>策略1：空间预分配<ul>
+<li>当未使用空间足够时，无需进行内存重分配，即没有对字符串进行修改</li>
+<li>若修改后的字符串长度小于1MB，将分配与当前数组已使用长度等长的未使用空间</li>
+<li>若修改后的字符串长度大于1MB，将分配1MB的未使用空间</li>
+</ul>
+</li>
+<li>策略2：惰性空间释放<ul>
+<li>当空间被释放成为空余空间后，并不会立即对其进行回收，而是先由free属性记录下来</li>
+<li>避免了缩短字符串时所需的内存重分配操作，并为将来可能有的增长操作提供了优化</li>
+<li>当有实际空间需要时，会通过对应API真正完成空余空间的释放</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Redis</tag>
+        <tag>中间件</tag>
+      </tags>
+  </entry>
 </search>
