@@ -300,6 +300,462 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%AB%98%E7%BA%A7%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%AB%98%E7%BA%A7%E7%AF%87/" itemprop="url">数据库操作（四）—— 高级篇</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-06T20:39:34+08:00">
+                2020-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">课程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/08/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%AB%98%E7%BA%A7%E7%AF%87/" class="leancloud_visitors" data-flag-title="数据库操作（四）—— 高级篇">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.7k
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="高级操作-第22-30章"><a href="#高级操作-第22-30章" class="headerlink" title="高级操作 第22 - 30章"></a>高级操作 第22 - 30章</h2><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>1、def：虚拟表，仅包含使用时动态检索的一个SQL查询</p>
+<p>2、规则</p>
+<ul>
+<li>必须唯一命名</li>
+<li>需要访问权限</li>
+<li>视图可嵌套</li>
+<li>视图中的ORDER BY语句会被检索中的ORDER BY（如果有）覆盖</li>
+<li>不可添加索引或触发器、默认值，但可与表一同使用</li>
+</ul>
+<p>3、使用</p>
+<ul>
+<li>创建：CREATE VIEW</li>
+<li>查看所创建视图：SHOW CREATE VIEW viewname</li>
+<li>删除视图：DROP VIEW viewname</li>
+<li>过滤视图、简化计算字段</li>
+</ul>
+<p>4、重新格式化检索出的数据</p>
+<p>把多次需要的结果通过转化为视图存放</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW vendorlocations AS</span><br><span class="line">SELECT Concat(RTrim(vend_name),&#x27;(&#x27;, RTrim(vend_country),&#x27;)&#x27;)</span><br><span class="line">		AS vend_title</span><br><span class="line">FROM vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></table></figure>
+
+<p>再次检索出数据：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM vendorlocations;</span><br></pre></td></tr></table></figure>
+
+<p>5、更新视图：CREATE OR REPLACE VIEW</p>
+<ul>
+<li>以下情况视图不可更新：<ul>
+<li>存在GRUOP BY分组</li>
+<li>联结、子查询、并</li>
+<li>聚集函数、DISTINCT</li>
+<li>导出计算列</li>
+</ul>
+</li>
+</ul>
+<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>1、使用原因</p>
+<ul>
+<li>封装处理，简化操作、提高性能</li>
+<li>无需反复建立处理步骤，保证了数据完整性</li>
+<li>简化变动管理 - 安全性</li>
+</ul>
+<p>2、执行存储过程：CALL</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CALL productpricing(@pricelow,</span><br><span class="line">                   @pricehigh,</span><br><span class="line">                   @priceaverage);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>mysql中所有变量名都必须以@开始</li>
+<li>mysql中注释以–开头</li>
+</ul>
+<p>3、创建存储过程：CREATE PROCEDURE </p>
+<p>创建一个新的存储过程，没有返回数据：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE PROCEDURE productpricing()</span><br><span class="line">BEGIN</span><br><span class="line">	SELECT Avg(prod_price) AS priceaverage</span><br><span class="line">	FROM products;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>DELEMITER：指定新的语句分隔符，避免；被mysql命令行实用程序解释为存储过程的成分</li>
+</ul>
+<p>4、删除存储过程：DROP PROCEDURE</p>
+<p>5、使用参数</p>
+<ul>
+<li>存储过程的参数允许的数据类型与表中一致<ul>
+<li>记录集不是允许的类型。记录集：从指定数据库中检索到的数据的集合</li>
+</ul>
+</li>
+<li>创建布尔值：IN 参数名 BOOLEAN</li>
+<li>IF / ELSEIF / ELSE子句</li>
+</ul>
+<p>6、检查存储过程：SHOW CREATE PROCEDURE </p>
+<ul>
+<li>获取详细信息的存储过程列表：SHOW PROCUDURE STATUS</li>
+</ul>
+<h3 id="游标-cursor"><a href="#游标-cursor" class="headerlink" title="游标 cursor"></a>游标 cursor</h3><p>1、使用游标</p>
+<ul>
+<li>必须先声明再打开，结束后关闭</li>
+<li>创建与访问：DECLARE / FETCH</li>
+<li>打开与关闭：OPEN / CLOSE CURSOR</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CREATE PROCEDURE processorders()</span><br><span class="line">BEGIN</span><br><span class="line">	DECLARE ordernumbers CURSOR</span><br><span class="line">	FOR</span><br><span class="line">	SELECT order_num FROM orders</span><br><span class="line">END;</span><br><span class="line"></span><br><span class="line">-- 打开游标</span><br><span class="line">OPEN ordernumbers;</span><br><span class="line">-- 关闭游标</span><br><span class="line">CLOSE ordernumbers;</span><br><span class="line">-- 检索order_num列到一名为o的局部变量中（不处理检索出的数据）</span><br><span class="line">FETCH ordernumbers INTO o;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>UNTIL done END REPEAT：反复执行直到布尔值done为真<ul>
+<li>手动退出：LEAVE</li>
+</ul>
+</li>
+<li>CONTINUE HANDLER：条件出现时才被执行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DECLARE done BOOLEAN DEFAULT 0;</span><br><span class="line">DECLARE CONTINUE HANDLER FOR SQLSTATE ‘02000’ SET done = 1;</span><br></pre></td></tr></table></figure>
+
+<p>说明在SQLSTATE ‘02000’出现时，把done的值从默认值0设置为1</p>
+<p>2、DECLARE的次序</p>
+<ul>
+<li>定义顺序：DECLARE定义的局部变量 - 游标 - 句柄<ul>
+<li>句柄（Handle）：用来标识对象或者项目的标识符</li>
+</ul>
+</li>
+</ul>
+<h3 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h3><p>1、需给出信息：</p>
+<ul>
+<li>最好每个数据库中触发器名称唯一</li>
+<li>关联表</li>
+<li>应响应活动与执行时机</li>
+</ul>
+<p>2、创建：CREATE TRIGGER</p>
+<ul>
+<li>相应以下任意语句：DELETE INSERT UPDATE</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER newproduct AFTER INSERT ON products</span><br><span class="line">FOR EACH ROW SELECT &#x27;Product added&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>仅表可用触发器，视图不行<ul>
+<li>每张表最多支持6个触发器（3种语句*2个时机）</li>
+<li>某时机前触发BEFORE失败：则若有AFTER触发器，默认不执行</li>
+</ul>
+</li>
+</ul>
+<p>3、删除：DROP TRIGGER</p>
+<p>4、使用</p>
+<ul>
+<li>可引用NEW虚拟表，以访问被插入行<ul>
+<li>可在BEFORE INSERT触发器中更新NEW表中的值</li>
+<li>对于AUTO_INCREMENT，INSERT前置0，后为新值</li>
+</ul>
+</li>
+<li>DELETE触发器可引用OLD访问被删除行<ul>
+<li>仅只读，不可再更新</li>
+<li>BEFORE DELETE相对AFTER ~优点：不可存档，DELETE本身将被放弃</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER deleteorder BEFORE DELETE ON orders</span><br><span class="line">FOR EACH ROW </span><br><span class="line">BEGIN</span><br><span class="line">	INSERT INTO archive_orders(order_num, order_date, cust_id);</span><br><span class="line">	VALUES(OLD.order_num, OLD.order_date, OLD.cust_id);</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>UPDATE触发器可用NEW、OLD<ul>
+<li>BEFORE UPDATE触发器中，NEW中可改动的UPDATE值可被更新</li>
+<li>OLD表仅可读，不可更新</li>
+</ul>
+</li>
+<li>触发器是自动执行的，可能需要特殊权限</li>
+<li>不支持在触发器中使用CALL语句</li>
+</ul>
+<p>5、展望</p>
+<ul>
+<li>内容仍较初级，有诸多改进空间</li>
+<li>可用于保证数据一致性、创建审计跟踪</li>
+</ul>
+<h3 id="事务处理-transaction-processing"><a href="#事务处理-transaction-processing" class="headerlink" title="事务处理 transaction processing"></a>事务处理 transaction processing</h3><p>1、一些概念</p>
+<ul>
+<li>事务：一组SQL语句</li>
+<li>回退 rollback：撤销指定语句的过程</li>
+<li>（隐含）提交 commit：（自动）将未存储语句写入表</li>
+<li>保留点 savepoint：设置的临时占位符（placeholder），可回退</li>
+</ul>
+<p>2、使用事务处理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-- 回退</span><br><span class="line">SELECT * FROM ordertotals;</span><br><span class="line">START TRANSACTION;</span><br><span class="line">DELETE FROM ordertotals;</span><br><span class="line">SELECT * FROM ordertotals;</span><br><span class="line">ROLLBACK;</span><br><span class="line">SELECT * FROM ordertotals;</span><br><span class="line"></span><br><span class="line">-- 提交（例中两个DELETE都返回成功才COMMIT）</span><br><span class="line">START TRANSACTION;</span><br><span class="line">DELETE FROM orderitems WHERE order_num = 20010;</span><br><span class="line">DELETE FROM orders WHERE order_num = 20010;</span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line">-- 使用保留点</span><br><span class="line">SAVEPOINT delete1;</span><br><span class="line">ROLLBACK TO delete1;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>回退后不再显示空结果</li>
+<li>三种操作执行流结束后事务均会自动关闭</li>
+<li>保留点个数越多越好，灵活回退</li>
+</ul>
+<p>3、更改默认的提交行为</p>
+<ul>
+<li>仅针对每个连接，不针对服务器</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 此时不自动提交</span><br><span class="line">SET autocommit =  0;</span><br></pre></td></tr></table></figure>
+
+<h3 id="全球化与本地化"><a href="#全球化与本地化" class="headerlink" title="*全球化与本地化"></a>*全球化与本地化</h3><p>1、使用</p>
+<ul>
+<li>显示字符集、校对顺序：SHOW CHARACTER SET / COLLATION；</li>
+<li>显示特定字符集：SHOW VARIABLES LIKE ‘character%’；</li>
+<li>与创建表不同的校对顺序查询</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM customers;</span><br><span class="line">ORDER BY lastname, firstname, CLLATE latin1_general_cs;</span><br></pre></td></tr></table></figure>
+
+<p>2、串在字符集间的转换：Cast() / Conver()函数</p>
+<h3 id="安全管理"><a href="#安全管理" class="headerlink" title="安全管理"></a>安全管理</h3><p>1、访问控制</p>
+<ul>
+<li>谨慎使用root登录</li>
+<li>给予用户适当的访问权</li>
+</ul>
+<p>2、管理用户</p>
+<ul>
+<li>获取所用用户列表</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">USE mysql；</span><br><span class="line">SELECT user FROM user；</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建用户账号<ul>
+<li>IDENTIFIED BY：指定纯文本口令</li>
+<li>或使用GRANT / INSERT语句（不好）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER bob IDENTIFIED BY &#x27;mypassword&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重命名：RENAME USER</li>
+<li>删除：DROP USER</li>
+<li>设置管理权限：SHOW GRANTS FOR 用户名<ul>
+<li>*表示无权限</li>
+</ul>
+</li>
+</ul>
+<p>3、GRANT / REVOKE语句</p>
+<ul>
+<li>需给出的信息：需授予权限 所需库或表 用户名</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 给予权限</span><br><span class="line">SHOW GRANTS FOR bob;</span><br><span class="line">GRANT SELECT ON crashcourse.* to bob;</span><br><span class="line">-- 撤销权限</span><br><span class="line">REVOKE GRANTS FOR bob;</span><br><span class="line">REVOKE SELECT ON crashcourse.* to bob;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可更改权限（P202）</li>
+<li>可提前设置授权：对所涉及对象，可不存在就设定权限</li>
+<li>简化多次授权</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT SELECT, SELECT ON crashcourse.* TO bob;</span><br></pre></td></tr></table></figure>
+
+<p>4、更改口令：SET PASSWORD</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET PASSWORD FOR bob = PASSWORD(&#x27;newpassword&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库维护"><a href="#数据库维护" class="headerlink" title="*数据库维护"></a>*数据库维护</h3><p>1、备份</p>
+<ul>
+<li>使用mysqldump转储到外部文件</li>
+<li>使用mysqlhotcopy复制到另一数据库</li>
+<li>使用BACKUP TABLE / SELECT INTO OUTFILE转储<ul>
+<li>复原：RESTORE TABLE</li>
+<li>刷新：FLUSH TABLES，保证所有数据及索引被写入磁盘</li>
+</ul>
+</li>
+</ul>
+<p>2、维护</p>
+<ul>
+<li>ANALYZE TABLE：检查表键是否正确</li>
+<li>CHECK TABLE：检查各类问题<ul>
+<li>CHANGED：最后一次检查以来改动的表</li>
+<li>ENTENDED：最彻底检查</li>
+<li>FAST：未正常关闭表</li>
+<li>MEDIUM：检验所有删除链接及键检验</li>
+<li>QUICK：快扫</li>
+</ul>
+</li>
+</ul>
+<p>3、诊断启动问题</p>
+<p>–safe-mode</p>
+<p>–help、–verbose：显示全文本消息</p>
+<p>4、日志文件</p>
+<ul>
+<li>错误日志：hostname.err</li>
+<li>查询日志：hostname.log</li>
+<li>缓慢查询日志：hostname-slow.log</li>
+</ul>
+<h3 id="改善性能"><a href="#改善性能" class="headerlink" title="改善性能"></a>改善性能</h3><p>1、EXPLAIN语句：使mysql解释如何解释一条SELECT语句</p>
+<p>2、DELAYED关键字：把控制立即返回给调用程序</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A0%B8%E5%BF%83%E7%AF%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2839,7 +3295,7 @@
             
               <div class="site-state-item site-state-posts">
                 <a href="/archives">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2861,7 +3317,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
