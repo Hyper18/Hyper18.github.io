@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  653
+                  700
                 </span>
                 <span>字</span>
               
@@ -460,7 +460,7 @@
 <li>由定义可知，SDS的结构体中已经保存了数组的长度（len），从而只需使用STRLEN()获取值，其对应算法复杂度始终仅为O(1)；C字符串由于没有保存该信息，则需要对数组进行遍历得到长度，其算法复杂度为O(n)</li>
 </ul>
 </li>
-<li>排除了缓冲区溢出的风险<ul>
+<li>API安全，排除了缓冲区溢出的风险<ul>
 <li>对于C字符串而言，缓冲区容易溢出其实是不记录数组长度的衍生问题。如考虑下述场景：</li>
 </ul>
 </li>
@@ -470,6 +470,12 @@
 <p>​    strcat()方法会假定系统尚且分配了足够的内存给c1，以容纳c2中的所有内容；而c2数组长度过长且超出内存限制时，就造成了缓冲区的溢出。这可能会给相邻内存的内容带来意外的后果（如：未指定的意外修改，etc.）</p>
 <p>​    而SDS的API会自动对len进行修改和更新；当当前空间不能满足要求时，则会自动扩展当前SDS的空间。对应redis中字符串拼接方法为：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdscat(c1, c2);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>是二进制安全的，既可存储文本数据、也可存储二进制数据</li>
+<li>SDS还兼容部分C style字符串</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//string compare</span></span><br><span class="line">strcasecmp(c1-&gt;c2, <span class="string">&quot;hello world&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <h5 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h5><ul>
 <li>作为数据库中字符串值的存储</li>
