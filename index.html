@@ -615,7 +615,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  700
+                  1k
                 </span>
                 <span>字</span>
               
@@ -632,7 +632,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
                 <span>分钟</span>
               
@@ -656,21 +656,17 @@
       
         
           
-            <h3 id="简单动态字符串（simple-dynamic-string，SDS）"><a href="#简单动态字符串（simple-dynamic-string，SDS）" class="headerlink" title="简单动态字符串（simple dynamic string，SDS）"></a>简单动态字符串（simple dynamic string，SDS）</h3><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><ul>
+            <h3 id="简单动态字符串（simple-dynamic-string，SDS）"><a href="#简单动态字符串（simple-dynamic-string，SDS）" class="headerlink" title="简单动态字符串（simple dynamic string，SDS）"></a>简单动态字符串（simple dynamic string，SDS）</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
 <li>redis的默认字符表示，作为一个可被修改的字符串值</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">/* data */</span></span><br><span class="line">    <span class="keyword">int</span> len;    <span class="comment">//数组已使用字节数量</span></span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">free</span>;   <span class="comment">//数组未使用字节数量</span></span><br><span class="line">    <span class="keyword">char</span> buf[]; <span class="comment">//字节数组</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">/* data */</span></span><br><span class="line">    <span class="keyword">int</span> len;    -- 数组已使用字节数量</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">free</span>;   -- 数组未使用字节数量</span><br><span class="line">    <span class="keyword">char</span> buf[]; -- 字节数组</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>注：buf[]的最后一个字节会用于保存空字符’\0’(C style)</p>
-<h5 id="使用SDS而非C-style字符串的好处"><a href="#使用SDS而非C-style字符串的好处" class="headerlink" title="使用SDS而非C style字符串的好处"></a>使用SDS而非C style字符串的好处</h5><ul>
-<li>获取字符串长度不为性能瓶颈<ul>
+<p>注：buf[]的最后一个字节会用于保存空字符’\0’(同C style)</p>
+<h3 id="使用SDS而非C-style字符串的好处"><a href="#使用SDS而非C-style字符串的好处" class="headerlink" title="使用SDS而非C style字符串的好处"></a>使用SDS而非C style字符串的好处</h3><h4 id="获取字符串长度不为性能瓶颈"><a href="#获取字符串长度不为性能瓶颈" class="headerlink" title="获取字符串长度不为性能瓶颈"></a>获取字符串长度不为性能瓶颈</h4><ul>
 <li>由定义可知，SDS的结构体中已经保存了数组的长度（len），从而只需使用STRLEN()获取值，其对应算法复杂度始终仅为O(1)；C字符串由于没有保存该信息，则需要对数组进行遍历得到长度，其算法复杂度为O(n)</li>
 </ul>
-</li>
-<li>API安全，排除了缓冲区溢出的风险<ul>
+<h4 id="API安全，排除了缓冲区溢出的风险"><a href="#API安全，排除了缓冲区溢出的风险" class="headerlink" title="API安全，排除了缓冲区溢出的风险"></a>API安全，排除了缓冲区溢出的风险</h4><ul>
 <li>对于C字符串而言，缓冲区容易溢出其实是不记录数组长度的衍生问题。如考虑下述场景：</li>
-</ul>
-</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcat</span><span class="params">(<span class="keyword">char</span> *c1, <span class="keyword">const</span> <span class="keyword">char</span> *c2)</span></span>;</span><br></pre></td></tr></table></figure>
 
@@ -678,21 +674,18 @@
 <p>​    而SDS的API会自动对len进行修改和更新；当当前空间不能满足要求时，则会自动扩展当前SDS的空间。对应redis中字符串拼接方法为：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdscat(c1, c2);</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>是二进制安全的，既可存储文本数据、也可存储二进制数据</li>
-<li>SDS还兼容部分C style字符串</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//string compare</span></span><br><span class="line">strcasecmp(c1-&gt;c2, <span class="string">&quot;hello world&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="是二进制安全的"><a href="#是二进制安全的" class="headerlink" title="是二进制安全的"></a>是二进制安全的</h4><p>​    既可存储文本数据、也可存储二进制数据</p>
+<h4 id="兼容部分C-style字符串"><a href="#兼容部分C-style字符串" class="headerlink" title="兼容部分C style字符串"></a>兼容部分C style字符串</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// string compare</span></span><br><span class="line">strcasecmp(c1-&gt;c2, <span class="string">&quot;hello world&quot;</span>);</span><br></pre></td></tr></table></figure>
 
-<h5 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h5><ul>
-<li>作为数据库中字符串值的存储</li>
+<h4 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h4><ul>
+<li>作为数据库中字符串值、整数值和浮点数值的存储</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RPUSH fruits <span class="string">&quot;apple&quot;</span> <span class="string">&quot;banana&quot;</span> <span class="string">&quot;cherry&quot;</span></span><br><span class="line"><span class="comment">//output：(integer) 3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RPUSH fruits &quot;apple&quot; &quot;banana&quot; &quot;cherry&quot;</span><br><span class="line"><span class="comment">-- output：(integer) 3</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>作为缓冲区（buffer）</li>
 </ul>
-<h5 id="空间分配策略"><a href="#空间分配策略" class="headerlink" title="空间分配策略"></a>空间分配策略</h5><p>目的：减少连续执行字符串增长操作所需的内存重分配次数</p>
+<h3 id="空间分配策略"><a href="#空间分配策略" class="headerlink" title="空间分配策略"></a>空间分配策略</h3><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>​    减少连续执行字符串增长操作所需的内存重分配次数</p>
 <ul>
 <li>策略1：空间预分配<ul>
 <li>当未使用空间足够时，无需进行内存重分配，即没有对字符串进行修改</li>
@@ -707,6 +700,10 @@
 </ul>
 </li>
 </ul>
+<h3 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h3><h4 id="自增-自减"><a href="#自增-自减" class="headerlink" title="自增/自减"></a>自增/自减</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis()</span><br><span class="line"><span class="comment"># 获取对应key:只要该字符串值可以被解释为整数值，则可进行下述处理</span></span><br><span class="line"></span><br><span class="line">conn.get(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"><span class="comment"># 对该key进行自增操作 incr = short for increase</span></span><br><span class="line">conn.incr(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"><span class="comment"># 也可以以数字形式指定自增参数，下两者效果相同</span></span><br><span class="line"><span class="comment"># INCRBY sample_key 10</span></span><br><span class="line">conn.incr(<span class="string">&#x27;sample_key&#x27;</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对该key进行自减操作 decr = short for decrease</span></span><br><span class="line"><span class="comment"># DECRBY sample_key 8</span></span><br><span class="line">conn.decr(<span class="string">&#x27;sample_key&#x27;</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 二次获取当前的数值</span></span><br><span class="line">conn.get(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="打包-package-处理结构化数据"><a href="#打包-package-处理结构化数据" class="headerlink" title="打包(package)处理结构化数据"></a>打包(package)处理结构化数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, password=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line"><span class="comment"># 执行APPEND命令：返回的是当前字符串的长度</span></span><br><span class="line"><span class="comment"># 此时前者可不存在或为空串，则得到的新字符串长度显然为后者的长</span></span><br><span class="line">conn.append(<span class="string">&#x27;sample_string&#x27;</span>, <span class="string">&#x27;hello &#x27;</span>)</span><br><span class="line">conn.append(<span class="string">&#x27;sample_string&#x27;</span>, <span class="string">&#x27;world!&#x27;</span>)</span><br><span class="line"><span class="comment"># 操作后sample_string的长度：12</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SUBSTR：获取字符串子串（部分区间值）</span></span><br><span class="line"><span class="comment"># redis数组索引也是从0开始，则取得的值为llo</span></span><br><span class="line">conn.substr(<span class="string">&#x27;sample_string&#x27;</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETRANGE：为字符串设置范围</span></span><br><span class="line"><span class="comment"># 设置后仅改变输出的字符串内容</span></span><br><span class="line"><span class="comment"># 字符串长度仍为总长度，而非处理后的范围长度</span></span><br><span class="line">conn.setrange(<span class="string">&#x27;sample_string&#x27;</span>, <span class="number">0</span>, <span class="string">&#x27;H&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETBIT：单独改变某二进制位</span></span><br></pre></td></tr></table></figure>
+
 
           
         
