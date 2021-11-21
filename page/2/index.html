@@ -300,6 +300,266 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" itemprop="url">机器学习题解（二）—— 神经网络</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-10T21:08:42+08:00">
+                2021-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index">
+                    <span itemprop="name">题解</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="leancloud_visitors" data-flag-title="机器学习题解（二）—— 神经网络">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  719
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="ex3-m"><a href="#ex3-m" class="headerlink" title="ex3.m"></a>ex3.m</h3><h4 id="Part-1-Loading-and-Visualizing-Data"><a href="#Part-1-Loading-and-Visualizing-Data" class="headerlink" title="Part 1: Loading and Visualizing Data"></a>Part 1: Loading and Visualizing Data</h4><ul>
+<li>Load Training Data</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load(<span class="string">&#x27;ex3data1.mat&#x27;</span>); <span class="comment">% training data stored in arrays X, y</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Visualization</li>
+</ul>
+<p><img src="C:\Users\Vincent\AppData\Roaming\Typora\typora-user-images\image-20210910203101080.png" alt="image-20210910203101080"></p>
+<h4 id="Part-2a-Vectorize-Logistic-Regression"><a href="#Part-2a-Vectorize-Logistic-Regression" class="headerlink" title="Part 2a: Vectorize Logistic Regression"></a>Part 2a: Vectorize Logistic Regression</h4><ul>
+<li>Compute the cost of a particular choice of theta. You should set J to the cost.<br>Compute the partial derivatives and set grad to the partial derivatives of the cost w.r.t. each parameter in theta</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">J = (<span class="number">1</span> / m) * sum(-y .* <span class="built_in">log</span>(sigmoid(X * theta)) - (<span class="number">1</span> - y) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(X * theta))) + (lambda / (<span class="number">2</span> * m)) * sum(theta(<span class="number">2</span>:<span class="built_in">size</span>(theta)) .^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">temp = theta;</span><br><span class="line">temp(<span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">grad = (<span class="number">1</span> / m) * (X&#x27; * (sigmoid(X * theta) - y)) + (lambda / m) * temp;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-2b-One-vs-All-Training"><a href="#Part-2b-One-vs-All-Training" class="headerlink" title="Part 2b: One-vs-All Training"></a>Part 2b: One-vs-All Training</h4><ul>
+<li>You should complete the following code to train num_labels logistic regression classifiers with regularization parameter lambda.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Set Initial theta</span></span><br><span class="line">initial_theta = <span class="built_in">zeros</span>(n + <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">% Set options for fminunc</span></span><br><span class="line">options = optimset(<span class="string">&#x27;GradObj&#x27;</span>, <span class="string">&#x27;on&#x27;</span>, <span class="string">&#x27;MaxIter&#x27;</span>, <span class="number">50</span>);</span><br><span class="line"><span class="keyword">for</span> c = <span class="number">1</span>: num_labels</span><br><span class="line">      all_theta(c, :) = fmincg (@(t)(lrCostFunction(t, X, (y == c), lambda)), initial_theta, options);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-3-Predict-for-One-Vs-All"><a href="#Part-3-Predict-for-One-Vs-All" class="headerlink" title="Part 3: Predict for One-Vs-All"></a>Part 3: Predict for One-Vs-All</h4><ul>
+<li>Complete the following code to make predictions using your learned logistic regression parameters (one-vs-all).</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">predict = sigmoid(X * all_theta&#x27;);</span><br><span class="line">[~,p] = <span class="built_in">max</span>(predict, [], <span class="number">2</span>); <span class="comment">% ~ means ignore this 1st parameter output</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ex3-nn-m"><a href="#ex3-nn-m" class="headerlink" title="ex3_nn.m"></a>ex3_nn.m</h3><ul>
+<li>Complete the following code to make predictions using your learned neural network.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">X = [<span class="built_in">ones</span>(m, <span class="number">1</span>) X];</span><br><span class="line">z1 = sigmoid(X * Theta1&#x27;);</span><br><span class="line">z1 = [<span class="built_in">ones</span>(m, <span class="number">1</span>) z1];</span><br><span class="line">z2 = sigmoid(z1 * Theta2&#x27;);</span><br><span class="line"></span><br><span class="line">[~, p] = <span class="built_in">max</span>(z2, [], <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ex4-m"><a href="#ex4-m" class="headerlink" title="ex4.m"></a>ex4.m</h3><h4 id="Part-3-Compute-Cost-Feedforward"><a href="#Part-3-Compute-Cost-Feedforward" class="headerlink" title="Part 3: Compute Cost (Feedforward)"></a>Part 3: Compute Cost (Feedforward)</h4><ul>
+<li>Feedforward the neural network and return the cost in the variable J. After implementing Part 1, you can verify that your cost function computation is correct by verifying the cost computed in ex4.m</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% input layer</span></span><br><span class="line">a1 = X;</span><br><span class="line"></span><br><span class="line"><span class="comment">% hidden layer</span></span><br><span class="line">X = [<span class="built_in">ones</span>(m, <span class="number">1</span>) X];  <span class="comment">% 5000 * (1 + 400) = 5000 * 401</span></span><br><span class="line">z2 = Theta1 * X&#x27;; <span class="comment">% (25 * 401) * (401 * 5000) = 25 * 5000</span></span><br><span class="line">a2 = sigmoid(z2); <span class="comment">% 25 * 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% output layer</span></span><br><span class="line">a2 = [<span class="built_in">ones</span>(m, <span class="number">1</span>) a2&#x27;]; <span class="comment">% 5000 * (1 + 25) = 5000 * 26</span></span><br><span class="line">z3 = Theta2 * a2&#x27;; <span class="comment">% (10 * 26) * (26 * 5000) = 10 * 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% recode the labels as vectors containing only values 0 or 1</span></span><br><span class="line">y_vec = <span class="built_in">zeros</span>(num_labels, m); <span class="comment">% 10 * 5000</span></span><br><span class="line"><span class="comment">% put value 1 for every iterated column</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: m</span><br><span class="line">    y_vec(y(<span class="built_in">i</span>), <span class="built_in">i</span>) = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% cost function</span></span><br><span class="line">h_theta = sigmoid(z3);</span><br><span class="line">J = (<span class="number">-1</span> / m) * sum(sum(y_vec .* <span class="built_in">log</span>(h_theta) + (<span class="number">1</span> - y_vec) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(h_theta))));</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-4-Implement-Regularization"><a href="#Part-4-Implement-Regularization" class="headerlink" title="Part 4: Implement Regularization"></a>Part 4: Implement Regularization</h4><ul>
+<li>You should now add regularization to your cost function. Notice that you can first compute the unregularized cost function J using your existing nnCostFunction.m and then later add the cost for the regularization terms.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% regularized cost function</span></span><br><span class="line">theta1 = Theta1(:, <span class="number">2</span>:<span class="built_in">size</span>(Theta1, <span class="number">2</span>)); <span class="comment">% size(Theta1, 2) returns the nums of locumns in the matrix</span></span><br><span class="line">theta2 = Theta2(:, <span class="number">2</span>:<span class="built_in">size</span>(Theta2, <span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">J = J + lambda / (<span class="number">2</span> * m) * ( sum(sum(theta1 .^ <span class="number">2</span>)) + sum(sum(theta2 .^ <span class="number">2</span>)) ); <span class="comment">% !sum up separately</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-5-Sigmoid-Gradient"><a href="#Part-5-Sigmoid-Gradient" class="headerlink" title="Part 5: Sigmoid Gradient"></a>Part 5: Sigmoid Gradient</h4><ul>
+<li> Implement the sigmoid gradient function</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g = sigmoid(z) .* (<span class="number">1</span> - sigmoid(z));</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-6-Initializing-Pameters"><a href="#Part-6-Initializing-Pameters" class="headerlink" title="Part 6: Initializing Pameters"></a>Part 6: Initializing Pameters</h4><ul>
+<li>Initialize W randomly so that we break the symmetry while training the neural network</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Randomly initialize the weights to small values</span></span><br><span class="line">epsilon_init = <span class="number">0.12</span>;</span><br><span class="line">W = <span class="built_in">rand</span>(L_out, <span class="number">1</span> + L_in) * <span class="number">2</span> * epsilon_init - epsilon_init;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-7-Implement-Backpropagation"><a href="#Part-7-Implement-Backpropagation" class="headerlink" title="Part 7: Implement Backpropagation"></a>Part 7: Implement Backpropagation</h4><ul>
+<li>Implement the backpropagation algorithm to compute the gradients Theta1_grad and Theta2_grad.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> t = <span class="number">1</span>:m</span><br><span class="line">    <span class="comment">% Step1</span></span><br><span class="line">    a1 = X(t, :); <span class="comment">% 1 * 401</span></span><br><span class="line">    a1 = a1&#x27;; <span class="comment">% 401 * 1</span></span><br><span class="line">    z2 = Theta1 * a1; <span class="comment">% (25 * 401) * (401 * 1) = 25 * 1</span></span><br><span class="line">    a2 = sigmoid(z2); <span class="comment">% 25 * 1</span></span><br><span class="line">    </span><br><span class="line">    a2 = [<span class="number">1</span>; a2]; <span class="comment">% add bais, (25 + 1) * 1 = 26 * 1</span></span><br><span class="line">    z3 = Theta2 * a2; <span class="comment">% (10 * 26) * (26 * 1) = 10 * 1</span></span><br><span class="line">    a3 = sigmoid(z3); <span class="comment">% 10 * 1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Step2</span></span><br><span class="line">    delta_3 = a3 - y_vec(:, t); <span class="comment">% 10 * 1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">% Step3</span></span><br><span class="line">    delta_2 = (Theta2&#x27; * delta_3) .* sigmoidGradient([<span class="number">1</span>; z2]); <span class="comment">% add bais, 26 * 1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Step4</span></span><br><span class="line">    delta_2 = delta_2(<span class="number">2</span>: <span class="keyword">end</span>); <span class="comment">% 25 * 1</span></span><br><span class="line">    </span><br><span class="line">    Theta1_grad = Theta1_grad + delta_2 * a1&#x27;; <span class="comment">% 10 * 25, !sum up grad</span></span><br><span class="line">    Theta2_grad = Theta2_grad + delta_3 * a2&#x27;; <span class="comment">% 10 * 25</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">    <span class="comment">%Step5</span></span><br><span class="line">    Theta1_grad = (<span class="number">1</span> / m) * Theta1_grad;</span><br><span class="line">    Theta2_grad = (<span class="number">1</span> / m) * Theta2_grad;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Gradient-checking"><a href="#Gradient-checking" class="headerlink" title="Gradient checking"></a>Gradient checking</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% take a look and try to understand</span></span><br><span class="line">numgrad = <span class="built_in">zeros</span>(<span class="built_in">size</span>(theta));</span><br><span class="line">perturb = <span class="built_in">zeros</span>(<span class="built_in">size</span>(theta));</span><br><span class="line">e = <span class="number">1e-4</span>;</span><br><span class="line"><span class="keyword">for</span> p = <span class="number">1</span>:<span class="built_in">numel</span>(theta)</span><br><span class="line">    <span class="comment">% Set perturbation vector</span></span><br><span class="line">    perturb(p) = e;</span><br><span class="line">    loss1 = J(theta - perturb);</span><br><span class="line">    loss2 = J(theta + perturb);</span><br><span class="line">    <span class="comment">% Compute Numerical Gradient</span></span><br><span class="line">    numgrad(p) = (loss2 - loss1) / (<span class="number">2</span>*e);</span><br><span class="line">    perturb(p) = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-8-Implement-Regularization"><a href="#Part-8-Implement-Regularization" class="headerlink" title="Part 8: Implement Regularization"></a>Part 8: Implement Regularization</h4><ul>
+<li>Implement regularization with the cost function and gradients.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Theta1_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) = Theta1_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) + (lambda / m) * Theta1(:, <span class="number">2</span>:<span class="keyword">end</span>);</span><br><span class="line">Theta2_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) = Theta2_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) + (lambda / m) * Theta2(:, <span class="number">2</span>:<span class="keyword">end</span>);</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/09/08/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%882%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2725,283 +2985,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url">Java面向对象（一）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-26T20:47:26+08:00">
-                2020-08-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">课程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">面向对象</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89/" class="leancloud_visitors" data-flag-title="Java面向对象（一）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  492
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="第一章-对象导论"><a href="#第一章-对象导论" class="headerlink" title="第一章 对象导论"></a>第一章 对象导论</h2><p>1、基本特性</p>
-<p>普适性 组成程序 可互相嵌套 有对应类型 可替代性</p>
-<p>2、观点：任何程序都是程序员所设计系统的一种仿真</p>
-<p>3、对象提供服务</p>
-<p>视作对象的优点：提高对象的内聚性</p>
-<ul>
-<li>高内聚：各方面组合的很好</li>
-</ul>
-<p>4、隐藏的具体实现</p>
-<ul>
-<li>类创建者 / 客户端程序员：访问控制<ul>
-<li>边界：public private protected</li>
-</ul>
-</li>
-</ul>
-<p>5、复用的具体实现</p>
-<ul>
-<li>组合 / 聚合（动态的组合）：创建成员对象</li>
-<li>先考虑组合，后继承：前者较简单灵活</li>
-</ul>
-<p>6、继承</p>
-<ul>
-<li>可构建类型层次结构</li>
-<li>类型等价性：导出类和基类拥有相同的类型<ul>
-<li>修改：为导出类添加新方法 / 覆盖（纯粹替代 or 扩展）</li>
-</ul>
-</li>
-</ul>
-<p>7、多态</p>
-<ul>
-<li>泛化：视作基类而非对象</li>
-<li>后期绑定：直到运行才可确定代码地址</li>
-<li>向上转型 up cast：一个基类在继承图中向上移动</li>
-</ul>
-<p>8、单根继承结构</p>
-<ul>
-<li>终极基类：Object</li>
-<li>相对C++可实现垃圾回收</li>
-</ul>
-<p>9、容器</p>
-<ul>
-<li>定义上近似等同于集合，如C++中的STL容器</li>
-<li>提供不同类型的接口和外部行为</li>
-<li>对同一操作不同容器效率可能不同</li>
-<li>参数化类型（范型）：向下转型（不安全）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个存储Shape的顺序表</span></span><br><span class="line">ArrayList&lt;shape&gt; shapes = new.ArrayList&lt;shape&gt;();</span><br></pre></td></tr></table></figure>
-
-<p>10、对象的创建和生命期</p>
-<ul>
-<li>基本逻辑假设：对象复杂化 - 查找和释放空间的开销不会对创建对象造成过大冲击</li>
-<li>Java是在堆栈中存储和释放空间的动态内存分配方式<ul>
-<li>反观C++：需要在编程时就确定生命周期，牺牲了部分灵活性，侧重效率控制</li>
-</ul>
-</li>
-<li>使用垃圾回收器，自发发现不再被使用的对象，有效避免内存泄漏</li>
-</ul>
-<p>11、必须编写异常处理的代码</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3054,7 +3037,7 @@
             
               <div class="site-state-item site-state-posts">
                 <a href="/archives">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

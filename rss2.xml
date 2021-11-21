@@ -9,8 +9,38 @@
     <atom:link href="https://hyper18.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>blog</description>
-    <pubDate>Sat, 20 Nov 2021 12:33:51 GMT</pubDate>
+    <pubDate>Sun, 21 Nov 2021 07:45:47 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Redis初探之列表与集合</title>
+      <link>https://hyper18.github.io/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/</link>
+      <guid>https://hyper18.github.io/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/</guid>
+      <pubDate>Sun, 21 Nov 2021 03:29:47 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;压缩列表-Ziplist&quot;&gt;&lt;a href=&quot;#压缩列表-Ziplist&quot; class=&quot;headerlink&quot; title=&quot;压缩列表 (Ziplist)&quot;&gt;&lt;/a&gt;压缩列表 (Ziplist)&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; cla</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="压缩列表-Ziplist"><a href="#压缩列表-Ziplist" class="headerlink" title="压缩列表 (Ziplist)"></a>压缩列表 (Ziplist)</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul><li>由一系列特殊编码的连续内存块组成的顺序型（sequential）数据结构</li></ul><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><ul><li>节约内存</li></ul><h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><ul><li>当一个列表键只包含少量列表项，并且每个列表项要么就是小整数值，要么就是长度比较短的字符串</li></ul><h4 id="列表的组成"><a href="#列表的组成" class="headerlink" title="列表的组成"></a>列表的组成</h4><img src="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;"><ul><li>zlbytes：4bytes，<strong>记录整个压缩列表占用的内存字节数</strong></li><li>zltail：4bytes，<strong>记录压缩列表表尾节点距离压缩列表的起始地址有多少字节</strong><ul><li>偏移量，确定表尾节点的地址</li></ul></li><li>zllen：2bytes，<strong>记录了压缩列表包含的节点数量</strong></li><li>entryX：列表节点，<strong>节点的长度由节点保存的内容决定</strong></li><li>zlend：1byte，值0xFF表示2^8-1=255，<strong>用于标记压缩列表的末端</strong></li></ul><h4 id="列表结点的构成"><a href="#列表结点的构成" class="headerlink" title="列表结点的构成"></a>列表结点的构成</h4><p><img src="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8%E7%BB%93%E7%82%B9%E7%9A%84%E5%90%84%E4%B8%AA%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86.png" alt="压缩列表结点的各个组成部分"></p><ul><li>previous_entry_length：1byte/5bytes，记录<strong>压缩列表中前一个节点的长度</strong><ul><li>前一节点的长度小于254字节，previous_entry_length属性的长度为1字节，保存值为前一个结点长度</li><li>前一节点的长度大于等于254字节，previous_entry_length属性的长度为5字节。第一字节会被设置为0xFE（254），之后的四个字节则用于保存前一节点的长度。</li></ul></li></ul><img src="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;"><ul><li>encoding：记录<strong>节点的content属性所保存数据的类型以及长度</strong></li><li>content：保存节点的值，值的类型和长度由节点的encoding属性决定<ul><li>整数编码：1byte，最高位以11开头；content属性保存整数值，整数值的<strong>类型</strong>和长度由编码除去最高两位之后的其他位记录</li><li>字节数组编码：1/2/5byte(s)，最高位为00、01或者10；content属性保存着字节数组，数组的长度由编码除去最高两位之后的其他位记 录</li></ul></li></ul><h4 id="连锁更新"><a href="#连锁更新" class="headerlink" title="连锁更新"></a>连锁更新</h4><h5 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h5><p>​    由于previous_entry_length因更新或删除而在1byte/5bytes切换引起的连锁内存重分配现象</p><h5 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h5><p>​    最坏情况下，需要对压缩列表执行N次空间重分配操作，而每次空间重分配的最坏复杂度为O（N），所以连锁更新的最坏复杂度为O（N^2）</p>]]></content:encoded>
+      
+      
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/Redis/">Redis</category>
+      
+      
+      <category domain="https://hyper18.github.io/tags/Redis/">Redis</category>
+      
+      <category domain="https://hyper18.github.io/tags/NoSQL/">NoSQL</category>
+      
+      
+      <comments>https://hyper18.github.io/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>签名cookie与令牌cookie</title>
@@ -637,42 +667,6 @@
       
       
       <comments>https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%8C%EF%BC%89/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Java面向对象（一）</title>
-      <link>https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89/</link>
-      <guid>https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89/</guid>
-      <pubDate>Wed, 26 Aug 2020 12:47:26 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;第一章-对象导论&quot;&gt;&lt;a href=&quot;#第一章-对象导论&quot; class=&quot;headerlink&quot; title=&quot;第一章 对象导论&quot;&gt;&lt;/a&gt;第一章 对象导论&lt;/h2&gt;&lt;p&gt;1、基本特性&lt;/p&gt;
-&lt;p&gt;普适性 组成程序 可互相嵌套 有对应类型 可替代性&lt;/p&gt;
-&lt;p</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="第一章-对象导论"><a href="#第一章-对象导论" class="headerlink" title="第一章 对象导论"></a>第一章 对象导论</h2><p>1、基本特性</p><p>普适性 组成程序 可互相嵌套 有对应类型 可替代性</p><p>2、观点：任何程序都是程序员所设计系统的一种仿真</p><p>3、对象提供服务</p><p>视作对象的优点：提高对象的内聚性</p><ul><li>高内聚：各方面组合的很好</li></ul><p>4、隐藏的具体实现</p><ul><li>类创建者 / 客户端程序员：访问控制<ul><li>边界：public private protected</li></ul></li></ul><p>5、复用的具体实现</p><ul><li>组合 / 聚合（动态的组合）：创建成员对象</li><li>先考虑组合，后继承：前者较简单灵活</li></ul><p>6、继承</p><ul><li>可构建类型层次结构</li><li>类型等价性：导出类和基类拥有相同的类型<ul><li>修改：为导出类添加新方法 / 覆盖（纯粹替代 or 扩展）</li></ul></li></ul><p>7、多态</p><ul><li>泛化：视作基类而非对象</li><li>后期绑定：直到运行才可确定代码地址</li><li>向上转型 up cast：一个基类在继承图中向上移动</li></ul><p>8、单根继承结构</p><ul><li>终极基类：Object</li><li>相对C++可实现垃圾回收</li></ul><p>9、容器</p><ul><li>定义上近似等同于集合，如C++中的STL容器</li><li>提供不同类型的接口和外部行为</li><li>对同一操作不同容器效率可能不同</li><li>参数化类型（范型）：向下转型（不安全）</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个存储Shape的顺序表</span></span><br><span class="line">ArrayList&lt;shape&gt; shapes = new.ArrayList&lt;shape&gt;();</span><br></pre></td></tr></table></figure><p>10、对象的创建和生命期</p><ul><li>基本逻辑假设：对象复杂化 - 查找和释放空间的开销不会对创建对象造成过大冲击</li><li>Java是在堆栈中存储和释放空间的动态内存分配方式<ul><li>反观C++：需要在编程时就确定生命周期，牺牲了部分灵活性，侧重效率控制</li></ul></li><li>使用垃圾回收器，自发发现不再被使用的对象，有效避免内存泄漏</li></ul><p>11、必须编写异常处理的代码</p>]]></content:encoded>
-      
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/">课程</category>
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/">Java</category>
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</category>
-      
-      
-      <category domain="https://hyper18.github.io/tags/Java/">Java</category>
-      
-      <category domain="https://hyper18.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</category>
-      
-      
-      <comments>https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89/#disqus_thread</comments>
       
     </item>
     

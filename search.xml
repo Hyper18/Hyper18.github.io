@@ -3129,4 +3129,60 @@
         <tag>cookie</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Redis初探之列表与集合</title>
+    <url>/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/</url>
+    <content><![CDATA[<h3 id="压缩列表-Ziplist"><a href="#压缩列表-Ziplist" class="headerlink" title="压缩列表 (Ziplist)"></a>压缩列表 (Ziplist)</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>由一系列特殊编码的连续内存块组成的顺序型（sequential）数据结构</li>
+</ul>
+<h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><ul>
+<li>节约内存</li>
+</ul>
+<h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><ul>
+<li>当一个列表键只包含少量列表项，并且每个列表项要么就是小整数值，要么就是长度比较短的字符串</li>
+</ul>
+<h4 id="列表的组成"><a href="#列表的组成" class="headerlink" title="列表的组成"></a>列表的组成</h4><img src="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;">
+
+<ul>
+<li>zlbytes：4bytes，<strong>记录整个压缩列表占用的内存字节数</strong></li>
+<li>zltail：4bytes，<strong>记录压缩列表表尾节点距离压缩列表的起始地址有多少字节</strong><ul>
+<li>偏移量，确定表尾节点的地址</li>
+</ul>
+</li>
+<li>zllen：2bytes，<strong>记录了压缩列表包含的节点数量</strong></li>
+<li>entryX：列表节点，<strong>节点的长度由节点保存的内容决定</strong></li>
+<li>zlend：1byte，值0xFF表示2^8-1=255，<strong>用于标记压缩列表的末端</strong></li>
+</ul>
+<h4 id="列表结点的构成"><a href="#列表结点的构成" class="headerlink" title="列表结点的构成"></a>列表结点的构成</h4><p><img src="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8%E7%BB%93%E7%82%B9%E7%9A%84%E5%90%84%E4%B8%AA%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86.png" alt="压缩列表结点的各个组成部分"></p>
+<ul>
+<li>previous_entry_length：1byte/5bytes，记录<strong>压缩列表中前一个节点的长度</strong><ul>
+<li>前一节点的长度小于254字节，previous_entry_length属性的长度为1字节，保存值为前一个结点长度</li>
+<li>前一节点的长度大于等于254字节，previous_entry_length属性的长度为5字节。第一字节会被设置为0xFE（254），之后的四个字节则用于保存前一节点的长度。</li>
+</ul>
+</li>
+</ul>
+<img src="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;">
+
+
+
+<ul>
+<li>encoding：记录<strong>节点的content属性所保存数据的类型以及长度</strong></li>
+<li>content：保存节点的值，值的类型和长度由节点的encoding属性决定<ul>
+<li>整数编码：1byte，最高位以11开头；content属性保存整数值，整数值的<strong>类型</strong>和长度由编码除去最高两位之后的其他位记录</li>
+<li>字节数组编码：1/2/5byte(s)，最高位为00、01或者10；content属性保存着字节数组，数组的长度由编码除去最高两位之后的其他位记 录</li>
+</ul>
+</li>
+</ul>
+<h4 id="连锁更新"><a href="#连锁更新" class="headerlink" title="连锁更新"></a>连锁更新</h4><h5 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h5><p>​    由于previous_entry_length因更新或删除而在1byte/5bytes切换引起的连锁内存重分配现象</p>
+<h5 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h5><p>​    最坏情况下，需要对压缩列表执行N次空间重分配操作，而每次空间重分配的最坏复杂度为O（N），所以连锁更新的最坏复杂度为O（N^2）</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+        <tag>NoSQL</tag>
+      </tags>
+  </entry>
 </search>
