@@ -300,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -319,7 +319,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/" itemprop="url">Redis初探之列表与集合</a></h1>
+                <a class="post-title-link" href="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8/" itemprop="url">Redis初探之压缩列表</a></h1>
         
 
         <div class="post-meta">
@@ -382,7 +382,7 @@
 
           
           
-             <span id="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/" class="leancloud_visitors" data-flag-title="Redis初探之列表与集合">
+             <span id="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8/" class="leancloud_visitors" data-flag-title="Redis初探之压缩列表">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  544
+                  959
                 </span>
                 <span>字</span>
               
@@ -425,7 +425,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
                 <span>分钟</span>
               
@@ -449,7 +449,7 @@
       
         
           
-            <h3 id="压缩列表-Ziplist"><a href="#压缩列表-Ziplist" class="headerlink" title="压缩列表 (Ziplist)"></a>压缩列表 (Ziplist)</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+            <h2 id="压缩列表-Ziplist"><a href="#压缩列表-Ziplist" class="headerlink" title="压缩列表 (Ziplist)"></a>压缩列表 (Ziplist)</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
 <li>由一系列特殊编码的连续内存块组成的顺序型（sequential）数据结构</li>
 </ul>
 <h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><ul>
@@ -457,8 +457,9 @@
 </ul>
 <h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><ul>
 <li>当一个列表键只包含少量列表项，并且每个列表项要么就是小整数值，要么就是长度比较短的字符串</li>
+<li>作为列表键和哈希键的底层实现</li>
 </ul>
-<h4 id="列表的组成"><a href="#列表的组成" class="headerlink" title="列表的组成"></a>列表的组成</h4><img src="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;">
+<h3 id="列表的组成"><a href="#列表的组成" class="headerlink" title="列表的组成"></a>列表的组成</h3><img src="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8/压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;">
 
 <ul>
 <li>zlbytes：4bytes，<strong>记录整个压缩列表占用的内存字节数</strong></li>
@@ -470,7 +471,8 @@
 <li>entryX：列表节点，<strong>节点的长度由节点保存的内容决定</strong></li>
 <li>zlend：1byte，值0xFF表示2^8-1=255，<strong>用于标记压缩列表的末端</strong></li>
 </ul>
-<h4 id="列表结点的构成"><a href="#列表结点的构成" class="headerlink" title="列表结点的构成"></a>列表结点的构成</h4><p><img src="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8%E7%BB%93%E7%82%B9%E7%9A%84%E5%90%84%E4%B8%AA%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86.png" alt="压缩列表结点的各个组成部分"></p>
+<h3 id="列表结点的构成"><a href="#列表结点的构成" class="headerlink" title="列表结点的构成"></a>列表结点的构成</h3><img src="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8/压缩列表结点的各个组成部分.png" alt="压缩列表结点的各个组成部分">
+
 <ul>
 <li>previous_entry_length：1byte/5bytes，记录<strong>压缩列表中前一个节点的长度</strong><ul>
 <li>前一节点的长度小于254字节，previous_entry_length属性的长度为1字节，保存值为前一个结点长度</li>
@@ -478,20 +480,27 @@
 </ul>
 </li>
 </ul>
-<img src="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8%E4%B8%8E%E9%9B%86%E5%90%88/运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;">
+<img src="/2021/11/21/Redis%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8/运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;">
 
 
 
 <ul>
-<li>encoding：记录<strong>节点的content属性所保存数据的类型以及长度</strong></li>
+<li>encoding：记录<strong>节点的content属性所保存数据的类型以及长度</strong>D:</li>
 <li>content：保存节点的值，值的类型和长度由节点的encoding属性决定<ul>
 <li>整数编码：1byte，最高位以11开头；content属性保存整数值，整数值的<strong>类型</strong>和长度由编码除去最高两位之后的其他位记录</li>
 <li>字节数组编码：1/2/5byte(s)，最高位为00、01或者10；content属性保存着字节数组，数组的长度由编码除去最高两位之后的其他位记 录</li>
 </ul>
 </li>
 </ul>
-<h4 id="连锁更新"><a href="#连锁更新" class="headerlink" title="连锁更新"></a>连锁更新</h4><h5 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h5><p>​    由于previous_entry_length因更新或删除而在1byte/5bytes切换引起的连锁内存重分配现象</p>
-<h5 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h5><p>​    最坏情况下，需要对压缩列表执行N次空间重分配操作，而每次空间重分配的最坏复杂度为O（N），所以连锁更新的最坏复杂度为O（N^2）</p>
+<h3 id="连锁更新"><a href="#连锁更新" class="headerlink" title="连锁更新"></a>连锁更新</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>​    由于previous_entry_length因更新或删除而在1byte/5bytes切换引起的连锁内存重分配现象</p>
+<h4 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h4><p>​    最坏情况下，需要对压缩列表执行N次空间重分配操作，而每次空间重分配的最坏复杂度为O（N），所以连锁更新的最坏复杂度为O（N^2）</p>
+<h3 id="列表操作"><a href="#列表操作" class="headerlink" title="列表操作"></a>列表操作</h3><h4 id="元素的推入和弹出操作"><a href="#元素的推入和弹出操作" class="headerlink" title="元素的推入和弹出操作"></a>元素的推入和弹出操作</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, password=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># RPUSH/LPUSH：推入元素，就语义上而言左侧为头，右侧为尾</span></span><br><span class="line"><span class="comment"># 返回的是当前列表的长度</span></span><br><span class="line">conn.rpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;last&#x27;</span>)</span><br><span class="line">conn.lpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;first&#x27;</span>)</span><br><span class="line"><span class="comment"># 可同时推入多个元素</span></span><br><span class="line">conn.rpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LRANGE：返回列表中从start到end偏移量范围内所有元素</span></span><br><span class="line"><span class="comment"># 注：会同时包含左侧start和右侧end的元素</span></span><br><span class="line">conn.lrange(<span class="string">&#x27;list_key&#x27;</span>, <span class="number">0</span>, -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LTRIM：从列表左端或右端或两端同时删减任意数量的元素</span></span><br><span class="line"><span class="comment"># 注意只有LTRIM，删除时左开右闭</span></span><br><span class="line">conn.ltrim(<span class="string">&#x27;list_key&#x27;</span>, <span class="number">2</span>, -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LPOP/RPOP：弹出列表左侧或右侧的元素</span></span><br><span class="line">conn.lpop(<span class="string">&#x27;list_key&#x27;</span>)</span><br><span class="line">conn.rpop(<span class="string">&#x27;list_key&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="阻塞弹出与元素移动命令"><a href="#阻塞弹出与元素移动命令" class="headerlink" title="阻塞弹出与元素移动命令"></a>阻塞弹出与元素移动命令</h4><ul>
+<li>常用于<strong>消息传递（messaging）</strong>和<strong>任务队列（task queue）</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">conn.rpush(<span class="string">&#x27;list_key2&#x27;</span>, <span class="string">&#x27;item&#x27;</span>)</span><br><span class="line"><span class="comment"># BRPOPLPUSH：将最右端（尾）元素从一个列表中弹出，并压入至另一个列表最左端（头）</span></span><br><span class="line"><span class="comment"># 注意参数顺序：需弹出元素list 需压入元素list timeout时间（单位：s）</span></span><br><span class="line"><span class="comment"># 这里若需弹出元素list没有可供弹出元素，则在timeout时间内等待，block直到有新元素可用；否则，返回None</span></span><br><span class="line">conn.brpoplpush(<span class="string">&#x27;list_key2&#x27;</span>, <span class="string">&#x27;list_key&#x27;</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># BLPOP/BRPOP：自左向右检查传入的所有列表，对第一个遇到的非空列表进行LPOP/RPOP操作</span></span><br><span class="line"><span class="comment"># timeout：同上处理</span></span><br><span class="line">conn.blpop([<span class="string">&#x27;list_key1&#x27;</span>, <span class="string">&#x27;list_key2&#x27;</span>], <span class="number">1</span>)</span><br><span class="line">conn.brpop([<span class="string">&#x27;list_key1&#x27;</span>, <span class="string">&#x27;list_key2&#x27;</span>], <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
 
           
         
@@ -896,7 +905,7 @@
       
         
           
-            <h3 id="简单动态字符串（simple-dynamic-string，SDS）"><a href="#简单动态字符串（simple-dynamic-string，SDS）" class="headerlink" title="简单动态字符串（simple dynamic string，SDS）"></a>简单动态字符串（simple dynamic string，SDS）</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+            <h2 id="简单动态字符串（simple-dynamic-string，SDS）"><a href="#简单动态字符串（simple-dynamic-string，SDS）" class="headerlink" title="简单动态字符串（simple dynamic string，SDS）"></a>简单动态字符串（simple dynamic string，SDS）</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
 <li>redis的默认字符表示，作为一个可被修改的字符串值</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">/* data */</span></span><br><span class="line">    <span class="keyword">int</span> len;    -- 数组已使用字节数量</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">free</span>;   -- 数组未使用字节数量</span><br><span class="line">    <span class="keyword">char</span> buf[]; -- 字节数组</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -943,7 +952,6 @@
 <h3 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h3><h4 id="自增-自减"><a href="#自增-自减" class="headerlink" title="自增/自减"></a>自增/自减</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis()</span><br><span class="line"><span class="comment"># 获取对应key:只要该字符串值可以被解释为整数值，则可进行下述处理</span></span><br><span class="line"></span><br><span class="line">conn.get(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"><span class="comment"># 对该key进行自增操作 incr = short for increase</span></span><br><span class="line">conn.incr(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"><span class="comment"># 也可以以数字形式指定自增参数，下两者效果相同</span></span><br><span class="line"><span class="comment"># INCRBY sample_key 10</span></span><br><span class="line">conn.incr(<span class="string">&#x27;sample_key&#x27;</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对该key进行自减操作 decr = short for decrease</span></span><br><span class="line"><span class="comment"># DECRBY sample_key 8</span></span><br><span class="line">conn.decr(<span class="string">&#x27;sample_key&#x27;</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 二次获取当前的数值</span></span><br><span class="line">conn.get(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="打包-package-处理结构化数据"><a href="#打包-package-处理结构化数据" class="headerlink" title="打包(package)处理结构化数据"></a>打包(package)处理结构化数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, password=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line"><span class="comment"># 执行APPEND命令：返回的是当前字符串的长度</span></span><br><span class="line"><span class="comment"># 此时前者可不存在或为空串，则得到的新字符串长度显然为后者的长</span></span><br><span class="line">conn.append(<span class="string">&#x27;sample_string&#x27;</span>, <span class="string">&#x27;hello &#x27;</span>)</span><br><span class="line">conn.append(<span class="string">&#x27;sample_string&#x27;</span>, <span class="string">&#x27;world!&#x27;</span>)</span><br><span class="line"><span class="comment"># 操作后sample_string的长度：12</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SUBSTR：获取字符串子串（部分区间值）</span></span><br><span class="line"><span class="comment"># redis数组索引也是从0开始，则取得的值为llo</span></span><br><span class="line">conn.substr(<span class="string">&#x27;sample_string&#x27;</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETRANGE：为字符串设置范围</span></span><br><span class="line"><span class="comment"># 设置后仅改变输出的字符串内容</span></span><br><span class="line"><span class="comment"># 字符串长度仍为总长度，而非处理后的范围长度</span></span><br><span class="line">conn.setrange(<span class="string">&#x27;sample_string&#x27;</span>, <span class="number">0</span>, <span class="string">&#x27;H&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETBIT：单独改变某二进制位</span></span><br></pre></td></tr></table></figure>
-
 
           
         
@@ -3084,7 +3092,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
