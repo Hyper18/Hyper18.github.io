@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Redis,NoSQL,数据结构," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -83,24 +83,15 @@
 
 
 
-<meta name="description" content="链表定义 由一系列结点组成的非连续、非顺序的存储结构 作为列表键的底层实现之一  12345678910&#x2F;&#x2F; listNodetypedef struct listNode&amp;#123;    &#x2F;&#x2F; 前置节点    struct listNode *prev;    &#x2F;&#x2F; 后置节点    struct listNode *next;    &#x2F;&#x2F; 节点值    void *value;&amp;#125; l">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Redis原理初探之列表">
-<meta property="og:url" content="https://hyper18.github.io/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/index.html">
+<meta name="description" content="blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hyperの个人博客">
+<meta property="og:url" content="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/page/3/index.html">
 <meta property="og:site_name" content="Hyperの个人博客">
-<meta property="og:description" content="链表定义 由一系列结点组成的非连续、非顺序的存储结构 作为列表键的底层实现之一  12345678910&#x2F;&#x2F; listNodetypedef struct listNode&amp;#123;    &#x2F;&#x2F; 前置节点    struct listNode *prev;    &#x2F;&#x2F; 后置节点    struct listNode *next;    &#x2F;&#x2F; 节点值    void *value;&amp;#125; l">
+<meta property="og:description" content="blog">
 <meta property="og:locale">
-<meta property="og:image" content="https://hyper18.github.io/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/压缩列表的各个组成部分.png">
-<meta property="og:image" content="https://hyper18.github.io/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/压缩列表结点的各个组成部分.png">
-<meta property="og:image" content="https://hyper18.github.io/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/运算前一结点的指针位置.png">
-<meta property="article:published_time" content="2021-11-21T03:29:47.000Z">
-<meta property="article:modified_time" content="2021-11-22T03:42:22.058Z">
 <meta property="article:author" content="Hyper18">
-<meta property="article:tag" content="Redis">
-<meta property="article:tag" content="NoSQL">
-<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://hyper18.github.io/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/压缩列表的各个组成部分.png">
 
 
 
@@ -130,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://hyper18.github.io/2021/11/21/Redis原理初探之列表/"/>
+  <link rel="canonical" href="https://hyper18.github.io/categories/笔记/page/3/"/>
 
 
 
 
 
-  <title>Redis原理初探之列表 | Hyperの个人博客</title>
+  <title>分类: 笔记 | Hyperの个人博客</title>
   
 
 
@@ -155,7 +146,7 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <div class="container sidebar-position-right ">
     <div class="headband"></div>
     
       <a target="_blank" rel="noopener" href="https://github.com/Hyper18" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -294,306 +285,59 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block category">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>笔记<small>分类</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2020/07/20/Chapter1%20Computer%20Networks%20and%20the%20Internet/" itemprop="url">
+              
+                <span itemprop="name">Chapter1 Computer Networks and the Internet</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">Redis原理初探之列表</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-21T11:29:47+08:00">
-                2021-11-21
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-07-20T20:21:03+08:00"
+              content="2020-07-20" >
+          07-20
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/Redis/" itemprop="url" rel="index">
-                    <span itemprop="name">Redis</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/" class="leancloud_visitors" data-flag-title="Redis原理初探之列表">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.4k
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>由一系列结点组成的非连续、非顺序的存储结构</li>
-<li>作为列表键的底层实现之一</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// listNode</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">listNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">// 前置节点</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">listNode</span> *<span class="title">prev</span>;</span></span><br><span class="line">    <span class="comment">// 后置节点</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">listNode</span> *<span class="title">next</span>;</span></span><br><span class="line">    <span class="comment">// 节点值</span></span><br><span class="line">    <span class="keyword">void</span> *value;</span><br><span class="line">&#125; listNode;</span><br></pre></td></tr></table></figure>
-
-<h4 id="redis链表：双向无环链表"><a href="#redis链表：双向无环链表" class="headerlink" title="redis链表：双向无环链表"></a>redis链表：双向无环链表</h4><p>参考可见：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hunternet/p/9967279.html">Redis数据结构——链表 - Mr于 - 博客园 (cnblogs.com)</a></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// list</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">list</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">//表头节点</span></span><br><span class="line">    listNode *head;</span><br><span class="line">    <span class="comment">//表尾节点</span></span><br><span class="line">    listNode *tail;</span><br><span class="line">    <span class="comment">//链表所包含的节点数量</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> len;</span><br><span class="line">    <span class="comment">//节点值复制函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*dup)(<span class="keyword">void</span> *ptr);</span><br><span class="line">    <span class="comment">//节点值释放函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*<span class="built_in">free</span>)(<span class="keyword">void</span> *ptr);</span><br><span class="line">    <span class="comment">//节点值对比函数</span></span><br><span class="line">    <span class="keyword">int</span> (*match)(<span class="keyword">void</span> *ptr, <span class="keyword">void</span> *key);</span><br><span class="line">&#125; <span class="built_in">list</span>;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>双向：链表节点有前驱和后继指针，获取的时间复杂度为O(1)</li>
-<li>无环：链表为非循环链表表头节点的前驱和表尾节点的后继指针都指向Null，对链表的访问以Null为终点</li>
-<li>带表头指针和表尾指针：通过list结构的head指针和tail指针，程序获取链表的表头节点 和表尾节点的复杂度为O(1)</li>
-<li>带链表长度计数器：程序使用list结构的len属性来对list持有的链表节点进行计数，程序 获取链表中节点数量的复杂度为O(1)</li>
-<li>多态：链表节点使用void*指针来保存节点值，并且可以通过list结构的dup、free、 match三个属性为节点值设置类型特定函数，所以链表可以用于保存各种不同类型的值<ul>
-<li>dup函数用于复制链表节点所保存的值</li>
-<li>free函数用于释放链表节点所保存的值</li>
-<li>match函数则用于对比链表节点所保存的值和另一个输入值是否相等</li>
-</ul>
-</li>
-</ul>
-<h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><ul>
-<li>一个列表键包含了数量比较多的元素，又或者列表中包含的元素都是比较长的字符串</li>
-</ul>
-<h2 id="压缩列表-Ziplist"><a href="#压缩列表-Ziplist" class="headerlink" title="压缩列表 (Ziplist)"></a>压缩列表 (Ziplist)</h2><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>由一系列特殊编码的连续内存块组成的顺序型（sequential）数据结构</li>
-<li>作为列表键和哈希键的底层实现之一</li>
-</ul>
-<h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><ul>
-<li>节约内存</li>
-</ul>
-<h4 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h4><ul>
-<li>当一个列表键只包含少量列表项，并且每个列表项要么就是小整数值，要么就是长度比较短的字符串</li>
-</ul>
-<h3 id="压缩列表的组成"><a href="#压缩列表的组成" class="headerlink" title="压缩列表的组成"></a>压缩列表的组成</h3><img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;">
-
-<ul>
-<li>zlbytes：4bytes，<strong>记录整个压缩列表占用的内存字节数</strong></li>
-<li>zltail：4bytes，<strong>记录压缩列表表尾节点距离压缩列表的起始地址有多少字节</strong><ul>
-<li>偏移量，确定表尾节点的地址</li>
-</ul>
-</li>
-<li>zllen：2bytes，<strong>记录了压缩列表包含的节点数量</strong></li>
-<li>entryX：列表节点，<strong>节点的长度由节点保存的内容决定</strong></li>
-<li>zlend：1byte，值0xFF表示2^8-1=255，<strong>用于标记压缩列表的末端</strong></li>
-</ul>
-<h3 id="压缩列表结点的构成"><a href="#压缩列表结点的构成" class="headerlink" title="压缩列表结点的构成"></a>压缩列表结点的构成</h3><img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/压缩列表结点的各个组成部分.png" alt="压缩列表结点的各个组成部分">
-
-<ul>
-<li>previous_entry_length：1byte/5bytes，记录<strong>压缩列表中前一个节点的长度</strong><ul>
-<li>前一节点的长度小于254字节，previous_entry_length属性的长度为1字节，保存值为前一个结点长度</li>
-<li>前一节点的长度大于等于254字节，previous_entry_length属性的长度为5字节。第一字节会被设置为0xFE（254），之后的四个字节则用于保存前一节点的长度。</li>
-</ul>
-</li>
-</ul>
-<img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;">
-
-<ul>
-<li>encoding：记录<strong>节点的content属性所保存数据的类型以及长度</strong>D:</li>
-<li>content：保存节点的值，值的类型和长度由节点的encoding属性决定<ul>
-<li>整数编码：1byte，最高位以11开头；content属性保存整数值，整数值的<strong>类型</strong>和长度由编码除去最高两位之后的其他位记录</li>
-<li>字节数组编码：1/2/5byte(s)，最高位为00、01或者10；content属性保存着字节数组，数组的长度由编码除去最高两位之后的其他位记 录</li>
-</ul>
-</li>
-</ul>
-<h3 id="连锁更新"><a href="#连锁更新" class="headerlink" title="连锁更新"></a>连锁更新</h3><h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><p>​    由于previous_entry_length因更新或删除而在1byte/5bytes切换引起的连锁内存重分配现象</p>
-<h4 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h4><p>​    最坏情况下，需要对压缩列表执行N次空间重分配操作，而每次空间重分配的最坏复杂度为O（N），所以连锁更新的最坏复杂度为O（N^2）</p>
-<h2 id="列表操作"><a href="#列表操作" class="headerlink" title="列表操作"></a>列表操作</h2><h4 id="元素的推入和弹出操作"><a href="#元素的推入和弹出操作" class="headerlink" title="元素的推入和弹出操作"></a>元素的推入和弹出操作</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, password=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># RPUSH/LPUSH：推入元素，就语义上而言左侧为头，右侧为尾</span></span><br><span class="line"><span class="comment"># 返回的是当前列表的长度</span></span><br><span class="line">conn.rpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;last&#x27;</span>)</span><br><span class="line">conn.lpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;first&#x27;</span>)</span><br><span class="line"><span class="comment"># 可同时推入多个元素</span></span><br><span class="line">conn.rpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LRANGE：返回列表中从start到end偏移量范围内所有元素</span></span><br><span class="line"><span class="comment"># 注：会同时包含左侧start和右侧end的元素</span></span><br><span class="line">conn.lrange(<span class="string">&#x27;list_key&#x27;</span>, <span class="number">0</span>, -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LTRIM：从列表左端或右端或两端同时删减任意数量的元素</span></span><br><span class="line"><span class="comment"># 注意只有LTRIM，删除时左开右闭</span></span><br><span class="line">conn.ltrim(<span class="string">&#x27;list_key&#x27;</span>, <span class="number">2</span>, -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LPOP/RPOP：弹出列表左侧或右侧的元素</span></span><br><span class="line">conn.lpop(<span class="string">&#x27;list_key&#x27;</span>)</span><br><span class="line">conn.rpop(<span class="string">&#x27;list_key&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="阻塞弹出与元素移动命令"><a href="#阻塞弹出与元素移动命令" class="headerlink" title="阻塞弹出与元素移动命令"></a>阻塞弹出与元素移动命令</h4><ul>
-<li>常用于<strong>消息传递（messaging）</strong>和<strong>任务队列（task queue）</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">conn.rpush(<span class="string">&#x27;list_key2&#x27;</span>, <span class="string">&#x27;item&#x27;</span>)</span><br><span class="line"><span class="comment"># BRPOPLPUSH：将最右端（尾）元素从一个列表中弹出，并压入至另一个列表最左端（头）</span></span><br><span class="line"><span class="comment"># 注意参数顺序：需弹出元素list 需压入元素list timeout时间（单位：s）</span></span><br><span class="line"><span class="comment"># 这里若需弹出元素list没有可供弹出元素，则在timeout时间内等待，block直到有新元素可用；否则，返回None</span></span><br><span class="line">conn.brpoplpush(<span class="string">&#x27;list_key2&#x27;</span>, <span class="string">&#x27;list_key&#x27;</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># BLPOP/BRPOP：自左向右检查传入的所有列表，对第一个遇到的非空列表进行LPOP/RPOP操作</span></span><br><span class="line"><span class="comment"># timeout：同上处理</span></span><br><span class="line">conn.blpop([<span class="string">&#x27;list_key1&#x27;</span>, <span class="string">&#x27;list_key2&#x27;</span>], <span class="number">1</span>)</span><br><span class="line">conn.brpop([<span class="string">&#x27;list_key1&#x27;</span>, <span class="string">&#x27;list_key2&#x27;</span>], <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Redis/" rel="tag"><i class="fa fa-tag"></i> Redis</a>
-          
-            <a href="/tags/NoSQL/" rel="tag"><i class="fa fa-tag"></i> NoSQL</a>
-          
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2021/11/20/%E7%AD%BE%E5%90%8Dcookie%E4%B8%8E%E4%BB%A4%E7%89%8Ccookie/" rel="next" title="签名cookie与令牌cookie">
-                <i class="fa fa-chevron-left"></i> 签名cookie与令牌cookie
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%93%88%E5%B8%8C/" rel="prev" title="redis原理初探之哈希">
-                redis原理初探之哈希 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/categories/%E7%AC%94%E8%AE%B0/page/2/">&lt;</a><a class="page-number" href="/categories/%E7%AC%94%E8%AE%B0/">1</a><a class="page-number" href="/categories/%E7%AC%94%E8%AE%B0/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+
 
 
           </div>
@@ -601,10 +345,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -625,17 +365,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -732,22 +463,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.0.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis%E9%93%BE%E8%A1%A8%EF%BC%9A%E5%8F%8C%E5%90%91%E6%97%A0%E7%8E%AF%E9%93%BE%E8%A1%A8"><span class="nav-number">1.0.2.</span> <span class="nav-text">redis链表：双向无环链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.0.3.</span> <span class="nav-text">使用场景</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8-Ziplist"><span class="nav-number">2.</span> <span class="nav-text">压缩列表 (Ziplist)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">2.0.2.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-1"><span class="nav-number">2.0.3.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8%E7%9A%84%E7%BB%84%E6%88%90"><span class="nav-number">2.1.</span> <span class="nav-text">压缩列表的组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8%E7%BB%93%E7%82%B9%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-number">2.2.</span> <span class="nav-text">压缩列表结点的构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E9%94%81%E6%9B%B4%E6%96%B0"><span class="nav-number">2.3.</span> <span class="nav-text">连锁更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.3.2.</span> <span class="nav-text">复杂度</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">列表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E7%9A%84%E6%8E%A8%E5%85%A5%E5%92%8C%E5%BC%B9%E5%87%BA%E6%93%8D%E4%BD%9C"><span class="nav-number">3.0.1.</span> <span class="nav-text">元素的推入和弹出操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%BB%E5%A1%9E%E5%BC%B9%E5%87%BA%E4%B8%8E%E5%85%83%E7%B4%A0%E7%A7%BB%E5%8A%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.0.2.</span> <span class="nav-text">阻塞弹出与元素移动命令</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -897,10 +612,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

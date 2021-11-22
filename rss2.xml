@@ -9,8 +9,41 @@
     <atom:link href="https://hyper18.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>blog</description>
-    <pubDate>Mon, 22 Nov 2021 03:42:22 GMT</pubDate>
+    <pubDate>Mon, 22 Nov 2021 04:02:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>redis原理初探之哈希</title>
+      <link>https://hyper18.github.io/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%93%88%E5%B8%8C/</link>
+      <guid>https://hyper18.github.io/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%93%88%E5%B8%8C/</guid>
+      <pubDate>Mon, 22 Nov 2021 03:39:54 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;字典&quot;&gt;&lt;a href=&quot;#字典&quot; class=&quot;headerlink&quot; title=&quot;字典&quot;&gt;&lt;/a&gt;字典&lt;/h2&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;ul&gt;
+&lt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul><li>一种用于保存键值对（key-value pair）的抽象数据结构<ul><li>一个键（key）可以和一个值（value）进行关联（或者说将键映射为值）， 这些关联的键和值就称为键值对</li></ul></li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 键值对</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dictEntry</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">void</span> *key; <span class="comment">//键</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> //值</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">void</span> *val;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> tu64;</span><br><span class="line">        <span class="keyword">int</span> ts64;</span><br><span class="line">    &#125; v;</span><br><span class="line">    <span class="comment">//指向下个哈希表节点，形成链表</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">dictEntry</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; dictEntry;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 底层实现：哈希表</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dictht</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">//哈希表数组</span></span><br><span class="line">    dictEntry **table;</span><br><span class="line">    <span class="comment">//哈希表大小</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> size;</span><br><span class="line">    <span class="comment">//哈希表大小掩码，用于计算索引值</span></span><br><span class="line">    <span class="comment">//总是等于size - 1</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> sizemask;</span><br><span class="line">    <span class="comment">//该哈希表已有节点的数量</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> used;</span><br><span class="line">&#125; dictht;</span><br></pre></td></tr></table></figure><p>注：sizemask和哈希值一起决定一个键应该被放到table数组的哪个索引上面</p><h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><ul><li>一个哈希键包含的键值对比较多，又或者键值对中的元素都是比较长的字符串</li></ul><h4 id="redis字典"><a href="#redis字典" class="headerlink" title="redis字典"></a>redis字典</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dictType</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">//计算哈希值的函数</span></span><br><span class="line">    <span class="function"><span class="keyword">unsigned</span> <span class="title">int</span> <span class="params">(*hashFunction)</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *key)</span></span>;</span><br><span class="line">    <span class="comment">//复制键的函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*keyDup)(<span class="keyword">void</span> *privdata, <span class="keyword">const</span> <span class="keyword">void</span> *key);</span><br><span class="line">    <span class="comment">//复制值的函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*valDup)(<span class="keyword">void</span> *privdata, <span class="keyword">const</span> <span class="keyword">void</span> *obj);</span><br><span class="line">    <span class="comment">//对比键的函数</span></span><br><span class="line">    <span class="keyword">int</span> (*keyCompare)(<span class="keyword">void</span> *privdata, <span class="keyword">const</span> <span class="keyword">void</span> *key1, <span class="keyword">const</span> <span class="keyword">void</span> *key2);</span><br><span class="line">    <span class="comment">//销毁键的函数</span></span><br><span class="line">    <span class="keyword">void</span> (*keyDestructor)(<span class="keyword">void</span> *privdata, <span class="keyword">void</span> *key);</span><br><span class="line">    <span class="comment">//销毁值的函数</span></span><br><span class="line">    <span class="keyword">void</span> (*valDestructor)(<span class="keyword">void</span> *privdata, <span class="keyword">void</span> *obj);</span><br><span class="line">&#125; dictType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dict</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">//类型特定函数</span></span><br><span class="line">    dictType *type;</span><br><span class="line">    <span class="comment">//私有数据</span></span><br><span class="line">    <span class="keyword">void</span> *privdata;</span><br><span class="line">    <span class="comment">//哈希表</span></span><br><span class="line">    dictht ht[<span class="number">2</span>];</span><br><span class="line">    <span class="comment">// rehash 索引</span></span><br><span class="line">    <span class="comment">//当rehash 不在进行时，值为-1</span></span><br><span class="line">    <span class="keyword">int</span> trehashidx; <span class="comment">/* rehashing not in progress if rehashidx == -1 */</span></span><br><span class="line">&#125; dict;</span><br></pre></td></tr></table></figure><h4 id="哈希算法"><a href="#哈希算法" class="headerlink" title="哈希算法"></a>哈希算法</h4><h2 id="哈希操作"><a href="#哈希操作" class="headerlink" title="哈希操作"></a>哈希操作</h2>]]></content:encoded>
+      
+      
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/Redis/">Redis</category>
+      
+      
+      <category domain="https://hyper18.github.io/tags/Redis/">Redis</category>
+      
+      <category domain="https://hyper18.github.io/tags/NoSQL/">NoSQL</category>
+      
+      <category domain="https://hyper18.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      
+      
+      <comments>https://hyper18.github.io/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%93%88%E5%B8%8C/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Redis原理初探之列表</title>
@@ -635,43 +668,6 @@
       
       
       <comments>https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Java面向对象（二）</title>
-      <link>https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%8C%EF%BC%89/</link>
-      <guid>https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%8C%EF%BC%89/</guid>
-      <pubDate>Wed, 26 Aug 2020 12:47:40 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;第二章-一切都是对象&quot;&gt;&lt;a href=&quot;#第二章-一切都是对象&quot; class=&quot;headerlink&quot; title=&quot;第二章 一切都是对象&quot;&gt;&lt;/a&gt;第二章 一切都是对象&lt;/h2&gt;&lt;p&gt;1、引用 ref：操纵对象&lt;/p&gt;
-&lt;p&gt;2、存储位置&lt;/p&gt;
-&lt;ul&gt;
-&lt;</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="第二章-一切都是对象"><a href="#第二章-一切都是对象" class="headerlink" title="第二章 一切都是对象"></a>第二章 一切都是对象</h2><p>1、引用 ref：操纵对象</p><p>2、存储位置</p><ul><li>常规位置：寄存器 堆栈 堆</li><li>常量存储：程序代码内部</li><li>非RAM存储：存活于程序外，不受程序任何控制<ul><li>实例：流对象 持久化对象</li></ul></li></ul><p>3、基本类型（P23）</p><ul><li>byte 8比特的比特值</li><li>具有包装器类，可在堆中创建一个非基本对象表示对应基本类型</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c = <span class="string">&quot;hhh&quot;</span>;</span><br><span class="line">Character ch = <span class="keyword">new</span> Character(c);</span><br><span class="line"><span class="comment">// 还可以反向转换</span></span><br><span class="line"><span class="keyword">char</span> c = ch;</span><br></pre></td></tr></table></figure><ul><li><p>高精度数字：BigInteger BigDecimal</p></li><li><p>对象的生命周期独立于作用域之外</p></li></ul><p>4、<strong>类  class</strong></p><ul><li>构成：字段（数据成员）和 方法（成员函数）</li><li>DataOnly类：如名，仅作保存数据使用</li><li>基本成员默认值（P26）</li></ul><p>5、方法（函数）</p><ul><li>组成：名称 参数 返回值 方法体</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ReturnType <span class="title">methodName</span><span class="params">( <span class="comment">/* 参数列表 */</span> )</span></span>&#123;</span><br><span class="line">    <span class="comment">/* 方法体 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>6、构建</p><ul><li>名字可见性：反转域名，句点则表示子目录的划分，每个类标识符唯一</li><li>使用构件</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用util中的ArrayList类</span></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="comment">// 使用util中的几个类（一次说明）</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br></pre></td></tr></table></figure><ul><li>static关键字：<ul><li>为特定域分配单一存储空间</li><li>不与包含它的类的任何对象实例关联</li></ul></li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StaticTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">47</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 两者指向同一片存储空间</span></span><br><span class="line">StaticTest st1 = <span class="keyword">new</span> StaticTest();</span><br><span class="line">StaticTest st2 = <span class="keyword">new</span> StaticTest();</span><br><span class="line"><span class="comment">// 可通过类名直接引用</span></span><br><span class="line">StaticTest.i++;</span><br></pre></td></tr></table></figure><ul><li>定义静态方法<ul><li>可用它的类直接调用，或用对象调用</li><li>可在不创建任何对象时调用</li></ul></li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Incrementable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">increment</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        StaticTest.i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 通过对象调用</span></span><br><span class="line">Incrementable sf = <span class="keyword">new</span> Incrementable();</span><br><span class="line">sf.increment();</span><br><span class="line"><span class="comment">// 通过类调用</span></span><br><span class="line">Incrementable.increment();</span><br></pre></td></tr></table></figure><p>7、使用</p><ul><li>java.lang默认导入</li><li>println()：控制台输出，完成后换行<ul><li>sout + enter/tab</li></ul></li><li>注释风格：同C++</li><li>javadoc<ul><li>提取注释：输出HTML文档</li><li>语法：*//</li><li>使用：嵌入HTML 或 使用文档标签（以@开头命令）<ul><li>@see：引用其他类</li><li>@version version-information</li><li>@param parameter-name description：参数列表标识符</li><li>deprecated：旧特性，已由新特性取代</li></ul></li><li>构成：类、域和方法</li><li>访问权限：仅可公共或受限，忽略私有注释</li></ul></li></ul><p>8、编码风格</p><ul><li>类名的首字母大写</li><li>驼峰风格：<ul><li>多个单词类名合并（无下划线），每个首部大写</li><li>标识符同上，但第一个字母小写</li></ul></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/">课程</category>
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/">Java</category>
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</category>
-      
-      
-      <category domain="https://hyper18.github.io/tags/Java/">Java</category>
-      
-      <category domain="https://hyper18.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</category>
-      
-      
-      <comments>https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%8C%EF%BC%89/#disqus_thread</comments>
       
     </item>
     
