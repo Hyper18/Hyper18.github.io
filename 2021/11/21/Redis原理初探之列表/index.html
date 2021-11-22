@@ -85,7 +85,7 @@
 
 <meta name="description" content="链表定义 由一系列结点组成的非连续、非顺序的存储结构 作为列表键的底层实现之一  12345678910&#x2F;&#x2F; listNodetypedef struct listNode&amp;#123;    &#x2F;&#x2F; 前置节点    struct listNode *prev;    &#x2F;&#x2F; 后置节点    struct listNode *next;    &#x2F;&#x2F; 节点值    void *value;&amp;#125; l">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis原理初探之压缩列表">
+<meta property="og:title" content="Redis原理初探之列表">
 <meta property="og:url" content="https://hyper18.github.io/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/index.html">
 <meta property="og:site_name" content="Hyperの个人博客">
 <meta property="og:description" content="链表定义 由一系列结点组成的非连续、非顺序的存储结构 作为列表键的底层实现之一  12345678910&#x2F;&#x2F; listNodetypedef struct listNode&amp;#123;    &#x2F;&#x2F; 前置节点    struct listNode *prev;    &#x2F;&#x2F; 后置节点    struct listNode *next;    &#x2F;&#x2F; 节点值    void *value;&amp;#125; l">
@@ -94,7 +94,7 @@
 <meta property="og:image" content="https://hyper18.github.io/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/压缩列表结点的各个组成部分.png">
 <meta property="og:image" content="https://hyper18.github.io/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/运算前一结点的指针位置.png">
 <meta property="article:published_time" content="2021-11-21T03:29:47.000Z">
-<meta property="article:modified_time" content="2021-11-22T03:38:59.575Z">
+<meta property="article:modified_time" content="2021-11-22T03:42:22.058Z">
 <meta property="article:author" content="Hyper18">
 <meta property="article:tag" content="Redis">
 <meta property="article:tag" content="NoSQL">
@@ -136,7 +136,7 @@
 
 
 
-  <title>Redis原理初探之压缩列表 | Hyperの个人博客</title>
+  <title>Redis原理初探之列表 | Hyperの个人博客</title>
   
 
 
@@ -325,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Redis原理初探之压缩列表</h1>
+          <h1 class="post-title" itemprop="name headline">Redis原理初探之列表</h1>
         
 
         <div class="post-meta">
@@ -388,7 +388,7 @@
 
           
           
-             <span id="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/" class="leancloud_visitors" data-flag-title="Redis原理初探之压缩列表">
+             <span id="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/" class="leancloud_visitors" data-flag-title="Redis原理初探之列表">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
