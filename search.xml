@@ -2529,77 +2529,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java面向对象（七）—— 复用类</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E7%94%A8%E7%B1%BB/</url>
-    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
-<ul>
-<li>在新类中产生现有类的对象</li>
-<li>继承</li>
-</ul>
-<p>2、组合语法</p>
-<ul>
-<li>将对象引用置于新类</li>
-<li>初始化引用的位置<ul>
-<li>定义处</li>
-<li>类构造器中</li>
-<li>惰性初始化（Delay Initialization）于使用对象前</li>
-</ul>
-</li>
-</ul>
-<p>3、继承</p>
-<ul>
-<li>声明新类与旧类类似<ul>
-<li>书写紧跟基类名称关键字extends</li>
-</ul>
-</li>
-<li>super为超类，类从超类继承</li>
-<li>使用+=可连接多个String对象</li>
-<li>构建过程（初始化过程同）是向外“扩散”的<ul>
-<li>若类带有参数，则需要用super显式编写调用</li>
-</ul>
-</li>
-</ul>
-<p>4、代理：继承与组合的中间体</p>
-<ul>
-<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
-<li>java不直接支持代理，可使用部分支持ide自动生成</li>
-</ul>
-<p>5、结合使用组合和继承</p>
-<ul>
-<li>finally()子句确保正确清理，采用自己编写的顺序清理</li>
-<li>dispose()：清理方法</li>
-<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别C++）<ul>
-<li>需要覆写：Override()，不是关键字但按关键字处理</li>
-</ul>
-</li>
-</ul>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
-<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
-<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
-<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
-<li>is-a关系 - 继承，has-a关系 - 组合</li>
-</ul>
-<p>6、protected关键字</p>
-<ul>
-<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
-</ul>
-<p>7、final关键字</p>
-<ul>
-<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
-<li>类常量 static final</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>面向对象</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java面向对象（一）—— 对象导论</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
     <content><![CDATA[<h2 id="第一章-对象导论"><a href="#第一章-对象导论" class="headerlink" title="第一章 对象导论"></a>第一章 对象导论</h2><p>1、基本特性</p>
@@ -2660,82 +2589,6 @@
 <li>使用垃圾回收器，自发发现不再被使用的对象，有效避免内存泄漏</li>
 </ul>
 <p>11、必须编写异常处理的代码</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>面向对象</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java面向对象（三）—— 操作符</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%93%8D%E4%BD%9C%E7%AC%A6/</url>
-    <content><![CDATA[<h2 id="第三章-操作符"><a href="#第三章-操作符" class="headerlink" title="第三章 操作符"></a>第三章 操作符</h2><p>1、别名现象</p>
-<p>赋值操作是对一个对象的引用，对象与对象相互赋值则丢失信息</p>
-<p>2、生成数字：Random类</p>
-<ul>
-<li>nextInt / nextFloat …</li>
-</ul>
-<p>3、可使用一元加减号</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下操作均合法</span></span><br><span class="line">x = -a;</span><br><span class="line">x = a * -b;</span><br><span class="line">s = a * (-b);</span><br></pre></td></tr></table></figure>
-
-<p>4、关系操作符</p>
-<ul>
-<li>若为基本类型，直接比较</li>
-<li>不为基本类型，使用所有对象都适用的特殊方法equals()<ul>
-<li>默认执行比较引用，不可用于自己的新类</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">n1.equals(n2)</span><br><span class="line"><span class="comment">// 以下返回行为不正确</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myclass</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">wrongdoing</span></span>&#123;</span><br><span class="line">    myclass v1 = <span class="keyword">new</span> v1;</span><br><span class="line">    myclass v2 = <span class="keyword">new</span> v2;</span><br><span class="line">    System.out.println(v1.equals(v2));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>三元操作符</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// condition ? ex1 : ex2;</span></span><br><span class="line">x &lt; y ? x : y;</span><br></pre></td></tr></table></figure>
-
-<p>5、逻辑运算符</p>
-<p>与或非仅可用于布尔值</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 错误实例</span></span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + (i &amp;&amp; j));</span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + (i || j));</span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + !i);</span><br></pre></td></tr></table></figure>
-
-<p>6、直接常量</p>
-<ul>
-<li>后缀L / F /D …</li>
-<li>前缀0x / 0 / 0b</li>
-<li>可为数字字面量添加下划线，更可读（e.g. 1_000_000)</li>
-<li>指数<ul>
-<li>注：结果不为一个数，返回NaN（e.g. 0/0）</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">expfloat = <span class="number">1.39E-43f</span>；</span><br></pre></td></tr></table></figure>
-
-<p>7、按位操作符</p>
-<p>&amp;= |= ^= 均合法</p>
-<p>8、移位操作符 &gt;&gt; &lt;&lt;</p>
-<ul>
-<li>无符号右移：&gt;&gt;&gt;，无论正负均在高位插入0<ul>
-<li>对byte / short：会先转为int，右移、截断、赋值，可能得到-1结果</li>
-<li>推广：只要类型比int小均会被转换，可根据需求使用cast手动类型转换 / 提升</li>
-</ul>
-</li>
-<li>与等号组合：&gt;&gt;= &lt;&lt;=，移动等号左边指定的位数</li>
-</ul>
-<p>9、移植：无需考虑，不同机器均相同</p>
-<ul>
-<li>因而无sizeof操作符</li>
-</ul>
-<p>注：溢出结果不会收到警告或出错</p>
-<p>10、浮点数四舍五入</p>
-<ul>
-<li>得到最接近整数：使用Max.round() 方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">9.997</span></span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) Math.round(x);</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -2854,57 +2707,70 @@
       </tags>
   </entry>
   <entry>
-    <title>Java面向对象（六）—— 访问权限控制</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</url>
-    <content><![CDATA[<h2 id="第六章-访问权限控制"><a href="#第六章-访问权限控制" class="headerlink" title="第六章 访问权限控制"></a>第六章 访问权限控制</h2><p>1、类库 library：将不变的内容和重构的代码内容区分开</p>
-<p>2、访问权限修饰词：public protected private</p>
+    <title>Java面向对象（三）—— 操作符</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%93%8D%E4%BD%9C%E7%AC%A6/</url>
+    <content><![CDATA[<h2 id="第三章-操作符"><a href="#第三章-操作符" class="headerlink" title="第三章 操作符"></a>第三章 操作符</h2><p>1、别名现象</p>
+<p>赋值操作是对一个对象的引用，对象与对象相互赋值则丢失信息</p>
+<p>2、生成数字：Random类</p>
 <ul>
-<li>无关键字则默认包访问权限，其包内成员相对于外部的所有类均为private</li>
-<li>取得访问权的方式<ul>
-<li>使该成员成为public</li>
-<li>不加修饰词，并将其他类放置于同一个包</li>
-<li>继承</li>
-<li>使用访问器和变异器（mutator）读取和改变数值</li>
+<li>nextInt / nextFloat …</li>
+</ul>
+<p>3、可使用一元加减号</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下操作均合法</span></span><br><span class="line">x = -a;</span><br><span class="line">x = a * -b;</span><br><span class="line">s = a * (-b);</span><br></pre></td></tr></table></figure>
+
+<p>4、关系操作符</p>
+<ul>
+<li>若为基本类型，直接比较</li>
+<li>不为基本类型，使用所有对象都适用的特殊方法equals()<ul>
+<li>默认执行比较引用，不可用于自己的新类</li>
 </ul>
 </li>
 </ul>
-<p>3、包 package：库单元</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">n1.equals(n2)</span><br><span class="line"><span class="comment">// 以下返回行为不正确</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myclass</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">wrongdoing</span></span>&#123;</span><br><span class="line">    myclass v1 = <span class="keyword">new</span> v1;</span><br><span class="line">    myclass v2 = <span class="keyword">new</span> v2;</span><br><span class="line">    System.out.println(v1.equals(v2));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>功能：将构件捆绑至一个内聚的类库单元中</li>
-<li>默认（未命名）包：包含本地源代码文件</li>
-<li>编译单元：正在编写的文件</li>
+<li>三元操作符</li>
 </ul>
-<p>4、代码组织</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// condition ? ex1 : ex2;</span></span><br><span class="line">x &lt; y ? x : y;</span><br></pre></td></tr></table></figure>
+
+<p>5、逻辑运算符</p>
+<p>与或非仅可用于布尔值</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 错误实例</span></span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + (i &amp;&amp; j));</span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + (i || j));</span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + !i);</span><br></pre></td></tr></table></figure>
+
+<p>6、直接常量</p>
 <ul>
-<li>package：群组，对每个文件，需声明该编译单元的类库</li>
-<li>分割单一的全局名字空间，避免名称冲突的可能性</li>
-<li>创建独一无二的包名<ul>
-<li>层次化组织</li>
-<li>反序因特网域名 / 分解包名为机器目录</li>
+<li>后缀L / F /D …</li>
+<li>前缀0x / 0 / 0b</li>
+<li>可为数字字面量添加下划线，更可读（e.g. 1_000_000)</li>
+<li>指数<ul>
+<li>注：结果不为一个数，返回NaN（e.g. 0/0）</li>
 </ul>
 </li>
 </ul>
-<p>5、定制工具库</p>
-<ul>
-<li>输出：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line">System.out.println(<span class="number">123</span>); <span class="comment">//换行打印</span></span><br><span class="line">System.out.print(<span class="number">123</span>); <span class="comment">//不换行打印</span></span><br><span class="line">System.out.write(<span class="number">234</span>); <span class="comment">//字节输出</span></span><br><span class="line">System.out.printf(<span class="string">&quot;%+8.5f\n&quot;</span>, <span class="number">3.14</span>); <span class="comment">//按格式输出</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">expfloat = <span class="number">1.39E-43f</span>；</span><br></pre></td></tr></table></figure>
 
+<p>7、按位操作符</p>
+<p>&amp;= |= ^= 均合法</p>
+<p>8、移位操作符 &gt;&gt; &lt;&lt;</p>
 <ul>
-<li>range()</li>
+<li>无符号右移：&gt;&gt;&gt;，无论正负均在高位插入0<ul>
+<li>对byte / short：会先转为int，右移、截断、赋值，可能得到-1结果</li>
+<li>推广：只要类型比int小均会被转换，可根据需求使用cast手动类型转换 / 提升</li>
 </ul>
-<p>6、接口和实现</p>
+</li>
+<li>与等号组合：&gt;&gt;= &lt;&lt;=，移动等号左边指定的位数</li>
+</ul>
+<p>9、移植：无需考虑，不同机器均相同</p>
 <ul>
-<li>访问控制基本思想：将接口与具体实现分离</li>
-<li>可采用的形式（注：接口与实现仍混合，仅易于阅读）</li>
+<li>因而无sizeof操作符</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> OrganizedByAccess &#123;</span><br><span class="line">	<span class="keyword">public</span> ...;</span><br><span class="line">	<span class="keyword">public</span> ...;</span><br><span class="line">	<span class="comment">// 阅读到此处结束</span></span><br><span class="line">	<span class="keyword">private</span> ...;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注：溢出结果不会收到警告或出错</p>
+<p>10、浮点数四舍五入</p>
+<ul>
+<li>得到最接近整数：使用Max.round() 方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">9.997</span></span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) Math.round(x);</span><br></pre></td></tr></table></figure>
 
-<p>7、类的访问权限</p>
-<ul>
-<li>每个编译单元都只能有一个公共接口，以public关键字修饰</li>
-<li>类仅可为默认（包访问权限）或public修饰，其他修饰词不可用</li>
-</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -2917,68 +2783,32 @@
       </tags>
   </entry>
   <entry>
-    <title>Redis原理初探（一）—— 字符串</title>
-    <url>/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<h2 id="简单动态字符串（simple-dynamic-string，SDS）"><a href="#简单动态字符串（simple-dynamic-string，SDS）" class="headerlink" title="简单动态字符串（simple dynamic string，SDS）"></a>简单动态字符串（simple dynamic string，SDS）</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>redis的默认字符表示，作为一个可被修改的字符串值</li>
-<li>作为字符串的底层实现</li>
+    <title>Java面向对象（四）—— 控制执行流程</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E6%8E%A7%E5%88%B6%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="第四章-控制执行流程"><a href="#第四章-控制执行流程" class="headerlink" title="第四章 控制执行流程"></a>第四章 控制执行流程</h2><p>1、foreach（SE5+）</p>
+<ul>
+<li>对于任何返回一个<strong>数组</strong>的方法，不必创建int变量计即可自动计数</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">/* data */</span></span><br><span class="line">    <span class="keyword">int</span> len;    -- 数组已使用字节数量</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">free</span>;   -- 数组未使用字节数量</span><br><span class="line">    <span class="keyword">char</span> buf[]; -- 字节数组</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>注：buf[]的最后一个字节会用于保存空字符’\0’(同C style)</p>
-<h3 id="使用SDS而非C-style字符串的好处"><a href="#使用SDS而非C-style字符串的好处" class="headerlink" title="使用SDS而非C style字符串的好处"></a>使用SDS而非C style字符串的好处</h3><h4 id="获取字符串长度不为性能瓶颈"><a href="#获取字符串长度不为性能瓶颈" class="headerlink" title="获取字符串长度不为性能瓶颈"></a>获取字符串长度不为性能瓶颈</h4><ul>
-<li>由定义可知，SDS的结构体中已经保存了数组的长度（len），从而只需使用STRLEN()获取值，其对应算法复杂度始终仅为O(1)；C字符串由于没有保存该信息，则需要对数组进行遍历得到长度，其算法复杂度为O(n)</li>
-</ul>
-<h4 id="API安全，排除了缓冲区溢出的风险"><a href="#API安全，排除了缓冲区溢出的风险" class="headerlink" title="API安全，排除了缓冲区溢出的风险"></a>API安全，排除了缓冲区溢出的风险</h4><ul>
-<li>对于C字符串而言，缓冲区容易溢出其实是不记录数组长度的衍生问题。如考虑下述场景：</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcat</span><span class="params">(<span class="keyword">char</span> *c1, <span class="keyword">const</span> <span class="keyword">char</span> *c2)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>​    strcat()方法会假定系统尚且分配了足够的内存给c1，以容纳c2中的所有内容；而c2数组长度过长且超出内存限制时，就造成了缓冲区的溢出。这可能会给相邻内存的内容带来意外的后果（如：未指定的意外修改，etc.）</p>
-<p>​    而SDS的API会自动对len进行修改和更新；当当前空间不能满足要求时，则会自动扩展当前SDS的空间。对应redis中字符串拼接方法为：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">sdscat(c1, c2);</span><br></pre></td></tr></table></figure>
-
-<h4 id="是二进制安全的"><a href="#是二进制安全的" class="headerlink" title="是二进制安全的"></a>是二进制安全的</h4><p>​    既可存储文本数据、也可存储二进制数据</p>
-<h4 id="兼容部分C-style字符串"><a href="#兼容部分C-style字符串" class="headerlink" title="兼容部分C style字符串"></a>兼容部分C style字符串</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// string compare</span></span><br><span class="line">strcasecmp(c1-&gt;c2, <span class="string">&quot;hello world&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h4><ul>
-<li>作为数据库中字符串值、整数值和浮点数值的存储</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">RPUSH fruits &quot;apple&quot; &quot;banana&quot; &quot;cherry&quot;</span><br><span class="line"><span class="comment">-- output：(integer) 3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> HelloWorld;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForEachFloat</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Random rand = <span class="keyword">new</span> Random(<span class="number">47</span>);</span><br><span class="line">        <span class="keyword">float</span>[] f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">            f[i] = rand.nextFloat();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">float</span> x:f) <span class="comment">// 定义一个float类型变量x，将每个f元素赋给x</span></span><br><span class="line">            System.out.println(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>作为缓冲区（buffer）</li>
-</ul>
-<h3 id="空间分配策略"><a href="#空间分配策略" class="headerlink" title="空间分配策略"></a>空间分配策略</h3><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>​    减少连续执行字符串增长操作所需的内存重分配次数</p>
-<ul>
-<li>策略1：空间预分配<ul>
-<li>当未使用空间足够时，无需进行内存重分配，即没有对字符串进行修改</li>
-<li>若修改后的字符串长度小于1MB，将分配与当前数组已使用长度等长的未使用空间</li>
-<li>若修改后的字符串长度大于1MB，将分配1MB的未使用空间</li>
-</ul>
-</li>
-<li>策略2：惰性空间释放<ul>
-<li>当空间被释放成为空余空间后，并不会立即对其进行回收，而是先由free属性记录下来</li>
-<li>避免了缩短字符串时所需的内存重分配操作，并为将来可能有的增长操作提供了优化</li>
-<li>当有实际空间需要时，会通过对应API真正完成空余空间的释放</li>
+<li>还可用于任何Iterable对象<ul>
+<li>Iterable：Java中的迭代器对象，是能够对List这样的集合进行迭代遍历的底层依赖</li>
 </ul>
 </li>
 </ul>
-<h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><h4 id="自增-自减"><a href="#自增-自减" class="headerlink" title="自增/自减"></a>自增/自减</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis()</span><br><span class="line"><span class="comment"># 获取对应key:只要该字符串值可以被解释为整数值，则可进行下述处理</span></span><br><span class="line"></span><br><span class="line">conn.get(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"><span class="comment"># 对该key进行自增操作 incr = short for increase</span></span><br><span class="line">conn.incr(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"><span class="comment"># 也可以以数字形式指定自增参数，下两者效果相同</span></span><br><span class="line"><span class="comment"># INCRBY sample_key 10</span></span><br><span class="line">conn.incr(<span class="string">&#x27;sample_key&#x27;</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对该key进行自减操作 decr = short for decrease</span></span><br><span class="line"><span class="comment"># DECRBY sample_key 8</span></span><br><span class="line">conn.decr(<span class="string">&#x27;sample_key&#x27;</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 二次获取当前的数值</span></span><br><span class="line">conn.get(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>2、迭代前的标签：嵌套另一迭代或开关时使用</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">label1:</span><br><span class="line">outer-iteration &#123;</span><br><span class="line">    inner-iteration&#123;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span> label1; <span class="comment">// 转至label1</span></span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span> label1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="打包-package-处理结构化数据"><a href="#打包-package-处理结构化数据" class="headerlink" title="打包(package)处理结构化数据"></a>打包(package)处理结构化数据</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, password=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line"><span class="comment"># 执行APPEND命令：返回的是当前字符串的长度</span></span><br><span class="line"><span class="comment"># 此时前者可不存在或为空串，则得到的新字符串长度显然为后者的长</span></span><br><span class="line">conn.append(<span class="string">&#x27;sample_string&#x27;</span>, <span class="string">&#x27;hello &#x27;</span>)</span><br><span class="line">conn.append(<span class="string">&#x27;sample_string&#x27;</span>, <span class="string">&#x27;world!&#x27;</span>)</span><br><span class="line"><span class="comment"># 操作后sample_string的长度：12</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SUBSTR：获取字符串子串（部分区间值）</span></span><br><span class="line"><span class="comment"># redis数组索引也是从0开始，则取得的值为llo</span></span><br><span class="line">conn.substr(<span class="string">&#x27;sample_string&#x27;</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETRANGE：为字符串设置范围</span></span><br><span class="line"><span class="comment"># 设置后仅改变输出的字符串内容</span></span><br><span class="line"><span class="comment"># 字符串长度仍为总长度，而非处理后的范围长度</span></span><br><span class="line">conn.setrange(<span class="string">&#x27;sample_string&#x27;</span>, <span class="number">0</span>, <span class="string">&#x27;H&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETBIT：单独改变某二进制位</span></span><br></pre></td></tr></table></figure>
-
-<p><em>【参考】</em><br><em>[1] 《Redis的设计与实现》</em></p>
-<p><em>[2] 《Redis实战》</em></p>
 ]]></content>
       <categories>
         <category>笔记</category>
-        <category>Redis</category>
+        <category>Java</category>
+        <category>面向对象</category>
       </categories>
       <tags>
-        <tag>Redis</tag>
-        <tag>NoSQL</tag>
-        <tag>数据结构</tag>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
       </tags>
   </entry>
   <entry>
@@ -3089,23 +2919,57 @@
       </tags>
   </entry>
   <entry>
-    <title>Java面向对象（四）—— 控制执行流程</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E6%8E%A7%E5%88%B6%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<h2 id="第四章-控制执行流程"><a href="#第四章-控制执行流程" class="headerlink" title="第四章 控制执行流程"></a>第四章 控制执行流程</h2><p>1、foreach（SE5+）</p>
+    <title>Java面向对象（六）—— 访问权限控制</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<h2 id="第六章-访问权限控制"><a href="#第六章-访问权限控制" class="headerlink" title="第六章 访问权限控制"></a>第六章 访问权限控制</h2><p>1、类库 library：将不变的内容和重构的代码内容区分开</p>
+<p>2、访问权限修饰词：public protected private</p>
 <ul>
-<li>对于任何返回一个<strong>数组</strong>的方法，不必创建int变量计即可自动计数</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> HelloWorld;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForEachFloat</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Random rand = <span class="keyword">new</span> Random(<span class="number">47</span>);</span><br><span class="line">        <span class="keyword">float</span>[] f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">            f[i] = rand.nextFloat();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">float</span> x:f) <span class="comment">// 定义一个float类型变量x，将每个f元素赋给x</span></span><br><span class="line">            System.out.println(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>还可用于任何Iterable对象<ul>
-<li>Iterable：Java中的迭代器对象，是能够对List这样的集合进行迭代遍历的底层依赖</li>
+<li>无关键字则默认包访问权限，其包内成员相对于外部的所有类均为private</li>
+<li>取得访问权的方式<ul>
+<li>使该成员成为public</li>
+<li>不加修饰词，并将其他类放置于同一个包</li>
+<li>继承</li>
+<li>使用访问器和变异器（mutator）读取和改变数值</li>
 </ul>
 </li>
 </ul>
-<p>2、迭代前的标签：嵌套另一迭代或开关时使用</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">label1:</span><br><span class="line">outer-iteration &#123;</span><br><span class="line">    inner-iteration&#123;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span> label1; <span class="comment">// 转至label1</span></span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span> label1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、包 package：库单元</p>
+<ul>
+<li>功能：将构件捆绑至一个内聚的类库单元中</li>
+<li>默认（未命名）包：包含本地源代码文件</li>
+<li>编译单元：正在编写的文件</li>
+</ul>
+<p>4、代码组织</p>
+<ul>
+<li>package：群组，对每个文件，需声明该编译单元的类库</li>
+<li>分割单一的全局名字空间，避免名称冲突的可能性</li>
+<li>创建独一无二的包名<ul>
+<li>层次化组织</li>
+<li>反序因特网域名 / 分解包名为机器目录</li>
+</ul>
+</li>
+</ul>
+<p>5、定制工具库</p>
+<ul>
+<li>输出：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line">System.out.println(<span class="number">123</span>); <span class="comment">//换行打印</span></span><br><span class="line">System.out.print(<span class="number">123</span>); <span class="comment">//不换行打印</span></span><br><span class="line">System.out.write(<span class="number">234</span>); <span class="comment">//字节输出</span></span><br><span class="line">System.out.printf(<span class="string">&quot;%+8.5f\n&quot;</span>, <span class="number">3.14</span>); <span class="comment">//按格式输出</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>range()</li>
+</ul>
+<p>6、接口和实现</p>
+<ul>
+<li>访问控制基本思想：将接口与具体实现分离</li>
+<li>可采用的形式（注：接口与实现仍混合，仅易于阅读）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> OrganizedByAccess &#123;</span><br><span class="line">	<span class="keyword">public</span> ...;</span><br><span class="line">	<span class="keyword">public</span> ...;</span><br><span class="line">	<span class="comment">// 阅读到此处结束</span></span><br><span class="line">	<span class="keyword">private</span> ...;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>7、类的访问权限</p>
+<ul>
+<li>每个编译单元都只能有一个公共接口，以public关键字修饰</li>
+<li>类仅可为默认（包访问权限）或public修饰，其他修饰词不可用</li>
+</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -3115,6 +2979,232 @@
       <tags>
         <tag>Java</tag>
         <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java面向对象（七）—— 复用类</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E7%94%A8%E7%B1%BB/</url>
+    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
+<ul>
+<li>在新类中产生现有类的对象</li>
+<li>继承</li>
+</ul>
+<p>2、组合语法</p>
+<ul>
+<li>将对象引用置于新类</li>
+<li>初始化引用的位置<ul>
+<li>定义处</li>
+<li>类构造器中</li>
+<li>惰性初始化（Delay Initialization）于使用对象前</li>
+</ul>
+</li>
+</ul>
+<p>3、继承</p>
+<ul>
+<li>声明新类与旧类类似<ul>
+<li>书写紧跟基类名称关键字extends</li>
+</ul>
+</li>
+<li>super为超类，类从超类继承</li>
+<li>使用+=可连接多个String对象</li>
+<li>构建过程（初始化过程同）是向外“扩散”的<ul>
+<li>若类带有参数，则需要用super显式编写调用</li>
+</ul>
+</li>
+</ul>
+<p>4、代理：继承与组合的中间体</p>
+<ul>
+<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
+<li>java不直接支持代理，可使用部分支持ide自动生成</li>
+</ul>
+<p>5、结合使用组合和继承</p>
+<ul>
+<li>finally()子句确保正确清理，采用自己编写的顺序清理</li>
+<li>dispose()：清理方法</li>
+<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别C++）<ul>
+<li>需要覆写：Override()，不是关键字但按关键字处理</li>
+</ul>
+</li>
+</ul>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
+<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
+<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
+<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
+<li>is-a关系 - 继承，has-a关系 - 组合</li>
+</ul>
+<p>6、protected关键字</p>
+<ul>
+<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
+</ul>
+<p>7、final关键字</p>
+<ul>
+<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
+<li>类常量 static final</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>面向对象</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis原理初探（一）—— 字符串</title>
+    <url>/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<h2 id="简单动态字符串（simple-dynamic-string，SDS）"><a href="#简单动态字符串（simple-dynamic-string，SDS）" class="headerlink" title="简单动态字符串（simple dynamic string，SDS）"></a>简单动态字符串（simple dynamic string，SDS）</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>redis的默认字符表示，作为一个可被修改的字符串值</li>
+<li>作为字符串的底层实现</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">/* data */</span></span><br><span class="line">    <span class="keyword">int</span> len;    -- 数组已使用字节数量</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">free</span>;   -- 数组未使用字节数量</span><br><span class="line">    <span class="keyword">char</span> buf[]; -- 字节数组</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>注：buf[]的最后一个字节会用于保存空字符’\0’(同C style)</p>
+<h3 id="使用SDS而非C-style字符串的好处"><a href="#使用SDS而非C-style字符串的好处" class="headerlink" title="使用SDS而非C style字符串的好处"></a>使用SDS而非C style字符串的好处</h3><h4 id="获取字符串长度不为性能瓶颈"><a href="#获取字符串长度不为性能瓶颈" class="headerlink" title="获取字符串长度不为性能瓶颈"></a>获取字符串长度不为性能瓶颈</h4><ul>
+<li>由定义可知，SDS的结构体中已经保存了数组的长度（len），从而只需使用STRLEN()获取值，其对应算法复杂度始终仅为O(1)；C字符串由于没有保存该信息，则需要对数组进行遍历得到长度，其算法复杂度为O(n)</li>
+</ul>
+<h4 id="API安全，排除了缓冲区溢出的风险"><a href="#API安全，排除了缓冲区溢出的风险" class="headerlink" title="API安全，排除了缓冲区溢出的风险"></a>API安全，排除了缓冲区溢出的风险</h4><ul>
+<li>对于C字符串而言，缓冲区容易溢出其实是不记录数组长度的衍生问题。如考虑下述场景：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcat</span><span class="params">(<span class="keyword">char</span> *c1, <span class="keyword">const</span> <span class="keyword">char</span> *c2)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>​    strcat()方法会假定系统尚且分配了足够的内存给c1，以容纳c2中的所有内容；而c2数组长度过长且超出内存限制时，就造成了缓冲区的溢出。这可能会给相邻内存的内容带来意外的后果（如：未指定的意外修改，etc.）</p>
+<p>​    而SDS的API会自动对len进行修改和更新；当当前空间不能满足要求时，则会自动扩展当前SDS的空间。对应redis中字符串拼接方法为：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">sdscat(c1, c2);</span><br></pre></td></tr></table></figure>
+
+<h4 id="是二进制安全的"><a href="#是二进制安全的" class="headerlink" title="是二进制安全的"></a>是二进制安全的</h4><p>​    既可存储文本数据、也可存储二进制数据</p>
+<h4 id="兼容部分C-style字符串"><a href="#兼容部分C-style字符串" class="headerlink" title="兼容部分C style字符串"></a>兼容部分C style字符串</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// string compare</span></span><br><span class="line">strcasecmp(c1-&gt;c2, <span class="string">&quot;hello world&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h4><ul>
+<li>作为数据库中字符串值、整数值和浮点数值的存储</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">RPUSH fruits &quot;apple&quot; &quot;banana&quot; &quot;cherry&quot;</span><br><span class="line"><span class="comment">-- output：(integer) 3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>作为缓冲区（buffer）</li>
+</ul>
+<h3 id="空间分配策略"><a href="#空间分配策略" class="headerlink" title="空间分配策略"></a>空间分配策略</h3><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>​    减少连续执行字符串增长操作所需的内存重分配次数</p>
+<ul>
+<li>策略1：空间预分配<ul>
+<li>当未使用空间足够时，无需进行内存重分配，即没有对字符串进行修改</li>
+<li>若修改后的字符串长度小于1MB，将分配与当前数组已使用长度等长的未使用空间</li>
+<li>若修改后的字符串长度大于1MB，将分配1MB的未使用空间</li>
+</ul>
+</li>
+<li>策略2：惰性空间释放<ul>
+<li>当空间被释放成为空余空间后，并不会立即对其进行回收，而是先由free属性记录下来</li>
+<li>避免了缩短字符串时所需的内存重分配操作，并为将来可能有的增长操作提供了优化</li>
+<li>当有实际空间需要时，会通过对应API真正完成空余空间的释放</li>
+</ul>
+</li>
+</ul>
+<h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><h4 id="自增-自减"><a href="#自增-自减" class="headerlink" title="自增/自减"></a>自增/自减</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis()</span><br><span class="line"><span class="comment"># 获取对应key:只要该字符串值可以被解释为整数值，则可进行下述处理</span></span><br><span class="line"></span><br><span class="line">conn.get(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"><span class="comment"># 对该key进行自增操作 incr = short for increase</span></span><br><span class="line">conn.incr(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"><span class="comment"># 也可以以数字形式指定自增参数，下两者效果相同</span></span><br><span class="line"><span class="comment"># INCRBY sample_key 10</span></span><br><span class="line">conn.incr(<span class="string">&#x27;sample_key&#x27;</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对该key进行自减操作 decr = short for decrease</span></span><br><span class="line"><span class="comment"># DECRBY sample_key 8</span></span><br><span class="line">conn.decr(<span class="string">&#x27;sample_key&#x27;</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 二次获取当前的数值</span></span><br><span class="line">conn.get(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="打包-package-处理结构化数据"><a href="#打包-package-处理结构化数据" class="headerlink" title="打包(package)处理结构化数据"></a>打包(package)处理结构化数据</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, password=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line"><span class="comment"># 执行APPEND命令：返回的是当前字符串的长度</span></span><br><span class="line"><span class="comment"># 此时前者可不存在或为空串，则得到的新字符串长度显然为后者的长</span></span><br><span class="line">conn.append(<span class="string">&#x27;sample_string&#x27;</span>, <span class="string">&#x27;hello &#x27;</span>)</span><br><span class="line">conn.append(<span class="string">&#x27;sample_string&#x27;</span>, <span class="string">&#x27;world!&#x27;</span>)</span><br><span class="line"><span class="comment"># 操作后sample_string的长度：12</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SUBSTR：获取字符串子串（部分区间值）</span></span><br><span class="line"><span class="comment"># redis数组索引也是从0开始，则取得的值为llo</span></span><br><span class="line">conn.substr(<span class="string">&#x27;sample_string&#x27;</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETRANGE：为字符串设置范围</span></span><br><span class="line"><span class="comment"># 设置后仅改变输出的字符串内容</span></span><br><span class="line"><span class="comment"># 字符串长度仍为总长度，而非处理后的范围长度</span></span><br><span class="line">conn.setrange(<span class="string">&#x27;sample_string&#x27;</span>, <span class="number">0</span>, <span class="string">&#x27;H&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETBIT：单独改变某二进制位</span></span><br></pre></td></tr></table></figure>
+
+<p><em>【参考】</em><br><em>[1] 《Redis的设计与实现》</em></p>
+<p><em>[2] 《Redis实战》</em></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+        <tag>NoSQL</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis原理初探（二）—— 列表</title>
+    <url>/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>由一系列结点组成的非连续、非顺序的存储结构</li>
+<li>作为列表键的底层实现之一</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// listNode</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">listNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">// 前置节点</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">listNode</span> *<span class="title">prev</span>;</span></span><br><span class="line">    <span class="comment">// 后置节点</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">listNode</span> *<span class="title">next</span>;</span></span><br><span class="line">    <span class="comment">// 节点值</span></span><br><span class="line">    <span class="keyword">void</span> *value;</span><br><span class="line">&#125; listNode;</span><br></pre></td></tr></table></figure>
+
+<h4 id="redis链表：双向无环链表"><a href="#redis链表：双向无环链表" class="headerlink" title="redis链表：双向无环链表"></a>redis链表：双向无环链表</h4><p>参考可见：<a href="https://www.cnblogs.com/hunternet/p/9967279.html">Redis数据结构——链表 - Mr于 - 博客园 (cnblogs.com)</a></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// list</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">list</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">//表头节点</span></span><br><span class="line">    listNode *head;</span><br><span class="line">    <span class="comment">//表尾节点</span></span><br><span class="line">    listNode *tail;</span><br><span class="line">    <span class="comment">//链表所包含的节点数量</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> len;</span><br><span class="line">    <span class="comment">//节点值复制函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*dup)(<span class="keyword">void</span> *ptr);</span><br><span class="line">    <span class="comment">//节点值释放函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*<span class="built_in">free</span>)(<span class="keyword">void</span> *ptr);</span><br><span class="line">    <span class="comment">//节点值对比函数</span></span><br><span class="line">    <span class="keyword">int</span> (*match)(<span class="keyword">void</span> *ptr, <span class="keyword">void</span> *key);</span><br><span class="line">&#125; <span class="built_in">list</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>双向：链表节点有前驱和后继指针，获取的时间复杂度为O(1)</li>
+<li>无环：链表为非循环链表表头节点的前驱和表尾节点的后继指针都指向Null，对链表的访问以Null为终点</li>
+<li>带表头指针和表尾指针：通过list结构的head指针和tail指针，程序获取链表的表头节点 和表尾节点的复杂度为O(1)</li>
+<li>带链表长度计数器：程序使用list结构的len属性来对list持有的链表节点进行计数，程序 获取链表中节点数量的复杂度为O(1)</li>
+<li>多态：链表节点使用void*指针来保存节点值，并且可以通过list结构的dup、free、 match三个属性为节点值设置类型特定函数，所以链表可以用于保存各种不同类型的值<ul>
+<li>dup函数用于复制链表节点所保存的值</li>
+<li>free函数用于释放链表节点所保存的值</li>
+<li>match函数则用于对比链表节点所保存的值和另一个输入值是否相等</li>
+</ul>
+</li>
+</ul>
+<h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><ul>
+<li>一个列表键包含了数量比较多的元素，又或者列表中包含的元素都是比较长的字符串</li>
+</ul>
+<h2 id="压缩列表-Ziplist"><a href="#压缩列表-Ziplist" class="headerlink" title="压缩列表 (Ziplist)"></a>压缩列表 (Ziplist)</h2><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>由一系列特殊编码的连续内存块组成的顺序型（sequential）数据结构</li>
+<li>作为列表键和哈希键的底层实现之一</li>
+</ul>
+<h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><ul>
+<li>节约内存</li>
+</ul>
+<h4 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h4><ul>
+<li>当一个列表键只包含少量列表项，并且每个列表项要么就是小整数值，要么就是长度比较短的字符串</li>
+</ul>
+<h3 id="压缩列表的组成"><a href="#压缩列表的组成" class="headerlink" title="压缩列表的组成"></a>压缩列表的组成</h3><img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;">
+
+<ul>
+<li>zlbytes：4bytes，<strong>记录整个压缩列表占用的内存字节数</strong></li>
+<li>zltail：4bytes，<strong>记录压缩列表表尾节点距离压缩列表的起始地址有多少字节</strong><ul>
+<li>偏移量，确定表尾节点的地址</li>
+</ul>
+</li>
+<li>zllen：2bytes，<strong>记录了压缩列表包含的节点数量</strong></li>
+<li>entryX：列表节点，<strong>节点的长度由节点保存的内容决定</strong></li>
+<li>zlend：1byte，值0xFF表示2^8-1=255，<strong>用于标记压缩列表的末端</strong></li>
+</ul>
+<h3 id="压缩列表结点的构成"><a href="#压缩列表结点的构成" class="headerlink" title="压缩列表结点的构成"></a>压缩列表结点的构成</h3><img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/压缩列表结点的各个组成部分.png" alt="压缩列表结点的各个组成部分">
+
+<ul>
+<li>previous_entry_length：1byte/5bytes，记录<strong>压缩列表中前一个节点的长度</strong><ul>
+<li>前一节点的长度小于254字节，previous_entry_length属性的长度为1字节，保存值为前一个结点长度</li>
+<li>前一节点的长度大于等于254字节，previous_entry_length属性的长度为5字节。第一字节会被设置为0xFE（254），之后的四个字节则用于保存前一节点的长度。</li>
+</ul>
+</li>
+</ul>
+<img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;">
+
+<ul>
+<li>encoding：记录<strong>节点的content属性所保存数据的类型以及长度</strong>D:</li>
+<li>content：保存节点的值，值的类型和长度由节点的encoding属性决定<ul>
+<li>整数编码：1byte，最高位以11开头；content属性保存整数值，整数值的<strong>类型</strong>和长度由编码除去最高两位之后的其他位记录</li>
+<li>字节数组编码：1/2/5byte(s)，最高位为00、01或者10；content属性保存着字节数组，数组的长度由编码除去最高两位之后的其他位记 录</li>
+</ul>
+</li>
+</ul>
+<h3 id="连锁更新"><a href="#连锁更新" class="headerlink" title="连锁更新"></a>连锁更新</h3><h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><p>​    由于previous_entry_length因更新或删除而在1byte/5bytes切换引起的连锁内存重分配现象</p>
+<h4 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h4><p>​    最坏情况下，需要对压缩列表执行N次空间重分配操作，而每次空间重分配的最坏复杂度为O（N），所以连锁更新的最坏复杂度为O（N^2）</p>
+<h2 id="列表操作"><a href="#列表操作" class="headerlink" title="列表操作"></a>列表操作</h2><h4 id="元素的推入和弹出操作"><a href="#元素的推入和弹出操作" class="headerlink" title="元素的推入和弹出操作"></a>元素的推入和弹出操作</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, password=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># RPUSH/LPUSH：推入元素，就语义上而言左侧为头，右侧为尾</span></span><br><span class="line"><span class="comment"># 返回的是当前列表的长度</span></span><br><span class="line">conn.rpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;last&#x27;</span>)</span><br><span class="line">conn.lpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;first&#x27;</span>)</span><br><span class="line"><span class="comment"># 可同时推入多个元素</span></span><br><span class="line">conn.rpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LRANGE：返回列表中从start到end偏移量范围内所有元素</span></span><br><span class="line"><span class="comment"># 注：会同时包含左侧start和右侧end的元素</span></span><br><span class="line">conn.lrange(<span class="string">&#x27;list_key&#x27;</span>, <span class="number">0</span>, -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LTRIM：从列表左端或右端或两端同时删减任意数量的元素</span></span><br><span class="line"><span class="comment"># 注意只有LTRIM，删除时左开右闭</span></span><br><span class="line">conn.ltrim(<span class="string">&#x27;list_key&#x27;</span>, <span class="number">2</span>, -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LPOP/RPOP：弹出列表左侧或右侧的元素</span></span><br><span class="line">conn.lpop(<span class="string">&#x27;list_key&#x27;</span>)</span><br><span class="line">conn.rpop(<span class="string">&#x27;list_key&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LINDEX/RINDEX：通过下标获取列表值</span></span><br><span class="line">conn.lindex(<span class="number">1</span>)</span><br><span class="line">conn.rindex(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LREM：精确匹配以删除list集合中（count：指定个数）的值</span></span><br><span class="line">conn.lrem(<span class="string">&#x27;list_key&#x27;</span>, <span class="number">2</span>, <span class="string">&#x27;last&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LSET：将list中指定索引的值设置为给定值</span></span><br><span class="line"><span class="comment"># 前提：当前该索引位置应当存在该值,否则会报错 ERR No such key</span></span><br><span class="line">conn.lset(<span class="string">&#x27;list_key&#x27;</span>, <span class="number">0</span>, <span class="string">&#x27;first_updated&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LINSERT：往一个list指定索引的前一个/后一个位置插入值</span></span><br><span class="line"><span class="comment"># 若key不存在，则会创建新的list；存在则直接新增内容</span></span><br><span class="line"><span class="comment"># 在两侧进行插入/改动的效率最高，而中间效率相对较慢</span></span><br><span class="line">conn.linsert(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;AFTER&#x27;</span>, <span class="string">&#x27;first_updated&#x27;</span>, <span class="string">&#x27;second&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="阻塞弹出与元素移动命令"><a href="#阻塞弹出与元素移动命令" class="headerlink" title="阻塞弹出与元素移动命令"></a>阻塞弹出与元素移动命令</h4><ul>
+<li>常用于<strong>消息传递（messaging）</strong>和<strong>任务队列（task queue）</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">conn.rpush(<span class="string">&#x27;list_key2&#x27;</span>, <span class="string">&#x27;item&#x27;</span>)</span><br><span class="line"><span class="comment"># BRPOPLPUSH：将最右端（尾）元素从一个列表中弹出，并压入至另一个列表最左端（头）</span></span><br><span class="line"><span class="comment"># 注意参数顺序：需弹出元素list 需压入元素list timeout时间（单位：s）</span></span><br><span class="line"><span class="comment"># 这里若需弹出元素list没有可供弹出元素，则在timeout时间内等待，block直到有新元素可用；否则，返回None</span></span><br><span class="line">conn.brpoplpush(<span class="string">&#x27;list_key2&#x27;</span>, <span class="string">&#x27;list_key&#x27;</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># BLPOP/BRPOP：自左向右检查传入的所有列表，对第一个遇到的非空列表进行LPOP/RPOP操作</span></span><br><span class="line"><span class="comment"># timeout：同上处理</span></span><br><span class="line">conn.blpop([<span class="string">&#x27;list_key1&#x27;</span>, <span class="string">&#x27;list_key2&#x27;</span>], <span class="number">1</span>)</span><br><span class="line">conn.brpop([<span class="string">&#x27;list_key1&#x27;</span>, <span class="string">&#x27;list_key2&#x27;</span>], <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p><em>【参考】</em><br><em>[1] 《Redis的设计与实现》</em></p>
+<p><em>[2] 《Redis实战》</em></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+        <tag>NoSQL</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -3230,101 +3320,11 @@
 <img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash6.png">
 
 <p>注：在渐进式rehash进行期间，字典CRUD操作会在两个哈希表上都进行；新添加到字典的键值对一律会被保存到ht[1]里面，而ht[0]则不再进行任何添加操作，以保证ht[0]包含的键值对数量会只减不增，并随着 rehash操作的执行而最终变成空表</p>
-<h2 id="散列表操作"><a href="#散列表操作" class="headerlink" title="散列表操作"></a>散列表操作</h2><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, password=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># HMSET：设置散列表键值对，可添加多个键值对</span></span><br><span class="line">conn.hmset(<span class="string">&#x27;hash_key&#x27;</span>, &#123;<span class="string">&#x27;k1&#x27;</span>: <span class="string">&#x27;v1&#x27;</span>, <span class="string">&#x27;k2&#x27;</span>: <span class="string">&#x27;v2&#x27;</span>, <span class="string">&#x27;k3&#x27;</span>: <span class="string">&#x27;v3&#x27;</span>&#125;)</span><br><span class="line"><span class="comment"># HMGET：根据键（key）从散列中获取值（value），可同时获取多个值</span></span><br><span class="line">conn.hmget(<span class="string">&#x27;hash_key&#x27;</span>, [<span class="string">&#x27;k1&#x27;</span>, <span class="string">&#x27;k2&#x27;</span>])</span><br><span class="line"><span class="comment"># HDEL：从散列表中删除指定键值对，可同时删除多个键值对</span></span><br><span class="line">conn.hdel(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;k2&#x27;</span>, <span class="string">&#x27;k3&#x27;</span>)</span><br><span class="line"><span class="comment"># HLEN：获取散列表当前长度</span></span><br><span class="line">conn.hlen(<span class="string">&#x27;hash_key&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="散列表操作"><a href="#散列表操作" class="headerlink" title="散列表操作"></a>散列表操作</h2><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, password=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># HMSET：设置散列表键值对，可添加多个键值对</span></span><br><span class="line">conn.hmset(<span class="string">&#x27;hash_key&#x27;</span>, &#123;<span class="string">&#x27;k1&#x27;</span>: <span class="string">&#x27;v1&#x27;</span>, <span class="string">&#x27;k2&#x27;</span>: <span class="string">&#x27;v2&#x27;</span>, <span class="string">&#x27;k3&#x27;</span>: <span class="string">&#x27;v3&#x27;</span>&#125;)</span><br><span class="line"><span class="comment"># HMGET：根据键（key）从散列中获取值（value），可同时获取多个值</span></span><br><span class="line">conn.hmget(<span class="string">&#x27;hash_key&#x27;</span>, [<span class="string">&#x27;k1&#x27;</span>, <span class="string">&#x27;k2&#x27;</span>])</span><br><span class="line"><span class="comment"># HDEL：从散列表中删除指定键值对，可同时删除多个键值对</span></span><br><span class="line">conn.hdel(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;k2&#x27;</span>, <span class="string">&#x27;k3&#x27;</span>)</span><br><span class="line"><span class="comment"># HLEN：获取散列表当前长度</span></span><br><span class="line">conn.hlen(<span class="string">&#x27;hash_key&#x27;</span>)</span><br><span class="line"><span class="comment"># HSET:将散列表中设置指定键的值为给定值</span></span><br><span class="line">conn.hset(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;k1&#x27;</span>, [<span class="string">&#x27;value1&#x27;</span>])</span><br><span class="line"><span class="comment"># HGET:获取散列表中指定键的值</span></span><br><span class="line">conn.hget(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;k1&#x27;</span>)</span><br><span class="line"><span class="comment"># HSETNX：为散列表中不存在的字段赋值</span></span><br><span class="line">conn.setnx(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;new_field&#x27;</span>, <span class="string">&#x27;hello_world&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <h4 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># HEXISTS：检查给定键（key）是否存在于散列中</span></span><br><span class="line">conn.exists(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;k1&#x27;</span>)</span><br><span class="line"><span class="comment"># HKEYS：获取所有键（key）</span></span><br><span class="line">conn.keys(<span class="string">&#x27;hash_key&#x27;</span>)</span><br><span class="line"><span class="comment"># HVALS：获取所有值（value）</span></span><br><span class="line">conn.hvals(<span class="string">&#x27;hash_key&#x27;</span>)</span><br><span class="line"><span class="comment"># HGETALL：获取所有键值对</span></span><br><span class="line">conn.hgetall(<span class="string">&#x27;hash_key&#x27;</span>)</span><br><span class="line"></span><br><span class="line">conn.hmset(<span class="string">&#x27;hash_key&#x27;</span>, &#123;<span class="string">&#x27;num_int&#x27;</span>: <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;num_float&#x27;</span>: <span class="string">&#x27;0.0&#x27;</span>&#125;)</span><br><span class="line"><span class="comment"># HINCRBY：将散列中指定键值加上一个给定整数</span></span><br><span class="line">conn.hincrby(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;num_int&#x27;</span>)</span><br><span class="line"><span class="comment"># HINCRBYFLOAT：将散列中指定键值加上一个给定浮点数数</span></span><br><span class="line">conn.hincrbyfloat(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;num_float&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>注：当散列中键值对的数目过多时，可以考虑先用HKEYS获取所有键（key），再通过HVALS只获取必要的值以减少需要传输的数据量</p>
-<p><em>【参考】</em><br><em>[1] 《Redis的设计与实现》</em></p>
-<p><em>[2] 《Redis实战》</em></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Redis</tag>
-        <tag>NoSQL</tag>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Redis原理初探（二）—— 列表</title>
-    <url>/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/</url>
-    <content><![CDATA[<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>由一系列结点组成的非连续、非顺序的存储结构</li>
-<li>作为列表键的底层实现之一</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// listNode</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">listNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">// 前置节点</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">listNode</span> *<span class="title">prev</span>;</span></span><br><span class="line">    <span class="comment">// 后置节点</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">listNode</span> *<span class="title">next</span>;</span></span><br><span class="line">    <span class="comment">// 节点值</span></span><br><span class="line">    <span class="keyword">void</span> *value;</span><br><span class="line">&#125; listNode;</span><br></pre></td></tr></table></figure>
-
-<h4 id="redis链表：双向无环链表"><a href="#redis链表：双向无环链表" class="headerlink" title="redis链表：双向无环链表"></a>redis链表：双向无环链表</h4><p>参考可见：<a href="https://www.cnblogs.com/hunternet/p/9967279.html">Redis数据结构——链表 - Mr于 - 博客园 (cnblogs.com)</a></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// list</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">list</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">//表头节点</span></span><br><span class="line">    listNode *head;</span><br><span class="line">    <span class="comment">//表尾节点</span></span><br><span class="line">    listNode *tail;</span><br><span class="line">    <span class="comment">//链表所包含的节点数量</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> len;</span><br><span class="line">    <span class="comment">//节点值复制函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*dup)(<span class="keyword">void</span> *ptr);</span><br><span class="line">    <span class="comment">//节点值释放函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*<span class="built_in">free</span>)(<span class="keyword">void</span> *ptr);</span><br><span class="line">    <span class="comment">//节点值对比函数</span></span><br><span class="line">    <span class="keyword">int</span> (*match)(<span class="keyword">void</span> *ptr, <span class="keyword">void</span> *key);</span><br><span class="line">&#125; <span class="built_in">list</span>;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>双向：链表节点有前驱和后继指针，获取的时间复杂度为O(1)</li>
-<li>无环：链表为非循环链表表头节点的前驱和表尾节点的后继指针都指向Null，对链表的访问以Null为终点</li>
-<li>带表头指针和表尾指针：通过list结构的head指针和tail指针，程序获取链表的表头节点 和表尾节点的复杂度为O(1)</li>
-<li>带链表长度计数器：程序使用list结构的len属性来对list持有的链表节点进行计数，程序 获取链表中节点数量的复杂度为O(1)</li>
-<li>多态：链表节点使用void*指针来保存节点值，并且可以通过list结构的dup、free、 match三个属性为节点值设置类型特定函数，所以链表可以用于保存各种不同类型的值<ul>
-<li>dup函数用于复制链表节点所保存的值</li>
-<li>free函数用于释放链表节点所保存的值</li>
-<li>match函数则用于对比链表节点所保存的值和另一个输入值是否相等</li>
-</ul>
-</li>
-</ul>
-<h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><ul>
-<li>一个列表键包含了数量比较多的元素，又或者列表中包含的元素都是比较长的字符串</li>
-</ul>
-<h2 id="压缩列表-Ziplist"><a href="#压缩列表-Ziplist" class="headerlink" title="压缩列表 (Ziplist)"></a>压缩列表 (Ziplist)</h2><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>由一系列特殊编码的连续内存块组成的顺序型（sequential）数据结构</li>
-<li>作为列表键和哈希键的底层实现之一</li>
-</ul>
-<h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><ul>
-<li>节约内存</li>
-</ul>
-<h4 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h4><ul>
-<li>当一个列表键只包含少量列表项，并且每个列表项要么就是小整数值，要么就是长度比较短的字符串</li>
-</ul>
-<h3 id="压缩列表的组成"><a href="#压缩列表的组成" class="headerlink" title="压缩列表的组成"></a>压缩列表的组成</h3><img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;">
-
-<ul>
-<li>zlbytes：4bytes，<strong>记录整个压缩列表占用的内存字节数</strong></li>
-<li>zltail：4bytes，<strong>记录压缩列表表尾节点距离压缩列表的起始地址有多少字节</strong><ul>
-<li>偏移量，确定表尾节点的地址</li>
-</ul>
-</li>
-<li>zllen：2bytes，<strong>记录了压缩列表包含的节点数量</strong></li>
-<li>entryX：列表节点，<strong>节点的长度由节点保存的内容决定</strong></li>
-<li>zlend：1byte，值0xFF表示2^8-1=255，<strong>用于标记压缩列表的末端</strong></li>
-</ul>
-<h3 id="压缩列表结点的构成"><a href="#压缩列表结点的构成" class="headerlink" title="压缩列表结点的构成"></a>压缩列表结点的构成</h3><img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/压缩列表结点的各个组成部分.png" alt="压缩列表结点的各个组成部分">
-
-<ul>
-<li>previous_entry_length：1byte/5bytes，记录<strong>压缩列表中前一个节点的长度</strong><ul>
-<li>前一节点的长度小于254字节，previous_entry_length属性的长度为1字节，保存值为前一个结点长度</li>
-<li>前一节点的长度大于等于254字节，previous_entry_length属性的长度为5字节。第一字节会被设置为0xFE（254），之后的四个字节则用于保存前一节点的长度。</li>
-</ul>
-</li>
-</ul>
-<img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;">
-
-<ul>
-<li>encoding：记录<strong>节点的content属性所保存数据的类型以及长度</strong>D:</li>
-<li>content：保存节点的值，值的类型和长度由节点的encoding属性决定<ul>
-<li>整数编码：1byte，最高位以11开头；content属性保存整数值，整数值的<strong>类型</strong>和长度由编码除去最高两位之后的其他位记录</li>
-<li>字节数组编码：1/2/5byte(s)，最高位为00、01或者10；content属性保存着字节数组，数组的长度由编码除去最高两位之后的其他位记 录</li>
-</ul>
-</li>
-</ul>
-<h3 id="连锁更新"><a href="#连锁更新" class="headerlink" title="连锁更新"></a>连锁更新</h3><h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><p>​    由于previous_entry_length因更新或删除而在1byte/5bytes切换引起的连锁内存重分配现象</p>
-<h4 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h4><p>​    最坏情况下，需要对压缩列表执行N次空间重分配操作，而每次空间重分配的最坏复杂度为O（N），所以连锁更新的最坏复杂度为O（N^2）</p>
-<h2 id="列表操作"><a href="#列表操作" class="headerlink" title="列表操作"></a>列表操作</h2><h4 id="元素的推入和弹出操作"><a href="#元素的推入和弹出操作" class="headerlink" title="元素的推入和弹出操作"></a>元素的推入和弹出操作</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, password=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># RPUSH/LPUSH：推入元素，就语义上而言左侧为头，右侧为尾</span></span><br><span class="line"><span class="comment"># 返回的是当前列表的长度</span></span><br><span class="line">conn.rpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;last&#x27;</span>)</span><br><span class="line">conn.lpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;first&#x27;</span>)</span><br><span class="line"><span class="comment"># 可同时推入多个元素</span></span><br><span class="line">conn.rpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LRANGE：返回列表中从start到end偏移量范围内所有元素</span></span><br><span class="line"><span class="comment"># 注：会同时包含左侧start和右侧end的元素</span></span><br><span class="line">conn.lrange(<span class="string">&#x27;list_key&#x27;</span>, <span class="number">0</span>, -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LTRIM：从列表左端或右端或两端同时删减任意数量的元素</span></span><br><span class="line"><span class="comment"># 注意只有LTRIM，删除时左开右闭</span></span><br><span class="line">conn.ltrim(<span class="string">&#x27;list_key&#x27;</span>, <span class="number">2</span>, -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LPOP/RPOP：弹出列表左侧或右侧的元素</span></span><br><span class="line">conn.lpop(<span class="string">&#x27;list_key&#x27;</span>)</span><br><span class="line">conn.rpop(<span class="string">&#x27;list_key&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="阻塞弹出与元素移动命令"><a href="#阻塞弹出与元素移动命令" class="headerlink" title="阻塞弹出与元素移动命令"></a>阻塞弹出与元素移动命令</h4><ul>
-<li>常用于<strong>消息传递（messaging）</strong>和<strong>任务队列（task queue）</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">conn.rpush(<span class="string">&#x27;list_key2&#x27;</span>, <span class="string">&#x27;item&#x27;</span>)</span><br><span class="line"><span class="comment"># BRPOPLPUSH：将最右端（尾）元素从一个列表中弹出，并压入至另一个列表最左端（头）</span></span><br><span class="line"><span class="comment"># 注意参数顺序：需弹出元素list 需压入元素list timeout时间（单位：s）</span></span><br><span class="line"><span class="comment"># 这里若需弹出元素list没有可供弹出元素，则在timeout时间内等待，block直到有新元素可用；否则，返回None</span></span><br><span class="line">conn.brpoplpush(<span class="string">&#x27;list_key2&#x27;</span>, <span class="string">&#x27;list_key&#x27;</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># BLPOP/BRPOP：自左向右检查传入的所有列表，对第一个遇到的非空列表进行LPOP/RPOP操作</span></span><br><span class="line"><span class="comment"># timeout：同上处理</span></span><br><span class="line">conn.blpop([<span class="string">&#x27;list_key1&#x27;</span>, <span class="string">&#x27;list_key2&#x27;</span>], <span class="number">1</span>)</span><br><span class="line">conn.brpop([<span class="string">&#x27;list_key1&#x27;</span>, <span class="string">&#x27;list_key2&#x27;</span>], <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
 <p><em>【参考】</em><br><em>[1] 《Redis的设计与实现》</em></p>
 <p><em>[2] 《Redis实战》</em></p>
 ]]></content>
