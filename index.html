@@ -300,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -319,7 +319,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/" itemprop="url">redis原理初探之散列表</a></h1>
+                <a class="post-title-link" href="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/" itemprop="url">Redis原理初探（三）—— 散列表</a></h1>
         
 
         <div class="post-meta">
@@ -382,7 +382,7 @@
 
           
           
-             <span id="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/" class="leancloud_visitors" data-flag-title="redis原理初探之散列表">
+             <span id="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/" class="leancloud_visitors" data-flag-title="Redis原理初探（三）—— 散列表">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k
+                  2.3k
                 </span>
                 <span>字</span>
               
@@ -425,7 +425,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  9
                 </span>
                 <span>分钟</span>
               
@@ -455,7 +455,7 @@
 </ul>
 </li>
 </ul>
-<img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/哈希表示例.png">
+<img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/哈希表示例.png">
 
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 键值对</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dictEntry</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">void</span> *key; <span class="comment">//键</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> //值</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">		<span class="keyword">void</span> *val;         <span class="comment">//可为一个指针</span></span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> tu64; <span class="comment">//可为uint64型整数</span></span><br><span class="line">        <span class="keyword">int</span> ts64;          <span class="comment">//可为int64型整数</span></span><br><span class="line">    &#125; v;</span><br><span class="line">    <span class="comment">//指向下个哈希表节点，形成链表</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">dictEntry</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; dictEntry;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 底层实现：哈希表</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dictht</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">//哈希表数组</span></span><br><span class="line">    dictEntry **table;</span><br><span class="line">    <span class="comment">//哈希表大小</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> size;</span><br><span class="line">    <span class="comment">//哈希表大小掩码，用于计算索引值</span></span><br><span class="line">    <span class="comment">//总是等于size - 1</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> sizemask;</span><br><span class="line">    <span class="comment">//该哈希表已有节点的数量</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> used;</span><br><span class="line">&#125; dictht;</span><br></pre></td></tr></table></figure>
 
@@ -463,7 +463,7 @@
 <h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><ul>
 <li>一个哈希键包含的键值对比较多，又或者键值对中的元素都是比较长的字符串</li>
 </ul>
-<h4 id="redis字典"><a href="#redis字典" class="headerlink" title="redis字典"></a>redis字典</h4><img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/字典示例.png">
+<h4 id="redis字典"><a href="#redis字典" class="headerlink" title="redis字典"></a>redis字典</h4><img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/字典示例.png">
 
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dictType</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">//计算哈希值的函数</span></span><br><span class="line">    <span class="function"><span class="keyword">unsigned</span> <span class="title">int</span> <span class="params">(*hashFunction)</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *key)</span></span>;</span><br><span class="line">    <span class="comment">//复制键的函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*keyDup)(<span class="keyword">void</span> *privdata, <span class="keyword">const</span> <span class="keyword">void</span> *key);</span><br><span class="line">    <span class="comment">//复制值的函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*valDup)(<span class="keyword">void</span> *privdata, <span class="keyword">const</span> <span class="keyword">void</span> *obj);</span><br><span class="line">    <span class="comment">//对比键的函数</span></span><br><span class="line">    <span class="keyword">int</span> (*keyCompare)(<span class="keyword">void</span> *privdata, <span class="keyword">const</span> <span class="keyword">void</span> *key1, <span class="keyword">const</span> <span class="keyword">void</span> *key2);</span><br><span class="line">    <span class="comment">//销毁键的函数</span></span><br><span class="line">    <span class="keyword">void</span> (*keyDestructor)(<span class="keyword">void</span> *privdata, <span class="keyword">void</span> *key);</span><br><span class="line">    <span class="comment">//销毁值的函数</span></span><br><span class="line">    <span class="keyword">void</span> (*valDestructor)(<span class="keyword">void</span> *privdata, <span class="keyword">void</span> *obj);</span><br><span class="line">&#125; dictType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dict</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">//类型特定函数</span></span><br><span class="line">    dictType *type;</span><br><span class="line">    <span class="comment">//私有数据</span></span><br><span class="line">    <span class="keyword">void</span> *privdata;</span><br><span class="line">    <span class="comment">//哈希表</span></span><br><span class="line">    dictht ht[<span class="number">2</span>];</span><br><span class="line">    <span class="comment">// rehash 索引</span></span><br><span class="line">    <span class="comment">//当rehash 不在进行时，值为-1</span></span><br><span class="line">    <span class="keyword">int</span> rehashidx; <span class="comment">/* rehashing not in progress if rehashidx == -1 */</span></span><br><span class="line">&#125; dict;</span><br></pre></td></tr></table></figure>
 
@@ -479,11 +479,11 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用字典设置的哈希函数，计算键key的哈希值</span></span><br><span class="line"><span class="built_in">hash</span> = <span class="built_in">dict</span> -&gt; <span class="built_in">type</span> -&gt; hashFunction(key)</span><br><span class="line"><span class="comment"># 使用哈希表的sizemask 属性和哈希值，计算出索引值</span></span><br><span class="line"><span class="comment"># 根据情况不同，ht[x] 可以是ht[0]或者ht[1]</span></span><br><span class="line">index = <span class="built_in">hash</span> &amp; <span class="built_in">dict</span> -&gt; ht[x].sizemask</span><br></pre></td></tr></table></figure>
 
 <p><strong>e.g. 一个完整的添加键值对&lt;k0, v0&gt;过程：</strong></p>
-<img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/哈希算法示例.png">
+<img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/哈希算法示例.png">
 
 <p><strong>Step 1</strong>：使用语句<code>hash = dict-&gt;type-&gt;hashFunction(k0);</code>计算的处k0的哈希值</p>
 <p><strong>Step 2</strong>：假设计算出的哈希值为8，则程序继续<code>index = hash &amp; dict-&gt;ht[0].sizemask = 8 &amp; 3 = 0;</code>计算得到k0的索引值为0，这表示包含这个键值对的节点应该放置到哈希表数组的索引0位置上</p>
-<h4 id="键冲突的解决"><a href="#键冲突的解决" class="headerlink" title="键冲突的解决"></a>键冲突的解决</h4><img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/键冲突解决示例.png">
+<h4 id="键冲突的解决"><a href="#键冲突的解决" class="headerlink" title="键冲突的解决"></a>键冲突的解决</h4><img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/键冲突解决示例.png">
 
 <ul>
 <li><strong>链地址法（separate chaining）</strong><ul>
@@ -515,16 +515,16 @@
 </li>
 </ul>
 <p><strong>e.g. 要对图示字典ht[0]进行扩展操作</strong>:</p>
-<img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/rehash1.png">
+<img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/rehash1.png">
 
 <p><strong>Step 1</strong>：ht[0].used当前的值为4，4*2=8，而8（2^3）恰好是第一个大于等于4的2的n次方，所以程序会将ht[1]哈希表的大小设置为8</p>
-<img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/rehash2.png">
+<img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/rehash2.png">
 
 <p><strong>Step 2</strong>：将ht[0]包含的四个键值对都rehash到ht[1]</p>
-<img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/rehash3.png">
+<img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/rehash3.png">
 
 <p><strong>Step 3</strong>：释放ht[0]，并将ht[1]设置为ht[0]，然后为ht[1]分配一个空白哈希表。执行完毕，程序成功将哈希表的大小从原来的4改为了现在的8</p>
-<img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/rehash4.png">
+<img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/rehash4.png">
 
 <h4 id="执行条件"><a href="#执行条件" class="headerlink" title="执行条件"></a>执行条件</h4><p>​    当以下条件中任意一个被满足时，程序会自动开始对哈希表执行扩展操作：</p>
 <ul>
@@ -546,20 +546,25 @@
 <li>随着字典操作的不断进行，最终在某个时间点上，ht[0]的所有键值对都被rehash到ht[1]上，这时将rehashidx属性<strong>设为-1</strong>，表示rehash完成</li>
 </ul>
 <p>e.g. <strong>一次完整的渐进式rehash过程：</strong></p>
-<img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash1.png">
+<img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash1.png">
 
-<img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash2.png">
+<img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash2.png">
 
-<img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash3.png">
+<img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash3.png">
 
-<img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash4.png">
+<img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash4.png">
 
-<img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash5.png">
+<img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash5.png">
 
-<img src="/2021/11/22/redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash6.png">
+<img src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash6.png">
 
-<p>注：在渐进式rehash进行期间，字典CRUD操作会在两个哈希表上都进行；新添加到字典的键值对一律会被保存到ht[1]里面，而ht[0]则不再进行任何添加操作，以保证ht[0]包含的键值对数量会只减不增，并随着 rehash操作的执行而最终变成空表。</p>
-<h2 id="散列表操作"><a href="#散列表操作" class="headerlink" title="散列表操作"></a>散列表操作</h2><p><em>【参考】</em><br><em>[1] 《Redis的设计与实现》</em></p>
+<p>注：在渐进式rehash进行期间，字典CRUD操作会在两个哈希表上都进行；新添加到字典的键值对一律会被保存到ht[1]里面，而ht[0]则不再进行任何添加操作，以保证ht[0]包含的键值对数量会只减不增，并随着 rehash操作的执行而最终变成空表</p>
+<h2 id="散列表操作"><a href="#散列表操作" class="headerlink" title="散列表操作"></a>散列表操作</h2><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, password=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># HMSET：设置散列表键值对，可添加多个键值对</span></span><br><span class="line">conn.hmset(<span class="string">&#x27;hash_key&#x27;</span>, &#123;<span class="string">&#x27;k1&#x27;</span>: <span class="string">&#x27;v1&#x27;</span>, <span class="string">&#x27;k2&#x27;</span>: <span class="string">&#x27;v2&#x27;</span>, <span class="string">&#x27;k3&#x27;</span>: <span class="string">&#x27;v3&#x27;</span>&#125;)</span><br><span class="line"><span class="comment"># HMGET：根据键（key）从散列中获取值（value），可同时获取多个值</span></span><br><span class="line">conn.hmget(<span class="string">&#x27;hash_key&#x27;</span>, [<span class="string">&#x27;k1&#x27;</span>, <span class="string">&#x27;k2&#x27;</span>])</span><br><span class="line"><span class="comment"># HDEL：从散列表中删除指定键值对，可同时删除多个键值对</span></span><br><span class="line">conn.hdel(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;k2&#x27;</span>, <span class="string">&#x27;k3&#x27;</span>)</span><br><span class="line"><span class="comment"># HLEN：获取散列表当前长度</span></span><br><span class="line">conn.hlen(<span class="string">&#x27;hash_key&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># HEXISTS：检查给定键（key）是否存在于散列中</span></span><br><span class="line">conn.exists(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;k1&#x27;</span>)</span><br><span class="line"><span class="comment"># HKEYS：获取所有键（key）</span></span><br><span class="line">conn.keys(<span class="string">&#x27;hash_key&#x27;</span>)</span><br><span class="line"><span class="comment"># HVALS：获取所有值（value）</span></span><br><span class="line">conn.hvals(<span class="string">&#x27;hash_key&#x27;</span>)</span><br><span class="line"><span class="comment"># HGETALL：获取所有键值对</span></span><br><span class="line">conn.hgetall(<span class="string">&#x27;hash_key&#x27;</span>)</span><br><span class="line"></span><br><span class="line">conn.hmset(<span class="string">&#x27;hash_key&#x27;</span>, &#123;<span class="string">&#x27;num_int&#x27;</span>: <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;num_float&#x27;</span>: <span class="string">&#x27;0.0&#x27;</span>&#125;)</span><br><span class="line"><span class="comment"># HINCRBY：将散列中指定键值加上一个给定整数</span></span><br><span class="line">conn.hincrby(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;num_int&#x27;</span>)</span><br><span class="line"><span class="comment"># HINCRBYFLOAT：将散列中指定键值加上一个给定浮点数数</span></span><br><span class="line">conn.hincrbyfloat(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;num_float&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>注：当散列中键值对的数目过多时，可以考虑先用HKEYS获取所有键（key），再通过HVALS只获取必要的值以减少需要传输的数据量</p>
+<p><em>【参考】</em><br><em>[1] 《Redis的设计与实现》</em></p>
 <p><em>[2] 《Redis实战》</em></p>
 
           
@@ -609,7 +614,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -628,7 +633,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/" itemprop="url">Redis原理初探之列表</a></h1>
+                <a class="post-title-link" href="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/" itemprop="url">Redis原理初探（二）—— 列表</a></h1>
         
 
         <div class="post-meta">
@@ -691,7 +696,7 @@
 
           
           
-             <span id="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/" class="leancloud_visitors" data-flag-title="Redis原理初探之列表">
+             <span id="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/" class="leancloud_visitors" data-flag-title="Redis原理初探（二）—— 列表">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -792,7 +797,7 @@
 <h4 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h4><ul>
 <li>当一个列表键只包含少量列表项，并且每个列表项要么就是小整数值，要么就是长度比较短的字符串</li>
 </ul>
-<h3 id="压缩列表的组成"><a href="#压缩列表的组成" class="headerlink" title="压缩列表的组成"></a>压缩列表的组成</h3><img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;">
+<h3 id="压缩列表的组成"><a href="#压缩列表的组成" class="headerlink" title="压缩列表的组成"></a>压缩列表的组成</h3><img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;">
 
 <ul>
 <li>zlbytes：4bytes，<strong>记录整个压缩列表占用的内存字节数</strong></li>
@@ -804,7 +809,7 @@
 <li>entryX：列表节点，<strong>节点的长度由节点保存的内容决定</strong></li>
 <li>zlend：1byte，值0xFF表示2^8-1=255，<strong>用于标记压缩列表的末端</strong></li>
 </ul>
-<h3 id="压缩列表结点的构成"><a href="#压缩列表结点的构成" class="headerlink" title="压缩列表结点的构成"></a>压缩列表结点的构成</h3><img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/压缩列表结点的各个组成部分.png" alt="压缩列表结点的各个组成部分">
+<h3 id="压缩列表结点的构成"><a href="#压缩列表结点的构成" class="headerlink" title="压缩列表结点的构成"></a>压缩列表结点的构成</h3><img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/压缩列表结点的各个组成部分.png" alt="压缩列表结点的各个组成部分">
 
 <ul>
 <li>previous_entry_length：1byte/5bytes，记录<strong>压缩列表中前一个节点的长度</strong><ul>
@@ -813,7 +818,7 @@
 </ul>
 </li>
 </ul>
-<img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%88%97%E8%A1%A8/运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;">
+<img src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;">
 
 <ul>
 <li>encoding：记录<strong>节点的content属性所保存数据的类型以及长度</strong>D:</li>
@@ -947,8 +952,19 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/Redis/" itemprop="url" rel="index">
-                    <span itemprop="name">Redis</span>
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
                   </a>
                 </span>
 
@@ -1089,7 +1105,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1108,7 +1124,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2/" itemprop="url">Redis原理初探之字符串</a></h1>
+                <a class="post-title-link" href="/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" itemprop="url">Redis原理初探（一）—— 字符串</a></h1>
         
 
         <div class="post-meta">
@@ -1171,7 +1187,7 @@
 
           
           
-             <span id="/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="leancloud_visitors" data-flag-title="Redis原理初探之字符串">
+             <span id="/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="leancloud_visitors" data-flag-title="Redis原理初探（一）—— 字符串">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1402,18 +1418,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">课程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/" itemprop="url" rel="index">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/" itemprop="url" rel="index">
                     <span itemprop="name">Java</span>
                   </a>
                 </span>
@@ -1424,7 +1429,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/JavaWeb/" itemprop="url" rel="index">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/JavaWeb/" itemprop="url" rel="index">
                     <span itemprop="name">JavaWeb</span>
                   </a>
                 </span>
@@ -1725,18 +1730,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">课程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/" itemprop="url" rel="index">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/" itemprop="url" rel="index">
                     <span itemprop="name">Java</span>
                   </a>
                 </span>
@@ -1747,7 +1741,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/JavaWeb/" itemprop="url" rel="index">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/JavaWeb/" itemprop="url" rel="index">
                     <span itemprop="name">JavaWeb</span>
                   </a>
                 </span>
@@ -2065,18 +2059,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">课程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/" itemprop="url" rel="index">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/" itemprop="url" rel="index">
                     <span itemprop="name">Java</span>
                   </a>
                 </span>
@@ -2087,7 +2070,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AF%BE%E7%A8%8B/Java/JavaWeb/" itemprop="url" rel="index">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/JavaWeb/" itemprop="url" rel="index">
                     <span itemprop="name">JavaWeb</span>
                   </a>
                 </span>
@@ -2346,7 +2329,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">&quot;verdana&quot;</span> <span class="attr">color</span>=<span class="string">&quot;red&quot;</span> <span class="attr">size</span>=<span class="string">4</span>&gt;</span>sample text<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>呈现效果：</p>
-<p><font face="verdana" color="red" size=4>sample text</font></p>
+<p><font face="verdana" color="red" size="4">sample text</font></p>
 <h4 id="表格与表单的使用"><a href="#表格与表单的使用" class="headerlink" title="表格与表单的使用"></a>表格与表单的使用</h4><p>题型1：要使表格的边框不显示，应设置border的值是</p>
 <ul>
 <li>A 1</li>
@@ -3193,7 +3176,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
