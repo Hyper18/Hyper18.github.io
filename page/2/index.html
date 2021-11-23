@@ -300,6 +300,229 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/09/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20SVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20SVM/" itemprop="url">机器学习题解（四）—— SVM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-15T21:10:01+08:00">
+                2021-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index">
+                    <span itemprop="name">题解</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/09/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20SVM/" class="leancloud_visitors" data-flag-title="机器学习题解（四）—— SVM">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  242
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="ex6-m"><a href="#ex6-m" class="headerlink" title="ex6.m"></a>ex6.m</h3><h4 id="Part-2-Training-Linear-SVM"><a href="#Part-2-Training-Linear-SVM" class="headerlink" title="Part 2: Training Linear SVM"></a>Part 2: Training Linear SVM</h4><ul>
+<li>Try different value of C, sp. changing the  value of C from 1 to 100 in ex6.m makes the classification work out correctly</li>
+</ul>
+<h4 id="Part-3-Implementing-Gaussian-Kernel"><a href="#Part-3-Implementing-Gaussian-Kernel" class="headerlink" title="Part 3: Implementing Gaussian Kernel"></a>Part 3: Implementing Gaussian Kernel</h4><ul>
+<li>Fill in this function to return the similarity between x1 and x2 computed using a Gaussian kernel with bandwidth sigma</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sim = <span class="built_in">exp</span>(-sum((x1-x2).^<span class="number">2</span>) / (<span class="number">2</span>*(sigma^<span class="number">2</span>)))</span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-7-Training-SVM-with-RBF-Kernel-Dataset-3"><a href="#Part-7-Training-SVM-with-RBF-Kernel-Dataset-3" class="headerlink" title="Part 7: Training SVM with RBF Kernel (Dataset 3)"></a>Part 7: Training SVM with RBF Kernel (Dataset 3)</h4><ul>
+<li>Fill in this function to return the optimal C and sigma learning parameters found using the cross validation set</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">val = [<span class="number">0.01</span> <span class="number">0.03</span> <span class="number">0.1</span> <span class="number">0.3</span> <span class="number">1</span> <span class="number">3</span> <span class="number">10</span> <span class="number">30</span>];</span><br><span class="line"><span class="built_in">min</span> = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="number">8</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="number">8</span></span><br><span class="line">        C_test = val(<span class="built_in">i</span>);</span><br><span class="line">        sigma_test = val(<span class="built_in">j</span>);</span><br><span class="line">        model = svmTrain(X, y, C_test, @(x1, x2) gaussianKernel(x1, x2, sigma_test));</span><br><span class="line">        predictions = svmPredict(model, Xval);</span><br><span class="line">        <span class="comment">% compute the prediction error</span></span><br><span class="line">        err = <span class="built_in">mean</span>(double(predictions ~= yval));</span><br><span class="line">        <span class="keyword">if</span> err &lt; <span class="built_in">min</span></span><br><span class="line">           C = C_test;</span><br><span class="line">           sigma = sigma_test;</span><br><span class="line">           <span class="built_in">min</span> = err;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ex6-spam-m"><a href="#ex6-spam-m" class="headerlink" title="ex6_spam.m"></a>ex6_spam.m</h3><h4 id="Part-1-Email-Preprocessing"><a href="#Part-1-Email-Preprocessing" class="headerlink" title="Part 1: Email Preprocessing"></a>Part 1: Email Preprocessing</h4><ul>
+<li>Fill in this function to add the index of str to word_indices if it is in the vocabulary</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : <span class="built_in">length</span>(vocabList)</span><br><span class="line">    <span class="comment">% compare two strings (str1 and str2)</span></span><br><span class="line">    <span class="keyword">if</span>(strcmp(vocabList&#123;<span class="built_in">i</span>&#125;, str) == <span class="number">1</span>)</span><br><span class="line">        word_indices = [word_indices;<span class="built_in">i</span>];</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Part-2-Feature-Extraction"><a href="#Part-2-Feature-Extraction" class="headerlink" title="Part 2: Feature Extraction"></a>Part 2: Feature Extraction</h4><ul>
+<li>Fill in this function to return a feature vector for the  given email (word_indices)</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : <span class="built_in">length</span>(word_indices)</span><br><span class="line">   x(word_indices(<span class="built_in">i</span>)) = <span class="number">1</span>; </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>​    or a better and simpler approach</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x(word_indices(<span class="built_in">i</span>)) = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2574,276 +2797,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%93%8D%E4%BD%9C%E7%AC%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%93%8D%E4%BD%9C%E7%AC%A6/" itemprop="url">Java面向对象（三）—— 操作符</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-26T20:47:45+08:00">
-                2020-08-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">面向对象</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%93%8D%E4%BD%9C%E7%AC%A6/" class="leancloud_visitors" data-flag-title="Java面向对象（三）—— 操作符">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  459
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="第三章-操作符"><a href="#第三章-操作符" class="headerlink" title="第三章 操作符"></a>第三章 操作符</h2><p>1、别名现象</p>
-<p>赋值操作是对一个对象的引用，对象与对象相互赋值则丢失信息</p>
-<p>2、生成数字：Random类</p>
-<ul>
-<li>nextInt / nextFloat …</li>
-</ul>
-<p>3、可使用一元加减号</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下操作均合法</span></span><br><span class="line">x = -a;</span><br><span class="line">x = a * -b;</span><br><span class="line">s = a * (-b);</span><br></pre></td></tr></table></figure>
-
-<p>4、关系操作符</p>
-<ul>
-<li>若为基本类型，直接比较</li>
-<li>不为基本类型，使用所有对象都适用的特殊方法equals()<ul>
-<li>默认执行比较引用，不可用于自己的新类</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">n1.equals(n2)</span><br><span class="line"><span class="comment">// 以下返回行为不正确</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myclass</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">wrongdoing</span></span>&#123;</span><br><span class="line">    myclass v1 = <span class="keyword">new</span> v1;</span><br><span class="line">    myclass v2 = <span class="keyword">new</span> v2;</span><br><span class="line">    System.out.println(v1.equals(v2));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>三元操作符</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// condition ? ex1 : ex2;</span></span><br><span class="line">x &lt; y ? x : y;</span><br></pre></td></tr></table></figure>
-
-<p>5、逻辑运算符</p>
-<p>与或非仅可用于布尔值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 错误实例</span></span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + (i &amp;&amp; j));</span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + (i || j));</span><br><span class="line">printf(<span class="string">&quot;i &amp;&amp; j is&quot;</span> + !i);</span><br></pre></td></tr></table></figure>
-
-<p>6、直接常量</p>
-<ul>
-<li>后缀L / F /D …</li>
-<li>前缀0x / 0 / 0b</li>
-<li>可为数字字面量添加下划线，更可读（e.g. 1_000_000)</li>
-<li>指数<ul>
-<li>注：结果不为一个数，返回NaN（e.g. 0/0）</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expfloat = <span class="number">1.39E-43f</span>；</span><br></pre></td></tr></table></figure>
-
-<p>7、按位操作符</p>
-<p>&amp;= |= ^= 均合法</p>
-<p>8、移位操作符 &gt;&gt; &lt;&lt;</p>
-<ul>
-<li>无符号右移：&gt;&gt;&gt;，无论正负均在高位插入0<ul>
-<li>对byte / short：会先转为int，右移、截断、赋值，可能得到-1结果</li>
-<li>推广：只要类型比int小均会被转换，可根据需求使用cast手动类型转换 / 提升</li>
-</ul>
-</li>
-<li>与等号组合：&gt;&gt;= &lt;&lt;=，移动等号左边指定的位数</li>
-</ul>
-<p>9、移植：无需考虑，不同机器均相同</p>
-<ul>
-<li>因而无sizeof操作符</li>
-</ul>
-<p>注：溢出结果不会收到警告或出错</p>
-<p>10、浮点数四舍五入</p>
-<ul>
-<li>得到最接近整数：使用Max.round() 方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">9.997</span></span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) Math.round(x);</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2896,7 +2849,7 @@
             
               <div class="site-state-item site-state-posts">
                 <a href="/archives">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
