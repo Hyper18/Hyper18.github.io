@@ -300,6 +300,526 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/07/29/Chapter3%20Transport%20Layer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/29/Chapter3%20Transport%20Layer/" itemprop="url">Chapter3 Transport Layer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-29T20:26:04+08:00">
+                2020-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/07/29/Chapter3%20Transport%20Layer/" class="leancloud_visitors" data-flag-title="Chapter3 Transport Layer">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.2k
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="运输层服务"><a href="#运输层服务" class="headerlink" title="运输层服务"></a>运输层服务</h1><p>1、工作位置：端系统</p>
+<p>2、分类：用户数据报协议UDP 传输控制协议TCP</p>
+<p>3、IP服务：尽力而为交付（best-effort delivery server）的不可靠模型</p>
+<h2 id="多路复用与多路分解"><a href="#多路复用与多路分解" class="headerlink" title="多路复用与多路分解"></a>多路复用与多路分解</h2><p>1、多路分解</p>
+<ul>
+<li>def：将运输层报文段中的数据交付到正确的套接字<ul>
+<li>每个套接字都有唯一确定的标识符</li>
+<li>每个报文段需有特殊字段来指示该报文段所需交付到的套接字</li>
+</ul>
+</li>
+<li>端口字段 <ul>
+<li>长度：32比特</li>
+<li>包含信息：源端口号字段 目的端口号字段 <ul>
+<li>端口号：16比特的数，大小在0~65535</li>
+<li>*周知端口号：0~1023（受限）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>2、多路复用</p>
+<ul>
+<li>def：从不同套接字收集数据块、封装首部信息生成报文段并传递到网络层的一系列工作</li>
+</ul>
+<p>3、无连接的多路复用与多路分解</p>
+<ul>
+<li>创建UDP套接字<ul>
+<li>分配方式：自动 or bind()关联特定端口</li>
+<li>组成：二元组，包括 目的IP地址 和 目的端口号</li>
+<li>源端口号和目的端口号的反转：服务器使用recvfrom()方法</li>
+</ul>
+</li>
+</ul>
+<p>4、面向连接的多路复用与多路分解</p>
+<ul>
+<li>创建TCP套接字<ul>
+<li>组成：四元组， 源IP地址、源端口号；目的IP地址、目的端口号</li>
+</ul>
+</li>
+<li>不同源IP地址 / 端口号，其定位到的套接字不同</li>
+</ul>
+<p>*5、顺序端口扫描：nmap</p>
+<h2 id="无连接运输：UDP"><a href="#无连接运输：UDP" class="headerlink" title="无连接运输：UDP"></a>无连接运输：UDP</h2><p>1、特征</p>
+<ul>
+<li>无连接传输：发送和接收方的运输层实体之间没有握手</li>
+</ul>
+<p>2、UDP的优劣</p>
+<p>优点</p>
+<ul>
+<li>精细控制、立即交付</li>
+<li>无需连接建立：不引入连接时延</li>
+<li>无连接状态：不维护连接状态，不跟踪对应参数</li>
+<li>分组首部开销小：仅需8字节（TCP：20字节）</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>缺乏拥塞控制带来的高丢包率</li>
+<li>引起并击垮发送方的TCP会话</li>
+</ul>
+<p>3、UDP报文段结构（P132）</p>
+<ul>
+<li>组成：源端口号 目的端口号 长度 检验和 应用数据<ul>
+<li>端口号：使得目的主机可执行分解功能</li>
+<li>长度字段：指示报文段的字节数（首部+数据）</li>
+<li>检验和<ul>
+<li>功能：用于确定传输过程中比特是否改变</li>
+<li>操作：反码运算，溢出<strong>回卷</strong>（P133）</li>
+<li>遵循原则：端到端原则</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>仅提供差错检测，无差错恢复机制</li>
+</ul>
+<h2 id="可靠数据传输原理"><a href="#可靠数据传输原理" class="headerlink" title="可靠数据传输原理"></a>可靠数据传输原理</h2><p>1、特征</p>
+<ul>
+<li>数据通过一条可靠信道传输，为上层实体提供服务</li>
+<li>可将较低层直接视为不可靠的点对点信道</li>
+<li>假设底层信道不会对分组重排序，交付分组可能丢失</li>
+</ul>
+<p>2、构造</p>
+<ul>
+<li>理想模型 rdt1.0<ul>
+<li>有限状态机 Finite-State Machine，FSM：发送端与接收端各自的机器</li>
+<li>所有分组从发送方流向接收方</li>
+<li>接收端不提供任何反馈</li>
+</ul>
+</li>
+<li>具有比特差错信道 rdt2.0<ul>
+<li>本质：停等协议</li>
+<li>功能：查错检测 接收方反馈 重传（产生冗余数据分组）</li>
+<li>自动重传协议 Automatic Repeat reQuest，ARQ：基于肯定确认（ACK）和否定确认（NAK）的重传机制的可靠数据传输协议</li>
+<li>处理ACK / NAK受损情况：发送方发送加入数据分组序号的新字段</li>
+<li>改进<ul>
+<li>rdt2.1：加入接收方到发送方的肯定和否定确认</li>
+<li>rdt2.2：使用ACK 0或ACK 1的确认信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>具有比特差错的丢包信道 rdt3.0<ul>
+<li>本质：比特交替协议</li>
+<li>倒计数计时器 countdown timer：发送分组时启动、响应中断、终止</li>
+</ul>
+</li>
+</ul>
+<p>3、流水线（pipelining）可靠数据传输协议</p>
+<ul>
+<li><p>问题：低利用率的网络协议可能限制底层网络硬件所提供的能力</p>
+</li>
+<li><p>解决：不以停等方式运行，允许发送多个分组而无需等待确认</p>
+</li>
+<li><p>差错恢复方法</p>
+<ul>
+<li><p>回退N步（GBN协议，P145）</p>
+<ul>
+<li><p>本质：滑动窗口协议</p>
+</li>
+<li><p>设基序号为base，nextseqnum位下一个最小的未使用序号：</p>
+<ul>
+<li>序号范围[0, base - 1]：已发送并确认的分组</li>
+<li>序号范围[base, nextseqnum - 1]：发送但未确认的分组</li>
+<li>[nextseqnum, base + N - 1]：若有上层数据将被立即发送的分组</li>
+<li>&gt;= base + N：当前流水线不可被使用的分组</li>
+</ul>
+<p>其中N为<strong>窗口长度</strong>，分组的序号范围是[0, 2^k - 1]，k为比特数</p>
+</li>
+<li><p>注：涉及序号运算一律使用模2^k运算</p>
+</li>
+</ul>
+</li>
+<li><p>选择重传（SR协议，P150）</p>
+<ul>
+<li>每个分组拥有自己的逻辑定时器，超时后发送单个分组</li>
+<li>接收到分组的ACK后，标记当前窗口基序号的分组为已接收，并且接收方需重新确认已收到过的序号小于当前窗口基序号的分组；若该分组序号等于send_base，则移动窗口基序号到具有最小序号的未确认分组处</li>
+</ul>
+</li>
+<li><p>因特网下的重新排序问题：假定分组的最大存活时间不会超过某个固定最大时间量（默认大约3min）来避免信道中的冗余分组</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="面向连接的运输：TCP"><a href="#面向连接的运输：TCP" class="headerlink" title="面向连接的运输：TCP"></a>面向连接的运输：TCP</h2><p>1、建立连接：三次握手，客户发送  - 服务器响应 - 客户响应</p>
+<ul>
+<li>第三个报文段承载有效载荷</li>
+<li>组成：一对主机上的缓存、变量及与进程连接的套接字</li>
+<li>辨析：其间的网络元素不参与分配任何缓存和变量</li>
+</ul>
+<p>2、最大报文段长度 Max  Segment Size，MSS</p>
+<ul>
+<li>辨析：仅报文段中应用层数据的最大长度，而非包括首部</li>
+<li>由本地发送主机的最大链路层帧长度（最大传输单元 Max Transmission Unit，MTU）设置</li>
+<li>要求：保证适合单个链路层帧</li>
+<li>典型值大小：1460字节（以太网与链路层协议中都具有1500字节的MTU）</li>
+</ul>
+<p>3、TCP报文段结构（P154）</p>
+<ul>
+<li>序号字段和确认号字段：各32比特，用于实现可靠数据传输<ul>
+<li>可靠传输服务的关键部分</li>
+<li>序号是该报文段首字节的字节流编号，确认号是主机期望从另一主机收到的下一字节的序号</li>
+<li>功能：提供<strong>累积确认</strong>，仅确认到流中至第一个丢失字节为止的字节</li>
+</ul>
+</li>
+<li>首部长度字段：4比特，指示首部的长度</li>
+<li>选项字段：可选和变长</li>
+<li>标志字段：ACK确认 RST、SYN、FIN建立和拆除连接 PSH提交给上层 URG指示紧急数据</li>
+</ul>
+<p>4、实例：Telnet</p>
+<ul>
+<li>回显 echo back：远程主机回送每个字符的副本给用户，并显示在Telnet用户的屏幕上</li>
+<li>被<strong>捎带</strong> piggybacked：指 对客户to服务器的数据的确认 被装载在一个承载服务器to客户的数据的报文段中</li>
+</ul>
+<p>5、往返时间的估计与超时</p>
+<ul>
+<li><p>往返时间：仅为传输一次的报文段测量SampleRTT</p>
+<ul>
+<li><strong>指数加权移动平均</strong> EWMA：更新估计往返时间（EstimatedRTT）</li>
+</ul>
+<p>$$<br>EstimatedRTT = （1 — α）* EstimatedRTT + α * SampleRTT<br>$$</p>
+<p>其中，[RFC 6298]给出的α推荐值为0.125。</p>
+<ul>
+<li>DevRTT：RTT偏差，用于衡量测量往返时间偏离估计往返时间的程度</li>
+</ul>
+<p>$$<br>DevRTT = (1 - β) * DevRTT + β * |SampleRTT - EstimatedRTT|<br>$$</p>
+<p>其中，β的推荐值为0.25。</p>
+</li>
+<li><p>超时间隔</p>
+</li>
+</ul>
+<p>$$<br>TimeoutInterval = EstimatedRTT + 4 * DevRTT<br>$$</p>
+<p>​    其中，TimeoutInterval的推荐初始值为1s。</p>
+<p>6、可靠数据传输</p>
+<ul>
+<li>TCP服务是在IP服务的尽力而为服务上创建的一种可靠数据传输服务</li>
+<li>超时间隔加倍：避免链路拥塞</li>
+<li>收到三个冗余ACK后执行<strong>快速重传</strong></li>
+<li>差错恢复机制：GBN与SR的结合体，可有选择地确认失序报文段，而非累积确认最后一个正确接收的有序报文段</li>
+</ul>
+<p>7、流量控制（P165）</p>
+<ul>
+<li>辨析：拥塞控制是为防止因IP网络拥塞而被遏制的情形；而流量控制是为消除发送方使接收方缓存溢出的可能性，是一个速度匹配服务</li>
+<li>方式：一对发送方各自维护一个<strong>接收窗口</strong>（rwnd）</li>
+<li>定义变量<ul>
+<li>LastByteRead：另一主机读出流中的最后一个字节的编号</li>
+<li>LastByteRevd：放入接收缓存流中的最后一个字节的编号</li>
+</ul>
+</li>
+</ul>
+<p>$$<br>LastByteRevd - LastByteRead \le RcvBuffer<br>$$</p>
+<p>$$<br>rwnd = RcvBuffer - [LastByteRevd - LastByteRead]<br>$$</p>
+<ul>
+<li>注：当接收主机空间耗尽时，由于发送方尽在有数据或有确认要发送是才会发送报文段，因此当接收主机的rwnd = 0时，主机将发送仅一个字节数据的报文段以清空接收主机RcvBuffer，并返回一个包含非0的rwnd值</li>
+</ul>
+<p>8、连接管理</p>
+<ul>
+<li>3次握手<ul>
+<li>客户端发送特殊报文段to服务器端，首部的SYN比特置1</li>
+<li>SYNACK报文段：服务器端SYN比特被置为1，确认号字段替换为客户端+1，服务器选择自己的初始序号</li>
+<li>客户端分配缓存和变量，连接建立，SYN比特被置为0</li>
+</ul>
+</li>
+<li>TCP状态（P168）<ul>
+<li>SYN cookie：不为未经确认的请求分配资源以杜绝洪泛攻击</li>
+</ul>
+</li>
+</ul>
+<h2 id="拥塞控制原理"><a href="#拥塞控制原理" class="headerlink" title="拥塞控制原理"></a>拥塞控制原理</h2><p>1、不同情形</p>
+<ul>
+<li>理想情况，两个发送方、无限缓存的路由器：分组到达速率接近链路容量时，分组经历巨大的排队时延</li>
+<li>两个发送方、有限缓存的路由器：还附加执行重传以补偿因缓存溢出而丢失的分组</li>
+<li>4个发送方与有限缓存路由器的多跳路径：被丢弃分组，其上游路由器转发到丢弃过程中使用的传输容量被浪费</li>
+</ul>
+<p>2、方法</p>
+<ul>
+<li>端到端：超时或三次冗余ACK确认</li>
+<li>网络辅助：路由器向发送方提供显式的网络拥塞状态反馈信息<ul>
+<li>发送阻塞分组（choke pocket）</li>
+<li>标记或更新某个字段以指示</li>
+</ul>
+</li>
+</ul>
+<h2 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h2><p>1、拥塞窗口 congestion window，cwnd<br>$$<br>LastByteSent - LastByteRead \le min{cwnd, rwnd}<br>$$<br>其中，发送速率随cwnd变化，约为cwnd / RTT byte/s。</p>
+<p>2、特性：自计时 self-clocking，得名于TCP使用确认来触发增大cwnd</p>
+<p>3、指导性原则</p>
+<ul>
+<li>丢失报文段时，适当降低TCP发送方的速率<ul>
+<li>从拥塞控制角度看，应着手减少cwnd以降低发送速率</li>
+</ul>
+</li>
+<li>当对先前收到的未确认的报文段的确认到达时，可以增加发送方的速率<ul>
+<li>表明此时的TCP链路是畅通的，报文段可顺利交付</li>
+</ul>
+</li>
+<li>带宽探测：当未出现丢包前，不断增加速率以响应到达的ACK；否则才减小速率<ul>
+<li>“得寸进尺，受挫尚退”</li>
+</ul>
+</li>
+</ul>
+<p>4、<strong>TCP拥塞控制算法</strong> TCP congestion control algorithm</p>
+<ul>
+<li><p>慢启动 slow-start（P179）</p>
+<ul>
+<li>def：首次以1个MSS开始，其后以2的幂指数递增，即每过一个RTT翻番</li>
+<li>何时结束增长？<ul>
+<li>丢包：重新慢启动，设置cwnd = 1，慢启动阈值ssthresh = cwnd / 2</li>
+<li>到达或超过慢启动阈值：结束慢启动，启动拥塞避免模式</li>
+<li>检测到三个冗余ACK：执行快速重传，进入快速恢复状态</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>拥塞避免</p>
+<ul>
+<li>def：到达或超过慢启动阈值时，与其再翻番cwnd，采用保守方法，仅自增cwnd</li>
+<li>方法：同慢启动，设置cwnd = 1，置慢启动阈值ssthresh = cwnd / 2</li>
+</ul>
+</li>
+<li><p>快速恢复</p>
+<ul>
+<li>对于每一个冗余ACK，cwnd增加1；当对丢失报文段ACK到达后，再降低cwnd进入拥塞避免状态</li>
+</ul>
+</li>
+<li><p>特性：<strong>加性增 乘性减</strong>（Additive-Increase， Multiplicative-Decrease，AIMD P181）</p>
+<ul>
+<li>def：每个RTT内cwnd线性（加性）增加1MSS，3个冗余ACK减半（乘性减）</li>
+</ul>
+</li>
+<li><p>TCP吞吐量</p>
+<ul>
+<li>宏观模型</li>
+</ul>
+</li>
+</ul>
+<p>$$<br>  avg_{单条连接的吞吐量} =  \frac{0.75 * W}{RTT}<br>$$</p>
+<p>​    其中，W为丢包时间发生时，窗口长度的字节数。</p>
+<ul>
+<li>高带宽路径</li>
+</ul>
+<p>$$<br>avg_{单条连接的吞吐量} =  \frac{1.22 * MSS}{RTT * \sqrt{L}}<br>$$</p>
+<p>​    其中，L为链路的丢包率。</p>
+<p>5、实例：TCP分岔</p>
+<ul>
+<li>目的：优化云服务，改善用户体验</li>
+<li>手段：部署临近用户的前端服务器 或 利用TCP分岔（TCP splitting）来分裂TCP连接</li>
+<li>公式</li>
+</ul>
+<p>$$<br>4 * RTT_{FE} + RTT_{BE} + 处理时间<br>$$</p>
+<p>其中FE、BE分别为客户to前端服务器、前端服务器到数据中心（后端服务器）的往返时间</p>
+<ul>
+<li>效果：降低时延到原来的约1/4</li>
+</ul>
+<p>6、公平性</p>
+<ul>
+<li>UDP源可能压制TCP流量</li>
+<li>并行TCP连接占用较大带宽而不常见</li>
+</ul>
+<p>7、明确拥塞通告 Explicit Congestion Notification，ECN</p>
+<ul>
+<li>def：允许网络明确向TCP发送方和接收方发送显式拥塞信号</li>
+<li>好处：无需再由发送方通过观察分组丢失来推断拥塞</li>
+<li>过程：接收主机收到ECN拥塞指示 -&gt; 设置ECN（拥塞通告回显）-&gt; 通知发送方 -&gt; 收到拥塞指示，减半拥塞窗口、设置CWR比特（拥塞窗口缩减）</li>
+<li>*利用网络层发送ECN信号：数据包拥塞控制协议 DCCP、数据中心TCP DCTCP</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/07/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%9F%BA%E7%A1%80%E7%AF%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1466,7 +1986,7 @@
             
               <div class="site-state-item site-state-posts">
                 <a href="/archives">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
