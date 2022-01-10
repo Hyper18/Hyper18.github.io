@@ -300,6 +300,642 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/11/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" itemprop="url">设计模式之创建型模式的设计与实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-16T22:49:07+08:00">
+                2021-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/11/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" class="leancloud_visitors" data-flag-title="设计模式之创建型模式的设计与实现">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.4k
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>​    使用简单工厂模式模拟女娲（Nvwa）造人（Person），如果向造人的工厂方法传入参数”M“，则返回一个男人（Man）对象，如果传入参数”W“，则返回一个女人（Woman）对象，绘制相应的类图并使用Java语言模拟实现该场景。现需要增加一个新的机器人（Robot），如果传入参数为“R”，则返回一个机器人对象，对代码进行修改并注意“女娲“类的变化。</p>
+<h4 id="抽象产品类"><a href="#抽象产品类" class="headerlink" title="抽象产品类"></a>抽象产品类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Person.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 抽象产品类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="具体产品"><a href="#具体产品" class="headerlink" title="具体产品"></a>具体产品</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Man.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体产品类：男人</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Man</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Man</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;男人对象已创建！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Woman.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体产品类：女人</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Woman</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Woman</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;女人对象已创建！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Robot.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体产品类：机器人</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Robot</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Robot</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;机器人对象已创建！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="工厂"><a href="#工厂" class="headerlink" title="工厂"></a>工厂</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Nvwa.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 工厂类：女娲</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Nvwa</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String PERSON_TYPE_MAN = <span class="string">&quot;M&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String PERSON_TYPE_WOMAN = <span class="string">&quot;W&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String PERSON_TYPE_ROBOT = <span class="string">&quot;R&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Person <span class="title">makePerson</span><span class="params">(String type)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (PERSON_TYPE_MAN.equalsIgnoreCase(type)) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;返回一个男人对象！&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Man();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (PERSON_TYPE_WOMAN.equalsIgnoreCase(type)) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;返回一个女人对象！&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Woman();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (PERSON_TYPE_ROBOT.equalsIgnoreCase(type)) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;返回一个机器人对象！&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Robot();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Client.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 客户端类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//通过静态工厂方法创建产品</span></span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        String type = sc.next();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建并获取对象</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Nvwa.makePerson(type);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.toString();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><h4 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h4><img src="/2021/11/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/类图1.png">
+
+<ul>
+<li>工厂 - Nvwa</li>
+<li>抽象产品 - Person</li>
+<li>具体产品 - Man、Woman和Robot</li>
+</ul>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>工厂类包含必要的逻辑判断，以选择生产具体产品</li>
+<li>用于单个产品生产</li>
+</ul>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>实现了对象创建和使用的分离</li>
+<li>客户端只需要知道具体产品类对应参数，而无需知道所创建具体产品类的类名</li>
+<li>引入配置文件可在不修改任何客户端代码的情况下更换/增加新的具体产品类，提高了系统的灵活性</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>工厂类职责过重</li>
+<li>增加了系统的复杂度</li>
+<li>静态工厂方法无法形成基于继承的等级结构，系统不易扩展</li>
+</ul>
+<h4 id="适用环境"><a href="#适用环境" class="headerlink" title="适用环境"></a>适用环境</h4><ul>
+<li>工厂类负责创建的对象比较少</li>
+<li>客户端不关心对象创建的细节 </li>
+</ul>
+<h2 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h2><h3 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h3><p>​    同上：使用简单工厂模式模拟女娲（Nvwa）造人（Person），如果向造人的工厂方法传入参数”M“，则返回一个男人（Man）对象，如果传入参数”W“，则返回一个女人（Woman）对象，绘制相应的类图并使用Java语言模拟实现该场景。现需要增加一个新的机器人（Robot），如果传入参数为“R”，则返回一个机器人对象，对代码进行修改并注意“女娲“类的变化。</p>
+<h4 id="抽象产品类-1"><a href="#抽象产品类-1" class="headerlink" title="抽象产品类"></a>抽象产品类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Person.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 抽象产品类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="具体产品-1"><a href="#具体产品-1" class="headerlink" title="具体产品"></a>具体产品</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Man.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体产品类：男人</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Man</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Man</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;男人对象已创建！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Woman.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体产品类：女人</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Woman</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Woman</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;女人对象已创建！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Robot.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体产品类：机器人</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Robot</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Robot</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;机器人对象已创建！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Factory.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 抽象工厂类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">PersonFactory</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 人对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">Person <span class="title">makePerson</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="具体工厂"><a href="#具体工厂" class="headerlink" title="具体工厂"></a>具体工厂</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * ManFactory.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体工厂类：男人工厂</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ManFactory</span> <span class="keyword">implements</span> <span class="title">PersonFactory</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String PERSON_TYPE_MAN = <span class="string">&quot;M&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Person <span class="title">makePerson</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;返回一个男人对象！&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Man();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * WomanFactory.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体工厂类：女人工厂</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WomanFactory</span> <span class="keyword">implements</span> <span class="title">PersonFactory</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String PERSON_TYPE_WOMAN = <span class="string">&quot;W&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Person <span class="title">makePerson</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;返回一个女人对象！&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Woman();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * RobotFactory.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体工厂类：机器人工厂</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RobotFactory</span> <span class="keyword">implements</span> <span class="title">PersonFactory</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String PERSON_TYPE_ROBOT = <span class="string">&quot;R&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Person <span class="title">makePerson</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;返回一个机器人对象！&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Robot();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Client.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 客户端类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//通过工厂方法创建产品</span></span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        String type = sc.next();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建并获取对象</span></span><br><span class="line">        PersonFactory factory = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;M&quot;</span>: factory = <span class="keyword">new</span> ManFactory(); <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;W&quot;</span>: factory = <span class="keyword">new</span> WomanFactory(); <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;R&quot;</span>: factory = <span class="keyword">new</span> RobotFactory(); <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;输入有误！&quot;</span>);</span><br><span class="line">                exit(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        factory.makePerson();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><img src="/2021/11/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/类图2.png">
+
+<h4 id="角色-1"><a href="#角色-1" class="headerlink" title="角色"></a>角色</h4><ul>
+<li>抽象产品 - Person</li>
+<li>具体产品 - Man、Woman和Robot</li>
+<li>抽象工厂 - PersonFactory</li>
+<li>具体工厂 - ManFactory、WomanFactory和RobotFactory</li>
+</ul>
+<h4 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>一个产品对应一个工厂类</li>
+<li>用于生产某种类型产品</li>
+</ul>
+<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>工厂方法不仅创建客户所需要的产品，还隐藏了具体产品类的实例化细节</li>
+<li>能让工厂自主确定创建何种产品对象，而如何创建这个对象的细节则完全封装在具体工厂内部</li>
+<li>在系统中加入新产品时，完全符合开闭原则。  </li>
+</ul>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>系统中类的个数将成对增加，增加了系统的复杂度</li>
+<li>增加了系统的抽象性</li>
+</ul>
+<h4 id="适用环境-1"><a href="#适用环境-1" class="headerlink" title="适用环境"></a>适用环境</h4><ul>
+<li>抽象工厂类通过子类来指定创建对象</li>
+<li>客户端不知道所需要对象的类</li>
+</ul>
+<h2 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h2><h3 id="案例-2"><a href="#案例-2" class="headerlink" title="案例"></a>案例</h3><p>​    一个电器工厂可以产生多种类型的电器，如海尔工厂可以生产海尔电视机、海尔空调等，TCL工厂可以生产TCL电视机、TCL空调等，相同品牌的电器构成一个产品族，而相同类型的电器构成了一个产品等级结构，现使用抽象工厂模式模拟该场景。</p>
+<h4 id="抽象产品类-2"><a href="#抽象产品类-2" class="headerlink" title="抽象产品类"></a>抽象产品类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * AirConditioner.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 抽象产品类：空调</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AirConditioner</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 开启</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">on</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 关闭</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">off</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 调节室温</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeTemperature</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 调节风速</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeBlowingSpeed</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Television.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 抽象产品类：电视</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Television</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 开启</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">on</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 关闭</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">off</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 切换频道</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">switchChannel</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 调节音量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeVolume</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="具体产品-2"><a href="#具体产品-2" class="headerlink" title="具体产品"></a>具体产品</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * HaierAirConditioner.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体产品类：海尔空调</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HaierAirConditioner</span> <span class="keyword">implements</span> <span class="title">AirConditioner</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">on</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;海尔空调已启动&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">off</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;海尔空调已关闭&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeTemperature</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;您正在使用海尔空调调节室温&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeBlowingSpeed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;您正在使用海尔空调调节风速&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * HaierTelevision.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体产品类：海尔电视</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HaierTelevision</span> <span class="keyword">implements</span> <span class="title">Television</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">on</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;海尔电视已启动&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">off</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;海尔电视已关闭&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">switchChannel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;您正在海尔电视切换频道&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeVolume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;您正在海尔电视调节音量&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TCLAirConditioner.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体产品类：TCL空调</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TCLAirConditioner</span> <span class="keyword">implements</span> <span class="title">AirConditioner</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">on</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;TCL空调已启动&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">off</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;TCL空调已关闭&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeTemperature</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;您正在使用TCL空调调节室温&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeBlowingSpeed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;您正在使用TCL空调调节风速&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TCLTelevision.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体产品类：TCL电视</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TCLTelevison</span> <span class="keyword">implements</span> <span class="title">Television</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">on</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;TCL电视已启动&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">off</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;TCL电视已关闭&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">switchChannel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;您正在使用TCL电视切换频道&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeVolume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;您正在使用TCL电视调节音量&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="抽象工厂-1"><a href="#抽象工厂-1" class="headerlink" title="抽象工厂"></a>抽象工厂</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Factory.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 抽象工厂类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Factory</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回一台空调</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> AirConditioner</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AirConditioner <span class="title">produceAirConditioner</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回一台电视</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Television</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Television <span class="title">produceTelevision</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="具体工厂-1"><a href="#具体工厂-1" class="headerlink" title="具体工厂"></a>具体工厂</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * HaierFactory.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体工厂类：Haier工厂</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HaierFactory</span> <span class="keyword">implements</span> <span class="title">Factory</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AirConditioner <span class="title">produceAirConditioner</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> HaierAirConditioner();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Television <span class="title">produceTelevision</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> HaierTelevision();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TCLFactory.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 具体工厂类：TCL工厂</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TCLFactory</span> <span class="keyword">implements</span> <span class="title">Factory</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AirConditioner <span class="title">produceAirConditioner</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TCLAirConditioner();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Television <span class="title">produceTelevision</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TCLTelevison();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="客户端-2"><a href="#客户端-2" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Client.java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> * 客户端类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 使用抽象层定义</span></span><br><span class="line">        Factory factory = <span class="keyword">null</span>;</span><br><span class="line">        AirConditioner airConditioner;</span><br><span class="line">        Television television;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取具体工厂对象</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            factory = (HaierFactory)XMLUtil.getBean();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.toString();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取具体产品对象</span></span><br><span class="line">        airConditioner = factory.produceAirConditioner();</span><br><span class="line">        television = factory.produceTelevision();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 调用具体产品方法</span></span><br><span class="line">        airConditioner.on();</span><br><span class="line">        airConditioner.changeTemperature();</span><br><span class="line">        airConditioner.changeBlowingSpeed();</span><br><span class="line">        airConditioner.off();</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------------&quot;</span>);</span><br><span class="line">        television.on();</span><br><span class="line">        television.switchChannel();</span><br><span class="line">        television.changeVolume();</span><br><span class="line">        television.off();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h3><img src="/2021/11/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/类图3.png">
+
+<h4 id="角色-2"><a href="#角色-2" class="headerlink" title="角色"></a>角色</h4><ul>
+<li>抽象产品 - Television、AirConditioner</li>
+<li>具体产品 - Haier、TCL对应产品族</li>
+<li>抽象工厂 - 创建Television、AirConditioner产品等级结构</li>
+<li>具体工厂 - Factory</li>
+</ul>
+<h4 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>用于生产一系列产品</li>
+</ul>
+<h4 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>隔离了具体类的生成</li>
+<li>当同产品族中多个对象一起工作时，能保证客户端始终只使用同一个产品族中的对象</li>
+<li>增加新的产品族无须修改已有系统，符合开闭原则  </li>
+</ul>
+<h4 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>又违背了开闭原则：不易增添新的产品等级结构，需要对原有系统进行较大的修改</li>
+</ul>
+<h4 id="适用环境-2"><a href="#适用环境-2" class="headerlink" title="适用环境"></a>适用环境</h4><ul>
+<li>每次只使用某一产品族</li>
+<li>同产品族产品一起使用</li>
+<li>产品等级结构稳定</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/11/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20JavaScript%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/11/11/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20JavaScript%E7%AF%87/" itemprop="url">分题型基础补全计划（三）—— JavaScript篇</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-11T19:51:26+08:00">
+                2021-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/11/11/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20JavaScript%E7%AF%87/" class="leancloud_visitors" data-flag-title="分题型基础补全计划（三）—— JavaScript篇">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.7k
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h3><p>​    作为一门一切皆为对象的语言，首先需要搞明白指针this的指向问题。以下为常见的两种指向情况：</p>
+<h5 id="作为构造函数调用"><a href="#作为构造函数调用" class="headerlink" title="作为构造函数调用"></a><strong>作为构造函数调用</strong></h5><p>题型1</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">&quot;123&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> foo = <span class="string">&quot;456&quot;</span>;</span><br><span class="line">  <span class="built_in">this</span>.foo = <span class="string">&quot;789&quot;</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(foo);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print();</span><br></pre></td></tr></table></figure>
+
+<p><em>我的答案:</em> 456</p>
+<ul>
+<li>通过print()函数，可以生成一个新对象。这时，<code>this</code>就指这个新对象，this.foo就作为这个新对象的成员</li>
+</ul>
+<h5 id="纯粹的函数调用"><a href="#纯粹的函数调用" class="headerlink" title="纯粹的函数调用"></a><strong>纯粹的函数调用</strong></h5><p>题型2</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  a = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  alert(a);</span><br><span class="line">  alert(<span class="built_in">this</span>.a);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> a;</span><br><span class="line">  alert(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>我的答案:</em> 弹出0,5,0</p>
+<ul>
+<li>全局性调用，因此<code>this</code>就代表全局对象，this.a则调用全局变量a，故弹出结果为5</li>
+</ul>
+<p>其余详见：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html">Javascript 的 this 用法 - 阮一峰的网络日志 (ruanyifeng.com)</a>，讲的很透彻</p>
+<h3 id="鼠标事件与键盘事件"><a href="#鼠标事件与键盘事件" class="headerlink" title="鼠标事件与键盘事件"></a>鼠标事件与键盘事件</h3><p>题型：下列事件哪个不是由鼠标触发的事件（）</p>
+<p>A click</p>
+<p>B contextmenu</p>
+<p>C mouseout</p>
+<p>D keydown</p>
+<p><em>我的答案:</em> D</p>
+<h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.鼠标点击左键触发</span></span><br><span class="line">onclick</span><br><span class="line"><span class="comment">//2.鼠标经过触发</span></span><br><span class="line">onmouseover</span><br><span class="line"><span class="comment">//3.鼠标离开触发</span></span><br><span class="line">onmouseout</span><br><span class="line"><span class="comment">//4.获得鼠标焦点触发</span></span><br><span class="line">onfocus</span><br><span class="line"><span class="comment">//5.失去鼠标触发</span></span><br><span class="line">onblur</span><br><span class="line"><span class="comment">//6.鼠标移动触发</span></span><br><span class="line">onmousemove</span><br><span class="line"><span class="comment">//7.鼠标弹起触发</span></span><br><span class="line">onmouseup</span><br><span class="line"><span class="comment">//8.鼠标按下触发</span></span><br><span class="line">onmousedown</span><br><span class="line"><span class="comment">//9.鼠标经过时触发,但是不会冒泡</span></span><br><span class="line">onmouseenter</span><br><span class="line"><span class="comment">//10.鼠标离开时触发,但是不会冒泡</span></span><br><span class="line">onmouseleave</span><br></pre></td></tr></table></figure>
+
+<h5 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.返回鼠标相对于浏览器窗口可视区的X坐标</span></span><br><span class="line">e.clientX</span><br><span class="line"><span class="comment">//2.返回鼠标相对于浏览器窗口可视区的Y坐标</span></span><br><span class="line">e.clientY</span><br><span class="line"><span class="comment">//3.返回鼠标相对于文档页面的X坐标</span></span><br><span class="line">e.pageX</span><br><span class="line"><span class="comment">//4.返回鼠标相对于文档页面的Y坐标</span></span><br><span class="line">e.pageY</span><br><span class="line"><span class="comment">//5.返回鼠标相对于屏幕的X坐标</span></span><br><span class="line">e.screenX</span><br><span class="line"><span class="comment">//6.返回鼠标相对于屏幕的Y坐标</span></span><br><span class="line">e.screenY</span><br></pre></td></tr></table></figure>
+
+<h5 id="禁用鼠标事件"><a href="#禁用鼠标事件" class="headerlink" title="*禁用鼠标事件"></a>*禁用鼠标事件</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//禁止鼠标右键菜单</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&#x27;contextmenu&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//禁止鼠标选中</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&#x27;selectstart&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.某个键盘按键被松开时触发</span></span><br><span class="line">onkeyup</span><br><span class="line"><span class="comment">//2.某个键盘按键被按下时触发</span></span><br><span class="line">onkeydown</span><br><span class="line"><span class="comment">//3.某个键盘被按下时触发,不识别功能键如ctrl、shift etc.</span></span><br><span class="line">onkeypress</span><br></pre></td></tr></table></figure>
+
+<p>注：<code>onkeypress</code>区分大小写，<code>onkeydown</code> 和<code>onkeyup</code> 不区分</p>
+<h3 id="作用域问题"><a href="#作用域问题" class="headerlink" title="作用域问题"></a>作用域问题</h3><p>题型：</p>
+<p><code>&lt;ul&gt; </code></p>
+<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
+<p><code>&lt;li&gt;click me&lt;/li&gt;</code> </p>
+<p><code>&lt;li&gt;click me&lt;/li&gt; </code></p>
+<p><code>&lt;li&gt;click me&lt;/li&gt; </code></p>
+<p><code>&lt;/ul&gt;</code></p>
+<p> 运行如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;li&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> length = elements.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">  elements[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(i);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>依次点击 4 个 li 标签，哪一个选项是正确的运行结果（） </p>
+<p>A 依次弹出 1， 2， 3， 4</p>
+<p>B 依次弹出 0， 1， 2， 3</p>
+<p>C 依次弹出 3， 3， 3， 3</p>
+<p>D 依次弹出 4， 4， 4， 4</p>
+<p><em>我的答案:</em> D</p>
+<ul>
+<li>在《JavaScript高级程序设计》有如下解释<ul>
+<li>这是由于作用域链的这种配置机制引出的一个副作用，即闭包只能取得包含函数中任何变量的最后一个值。<strong>闭包所保存的是整个变量对象</strong>，而不是某个特殊的变量。</li>
+</ul>
+</li>
+<li>回归具体问题，这里alert(i)中绑定的i实际上不是i的值，而是i本身。当循环结束后，因此执行onclick事件、执行alert()时，本身onclick绑定的function的作用域中没有变量i，i为w未定义的(undefined)，则解析引擎会寻找父级作用域，发现父级作用域中有i，则取得的i对应值始终为4。</li>
+</ul>
+<h5 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、利用块级域</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;                </span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//2、利用自执行函数传参</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"> (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(i);</span><br><span class="line"> &#125;, <span class="number">1000</span>);</span><br><span class="line"> &#125;)(i);        </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3、利用设置延时的第三个参数传递</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(j);</span><br><span class="line"> &#125;, <span class="number">1000</span>, i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//4、利用promise</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">var</span> j = i;</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(j)</span><br><span class="line"> &#125;, <span class="number">1000</span>);</span><br><span class="line"> &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//5、利用async函数</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"> <span class="keyword">let</span> result = <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     resolve(i);</span><br><span class="line">         &#125;, <span class="number">1000</span>); <span class="comment">// 每隔1s打印数字 0 - 9</span></span><br><span class="line"> &#125;);</span><br><span class="line"> <span class="built_in">console</span>.log(result);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="js中的原始类型"><a href="#js中的原始类型" class="headerlink" title="js中的原始类型"></a>js中的原始类型</h3><p>题型：关于javascript的原始类型（primitive type），错误的是 </p>
+<p>A 有5种primitive type，分别是Undefined、Null、Boolean、Number 和 String。</p>
+<p>B var sTemp = “test string”;alert (typeof sTemp);结果为string</p>
+<p>C var oTemp;alert(oTemp == undefined)为true</p>
+<p>D alert(null == undefined);结果为false</p>
+<p><em>我的答案:</em> D</p>
+<h5 id="六大原始类型"><a href="#六大原始类型" class="headerlink" title="六大原始类型"></a>六大原始类型</h5><ul>
+<li>数字类型 number</li>
+<li>字符串类型 string</li>
+<li>布尔类型 boolean</li>
+<li>空值 null</li>
+<li>未定义 undefined</li>
+<li>独一无二类型(ES6新增) symbol：引入以防止属性名的冲突</li>
+</ul>
+<p>注：其他类型均为引用类型（Object）</p>
+<h3 id="最大值的求法"><a href="#最大值的求法" class="headerlink" title="最大值的求法"></a>最大值的求法</h3><p>题型：下面求a中最大值正确的是()</p>
+<p>A Math.max(a)</p>
+<p>B Array.max(a)</p>
+<p>C Math.max.call(null,a)</p>
+<p>D Math.max.apply(null,a)</p>
+<p><em>我的答案:</em> D</p>
+<h5 id="Math-max"><a href="#Math-max" class="headerlink" title="Math.max"></a>Math.max</h5><pre><code> 返回一组数中的最大值
+</code></pre>
+<h5 id="Math-max-apply"><a href="#Math-max-apply" class="headerlink" title="Math.max.apply"></a>Math.max.apply</h5><p>​    返回一个对象（如：数组）中的最大值</p>
+<h3 id="标准事件模型-IE9"><a href="#标准事件模型-IE9" class="headerlink" title="*标准事件模型 IE9+"></a>*标准事件模型 IE9+</h3><p>题型：w3c 制定的 javascript 标准事件模型，以下正确的顺序以及描述是？ </p>
+<p>A 事件捕获&gt;事件冒泡</p>
+<p>B 事件捕获-&gt;事件处理-&gt;事件冒泡</p>
+<p>C 事件冒泡-&gt;事件处理</p>
+<p>D 事件处理-&gt;事件捕获-&gt;事件冒泡</p>
+<p><em>我的答案:</em> B</p>
+<h3 id="异步执行调用"><a href="#异步执行调用" class="headerlink" title="异步执行调用"></a>异步执行调用</h3><p>题型：以下语句的执行结果是什么？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;one&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;two&quot;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;three&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;four&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><em>我的答案:</em> “one” “three” “four” “two”</p>
+<ul>
+<li>这是由于setTimeout()方法是异步执行的。当调用该方法时，会把函数参数与函数体中的内容放入消息队列，直到当前主程序执行完成后，再予以调用</li>
+</ul>
+<h3 id="浮点数运算问题"><a href="#浮点数运算问题" class="headerlink" title="浮点数运算问题"></a>浮点数运算问题</h3><p>题型：写一个求和的函数 sum，达到下面的效果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Should equal 15</span></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 0</span></span><br><span class="line">sum(<span class="number">5</span>, <span class="literal">null</span>, -<span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 10</span></span><br><span class="line">sum(<span class="string">&#x27;1.0&#x27;</span>, <span class="literal">false</span>, <span class="number">1</span>, <span class="literal">true</span>, <span class="number">1</span>, <span class="string">&#x27;A&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;B&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;C&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;D&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;E&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;F&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;G&#x27;</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// Should equal 0.3, not 0.30000000000000004</span></span><br><span class="line">sum(<span class="number">0.1</span>, <span class="number">0.2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>我的答案：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> add = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(<span class="keyword">typeof</span> <span class="built_in">arguments</span>[i] == <span class="string">&quot;boolean&quot;</span>)) &#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!<span class="built_in">isNaN</span>(<span class="built_in">arguments</span>[i])) &#123;</span><br><span class="line"></span><br><span class="line">        add += <span class="built_in">Number</span>(<span class="built_in">arguments</span>[i]);</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  alert(<span class="built_in">Math</span>.round(add * <span class="number">10</span>) / <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>为什么1+2≠3？因为js采用的是IEEE754标准处理浮点数，视作双精度数，结果为结果是0.30000000000000004（计组内容）</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/08/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20CSS%E7%AF%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2478,517 +3114,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/09/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%8E%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/09/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%8E%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" itemprop="url">机器学习题解（一）—— 线性回归与逻辑回归</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-05T21:08:14+08:00">
-                2021-09-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index">
-                    <span itemprop="name">题解</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2021/09/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%8E%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" class="leancloud_visitors" data-flag-title="机器学习题解（一）—— 线性回归与逻辑回归">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  488
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="ex1-m"><a href="#ex1-m" class="headerlink" title="ex1.m"></a>ex1.m</h3><h4 id="Part-1-Basic-Function"><a href="#Part-1-Basic-Function" class="headerlink" title="Part 1: Basic Function"></a>Part 1: Basic Function</h4><ul>
-<li>Modify warmUpExercise.m to return a 5 x 5 identity matrix</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = <span class="built_in">eye</span>(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="Part-2-Plotting"><a href="#Part-2-Plotting" class="headerlink" title="Part 2: Plotting"></a>Part 2: Plotting</h4><ul>
-<li>Plot the training data into a figure in plotData.m</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data = load(<span class="string">&#x27;ex1data1.txt&#x27;</span>)</span><br><span class="line">x = data(:, <span class="number">1</span>);y = data(:,<span class="number">2</span>)</span><br><span class="line">m = <span class="built_in">length</span>(y)</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x, y, <span class="string">&#x27;rx&#x27;</span>, <span class="string">&#x27;MarkerSize&#x27;</span>, <span class="number">10</span>);</span><br><span class="line">ylabel(<span class="string">&#x27;Profit in $10,000s&#x27;</span>)</span><br><span class="line">xlabel(<span class="string">&#x27;Population of City in 10,000s&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="Part-3-Cost-and-Gradient-descent"><a href="#Part-3-Cost-and-Gradient-descent" class="headerlink" title="Part 3: Cost and Gradient descent"></a>Part 3: Cost and Gradient descent</h4><ul>
-<li>complete the code in the file computeCost.m, which is a function that computes J(θ)</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">J = sum(((X * theta) - y).^<span class="number">2</span>) / (<span class="number">2</span> * m);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li> Perform a single gradient step on the parameter vector theta in gradientDescent.m</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> iter = <span class="number">1</span>:num_iters</span><br><span class="line">    theta = theta - alpha * (<span class="number">1</span> / m) * (X&#x27;* ((X * theta) - y) );</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="ex2-m"><a href="#ex2-m" class="headerlink" title="ex2.m"></a>ex2.m</h3><h4 id="Part-1-Plotting"><a href="#Part-1-Plotting" class="headerlink" title="Part 1: Plotting"></a>Part 1: Plotting</h4><ul>
-<li>Plot the positive and negative examples on a 2D plot, using the option ‘k+’ for the positive examples and ‘ko’ for the negative examples</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">positive = <span class="built_in">find</span>(y == <span class="number">1</span>); negative = <span class="built_in">find</span>(y == <span class="number">0</span>);</span><br><span class="line"><span class="built_in">plot</span>(X(positive, <span class="number">1</span>), X(positive, <span class="number">2</span>), <span class="string">&#x27;k+&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span>, <span class="number">1.2</span>, <span class="string">&#x27;MarkerSize&#x27;</span>, <span class="number">8</span>);</span><br><span class="line"><span class="built_in">plot</span>(X(negative, <span class="number">1</span>), X(negative, <span class="number">2</span>), <span class="string">&#x27;ko&#x27;</span>,<span class="string">&#x27;MarkerFaceColor&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;MarkerSize&#x27;</span>, <span class="number">8</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="Part-2-Compute-Cost-and-Gradient"><a href="#Part-2-Compute-Cost-and-Gradient" class="headerlink" title="Part 2: Compute Cost and Gradient"></a>Part 2: Compute Cost and Gradient</h4><ul>
-<li>Compute the sigmoid of each value of z (z can be a matrix, vector or scalar)</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Y = exp(X) 为数组 X 中的每个元素返回指数 e^x</span></span><br><span class="line">g = <span class="number">1</span> ./ (<span class="number">1</span> + <span class="built_in">exp</span>(<span class="number">1</span>) .^ (-z));</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Compute the cost of a particular choice of theta. You should set J to the cost</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">J = (<span class="number">1</span> / m) * sum(</span><br><span class="line">	-y .* <span class="built_in">log</span>(sigmoid(X * theta)) - (<span class="number">1</span> - y) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(X * theta</span><br><span class="line">)));</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Compute the partial derivatives and set grad to the partial derivatives of the cost w.r.t. each parameter in theta</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="built_in">size</span>(theta)</span><br><span class="line">    grad(<span class="built_in">j</span>) = (<span class="number">1</span> / m) * sum((sigmoid(X * theta) - y) .* X(:, <span class="built_in">j</span>));</span><br></pre></td></tr></table></figure>
-
-<h4 id="Part-3-Optimizing-using-fminunc"><a href="#Part-3-Optimizing-using-fminunc" class="headerlink" title="Part 3: Optimizing using fminunc"></a>Part 3: Optimizing using fminunc</h4><p><img src="C:\Users\Vincent\AppData\Roaming\Typora\typora-user-images\image-20210905193014755.png" alt="image-20210905193014755"></p>
-<h4 id="Part-4-Predict-and-Accuracies"><a href="#Part-4-Predict-and-Accuracies" class="headerlink" title="Part 4: Predict and Accuracies"></a>Part 4: Predict and Accuracies</h4><ul>
-<li> Complete the following code to make predictions using your learned logistic regression parameters. You should set p to a vector of 0’s and 1’s</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p = sigmoid(X * theta) &gt;= <span class="number">0.5</span>;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="ex2-reg-m"><a href="#ex2-reg-m" class="headerlink" title="ex2_reg.m"></a>ex2_reg.m</h3><h4 id="Part-1-Regularized-Logistic-Regression"><a href="#Part-1-Regularized-Logistic-Regression" class="headerlink" title="Part 1: Regularized Logistic Regression"></a>Part 1: Regularized Logistic Regression</h4><ul>
-<li>Compute the cost of a particular choice of theta. You should set J to the cost<ul>
-<li>tip: In Octave/MATLAB, recall that indexing <strong>starts from 1</strong>, hence, you should not be regularizing the theta(1) parameter (which corresponds to θ0) in the code</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">J = (<span class="number">1</span> / m) * sum(-y .* <span class="built_in">log</span>(sigmoid(X * theta)) - (<span class="number">1</span> - y) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(X * theta))) + (lambda / (<span class="number">2</span> * m)) * sum(theta(<span class="number">2</span>:<span class="built_in">size</span>(theta)) .^<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Compute the partial derivatives and set grad to the partial derivatives of the cost w.r.t. each parameter in theta</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grad(<span class="number">1</span>) = sum((sigmoid(X * theta) - y) .* X(:, <span class="number">1</span>)) / m;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">2</span> : <span class="built_in">size</span>(theta)</span><br><span class="line">    grad(<span class="built_in">j</span>) = sum((sigmoid(X * theta) - y) .* X(:, <span class="built_in">j</span>)) / m + (lambda / m) * theta(<span class="built_in">j</span>);</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/09/04/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%881%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/09/04/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%881%EF%BC%89/" itemprop="url">LeetCode题解——简单题篇（1）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-04T16:40:35+08:00">
-                2021-09-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index">
-                    <span itemprop="name">题解</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/LeetCode/%E9%A2%98%E5%BA%93/" itemprop="url" rel="index">
-                    <span itemprop="name">题库</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/LeetCode/%E9%A2%98%E5%BA%93/%E7%AE%80%E5%8D%95%E9%A2%98/" itemprop="url" rel="index">
-                    <span itemprop="name">简单题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2021/09/04/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%881%EF%BC%89/" class="leancloud_visitors" data-flag-title="LeetCode题解——简单题篇（1）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  581
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum/">1. 两数之和</a></h2><ul>
-<li>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。<ul>
-<li>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</li>
-<li>你可以按任意顺序返回答案。</li>
-</ul>
-</li>
-</ul>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>1.嵌套循环暴力求解，算法复杂度为O(n^2)<br>2.使用Hashmap，算法复杂度为O(n)</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
-<li>解法一</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> num1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            num1 = nums[i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; nums.length; j++)&#123;</span><br><span class="line">                num2 = nums[j];</span><br><span class="line">                <span class="keyword">if</span>(num1+ num2 == target)&#123;</span><br><span class="line">                    result[<span class="number">0</span>] = i;</span><br><span class="line">                    result[<span class="number">1</span>] = j;</span><br><span class="line">                &#125;     </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>解法二</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = target - nums[i];</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(temp))&#123;</span><br><span class="line">                res[<span class="number">0</span>] = map.get(temp);</span><br><span class="line">                res[<span class="number">1</span>] = i;</span><br><span class="line">            &#125; <span class="keyword">else</span></span><br><span class="line">                map.put(nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>作者：hyperspace<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum/solution/1liang-shu-zhi-he-by-hyperspace-fszg/">https://leetcode-cn.com/problems/two-sum/solution/1liang-shu-zhi-he-by-hyperspace-fszg/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h2 id="7-整数反转"><a href="#7-整数反转" class="headerlink" title="7. 整数反转"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-integer/">7. 整数反转</a></h2><ul>
-<li>给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。<ul>
-<li>如果反转后整数超过 32 位的有符号整数的范围 [−231,  231 − 1] ，就返回 0。</li>
-<li>假设环境不允许存储 64 位整数（有符号或无符号）。</li>
-</ul>
-</li>
-</ul>
-<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><p>主要难点在于数据类型范围，考虑先处理正负，再在同个循环内部同时完成取当前位值和累加反转值操作，最后处理结果</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span>)&#123;</span><br><span class="line">            flag = <span class="keyword">true</span>;</span><br><span class="line">            x = -x;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; (Integer.MAX_VALUE - x % <span class="number">10</span>) / <span class="number">10</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            sum = sum * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> flag ? -sum : sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>作者：hyperspace<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/">https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3041,7 +3166,7 @@
             
               <div class="site-state-item site-state-posts">
                 <a href="/archives">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
