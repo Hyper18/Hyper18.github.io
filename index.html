@@ -775,6 +775,395 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/" itemprop="url">小程序入门之组件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-01-09T21:10:33+08:00">
+                2022-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">小程序</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/" class="leancloud_visitors" data-flag-title="小程序入门之组件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="容器组件"><a href="#容器组件" class="headerlink" title="容器组件"></a>容器组件</h2><ul>
+<li>视图容器</li>
+<li>基础内容</li>
+<li>表单组件</li>
+<li>导航组件</li>
+<li>其他：媒体组件、地图组件、画布组件、开放能力和无障碍访问</li>
+</ul>
+<h3 id="视图容器"><a href="#视图容器" class="headerlink" title="视图容器"></a>视图容器</h3><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/">视图容器 | 微信开放文档 (qq.com)</a></p>
+<h4 id="视图-view"><a href="#视图-view" class="headerlink" title="视图 view"></a>视图 view</h4><ul>
+<li>def 普通视图区域，用于实现页面的布局效果<ul>
+<li>类比：h5中的块级元素div</li>
+</ul>
+</li>
+</ul>
+<img src="/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/视图容器.png">
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/list/list.wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;container1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>A<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>B<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>C<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* pages/list/list.wxss */</span></span><br><span class="line"><span class="selector-class">.container1</span> view &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container1</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightgreen;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container1</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container1</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightpink;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container1</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="滚动视图-scroll-view"><a href="#滚动视图-scroll-view" class="headerlink" title="滚动视图 scroll-view"></a>滚动视图 scroll-view</h4><ul>
+<li>def 可拖动的视图区域，用于实现滚动列表效果</li>
+</ul>
+<img src="/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/视图容器2.png">
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">scroll-view</span> <span class="attr">class</span>=<span class="string">&quot;container2&quot;</span> <span class="attr">scroll-y</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>A<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>B<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>C<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">scroll-view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>常用属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>scroll-x、scroll-y（boolean）</td>
+<td>指定滚动的方向</td>
+</tr>
+<tr>
+<td>scroll-top</td>
+<td>设置竖向滚动条位置</td>
+</tr>
+<tr>
+<td>scroll-left</td>
+<td>设置横向滚动条位置</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container2</span> view &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">80px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container2</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightgreen;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container2</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container2</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightpink;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container2</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">120px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="滑块视图容器-swiper-amp-swiper-item"><a href="#滑块视图容器-swiper-amp-swiper-item" class="headerlink" title="滑块视图容器 swiper&amp;swiper-item"></a>滑块视图容器 swiper&amp;swiper-item</h4><ul>
+<li>def 可左右滑动的视图区域，用于实现轮播图效果</li>
+<li>注：内部只可放置swiper-item；在放置其他类型组件时，其行为是未定义的</li>
+</ul>
+<img src="/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/视图容器3.png">
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/swiper/swiper.wxml--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 轮播图的结构 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">swiper</span> <span class="attr">class</span>=<span class="string">&quot;swiper-container1&quot;</span> <span class="attr">indicator-dots</span> <span class="attr">indicator-color</span>=<span class="string">&quot;lightpink&quot;</span> <span class="attr">indicator-active-color</span>=<span class="string">&quot;lightblue&quot;</span> <span class="attr">autoplay</span> <span class="attr">interval</span>=<span class="string">&quot;2000&quot;</span> <span class="attr">circular</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 第1个轮播图 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span>A<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 第2个轮播图 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span>B<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 第3个轮播图 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span>C<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>常用属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>indicator-dots（boolean）</td>
+<td>是否显示面板指示点</td>
+</tr>
+<tr>
+<td>indicator-color</td>
+<td>当前选中的指示点颜色</td>
+</tr>
+<tr>
+<td>indicator-active-color</td>
+<td>当前选中的指示点颜色</td>
+</tr>
+<tr>
+<td>autoplay（boolean）</td>
+<td>是否自动切换</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>自动切换时间间隔</td>
+</tr>
+<tr>
+<td>circular（boolean）</td>
+<td>是否采用衔接滑动</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* pages/swiper/swiper.wxss */</span></span><br><span class="line"><span class="selector-class">.swiper-container1</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">150px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="基础内容"><a href="#基础内容" class="headerlink" title="基础内容"></a>基础内容</h3><img src="/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/基础内容.png">
+
+<h4 id="文本组件-text"><a href="#文本组件-text" class="headerlink" title="文本组件 text"></a>文本组件 text</h4><ul>
+<li>def 用于展现文本<ul>
+<li>类比h5中的span标签</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/text/text.wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 支持长按选中效果，只能选用text内容组件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">text</span> <span class="attr">selectable</span>&gt;</span>1234567890<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>常用属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>selectable（boolean）</td>
+<td>文本是否可选 (已废弃)</td>
+</tr>
+<tr>
+<td>user-select（boolean）</td>
+<td>文本是否可选，该属性会使文本节点显示为 inline-block</td>
+</tr>
+</tbody></table>
+<h4 id="富文本组件-rich-text"><a href="#富文本组件-rich-text" class="headerlink" title="富文本组件 rich-text"></a>富文本组件 rich-text</h4><ul>
+<li>def 用于展现富文本</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rich-text</span> <span class="attr">nodes</span>=<span class="string">&quot;&lt;h1 style=&#x27;color:red;&#x27;&gt;标题&lt;/h1&gt;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">rich-text</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>常用属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nodes</td>
+<td>节点列表/h5 String</td>
+</tr>
+</tbody></table>
+<h3 id="表单组件"><a href="#表单组件" class="headerlink" title="表单组件"></a>表单组件</h3><h4 id="按钮组件-button"><a href="#按钮组件-button" class="headerlink" title="按钮组件 button"></a>按钮组件 button</h4><ul>
+<li>def 响应鼠标事件以提交表单</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/button/button.wxml--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 通过type属性指定按钮的颜色类型 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">class</span>=<span class="string">&quot;primary-button&quot;</span>&gt;</span>主色调按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;default&quot;</span> <span class="attr">class</span>=<span class="string">&quot;default-button&quot;</span>&gt;</span>默认按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;warn&quot;</span> <span class="attr">class</span>=<span class="string">&quot;warn-button&quot;</span>&gt;</span>警告按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 通过size指定按钮的大小 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">size</span>=<span class="string">&quot;mini&quot;</span>&gt;</span>小尺寸按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 通过plain指定镂空按钮 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">plain</span>&gt;</span>镂空按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>常用属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>size</td>
+<td>按钮大小</td>
+</tr>
+<tr>
+<td>type</td>
+<td>按钮样式类型</td>
+</tr>
+<tr>
+<td>plain（boolean）</td>
+<td>按钮是否镂空，背景色透明</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* pages/button/button.wxss */</span></span><br><span class="line"><span class="selector-class">.primary-button</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="媒体组件"><a href="#媒体组件" class="headerlink" title="媒体组件"></a>媒体组件</h3><h4 id="图片组件-image"><a href="#图片组件-image" class="headerlink" title="图片组件 image"></a>图片组件 image</h4><ul>
+<li>def 用于展示图片，支持 JPG、PNG、SVG、WEBP、GIF 等格式</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>常用属性</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>scaleToFill</td>
+<td align="left">缩放模式，不保持纵横比缩放图片，使图片的宽高完全拉伸至填满 image 元素</td>
+</tr>
+<tr>
+<td>aspectFit</td>
+<td align="left">缩放模式，保持纵横比缩放图片，使图片的长边能完全显示出来。也就是说，可以完整地将图片显示出来。</td>
+</tr>
+<tr>
+<td>aspectFill</td>
+<td align="left">缩放模式，保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。</td>
+</tr>
+<tr>
+<td>widthFix</td>
+<td align="left">缩放模式，宽度不变，高度自动变化，保持原图宽高比不变</td>
+</tr>
+<tr>
+<td>heightFix</td>
+<td align="left">缩放模式，高度不变，宽度自动变化，保持原图宽高比不变</td>
+</tr>
+</tbody></table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2022/01/08/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2578,254 +2967,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" itemprop="url">Redis原理初探（一）—— 字符串</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-19T22:47:09+08:00">
-                2021-11-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/Redis/" itemprop="url" rel="index">
-                    <span itemprop="name">Redis</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="leancloud_visitors" data-flag-title="Redis原理初探（一）—— 字符串">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.1k
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="简单动态字符串（simple-dynamic-string，SDS）"><a href="#简单动态字符串（simple-dynamic-string，SDS）" class="headerlink" title="简单动态字符串（simple dynamic string，SDS）"></a>简单动态字符串（simple dynamic string，SDS）</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>redis的默认字符表示，作为一个可被修改的字符串值</li>
-<li>作为字符串的底层实现</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">/* data */</span></span><br><span class="line">    <span class="keyword">int</span> len;    -- 数组已使用字节数量</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">free</span>;   -- 数组未使用字节数量</span><br><span class="line">    <span class="keyword">char</span> buf[]; -- 字节数组</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>注：buf[]的最后一个字节会用于保存空字符’\0’(同C style)</p>
-<h3 id="使用SDS而非C-style字符串的好处"><a href="#使用SDS而非C-style字符串的好处" class="headerlink" title="使用SDS而非C style字符串的好处"></a>使用SDS而非C style字符串的好处</h3><h4 id="获取字符串长度不为性能瓶颈"><a href="#获取字符串长度不为性能瓶颈" class="headerlink" title="获取字符串长度不为性能瓶颈"></a>获取字符串长度不为性能瓶颈</h4><ul>
-<li>由定义可知，SDS的结构体中已经保存了数组的长度（len），从而只需使用STRLEN()获取值，其对应算法复杂度始终仅为O(1)；C字符串由于没有保存该信息，则需要对数组进行遍历得到长度，其算法复杂度为O(n)</li>
-</ul>
-<h4 id="API安全，排除了缓冲区溢出的风险"><a href="#API安全，排除了缓冲区溢出的风险" class="headerlink" title="API安全，排除了缓冲区溢出的风险"></a>API安全，排除了缓冲区溢出的风险</h4><ul>
-<li>对于C字符串而言，缓冲区容易溢出其实是不记录数组长度的衍生问题。如考虑下述场景：</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcat</span><span class="params">(<span class="keyword">char</span> *c1, <span class="keyword">const</span> <span class="keyword">char</span> *c2)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>​    strcat()方法会假定系统尚且分配了足够的内存给c1，以容纳c2中的所有内容；而c2数组长度过长且超出内存限制时，就造成了缓冲区的溢出。这可能会给相邻内存的内容带来意外的后果（如：未指定的意外修改，etc.）</p>
-<p>​    而SDS的API会自动对len进行修改和更新；当当前空间不能满足要求时，则会自动扩展当前SDS的空间。对应redis中字符串拼接方法为：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdscat(c1, c2);</span><br></pre></td></tr></table></figure>
-
-<h4 id="是二进制安全的"><a href="#是二进制安全的" class="headerlink" title="是二进制安全的"></a>是二进制安全的</h4><p>​    既可存储文本数据、也可存储二进制数据</p>
-<h4 id="兼容部分C-style字符串"><a href="#兼容部分C-style字符串" class="headerlink" title="兼容部分C style字符串"></a>兼容部分C style字符串</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// string compare</span></span><br><span class="line">strcasecmp(c1-&gt;c2, <span class="string">&quot;hello world&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h4><ul>
-<li>作为数据库中字符串值、整数值和浮点数值的存储</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RPUSH fruits &quot;apple&quot; &quot;banana&quot; &quot;cherry&quot;</span><br><span class="line"><span class="comment">-- output：(integer) 3</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>作为缓冲区（buffer）</li>
-</ul>
-<h3 id="空间分配策略"><a href="#空间分配策略" class="headerlink" title="空间分配策略"></a>空间分配策略</h3><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>​    减少连续执行字符串增长操作所需的内存重分配次数</p>
-<ul>
-<li>策略1：空间预分配<ul>
-<li>当未使用空间足够时，无需进行内存重分配，即没有对字符串进行修改</li>
-<li>若修改后的字符串长度小于1MB，将分配与当前数组已使用长度等长的未使用空间</li>
-<li>若修改后的字符串长度大于1MB，将分配1MB的未使用空间</li>
-</ul>
-</li>
-<li>策略2：惰性空间释放<ul>
-<li>当空间被释放成为空余空间后，并不会立即对其进行回收，而是先由free属性记录下来</li>
-<li>避免了缩短字符串时所需的内存重分配操作，并为将来可能有的增长操作提供了优化</li>
-<li>当有实际空间需要时，会通过对应API真正完成空余空间的释放</li>
-</ul>
-</li>
-</ul>
-<h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><h4 id="自增-自减"><a href="#自增-自减" class="headerlink" title="自增/自减"></a>自增/自减</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis()</span><br><span class="line"><span class="comment"># 获取对应key:只要该字符串值可以被解释为整数值，则可进行下述处理</span></span><br><span class="line"></span><br><span class="line">conn.get(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"><span class="comment"># 对该key进行自增操作 incr = short for increase</span></span><br><span class="line">conn.incr(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"><span class="comment"># 也可以以数字形式指定自增参数，下两者效果相同</span></span><br><span class="line"><span class="comment"># INCRBY sample_key 10</span></span><br><span class="line">conn.incr(<span class="string">&#x27;sample_key&#x27;</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对该key进行自减操作 decr = short for decrease</span></span><br><span class="line"><span class="comment"># DECRBY sample_key 8</span></span><br><span class="line">conn.decr(<span class="string">&#x27;sample_key&#x27;</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 二次获取当前的数值</span></span><br><span class="line">conn.get(<span class="string">&#x27;sample_key&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="打包-package-处理结构化数据"><a href="#打包-package-处理结构化数据" class="headerlink" title="打包(package)处理结构化数据"></a>打包(package)处理结构化数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, password=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line"><span class="comment"># 执行APPEND命令：返回的是当前字符串的长度</span></span><br><span class="line"><span class="comment"># 此时前者可不存在或为空串，则得到的新字符串长度显然为后者的长</span></span><br><span class="line">conn.append(<span class="string">&#x27;sample_string&#x27;</span>, <span class="string">&#x27;hello &#x27;</span>)</span><br><span class="line">conn.append(<span class="string">&#x27;sample_string&#x27;</span>, <span class="string">&#x27;world!&#x27;</span>)</span><br><span class="line"><span class="comment"># 操作后sample_string的长度：12</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SUBSTR：获取字符串子串（部分区间值）</span></span><br><span class="line"><span class="comment"># redis数组索引也是从0开始，则取得的值为llo</span></span><br><span class="line">conn.substr(<span class="string">&#x27;sample_string&#x27;</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETRANGE：为字符串设置范围</span></span><br><span class="line"><span class="comment"># 设置后仅改变输出的字符串内容</span></span><br><span class="line"><span class="comment"># 字符串长度仍为总长度，而非处理后的范围长度</span></span><br><span class="line">conn.setrange(<span class="string">&#x27;sample_string&#x27;</span>, <span class="number">0</span>, <span class="string">&#x27;H&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETBIT：单独改变某二进制位</span></span><br></pre></td></tr></table></figure>
-
-<p><em>【参考】</em><br><em>[1] 《Redis的设计与实现》</em></p>
-<p><em>[2] 《Redis实战》</em></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2878,7 +3019,7 @@
             
               <div class="site-state-item site-state-posts">
                 <a href="/archives">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2889,7 +3030,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2900,7 +3041,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
