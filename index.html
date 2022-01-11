@@ -300,6 +300,307 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/" itemprop="url">pytorch的配置一二事</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-01-11T14:27:05+08:00">
+                2022-01-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pytorch/" itemprop="url" rel="index">
+                    <span itemprop="name">pytorch</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/" class="leancloud_visitors" data-flag-title="pytorch的配置一二事">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  565
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h2><h3 id="Step1-配置CUDA"><a href="#Step1-配置CUDA" class="headerlink" title="Step1 配置CUDA"></a>Step1 配置CUDA</h3><ul>
+<li>首先，不确定本机是否已安装的情况下，可前往默认目录<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\</code>下查看，若已安装则有对应版本的CUDA：</li>
+</ul>
+<img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-1.png">
+
+<ul>
+<li>若尚未安装，进入<code>https://developer.nvidia.com/cuda-downloads</code>，选取合适配置安装。此处以Win11系统为例：</li>
+</ul>
+<img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-2.png">
+
+<ul>
+<li>安装完成后，再配置系统环境变量：</li>
+</ul>
+<img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-3.png">
+
+<ul>
+<li><code>win+R</code>呼出控制台，键入<code>nvcc --version</code> <code>nvcc -V</code>指令（两者择一即可）：</li>
+</ul>
+<img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-4.png">
+
+<ul>
+<li>显示版本号及相关内容，说明配置成功</li>
+</ul>
+<h3 id="Step2-配置CuDDN"><a href="#Step2-配置CuDDN" class="headerlink" title="Step2 配置CuDDN"></a>Step2 配置CuDDN</h3><ul>
+<li>前往<code>https://developer.nvidia.com/rdp/cudnn-archive</code>下载</li>
+</ul>
+<img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤2-1.png">
+
+<ul>
+<li>解压下载得到的压缩包，将得到的三个文件夹<code>bin</code>、<code>include</code>与<code>lib</code>分别覆盖至Step1中所述CUDA根目录，如默认位置<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v版本号</code>：</li>
+</ul>
+<img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤2-2.png">
+
+<h3 id="Step3-配置Pytorch"><a href="#Step3-配置Pytorch" class="headerlink" title="Step3 配置Pytorch"></a>Step3 配置Pytorch</h3><ul>
+<li>前往<code>https://pytorch.org/get-started/locally/</code>官网，可通过点选得到合适的安装命令</li>
+</ul>
+<img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-1.png">
+
+<ul>
+<li>注意到这里给的源默认为<code>-c pytorch</code>，为提高下载速度可换用国内源：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>国内镜像</th>
+<th>位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>清华源</td>
+<td><code>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</code></td>
+</tr>
+<tr>
+<td>中科大源</td>
+<td><code>https://pypi.mirrors.ustc.edu.cn/simple</code></td>
+</tr>
+<tr>
+<td>豆瓣源</td>
+<td><code>https://pypi.douban.com/simple</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li>这里采用清华源，输入安装指令：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cudatoolkit=<span class="number">11.3</span> -c https:<span class="comment">//mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-2.png">
+
+<ul>
+<li>如上图所示，此时键入<code>y</code>以继续进行(proceed)。耐心等待，直至安装完成</li>
+<li>新建一个python程序，简单验证下pytorch是否工作正常：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Torch version &#123;&#125;&quot;</span>.<span class="built_in">format</span>(torch.__version__))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;CUDA is available: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(torch.cuda.is_available()))</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-3.png">
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>CUDA（Compute Unified Device Architecture），统一计算设备架构<ul>
+<li>def 是使GPU能够解决复杂计算问题的通用并行计算架构</li>
+<li>与显驱的关系：显卡驱动用于识别计算机的GPU硬件并调用其资源；而CUDA是在此基础上的框架，用于进行一系列复杂的并行计算</li>
+</ul>
+</li>
+<li>cuDNN<ul>
+<li>def 深度神经网络库，是针对深度卷积神经网络的加速库</li>
+<li>强调性能、易用性和低内存开销</li>
+</ul>
+</li>
+<li>pytorch<ul>
+<li>def cuDNN加速框架之一，是一个基于Torch的开源Python机器学习库</li>
+<li>包含张量计算和自动求导系统的深度神经网络两大重要功能</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2022/01/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%B8%89%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2749,224 +3050,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/20/%E7%AD%BE%E5%90%8Dcookie%E4%B8%8E%E4%BB%A4%E7%89%8Ccookie/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/11/20/%E7%AD%BE%E5%90%8Dcookie%E4%B8%8E%E4%BB%A4%E7%89%8Ccookie/" itemprop="url">签名cookie与令牌cookie</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-20T20:27:16+08:00">
-                2021-11-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/JavaWeb/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaWeb</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2021/11/20/%E7%AD%BE%E5%90%8Dcookie%E4%B8%8E%E4%BB%A4%E7%89%8Ccookie/" class="leancloud_visitors" data-flag-title="签名cookie与令牌cookie">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  255
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="签名Cookie：Sign"><a href="#签名Cookie：Sign" class="headerlink" title="签名Cookie：Sign"></a>签名Cookie：Sign</h3><ul>
-<li>def <strong>令牌</strong>，用于验证用户身份和登录状态的标识</li>
-<li>优点：验证cookie所需的一切信息都存储在cookie中；cookie可以包含额外的信息（additional infomation)，并且对这些信息进行签名也很容易</li>
-<li>缺点：正确地处理签名很难。很容易忘记对数据进行签名，或者忘记验证数据的签名，从而造成安全漏洞</li>
-</ul>
-<h3 id="令牌Cookie：Token"><a href="#令牌Cookie：Token" class="headerlink" title="令牌Cookie：Token"></a>令牌Cookie：Token</h3><ul>
-<li><strong>签名，</strong>服务端在接受用户请求时，判断该请求是否来自于自己允许的平台（自己允许的平台有统一的加密规则，防止请求在客户端发出后被拦截）</li>
-<li>优点：添加信息非常容易。cookie的体积非常小，因此移动终端和速度较慢的客户端可以更快地发送请求</li>
-<li>缺点：需要在服务器中存储更多信息。如果使用的是关系数据库，那么载入和存储 cookie的代价可能会很高</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3019,7 +3102,7 @@
             
               <div class="site-state-item site-state-posts">
                 <a href="/archives">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3030,7 +3113,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -3041,7 +3124,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
