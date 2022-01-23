@@ -4181,7 +4181,10 @@
 <ul>
 <li>原子类型：值不可再分</li>
 <li>结构类型：值可再分为若干成分</li>
-<li>抽象数据类型 ADT：<strong>抽象数据组织</strong>及相关操作</li>
+<li>抽象数据类型 ADT：<strong>抽象数据组织</strong>及相关操作<ul>
+<li>是<strong>数据对象、数据关系、基本操作集</strong>表示的<strong>三元组</strong></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -4191,8 +4194,11 @@
 <h3 id="数据结构三要素"><a href="#数据结构三要素" class="headerlink" title="数据结构三要素"></a>数据结构三要素</h3><h4 id="1、数据的逻辑结构"><a href="#1、数据的逻辑结构" class="headerlink" title="1、数据的逻辑结构"></a>1、数据的逻辑结构</h4><ul>
 <li>def 数据元素之间的逻辑关系</li>
 <li>分类：线性结构 非线性结构<ul>
-<li>线性结构：线性表 栈 队列 串 数组</li>
-<li>非线性结构：集合 树 二叉树 图</li>
+<li>线性结构（有序数据元素的集合）：线性表 <strong>栈</strong> 队列 双队列 串 数组<ul>
+<li>特点：数据结构之间存在<strong>一对一</strong>的线性关系</li>
+</ul>
+</li>
+<li>非线性结构：数组 广义表 集合 树 二叉树 图</li>
 </ul>
 </li>
 </ul>
