@@ -4281,4 +4281,66 @@
         <tag>Python</tag>
       </tags>
   </entry>
+  <entry>
+    <title>数据结构篇：1.2算法和算法评价</title>
+    <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-2%E7%AE%97%E6%B3%95%E5%92%8C%E7%AE%97%E6%B3%95%E8%AF%84%E4%BB%B7/</url>
+    <content><![CDATA[<h2 id="算法基本概念"><a href="#算法基本概念" class="headerlink" title="算法基本概念"></a>算法基本概念</h2><h4 id="算法-Algorithm"><a href="#算法-Algorithm" class="headerlink" title="算法 Algorithm"></a>算法 Algorithm</h4><ul>
+<li>对解决方案的<strong>完整而准确</strong>的描述，是指令的有限序列，每条指令表示一个或多个操作</li>
+</ul>
+<h3 id="算法的五大重要特性"><a href="#算法的五大重要特性" class="headerlink" title="算法的五大重要特性"></a>算法的五大重要特性</h3><h4 id="有穷性"><a href="#有穷性" class="headerlink" title="有穷性"></a>有穷性</h4><ul>
+<li>算法需在执行<strong>有穷步</strong>后结束，且每步在有穷时间内完成</li>
+</ul>
+<h4 id="确定性"><a href="#确定性" class="headerlink" title="确定性"></a>确定性</h4><ul>
+<li>算法的每条指令需有确切含义，对于<strong>相同的输入</strong>只能得到一个<strong>相同的输出</strong></li>
+</ul>
+<h4 id="可行性"><a href="#可行性" class="headerlink" title="可行性"></a>可行性</h4><ul>
+<li>算法中的操作均可通过已实现的<strong>基本运算执行有限次</strong>实现</li>
+</ul>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><ul>
+<li>有0或多个，取于特定对象集合</li>
+</ul>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><ul>
+<li>有1或多个，与输出有特定关系</li>
+</ul>
+<h3 id="“好”的算法标准"><a href="#“好”的算法标准" class="headerlink" title="“好”的算法标准"></a>“好”的算法标准</h3><h4 id="正确性"><a href="#正确性" class="headerlink" title="正确性"></a>正确性</h4><ul>
+<li>算法应能正确解决问题</li>
+</ul>
+<h4 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h4><ul>
+<li>算法应具良好的可读性</li>
+</ul>
+<h4 id="健壮性"><a href="#健壮性" class="headerlink" title="健壮性"></a>健壮性</h4><ul>
+<li>对非法数据做出适当反应、处理</li>
+</ul>
+<h4 id="效率和低存储量需求"><a href="#效率和低存储量需求" class="headerlink" title="效率和低存储量需求"></a>效率和低存储量需求</h4><ul>
+<li>算法执行时间与执行过程中所需的最大存储空间</li>
+</ul>
+<h2 id="算法效率度量"><a href="#算法效率度量" class="headerlink" title="算法效率度量"></a>算法效率度量</h2><h3 id="时间复杂度（P6）"><a href="#时间复杂度（P6）" class="headerlink" title="时间复杂度（P6）"></a>时间复杂度（P6）</h3><ul>
+<li>分类：最坏时间复杂度 平均时间复杂度 最好时间复杂度<ul>
+<li>平均时间复杂度：所有可能输入实例在<strong>等概率出现</strong>的情况下，算法的期望运行时间</li>
+</ul>
+</li>
+</ul>
+<h4 id="频度"><a href="#频度" class="headerlink" title="频度"></a>频度</h4><ul>
+<li>def 语句在算法中被重复执行的次数</li>
+</ul>
+<h4 id="T-n"><a href="#T-n" class="headerlink" title="T(n)"></a>T(n)</h4><ul>
+<li>def 算法中所有语句的频度之和</li>
+</ul>
+<h4 id="渐进时间复杂度公式"><a href="#渐进时间复杂度公式" class="headerlink" title="渐进时间复杂度公式"></a>渐进时间复杂度公式</h4><h4 id="两个计算规则"><a href="#两个计算规则" class="headerlink" title="两个计算规则"></a>两个计算规则</h4><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><h4 id="S-n"><a href="#S-n" class="headerlink" title="S(n)"></a>S(n)</h4><ul>
+<li>def 算法耗费的存储空间，是为实现计算所需信息的辅助空间<ul>
+<li>原地工作：算法所需的辅助空间为常量O(1)</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>408</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>408</tag>
+      </tags>
+  </entry>
 </search>
