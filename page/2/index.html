@@ -300,6 +300,271 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88/" itemprop="url">Redis原理初探（五）——有序集合</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-23T20:15:53+08:00">
+                2021-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88/" class="leancloud_visitors" data-flag-title="Redis原理初探（五）——有序集合">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.5k
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="跳跃表（skiplist）"><a href="#跳跃表（skiplist）" class="headerlink" title="跳跃表（skiplist）"></a>跳跃表（skiplist）</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>在每个节点中维持多个指向其他节点的指针以快速访问节点的一种有序数据结构</li>
+<li>有序集合键的底层实现之一</li>
+</ul>
+<h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><ul>
+<li>一个有序集合包含的元素数量比较多，又或者有序集合中元素的成员（member）是比较长的字符串</li>
+<li>在集群节点中用作内部数据结构</li>
+</ul>
+<h3 id="跳跃表结点"><a href="#跳跃表结点" class="headerlink" title="跳跃表结点"></a>跳跃表结点</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 跳跃表结点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">// 层</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistLevel</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="comment">// 前进指针</span></span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span> *<span class="title">forward</span>;</span></span><br><span class="line">        <span class="comment">// 跨度</span></span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> span;</span><br><span class="line">    &#125; level[];</span><br><span class="line">    <span class="comment">// 后退指针</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span> *<span class="title">backward</span>;</span></span><br><span class="line">    <span class="comment">// 分值</span></span><br><span class="line">    <span class="keyword">double</span> score;</span><br><span class="line">    <span class="comment">// 成员对象</span></span><br><span class="line">    robj *obj;</span><br><span class="line">&#125; zskiplistNode;</span><br></pre></td></tr></table></figure>
+
+<h4 id="层（Level数组）"><a href="#层（Level数组）" class="headerlink" title="层（Level数组）"></a>层（Level数组）</h4><ul>
+<li>原理：包含多个元素，每个元素包含一个指向其他节点的指针，以加快访问其他节点的速度。一般来说，其访问其他节点的速度与层数正相关。</li>
+<li>高度：每次创建一个新跳跃表节点的时候，程序都根据<strong>幂次定律</strong>（power law，越大的数出现概率越小）随机生成一个介于<strong>1</strong>和<strong>32</strong>之间的值作为level数组的大小</li>
+</ul>
+<h4 id="前进指针（level-i-forward属性）"><a href="#前进指针（level-i-forward属性）" class="headerlink" title="前进指针（level[i].forward属性）"></a>前进指针（level[i].forward属性）</h4><ul>
+<li>def 从表头向表尾方向访问节点的指针<ul>
+<li>一次可以跳过多个成员</li>
+</ul>
+</li>
+<li>用于执行有序集合的遍历操作</li>
+</ul>
+<h4 id="跨度（level-i-span属性）"><a href="#跨度（level-i-span属性）" class="headerlink" title="跨度（level[i].span属性）"></a>跨度（level[i].span属性）</h4><ul>
+<li>def 两个节点之间的距离<ul>
+<li>跨度越大，间距越远</li>
+</ul>
+</li>
+<li>注：指向Null的所有前进指针的跨度都为0，因未连向任何节点</li>
+<li>用于计算有序集合中成员的排名（rank）</li>
+</ul>
+<h4 id="后退指针（level-i-backward属性）"><a href="#后退指针（level-i-backward属性）" class="headerlink" title="后退指针（level[i].backward属性）"></a>后退指针（level[i].backward属性）</h4><ul>
+<li>def 从表尾向表头方向访问节点的指针<ul>
+<li>每个节点只有一个后退指针，这也意味着每次只能通过顺序回退的方式到达有序集合的前一节点，以向前遍历</li>
+</ul>
+</li>
+</ul>
+<h4 id="分值（level-i-score属性）"><a href="#分值（level-i-score属性）" class="headerlink" title="分值（level[i].score属性）"></a>分值（level[i].score属性）</h4><ul>
+<li>def double类型的浮点数<ul>
+<li>所有节点按照分值从小到大来排序</li>
+</ul>
+</li>
+</ul>
+<h4 id="成员（level-i-obj属性）"><a href="#成员（level-i-obj属性）" class="headerlink" title="成员（level[i].obj属性）"></a>成员（level[i].obj属性）</h4><ul>
+<li>def 指向字符串对象的指针，指向的对象中保存着一个<strong>SDS</strong>值</li>
+<li>在同一个跳跃表中，各个节点保存的成员对象必须是<strong>唯一</strong>的；多个节点保存的分值可以相同</li>
+<li>分值相同的节点将按照成员对象在字典序中的大小来进行排序，成员对象较小的节点会排在前面（靠近表头的方向），而成员对象较大的节点则会排在后面（靠近表尾的方向）</li>
+</ul>
+<h3 id="跳跃表"><a href="#跳跃表" class="headerlink" title="跳跃表"></a>跳跃表</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 跳跃表</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">zskiplist</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">// 表头节点和表尾节点</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span> *<span class="title">header</span>, *<span class="title">tail</span>;</span></span><br><span class="line">    <span class="comment">// 表中节点的数量</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> length;</span><br><span class="line">    <span class="comment">// 表中层数最大的节点的层数</span></span><br><span class="line">    <span class="keyword">int</span> level;</span><br><span class="line">&#125; zskiplist;</span><br></pre></td></tr></table></figure>
+
+<p>执行下述操作的时间复杂度均为O(1)：</p>
+<ul>
+<li>程序定位表头节点和表尾节点：header和tail指针分别指向跳跃表的表头和表尾节点</li>
+<li>返回跳跃表的长度：使用length属性来记录节点的数量</li>
+<li>获取跳跃表中层高最大的那个节点的层数量：使用level属性，注：表头节点的层高并不计算在内</li>
+</ul>
+<h2 id="有序集合（zset）操作"><a href="#有序集合（zset）操作" class="headerlink" title="有序集合（zset）操作"></a>有序集合（zset）操作</h2><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, password=<span class="number">123456</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ZADD：向有序集合中添加指定成员及对应分值</span></span><br><span class="line"><span class="comment"># 注：此处Python做法与Redis相反，Redis中应先输入分值再输入成员名称</span></span><br><span class="line">conn.zadd(<span class="string">&#x27;zset_key&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment"># ZCARD：返回有序集合包含的成员数量</span></span><br><span class="line">conn.zcard(<span class="string">&#x27;zset_key&#x27;</span>)</span><br><span class="line"><span class="comment"># ZINCRBY：将有序集合中的指定成员的对应分值加上incr量</span></span><br><span class="line">conn.zincrby(<span class="string">&#x27;zset_key&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment"># ZSCORE：返回指定成员的分值</span></span><br><span class="line">conn.zscore(<span class="string">&#x27;zset_key&#x27;</span>, <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line"><span class="comment"># ZRANK：返回指定成员在有序集合中的排名</span></span><br><span class="line"><span class="comment"># 可以先获取指定成员的排名，再根据排名决定ZRANGE的范围</span></span><br><span class="line">conn.zrank(<span class="string">&#x27;zset_key&#x27;</span>, <span class="string">&#x27;c&#x27;</span>)</span><br><span class="line"><span class="comment"># ZCOUNT：返回有序集合中介于给定最低和最高分值之间的成员数目</span></span><br><span class="line">conn.zcount(<span class="string">&#x27;zset_key&#x27;</span>, <span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment"># ZREM：从有序集合中移除指定成员，并返回被移除成员的数目</span></span><br><span class="line">conn.zrem(<span class="string">&#x27;zset_key&#x27;</span>, <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line"><span class="comment"># ZRANGE：返回有序集合中排名介于指定开始与结束位置的成员</span></span><br><span class="line"><span class="comment"># 指定withscores参数为真，则会一并返回成员的对应分值</span></span><br><span class="line">conn.zrange(<span class="string">&#x27;zset_key&#x27;</span>, <span class="number">0</span>, -<span class="number">1</span>, withscores=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="范围性数据的获取与删除命令"><a href="#范围性数据的获取与删除命令" class="headerlink" title="范围性数据的获取与删除命令"></a>范围性数据的获取与删除命令</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ZREVRANK：返回有序集合中成员的排名</span></span><br><span class="line"><span class="comment"># 按照分值从大到小排列</span></span><br><span class="line"><span class="comment"># 注：按照逆序处理有序集合，其工作方式与非逆序大体相同</span></span><br><span class="line">conn.zrevrank(<span class="string">&#x27;zset_key&#x27;</span>, <span class="string">&#x27;c&#x27;</span>)</span><br><span class="line"><span class="comment"># ZREVRANGE：返回有序集合给定排名范围内的成员</span></span><br><span class="line"><span class="comment"># 按照分值从大到小排列</span></span><br><span class="line">conn.zrevrange(<span class="string">&#x27;zset_key&#x27;</span>, <span class="number">0</span>, -<span class="number">1</span>, withscores=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># ZRANGEBYSCORE：返回有序集合中分值介于给定最小与较大范围之间的所有成员</span></span><br><span class="line">conn.zrangebyscore(<span class="string">&#x27;zset_key&#x27;</span>, <span class="number">0</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="comment"># ZREVRANGEBYSCORE：获取有序集合中分值介于给定最小与较大范围之间的所有成员</span></span><br><span class="line"><span class="comment"># 按照分值从大到小排列</span></span><br><span class="line">conn.zrevrangebyscore(<span class="string">&#x27;zset_key&#x27;</span>, <span class="number">0</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="comment"># ZREMRANGEBYRANK：移除有序集合中排名介于开始与结束位置之间的所有成员</span></span><br><span class="line">conn.zremrangebyrank(<span class="string">&#x27;zset_key&#x27;</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment"># ZREMRANGEBYSCORE：移除有序集合中分值介于开始与结束位置之间的所有成员</span></span><br><span class="line">conn.zremrangebyscore(<span class="string">&#x27;zset_key&#x27;</span>, <span class="number">0</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="并集与交集命令"><a href="#并集与交集命令" class="headerlink" title="并集与交集命令"></a>并集与交集命令</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">conn.zadd(<span class="string">&#x27;zset_key2&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>, <span class="number">3</span>)</span><br><span class="line">conn.zadd(<span class="string">&#x27;zset_key3&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="number">3</span>, <span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment"># ZINTERSCORE：对给定有序集合进行交集运算</span></span><br><span class="line"><span class="comment"># 默认使用sum作为聚合函数，则相当于对各个有序集合中的成员分值做累加操作</span></span><br><span class="line">conn.zinterstore(<span class="string">&#x27;zset_key_i&#x27;</span>, [<span class="string">&#x27;zset_key2&#x27;</span>, <span class="string">&#x27;zset_key3&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<img src="/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88/交集运算.png">
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ZUNIONSTORE：对给定有序集合进行并集运算</span></span><br><span class="line"><span class="comment"># 还可以指定聚合函数为min/max，以适应不同的运算场景</span></span><br><span class="line">conn.zunionstore(<span class="string">&#x27;zset_key_u&#x27;</span>, [<span class="string">&#x27;zset_key2&#x27;</span>, <span class="string">&#x27;zset_key3&#x27;</span>], aggregate=<span class="string">&#x27;min&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<img src="/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88/并集运算.png">
+
+<p><em>【参考】</em><br><em>[1] 《Redis的设计与实现》</em></p>
+<p><em>[2] 《Redis实战》</em></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%9B%86%E5%90%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3019,215 +3284,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" itemprop="url">机器学习题解（六）—— 异常探测与推荐系统</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-10-29T21:26:18+08:00">
-                2021-10-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index">
-                    <span itemprop="name">题解</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2021/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" class="leancloud_visitors" data-flag-title="机器学习题解（六）—— 异常探测与推荐系统">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  171
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="ex8-m"><a href="#ex8-m" class="headerlink" title="ex8.m"></a>ex8.m</h3><h4 id="Part-2-Estimate-the-dataset-statistics"><a href="#Part-2-Estimate-the-dataset-statistics" class="headerlink" title="Part 2: Estimate the dataset statistics"></a>Part 2: Estimate the dataset statistics</h4><ul>
-<li>Compute the mean of the data and the variances</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mu = sum(X) / m;</span><br><span class="line">sigma2 = sum((X - <span class="built_in">repmat</span>(mu, m, <span class="number">1</span>)).^<span class="number">2</span>) / m; <span class="comment">% X - 307 * 1 matrix</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="Part-3-Find-Outliers"><a href="#Part-3-Find-Outliers" class="headerlink" title="Part 3: Find Outliers"></a>Part 3: Find Outliers</h4><ul>
-<li>Compute the F1 score of choosing epsilon as the threshold and place the value in F1</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% define the anomolous condition</span></span><br><span class="line">    condition = pval &lt; epsilon;</span><br><span class="line">    <span class="comment">% sum up to get each parameter</span></span><br><span class="line">    fp = sum((condition == <span class="number">1</span>) &amp; (yval == <span class="number">0</span>));</span><br><span class="line">    fn = sum((condition == <span class="number">0</span>) &amp; (yval == <span class="number">1</span>));</span><br><span class="line">    tp = sum((condition == <span class="number">1</span>) &amp; (yval == <span class="number">1</span>));</span><br><span class="line">    <span class="comment">% define precision and recall</span></span><br><span class="line">    prec = tp / (tp + fp);</span><br><span class="line">    rec = tp / (tp + fn);</span><br><span class="line">    <span class="comment">% use F1 score to estimate its performance</span></span><br><span class="line">    F1 = (<span class="number">2</span> * prec * rec) / (prec + rec);</span><br></pre></td></tr></table></figure>
-
-<h3 id="ex8-cofi-m"><a href="#ex8-cofi-m" class="headerlink" title="ex8_cofi.m"></a>ex8_cofi.m</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% compute cost function</span></span><br><span class="line">J = sum(sum((((X * Theta&#x27; - Y) .* R) .^ <span class="number">2</span>))) / <span class="number">2</span>;</span><br><span class="line"><span class="comment">% compute gradient</span></span><br><span class="line">X_grad = ((X * Theta&#x27; - Y) .* R) * Theta;</span><br><span class="line">Theta_grad = ((X * Theta&#x27; - Y) .* R)&#x27; * X;</span><br><span class="line"><span class="comment">% compute cost function with regularization</span></span><br><span class="line">J = J + lambda / <span class="number">2</span> * ((sum(sum(Theta .^ <span class="number">2</span>)) + sum(sum(X .^ <span class="number">2</span>))));</span><br><span class="line"><span class="comment">% compute gradient with regularization</span></span><br><span class="line">X_grad = X_grad + lambda * X;</span><br><span class="line">Theta_grad = Theta_grad + lambda * Theta;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3280,7 +3336,7 @@
             
               <div class="site-state-item site-state-posts">
                 <a href="/archives">
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3291,7 +3347,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -3302,7 +3358,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

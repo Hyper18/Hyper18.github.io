@@ -9,8 +9,38 @@
     <atom:link href="https://hyper18.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>blog</description>
-    <pubDate>Sun, 23 Jan 2022 13:20:35 GMT</pubDate>
+    <pubDate>Thu, 02 Jun 2022 01:52:48 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>“一苇以航”的服创大赛之旅</title>
+      <link>https://hyper18.github.io/2022/05/23/%E9%93%B6%E8%A1%8C%E4%BA%A7%E5%93%81%E7%A7%92%E6%9D%80%E8%AE%BE%E8%AE%A1%EF%BC%9A%E6%9C%8D%E5%88%9B%E5%A4%A7%E8%B5%9B%E4%B9%8B%E6%97%85/</link>
+      <guid>https://hyper18.github.io/2022/05/23/%E9%93%B6%E8%A1%8C%E4%BA%A7%E5%93%81%E7%A7%92%E6%9D%80%E8%AE%BE%E8%AE%A1%EF%BC%9A%E6%9C%8D%E5%88%9B%E5%A4%A7%E8%B5%9B%E4%B9%8B%E6%97%85/</guid>
+      <pubDate>Mon, 23 May 2022 06:47:18 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;​    经过西部区域赛的角逐，团队最终收获了区域赛二等奖、全国三等奖的好成绩。从去年11月找老师拿比赛承诺书开始，前前后后不觉也接近半年的</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>​    经过西部区域赛的角逐，团队最终收获了区域赛二等奖、全国三等奖的好成绩。从去年11月找老师拿比赛承诺书开始，前前后后不觉也接近半年的时间。趁着刚刚结束的劲头，记录一下本次的比赛历程。</p><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>​    当前，银行业竞争日趋白热化。采取有效的破局之道迫在眉睫，不少传统银行业务开始采取互联网营销方式，转而在线上开辟新的供求市场。 </p><p>​    藉此，银行产品秒杀活动应运而生。通过定期推出不同的秒杀活动，能有效地刺激用户的购买心理，这也是最常见的几种营销方式之一。本次项目即为银行产品秒杀系统设计，通过提供支持高并发、高性能、高可用的“三高”秒杀系统，为用户带来良好的使用体验。</p><h2 id="创意描述"><a href="#创意描述" class="headerlink" title="创意描述"></a>创意描述</h2><ol><li><p><strong>基于 Dubbo 的微服务架构</strong> </p><p>秒杀伴随的往往是高并发，传统的单体架构往往无法承受太大的压力，然而集群又面临 着冗余、扩展难、高成本等问题。因此使用微服务架构再合适不过了，而 dubbo 作为成熟 的 RPC 框架，不仅稳定而且速度快。使用 dubbo 的微服务架构不仅扩展容易，而且可以进 行按需部署，从而大大降低了后期的维护成本。 </p></li><li><p><strong>Snowflake 雪花算法生成</strong> </p><p>使用 Snowflake 算法生成的订单号与秒杀路径，生成的 ID 不是随机的，而是按时间顺序 升序排列的；且可以保证在分布式高并发环境下生成的 ID 不会发生重复。 </p></li><li><p> <strong>ThreadLocal 保存用户信息</strong> </p></li></ol><p>   并发编程中重要的问题就是数据共享，当你在一个线程中改变任意属性时，所有的线程 都会因此受到影响，同时会看到第一个线程修改后的值。 但是，有时我们希望确保每个线程，只能工作在它自己的线程实例的拷贝上，同时不会 影响其他线程的数据。因而这种情况下，我们使用 ThreadLocal 来保存用户信息。 </p><ol start="4"><li><p><strong>RestFul 风格 API</strong> </p><p>项目中采用了 RestFul 风格的 API，所有请求和响应都具有同一的格式，使得项目接口 清晰、易于理解，同时方便后期扩展。 </p></li><li><p> <strong>统一 Session 管理</strong></p></li></ol><p>   项目采用 Redis 进行统一 Seesion 管理，相较于传统服务端 Session 管理，统一 Session 管理更加容易进行分布式部署，使系统更加容易扩展集成</p><h2 id="成品展示"><a href="#成品展示" class="headerlink" title="成品展示"></a>成品展示</h2><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?bvid=BV1u34y1L7Sd&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; Left: 0; top: 0;">    </iframe></div>]]></content:encoded>
+      
+      
+      <category domain="https://hyper18.github.io/categories/%E6%AF%94%E8%B5%9B/">比赛</category>
+      
+      
+      <category domain="https://hyper18.github.io/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/">创新创业</category>
+      
+      <category domain="https://hyper18.github.io/tags/%E6%AF%94%E8%B5%9B/">比赛</category>
+      
+      <category domain="https://hyper18.github.io/tags/%E5%B1%95%E7%A4%BA/">展示</category>
+      
+      
+      <comments>https://hyper18.github.io/2022/05/23/%E9%93%B6%E8%A1%8C%E4%BA%A7%E5%93%81%E7%A7%92%E6%9D%80%E8%AE%BE%E8%AE%A1%EF%BC%9A%E6%9C%8D%E5%88%9B%E5%A4%A7%E8%B5%9B%E4%B9%8B%E6%97%85/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>数据结构篇：1.2算法和算法评价</title>
@@ -611,36 +641,6 @@
       
       
       <comments>https://hyper18.github.io/2021/11/04/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20HTML%E7%AF%87/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>机器学习题解（六）—— 异常探测与推荐系统</title>
-      <link>https://hyper18.github.io/2021/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</link>
-      <guid>https://hyper18.github.io/2021/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</guid>
-      <pubDate>Fri, 29 Oct 2021 13:26:18 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h3 id=&quot;ex8-m&quot;&gt;&lt;a href=&quot;#ex8-m&quot; class=&quot;headerlink&quot; title=&quot;ex8.m&quot;&gt;&lt;/a&gt;ex8.m&lt;/h3&gt;&lt;h4 id=&quot;Part-2-Estimate-the-dataset-statistics&quot;&gt;&lt;a href=&quot;#Par</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="ex8-m"><a href="#ex8-m" class="headerlink" title="ex8.m"></a>ex8.m</h3><h4 id="Part-2-Estimate-the-dataset-statistics"><a href="#Part-2-Estimate-the-dataset-statistics" class="headerlink" title="Part 2: Estimate the dataset statistics"></a>Part 2: Estimate the dataset statistics</h4><ul><li>Compute the mean of the data and the variances</li></ul><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mu = sum(X) / m;</span><br><span class="line">sigma2 = sum((X - <span class="built_in">repmat</span>(mu, m, <span class="number">1</span>)).^<span class="number">2</span>) / m; <span class="comment">% X - 307 * 1 matrix</span></span><br></pre></td></tr></table></figure><h4 id="Part-3-Find-Outliers"><a href="#Part-3-Find-Outliers" class="headerlink" title="Part 3: Find Outliers"></a>Part 3: Find Outliers</h4><ul><li>Compute the F1 score of choosing epsilon as the threshold and place the value in F1</li></ul><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% define the anomolous condition</span></span><br><span class="line">    condition = pval &lt; epsilon;</span><br><span class="line">    <span class="comment">% sum up to get each parameter</span></span><br><span class="line">    fp = sum((condition == <span class="number">1</span>) &amp; (yval == <span class="number">0</span>));</span><br><span class="line">    fn = sum((condition == <span class="number">0</span>) &amp; (yval == <span class="number">1</span>));</span><br><span class="line">    tp = sum((condition == <span class="number">1</span>) &amp; (yval == <span class="number">1</span>));</span><br><span class="line">    <span class="comment">% define precision and recall</span></span><br><span class="line">    prec = tp / (tp + fp);</span><br><span class="line">    rec = tp / (tp + fn);</span><br><span class="line">    <span class="comment">% use F1 score to estimate its performance</span></span><br><span class="line">    F1 = (<span class="number">2</span> * prec * rec) / (prec + rec);</span><br></pre></td></tr></table></figure><h3 id="ex8-cofi-m"><a href="#ex8-cofi-m" class="headerlink" title="ex8_cofi.m"></a>ex8_cofi.m</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% compute cost function</span></span><br><span class="line">J = sum(sum((((X * Theta&#x27; - Y) .* R) .^ <span class="number">2</span>))) / <span class="number">2</span>;</span><br><span class="line"><span class="comment">% compute gradient</span></span><br><span class="line">X_grad = ((X * Theta&#x27; - Y) .* R) * Theta;</span><br><span class="line">Theta_grad = ((X * Theta&#x27; - Y) .* R)&#x27; * X;</span><br><span class="line"><span class="comment">% compute cost function with regularization</span></span><br><span class="line">J = J + lambda / <span class="number">2</span> * ((sum(sum(Theta .^ <span class="number">2</span>)) + sum(sum(X .^ <span class="number">2</span>))));</span><br><span class="line"><span class="comment">% compute gradient with regularization</span></span><br><span class="line">X_grad = X_grad + lambda * X;</span><br><span class="line">Theta_grad = Theta_grad + lambda * Theta;</span><br></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="https://hyper18.github.io/categories/%E9%A2%98%E8%A7%A3/">题解</category>
-      
-      <category domain="https://hyper18.github.io/categories/%E9%A2%98%E8%A7%A3/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</category>
-      
-      
-      <category domain="https://hyper18.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</category>
-      
-      <category domain="https://hyper18.github.io/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/">异常探测</category>
-      
-      
-      <comments>https://hyper18.github.io/2021/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/#disqus_thread</comments>
       
     </item>
     

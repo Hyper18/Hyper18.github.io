@@ -300,6 +300,307 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%8E%E6%B8%85%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%8E%E6%B8%85%E7%90%86/" itemprop="url">Java面向对象（五）—— 初始化与清理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-26T20:47:55+08:00">
+                2020-08-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index">
+                    <span itemprop="name">面向对象</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%8E%E6%B8%85%E7%90%86/" class="leancloud_visitors" data-flag-title="Java面向对象（五）—— 初始化与清理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.1k
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="第五章-初始化与清理"><a href="#第五章-初始化与清理" class="headerlink" title="第五章 初始化与清理"></a>第五章 初始化与清理</h2><h3 id="一、初始化"><a href="#一、初始化" class="headerlink" title="一、初始化"></a>一、初始化</h3><p>1、构造器 constructor</p>
+<ul>
+<li>自动调用对应构造器保证初始化</li>
+<li>构造器采用与类相同的名称（因此构造器方法首字母无需小写）</li>
+<li>绑定初始化和创建</li>
+<li>不返回任何值</li>
+</ul>
+<p>2、方法重载：不同构造器，参数列表独一无二</p>
+<p>3、默认构造器（无参）</p>
+<ul>
+<li>创建默认对象</li>
+<li>this关键字<ul>
+<li>表：对调用方法的按个对象的应用</li>
+<li>若为同一个类的另一个方法，不使用this关键字，精简</li>
+<li>若要明确指出对当前对象的引用，使用this关键字</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例1</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apricot</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pick</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">void</span> pit&#123; pick() &#125;;</span><br><span class="line">    <span class="comment">// 以下写法没有必要</span></span><br><span class="line">    <span class="keyword">void</span> pit&#123; <span class="keyword">this</span>.pick() &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 例2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leaf</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="function">Leaf <span class="title">increment</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        i++;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>; <span class="comment">// 返回对当前对象的引用</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;i = &quot;</span> + i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Leaf x = <span class="keyword">new</span> Leaf();</span><br><span class="line">    x.increment().increment().increment().print();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Output: </span></span><br><span class="line"><span class="comment">i = 3</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//:~</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>构造器中调用构造器：仅可用this调用一个，且调用位于最起始处</li>
+</ul>
+<p>4、成员初始化</p>
+<ul>
+<li>基本数据类型有默认初值，自定义的局部变量则必须给出初始化值</li>
+<li>注意初始化的顺序</li>
+</ul>
+<p>5、构造器初始化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// i先置为0，后变为7</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    Counter() &#123;</span><br><span class="line">        i = <span class="number">7</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>初始化将在构造器<strong>被调用前</strong>发生</li>
+<li>类内部，变量定义顺序决定了初始化顺序</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Window</span> </span>&#123;</span><br><span class="line">    Window(<span class="keyword">int</span> marker) &#123;</span><br><span class="line">        print(<span class="string">&quot;Windows(&quot;</span> + marker + <span class="string">&quot;)&quot;</span>); <span class="comment">// 初始化时打印</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">House</span> </span>&#123;</span><br><span class="line">    Window w1 = <span class="keyword">new</span> Window(<span class="number">1</span>); <span class="comment">// 调用构造器前</span></span><br><span class="line">    House() &#123;</span><br><span class="line">        print(<span class="string">&quot;House()&quot;</span>);</span><br><span class="line">        w3 = <span class="keyword">new</span> Window(<span class="number">33</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Window w2 = <span class="keyword">new</span> Window(<span class="number">2</span>); <span class="comment">// 调用构造器后</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">finished</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        print(<span class="string">&quot;finished()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Window w3 = <span class="keyword">new</span> Window(<span class="number">3</span>); <span class="comment">// 末尾</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderOfInitialization</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        House h = <span class="keyword">new</span> House();</span><br><span class="line">        h.finished();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Output:</span></span><br><span class="line"><span class="comment">Window(1)</span></span><br><span class="line"><span class="comment">Window(2)</span></span><br><span class="line"><span class="comment">Window(3)</span></span><br><span class="line"><span class="comment">House()</span></span><br><span class="line"><span class="comment">Window(33)</span></span><br><span class="line"><span class="comment">finished()</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//~</span></span><br></pre></td></tr></table></figure>
+
+<p>上例说明，即使对象散布在Window的不同部分，仍会在调用构造器或其他方法前得到初始化。</p>
+<ul>
+<li>先初始化静态对象，后其他对象</li>
+<li>静态块：显式的静态初始化</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">	代码块<span class="number">1</span></span><br><span class="line">    代码块<span class="number">2</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>静态初始化动作只进行一次</p>
+<p>6、数组的初始化</p>
+<p>以下两种均可（前者更合理，后者符合C、C++习惯）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a;</span><br><span class="line"><span class="keyword">int</span> a[];</span><br><span class="line"><span class="comment">// 尽量在定义时初始化</span></span><br><span class="line"><span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[rand.nextInt(<span class="number">20</span>)];</span><br><span class="line"><span class="comment">// 产生一维数组的可打印版本</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line">print(Arrays.toString(a));</span><br><span class="line"><span class="comment">// 注：toString默认打印 类名 和 对象的地址（@+16进制数字）</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不允许指定数组的大小，分配空间必须写初始化表达式</li>
+<li>使用花括号括起来的列表初始化</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">    <span class="comment">// 形式1</span></span><br><span class="line">    Interger[] a = &#123;</span><br><span class="line">    <span class="keyword">new</span> Interger(<span class="number">1</span>),</span><br><span class="line">    <span class="keyword">new</span> Interger(<span class="number">2</span>),</span><br><span class="line">    <span class="number">3</span>,</span><br><span class="line">&#125;;</span><br><span class="line">	<span class="comment">// 形式2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicArray</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Other.main(<span class="keyword">new</span> String[])&#123; <span class="string">&quot;fiddle&quot;</span>, <span class="string">&quot;de&quot;</span>, <span class="string">&quot;dum&quot;</span>&#125;;</span><br><span class="line">        <span class="comment">// 在方法调用处创建数组，可在调用时提供可替换的参数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Other</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(String s : args) </span><br><span class="line">            System.out.print(s + <span class="string">&quot; &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Output:</span></span><br><span class="line"><span class="comment">fiddle de dum</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//~</span></span><br></pre></td></tr></table></figure>
+
+<p>7、可变参数列表</p>
+<ul>
+<li>将0个参数传递给可变参数列表是可行的</li>
+<li>不依赖于自动包装机制，使用基本类型</li>
+<li>使得重载变得复杂，编译器在各个情况均要使用自动包装机制来匹配重载<ul>
+<li>在不适用参数调用时，则无法确定了。此时应添加一个非可变参数</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、清理"><a href="#二、清理" class="headerlink" title="二、清理"></a>二、清理</h3><p>1、finalize()：清理不是new创建的内存</p>
+<ul>
+<li>使用原因：回收程序不再使用的内存</li>
+<li>终结条件的验证</li>
+</ul>
+<p>2、辨析：并非所有对象都会被垃圾回收</p>
+<p>3、回收</p>
+<ul>
+<li>引用计数：释放引用计数为9的空间<ul>
+<li>简单，速度很慢</li>
+<li>缺陷：对循环引用不适用，应被回收的值，其引用计数不为0</li>
+</ul>
+</li>
+<li>停止 - 复制（自适应）技术：动作发生时，程序暂停</li>
+<li>JIT 即时编译器技术：翻译程序为本地机器码以提升速度<ul>
+<li>即时编译<ul>
+<li>缺陷：累加时长长，且会增加可执行代码的长度，导致页面调度</li>
+</ul>
+</li>
+<li>惰性评估：尽在必要时编译</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、枚举类型-enum"><a href="#三、枚举类型-enum" class="headerlink" title="三、枚举类型 enum"></a>三、枚举类型 enum</h3><p>1、toString</p>
+<p>2、ordinal：用于表示特定枚举常量的声明顺序</p>
+<p>3、可把enum视作类，具有自己的方法</p>
+<ul>
+<li>可在switch语句中使用，配合在有限可能值集合中选择</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E6%8E%A7%E5%88%B6%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3399,522 +3700,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/07/25/Chapter2%20Application%20Layer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/25/Chapter2%20Application%20Layer/" itemprop="url">Chapter2 Application Layer</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-25T20:25:59+08:00">
-                2020-07-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/07/25/Chapter2%20Application%20Layer/" class="leancloud_visitors" data-flag-title="Chapter2 Application Layer">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2.4k
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  8
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="应用层协议原理"><a href="#应用层协议原理" class="headerlink" title="应用层协议原理"></a>应用层协议原理</h1><h2 id="网络应用程序体系结构"><a href="#网络应用程序体系结构" class="headerlink" title="网络应用程序体系结构"></a>网络应用程序体系结构</h2><p>1、<strong>客户 - 服务器体系架构</strong>（client-server architecture）</p>
-<ul>
-<li>服务器主机总是打开，接收客户主机请求</li>
-<li>客户之间不相互通信</li>
-</ul>
-<p>2、<strong>P2P体系结构</strong></p>
-<ul>
-<li>对数据中心的专用服务器仅有最小依赖</li>
-<li>标识：发起通信为客户，等待联系为服务器</li>
-<li>间断连接的主机间使用直接通信<ul>
-<li>这样的一组主机称对等方</li>
-</ul>
-</li>
-<li><strong>自扩展性</strong> self-scalability<ul>
-<li>向对等方发送文件</li>
-<li>请求产生工作负载，但也为系统增加服务能力</li>
-</ul>
-</li>
-</ul>
-<h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><p>1、进程 process</p>
-<ul>
-<li>def：运行在端系统的一个程序</li>
-<li>通信进程对：每对两个进程互相发送报文</li>
-<li><strong>进程寻址</strong>的要求<ul>
-<li>主机地址</li>
-<li>目的主机需指定接收进程的标识符</li>
-</ul>
-</li>
-</ul>
-<p>2、套接字 socket：向网络发送 / 接收报文的软件接口</p>
-<p>3、应用程序编程接口 <em>API</em></p>
-<ul>
-<li>建立网络应用程序的可编程接口</li>
-<li>运输层的控制<ul>
-<li>选择运输层协议</li>
-<li>部分运输层参数</li>
-</ul>
-</li>
-</ul>
-<h2 id="可供应用程序使用的运输服务"><a href="#可供应用程序使用的运输服务" class="headerlink" title="可供应用程序使用的运输服务"></a>可供应用程序使用的运输服务</h2><p>1、<strong>可靠数据传输</strong>：正确、完全地交付数据</p>
-<p>2、吞吐量</p>
-<ul>
-<li>带宽敏感 / 弹性应用</li>
-</ul>
-<p>3、<strong>定时保证</strong></p>
-<ul>
-<li>交互式实时应用</li>
-</ul>
-<p>4、安全性</p>
-<h2 id="因特网提供的运输服务"><a href="#因特网提供的运输服务" class="headerlink" title="因特网提供的运输服务"></a>因特网提供的运输服务</h2><p>1、TCP服务</p>
-<ul>
-<li>面向连接：流动前互换运输层控制信息，结束后拆除连接</li>
-<li>可靠数据传送：无差错、按适当顺序交付</li>
-<li><strong>拥塞控制</strong></li>
-<li>无加密机制<ul>
-<li>改进：*安全套接字层（Secure Socket Layer，SSL）</li>
-</ul>
-</li>
-</ul>
-<p>2、UDP服务</p>
-<ul>
-<li>轻量级，仅提供最小服务</li>
-<li>不可靠数据传送：不保证到达、可乱序</li>
-<li>可选定数据的传输速率</li>
-<li>无加密机制</li>
-</ul>
-<h2 id="应用层协议"><a href="#应用层协议" class="headerlink" title="应用层协议"></a>应用层协议</h2><p>1、RFC（Request For Comments）文档：一系列以编号排定的文件</p>
-<ul>
-<li>位于公共域中</li>
-<li>收录几乎所有互联网标准</li>
-</ul>
-<p>2、超文本传输协议 HTTP</p>
-<p>3、简单邮件传输协议 SMTP</p>
-<h1 id="HyperText-Transfer-Protocol"><a href="#HyperText-Transfer-Protocol" class="headerlink" title="HyperText Transfer Protocol"></a>HyperText Transfer Protocol</h1><p>1、超文本传输协议 HTTP</p>
-<ul>
-<li>定义报文的结构和客户、服务器进行报文交换的方式</li>
-<li>实现：一个客户程序和一个服务器程序（P65）</li>
-<li>支撑运输协议：<em>TCP</em></li>
-<li>无状态协议 stateless protocol：不保存关于客户的任何信息</li>
-</ul>
-<p>2、连接方式</p>
-<ul>
-<li><strong>非持续连接</strong> non-persistent connection<ul>
-<li>请求 / 响应经一单独TCP连接发送</li>
-<li>为每个请求对象建立和维护一个全新连接</li>
-<li><strong>三次握手</strong>：发送确认<em>RTT</em> - 返回确认<em>RTT</em> - 传输<ul>
-<li>往返时间 Round-Trip Time，<em>RTT</em></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>持续连接</strong>（默认）<ul>
-<li>请求 / 响应经相同的TCP连接发送</li>
-<li>带流水线（默认）：对对象的请求可依次发出，不必等待未决请求</li>
-</ul>
-</li>
-</ul>
-<p>3、报文格式</p>
-<p><strong>请求报文（P68，CR回车，LF换行）</strong></p>
-<ul>
-<li>组成：<ul>
-<li>第一行称<strong>请求行</strong> request line<ul>
-<li>三个部分：方法字段 URL字段 HTTP字段</li>
-</ul>
-</li>
-<li>后继行称<strong>首部行</strong> header line</li>
-<li>实体体 entity body：POST方法使用</li>
-</ul>
-</li>
-<li>方法字段：GET POST HEAD PUT DELETE<ul>
-<li>GET：请求对象、提交表单（HTML表单）</li>
-<li>POST：提交表单</li>
-<li>HEAD：响应请求，但不返回对象<ul>
-<li>*试跟踪</li>
-</ul>
-</li>
-<li>PUT：常与Web发行工具共用，上传对象到指定Web服务器指定路径</li>
-<li>DELETE：允许删除Web服务器上对象</li>
-</ul>
-</li>
-</ul>
-<p><strong>响应报文（P69）</strong></p>
-<ul>
-<li>组成<ul>
-<li>状态行 status line <ul>
-<li>三个部分：协议版本字段 状态码 相应状态信息</li>
-</ul>
-</li>
-<li>首部行和实体体</li>
-</ul>
-</li>
-<li>常见状态码：200 OK；301请求对象已经永久转移；400/404；505 不支持的HTTP协议版本</li>
-</ul>
-<p>4、Cookie</p>
-<ul>
-<li>组成<ul>
-<li>响应报文中的一个cookie首部行</li>
-<li>请求报文中的一个cookie首部行</li>
-<li>用户端系统保留的一个cookie文件</li>
-<li>位于Web站点的一个后端数据库</li>
-</ul>
-</li>
-<li><strong>识别码</strong> Set-cookie：用于标识一个用户<ul>
-<li>*用户隐私侵害</li>
-</ul>
-</li>
-</ul>
-<p>5、Web缓存</p>
-<ul>
-<li>Web缓存器 Web Cache / 代理服务器 <em>proxy server</em><ul>
-<li>配置后的浏览器请求被定向至代理服务器</li>
-<li>发送给用户服务器的是保存的一份<strong>副本</strong></li>
-<li>从整体上大大降低因特网的流量</li>
-</ul>
-</li>
-<li>内容分发网络 Content Distribution Network，CDN：使大量流量实现本地化</li>
-<li><strong>条件Get方法</strong>：执行最新检查<ul>
-<li>If-Modified-Since = Last-Modified -&gt; 304 Not Modified</li>
-</ul>
-</li>
-</ul>
-<h1 id="因特网电子邮件"><a href="#因特网电子邮件" class="headerlink" title="因特网电子邮件"></a>因特网电子邮件</h1><p>1、组成：用户代理（user agent）邮件服务器（mail server）简单邮件传输协议（SMTP）</p>
-<p>2、支撑应用层服务：TCP</p>
-<p>3、SMTP</p>
-<ul>
-<li>因特网电子邮件的核心</li>
-<li>仅能采用简单的7比特ASCII表示</li>
-<li>传送多谋体数据编码需先转码</li>
-<li>无存留：一般不使用中间邮件服务器</li>
-<li>使用持续连接</li>
-</ul>
-<h5 id="对比HTTP"><a href="#对比HTTP" class="headerlink" title="对比HTTP"></a>对比HTTP</h5><ul>
-<li>HTTP不需要对多谋体数据编码转码</li>
-<li>HTTP是拉协议（pull protocol）而SMTP基本上是推协议（push protocol）</li>
-<li>HTTP封装对象，SMTP将所有对象存放在一个报文中</li>
-</ul>
-<p>4、邮件报文格式</p>
-<ul>
-<li>首部：From To （Subject，其他可选首部行）</li>
-<li>一个空白行</li>
-<li>报文体（ASCII格式）</li>
-</ul>
-<p>5、邮件访问协议</p>
-<ul>
-<li>第三版的邮局协议 Post Office Protocol - Version 3，POP3<ul>
-<li>三个工作阶段<ul>
-<li>特许（authorization）：明文发送用户名和口令以鉴别用户</li>
-<li>事务处理：取回报文；标记 / 删除报文标记、获取邮件统计信息（可选）</li>
-<li>更新：在quit命令发出后结束会话</li>
-</ul>
-</li>
-<li>下载方式：下载并删除（不同机器不可读） / 下载并保留（可多端查看）</li>
-<li>优点：会话中不包含状态信息，大大简化了服务的实现</li>
-</ul>
-</li>
-<li>因特网邮件访问协议 Internet Mail Access Protocol，IMAP<ul>
-<li>实现访问远程服务器文件夹</li>
-<li>维护用户状态信息</li>
-<li>允许用户代理获取报文的某些指定部分（灵活）</li>
-<li>用户-&gt;邮件服务器：HTTP  邮件服务器-&gt;邮件服务器：SMTP</li>
-</ul>
-</li>
-</ul>
-<h1 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h1><h2 id="提供服务"><a href="#提供服务" class="headerlink" title="提供服务"></a>提供服务</h2><ul>
-<li>核心：主机名-&gt;IP名转换的目录服务</li>
-<li>提供主机别名（host aliasing）：此时原名称称规范主机名（canonical hostname）</li>
-<li>邮件服务器别名</li>
-<li>负载分配（load distribution）：每个回答循环响应，在冗余的Web服务器间分配负载</li>
-</ul>
-<h2 id="工作机理"><a href="#工作机理" class="headerlink" title="工作机理"></a>工作机理</h2><p>1、实现</p>
-<ul>
-<li>一个分层的DNS服务器实现的分布式数据库</li>
-<li>使主机可查询数据库的应用层协议</li>
-</ul>
-<p>2、支撑应用层服务：UDP（53号端口）</p>
-<p>3、分布式、层次数据库</p>
-<ul>
-<li>集中式的弊端<ul>
-<li>单点故障</li>
-<li>通信容量（traffic volume）</li>
-<li>远距离的集中式数据库</li>
-<li>维护</li>
-</ul>
-</li>
-<li>服务器类型（P87）<ul>
-<li>根DNS服务器：提供TLD服务器的IP地址</li>
-<li>顶级域服务器 TLD：提供权威DNS服务器的IP地址</li>
-<li>权威DNS服务器：提供公共可访问的DNS记录</li>
-<li>本地DNS服务器</li>
-</ul>
-</li>
-<li>查询方式：主机-&gt;服务器递归查询，其余均为迭代查询</li>
-</ul>
-<p> 4、DNS缓存</p>
-<ul>
-<li>将映射缓存在本地存储器中</li>
-<li>可绕过根服务器：存在缓存，立即返回IP地址</li>
-<li>一段时间丢弃信息（默认：两天）</li>
-</ul>
-<h2 id="DNS记录和报文"><a href="#DNS记录和报文" class="headerlink" title="DNS记录和报文"></a>DNS记录和报文</h2><p>1、资源记录 Resource Record，RR</p>
-<ul>
-<li>提供主机名到IP地址的映射</li>
-<li>格式：（Name，Value，Type，TTL）<ul>
-<li>TTL：记录的生存时间</li>
-</ul>
-</li>
-</ul>
-<p>2、Type的不同类型</p>
-<ul>
-<li>Type：A <ul>
-<li>Name：主机名 </li>
-<li>Value：主机名对应IP地址</li>
-</ul>
-</li>
-<li>Type：NS <ul>
-<li>Name：个域</li>
-<li>Value：可提供主机IP地址的权威DNS服务器主机名</li>
-</ul>
-</li>
-<li>Type：CNAME <ul>
-<li>Name：别名为Name的主机名称</li>
-<li>Value：该主机的规范主机名</li>
-</ul>
-</li>
-<li>Type：MX<ul>
-<li>Name：别名为Name的服务器主机名称</li>
-<li>Value：该服务器主机的规范主机名</li>
-</ul>
-</li>
-</ul>
-<p>3、报文格式（P90）</p>
-<ul>
-<li>首部区域（12字节）：标识符 标志 问题数 回答 / 权威 / 附加RR数</li>
-<li>问题区域：名字 类型</li>
-<li>权威区域</li>
-<li>附加区域</li>
-</ul>
-<p>4、插入记录：注册登记机构（registrar）验证域名唯一性，输入DNS数据库</p>
-<p>*5、DNS的健壮性</p>
-<h1 id="P2P文件分发"><a href="#P2P文件分发" class="headerlink" title="P2P文件分发"></a>P2P文件分发</h1><p>1、def：成对间歇的主机（对等方）彼此直接通信</p>
-<p>2、最小分发时间：<br>$$<br>D_{P2P}=max&lt;!–swig￼0–&gt;,{\frac{F}{d_{min}}},{\frac{NF}{u_s+{\sum_{r=1}^n}}}}<br>$$<br>3、Bittorrent</p>
-<ul>
-<li>洪流 torrent：参与一个特定文件分发的所有对等方的集合</li>
-<li>块 chunk：典型（256kb）等长文件块</li>
-<li>加入过程：向追踪器注册 - 周期性通知仍在洪流中</li>
-<li>最稀缺优先 rarest first：优先请求那些邻居中副本数量最少的块，以均衡每个洪流的副本数量</li>
-<li>疏通 unchoked：一个时间间隔后重新计算最高速率并修改对等方集合，保证最高速率</li>
-<li>*分布式散列表 DHT：分布在多个对等方的简单数据库</li>
-</ul>
-<h1 id="视频流和内容分发网-CDN"><a href="#视频流和内容分发网-CDN" class="headerlink" title="视频流和内容分发网 CDN"></a>视频流和内容分发网 CDN</h1><p>1、压缩<strong>比特率</strong>，提高图像质量</p>
-<p>2、流式视频的重要衡量：avg端到端时延</p>
-<p>3、DASH：经HTTP的动态适应流</p>
-<ul>
-<li>告示文件（manifest file）提供比特率和URL</li>
-<li>速率决定算法选择后继请求块</li>
-</ul>
-<p>4、CDN</p>
-<ul>
-<li>分类：专用CDN 第三方CDN</li>
-<li>服务器安置原则<ul>
-<li>深入：靠近端用户，改善时延和吞吐量</li>
-<li>邀请做客：邀请到放置在IXP的集群，降低维护和管理开销</li>
-</ul>
-</li>
-<li>机制：截获 重定向</li>
-<li>*实时测量</li>
-<li>案例：油管 Netflix 迅雷</li>
-</ul>
-<h1 id="套接字编程"><a href="#套接字编程" class="headerlink" title="套接字编程"></a>套接字编程</h1><p>1、分类：协议标准定义 或 专用网络的网络应用程序</p>
-<p>2、UDP套接字</p>
-<ul>
-<li>过程：键入，发送数据至服务器 - 转换报文，发送给客户 - 客户端监视器显示</li>
-<li>需显式创建分组并附上目的地址</li>
-</ul>
-<p>3、TCP套接字</p>
-<ul>
-<li>欢迎套接字和连接套接字</li>
-<li>仅需将数据放入TCP连接</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3967,7 +3752,7 @@
             
               <div class="site-state-item site-state-posts">
                 <a href="/archives">
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3978,7 +3763,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -3989,7 +3774,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

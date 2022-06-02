@@ -4343,4 +4343,46 @@
         <tag>408</tag>
       </tags>
   </entry>
+  <entry>
+    <title>“一苇以航”的服创大赛之旅</title>
+    <url>/2022/05/23/%E9%93%B6%E8%A1%8C%E4%BA%A7%E5%93%81%E7%A7%92%E6%9D%80%E8%AE%BE%E8%AE%A1%EF%BC%9A%E6%9C%8D%E5%88%9B%E5%A4%A7%E8%B5%9B%E4%B9%8B%E6%97%85/</url>
+    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>​    经过西部区域赛的角逐，团队最终收获了区域赛二等奖、全国三等奖的好成绩。从去年11月找老师拿比赛承诺书开始，前前后后不觉也接近半年的时间。趁着刚刚结束的劲头，记录一下本次的比赛历程。</p>
+<h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>​    当前，银行业竞争日趋白热化。采取有效的破局之道迫在眉睫，不少传统银行业务开始采取互联网营销方式，转而在线上开辟新的供求市场。 </p>
+<p>​    藉此，银行产品秒杀活动应运而生。通过定期推出不同的秒杀活动，能有效地刺激用户的购买心理，这也是最常见的几种营销方式之一。本次项目即为银行产品秒杀系统设计，通过提供支持高并发、高性能、高可用的“三高”秒杀系统，为用户带来良好的使用体验。</p>
+<h2 id="创意描述"><a href="#创意描述" class="headerlink" title="创意描述"></a>创意描述</h2><ol>
+<li><p><strong>基于 Dubbo 的微服务架构</strong> </p>
+<p>秒杀伴随的往往是高并发，传统的单体架构往往无法承受太大的压力，然而集群又面临 着冗余、扩展难、高成本等问题。因此使用微服务架构再合适不过了，而 dubbo 作为成熟 的 RPC 框架，不仅稳定而且速度快。使用 dubbo 的微服务架构不仅扩展容易，而且可以进 行按需部署，从而大大降低了后期的维护成本。 </p>
+</li>
+<li><p><strong>Snowflake 雪花算法生成</strong> </p>
+<p>使用 Snowflake 算法生成的订单号与秒杀路径，生成的 ID 不是随机的，而是按时间顺序 升序排列的；且可以保证在分布式高并发环境下生成的 ID 不会发生重复。 </p>
+</li>
+<li><p> <strong>ThreadLocal 保存用户信息</strong> </p>
+</li>
+</ol>
+<p>   并发编程中重要的问题就是数据共享，当你在一个线程中改变任意属性时，所有的线程 都会因此受到影响，同时会看到第一个线程修改后的值。 但是，有时我们希望确保每个线程，只能工作在它自己的线程实例的拷贝上，同时不会 影响其他线程的数据。因而这种情况下，我们使用 ThreadLocal 来保存用户信息。 </p>
+<ol start="4">
+<li><p><strong>RestFul 风格 API</strong> </p>
+<p>项目中采用了 RestFul 风格的 API，所有请求和响应都具有同一的格式，使得项目接口 清晰、易于理解，同时方便后期扩展。 </p>
+</li>
+<li><p> <strong>统一 Session 管理</strong></p>
+</li>
+</ol>
+<p>   项目采用 Redis 进行统一 Seesion 管理，相较于传统服务端 Session 管理，统一 Session 管理更加容易进行分布式部署，使系统更加容易扩展集成</p>
+<h2 id="成品展示"><a href="#成品展示" class="headerlink" title="成品展示"></a>成品展示</h2>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+	<iframe src="//player.bilibili.com/player.html?bvid=BV1u34y1L7Sd&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; Left: 0; top: 0;">
+    </iframe>
+</div>
+
+
+]]></content>
+      <categories>
+        <category>比赛</category>
+      </categories>
+      <tags>
+        <tag>创新创业</tag>
+        <tag>比赛</tag>
+        <tag>展示</tag>
+      </tags>
+  </entry>
 </search>
