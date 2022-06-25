@@ -4385,4 +4385,80 @@
         <tag>展示</tag>
       </tags>
   </entry>
+  <entry>
+    <title>西瓜书第一章</title>
+    <url>/2022/06/25/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%AC%AC%E4%B8%80%E7%AB%A0/</url>
+    <content><![CDATA[<h3 id="机器学习-machine-learning"><a href="#机器学习-machine-learning" class="headerlink" title="机器学习 machine learning"></a>机器学习 machine learning</h3><ul>
+<li>def 研究通过计算手段，利用经验改善系统自身性能</li>
+<li>经验 - 数据，数据中学得结果 - 模型（学习器 learner）</li>
+</ul>
+<h4 id="1-数据集-dataset"><a href="#1-数据集-dataset" class="headerlink" title="1. 数据集 dataset"></a>1. 数据集 dataset</h4><ul>
+<li>def 一组记录的集合，其中每条记录是关于一个对象的描述</li>
+</ul>
+<h4 id="2-属性-attribute-特征-feature"><a href="#2-属性-attribute-特征-feature" class="headerlink" title="2. 属性 attribute / 特征 feature"></a>2. 属性 attribute / 特征 feature</h4><ul>
+<li>def 反映对象某方面性质的事项</li>
+</ul>
+<h4 id="3-特征向量-feature-vector"><a href="#3-特征向量-feature-vector" class="headerlink" title="3. 特征向量 feature vector"></a>3. 特征向量 feature vector</h4><ul>
+<li>def (x, y, z)三维坐标张成一个用于描述对象的三维空间</li>
+</ul>
+<h4 id="4-维数-dimensionality"><a href="#4-维数-dimensionality" class="headerlink" title="4. 维数 dimensionality"></a>4. 维数 dimensionality</h4><ul>
+<li>def 样本空间的一个向量，表示该样本（example）由d个属性描述</li>
+</ul>
+<h4 id="5-训练样本-training-example"><a href="#5-训练样本-training-example" class="headerlink" title="5. 训练样本 training example"></a>5. 训练样本 training example</h4><ul>
+<li>def 概念同样本、训练示例（training instance）</li>
+</ul>
+<h4 id="6-训练数据-training-data"><a href="#6-训练数据-training-data" class="headerlink" title="6. 训练数据 training data"></a>6. 训练数据 training data</h4><ul>
+<li>def 训练样本组成的集合</li>
+</ul>
+<h4 id="7-标记-label"><a href="#7-标记-label" class="headerlink" title="7. 标记 label"></a>7. 标记 label</h4><ul>
+<li>def 训练样本的结果信息</li>
+</ul>
+<h4 id="8-标记空间-label-space"><a href="#8-标记空间-label-space" class="headerlink" title="8. 标记空间 label space"></a>8. 标记空间 label space</h4><ul>
+<li>def (xi, yi)表示yi是示例xi的标记，这里yi所从属的所有标记的集合</li>
+</ul>
+<h4 id="9-分类-回归"><a href="#9-分类-回归" class="headerlink" title="9. 分类 / 回归"></a>9. 分类 / 回归</h4><ul>
+<li>预测的是离散值 —— 分类问题（classification）<ul>
+<li>sp. 二分类问题：一个类为正类（positive class），一个类为负类（negative class）</li>
+</ul>
+</li>
+<li>预测的是连续值 —— 回归问题（regression）</li>
+</ul>
+<h4 id="10-测试-testing"><a href="#10-测试-testing" class="headerlink" title="10. 测试 testing"></a>10. 测试 testing</h4><ul>
+<li>def 学得模型后，使用其进行预测的过程</li>
+</ul>
+<h4 id="11-簇-cluster"><a href="#11-簇-cluster" class="headerlink" title="11. 簇 cluster"></a>11. 簇 cluster</h4><ul>
+<li>def 若干样本组成的集合，通过对训练数据划分得到</li>
+</ul>
+<h4 id="12-聚类-clustering"><a href="#12-聚类-clustering" class="headerlink" title="12. 聚类 clustering"></a>12. 聚类 clustering</h4><ul>
+<li>def 将训练集中的样本分成若干簇</li>
+<li>目的 由于学习过程中使用的训练样本一般不具有标记信息，聚类有助于了解数据的内在规律</li>
+</ul>
+<h4 id="13-监督-supervised-无监督学习-unsupervised-learning"><a href="#13-监督-supervised-无监督学习-unsupervised-learning" class="headerlink" title="13. 监督 supervised / 无监督学习 unsupervised learning"></a>13. 监督 supervised / 无监督学习 unsupervised learning</h4><ul>
+<li>分类、回归 —— 监督学习</li>
+<li>聚类 —— 无监督学习</li>
+</ul>
+<h4 id="14-独立同分布-independent-and-identically-distributed"><a href="#14-独立同分布-independent-and-identically-distributed" class="headerlink" title="14. 独立同分布 independent and identically distributed"></a>14. 独立同分布 independent and identically distributed</h4><ul>
+<li>def 预设条件，假设样本空间中全体样本服从一个未知分布（distribution）</li>
+</ul>
+<h4 id="15-归纳-induction-演绎-deduction"><a href="#15-归纳-induction-演绎-deduction" class="headerlink" title="15. 归纳 induction / 演绎 deduction"></a>15. 归纳 induction / 演绎 deduction</h4><ul>
+<li>从特殊到一般 - 泛化（generalization）- 归纳</li>
+<li>从一般到特殊 - 演绎</li>
+</ul>
+<h4 id="16-版本空间-version-space"><a href="#16-版本空间-version-space" class="headerlink" title="16.版本空间 version space"></a>16.版本空间 version space</h4><ul>
+<li>可有多个，与训练集一致的“假设集合”，即能对所有训练样本进行正确判断的假设</li>
+</ul>
+<h4 id="17-归纳偏好-inductive-bias"><a href="#17-归纳偏好-inductive-bias" class="headerlink" title="17. 归纳偏好 inductive bias"></a>17. 归纳偏好 inductive bias</h4><ul>
+<li>两种走向：往尽可能特殊的模型 往尽可能一般的模型</li>
+<li>引导原则：奥卡姆剃刀（Occam‘s razor），即有多个假设与观察一致时，选取最简单的</li>
+<li>NFL定理：f均匀分布时，学习算法的期望性能相同</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
 </search>
