@@ -300,6 +300,395 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/" itemprop="url">小程序入门之组件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-01-09T21:10:33+08:00">
+                2022-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">小程序</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/" class="leancloud_visitors" data-flag-title="小程序入门之组件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="容器组件"><a href="#容器组件" class="headerlink" title="容器组件"></a>容器组件</h2><ul>
+<li>视图容器</li>
+<li>基础内容</li>
+<li>表单组件</li>
+<li>导航组件</li>
+<li>其他：媒体组件、地图组件、画布组件、开放能力和无障碍访问</li>
+</ul>
+<h3 id="视图容器"><a href="#视图容器" class="headerlink" title="视图容器"></a>视图容器</h3><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/">视图容器 | 微信开放文档 (qq.com)</a></p>
+<h4 id="视图-view"><a href="#视图-view" class="headerlink" title="视图 view"></a>视图 view</h4><ul>
+<li>def 普通视图区域，用于实现页面的布局效果<ul>
+<li>类比：h5中的块级元素div</li>
+</ul>
+</li>
+</ul>
+<img src="/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/视图容器.png">
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/list/list.wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;container1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>A<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>B<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>C<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* pages/list/list.wxss */</span></span><br><span class="line"><span class="selector-class">.container1</span> view &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container1</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightgreen;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container1</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container1</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightpink;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container1</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="滚动视图-scroll-view"><a href="#滚动视图-scroll-view" class="headerlink" title="滚动视图 scroll-view"></a>滚动视图 scroll-view</h4><ul>
+<li>def 可拖动的视图区域，用于实现滚动列表效果</li>
+</ul>
+<img src="/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/视图容器2.png">
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">scroll-view</span> <span class="attr">class</span>=<span class="string">&quot;container2&quot;</span> <span class="attr">scroll-y</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>A<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>B<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>C<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">scroll-view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>常用属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>scroll-x、scroll-y（boolean）</td>
+<td>指定滚动的方向</td>
+</tr>
+<tr>
+<td>scroll-top</td>
+<td>设置竖向滚动条位置</td>
+</tr>
+<tr>
+<td>scroll-left</td>
+<td>设置横向滚动条位置</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container2</span> view &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">80px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container2</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightgreen;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container2</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container2</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightpink;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container2</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">120px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="滑块视图容器-swiper-amp-swiper-item"><a href="#滑块视图容器-swiper-amp-swiper-item" class="headerlink" title="滑块视图容器 swiper&amp;swiper-item"></a>滑块视图容器 swiper&amp;swiper-item</h4><ul>
+<li>def 可左右滑动的视图区域，用于实现轮播图效果</li>
+<li>注：内部只可放置swiper-item；在放置其他类型组件时，其行为是未定义的</li>
+</ul>
+<img src="/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/视图容器3.png">
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/swiper/swiper.wxml--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 轮播图的结构 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">swiper</span> <span class="attr">class</span>=<span class="string">&quot;swiper-container1&quot;</span> <span class="attr">indicator-dots</span> <span class="attr">indicator-color</span>=<span class="string">&quot;lightpink&quot;</span> <span class="attr">indicator-active-color</span>=<span class="string">&quot;lightblue&quot;</span> <span class="attr">autoplay</span> <span class="attr">interval</span>=<span class="string">&quot;2000&quot;</span> <span class="attr">circular</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 第1个轮播图 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span>A<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 第2个轮播图 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span>B<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 第3个轮播图 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span>C<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>常用属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>indicator-dots（boolean）</td>
+<td>是否显示面板指示点</td>
+</tr>
+<tr>
+<td>indicator-color</td>
+<td>当前选中的指示点颜色</td>
+</tr>
+<tr>
+<td>indicator-active-color</td>
+<td>当前选中的指示点颜色</td>
+</tr>
+<tr>
+<td>autoplay（boolean）</td>
+<td>是否自动切换</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>自动切换时间间隔</td>
+</tr>
+<tr>
+<td>circular（boolean）</td>
+<td>是否采用衔接滑动</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* pages/swiper/swiper.wxss */</span></span><br><span class="line"><span class="selector-class">.swiper-container1</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">150px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="基础内容"><a href="#基础内容" class="headerlink" title="基础内容"></a>基础内容</h3><img src="/2022/01/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E4%B9%8B%E7%BB%84%E4%BB%B6/基础内容.png">
+
+<h4 id="文本组件-text"><a href="#文本组件-text" class="headerlink" title="文本组件 text"></a>文本组件 text</h4><ul>
+<li>def 用于展现文本<ul>
+<li>类比h5中的span标签</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/text/text.wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 支持长按选中效果，只能选用text内容组件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">text</span> <span class="attr">selectable</span>&gt;</span>1234567890<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>常用属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>selectable（boolean）</td>
+<td>文本是否可选 (已废弃)</td>
+</tr>
+<tr>
+<td>user-select（boolean）</td>
+<td>文本是否可选，该属性会使文本节点显示为 inline-block</td>
+</tr>
+</tbody></table>
+<h4 id="富文本组件-rich-text"><a href="#富文本组件-rich-text" class="headerlink" title="富文本组件 rich-text"></a>富文本组件 rich-text</h4><ul>
+<li>def 用于展现富文本</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rich-text</span> <span class="attr">nodes</span>=<span class="string">&quot;&lt;h1 style=&#x27;color:red;&#x27;&gt;标题&lt;/h1&gt;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">rich-text</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>常用属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nodes</td>
+<td>节点列表/h5 String</td>
+</tr>
+</tbody></table>
+<h3 id="表单组件"><a href="#表单组件" class="headerlink" title="表单组件"></a>表单组件</h3><h4 id="按钮组件-button"><a href="#按钮组件-button" class="headerlink" title="按钮组件 button"></a>按钮组件 button</h4><ul>
+<li>def 响应鼠标事件以提交表单</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/button/button.wxml--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 通过type属性指定按钮的颜色类型 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">class</span>=<span class="string">&quot;primary-button&quot;</span>&gt;</span>主色调按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;default&quot;</span> <span class="attr">class</span>=<span class="string">&quot;default-button&quot;</span>&gt;</span>默认按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;warn&quot;</span> <span class="attr">class</span>=<span class="string">&quot;warn-button&quot;</span>&gt;</span>警告按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 通过size指定按钮的大小 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">size</span>=<span class="string">&quot;mini&quot;</span>&gt;</span>小尺寸按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 通过plain指定镂空按钮 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">plain</span>&gt;</span>镂空按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>常用属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>size</td>
+<td>按钮大小</td>
+</tr>
+<tr>
+<td>type</td>
+<td>按钮样式类型</td>
+</tr>
+<tr>
+<td>plain（boolean）</td>
+<td>按钮是否镂空，背景色透明</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* pages/button/button.wxss */</span></span><br><span class="line"><span class="selector-class">.primary-button</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="媒体组件"><a href="#媒体组件" class="headerlink" title="媒体组件"></a>媒体组件</h3><h4 id="图片组件-image"><a href="#图片组件-image" class="headerlink" title="图片组件 image"></a>图片组件 image</h4><ul>
+<li>def 用于展示图片，支持 JPG、PNG、SVG、WEBP、GIF 等格式</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>常用属性</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>scaleToFill</td>
+<td align="left">缩放模式，不保持纵横比缩放图片，使图片的宽高完全拉伸至填满 image 元素</td>
+</tr>
+<tr>
+<td>aspectFit</td>
+<td align="left">缩放模式，保持纵横比缩放图片，使图片的长边能完全显示出来。也就是说，可以完整地将图片显示出来。</td>
+</tr>
+<tr>
+<td>aspectFill</td>
+<td align="left">缩放模式，保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。</td>
+</tr>
+<tr>
+<td>widthFix</td>
+<td align="left">缩放模式，宽度不变，高度自动变化，保持原图宽高比不变</td>
+</tr>
+<tr>
+<td>heightFix</td>
+<td align="left">缩放模式，高度不变，宽度自动变化，保持原图宽高比不变</td>
+</tr>
+</tbody></table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2022/01/08/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2675,318 +3064,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/11/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20JavaScript%E7%AF%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/11/11/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20JavaScript%E7%AF%87/" itemprop="url">分题型基础补全计划（三）—— JavaScript篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-11T19:51:26+08:00">
-                2021-11-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/JavaWeb/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaWeb</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2021/11/11/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20JavaScript%E7%AF%87/" class="leancloud_visitors" data-flag-title="分题型基础补全计划（三）—— JavaScript篇">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.7k
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  7
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h3><p>​    作为一门一切皆为对象的语言，首先需要搞明白指针this的指向问题。以下为常见的两种指向情况：</p>
-<h5 id="作为构造函数调用"><a href="#作为构造函数调用" class="headerlink" title="作为构造函数调用"></a><strong>作为构造函数调用</strong></h5><p>题型1</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">&quot;123&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> foo = <span class="string">&quot;456&quot;</span>;</span><br><span class="line">  <span class="built_in">this</span>.foo = <span class="string">&quot;789&quot;</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(foo);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print();</span><br></pre></td></tr></table></figure>
-
-<p><em>我的答案:</em> 456</p>
-<ul>
-<li>通过print()函数，可以生成一个新对象。这时，<code>this</code>就指这个新对象，this.foo就作为这个新对象的成员</li>
-</ul>
-<h5 id="纯粹的函数调用"><a href="#纯粹的函数调用" class="headerlink" title="纯粹的函数调用"></a><strong>纯粹的函数调用</strong></h5><p>题型2</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  a = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  alert(a);</span><br><span class="line">  alert(<span class="built_in">this</span>.a);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> a;</span><br><span class="line">  alert(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><em>我的答案:</em> 弹出0,5,0</p>
-<ul>
-<li>全局性调用，因此<code>this</code>就代表全局对象，this.a则调用全局变量a，故弹出结果为5</li>
-</ul>
-<p>其余详见：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html">Javascript 的 this 用法 - 阮一峰的网络日志 (ruanyifeng.com)</a>，讲的很透彻</p>
-<h3 id="鼠标事件与键盘事件"><a href="#鼠标事件与键盘事件" class="headerlink" title="鼠标事件与键盘事件"></a>鼠标事件与键盘事件</h3><p>题型：下列事件哪个不是由鼠标触发的事件（）</p>
-<p>A click</p>
-<p>B contextmenu</p>
-<p>C mouseout</p>
-<p>D keydown</p>
-<p><em>我的答案:</em> D</p>
-<h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.鼠标点击左键触发</span></span><br><span class="line">onclick</span><br><span class="line"><span class="comment">//2.鼠标经过触发</span></span><br><span class="line">onmouseover</span><br><span class="line"><span class="comment">//3.鼠标离开触发</span></span><br><span class="line">onmouseout</span><br><span class="line"><span class="comment">//4.获得鼠标焦点触发</span></span><br><span class="line">onfocus</span><br><span class="line"><span class="comment">//5.失去鼠标触发</span></span><br><span class="line">onblur</span><br><span class="line"><span class="comment">//6.鼠标移动触发</span></span><br><span class="line">onmousemove</span><br><span class="line"><span class="comment">//7.鼠标弹起触发</span></span><br><span class="line">onmouseup</span><br><span class="line"><span class="comment">//8.鼠标按下触发</span></span><br><span class="line">onmousedown</span><br><span class="line"><span class="comment">//9.鼠标经过时触发,但是不会冒泡</span></span><br><span class="line">onmouseenter</span><br><span class="line"><span class="comment">//10.鼠标离开时触发,但是不会冒泡</span></span><br><span class="line">onmouseleave</span><br></pre></td></tr></table></figure>
-
-<h5 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.返回鼠标相对于浏览器窗口可视区的X坐标</span></span><br><span class="line">e.clientX</span><br><span class="line"><span class="comment">//2.返回鼠标相对于浏览器窗口可视区的Y坐标</span></span><br><span class="line">e.clientY</span><br><span class="line"><span class="comment">//3.返回鼠标相对于文档页面的X坐标</span></span><br><span class="line">e.pageX</span><br><span class="line"><span class="comment">//4.返回鼠标相对于文档页面的Y坐标</span></span><br><span class="line">e.pageY</span><br><span class="line"><span class="comment">//5.返回鼠标相对于屏幕的X坐标</span></span><br><span class="line">e.screenX</span><br><span class="line"><span class="comment">//6.返回鼠标相对于屏幕的Y坐标</span></span><br><span class="line">e.screenY</span><br></pre></td></tr></table></figure>
-
-<h5 id="禁用鼠标事件"><a href="#禁用鼠标事件" class="headerlink" title="*禁用鼠标事件"></a>*禁用鼠标事件</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//禁止鼠标右键菜单</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&#x27;contextmenu&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//禁止鼠标选中</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&#x27;selectstart&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.某个键盘按键被松开时触发</span></span><br><span class="line">onkeyup</span><br><span class="line"><span class="comment">//2.某个键盘按键被按下时触发</span></span><br><span class="line">onkeydown</span><br><span class="line"><span class="comment">//3.某个键盘被按下时触发,不识别功能键如ctrl、shift etc.</span></span><br><span class="line">onkeypress</span><br></pre></td></tr></table></figure>
-
-<p>注：<code>onkeypress</code>区分大小写，<code>onkeydown</code> 和<code>onkeyup</code> 不区分</p>
-<h3 id="作用域问题"><a href="#作用域问题" class="headerlink" title="作用域问题"></a>作用域问题</h3><p>题型：</p>
-<p><code>&lt;ul&gt; </code></p>
-<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
-<p><code>&lt;li&gt;click me&lt;/li&gt;</code> </p>
-<p><code>&lt;li&gt;click me&lt;/li&gt; </code></p>
-<p><code>&lt;li&gt;click me&lt;/li&gt; </code></p>
-<p><code>&lt;/ul&gt;</code></p>
-<p> 运行如下代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;li&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> length = elements.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">  elements[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(i);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>依次点击 4 个 li 标签，哪一个选项是正确的运行结果（） </p>
-<p>A 依次弹出 1， 2， 3， 4</p>
-<p>B 依次弹出 0， 1， 2， 3</p>
-<p>C 依次弹出 3， 3， 3， 3</p>
-<p>D 依次弹出 4， 4， 4， 4</p>
-<p><em>我的答案:</em> D</p>
-<ul>
-<li>在《JavaScript高级程序设计》有如下解释<ul>
-<li>这是由于作用域链的这种配置机制引出的一个副作用，即闭包只能取得包含函数中任何变量的最后一个值。<strong>闭包所保存的是整个变量对象</strong>，而不是某个特殊的变量。</li>
-</ul>
-</li>
-<li>回归具体问题，这里alert(i)中绑定的i实际上不是i的值，而是i本身。当循环结束后，因此执行onclick事件、执行alert()时，本身onclick绑定的function的作用域中没有变量i，i为w未定义的(undefined)，则解析引擎会寻找父级作用域，发现父级作用域中有i，则取得的i对应值始终为4。</li>
-</ul>
-<h5 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、利用块级域</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;                </span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//2、利用自执行函数传参</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"> (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(i);</span><br><span class="line"> &#125;, <span class="number">1000</span>);</span><br><span class="line"> &#125;)(i);        </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3、利用设置延时的第三个参数传递</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(j);</span><br><span class="line"> &#125;, <span class="number">1000</span>, i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//4、利用promise</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">var</span> j = i;</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(j)</span><br><span class="line"> &#125;, <span class="number">1000</span>);</span><br><span class="line"> &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//5、利用async函数</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"> <span class="keyword">let</span> result = <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     resolve(i);</span><br><span class="line">         &#125;, <span class="number">1000</span>); <span class="comment">// 每隔1s打印数字 0 - 9</span></span><br><span class="line"> &#125;);</span><br><span class="line"> <span class="built_in">console</span>.log(result);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="js中的原始类型"><a href="#js中的原始类型" class="headerlink" title="js中的原始类型"></a>js中的原始类型</h3><p>题型：关于javascript的原始类型（primitive type），错误的是 </p>
-<p>A 有5种primitive type，分别是Undefined、Null、Boolean、Number 和 String。</p>
-<p>B var sTemp = “test string”;alert (typeof sTemp);结果为string</p>
-<p>C var oTemp;alert(oTemp == undefined)为true</p>
-<p>D alert(null == undefined);结果为false</p>
-<p><em>我的答案:</em> D</p>
-<h5 id="六大原始类型"><a href="#六大原始类型" class="headerlink" title="六大原始类型"></a>六大原始类型</h5><ul>
-<li>数字类型 number</li>
-<li>字符串类型 string</li>
-<li>布尔类型 boolean</li>
-<li>空值 null</li>
-<li>未定义 undefined</li>
-<li>独一无二类型(ES6新增) symbol：引入以防止属性名的冲突</li>
-</ul>
-<p>注：其他类型均为引用类型（Object）</p>
-<h3 id="最大值的求法"><a href="#最大值的求法" class="headerlink" title="最大值的求法"></a>最大值的求法</h3><p>题型：下面求a中最大值正确的是()</p>
-<p>A Math.max(a)</p>
-<p>B Array.max(a)</p>
-<p>C Math.max.call(null,a)</p>
-<p>D Math.max.apply(null,a)</p>
-<p><em>我的答案:</em> D</p>
-<h5 id="Math-max"><a href="#Math-max" class="headerlink" title="Math.max"></a>Math.max</h5><pre><code> 返回一组数中的最大值
-</code></pre>
-<h5 id="Math-max-apply"><a href="#Math-max-apply" class="headerlink" title="Math.max.apply"></a>Math.max.apply</h5><p>​    返回一个对象（如：数组）中的最大值</p>
-<h3 id="标准事件模型-IE9"><a href="#标准事件模型-IE9" class="headerlink" title="*标准事件模型 IE9+"></a>*标准事件模型 IE9+</h3><p>题型：w3c 制定的 javascript 标准事件模型，以下正确的顺序以及描述是？ </p>
-<p>A 事件捕获&gt;事件冒泡</p>
-<p>B 事件捕获-&gt;事件处理-&gt;事件冒泡</p>
-<p>C 事件冒泡-&gt;事件处理</p>
-<p>D 事件处理-&gt;事件捕获-&gt;事件冒泡</p>
-<p><em>我的答案:</em> B</p>
-<h3 id="异步执行调用"><a href="#异步执行调用" class="headerlink" title="异步执行调用"></a>异步执行调用</h3><p>题型：以下语句的执行结果是什么？</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;one&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;two&quot;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;three&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;four&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p><em>我的答案:</em> “one” “three” “four” “two”</p>
-<ul>
-<li>这是由于setTimeout()方法是异步执行的。当调用该方法时，会把函数参数与函数体中的内容放入消息队列，直到当前主程序执行完成后，再予以调用</li>
-</ul>
-<h3 id="浮点数运算问题"><a href="#浮点数运算问题" class="headerlink" title="浮点数运算问题"></a>浮点数运算问题</h3><p>题型：写一个求和的函数 sum，达到下面的效果</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Should equal 15</span></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 0</span></span><br><span class="line">sum(<span class="number">5</span>, <span class="literal">null</span>, -<span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 10</span></span><br><span class="line">sum(<span class="string">&#x27;1.0&#x27;</span>, <span class="literal">false</span>, <span class="number">1</span>, <span class="literal">true</span>, <span class="number">1</span>, <span class="string">&#x27;A&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;B&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;C&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;D&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;E&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;F&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;G&#x27;</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// Should equal 0.3, not 0.30000000000000004</span></span><br><span class="line">sum(<span class="number">0.1</span>, <span class="number">0.2</span>);</span><br></pre></td></tr></table></figure>
-
-<p>我的答案：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> add = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(<span class="keyword">typeof</span> <span class="built_in">arguments</span>[i] == <span class="string">&quot;boolean&quot;</span>)) &#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!<span class="built_in">isNaN</span>(<span class="built_in">arguments</span>[i])) &#123;</span><br><span class="line"></span><br><span class="line">        add += <span class="built_in">Number</span>(<span class="built_in">arguments</span>[i]);</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  alert(<span class="built_in">Math</span>.round(add * <span class="number">10</span>) / <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>为什么1+2≠3？因为js采用的是IEEE754标准处理浮点数，视作双精度数，结果为结果是0.30000000000000004（计组内容）</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3039,7 +3116,7 @@
             
               <div class="site-state-item site-state-posts">
                 <a href="/archives">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

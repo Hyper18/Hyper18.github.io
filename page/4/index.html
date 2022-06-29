@@ -300,6 +300,254 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/09/04/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%881%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/04/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%881%EF%BC%89/" itemprop="url">LeetCode题解——简单题篇（1）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-04T16:40:35+08:00">
+                2021-09-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index">
+                    <span itemprop="name">题解</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/LeetCode/%E9%A2%98%E5%BA%93/" itemprop="url" rel="index">
+                    <span itemprop="name">题库</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/LeetCode/%E9%A2%98%E5%BA%93/%E7%AE%80%E5%8D%95%E9%A2%98/" itemprop="url" rel="index">
+                    <span itemprop="name">简单题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/09/04/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%881%EF%BC%89/" class="leancloud_visitors" data-flag-title="LeetCode题解——简单题篇（1）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>°C</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  581
+                </span>
+                <span>字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+                <span>分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum/">1. 两数之和</a></h2><ul>
+<li>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。<ul>
+<li>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</li>
+<li>你可以按任意顺序返回答案。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>1.嵌套循环暴力求解，算法复杂度为O(n^2)<br>2.使用Hashmap，算法复杂度为O(n)</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
+<li>解法一</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> num1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            num1 = nums[i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; nums.length; j++)&#123;</span><br><span class="line">                num2 = nums[j];</span><br><span class="line">                <span class="keyword">if</span>(num1+ num2 == target)&#123;</span><br><span class="line">                    result[<span class="number">0</span>] = i;</span><br><span class="line">                    result[<span class="number">1</span>] = j;</span><br><span class="line">                &#125;     </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解法二</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = target - nums[i];</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(temp))&#123;</span><br><span class="line">                res[<span class="number">0</span>] = map.get(temp);</span><br><span class="line">                res[<span class="number">1</span>] = i;</span><br><span class="line">            &#125; <span class="keyword">else</span></span><br><span class="line">                map.put(nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>作者：hyperspace<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum/solution/1liang-shu-zhi-he-by-hyperspace-fszg/">https://leetcode-cn.com/problems/two-sum/solution/1liang-shu-zhi-he-by-hyperspace-fszg/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h2 id="7-整数反转"><a href="#7-整数反转" class="headerlink" title="7. 整数反转"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-integer/">7. 整数反转</a></h2><ul>
+<li>给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。<ul>
+<li>如果反转后整数超过 32 位的有符号整数的范围 [−231,  231 − 1] ，就返回 0。</li>
+<li>假设环境不允许存储 64 位整数（有符号或无符号）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><p>主要难点在于数据类型范围，考虑先处理正负，再在同个循环内部同时完成取当前位值和累加反转值操作，最后处理结果</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span>)&#123;</span><br><span class="line">            flag = <span class="keyword">true</span>;</span><br><span class="line">            x = -x;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; (Integer.MAX_VALUE - x % <span class="number">10</span>) / <span class="number">10</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            sum = sum * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> flag ? -sum : sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>作者：hyperspace<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/">https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E7%94%A8%E7%B1%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3069,338 +3317,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/" itemprop="url">数据库操作（二）—— 进阶篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-02T20:39:28+08:00">
-                2020-08-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/" class="leancloud_visitors" data-flag-title="数据库操作（二）—— 进阶篇">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.1k
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="进阶操作-第9-13章"><a href="#进阶操作-第9-13章" class="headerlink" title="进阶操作 第9-13章"></a>进阶操作 第9-13章</h2><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ul>
-<li>作用：匹配文本</li>
-<li>基本字符匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值’ ORDER BY 子句名<ul>
-<li> .特殊字符表匹配任意一个字符，如‘.000’可匹配1000和2000，etc</li>
-<li> 与LIKE匹配的区别：出现的匹配文本，其相应行将被REGEXP返回</li>
-<li> 默认匹配不区分大小写，使用BINARY可区分大小写</li>
-</ul>
-</li>
-<li>OR匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值1 | 值2’ ORDER BY 子句名<ul>
-<li>匹配一组特定字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1值2值3]’ ORDER BY 子句名</li>
-</ul>
-</li>
-<li>匹配范围：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1-值2]’ ORDER BY 子句名</li>
-<li>匹配特殊字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘\\.’ ORDER BY 子句名<ul>
-<li>引用元字符：\\f换页 \\n \\r回车 \\t \\v 横、纵向制表</li>
-<li>匹配反斜杠：\\\<ul>
-<li>解释：第一个反斜杠由Mysql解释，第二个才是正则表达式解释</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>匹配字符类 character class（P58）</li>
-<li>匹配多个实例：如结尾s可选用?</li>
-<li>匹配特定位置文本：定位符<ul>
-<li>^文本开始 $文本结尾 :&lt;:词的开始  :&gt;:词的结尾<ul>
-<li>注意^的另一种用法是集合中作[]取和</li>
-<li>可以配套使用^$，使用法同LIKE</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>正则表达式的测试：使用SELECT，返回1匹配，反之不匹配<ul>
-<li>优点：无需调用数据库表</li>
-</ul>
-</li>
-</ul>
-<h3 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h3><p>1、字段 field：意义同列，用于计算字段的连接</p>
-<p>2、拼接 concatenate：联结值成为一个单个值</p>
-<ul>
-<li>实际操作：在SELECT中使用Concat()函数<ul>
-<li>SELECT Concat(值1，值2) FROM 表名 ORDER BY 子句名</li>
-<li>或使用RTrim() / LTrim()函数，可删除数据右侧 / 左侧多余空格来整理数据</li>
-</ul>
-</li>
-</ul>
-<p>3、别名 alias / 导出列 derived column：字段或值的替换名</p>
-<ul>
-<li>SELECT Concat(值1，值2) AS 别名 FROM 表名 ORDER BY 子句名</li>
-</ul>
-<p>4、基本计算：四则运算符</p>
-<ul>
-<li>测试计算：省略FROM子句</li>
-</ul>
-<h3 id="数据处理函数"><a href="#数据处理函数" class="headerlink" title="数据处理函数"></a>数据处理函数</h3><p>1、可移植性：多数函数不同SQL存在差异，做好注释</p>
-<p>2、文本处理（P69）</p>
-<ul>
-<li>Left / Right()：返回左 / 右侧字符</li>
-<li>Length()：返回串长</li>
-<li>Locate()：找出某子串</li>
-<li>SubString()：返回子串字符</li>
-<li>Lower/Upper()：返回小 / 大写</li>
-<li>LTrim/Rtrim()：去掉左 / 右侧空格</li>
-<li>Soundex()：将任何文本串转换为描述其语音表示的字母数字模式<ul>
-<li>对串进行发音比较（输入纠正，匹配输入项读音接近字串）</li>
-</ul>
-</li>
-</ul>
-<p>3、时间和日期处理（P71）</p>
-<ul>
-<li>Date()：返回日期</li>
-<li>Time()：返回时间</li>
-</ul>
-<p>4、数值处理（P74）</p>
-<ul>
-<li>Abs()：返回绝对值</li>
-<li>Sin() / Cos() / Tan()</li>
-<li>Exp() / Sqrt()</li>
-<li>Mod()</li>
-<li>Pi()：返回圆周率</li>
-<li>Rand()：返回一个随机数</li>
-</ul>
-<h3 id="汇总数据"><a href="#汇总数据" class="headerlink" title="汇总数据"></a>汇总数据</h3><p>1、聚集函数 aggregate function</p>
-<ul>
-<li>def：行组上计算和返回单个值的函数</li>
-<li>AVG()：SELECT AVG(列名) FROM 表名<ul>
-<li>仅用于确定特定数列，且列名必须以函数参数给出</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>COUNT()：SELECT COUNT(*) AS 别名 FROM 表名，统计行个数<ul>
-<li>COUNT(*) 统计NULL和非空值</li>
-<li>COUNT（列名）统计特定值，忽略值为NULL的行</li>
-</ul>
-</li>
-<li>MAX()：SELECT MAX(列名)  AS 别名 FROM 表名<ul>
-<li>可作返回任意列的最大值，按列排序的文本数据返回尾行</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>MIN()：SELECT MIN(列名)  AS 别名 FROM 表名<ul>
-<li>可作返回任意列的最小值，按列排序的文本数据返回首行</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>SUM()：SELECT SUM(列名)  AS 别名 FROM 表名<ul>
-<li>Sum(列名)返回各行该列数据之和</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>指定聚集范围ALL / DISTINCT</li>
-<li>组合聚集函数：SELECT COUNT(*) AS 别名， MIN(列名)  AS 别名，MAX(列名)  AS 别名，……，FROM 表名</li>
-</ul>
-<h3 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h3><p>1、创建分组：SELECT COUNT(*) AS 别名 FROM 表名 GROUP BY 列名</p>
-<ul>
-<li>对每个组的结果分别进行聚集，所有列结果一同计算<ul>
-<li>可包含任意数目的列</li>
-<li>每列可为检索列或有效表达式，不能为聚集函数</li>
-<li>SELECT使用表达式 - GROUP BY 必须使用相同表达式，不能使用别名</li>
-</ul>
-</li>
-<li>WITH ROLLUP：得到每个分组及其汇总级别的值<ul>
-<li>SELECT 列名，COUNT(*) AS 别名 FROM 表名 GROUP BY 列名 WITH ROLLUP</li>
-</ul>
-</li>
-</ul>
-<p>2、过滤分组：HAVING（WHERE仅可过滤行）</p>
-<ul>
-<li>适用所有WHERE句法</li>
-<li>在数据分组后进行<ul>
-<li>WHERE在数据过滤前进行，因此分组中不包含WHERE排除的行</li>
-</ul>
-</li>
-</ul>
-<p>3、分组和排序</p>
-<p>保证数据正确排序：GROUP BY + ORDER BY</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3453,7 +3369,7 @@
             
               <div class="site-state-item site-state-posts">
                 <a href="/archives">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
