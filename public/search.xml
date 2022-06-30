@@ -143,76 +143,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java面向对象（三）—— 操作符</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%93%8D%E4%BD%9C%E7%AC%A6/</url>
-    <content><![CDATA[<h2 id="第三章-操作符"><a href="#第三章-操作符" class="headerlink" title="第三章 操作符"></a>第三章 操作符</h2><p>1、别名现象</p>
-<p>赋值操作是对一个对象的引用，对象与对象相互赋值则丢失信息</p>
-<p>2、生成数字：Random类</p>
-<ul>
-<li>nextInt / nextFloat …</li>
-</ul>
-<p>3、可使用一元加减号</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下操作均合法</span></span><br><span class="line">x = -a;</span><br><span class="line">x = a * -b;</span><br><span class="line">s = a * (-b);</span><br></pre></td></tr></table></figure>
-<p>4、关系操作符</p>
-<ul>
-<li>若为基本类型，直接比较</li>
-<li>不为基本类型，使用所有对象都适用的特殊方法equals()<ul>
-<li>默认执行比较引用，不可用于自己的新类</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">n1.equals(n2)</span><br><span class="line"><span class="comment">// 以下返回行为不正确</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myclass</span></span>{</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">wrongdoing</span></span>{</span><br><span class="line">    myclass v1 = <span class="keyword">new</span> v1;</span><br><span class="line">    myclass v2 = <span class="keyword">new</span> v2;</span><br><span class="line">    System.out.println(v1.equals(v2));</span><br><span class="line">}</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>三元操作符</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// condition ? ex1 : ex2;</span></span><br><span class="line">x &lt; y ? x : y;</span><br></pre></td></tr></table></figure>
-<p>5、逻辑运算符</p>
-<p>与或非仅可用于布尔值</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 错误实例</span></span><br><span class="line">printf(<span class="string">"i &amp;&amp; j is"</span> + (i &amp;&amp; j));</span><br><span class="line">printf(<span class="string">"i &amp;&amp; j is"</span> + (i || j));</span><br><span class="line">printf(<span class="string">"i &amp;&amp; j is"</span> + !i);</span><br></pre></td></tr></table></figure>
-<p>6、直接常量</p>
-<ul>
-<li>后缀L / F /D …</li>
-<li>前缀0x / 0 / 0b</li>
-<li>可为数字字面量添加下划线，更可读（e.g. 1_000_000)</li>
-<li>指数<ul>
-<li>注：结果不为一个数，返回NaN（e.g. 0/0）</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">expfloat = <span class="number">1.39E-43f</span>；</span><br></pre></td></tr></table></figure>
-<p>7、按位操作符</p>
-<p>&amp;= |= ^= 均合法</p>
-<p>8、移位操作符 &gt;&gt; &lt;&lt;</p>
-<ul>
-<li>无符号右移：&gt;&gt;&gt;，无论正负均在高位插入0<ul>
-<li>对byte / short：会先转为int，右移、截断、赋值，可能得到-1结果</li>
-<li>推广：只要类型比int小均会被转换，可根据需求使用cast手动类型转换 / 提升</li>
-</ul>
-</li>
-<li>与等号组合：&gt;&gt;= &lt;&lt;=，移动等号左边指定的位数</li>
-</ul>
-<p>9、移植：无需考虑，不同机器均相同</p>
-<ul>
-<li>因而无sizeof操作符</li>
-</ul>
-<p>注：溢出结果不会收到警告或出错</p>
-<p>10、浮点数四舍五入</p>
-<ul>
-<li>得到最接近整数：使用Max.round() 方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">9.997</span></span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) Math.round(x);</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>面向对象</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java面向对象（二）—— 一切都是对象</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E4%B8%80%E5%88%87%E9%83%BD%E6%98%AF%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h2 id="第二章-一切都是对象"><a href="#第二章-一切都是对象" class="headerlink" title="第二章 一切都是对象"></a>第二章 一切都是对象</h2><p>1、引用 ref：操纵对象</p>
@@ -302,6 +232,76 @@
 </ul>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>面向对象</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java面向对象（三）—— 操作符</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%93%8D%E4%BD%9C%E7%AC%A6/</url>
+    <content><![CDATA[<h2 id="第三章-操作符"><a href="#第三章-操作符" class="headerlink" title="第三章 操作符"></a>第三章 操作符</h2><p>1、别名现象</p>
+<p>赋值操作是对一个对象的引用，对象与对象相互赋值则丢失信息</p>
+<p>2、生成数字：Random类</p>
+<ul>
+<li>nextInt / nextFloat …</li>
+</ul>
+<p>3、可使用一元加减号</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下操作均合法</span></span><br><span class="line">x = -a;</span><br><span class="line">x = a * -b;</span><br><span class="line">s = a * (-b);</span><br></pre></td></tr></table></figure>
+<p>4、关系操作符</p>
+<ul>
+<li>若为基本类型，直接比较</li>
+<li>不为基本类型，使用所有对象都适用的特殊方法equals()<ul>
+<li>默认执行比较引用，不可用于自己的新类</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">n1.equals(n2)</span><br><span class="line"><span class="comment">// 以下返回行为不正确</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myclass</span></span>{</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">wrongdoing</span></span>{</span><br><span class="line">    myclass v1 = <span class="keyword">new</span> v1;</span><br><span class="line">    myclass v2 = <span class="keyword">new</span> v2;</span><br><span class="line">    System.out.println(v1.equals(v2));</span><br><span class="line">}</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>三元操作符</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// condition ? ex1 : ex2;</span></span><br><span class="line">x &lt; y ? x : y;</span><br></pre></td></tr></table></figure>
+<p>5、逻辑运算符</p>
+<p>与或非仅可用于布尔值</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 错误实例</span></span><br><span class="line">printf(<span class="string">"i &amp;&amp; j is"</span> + (i &amp;&amp; j));</span><br><span class="line">printf(<span class="string">"i &amp;&amp; j is"</span> + (i || j));</span><br><span class="line">printf(<span class="string">"i &amp;&amp; j is"</span> + !i);</span><br></pre></td></tr></table></figure>
+<p>6、直接常量</p>
+<ul>
+<li>后缀L / F /D …</li>
+<li>前缀0x / 0 / 0b</li>
+<li>可为数字字面量添加下划线，更可读（e.g. 1_000_000)</li>
+<li>指数<ul>
+<li>注：结果不为一个数，返回NaN（e.g. 0/0）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">expfloat = <span class="number">1.39E-43f</span>；</span><br></pre></td></tr></table></figure>
+<p>7、按位操作符</p>
+<p>&amp;= |= ^= 均合法</p>
+<p>8、移位操作符 &gt;&gt; &lt;&lt;</p>
+<ul>
+<li>无符号右移：&gt;&gt;&gt;，无论正负均在高位插入0<ul>
+<li>对byte / short：会先转为int，右移、截断、赋值，可能得到-1结果</li>
+<li>推广：只要类型比int小均会被转换，可根据需求使用cast手动类型转换 / 提升</li>
+</ul>
+</li>
+<li>与等号组合：&gt;&gt;= &lt;&lt;=，移动等号左边指定的位数</li>
+</ul>
+<p>9、移植：无需考虑，不同机器均相同</p>
+<ul>
+<li>因而无sizeof操作符</li>
+</ul>
+<p>注：溢出结果不会收到警告或出错</p>
+<p>10、浮点数四舍五入</p>
+<ul>
+<li>得到最接近整数：使用Max.round() 方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">9.997</span></span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) Math.round(x);</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -503,6 +503,45 @@
       </tags>
   </entry>
   <entry>
+    <title>LeetCode题解——简单题篇（2）</title>
+    <url>/2021/09/08/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%882%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="9-回文数"><a href="#9-回文数" class="headerlink" title="9. 回文数"></a><a href="https://leetcode-cn.com/problems/palindrome-number/">9. 回文数</a></h2><ul>
+<li>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<ul>
+<li>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>借鉴第七题<a href="https://leetcode-cn.com/problems/reverse-integer/">7. 整数反转</a>思想，取反后比较两数是否相同</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> temp = x;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(temp &gt; <span class="number">0</span>) {</span><br><span class="line">            sum = sum * <span class="number">10</span> + temp % <span class="number">10</span>;</span><br><span class="line">            temp /= <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> sum == x ? <span class="keyword">true</span> : <span class="keyword">false</span>; </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/palindrome-number/solution/9tong-wen-shu-by-hyperspace-gnuo/">https://leetcode-cn.com/problems/palindrome-number/solution/9tong-wen-shu-by-hyperspace-gnuo/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h2 id="13-罗马数字转整数"><a href="#13-罗马数字转整数" class="headerlink" title="13. 罗马数字转整数"></a><a href="https://leetcode-cn.com/problems/roman-to-integer/">13. 罗马数字转整数</a></h2><ul>
+<li>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。<ul>
+<li>I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。</li>
+<li>X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 </li>
+<li>C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><ul>
+<li>一开始想法很复杂，考虑前后位置上的减法</li>
+<li>后来借鉴思路是抓核心问题，对于第一个字符对应的数值，依次向后找，遇到比它还大的则减去，否则累加和。最后再处理最后一位上的加和，得到结果。</li>
+<li>值得多斟酌，单个for循环，算法复杂度为O(n)</li>
+</ul>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num_former = transform(s.charAt(<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; s.length(); i++) {</span><br><span class="line">            <span class="keyword">int</span> num_latter = transform(s.charAt(i));</span><br><span class="line">            <span class="keyword">if</span>(num_former &lt; num_latter)</span><br><span class="line">                sum -= num_former;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                sum += num_former;</span><br><span class="line">            num_former = num_latter;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> sum+num_former;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">transform</span><span class="params">(<span class="keyword">char</span> c)</span> </span>{</span><br><span class="line">        <span class="keyword">switch</span>(c){</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'I'</span>: <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'V'</span>: <span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'X'</span>: <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'L'</span>: <span class="keyword">return</span> <span class="number">50</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'C'</span>: <span class="keyword">return</span> <span class="number">100</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'D'</span>: <span class="keyword">return</span> <span class="number">500</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'M'</span>: <span class="keyword">return</span> <span class="number">1000</span>;</span><br><span class="line">            <span class="keyword">default</span>: <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/roman-to-integer/solution/13luo-ma-shu-zi-zhuan-zheng-shu-by-hyper-9kae/">https://leetcode-cn.com/problems/roman-to-integer/solution/13luo-ma-shu-zi-zhuan-zheng-shu-by-hyper-9kae/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+]]></content>
+      <categories>
+        <category>题解</category>
+        <category>LeetCode</category>
+        <category>题库</category>
+        <category>简单题</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode题解——简单题篇（1）</title>
     <url>/2021/09/04/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%881%EF%BC%89/</url>
     <content><![CDATA[<h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a><a href="https://leetcode-cn.com/problems/two-sum/">1. 两数之和</a></h2><ul>
@@ -532,45 +571,6 @@
 <h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><p>主要难点在于数据类型范围，考虑先处理正负，再在同个循环内部同时完成取当前位值和累加反转值操作，最后处理结果</p>
 <h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span>){</span><br><span class="line">            flag = <span class="keyword">true</span>;</span><br><span class="line">            x = -x;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x &gt; <span class="number">0</span>) {</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; (Integer.MAX_VALUE - x % <span class="number">10</span>) / <span class="number">10</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            sum = sum * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> flag ? -sum : sum;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/">https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-]]></content>
-      <categories>
-        <category>题解</category>
-        <category>LeetCode</category>
-        <category>题库</category>
-        <category>简单题</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode题解——简单题篇（2）</title>
-    <url>/2021/09/08/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%882%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="9-回文数"><a href="#9-回文数" class="headerlink" title="9. 回文数"></a><a href="https://leetcode-cn.com/problems/palindrome-number/">9. 回文数</a></h2><ul>
-<li>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<ul>
-<li>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。</li>
-</ul>
-</li>
-</ul>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>借鉴第七题<a href="https://leetcode-cn.com/problems/reverse-integer/">7. 整数反转</a>思想，取反后比较两数是否相同</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> temp = x;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(temp &gt; <span class="number">0</span>) {</span><br><span class="line">            sum = sum * <span class="number">10</span> + temp % <span class="number">10</span>;</span><br><span class="line">            temp /= <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> sum == x ? <span class="keyword">true</span> : <span class="keyword">false</span>; </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/palindrome-number/solution/9tong-wen-shu-by-hyperspace-gnuo/">https://leetcode-cn.com/problems/palindrome-number/solution/9tong-wen-shu-by-hyperspace-gnuo/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h2 id="13-罗马数字转整数"><a href="#13-罗马数字转整数" class="headerlink" title="13. 罗马数字转整数"></a><a href="https://leetcode-cn.com/problems/roman-to-integer/">13. 罗马数字转整数</a></h2><ul>
-<li>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。<ul>
-<li>I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。</li>
-<li>X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 </li>
-<li>C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。</li>
-</ul>
-</li>
-</ul>
-<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><ul>
-<li>一开始想法很复杂，考虑前后位置上的减法</li>
-<li>后来借鉴思路是抓核心问题，对于第一个字符对应的数值，依次向后找，遇到比它还大的则减去，否则累加和。最后再处理最后一位上的加和，得到结果。</li>
-<li>值得多斟酌，单个for循环，算法复杂度为O(n)</li>
-</ul>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num_former = transform(s.charAt(<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; s.length(); i++) {</span><br><span class="line">            <span class="keyword">int</span> num_latter = transform(s.charAt(i));</span><br><span class="line">            <span class="keyword">if</span>(num_former &lt; num_latter)</span><br><span class="line">                sum -= num_former;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                sum += num_former;</span><br><span class="line">            num_former = num_latter;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> sum+num_former;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">transform</span><span class="params">(<span class="keyword">char</span> c)</span> </span>{</span><br><span class="line">        <span class="keyword">switch</span>(c){</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'I'</span>: <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'V'</span>: <span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'X'</span>: <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'L'</span>: <span class="keyword">return</span> <span class="number">50</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'C'</span>: <span class="keyword">return</span> <span class="number">100</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'D'</span>: <span class="keyword">return</span> <span class="number">500</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'M'</span>: <span class="keyword">return</span> <span class="number">1000</span>;</span><br><span class="line">            <span class="keyword">default</span>: <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/roman-to-integer/solution/13luo-ma-shu-zi-zhuan-zheng-shu-by-hyper-9kae/">https://leetcode-cn.com/problems/roman-to-integer/solution/13luo-ma-shu-zi-zhuan-zheng-shu-by-hyper-9kae/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 ]]></content>
       <categories>
         <category>题解</category>
@@ -1027,39 +1027,6 @@
         <tag>Redis</tag>
         <tag>NoSQL</tag>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python文件读取细节一问</title>
-    <url>/2022/01/17/python%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E7%BB%86%E8%8A%82%E4%B8%80%E9%97%AE/</url>
-    <content><![CDATA[<ul>
-<li>字符串前加 u</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text = <span class="string">u'这是一条测试字符串'</span></span><br></pre></td></tr></table></figure>
-<p>u：short for Unicode，指明后续字符串以Unicode编码；一般用在中文字符串前面，以防止中文乱码</p>
-<ul>
-<li>字符串前加 r</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text = <span class="string">r'\t \n'</span></span><br></pre></td></tr></table></figure>
-<p>r：re，对应正则表达式re模块，用于去除<code>\</code>转义机制</p>
-<ul>
-<li>字符串前加 b</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">response = <span class="string">b'&lt;h1&gt;Hello World!&lt;/h1&gt;'</span></span><br></pre></td></tr></table></figure>
-<p>b：bytes，对应字节类型，一般用于web网络编程中</p>
-<ul>
-<li>字符串前加 f</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">'John'</span></span><br><span class="line"><span class="string">f'<span class="subst">{name.lower()}</span> is universal.'</span></span><br></pre></td></tr></table></figure>
-<p>f：f-Strings，f字符串（Python 3.6+起进入标准库中）</p>
-<p>在运行时进行渲染，方便易用</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1528,6 +1495,39 @@
       </tags>
   </entry>
   <entry>
+    <title>python文件读取细节一问</title>
+    <url>/2022/01/17/python%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E7%BB%86%E8%8A%82%E4%B8%80%E9%97%AE/</url>
+    <content><![CDATA[<ul>
+<li>字符串前加 u</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text = <span class="string">u'这是一条测试字符串'</span></span><br></pre></td></tr></table></figure>
+<p>u：short for Unicode，指明后续字符串以Unicode编码；一般用在中文字符串前面，以防止中文乱码</p>
+<ul>
+<li>字符串前加 r</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text = <span class="string">r'\t \n'</span></span><br></pre></td></tr></table></figure>
+<p>r：re，对应正则表达式re模块，用于去除<code>\</code>转义机制</p>
+<ul>
+<li>字符串前加 b</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">response = <span class="string">b'&lt;h1&gt;Hello World!&lt;/h1&gt;'</span></span><br></pre></td></tr></table></figure>
+<p>b：bytes，对应字节类型，一般用于web网络编程中</p>
+<ul>
+<li>字符串前加 f</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">'John'</span></span><br><span class="line"><span class="string">f'<span class="subst">{name.lower()}</span> is universal.'</span></span><br></pre></td></tr></table></figure>
+<p>f：f-Strings，f字符串（Python 3.6+起进入标准库中）</p>
+<p>在运行时进行渲染，方便易用</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>分题型基础补全计划（二）—— CSS篇</title>
     <url>/2021/11/08/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20CSS%E7%AF%87/</url>
     <content><![CDATA[<h3 id="样式表的嵌入"><a href="#样式表的嵌入" class="headerlink" title="样式表的嵌入"></a>样式表的嵌入</h3><p>题型1：在以下的 HTML 中，哪个是正确引用外部样式表的方法？ </p>
@@ -1871,121 +1871,6 @@
       </tags>
   </entry>
   <entry>
-    <title>数据库操作（一）—— 基础篇</title>
-    <url>/2020/07/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
-    <content><![CDATA[<p>基础操作（1~8章）</p>
-<p>1、数据库 database：保存有组织数据的容器</p>
-<p>2、表 table：特定类型数据的结构化清单</p>
-<p>3、行 row / record：表中的一个记录</p>
-<p>4、<strong>主键</strong> primary key：每一行中可以<strong>唯一</strong>标识自己的一列</p>
-<ul>
-<li>前提：任意两行不具有相同值、每行必须具有一个主键值</li>
-<li>习惯：主键值不更新 不重用，不在主键使用可能会更改的值</li>
-</ul>
-<p>5、关键字 key word：作为一个保留字</p>
-<p>键入</p>
-<p>1、书写习惯</p>
-<ul>
-<li><p>命令行用分号 ; 结尾多条语句也需用分号分割</p>
-</li>
-<li><p>对于关键字：使用大小写均可，全用大写并分成多行，易于阅读、调试</p>
-</li>
-<li>在选择多个列时，一定要在列名之间加上逗号吗，<strong>但最后一列不加</strong></li>
-</ul>
-<p>2、使用数据库： USE 数据库名</p>
-<p>显示：SHOW语句</p>
-<ul>
-<li>SHOW DATABASES：显示所有数据库列表</li>
-<li>SHOW TABLES：显示某个库内所有表的列表</li>
-<li>SHOW COLUMNS FROM：表名显示某个库内所有列的列表<ul>
-<li>快速写法：DESCRIBE 表名</li>
-</ul>
-</li>
-<li>SHOW STATUS：显示广泛的服务器信息</li>
-<li>SHOW CREATE DATABASE / TABLE：显示创建的特定数据库或表表示的Mysql语句</li>
-<li>SHOW GRANTS：显示授权用户的安全权限</li>
-<li>SHOW ERRORS / WARNINGS：显示服务器的错误或警告信息</li>
-</ul>
-<p>选择：SELECT语句</p>
-<ul>
-<li>SELECT 列名 FROM 表名：检索，输出的是未排序数据</li>
-<li>SELECT * FROM 表名：检索所有列<ul>
-<li>给定*通配符，则返回表中所有列，而且可检索出未知列；但滥用会降低效能</li>
-</ul>
-</li>
-<li>SELECT DISTINCT 列名：只返回唯一（去重）的行</li>
-<li>SELECT 列名 FROM 表名 LIMIT 行数：检索指定的行数<ul>
-<li>SELECT 列名 FROM 表名 LIMIT 开始行 行数：检索指定从行号为第一个值的位置开始的行数</li>
-<li>替代语法：SELECT 列名 FROM 表名 LIMIT  行数 OFFSET 开始行</li>
-</ul>
-</li>
-<li>SELECT 表名.列名 FROM 表名：完全限定的列名</li>
-</ul>
-<p>排序</p>
-<p>1、子句：一个关键字和所提供的数据组成</p>
-<p>2、ORDER BY语句</p>
-<ul>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名：以字母顺序排序数据的ORDER BY子句</li>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名1 子句名2 ……</li>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名 DESC：降序排列</li>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名1 DESC 子句名2：子句1降序 2升序<ul>
-<li>即：DESC只应用到<strong>直接</strong>位于其前面的列名</li>
-<li>ASC asending：默认的情形就是升序，略</li>
-</ul>
-</li>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名 LIMIT 行数：按升序显示表中数据指定列子句的指定行数</li>
-</ul>
-<p>过滤：</p>
-<p>1、通配符 wildcard：用来匹配值的一部分特殊字符</p>
-<ul>
-<li>Mysql中使用通配符：LIKE操作符指示，LIKE是*谓词（predicate）</li>
-</ul>
-<p>2、搜索模式：由字面值、通配符或两者组合构成的搜索条件</p>
-<p>3、WHERE子句</p>
-<ul>
-<li>SELECT 列名 FROM 表名 WHERE 数据 =（&lt;= / &gt;= / &gt; / &lt;） 该指定值：只返回指定值的行</li>
-<li>同时使用ORDER BY：需要让ORDER BY位于WHERE之后</li>
-<li>不匹配检查：SELECT 列名 FROM 表名 WHERE 数据 &lt;&gt; 值（效果同!=）</li>
-<li>范围值检查：SELECT 列名 FROM 表名 WHERE 数据 BETWEEN 值1 AND 值2</li>
-<li>空值检查：SELECT 列名 FROM 表名 WHERE 数据 IS NULL</li>
-<li>多限定条件：SELECT 列名 FROM 表名 WHERE 数据 = 值1 AND 数据 &lt; 值2 OR 数据 &gt; 值3<ul>
-<li>优先处理AND操作符</li>
-</ul>
-</li>
-<li>范围选取：SELECT 列名 FROM 表名 WHERE 数据 IN （值1，值2）<ul>
-<li>完成与OR相同的功能</li>
-<li>直观易管理</li>
-<li>运行更快</li>
-<li>可包含其他SELECT语句，动态创建WHERE子句</li>
-</ul>
-</li>
-<li>否定：SELECT 列名 FROM 表名 WHERE 数据 <strong>NOT</strong> IN （值1，值2） ORDER BY 子句名<ul>
-<li>常用于IN的复杂句式中取反</li>
-</ul>
-</li>
-<li>通配符操作：SELECT 列名 FROM 表名 WHERE 数据 LIKE ‘_字符串%’<ul>
-<li>%用于表示接受字符串后续的任意字符<ul>
-<li>‘%字符串%’则表示任何位置的匹配</li>
-<li>‘字符串1%字符串2’则表示字符串1开头、字符串2结尾的匹配</li>
-<li>注意当存在空格时， ‘%字符串’不会匹配</li>
-<li>NULL任何情况均不会被匹配</li>
-</ul>
-</li>
-<li>_只匹配单个字符</li>
-<li>通配符的弊端：耗时较长（尤其位于起始处） 使用容易出错</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据库操作（三）—— 核心篇</title>
     <url>/2020/08/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A0%B8%E5%BF%83%E7%AF%87/</url>
     <content><![CDATA[<h2 id="核心操作-第14-21章"><a href="#核心操作-第14-21章" class="headerlink" title="核心操作 第14 - 21章"></a>核心操作 第14 - 21章</h2><h3 id="子查询-subquery"><a href="#子查询-subquery" class="headerlink" title="子查询 subquery"></a>子查询 subquery</h3><p>1、处理顺序：从内向外</p>
@@ -2229,6 +2114,121 @@
 <p>3、删除表：DROP TABLE</p>
 <p>4、重命名表：RENAME TABLE</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">RENAME TABLE table1 TO table2</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库操作（一）—— 基础篇</title>
+    <url>/2020/07/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
+    <content><![CDATA[<p>基础操作（1~8章）</p>
+<p>1、数据库 database：保存有组织数据的容器</p>
+<p>2、表 table：特定类型数据的结构化清单</p>
+<p>3、行 row / record：表中的一个记录</p>
+<p>4、<strong>主键</strong> primary key：每一行中可以<strong>唯一</strong>标识自己的一列</p>
+<ul>
+<li>前提：任意两行不具有相同值、每行必须具有一个主键值</li>
+<li>习惯：主键值不更新 不重用，不在主键使用可能会更改的值</li>
+</ul>
+<p>5、关键字 key word：作为一个保留字</p>
+<p>键入</p>
+<p>1、书写习惯</p>
+<ul>
+<li><p>命令行用分号 ; 结尾多条语句也需用分号分割</p>
+</li>
+<li><p>对于关键字：使用大小写均可，全用大写并分成多行，易于阅读、调试</p>
+</li>
+<li>在选择多个列时，一定要在列名之间加上逗号吗，<strong>但最后一列不加</strong></li>
+</ul>
+<p>2、使用数据库： USE 数据库名</p>
+<p>显示：SHOW语句</p>
+<ul>
+<li>SHOW DATABASES：显示所有数据库列表</li>
+<li>SHOW TABLES：显示某个库内所有表的列表</li>
+<li>SHOW COLUMNS FROM：表名显示某个库内所有列的列表<ul>
+<li>快速写法：DESCRIBE 表名</li>
+</ul>
+</li>
+<li>SHOW STATUS：显示广泛的服务器信息</li>
+<li>SHOW CREATE DATABASE / TABLE：显示创建的特定数据库或表表示的Mysql语句</li>
+<li>SHOW GRANTS：显示授权用户的安全权限</li>
+<li>SHOW ERRORS / WARNINGS：显示服务器的错误或警告信息</li>
+</ul>
+<p>选择：SELECT语句</p>
+<ul>
+<li>SELECT 列名 FROM 表名：检索，输出的是未排序数据</li>
+<li>SELECT * FROM 表名：检索所有列<ul>
+<li>给定*通配符，则返回表中所有列，而且可检索出未知列；但滥用会降低效能</li>
+</ul>
+</li>
+<li>SELECT DISTINCT 列名：只返回唯一（去重）的行</li>
+<li>SELECT 列名 FROM 表名 LIMIT 行数：检索指定的行数<ul>
+<li>SELECT 列名 FROM 表名 LIMIT 开始行 行数：检索指定从行号为第一个值的位置开始的行数</li>
+<li>替代语法：SELECT 列名 FROM 表名 LIMIT  行数 OFFSET 开始行</li>
+</ul>
+</li>
+<li>SELECT 表名.列名 FROM 表名：完全限定的列名</li>
+</ul>
+<p>排序</p>
+<p>1、子句：一个关键字和所提供的数据组成</p>
+<p>2、ORDER BY语句</p>
+<ul>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名：以字母顺序排序数据的ORDER BY子句</li>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名1 子句名2 ……</li>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名 DESC：降序排列</li>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名1 DESC 子句名2：子句1降序 2升序<ul>
+<li>即：DESC只应用到<strong>直接</strong>位于其前面的列名</li>
+<li>ASC asending：默认的情形就是升序，略</li>
+</ul>
+</li>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名 LIMIT 行数：按升序显示表中数据指定列子句的指定行数</li>
+</ul>
+<p>过滤：</p>
+<p>1、通配符 wildcard：用来匹配值的一部分特殊字符</p>
+<ul>
+<li>Mysql中使用通配符：LIKE操作符指示，LIKE是*谓词（predicate）</li>
+</ul>
+<p>2、搜索模式：由字面值、通配符或两者组合构成的搜索条件</p>
+<p>3、WHERE子句</p>
+<ul>
+<li>SELECT 列名 FROM 表名 WHERE 数据 =（&lt;= / &gt;= / &gt; / &lt;） 该指定值：只返回指定值的行</li>
+<li>同时使用ORDER BY：需要让ORDER BY位于WHERE之后</li>
+<li>不匹配检查：SELECT 列名 FROM 表名 WHERE 数据 &lt;&gt; 值（效果同!=）</li>
+<li>范围值检查：SELECT 列名 FROM 表名 WHERE 数据 BETWEEN 值1 AND 值2</li>
+<li>空值检查：SELECT 列名 FROM 表名 WHERE 数据 IS NULL</li>
+<li>多限定条件：SELECT 列名 FROM 表名 WHERE 数据 = 值1 AND 数据 &lt; 值2 OR 数据 &gt; 值3<ul>
+<li>优先处理AND操作符</li>
+</ul>
+</li>
+<li>范围选取：SELECT 列名 FROM 表名 WHERE 数据 IN （值1，值2）<ul>
+<li>完成与OR相同的功能</li>
+<li>直观易管理</li>
+<li>运行更快</li>
+<li>可包含其他SELECT语句，动态创建WHERE子句</li>
+</ul>
+</li>
+<li>否定：SELECT 列名 FROM 表名 WHERE 数据 <strong>NOT</strong> IN （值1，值2） ORDER BY 子句名<ul>
+<li>常用于IN的复杂句式中取反</li>
+</ul>
+</li>
+<li>通配符操作：SELECT 列名 FROM 表名 WHERE 数据 LIKE ‘_字符串%’<ul>
+<li>%用于表示接受字符串后续的任意字符<ul>
+<li>‘%字符串%’则表示任何位置的匹配</li>
+<li>‘字符串1%字符串2’则表示字符串1开头、字符串2结尾的匹配</li>
+<li>注意当存在空格时， ‘%字符串’不会匹配</li>
+<li>NULL任何情况均不会被匹配</li>
+</ul>
+</li>
+<li>_只匹配单个字符</li>
+<li>通配符的弊端：耗时较长（尤其位于起始处） 使用容易出错</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -2712,6 +2712,68 @@
       </tags>
   </entry>
   <entry>
+    <title>数据结构篇：1.2算法和算法评价</title>
+    <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-2%E7%AE%97%E6%B3%95%E5%92%8C%E7%AE%97%E6%B3%95%E8%AF%84%E4%BB%B7/</url>
+    <content><![CDATA[<h2 id="算法基本概念"><a href="#算法基本概念" class="headerlink" title="算法基本概念"></a>算法基本概念</h2><h4 id="算法-Algorithm"><a href="#算法-Algorithm" class="headerlink" title="算法 Algorithm"></a>算法 Algorithm</h4><ul>
+<li>对解决方案的<strong>完整而准确</strong>的描述，是指令的有限序列，每条指令表示一个或多个操作</li>
+</ul>
+<h3 id="算法的五大重要特性"><a href="#算法的五大重要特性" class="headerlink" title="算法的五大重要特性"></a>算法的五大重要特性</h3><h4 id="有穷性"><a href="#有穷性" class="headerlink" title="有穷性"></a>有穷性</h4><ul>
+<li>算法需在执行<strong>有穷步</strong>后结束，且每步在有穷时间内完成</li>
+</ul>
+<h4 id="确定性"><a href="#确定性" class="headerlink" title="确定性"></a>确定性</h4><ul>
+<li>算法的每条指令需有确切含义，对于<strong>相同的输入</strong>只能得到一个<strong>相同的输出</strong></li>
+</ul>
+<h4 id="可行性"><a href="#可行性" class="headerlink" title="可行性"></a>可行性</h4><ul>
+<li>算法中的操作均可通过已实现的<strong>基本运算执行有限次</strong>实现</li>
+</ul>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><ul>
+<li>有0或多个，取于特定对象集合</li>
+</ul>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><ul>
+<li>有1或多个，与输出有特定关系</li>
+</ul>
+<h3 id="“好”的算法标准"><a href="#“好”的算法标准" class="headerlink" title="“好”的算法标准"></a>“好”的算法标准</h3><h4 id="正确性"><a href="#正确性" class="headerlink" title="正确性"></a>正确性</h4><ul>
+<li>算法应能正确解决问题</li>
+</ul>
+<h4 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h4><ul>
+<li>算法应具良好的可读性</li>
+</ul>
+<h4 id="健壮性"><a href="#健壮性" class="headerlink" title="健壮性"></a>健壮性</h4><ul>
+<li>对非法数据做出适当反应、处理</li>
+</ul>
+<h4 id="效率和低存储量需求"><a href="#效率和低存储量需求" class="headerlink" title="效率和低存储量需求"></a>效率和低存储量需求</h4><ul>
+<li>算法执行时间与执行过程中所需的最大存储空间</li>
+</ul>
+<h2 id="算法效率度量"><a href="#算法效率度量" class="headerlink" title="算法效率度量"></a>算法效率度量</h2><h3 id="时间复杂度（P6）"><a href="#时间复杂度（P6）" class="headerlink" title="时间复杂度（P6）"></a>时间复杂度（P6）</h3><ul>
+<li>分类：最坏时间复杂度 平均时间复杂度 最好时间复杂度<ul>
+<li>平均时间复杂度：所有可能输入实例在<strong>等概率出现</strong>的情况下，算法的期望运行时间</li>
+</ul>
+</li>
+</ul>
+<h4 id="频度"><a href="#频度" class="headerlink" title="频度"></a>频度</h4><ul>
+<li>def 语句在算法中被重复执行的次数</li>
+</ul>
+<h4 id="T-n"><a href="#T-n" class="headerlink" title="T(n)"></a>T(n)</h4><ul>
+<li>def 算法中所有语句的频度之和</li>
+</ul>
+<h4 id="渐进时间复杂度公式"><a href="#渐进时间复杂度公式" class="headerlink" title="渐进时间复杂度公式"></a>渐进时间复杂度公式</h4><h4 id="两个计算规则"><a href="#两个计算规则" class="headerlink" title="两个计算规则"></a>两个计算规则</h4><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><h4 id="S-n"><a href="#S-n" class="headerlink" title="S(n)"></a>S(n)</h4><ul>
+<li>def 算法耗费的存储空间，是为实现计算所需信息的辅助空间<ul>
+<li>原地工作：算法所需的辅助空间为常量O(1)</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>408</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>408</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构篇：常用查找算法回顾</title>
     <url>/2022/06/29/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A%E5%B8%B8%E7%94%A8%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE/</url>
     <content><![CDATA[<p><img src="/2022/06/29/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A%E5%B8%B8%E7%94%A8%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE/查找1.png"></p>
@@ -2786,68 +2848,6 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
 <li><p>优点 时间复杂度较降低，为O(log2n)</p>
 </li>
 <li><p>缺点 线性表需能随机存储，即仅顺序存储结构适用，且需有序</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>408</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>408</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构篇：1.2算法和算法评价</title>
-    <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-2%E7%AE%97%E6%B3%95%E5%92%8C%E7%AE%97%E6%B3%95%E8%AF%84%E4%BB%B7/</url>
-    <content><![CDATA[<h2 id="算法基本概念"><a href="#算法基本概念" class="headerlink" title="算法基本概念"></a>算法基本概念</h2><h4 id="算法-Algorithm"><a href="#算法-Algorithm" class="headerlink" title="算法 Algorithm"></a>算法 Algorithm</h4><ul>
-<li>对解决方案的<strong>完整而准确</strong>的描述，是指令的有限序列，每条指令表示一个或多个操作</li>
-</ul>
-<h3 id="算法的五大重要特性"><a href="#算法的五大重要特性" class="headerlink" title="算法的五大重要特性"></a>算法的五大重要特性</h3><h4 id="有穷性"><a href="#有穷性" class="headerlink" title="有穷性"></a>有穷性</h4><ul>
-<li>算法需在执行<strong>有穷步</strong>后结束，且每步在有穷时间内完成</li>
-</ul>
-<h4 id="确定性"><a href="#确定性" class="headerlink" title="确定性"></a>确定性</h4><ul>
-<li>算法的每条指令需有确切含义，对于<strong>相同的输入</strong>只能得到一个<strong>相同的输出</strong></li>
-</ul>
-<h4 id="可行性"><a href="#可行性" class="headerlink" title="可行性"></a>可行性</h4><ul>
-<li>算法中的操作均可通过已实现的<strong>基本运算执行有限次</strong>实现</li>
-</ul>
-<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><ul>
-<li>有0或多个，取于特定对象集合</li>
-</ul>
-<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><ul>
-<li>有1或多个，与输出有特定关系</li>
-</ul>
-<h3 id="“好”的算法标准"><a href="#“好”的算法标准" class="headerlink" title="“好”的算法标准"></a>“好”的算法标准</h3><h4 id="正确性"><a href="#正确性" class="headerlink" title="正确性"></a>正确性</h4><ul>
-<li>算法应能正确解决问题</li>
-</ul>
-<h4 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h4><ul>
-<li>算法应具良好的可读性</li>
-</ul>
-<h4 id="健壮性"><a href="#健壮性" class="headerlink" title="健壮性"></a>健壮性</h4><ul>
-<li>对非法数据做出适当反应、处理</li>
-</ul>
-<h4 id="效率和低存储量需求"><a href="#效率和低存储量需求" class="headerlink" title="效率和低存储量需求"></a>效率和低存储量需求</h4><ul>
-<li>算法执行时间与执行过程中所需的最大存储空间</li>
-</ul>
-<h2 id="算法效率度量"><a href="#算法效率度量" class="headerlink" title="算法效率度量"></a>算法效率度量</h2><h3 id="时间复杂度（P6）"><a href="#时间复杂度（P6）" class="headerlink" title="时间复杂度（P6）"></a>时间复杂度（P6）</h3><ul>
-<li>分类：最坏时间复杂度 平均时间复杂度 最好时间复杂度<ul>
-<li>平均时间复杂度：所有可能输入实例在<strong>等概率出现</strong>的情况下，算法的期望运行时间</li>
-</ul>
-</li>
-</ul>
-<h4 id="频度"><a href="#频度" class="headerlink" title="频度"></a>频度</h4><ul>
-<li>def 语句在算法中被重复执行的次数</li>
-</ul>
-<h4 id="T-n"><a href="#T-n" class="headerlink" title="T(n)"></a>T(n)</h4><ul>
-<li>def 算法中所有语句的频度之和</li>
-</ul>
-<h4 id="渐进时间复杂度公式"><a href="#渐进时间复杂度公式" class="headerlink" title="渐进时间复杂度公式"></a>渐进时间复杂度公式</h4><h4 id="两个计算规则"><a href="#两个计算规则" class="headerlink" title="两个计算规则"></a>两个计算规则</h4><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><h4 id="S-n"><a href="#S-n" class="headerlink" title="S(n)"></a>S(n)</h4><ul>
-<li>def 算法耗费的存储空间，是为实现计算所需信息的辅助空间<ul>
-<li>原地工作：算法所需的辅助空间为常量O(1)</li>
-</ul>
 </li>
 </ul>
 ]]></content>
