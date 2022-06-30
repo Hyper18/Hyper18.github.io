@@ -906,56 +906,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Redis原理初探（四）—— 集合</title>
-    <url>/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%9B%86%E5%90%88/</url>
-    <content><![CDATA[<h2 id="整数集合（intset）"><a href="#整数集合（intset）" class="headerlink" title="整数集合（intset）"></a>整数集合（intset）</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>用于保存整数值的集合抽象数据结构<ul>
-<li>可保存类型为 int16_t、int32_t或int64_t的整数值</li>
-<li>保证集合中不会出现重复元素</li>
-</ul>
-</li>
-<li>集合键的底层实现之一</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">intset</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">//编码方式，决定contents数组的真正类型</span></span><br><span class="line">    <span class="keyword">uint32_t</span> encoding;</span><br><span class="line">    <span class="comment">//集合包含的元素数量</span></span><br><span class="line">    <span class="keyword">uint32_t</span> length;</span><br><span class="line">    <span class="comment">//保存元素的数组</span></span><br><span class="line">    <span class="keyword">int8_t</span> contents[];</span><br><span class="line">} intset;</span><br></pre></td></tr></table></figure>
-<p>注：contents数组是整数集合的底层实现，每个数组元素作为一个数组项（item），各个项在数组中按值的大小从小到大有序地排列，并且数组中不包含任何重复项。</p>
-<h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><ul>
-<li>集合只包含整数值元素，并且该集合的元素数量不多</li>
-</ul>
-<h3 id="升级（upgrade）"><a href="#升级（upgrade）" class="headerlink" title="升级（upgrade）"></a>升级（upgrade）</h3><h4 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h4><ul>
-<li>添加新元素到数组中时，由于新元素的类型比整数集合现有所有元素的类型都要长时，整数集合需要先进行升级</li>
-</ul>
-<h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><ul>
-<li>提升整数集合的灵活性：因为整数集合可以通过自动升级底层数组来适应新元素，所以我们可以随意地将int16_t、int32_t或者int64_t类型的整数添加到集合中，而不必担心出现类型错误</li>
-<li>尽可能地节约内存</li>
-</ul>
-<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
-<li>根据新元素的类型，扩展整数集合底层数组的空间大小，并为新元素分配空间</li>
-<li>将底层数组现有的所有元素都转换成与新元素相同的类型，并将类型转换后的元素放置到正确的位上，而且在放置元素的过程中，需要<strong>继续维持底层数组的有序性质不变</strong>。</li>
-<li>将新元素添加到底层数组中，再更新原整数集合的encoding和length</li>
-</ul>
-<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><ul>
-<li>O(N)：每次升级都需要对底层数组中已有的所有元素进行类型转换</li>
-</ul>
-<h3 id="降级（degrade）"><a href="#降级（degrade）" class="headerlink" title="降级（degrade）"></a>降级（degrade）</h3><ul>
-<li>整数集合不支持该操作。这也意味着一旦整数集合经过升级并占用更大的内存后，即便经过后续操作后不再需要过大的内存空间时，也无法进行回退</li>
-</ul>
-<h2 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h2><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">'127.0.0.1'</span>, password=<span class="string">'123456'</span>, port=<span class="number">6379</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SADD：向指定集合中添加尚不存在的元素（可一次添加多个）</span></span><br><span class="line"><span class="comment"># 返回的是被添加元素的数量</span></span><br><span class="line">conn.sadd(<span class="string">'set_key'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>)</span><br><span class="line"><span class="comment"># SREM：从指定集合中移除元素（可一次移除多个）</span></span><br><span class="line"><span class="comment"># 注：Python中返回布尔值；实际redis中返回的是被移除元素的数量</span></span><br><span class="line">conn.srem(<span class="string">'set_key'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br><span class="line"><span class="comment"># SISMEMBER：检查数据项item是否存在于指定集合中</span></span><br><span class="line">conn.sismember(<span class="string">'set_key'</span>, <span class="string">'val'</span>)</span><br><span class="line"><span class="comment"># SCARD：返回集合中元素的数量</span></span><br><span class="line">conn.scard(<span class="string">'set_key'</span>)</span><br><span class="line"><span class="comment"># SMEMBERS：返回集合中包含的所有元素</span></span><br><span class="line">conn.smembers(<span class="string">'set_key'</span>)</span><br><span class="line"><span class="comment"># SRANDMEMBER：从指定集合中随机返回一个或多个元素值</span></span><br><span class="line"><span class="comment"># 这里可以指定count参数，但该值不是随机返回元素的个数</span></span><br><span class="line"><span class="comment"># 而是根据其正负情况决定是否返回重复元素（有无放回）</span></span><br><span class="line"><span class="comment"># 若为正数，则不会重复；否则可以取出重复的值</span></span><br><span class="line">conn.srandmember(<span class="string">'set_key'</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="comment"># SPOP：随机（！）的移除指定集合中的一个元素</span></span><br><span class="line"><span class="comment"># 返回被移除的元素</span></span><br><span class="line">conn.spop(<span class="string">'set_key'</span>)</span><br><span class="line"><span class="comment"># SMOVE：从集合1中移除元素并移动到集合2中</span></span><br><span class="line"><span class="comment"># 若成功，返回1；否则返回0，相当于命令无效</span></span><br><span class="line">conn.smove(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>, <span class="string">'a'</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="差集、交集与并集运算"><a href="#差集、交集与并集运算" class="headerlink" title="差集、交集与并集运算"></a>差集、交集与并集运算</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># SDIFF：对两个集合作差集运算</span></span><br><span class="line"><span class="comment"># 返回存在于第一个集合但不存在于第二个集合的所有元素</span></span><br><span class="line">conn.sdiff(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SDIFFSTORE：对两个集合作差集运算</span></span><br><span class="line"><span class="comment"># 储存存在于第一个集合但不存在于第二个集合的所有元素</span></span><br><span class="line">conn.sdiffstore(<span class="string">'store_key'</span>, <span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SINTER：对两个集合作交集运算</span></span><br><span class="line"><span class="comment"># 返回那些同时存在于所有集合的元素</span></span><br><span class="line">conn.sinter(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SINTERSTORE：对两个集合作交集运算</span></span><br><span class="line"><span class="comment"># 储存那些同时存在于所有集合的元素</span></span><br><span class="line">conn.sinterstore(<span class="string">'store_key'</span>, <span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SUNION：对两个集合作并集运算</span></span><br><span class="line"><span class="comment"># 返回那些至少存在于一个集合的元素</span></span><br><span class="line">conn.sunion(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SUNIONSTORE：对两个集合作并集运算</span></span><br><span class="line"><span class="comment"># 储存那些至少存在于一个集合的元素</span></span><br><span class="line">conn.sunionstore(<span class="string">'store_key'</span>, <span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br></pre></td></tr></table></figure>
-<p>注：就集合这一结构而言，其基本功能在Python与Redis中的实现并无过大差别。Redis集合的好处在于，可以同时被多个客户端进行远程访问。</p>
-<p><em>【参考】</em><br><em>[1] 《Redis的设计与实现》</em></p>
-<p><em>[2] 《Redis实战》</em></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Redis</tag>
-        <tag>NoSQL</tag>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Redis原理初探（五）——有序集合</title>
     <url>/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<h2 id="跳跃表（skiplist）"><a href="#跳跃表（skiplist）" class="headerlink" title="跳跃表（skiplist）"></a>跳跃表（skiplist）</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
@@ -1016,6 +966,56 @@
 <p><img src="/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88/交集运算.png"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ZUNIONSTORE：对给定有序集合进行并集运算</span></span><br><span class="line"><span class="comment"># 还可以指定聚合函数为min/max，以适应不同的运算场景</span></span><br><span class="line">conn.zunionstore(<span class="string">'zset_key_u'</span>, [<span class="string">'zset_key2'</span>, <span class="string">'zset_key3'</span>], aggregate=<span class="string">'min'</span>)</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88/并集运算.png"></p>
+<p><em>【参考】</em><br><em>[1] 《Redis的设计与实现》</em></p>
+<p><em>[2] 《Redis实战》</em></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+        <tag>NoSQL</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis原理初探（四）—— 集合</title>
+    <url>/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%9B%86%E5%90%88/</url>
+    <content><![CDATA[<h2 id="整数集合（intset）"><a href="#整数集合（intset）" class="headerlink" title="整数集合（intset）"></a>整数集合（intset）</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>用于保存整数值的集合抽象数据结构<ul>
+<li>可保存类型为 int16_t、int32_t或int64_t的整数值</li>
+<li>保证集合中不会出现重复元素</li>
+</ul>
+</li>
+<li>集合键的底层实现之一</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">intset</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">//编码方式，决定contents数组的真正类型</span></span><br><span class="line">    <span class="keyword">uint32_t</span> encoding;</span><br><span class="line">    <span class="comment">//集合包含的元素数量</span></span><br><span class="line">    <span class="keyword">uint32_t</span> length;</span><br><span class="line">    <span class="comment">//保存元素的数组</span></span><br><span class="line">    <span class="keyword">int8_t</span> contents[];</span><br><span class="line">} intset;</span><br></pre></td></tr></table></figure>
+<p>注：contents数组是整数集合的底层实现，每个数组元素作为一个数组项（item），各个项在数组中按值的大小从小到大有序地排列，并且数组中不包含任何重复项。</p>
+<h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><ul>
+<li>集合只包含整数值元素，并且该集合的元素数量不多</li>
+</ul>
+<h3 id="升级（upgrade）"><a href="#升级（upgrade）" class="headerlink" title="升级（upgrade）"></a>升级（upgrade）</h3><h4 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h4><ul>
+<li>添加新元素到数组中时，由于新元素的类型比整数集合现有所有元素的类型都要长时，整数集合需要先进行升级</li>
+</ul>
+<h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><ul>
+<li>提升整数集合的灵活性：因为整数集合可以通过自动升级底层数组来适应新元素，所以我们可以随意地将int16_t、int32_t或者int64_t类型的整数添加到集合中，而不必担心出现类型错误</li>
+<li>尽可能地节约内存</li>
+</ul>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
+<li>根据新元素的类型，扩展整数集合底层数组的空间大小，并为新元素分配空间</li>
+<li>将底层数组现有的所有元素都转换成与新元素相同的类型，并将类型转换后的元素放置到正确的位上，而且在放置元素的过程中，需要<strong>继续维持底层数组的有序性质不变</strong>。</li>
+<li>将新元素添加到底层数组中，再更新原整数集合的encoding和length</li>
+</ul>
+<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><ul>
+<li>O(N)：每次升级都需要对底层数组中已有的所有元素进行类型转换</li>
+</ul>
+<h3 id="降级（degrade）"><a href="#降级（degrade）" class="headerlink" title="降级（degrade）"></a>降级（degrade）</h3><ul>
+<li>整数集合不支持该操作。这也意味着一旦整数集合经过升级并占用更大的内存后，即便经过后续操作后不再需要过大的内存空间时，也无法进行回退</li>
+</ul>
+<h2 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h2><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">'127.0.0.1'</span>, password=<span class="string">'123456'</span>, port=<span class="number">6379</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SADD：向指定集合中添加尚不存在的元素（可一次添加多个）</span></span><br><span class="line"><span class="comment"># 返回的是被添加元素的数量</span></span><br><span class="line">conn.sadd(<span class="string">'set_key'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>)</span><br><span class="line"><span class="comment"># SREM：从指定集合中移除元素（可一次移除多个）</span></span><br><span class="line"><span class="comment"># 注：Python中返回布尔值；实际redis中返回的是被移除元素的数量</span></span><br><span class="line">conn.srem(<span class="string">'set_key'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br><span class="line"><span class="comment"># SISMEMBER：检查数据项item是否存在于指定集合中</span></span><br><span class="line">conn.sismember(<span class="string">'set_key'</span>, <span class="string">'val'</span>)</span><br><span class="line"><span class="comment"># SCARD：返回集合中元素的数量</span></span><br><span class="line">conn.scard(<span class="string">'set_key'</span>)</span><br><span class="line"><span class="comment"># SMEMBERS：返回集合中包含的所有元素</span></span><br><span class="line">conn.smembers(<span class="string">'set_key'</span>)</span><br><span class="line"><span class="comment"># SRANDMEMBER：从指定集合中随机返回一个或多个元素值</span></span><br><span class="line"><span class="comment"># 这里可以指定count参数，但该值不是随机返回元素的个数</span></span><br><span class="line"><span class="comment"># 而是根据其正负情况决定是否返回重复元素（有无放回）</span></span><br><span class="line"><span class="comment"># 若为正数，则不会重复；否则可以取出重复的值</span></span><br><span class="line">conn.srandmember(<span class="string">'set_key'</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="comment"># SPOP：随机（！）的移除指定集合中的一个元素</span></span><br><span class="line"><span class="comment"># 返回被移除的元素</span></span><br><span class="line">conn.spop(<span class="string">'set_key'</span>)</span><br><span class="line"><span class="comment"># SMOVE：从集合1中移除元素并移动到集合2中</span></span><br><span class="line"><span class="comment"># 若成功，返回1；否则返回0，相当于命令无效</span></span><br><span class="line">conn.smove(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>, <span class="string">'a'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="差集、交集与并集运算"><a href="#差集、交集与并集运算" class="headerlink" title="差集、交集与并集运算"></a>差集、交集与并集运算</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># SDIFF：对两个集合作差集运算</span></span><br><span class="line"><span class="comment"># 返回存在于第一个集合但不存在于第二个集合的所有元素</span></span><br><span class="line">conn.sdiff(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SDIFFSTORE：对两个集合作差集运算</span></span><br><span class="line"><span class="comment"># 储存存在于第一个集合但不存在于第二个集合的所有元素</span></span><br><span class="line">conn.sdiffstore(<span class="string">'store_key'</span>, <span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SINTER：对两个集合作交集运算</span></span><br><span class="line"><span class="comment"># 返回那些同时存在于所有集合的元素</span></span><br><span class="line">conn.sinter(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SINTERSTORE：对两个集合作交集运算</span></span><br><span class="line"><span class="comment"># 储存那些同时存在于所有集合的元素</span></span><br><span class="line">conn.sinterstore(<span class="string">'store_key'</span>, <span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SUNION：对两个集合作并集运算</span></span><br><span class="line"><span class="comment"># 返回那些至少存在于一个集合的元素</span></span><br><span class="line">conn.sunion(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SUNIONSTORE：对两个集合作并集运算</span></span><br><span class="line"><span class="comment"># 储存那些至少存在于一个集合的元素</span></span><br><span class="line">conn.sunionstore(<span class="string">'store_key'</span>, <span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br></pre></td></tr></table></figure>
+<p>注：就集合这一结构而言，其基本功能在Python与Redis中的实现并无过大差别。Redis集合的好处在于，可以同时被多个客户端进行远程访问。</p>
 <p><em>【参考】</em><br><em>[1] 《Redis的设计与实现》</em></p>
 <p><em>[2] 《Redis实战》</em></p>
 ]]></content>
@@ -2712,68 +2712,6 @@
       </tags>
   </entry>
   <entry>
-    <title>数据结构篇：1.2算法和算法评价</title>
-    <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-2%E7%AE%97%E6%B3%95%E5%92%8C%E7%AE%97%E6%B3%95%E8%AF%84%E4%BB%B7/</url>
-    <content><![CDATA[<h2 id="算法基本概念"><a href="#算法基本概念" class="headerlink" title="算法基本概念"></a>算法基本概念</h2><h4 id="算法-Algorithm"><a href="#算法-Algorithm" class="headerlink" title="算法 Algorithm"></a>算法 Algorithm</h4><ul>
-<li>对解决方案的<strong>完整而准确</strong>的描述，是指令的有限序列，每条指令表示一个或多个操作</li>
-</ul>
-<h3 id="算法的五大重要特性"><a href="#算法的五大重要特性" class="headerlink" title="算法的五大重要特性"></a>算法的五大重要特性</h3><h4 id="有穷性"><a href="#有穷性" class="headerlink" title="有穷性"></a>有穷性</h4><ul>
-<li>算法需在执行<strong>有穷步</strong>后结束，且每步在有穷时间内完成</li>
-</ul>
-<h4 id="确定性"><a href="#确定性" class="headerlink" title="确定性"></a>确定性</h4><ul>
-<li>算法的每条指令需有确切含义，对于<strong>相同的输入</strong>只能得到一个<strong>相同的输出</strong></li>
-</ul>
-<h4 id="可行性"><a href="#可行性" class="headerlink" title="可行性"></a>可行性</h4><ul>
-<li>算法中的操作均可通过已实现的<strong>基本运算执行有限次</strong>实现</li>
-</ul>
-<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><ul>
-<li>有0或多个，取于特定对象集合</li>
-</ul>
-<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><ul>
-<li>有1或多个，与输出有特定关系</li>
-</ul>
-<h3 id="“好”的算法标准"><a href="#“好”的算法标准" class="headerlink" title="“好”的算法标准"></a>“好”的算法标准</h3><h4 id="正确性"><a href="#正确性" class="headerlink" title="正确性"></a>正确性</h4><ul>
-<li>算法应能正确解决问题</li>
-</ul>
-<h4 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h4><ul>
-<li>算法应具良好的可读性</li>
-</ul>
-<h4 id="健壮性"><a href="#健壮性" class="headerlink" title="健壮性"></a>健壮性</h4><ul>
-<li>对非法数据做出适当反应、处理</li>
-</ul>
-<h4 id="效率和低存储量需求"><a href="#效率和低存储量需求" class="headerlink" title="效率和低存储量需求"></a>效率和低存储量需求</h4><ul>
-<li>算法执行时间与执行过程中所需的最大存储空间</li>
-</ul>
-<h2 id="算法效率度量"><a href="#算法效率度量" class="headerlink" title="算法效率度量"></a>算法效率度量</h2><h3 id="时间复杂度（P6）"><a href="#时间复杂度（P6）" class="headerlink" title="时间复杂度（P6）"></a>时间复杂度（P6）</h3><ul>
-<li>分类：最坏时间复杂度 平均时间复杂度 最好时间复杂度<ul>
-<li>平均时间复杂度：所有可能输入实例在<strong>等概率出现</strong>的情况下，算法的期望运行时间</li>
-</ul>
-</li>
-</ul>
-<h4 id="频度"><a href="#频度" class="headerlink" title="频度"></a>频度</h4><ul>
-<li>def 语句在算法中被重复执行的次数</li>
-</ul>
-<h4 id="T-n"><a href="#T-n" class="headerlink" title="T(n)"></a>T(n)</h4><ul>
-<li>def 算法中所有语句的频度之和</li>
-</ul>
-<h4 id="渐进时间复杂度公式"><a href="#渐进时间复杂度公式" class="headerlink" title="渐进时间复杂度公式"></a>渐进时间复杂度公式</h4><h4 id="两个计算规则"><a href="#两个计算规则" class="headerlink" title="两个计算规则"></a>两个计算规则</h4><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><h4 id="S-n"><a href="#S-n" class="headerlink" title="S(n)"></a>S(n)</h4><ul>
-<li>def 算法耗费的存储空间，是为实现计算所需信息的辅助空间<ul>
-<li>原地工作：算法所需的辅助空间为常量O(1)</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>408</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>408</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构篇：常用查找算法回顾</title>
     <url>/2022/06/29/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A%E5%B8%B8%E7%94%A8%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE/</url>
     <content><![CDATA[<p><img src="/2022/06/29/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A%E5%B8%B8%E7%94%A8%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE/查找1.png"></p>
@@ -2848,6 +2786,68 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
 <li><p>优点 时间复杂度较降低，为O(log2n)</p>
 </li>
 <li><p>缺点 线性表需能随机存储，即仅顺序存储结构适用，且需有序</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>408</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>408</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构篇：1.2算法和算法评价</title>
+    <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-2%E7%AE%97%E6%B3%95%E5%92%8C%E7%AE%97%E6%B3%95%E8%AF%84%E4%BB%B7/</url>
+    <content><![CDATA[<h2 id="算法基本概念"><a href="#算法基本概念" class="headerlink" title="算法基本概念"></a>算法基本概念</h2><h4 id="算法-Algorithm"><a href="#算法-Algorithm" class="headerlink" title="算法 Algorithm"></a>算法 Algorithm</h4><ul>
+<li>对解决方案的<strong>完整而准确</strong>的描述，是指令的有限序列，每条指令表示一个或多个操作</li>
+</ul>
+<h3 id="算法的五大重要特性"><a href="#算法的五大重要特性" class="headerlink" title="算法的五大重要特性"></a>算法的五大重要特性</h3><h4 id="有穷性"><a href="#有穷性" class="headerlink" title="有穷性"></a>有穷性</h4><ul>
+<li>算法需在执行<strong>有穷步</strong>后结束，且每步在有穷时间内完成</li>
+</ul>
+<h4 id="确定性"><a href="#确定性" class="headerlink" title="确定性"></a>确定性</h4><ul>
+<li>算法的每条指令需有确切含义，对于<strong>相同的输入</strong>只能得到一个<strong>相同的输出</strong></li>
+</ul>
+<h4 id="可行性"><a href="#可行性" class="headerlink" title="可行性"></a>可行性</h4><ul>
+<li>算法中的操作均可通过已实现的<strong>基本运算执行有限次</strong>实现</li>
+</ul>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><ul>
+<li>有0或多个，取于特定对象集合</li>
+</ul>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><ul>
+<li>有1或多个，与输出有特定关系</li>
+</ul>
+<h3 id="“好”的算法标准"><a href="#“好”的算法标准" class="headerlink" title="“好”的算法标准"></a>“好”的算法标准</h3><h4 id="正确性"><a href="#正确性" class="headerlink" title="正确性"></a>正确性</h4><ul>
+<li>算法应能正确解决问题</li>
+</ul>
+<h4 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h4><ul>
+<li>算法应具良好的可读性</li>
+</ul>
+<h4 id="健壮性"><a href="#健壮性" class="headerlink" title="健壮性"></a>健壮性</h4><ul>
+<li>对非法数据做出适当反应、处理</li>
+</ul>
+<h4 id="效率和低存储量需求"><a href="#效率和低存储量需求" class="headerlink" title="效率和低存储量需求"></a>效率和低存储量需求</h4><ul>
+<li>算法执行时间与执行过程中所需的最大存储空间</li>
+</ul>
+<h2 id="算法效率度量"><a href="#算法效率度量" class="headerlink" title="算法效率度量"></a>算法效率度量</h2><h3 id="时间复杂度（P6）"><a href="#时间复杂度（P6）" class="headerlink" title="时间复杂度（P6）"></a>时间复杂度（P6）</h3><ul>
+<li>分类：最坏时间复杂度 平均时间复杂度 最好时间复杂度<ul>
+<li>平均时间复杂度：所有可能输入实例在<strong>等概率出现</strong>的情况下，算法的期望运行时间</li>
+</ul>
+</li>
+</ul>
+<h4 id="频度"><a href="#频度" class="headerlink" title="频度"></a>频度</h4><ul>
+<li>def 语句在算法中被重复执行的次数</li>
+</ul>
+<h4 id="T-n"><a href="#T-n" class="headerlink" title="T(n)"></a>T(n)</h4><ul>
+<li>def 算法中所有语句的频度之和</li>
+</ul>
+<h4 id="渐进时间复杂度公式"><a href="#渐进时间复杂度公式" class="headerlink" title="渐进时间复杂度公式"></a>渐进时间复杂度公式</h4><h4 id="两个计算规则"><a href="#两个计算规则" class="headerlink" title="两个计算规则"></a>两个计算规则</h4><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><h4 id="S-n"><a href="#S-n" class="headerlink" title="S(n)"></a>S(n)</h4><ul>
+<li>def 算法耗费的存储空间，是为实现计算所需信息的辅助空间<ul>
+<li>原地工作：算法所需的辅助空间为常量O(1)</li>
+</ul>
 </li>
 </ul>
 ]]></content>
@@ -2959,40 +2959,6 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       </tags>
   </entry>
   <entry>
-    <title>机器学习题解（五）—— KNN与PCA</title>
-    <url>/2021/10/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20KNN%E4%B8%8EPCA/</url>
-    <content><![CDATA[<h3 id="ex7-m"><a href="#ex7-m" class="headerlink" title="ex7.m"></a>ex7.m</h3><h4 id="Part-1-Find-Closest-Centroids"><a href="#Part-1-Find-Closest-Centroids" class="headerlink" title="Part 1: Find Closest Centroids"></a>Part 1: Find Closest Centroids</h4><ul>
-<li>Go over every example, find its closest centroid, and store the index inside idx at the appropriate location</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X,<span class="number">1</span>) <span class="comment">% query from 1 to 300</span></span><br><span class="line">    d = <span class="built_in">zeros</span>(<span class="number">1</span>, K); <span class="comment">% distance: 1*3 matrix</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: K</span><br><span class="line">        d(<span class="number">1</span>, <span class="built_in">j</span>) = <span class="built_in">sqrt</span>(sum(power(X(<span class="built_in">i</span>, :) - centroids(<span class="built_in">j</span>, :), <span class="number">2</span>))); <span class="comment">% use Euclidean Distance, centroids: 3*2 matrix</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    [~, idx(<span class="built_in">i</span>)] = <span class="built_in">min</span>(d); <span class="comment">% get the 2nd parameter from distance matrix only</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h4 id="Part-2-Compute-Means"><a href="#Part-2-Compute-Means" class="headerlink" title="Part 2: Compute Means"></a>Part 2: Compute Means</h4><ul>
-<li>Go over every centroid and compute mean of all points that belong to it</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : K</span><br><span class="line">    <span class="comment">% find all the points that is nearest to No.i centroid, then count their</span></span><br><span class="line">    <span class="comment">% mean</span></span><br><span class="line">    points = X(idx==<span class="built_in">i</span>, :);</span><br><span class="line">    centroids(<span class="built_in">i</span>, :) = <span class="built_in">mean</span>(points);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h3 id="ex7-pca-m"><a href="#ex7-pca-m" class="headerlink" title="ex7 pca.m"></a>ex7 pca.m</h3><h4 id="Part-2-Principal-Component-Analysis"><a href="#Part-2-Principal-Component-Analysis" class="headerlink" title="Part 2: Principal Component Analysis"></a>Part 2: Principal Component Analysis</h4><ul>
-<li>You should first compute the covariance matrix. Then, you should use the “svd” function to compute the eigenvectors and eigenvalues of the covariance matrix</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% compute sigma</span></span><br><span class="line">sigma = (X' * X) / m;</span><br><span class="line"><span class="comment">% use SVD to compute the eigenvectors and eigenvalues of the covariance matrix</span></span><br><span class="line">[U, S, V] = svd(sigma);</span><br></pre></td></tr></table></figure>
-<h4 id="Part-3-Dimension-Reduction"><a href="#Part-3-Dimension-Reduction" class="headerlink" title="Part 3: Dimension Reduction"></a>Part 3: Dimension Reduction</h4><ul>
-<li>Compute the projection of the data using only the top K  eigenvectors in U (first K columns)</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% using only the top K eigenvectors in U</span></span><br><span class="line">U_reduce = U(:, <span class="number">1</span>:K);</span><br><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X, <span class="number">1</span>)</span><br><span class="line">    x = X(<span class="built_in">i</span>, :)';</span><br><span class="line">    <span class="keyword">for</span> k = <span class="number">1</span>: K</span><br><span class="line">        projection_k = x' * U_reduce;</span><br><span class="line">        Z(<span class="built_in">i</span>, :) = projection_k;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Compute the approximation of the data by projecting back onto the original space using the top K eigenvectors in U</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(Z, <span class="number">1</span>)</span><br><span class="line">    v = Z(<span class="built_in">i</span>, :)';</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: <span class="built_in">size</span>(U, <span class="number">1</span>)</span><br><span class="line">        recovered_j = v' * U(:, <span class="number">1</span>:K)';</span><br><span class="line">        <span class="comment">% 2D -&gt; 1D</span></span><br><span class="line">        X_rec(<span class="built_in">i</span>, :) = recovered_j;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>题解</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>KNN</tag>
-        <tag>PCA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>机器学习题解（二）—— 神经网络</title>
     <url>/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
     <content><![CDATA[<h3 id="ex3-m"><a href="#ex3-m" class="headerlink" title="ex3.m"></a>ex3.m</h3><h4 id="Part-1-Loading-and-Visualizing-Data"><a href="#Part-1-Loading-and-Visualizing-Data" class="headerlink" title="Part 1: Loading and Visualizing Data"></a>Part 1: Loading and Visualizing Data</h4><ul>
@@ -3052,6 +3018,40 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       <tags>
         <tag>机器学习</tag>
         <tag>神经网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习题解（五）—— KNN与PCA</title>
+    <url>/2021/10/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20KNN%E4%B8%8EPCA/</url>
+    <content><![CDATA[<h3 id="ex7-m"><a href="#ex7-m" class="headerlink" title="ex7.m"></a>ex7.m</h3><h4 id="Part-1-Find-Closest-Centroids"><a href="#Part-1-Find-Closest-Centroids" class="headerlink" title="Part 1: Find Closest Centroids"></a>Part 1: Find Closest Centroids</h4><ul>
+<li>Go over every example, find its closest centroid, and store the index inside idx at the appropriate location</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X,<span class="number">1</span>) <span class="comment">% query from 1 to 300</span></span><br><span class="line">    d = <span class="built_in">zeros</span>(<span class="number">1</span>, K); <span class="comment">% distance: 1*3 matrix</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: K</span><br><span class="line">        d(<span class="number">1</span>, <span class="built_in">j</span>) = <span class="built_in">sqrt</span>(sum(power(X(<span class="built_in">i</span>, :) - centroids(<span class="built_in">j</span>, :), <span class="number">2</span>))); <span class="comment">% use Euclidean Distance, centroids: 3*2 matrix</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    [~, idx(<span class="built_in">i</span>)] = <span class="built_in">min</span>(d); <span class="comment">% get the 2nd parameter from distance matrix only</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="Part-2-Compute-Means"><a href="#Part-2-Compute-Means" class="headerlink" title="Part 2: Compute Means"></a>Part 2: Compute Means</h4><ul>
+<li>Go over every centroid and compute mean of all points that belong to it</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : K</span><br><span class="line">    <span class="comment">% find all the points that is nearest to No.i centroid, then count their</span></span><br><span class="line">    <span class="comment">% mean</span></span><br><span class="line">    points = X(idx==<span class="built_in">i</span>, :);</span><br><span class="line">    centroids(<span class="built_in">i</span>, :) = <span class="built_in">mean</span>(points);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="ex7-pca-m"><a href="#ex7-pca-m" class="headerlink" title="ex7 pca.m"></a>ex7 pca.m</h3><h4 id="Part-2-Principal-Component-Analysis"><a href="#Part-2-Principal-Component-Analysis" class="headerlink" title="Part 2: Principal Component Analysis"></a>Part 2: Principal Component Analysis</h4><ul>
+<li>You should first compute the covariance matrix. Then, you should use the “svd” function to compute the eigenvectors and eigenvalues of the covariance matrix</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% compute sigma</span></span><br><span class="line">sigma = (X' * X) / m;</span><br><span class="line"><span class="comment">% use SVD to compute the eigenvectors and eigenvalues of the covariance matrix</span></span><br><span class="line">[U, S, V] = svd(sigma);</span><br></pre></td></tr></table></figure>
+<h4 id="Part-3-Dimension-Reduction"><a href="#Part-3-Dimension-Reduction" class="headerlink" title="Part 3: Dimension Reduction"></a>Part 3: Dimension Reduction</h4><ul>
+<li>Compute the projection of the data using only the top K  eigenvectors in U (first K columns)</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% using only the top K eigenvectors in U</span></span><br><span class="line">U_reduce = U(:, <span class="number">1</span>:K);</span><br><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X, <span class="number">1</span>)</span><br><span class="line">    x = X(<span class="built_in">i</span>, :)';</span><br><span class="line">    <span class="keyword">for</span> k = <span class="number">1</span>: K</span><br><span class="line">        projection_k = x' * U_reduce;</span><br><span class="line">        Z(<span class="built_in">i</span>, :) = projection_k;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Compute the approximation of the data by projecting back onto the original space using the top K eigenvectors in U</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(Z, <span class="number">1</span>)</span><br><span class="line">    v = Z(<span class="built_in">i</span>, :)';</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: <span class="built_in">size</span>(U, <span class="number">1</span>)</span><br><span class="line">        recovered_j = v' * U(:, <span class="number">1</span>:K)';</span><br><span class="line">        <span class="comment">% 2D -&gt; 1D</span></span><br><span class="line">        X_rec(<span class="built_in">i</span>, :) = recovered_j;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>KNN</tag>
+        <tag>PCA</tag>
       </tags>
   </entry>
   <entry>
