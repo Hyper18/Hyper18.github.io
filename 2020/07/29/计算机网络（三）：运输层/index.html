@@ -85,13 +85,13 @@
 
 <meta name="description" content="运输层服务1、工作位置：端系统 2、分类：用户数据报协议UDP 传输控制协议TCP 3、IP服务：尽力而为交付（best-effort delivery server）的不可靠模型 多路复用与多路分解1、多路分解  def：将运输层报文段中的数据交付到正确的套接字 每个套接字都有唯一确定的标识符 每个报文段需有特殊字段来指示该报文段所需交付到的套接字   端口字段  长度：32比特 包含信息：源端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Chapter3 Transport Layer">
-<meta property="og:url" content="https://hyper18.github.io/2020/07/29/Chapter3%20Transport%20Layer/index.html">
+<meta property="og:title" content="计算机网络（三）：运输层">
+<meta property="og:url" content="https://hyper18.github.io/2020/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E8%BF%90%E8%BE%93%E5%B1%82/index.html">
 <meta property="og:site_name" content="Hyperの个人博客">
 <meta property="og:description" content="运输层服务1、工作位置：端系统 2、分类：用户数据报协议UDP 传输控制协议TCP 3、IP服务：尽力而为交付（best-effort delivery server）的不可靠模型 多路复用与多路分解1、多路分解  def：将运输层报文段中的数据交付到正确的套接字 每个套接字都有唯一确定的标识符 每个报文段需有特殊字段来指示该报文段所需交付到的套接字   端口字段  长度：32比特 包含信息：源端">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-07-29T12:26:04.000Z">
-<meta property="article:modified_time" content="2021-11-22T06:34:00.971Z">
+<meta property="article:modified_time" content="2022-06-30T03:20:04.472Z">
 <meta property="article:author" content="Hyper18">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://hyper18.github.io/2020/07/29/Chapter3 Transport Layer/"/>
+  <link rel="canonical" href="https://hyper18.github.io/2020/07/29/计算机网络（三）：运输层/"/>
 
 
 
 
 
-  <title>Chapter3 Transport Layer | Hyperの个人博客</title>
+  <title>计算机网络（三）：运输层 | Hyperの个人博客</title>
   
 
 
@@ -140,7 +140,119 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -302,7 +414,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/07/29/Chapter3%20Transport%20Layer/">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E8%BF%90%E8%BE%93%E5%B1%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -319,7 +431,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Chapter3 Transport Layer</h1>
+          <h1 class="post-title" itemprop="name headline">计算机网络（三）：运输层</h1>
         
 
         <div class="post-meta">
@@ -382,7 +494,7 @@
 
           
           
-             <span id="/2020/07/29/Chapter3%20Transport%20Layer/" class="leancloud_visitors" data-flag-title="Chapter3 Transport Layer">
+             <span id="/2020/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E8%BF%90%E8%BE%93%E5%B1%82/" class="leancloud_visitors" data-flag-title="计算机网络（三）：运输层">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -625,19 +737,19 @@
 <ul>
 <li><strong>指数加权移动平均</strong> EWMA：更新估计往返时间（EstimatedRTT）</li>
 </ul>
-<p>$$<br>EstimatedRTT = （1 — α）* EstimatedRTT + α * SampleRTT<br>$$</p>
-<p>其中，[RFC 6298]给出的α推荐值为0.125。</p>
+<script type="math/tex; mode=display">
+EstimatedRTT = （1 — α）* EstimatedRTT + α * SampleRTT</script><p>其中，[RFC 6298]给出的α推荐值为0.125。</p>
 <ul>
 <li>DevRTT：RTT偏差，用于衡量测量往返时间偏离估计往返时间的程度</li>
 </ul>
-<p>$$<br>DevRTT = (1 - β) * DevRTT + β * |SampleRTT - EstimatedRTT|<br>$$</p>
-<p>其中，β的推荐值为0.25。</p>
+<script type="math/tex; mode=display">
+DevRTT = (1 - β) * DevRTT + β * |SampleRTT - EstimatedRTT|</script><p>其中，β的推荐值为0.25。</p>
 </li>
 <li><p>超时间隔</p>
 </li>
 </ul>
-<p>$$<br>TimeoutInterval = EstimatedRTT + 4 * DevRTT<br>$$</p>
-<p>​    其中，TimeoutInterval的推荐初始值为1s。</p>
+<script type="math/tex; mode=display">
+TimeoutInterval = EstimatedRTT + 4 * DevRTT</script><p>​    其中，TimeoutInterval的推荐初始值为1s。</p>
 <p>6、可靠数据传输</p>
 <ul>
 <li>TCP服务是在IP服务的尽力而为服务上创建的一种可靠数据传输服务</li>
@@ -655,9 +767,9 @@
 </ul>
 </li>
 </ul>
-<p>$$<br>LastByteRevd - LastByteRead \le RcvBuffer<br>$$</p>
-<p>$$<br>rwnd = RcvBuffer - [LastByteRevd - LastByteRead]<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+LastByteRevd - LastByteRead \le RcvBuffer</script><script type="math/tex; mode=display">
+rwnd = RcvBuffer - [LastByteRevd - LastByteRead]</script><ul>
 <li>注：当接收主机空间耗尽时，由于发送方尽在有数据或有确认要发送是才会发送报文段，因此当接收主机的rwnd = 0时，主机将发送仅一个字节数据的报文段以清空接收主机RcvBuffer，并返回一个包含非0的rwnd值</li>
 </ul>
 <p>8、连接管理</p>
@@ -688,7 +800,9 @@
 </ul>
 </li>
 </ul>
-<h2 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h2><p>1、拥塞窗口 congestion window，cwnd<br>$$<br>LastByteSent - LastByteRead \le min{cwnd, rwnd}<br>$$<br>其中，发送速率随cwnd变化，约为cwnd / RTT byte/s。</p>
+<h2 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h2><p>1、拥塞窗口 congestion window，cwnd</p>
+<script type="math/tex; mode=display">
+LastByteSent - LastByteRead \le min\{cwnd, rwnd\}</script><p>其中，发送速率随cwnd变化，约为cwnd / RTT byte/s。</p>
 <p>2、特性：自计时 self-clocking，得名于TCP使用确认来触发增大cwnd</p>
 <p>3、指导性原则</p>
 <ul>
@@ -740,21 +854,21 @@
 </ul>
 </li>
 </ul>
-<p>$$<br>  avg_{单条连接的吞吐量} =  \frac{0.75 * W}{RTT}<br>$$</p>
-<p>​    其中，W为丢包时间发生时，窗口长度的字节数。</p>
+<script type="math/tex; mode=display">
+  avg_{单条连接的吞吐量} =  \frac{0.75 * W}{RTT}</script><p>​    其中，W为丢包时间发生时，窗口长度的字节数。</p>
 <ul>
 <li>高带宽路径</li>
 </ul>
-<p>$$<br>avg_{单条连接的吞吐量} =  \frac{1.22 * MSS}{RTT * \sqrt{L}}<br>$$</p>
-<p>​    其中，L为链路的丢包率。</p>
+<script type="math/tex; mode=display">
+avg_{单条连接的吞吐量} =  \frac{1.22 * MSS}{RTT * \sqrt{L}}</script><p>​    其中，L为链路的丢包率。</p>
 <p>5、实例：TCP分岔</p>
 <ul>
 <li>目的：优化云服务，改善用户体验</li>
 <li>手段：部署临近用户的前端服务器 或 利用TCP分岔（TCP splitting）来分裂TCP连接</li>
 <li>公式</li>
 </ul>
-<p>$$<br>4 * RTT_{FE} + RTT_{BE} + 处理时间<br>$$</p>
-<p>其中FE、BE分别为客户to前端服务器、前端服务器到数据中心（后端服务器）的往返时间</p>
+<script type="math/tex; mode=display">
+4 * RTT_{FE} + RTT_{BE} + 处理时间</script><p>其中FE、BE分别为客户to前端服务器、前端服务器到数据中心（后端服务器）的往返时间</p>
 <ul>
 <li>效果：降低时延到原来的约1/4</li>
 </ul>
@@ -1621,6 +1735,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

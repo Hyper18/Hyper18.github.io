@@ -83,15 +83,15 @@
 
 
 
-<meta name="description" content="整数集合（intset）定义 用于保存整数值的集合抽象数据结构 可保存类型为 int16_t、int32_t或int64_t的整数值 保证集合中不会出现重复元素   集合键的底层实现之一  123456789typedef struct intset&amp;#123;    &#x2F;&#x2F;编码方式，决定contents数组的真正类型    uint32_t encoding;    &#x2F;&#x2F;集合包含的元素数量">
+<meta name="description" content="整数集合（intset）定义 用于保存整数值的集合抽象数据结构 可保存类型为 int16_t、int32_t或int64_t的整数值 保证集合中不会出现重复元素   集合键的底层实现之一  123456789typedef struct intset{    &#x2F;&#x2F;编码方式，决定contents数组的真正类型    uint32_t encoding;    &#x2F;&#x2F;集合包含的元素数量    uint3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis原理初探（四）—— 集合">
 <meta property="og:url" content="https://hyper18.github.io/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%9B%86%E5%90%88/index.html">
 <meta property="og:site_name" content="Hyperの个人博客">
-<meta property="og:description" content="整数集合（intset）定义 用于保存整数值的集合抽象数据结构 可保存类型为 int16_t、int32_t或int64_t的整数值 保证集合中不会出现重复元素   集合键的底层实现之一  123456789typedef struct intset&amp;#123;    &#x2F;&#x2F;编码方式，决定contents数组的真正类型    uint32_t encoding;    &#x2F;&#x2F;集合包含的元素数量">
+<meta property="og:description" content="整数集合（intset）定义 用于保存整数值的集合抽象数据结构 可保存类型为 int16_t、int32_t或int64_t的整数值 保证集合中不会出现重复元素   集合键的底层实现之一  123456789typedef struct intset{    &#x2F;&#x2F;编码方式，决定contents数组的真正类型    uint32_t encoding;    &#x2F;&#x2F;集合包含的元素数量    uint3">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-11-23T10:24:13.000Z">
-<meta property="article:modified_time" content="2021-11-26T11:05:36.841Z">
+<meta property="article:modified_time" content="2022-06-30T03:25:37.229Z">
 <meta property="article:author" content="Hyper18">
 <meta property="article:tag" content="Redis">
 <meta property="article:tag" content="NoSQL">
@@ -142,7 +142,119 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -457,8 +569,7 @@
 </li>
 <li>集合键的底层实现之一</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">intset</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">//编码方式，决定contents数组的真正类型</span></span><br><span class="line">    <span class="keyword">uint32_t</span> encoding;</span><br><span class="line">    <span class="comment">//集合包含的元素数量</span></span><br><span class="line">    <span class="keyword">uint32_t</span> length;</span><br><span class="line">    <span class="comment">//保存元素的数组</span></span><br><span class="line">    <span class="keyword">int8_t</span> contents[];</span><br><span class="line">&#125; intset;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">intset</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">//编码方式，决定contents数组的真正类型</span></span><br><span class="line">    <span class="keyword">uint32_t</span> encoding;</span><br><span class="line">    <span class="comment">//集合包含的元素数量</span></span><br><span class="line">    <span class="keyword">uint32_t</span> length;</span><br><span class="line">    <span class="comment">//保存元素的数组</span></span><br><span class="line">    <span class="keyword">int8_t</span> contents[];</span><br><span class="line">} intset;</span><br></pre></td></tr></table></figure>
 <p>注：contents数组是整数集合的底层实现，每个数组元素作为一个数组项（item），各个项在数组中按值的大小从小到大有序地排列，并且数组中不包含任何重复项。</p>
 <h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><ul>
 <li>集合只包含整数值元素，并且该集合的元素数量不多</li>
@@ -481,10 +592,8 @@
 <h3 id="降级（degrade）"><a href="#降级（degrade）" class="headerlink" title="降级（degrade）"></a>降级（degrade）</h3><ul>
 <li>整数集合不支持该操作。这也意味着一旦整数集合经过升级并占用更大的内存后，即便经过后续操作后不再需要过大的内存空间时，也无法进行回退</li>
 </ul>
-<h2 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h2><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, password=<span class="string">&#x27;123456&#x27;</span>, port=<span class="number">6379</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SADD：向指定集合中添加尚不存在的元素（可一次添加多个）</span></span><br><span class="line"><span class="comment"># 返回的是被添加元素的数量</span></span><br><span class="line">conn.sadd(<span class="string">&#x27;set_key&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;e&#x27;</span>)</span><br><span class="line"><span class="comment"># SREM：从指定集合中移除元素（可一次移除多个）</span></span><br><span class="line"><span class="comment"># 注：Python中返回布尔值；实际redis中返回的是被移除元素的数量</span></span><br><span class="line">conn.srem(<span class="string">&#x27;set_key&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>)</span><br><span class="line"><span class="comment"># SISMEMBER：检查数据项item是否存在于指定集合中</span></span><br><span class="line">conn.sismember(<span class="string">&#x27;set_key&#x27;</span>, <span class="string">&#x27;val&#x27;</span>)</span><br><span class="line"><span class="comment"># SCARD：返回集合中元素的数量</span></span><br><span class="line">conn.scard(<span class="string">&#x27;set_key&#x27;</span>)</span><br><span class="line"><span class="comment"># SMEMBERS：返回集合中包含的所有元素</span></span><br><span class="line">conn.smembers(<span class="string">&#x27;set_key&#x27;</span>)</span><br><span class="line"><span class="comment"># SRANDMEMBER：从指定集合中随机返回一个或多个元素值</span></span><br><span class="line"><span class="comment"># 这里可以指定count参数，但该值不是随机返回元素的个数</span></span><br><span class="line"><span class="comment"># 而是根据其正负情况决定是否返回重复元素（有无放回）</span></span><br><span class="line"><span class="comment"># 若为正数，则不会重复；否则可以取出重复的值</span></span><br><span class="line">conn.srandmember(<span class="string">&#x27;set_key&#x27;</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="comment"># SPOP：随机（！）的移除指定集合中的一个元素</span></span><br><span class="line"><span class="comment"># 返回被移除的元素</span></span><br><span class="line">conn.spop(<span class="string">&#x27;set_key&#x27;</span>)</span><br><span class="line"><span class="comment"># SMOVE：从集合1中移除元素并移动到集合2中</span></span><br><span class="line"><span class="comment"># 若成功，返回1；否则返回0，相当于命令无效</span></span><br><span class="line">conn.smove(<span class="string">&#x27;set_key&#x27;</span>, <span class="string">&#x27;set_key2&#x27;</span>, <span class="string">&#x27;a&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="差集、交集与并集运算"><a href="#差集、交集与并集运算" class="headerlink" title="差集、交集与并集运算"></a>差集、交集与并集运算</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SDIFF：对两个集合作差集运算</span></span><br><span class="line"><span class="comment"># 返回存在于第一个集合但不存在于第二个集合的所有元素</span></span><br><span class="line">conn.sdiff(<span class="string">&#x27;set_key&#x27;</span>, <span class="string">&#x27;set_key2&#x27;</span>)</span><br><span class="line"><span class="comment"># SDIFFSTORE：对两个集合作差集运算</span></span><br><span class="line"><span class="comment"># 储存存在于第一个集合但不存在于第二个集合的所有元素</span></span><br><span class="line">conn.sdiffstore(<span class="string">&#x27;store_key&#x27;</span>, <span class="string">&#x27;set_key&#x27;</span>, <span class="string">&#x27;set_key2&#x27;</span>)</span><br><span class="line"><span class="comment"># SINTER：对两个集合作交集运算</span></span><br><span class="line"><span class="comment"># 返回那些同时存在于所有集合的元素</span></span><br><span class="line">conn.sinter(<span class="string">&#x27;set_key&#x27;</span>, <span class="string">&#x27;set_key2&#x27;</span>)</span><br><span class="line"><span class="comment"># SINTERSTORE：对两个集合作交集运算</span></span><br><span class="line"><span class="comment"># 储存那些同时存在于所有集合的元素</span></span><br><span class="line">conn.sinterstore(<span class="string">&#x27;store_key&#x27;</span>, <span class="string">&#x27;set_key&#x27;</span>, <span class="string">&#x27;set_key2&#x27;</span>)</span><br><span class="line"><span class="comment"># SUNION：对两个集合作并集运算</span></span><br><span class="line"><span class="comment"># 返回那些至少存在于一个集合的元素</span></span><br><span class="line">conn.sunion(<span class="string">&#x27;set_key&#x27;</span>, <span class="string">&#x27;set_key2&#x27;</span>)</span><br><span class="line"><span class="comment"># SUNIONSTORE：对两个集合作并集运算</span></span><br><span class="line"><span class="comment"># 储存那些至少存在于一个集合的元素</span></span><br><span class="line">conn.sunionstore(<span class="string">&#x27;store_key&#x27;</span>, <span class="string">&#x27;set_key&#x27;</span>, <span class="string">&#x27;set_key2&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
+<h2 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h2><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">'127.0.0.1'</span>, password=<span class="string">'123456'</span>, port=<span class="number">6379</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SADD：向指定集合中添加尚不存在的元素（可一次添加多个）</span></span><br><span class="line"><span class="comment"># 返回的是被添加元素的数量</span></span><br><span class="line">conn.sadd(<span class="string">'set_key'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>)</span><br><span class="line"><span class="comment"># SREM：从指定集合中移除元素（可一次移除多个）</span></span><br><span class="line"><span class="comment"># 注：Python中返回布尔值；实际redis中返回的是被移除元素的数量</span></span><br><span class="line">conn.srem(<span class="string">'set_key'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br><span class="line"><span class="comment"># SISMEMBER：检查数据项item是否存在于指定集合中</span></span><br><span class="line">conn.sismember(<span class="string">'set_key'</span>, <span class="string">'val'</span>)</span><br><span class="line"><span class="comment"># SCARD：返回集合中元素的数量</span></span><br><span class="line">conn.scard(<span class="string">'set_key'</span>)</span><br><span class="line"><span class="comment"># SMEMBERS：返回集合中包含的所有元素</span></span><br><span class="line">conn.smembers(<span class="string">'set_key'</span>)</span><br><span class="line"><span class="comment"># SRANDMEMBER：从指定集合中随机返回一个或多个元素值</span></span><br><span class="line"><span class="comment"># 这里可以指定count参数，但该值不是随机返回元素的个数</span></span><br><span class="line"><span class="comment"># 而是根据其正负情况决定是否返回重复元素（有无放回）</span></span><br><span class="line"><span class="comment"># 若为正数，则不会重复；否则可以取出重复的值</span></span><br><span class="line">conn.srandmember(<span class="string">'set_key'</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="comment"># SPOP：随机（！）的移除指定集合中的一个元素</span></span><br><span class="line"><span class="comment"># 返回被移除的元素</span></span><br><span class="line">conn.spop(<span class="string">'set_key'</span>)</span><br><span class="line"><span class="comment"># SMOVE：从集合1中移除元素并移动到集合2中</span></span><br><span class="line"><span class="comment"># 若成功，返回1；否则返回0，相当于命令无效</span></span><br><span class="line">conn.smove(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>, <span class="string">'a'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="差集、交集与并集运算"><a href="#差集、交集与并集运算" class="headerlink" title="差集、交集与并集运算"></a>差集、交集与并集运算</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SDIFF：对两个集合作差集运算</span></span><br><span class="line"><span class="comment"># 返回存在于第一个集合但不存在于第二个集合的所有元素</span></span><br><span class="line">conn.sdiff(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SDIFFSTORE：对两个集合作差集运算</span></span><br><span class="line"><span class="comment"># 储存存在于第一个集合但不存在于第二个集合的所有元素</span></span><br><span class="line">conn.sdiffstore(<span class="string">'store_key'</span>, <span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SINTER：对两个集合作交集运算</span></span><br><span class="line"><span class="comment"># 返回那些同时存在于所有集合的元素</span></span><br><span class="line">conn.sinter(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SINTERSTORE：对两个集合作交集运算</span></span><br><span class="line"><span class="comment"># 储存那些同时存在于所有集合的元素</span></span><br><span class="line">conn.sinterstore(<span class="string">'store_key'</span>, <span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SUNION：对两个集合作并集运算</span></span><br><span class="line"><span class="comment"># 返回那些至少存在于一个集合的元素</span></span><br><span class="line">conn.sunion(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SUNIONSTORE：对两个集合作并集运算</span></span><br><span class="line"><span class="comment"># 储存那些至少存在于一个集合的元素</span></span><br><span class="line">conn.sunionstore(<span class="string">'store_key'</span>, <span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br></pre></td></tr></table></figure>
 <p>注：就集合这一结构而言，其基本功能在Python与Redis中的实现并无过大差别。Redis集合的好处在于，可以同时被多个客户端进行远程访问。</p>
 <p><em>【参考】</em><br><em>[1] 《Redis的设计与实现》</em></p>
 <p><em>[2] 《Redis实战》</em></p>
@@ -1343,6 +1452,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
