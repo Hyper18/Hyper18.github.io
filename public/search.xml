@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java面向对象（七）—— 复用类</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E7%94%A8%E7%B1%BB/</url>
+    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
+<ul>
+<li>在新类中产生现有类的对象</li>
+<li>继承</li>
+</ul>
+<p>2、组合语法</p>
+<ul>
+<li>将对象引用置于新类</li>
+<li>初始化引用的位置<ul>
+<li>定义处</li>
+<li>类构造器中</li>
+<li>惰性初始化（Delay Initialization）于使用对象前</li>
+</ul>
+</li>
+</ul>
+<p>3、继承</p>
+<ul>
+<li>声明新类与旧类类似<ul>
+<li>书写紧跟基类名称关键字extends</li>
+</ul>
+</li>
+<li>super为超类，类从超类继承</li>
+<li>使用+=可连接多个String对象</li>
+<li>构建过程（初始化过程同）是向外“扩散”的<ul>
+<li>若类带有参数，则需要用super显式编写调用</li>
+</ul>
+</li>
+</ul>
+<p>4、代理：继承与组合的中间体</p>
+<ul>
+<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
+<li>java不直接支持代理，可使用部分支持ide自动生成</li>
+</ul>
+<p>5、结合使用组合和继承</p>
+<ul>
+<li>finally()子句确保正确清理，采用自己编写的顺序清理</li>
+<li>dispose()：清理方法</li>
+<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别C++）<ul>
+<li>需要覆写：Override()，不是关键字但按关键字处理</li>
+</ul>
+</li>
+</ul>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
+<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
+<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
+<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
+<li>is-a关系 - 继承，has-a关系 - 组合</li>
+</ul>
+<p>6、protected关键字</p>
+<ul>
+<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
+</ul>
+<p>7、final关键字</p>
+<ul>
+<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
+<li>类常量 static final</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>面向对象</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java面向对象（一）—— 对象导论</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
     <content><![CDATA[<h2 id="第一章-对象导论"><a href="#第一章-对象导论" class="headerlink" title="第一章 对象导论"></a>第一章 对象导论</h2><p>1、基本特性</p>
@@ -72,65 +143,64 @@
       </tags>
   </entry>
   <entry>
-    <title>Java面向对象（七）—— 复用类</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E7%94%A8%E7%B1%BB/</url>
-    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
+    <title>Java面向对象（三）—— 操作符</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%93%8D%E4%BD%9C%E7%AC%A6/</url>
+    <content><![CDATA[<h2 id="第三章-操作符"><a href="#第三章-操作符" class="headerlink" title="第三章 操作符"></a>第三章 操作符</h2><p>1、别名现象</p>
+<p>赋值操作是对一个对象的引用，对象与对象相互赋值则丢失信息</p>
+<p>2、生成数字：Random类</p>
 <ul>
-<li>在新类中产生现有类的对象</li>
-<li>继承</li>
+<li>nextInt / nextFloat …</li>
 </ul>
-<p>2、组合语法</p>
+<p>3、可使用一元加减号</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下操作均合法</span></span><br><span class="line">x = -a;</span><br><span class="line">x = a * -b;</span><br><span class="line">s = a * (-b);</span><br></pre></td></tr></table></figure>
+<p>4、关系操作符</p>
 <ul>
-<li>将对象引用置于新类</li>
-<li>初始化引用的位置<ul>
-<li>定义处</li>
-<li>类构造器中</li>
-<li>惰性初始化（Delay Initialization）于使用对象前</li>
+<li>若为基本类型，直接比较</li>
+<li>不为基本类型，使用所有对象都适用的特殊方法equals()<ul>
+<li>默认执行比较引用，不可用于自己的新类</li>
 </ul>
 </li>
 </ul>
-<p>3、继承</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">n1.equals(n2)</span><br><span class="line"><span class="comment">// 以下返回行为不正确</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myclass</span></span>{</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">wrongdoing</span></span>{</span><br><span class="line">    myclass v1 = <span class="keyword">new</span> v1;</span><br><span class="line">    myclass v2 = <span class="keyword">new</span> v2;</span><br><span class="line">    System.out.println(v1.equals(v2));</span><br><span class="line">}</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>声明新类与旧类类似<ul>
-<li>书写紧跟基类名称关键字extends</li>
+<li>三元操作符</li>
 </ul>
-</li>
-<li>super为超类，类从超类继承</li>
-<li>使用+=可连接多个String对象</li>
-<li>构建过程（初始化过程同）是向外“扩散”的<ul>
-<li>若类带有参数，则需要用super显式编写调用</li>
-</ul>
-</li>
-</ul>
-<p>4、代理：继承与组合的中间体</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// condition ? ex1 : ex2;</span></span><br><span class="line">x &lt; y ? x : y;</span><br></pre></td></tr></table></figure>
+<p>5、逻辑运算符</p>
+<p>与或非仅可用于布尔值</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 错误实例</span></span><br><span class="line">printf(<span class="string">"i &amp;&amp; j is"</span> + (i &amp;&amp; j));</span><br><span class="line">printf(<span class="string">"i &amp;&amp; j is"</span> + (i || j));</span><br><span class="line">printf(<span class="string">"i &amp;&amp; j is"</span> + !i);</span><br></pre></td></tr></table></figure>
+<p>6、直接常量</p>
 <ul>
-<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
-<li>java不直接支持代理，可使用部分支持ide自动生成</li>
-</ul>
-<p>5、结合使用组合和继承</p>
-<ul>
-<li>finally()子句确保正确清理，采用自己编写的顺序清理</li>
-<li>dispose()：清理方法</li>
-<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别C++）<ul>
-<li>需要覆写：Override()，不是关键字但按关键字处理</li>
+<li>后缀L / F /D …</li>
+<li>前缀0x / 0 / 0b</li>
+<li>可为数字字面量添加下划线，更可读（e.g. 1_000_000)</li>
+<li>指数<ul>
+<li>注：结果不为一个数，返回NaN（e.g. 0/0）</li>
 </ul>
 </li>
 </ul>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
-<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
-<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
-<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
-<li>is-a关系 - 继承，has-a关系 - 组合</li>
-</ul>
-<p>6、protected关键字</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">expfloat = <span class="number">1.39E-43f</span>；</span><br></pre></td></tr></table></figure>
+<p>7、按位操作符</p>
+<p>&amp;= |= ^= 均合法</p>
+<p>8、移位操作符 &gt;&gt; &lt;&lt;</p>
 <ul>
-<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
+<li>无符号右移：&gt;&gt;&gt;，无论正负均在高位插入0<ul>
+<li>对byte / short：会先转为int，右移、截断、赋值，可能得到-1结果</li>
+<li>推广：只要类型比int小均会被转换，可根据需求使用cast手动类型转换 / 提升</li>
 </ul>
-<p>7、final关键字</p>
+</li>
+<li>与等号组合：&gt;&gt;= &lt;&lt;=，移动等号左边指定的位数</li>
+</ul>
+<p>9、移植：无需考虑，不同机器均相同</p>
 <ul>
-<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
-<li>类常量 static final</li>
+<li>因而无sizeof操作符</li>
 </ul>
+<p>注：溢出结果不会收到警告或出错</p>
+<p>10、浮点数四舍五入</p>
+<ul>
+<li>得到最接近整数：使用Max.round() 方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">9.997</span></span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) Math.round(x);</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -232,76 +302,6 @@
 </ul>
 </li>
 </ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>面向对象</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java面向对象（三）—— 操作符</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%93%8D%E4%BD%9C%E7%AC%A6/</url>
-    <content><![CDATA[<h2 id="第三章-操作符"><a href="#第三章-操作符" class="headerlink" title="第三章 操作符"></a>第三章 操作符</h2><p>1、别名现象</p>
-<p>赋值操作是对一个对象的引用，对象与对象相互赋值则丢失信息</p>
-<p>2、生成数字：Random类</p>
-<ul>
-<li>nextInt / nextFloat …</li>
-</ul>
-<p>3、可使用一元加减号</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下操作均合法</span></span><br><span class="line">x = -a;</span><br><span class="line">x = a * -b;</span><br><span class="line">s = a * (-b);</span><br></pre></td></tr></table></figure>
-<p>4、关系操作符</p>
-<ul>
-<li>若为基本类型，直接比较</li>
-<li>不为基本类型，使用所有对象都适用的特殊方法equals()<ul>
-<li>默认执行比较引用，不可用于自己的新类</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">n1.equals(n2)</span><br><span class="line"><span class="comment">// 以下返回行为不正确</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myclass</span></span>{</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">wrongdoing</span></span>{</span><br><span class="line">    myclass v1 = <span class="keyword">new</span> v1;</span><br><span class="line">    myclass v2 = <span class="keyword">new</span> v2;</span><br><span class="line">    System.out.println(v1.equals(v2));</span><br><span class="line">}</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>三元操作符</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// condition ? ex1 : ex2;</span></span><br><span class="line">x &lt; y ? x : y;</span><br></pre></td></tr></table></figure>
-<p>5、逻辑运算符</p>
-<p>与或非仅可用于布尔值</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 错误实例</span></span><br><span class="line">printf(<span class="string">"i &amp;&amp; j is"</span> + (i &amp;&amp; j));</span><br><span class="line">printf(<span class="string">"i &amp;&amp; j is"</span> + (i || j));</span><br><span class="line">printf(<span class="string">"i &amp;&amp; j is"</span> + !i);</span><br></pre></td></tr></table></figure>
-<p>6、直接常量</p>
-<ul>
-<li>后缀L / F /D …</li>
-<li>前缀0x / 0 / 0b</li>
-<li>可为数字字面量添加下划线，更可读（e.g. 1_000_000)</li>
-<li>指数<ul>
-<li>注：结果不为一个数，返回NaN（e.g. 0/0）</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">expfloat = <span class="number">1.39E-43f</span>；</span><br></pre></td></tr></table></figure>
-<p>7、按位操作符</p>
-<p>&amp;= |= ^= 均合法</p>
-<p>8、移位操作符 &gt;&gt; &lt;&lt;</p>
-<ul>
-<li>无符号右移：&gt;&gt;&gt;，无论正负均在高位插入0<ul>
-<li>对byte / short：会先转为int，右移、截断、赋值，可能得到-1结果</li>
-<li>推广：只要类型比int小均会被转换，可根据需求使用cast手动类型转换 / 提升</li>
-</ul>
-</li>
-<li>与等号组合：&gt;&gt;= &lt;&lt;=，移动等号左边指定的位数</li>
-</ul>
-<p>9、移植：无需考虑，不同机器均相同</p>
-<ul>
-<li>因而无sizeof操作符</li>
-</ul>
-<p>注：溢出结果不会收到警告或出错</p>
-<p>10、浮点数四舍五入</p>
-<ul>
-<li>得到最接近整数：使用Max.round() 方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">9.997</span></span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) Math.round(x);</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1423,135 +1423,6 @@
       </tags>
   </entry>
   <entry>
-    <title>分题型基础补全计划（二）—— CSS篇</title>
-    <url>/2021/11/08/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20CSS%E7%AF%87/</url>
-    <content><![CDATA[<h3 id="样式表的嵌入"><a href="#样式表的嵌入" class="headerlink" title="样式表的嵌入"></a>样式表的嵌入</h3><p>题型1：在以下的 HTML 中，哪个是正确引用外部样式表的方法？ </p>
-<ul>
-<li>A <code>&lt;style src="mystyle.css"&gt;</code></li>
-<li>B <code>&lt;link rel="stylesheet" type="text/css" href="mystyle.css"&gt;</code></li>
-<li>C <code>&lt;stylesheet&gt;mystyle.css&lt;/stylesheet&gt;</code></li>
-<li>D <code>&lt;stylesheet&gt;src=mystyle.css&lt;/stylesheet&gt;</code></li>
-</ul>
-<p><em>我的答案:</em> B</p>
-<h5 id="外部样式表"><a href="#外部样式表" class="headerlink" title="外部样式表"></a>外部样式表</h5><ul>
-<li>适用场景：样式需应用到多个页面时，可通过引入同一个外部样式表来改变整个网页站点的外观</li>
-<li>过程：浏览器从外部样式表中逐一读取样式声明，并藉此格式化文档</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--1、链接式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"sample_style1.css"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--2、导入式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="keyword">@import</span> url(sample_style2.css);</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>题型2：哪个 HTML 标签用于定义内部样式表？ </p>
-<ul>
-<li>A <code>&lt;style&gt;</code></li>
-<li>B <code>&lt;script&gt;</code></li>
-<li>C <code>&lt;css&gt;</code></li>
-<li>D <code>&lt;html&gt;</code></li>
-</ul>
-<p><em>我的答案:</em> A</p>
-<h5 id="内部样式表（内嵌样式）"><a href="#内部样式表（内嵌样式）" class="headerlink" title="内部样式表（内嵌样式）"></a>内部样式表（内嵌样式）</h5><ul>
-<li>适用场景：单个文档需要应用某特殊样式时</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">p</span>{</span></span><br><span class="line"><span class="css">            <span class="attribute">text-align</span>: right;  <span class="comment">/*文本右侧对齐*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">font-size</span>: <span class="number">12px</span>;  <span class="comment">/*字体大小 12 像素, 注意这里12与像素px之间不要有空格*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">line-height</span>: <span class="number">20px</span>;  <span class="comment">/*行高 20 像素*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">text-indent</span>: <span class="number">2em</span>;  <span class="comment">/*首行缩进2个文字大小空间*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">200px</span>;  <span class="comment">/*段落宽度 200 像素*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">margin</span>: <span class="number">0</span> auto;  <span class="comment">/*浏览器下居中*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;  <span class="comment">/*段落下边距 10 像素*/</span></span></span><br><span class="line"><span class="css">        }</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="内联样式（行内样式）"><a href="#内联样式（行内样式）" class="headerlink" title="内联样式（行内样式）"></a>内联样式（行内样式）</h5><ul>
-<li>适用场景：单个元素需要应用某特殊样式时</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"background-color: #666666"</span>&gt;</span></span><br><span class="line">        this is a sample text</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="注释的使用"><a href="#注释的使用" class="headerlink" title="注释的使用"></a>注释的使用</h3><p>题型：如何在 CSS 文件中插入注释？ </p>
-<ul>
-<li>A <code>// this is a comment</code></li>
-<li>B <code>// this is a comment //</code></li>
-<li>C <code>/* this is a comment */</code></li>
-<li>D <code>this is a comment</code></li>
-</ul>
-<p><em>我的答案:</em> C</p>
-<h5 id="注：实际CSS中的注释不区分单行与多行，所有被放在-和-分隔符之间的文本信息都被称为注释"><a href="#注：实际CSS中的注释不区分单行与多行，所有被放在-和-分隔符之间的文本信息都被称为注释" class="headerlink" title="注：实际CSS中的注释不区分单行与多行，所有被放在/*和*/分隔符之间的文本信息都被称为注释"></a>注：实际CSS中的注释不区分单行与多行，所有被放在<code>/*</code>和<code>*/</code>分隔符之间的文本信息都被称为注释</h5><h3 id="选择器的使用"><a href="#选择器的使用" class="headerlink" title="选择器的使用"></a>选择器的使用</h3><p>题型：如何为所有的 <code>&lt;h1&gt;</code> 元素添加背景颜色？ </p>
-<ul>
-<li>A <code>h1.all {background-color:#FFFFFF}</code></li>
-<li>B <code>h1 {background-color:#FFFFFF}</code></li>
-<li>C <code>all.h1 {background-color:#FFFFFF}</code></li>
-<li>D <code>#h1 {background-color:#FFFFFF}</code></li>
-</ul>
-<p><em>我的答案:</em> B</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*1、通用元素选择器，匹配任何元素*/</span></span><br><span class="line">* { <span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">padding</span>:<span class="number">0</span>; }</span><br><span class="line"><span class="comment">/*2、标签选择器，匹配所有使用p标签的元素*/</span></span><br><span class="line"><span class="selector-tag">p</span> { <span class="attribute">font-weight</span>:bold; }</span><br><span class="line"><span class="comment">/*3、class选择器，匹配所有class属性中包含info的元素*/</span></span><br><span class="line"><span class="selector-class">.info</span> { <span class="attribute">background</span>:<span class="number">#ff0</span>; }</span><br><span class="line"><span class="comment">/*4、id选择器，匹配所有id属性等于sample的元素*/</span></span><br><span class="line"><span class="selector-id">#sample</span> { <span class="attribute">background</span>:<span class="number">#ff0</span>; }</span><br></pre></td></tr></table></figure>
-<p>进阶内容见：<a href="http://www.ruanyifeng.com/blog/2009/03/css_selectors.html">CSS选择器笔记 - 阮一峰的网络日志 (ruanyifeng.com)</a>，总结的很全面了</p>
-<h3 id="文本样式的控制"><a href="#文本样式的控制" class="headerlink" title="文本样式的控制"></a>文本样式的控制</h3><p>题型1：在以下的 CSS 中，可使所有 <code>&lt;p&gt;</code> 元素变为粗体的正确语法是？ </p>
-<ul>
-<li>A <code>&lt;p style="font-size:bold"&gt;</code></li>
-<li>B <code>&lt;p style="text-size:bold"&gt;</code></li>
-<li>C <code>p {font-weight:bold}</code></li>
-<li>D <code>p {text-size:bold}</code></li>
-</ul>
-<p><em>我的答案:</em> C</p>
-<h5 id="font-weight"><a href="#font-weight" class="headerlink" title="font-weight"></a>font-weight</h5><ul>
-<li>默认为normal，可能值如下：<ul>
-<li>bold（粗体）</li>
-<li>bolder（顾名思义，更粗的粗体）</li>
-<li>lighter（细体）</li>
-<li>100~900的数值：400=normal，700=bold，粗细程度随数值递增</li>
-</ul>
-</li>
-</ul>
-<h3 id="列表的使用"><a href="#列表的使用" class="headerlink" title="列表的使用"></a>列表的使用</h3><p>题型：如何产生带有正方形项目的列表？ </p>
-<ul>
-<li>A <code>list-type: square</code></li>
-<li>B <code>type: 2</code></li>
-<li>C <code>type: square</code></li>
-<li>D <code>list-style-type: square</code></li>
-</ul>
-<p><em>我的答案:</em> D</p>
-<h5 id="list-style-type"><a href="#list-style-type" class="headerlink" title="list-style-type"></a>list-style-type</h5><ul>
-<li>具体的值有很多，常用disc（默认，实心圆）none（无） decimal（数字） lower-roman（小写罗马数字）</li>
-</ul>
-<h3 id="四种定位方式"><a href="#四种定位方式" class="headerlink" title="四种定位方式"></a>四种定位方式</h3><p>题型：HTML 元素默认情况下的定位方式为</p>
-<ul>
-<li>A static</li>
-<li>B relative</li>
-<li>C fixed</li>
-<li>D absolute</li>
-</ul>
-<p><em>我的答案:</em> A</p>
-<h5 id="静态定位-static"><a href="#静态定位-static" class="headerlink" title="静态定位 static"></a>静态定位 static</h5><ul>
-<li>相当于没有定位，元素正常出现在文档流中</li>
-</ul>
-<h5 id="相对定位-relative"><a href="#相对定位-relative" class="headerlink" title="相对定位 relative"></a>相对定位 relative</h5><ul>
-<li>应用此定位的元素会脱离正常的文档流，但其在文档流中的位置依然存在，只是视觉上相对原来的位置有移动</li>
-</ul>
-<h5 id="绝对定位-absolute"><a href="#绝对定位-absolute" class="headerlink" title="绝对定位 absolute"></a>绝对定位 absolute</h5><ul>
-<li>相对于 static 定位以外的首个父元素进行定位，脱离正常的文档流，且不再占据文档流中的位置</li>
-</ul>
-<h5 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 fixed"></a>固定定位 fixed</h5><ul>
-<li>相对于浏览器窗口进行定位</li>
-</ul>
-<h3 id="边框与浮动"><a href="#边框与浮动" class="headerlink" title="边框与浮动"></a>边框与浮动</h3><p>题型1：如何显示这样一个边框：上边框 10 像素、下边框 5 像素、左边框 20 像素、右边框 1 像素？ </p>
-<ul>
-<li>A <code>border-width:10px 5px 20px 1px</code></li>
-<li>B <code>border-width:10px 20px 5px 1px</code></li>
-<li>C <code>border-width:5px 20px 10px 1px</code></li>
-<li>D <code>border-width:10px 1px 5px 20px</code></li>
-</ul>
-<p><em>我的答案:</em> D</p>
-<h5 id="border-width顺序：顺时针，↑→↓←"><a href="#border-width顺序：顺时针，↑→↓←" class="headerlink" title="border-width顺序：顺时针，↑→↓←"></a>border-width顺序：顺时针，↑→↓←</h5><p>题型2：为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式？</p>
-<p>解答：</p>
-<ol>
-<li><p>浮动的出现是因为：如果在标准流下，一个父元素未设置其自身的高度height属性,那么它的高度就会被子元素的高度撑开，是出于这样一种自适应的现象；</p>
-</li>
-<li><p>需要清除浮动的场景：如1中所述，当父元素未设置自身高度而无法达到既定的视觉效果时，需要清除浮动；</p>
-</li>
-<li><p>清除浮动的方式有：</p>
-<p>（1）给父元素样式添加overflow：hidden，从而创建一个BFC（Block formatting context，块级格式化上下文），从而使其中的元素布局是不受外界的影响，达到清除浮动的目的；</p>
-<p>（2）在父元素的最后设置clear:both，使得父元素和冗余元素向子元素方向延展，直到子元素边界停止浮动，使得父元素能够成功地包裹住子元素，从而变相地消除了浮动。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>JavaWeb</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>分题型基础补全计划（三）—— JavaScript篇</title>
     <url>/2021/11/11/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20JavaScript%E7%AF%87/</url>
     <content><![CDATA[<h3 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h3><p>​    作为一门一切皆为对象的语言，首先需要搞明白指针this的指向问题。以下为常见的两种指向情况：</p>
@@ -1868,6 +1739,135 @@
       </categories>
       <tags>
         <tag>小程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分题型基础补全计划（二）—— CSS篇</title>
+    <url>/2021/11/08/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20CSS%E7%AF%87/</url>
+    <content><![CDATA[<h3 id="样式表的嵌入"><a href="#样式表的嵌入" class="headerlink" title="样式表的嵌入"></a>样式表的嵌入</h3><p>题型1：在以下的 HTML 中，哪个是正确引用外部样式表的方法？ </p>
+<ul>
+<li>A <code>&lt;style src="mystyle.css"&gt;</code></li>
+<li>B <code>&lt;link rel="stylesheet" type="text/css" href="mystyle.css"&gt;</code></li>
+<li>C <code>&lt;stylesheet&gt;mystyle.css&lt;/stylesheet&gt;</code></li>
+<li>D <code>&lt;stylesheet&gt;src=mystyle.css&lt;/stylesheet&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> B</p>
+<h5 id="外部样式表"><a href="#外部样式表" class="headerlink" title="外部样式表"></a>外部样式表</h5><ul>
+<li>适用场景：样式需应用到多个页面时，可通过引入同一个外部样式表来改变整个网页站点的外观</li>
+<li>过程：浏览器从外部样式表中逐一读取样式声明，并藉此格式化文档</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--1、链接式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"sample_style1.css"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--2、导入式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="keyword">@import</span> url(sample_style2.css);</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>题型2：哪个 HTML 标签用于定义内部样式表？ </p>
+<ul>
+<li>A <code>&lt;style&gt;</code></li>
+<li>B <code>&lt;script&gt;</code></li>
+<li>C <code>&lt;css&gt;</code></li>
+<li>D <code>&lt;html&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> A</p>
+<h5 id="内部样式表（内嵌样式）"><a href="#内部样式表（内嵌样式）" class="headerlink" title="内部样式表（内嵌样式）"></a>内部样式表（内嵌样式）</h5><ul>
+<li>适用场景：单个文档需要应用某特殊样式时</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">p</span>{</span></span><br><span class="line"><span class="css">            <span class="attribute">text-align</span>: right;  <span class="comment">/*文本右侧对齐*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">font-size</span>: <span class="number">12px</span>;  <span class="comment">/*字体大小 12 像素, 注意这里12与像素px之间不要有空格*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">line-height</span>: <span class="number">20px</span>;  <span class="comment">/*行高 20 像素*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">text-indent</span>: <span class="number">2em</span>;  <span class="comment">/*首行缩进2个文字大小空间*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">200px</span>;  <span class="comment">/*段落宽度 200 像素*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">margin</span>: <span class="number">0</span> auto;  <span class="comment">/*浏览器下居中*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;  <span class="comment">/*段落下边距 10 像素*/</span></span></span><br><span class="line"><span class="css">        }</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="内联样式（行内样式）"><a href="#内联样式（行内样式）" class="headerlink" title="内联样式（行内样式）"></a>内联样式（行内样式）</h5><ul>
+<li>适用场景：单个元素需要应用某特殊样式时</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"background-color: #666666"</span>&gt;</span></span><br><span class="line">        this is a sample text</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="注释的使用"><a href="#注释的使用" class="headerlink" title="注释的使用"></a>注释的使用</h3><p>题型：如何在 CSS 文件中插入注释？ </p>
+<ul>
+<li>A <code>// this is a comment</code></li>
+<li>B <code>// this is a comment //</code></li>
+<li>C <code>/* this is a comment */</code></li>
+<li>D <code>this is a comment</code></li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="注：实际CSS中的注释不区分单行与多行，所有被放在-和-分隔符之间的文本信息都被称为注释"><a href="#注：实际CSS中的注释不区分单行与多行，所有被放在-和-分隔符之间的文本信息都被称为注释" class="headerlink" title="注：实际CSS中的注释不区分单行与多行，所有被放在/*和*/分隔符之间的文本信息都被称为注释"></a>注：实际CSS中的注释不区分单行与多行，所有被放在<code>/*</code>和<code>*/</code>分隔符之间的文本信息都被称为注释</h5><h3 id="选择器的使用"><a href="#选择器的使用" class="headerlink" title="选择器的使用"></a>选择器的使用</h3><p>题型：如何为所有的 <code>&lt;h1&gt;</code> 元素添加背景颜色？ </p>
+<ul>
+<li>A <code>h1.all {background-color:#FFFFFF}</code></li>
+<li>B <code>h1 {background-color:#FFFFFF}</code></li>
+<li>C <code>all.h1 {background-color:#FFFFFF}</code></li>
+<li>D <code>#h1 {background-color:#FFFFFF}</code></li>
+</ul>
+<p><em>我的答案:</em> B</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*1、通用元素选择器，匹配任何元素*/</span></span><br><span class="line">* { <span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">padding</span>:<span class="number">0</span>; }</span><br><span class="line"><span class="comment">/*2、标签选择器，匹配所有使用p标签的元素*/</span></span><br><span class="line"><span class="selector-tag">p</span> { <span class="attribute">font-weight</span>:bold; }</span><br><span class="line"><span class="comment">/*3、class选择器，匹配所有class属性中包含info的元素*/</span></span><br><span class="line"><span class="selector-class">.info</span> { <span class="attribute">background</span>:<span class="number">#ff0</span>; }</span><br><span class="line"><span class="comment">/*4、id选择器，匹配所有id属性等于sample的元素*/</span></span><br><span class="line"><span class="selector-id">#sample</span> { <span class="attribute">background</span>:<span class="number">#ff0</span>; }</span><br></pre></td></tr></table></figure>
+<p>进阶内容见：<a href="http://www.ruanyifeng.com/blog/2009/03/css_selectors.html">CSS选择器笔记 - 阮一峰的网络日志 (ruanyifeng.com)</a>，总结的很全面了</p>
+<h3 id="文本样式的控制"><a href="#文本样式的控制" class="headerlink" title="文本样式的控制"></a>文本样式的控制</h3><p>题型1：在以下的 CSS 中，可使所有 <code>&lt;p&gt;</code> 元素变为粗体的正确语法是？ </p>
+<ul>
+<li>A <code>&lt;p style="font-size:bold"&gt;</code></li>
+<li>B <code>&lt;p style="text-size:bold"&gt;</code></li>
+<li>C <code>p {font-weight:bold}</code></li>
+<li>D <code>p {text-size:bold}</code></li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="font-weight"><a href="#font-weight" class="headerlink" title="font-weight"></a>font-weight</h5><ul>
+<li>默认为normal，可能值如下：<ul>
+<li>bold（粗体）</li>
+<li>bolder（顾名思义，更粗的粗体）</li>
+<li>lighter（细体）</li>
+<li>100~900的数值：400=normal，700=bold，粗细程度随数值递增</li>
+</ul>
+</li>
+</ul>
+<h3 id="列表的使用"><a href="#列表的使用" class="headerlink" title="列表的使用"></a>列表的使用</h3><p>题型：如何产生带有正方形项目的列表？ </p>
+<ul>
+<li>A <code>list-type: square</code></li>
+<li>B <code>type: 2</code></li>
+<li>C <code>type: square</code></li>
+<li>D <code>list-style-type: square</code></li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="list-style-type"><a href="#list-style-type" class="headerlink" title="list-style-type"></a>list-style-type</h5><ul>
+<li>具体的值有很多，常用disc（默认，实心圆）none（无） decimal（数字） lower-roman（小写罗马数字）</li>
+</ul>
+<h3 id="四种定位方式"><a href="#四种定位方式" class="headerlink" title="四种定位方式"></a>四种定位方式</h3><p>题型：HTML 元素默认情况下的定位方式为</p>
+<ul>
+<li>A static</li>
+<li>B relative</li>
+<li>C fixed</li>
+<li>D absolute</li>
+</ul>
+<p><em>我的答案:</em> A</p>
+<h5 id="静态定位-static"><a href="#静态定位-static" class="headerlink" title="静态定位 static"></a>静态定位 static</h5><ul>
+<li>相当于没有定位，元素正常出现在文档流中</li>
+</ul>
+<h5 id="相对定位-relative"><a href="#相对定位-relative" class="headerlink" title="相对定位 relative"></a>相对定位 relative</h5><ul>
+<li>应用此定位的元素会脱离正常的文档流，但其在文档流中的位置依然存在，只是视觉上相对原来的位置有移动</li>
+</ul>
+<h5 id="绝对定位-absolute"><a href="#绝对定位-absolute" class="headerlink" title="绝对定位 absolute"></a>绝对定位 absolute</h5><ul>
+<li>相对于 static 定位以外的首个父元素进行定位，脱离正常的文档流，且不再占据文档流中的位置</li>
+</ul>
+<h5 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 fixed"></a>固定定位 fixed</h5><ul>
+<li>相对于浏览器窗口进行定位</li>
+</ul>
+<h3 id="边框与浮动"><a href="#边框与浮动" class="headerlink" title="边框与浮动"></a>边框与浮动</h3><p>题型1：如何显示这样一个边框：上边框 10 像素、下边框 5 像素、左边框 20 像素、右边框 1 像素？ </p>
+<ul>
+<li>A <code>border-width:10px 5px 20px 1px</code></li>
+<li>B <code>border-width:10px 20px 5px 1px</code></li>
+<li>C <code>border-width:5px 20px 10px 1px</code></li>
+<li>D <code>border-width:10px 1px 5px 20px</code></li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="border-width顺序：顺时针，↑→↓←"><a href="#border-width顺序：顺时针，↑→↓←" class="headerlink" title="border-width顺序：顺时针，↑→↓←"></a>border-width顺序：顺时针，↑→↓←</h5><p>题型2：为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式？</p>
+<p>解答：</p>
+<ol>
+<li><p>浮动的出现是因为：如果在标准流下，一个父元素未设置其自身的高度height属性,那么它的高度就会被子元素的高度撑开，是出于这样一种自适应的现象；</p>
+</li>
+<li><p>需要清除浮动的场景：如1中所述，当父元素未设置自身高度而无法达到既定的视觉效果时，需要清除浮动；</p>
+</li>
+<li><p>清除浮动的方式有：</p>
+<p>（1）给父元素样式添加overflow：hidden，从而创建一个BFC（Block formatting context，块级格式化上下文），从而使其中的元素布局是不受外界的影响，达到清除浮动的目的；</p>
+<p>（2）在父元素的最后设置clear:both，使得父元素和冗余元素向子元素方向延展，直到子元素边界停止浮动，使得父元素能够成功地包裹住子元素，从而变相地消除了浮动。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -2239,6 +2239,153 @@
       </tags>
   </entry>
   <entry>
+    <title>数据库操作（二）—— 进阶篇</title>
+    <url>/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/</url>
+    <content><![CDATA[<h2 id="进阶操作-第9-13章"><a href="#进阶操作-第9-13章" class="headerlink" title="进阶操作 第9-13章"></a>进阶操作 第9-13章</h2><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ul>
+<li>作用：匹配文本</li>
+<li>基本字符匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值’ ORDER BY 子句名<ul>
+<li>.特殊字符表匹配任意一个字符，如‘.000’可匹配1000和2000，etc</li>
+<li>与LIKE匹配的区别：出现的匹配文本，其相应行将被REGEXP返回</li>
+<li>默认匹配不区分大小写，使用BINARY可区分大小写</li>
+</ul>
+</li>
+<li>OR匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值1 | 值2’ ORDER BY 子句名<ul>
+<li>匹配一组特定字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1值2值3]’ ORDER BY 子句名</li>
+</ul>
+</li>
+<li>匹配范围：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1-值2]’ ORDER BY 子句名</li>
+<li>匹配特殊字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘<span>\</span>\.’ ORDER BY 子句名<ul>
+<li>引用元字符：<span>\</span>\f换页 <span>\</span>\n <span>\</span>\r回车 <span>\</span>\t <span>\</span>\v 横、纵向制表</li>
+<li>匹配反斜杠：<span>\</span><span>\</span>\<ul>
+<li>解释：第一个反斜杠由Mysql解释，第二个才是正则表达式解释</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>匹配字符类 character class（P58）</li>
+<li>匹配多个实例：如结尾s可选用?</li>
+<li>匹配特定位置文本：定位符<ul>
+<li>^文本开始 $文本结尾 :&lt;:词的开始  :&gt;:词的结尾<ul>
+<li>注意^的另一种用法是集合中作[]取和</li>
+<li>可以配套使用^$，使用法同LIKE</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>正则表达式的测试：使用SELECT，返回1匹配，反之不匹配<ul>
+<li>优点：无需调用数据库表</li>
+</ul>
+</li>
+</ul>
+<h3 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h3><p>1、字段 field：意义同列，用于计算字段的连接</p>
+<p>2、拼接 concatenate：联结值成为一个单个值</p>
+<ul>
+<li>实际操作：在SELECT中使用Concat()函数<ul>
+<li>SELECT Concat(值1，值2) FROM 表名 ORDER BY 子句名</li>
+<li>或使用RTrim() / LTrim()函数，可删除数据右侧 / 左侧多余空格来整理数据</li>
+</ul>
+</li>
+</ul>
+<p>3、别名 alias / 导出列 derived column：字段或值的替换名</p>
+<ul>
+<li>SELECT Concat(值1，值2) AS 别名 FROM 表名 ORDER BY 子句名</li>
+</ul>
+<p>4、基本计算：四则运算符</p>
+<ul>
+<li>测试计算：省略FROM子句</li>
+</ul>
+<h3 id="数据处理函数"><a href="#数据处理函数" class="headerlink" title="数据处理函数"></a>数据处理函数</h3><p>1、可移植性：多数函数不同SQL存在差异，做好注释</p>
+<p>2、文本处理（P69）</p>
+<ul>
+<li>Left / Right()：返回左 / 右侧字符</li>
+<li>Length()：返回串长</li>
+<li>Locate()：找出某子串</li>
+<li>SubString()：返回子串字符</li>
+<li>Lower/Upper()：返回小 / 大写</li>
+<li>LTrim/Rtrim()：去掉左 / 右侧空格</li>
+<li>Soundex()：将任何文本串转换为描述其语音表示的字母数字模式<ul>
+<li>对串进行发音比较（输入纠正，匹配输入项读音接近字串）</li>
+</ul>
+</li>
+</ul>
+<p>3、时间和日期处理（P71）</p>
+<ul>
+<li>Date()：返回日期</li>
+<li>Time()：返回时间</li>
+</ul>
+<p>4、数值处理（P74）</p>
+<ul>
+<li>Abs()：返回绝对值</li>
+<li>Sin() / Cos() / Tan()</li>
+<li>Exp() / Sqrt()</li>
+<li>Mod()</li>
+<li>Pi()：返回圆周率</li>
+<li>Rand()：返回一个随机数</li>
+</ul>
+<h3 id="汇总数据"><a href="#汇总数据" class="headerlink" title="汇总数据"></a>汇总数据</h3><p>1、聚集函数 aggregate function</p>
+<ul>
+<li>def：行组上计算和返回单个值的函数</li>
+<li>AVG()：SELECT AVG(列名) FROM 表名<ul>
+<li>仅用于确定特定数列，且列名必须以函数参数给出</li>
+<li>忽略值为NULL的行</li>
+</ul>
+</li>
+<li>COUNT()：SELECT COUNT(*) AS 别名 FROM 表名，统计行个数<ul>
+<li>COUNT(*) 统计NULL和非空值</li>
+<li>COUNT（列名）统计特定值，忽略值为NULL的行</li>
+</ul>
+</li>
+<li>MAX()：SELECT MAX(列名)  AS 别名 FROM 表名<ul>
+<li>可作返回任意列的最大值，按列排序的文本数据返回尾行</li>
+<li>忽略值为NULL的行</li>
+</ul>
+</li>
+<li>MIN()：SELECT MIN(列名)  AS 别名 FROM 表名<ul>
+<li>可作返回任意列的最小值，按列排序的文本数据返回首行</li>
+<li>忽略值为NULL的行</li>
+</ul>
+</li>
+<li>SUM()：SELECT SUM(列名)  AS 别名 FROM 表名<ul>
+<li>Sum(列名)返回各行该列数据之和</li>
+<li>忽略值为NULL的行</li>
+</ul>
+</li>
+<li>指定聚集范围ALL / DISTINCT</li>
+<li>组合聚集函数：SELECT COUNT(*) AS 别名， MIN(列名)  AS 别名，MAX(列名)  AS 别名，……，FROM 表名</li>
+</ul>
+<h3 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h3><p>1、创建分组：SELECT COUNT(*) AS 别名 FROM 表名 GROUP BY 列名</p>
+<ul>
+<li>对每个组的结果分别进行聚集，所有列结果一同计算<ul>
+<li>可包含任意数目的列</li>
+<li>每列可为检索列或有效表达式，不能为聚集函数</li>
+<li>SELECT使用表达式 - GROUP BY 必须使用相同表达式，不能使用别名</li>
+</ul>
+</li>
+<li>WITH ROLLUP：得到每个分组及其汇总级别的值<ul>
+<li>SELECT 列名，COUNT(*) AS 别名 FROM 表名 GROUP BY 列名 WITH ROLLUP</li>
+</ul>
+</li>
+</ul>
+<p>2、过滤分组：HAVING（WHERE仅可过滤行）</p>
+<ul>
+<li>适用所有WHERE句法</li>
+<li>在数据分组后进行<ul>
+<li>WHERE在数据过滤前进行，因此分组中不包含WHERE排除的行</li>
+</ul>
+</li>
+</ul>
+<p>3、分组和排序</p>
+<p>保证数据正确排序：GROUP BY + ORDER BY</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据库操作（四）—— 高级篇</title>
     <url>/2020/08/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%AB%98%E7%BA%A7%E7%AF%87/</url>
     <content><![CDATA[<h2 id="高级操作-第22-30章"><a href="#高级操作-第22-30章" class="headerlink" title="高级操作 第22 - 30章"></a>高级操作 第22 - 30章</h2><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>1、def：虚拟表，仅包含使用时动态检索的一个SQL查询</p>
@@ -2483,235 +2630,6 @@
       </tags>
   </entry>
   <entry>
-    <title>数据库操作（二）—— 进阶篇</title>
-    <url>/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/</url>
-    <content><![CDATA[<h2 id="进阶操作-第9-13章"><a href="#进阶操作-第9-13章" class="headerlink" title="进阶操作 第9-13章"></a>进阶操作 第9-13章</h2><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ul>
-<li>作用：匹配文本</li>
-<li>基本字符匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值’ ORDER BY 子句名<ul>
-<li>.特殊字符表匹配任意一个字符，如‘.000’可匹配1000和2000，etc</li>
-<li>与LIKE匹配的区别：出现的匹配文本，其相应行将被REGEXP返回</li>
-<li>默认匹配不区分大小写，使用BINARY可区分大小写</li>
-</ul>
-</li>
-<li>OR匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值1 | 值2’ ORDER BY 子句名<ul>
-<li>匹配一组特定字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1值2值3]’ ORDER BY 子句名</li>
-</ul>
-</li>
-<li>匹配范围：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1-值2]’ ORDER BY 子句名</li>
-<li>匹配特殊字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘<span>\</span>\.’ ORDER BY 子句名<ul>
-<li>引用元字符：<span>\</span>\f换页 <span>\</span>\n <span>\</span>\r回车 <span>\</span>\t <span>\</span>\v 横、纵向制表</li>
-<li>匹配反斜杠：<span>\</span><span>\</span>\<ul>
-<li>解释：第一个反斜杠由Mysql解释，第二个才是正则表达式解释</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>匹配字符类 character class（P58）</li>
-<li>匹配多个实例：如结尾s可选用?</li>
-<li>匹配特定位置文本：定位符<ul>
-<li>^文本开始 $文本结尾 :&lt;:词的开始  :&gt;:词的结尾<ul>
-<li>注意^的另一种用法是集合中作[]取和</li>
-<li>可以配套使用^$，使用法同LIKE</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>正则表达式的测试：使用SELECT，返回1匹配，反之不匹配<ul>
-<li>优点：无需调用数据库表</li>
-</ul>
-</li>
-</ul>
-<h3 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h3><p>1、字段 field：意义同列，用于计算字段的连接</p>
-<p>2、拼接 concatenate：联结值成为一个单个值</p>
-<ul>
-<li>实际操作：在SELECT中使用Concat()函数<ul>
-<li>SELECT Concat(值1，值2) FROM 表名 ORDER BY 子句名</li>
-<li>或使用RTrim() / LTrim()函数，可删除数据右侧 / 左侧多余空格来整理数据</li>
-</ul>
-</li>
-</ul>
-<p>3、别名 alias / 导出列 derived column：字段或值的替换名</p>
-<ul>
-<li>SELECT Concat(值1，值2) AS 别名 FROM 表名 ORDER BY 子句名</li>
-</ul>
-<p>4、基本计算：四则运算符</p>
-<ul>
-<li>测试计算：省略FROM子句</li>
-</ul>
-<h3 id="数据处理函数"><a href="#数据处理函数" class="headerlink" title="数据处理函数"></a>数据处理函数</h3><p>1、可移植性：多数函数不同SQL存在差异，做好注释</p>
-<p>2、文本处理（P69）</p>
-<ul>
-<li>Left / Right()：返回左 / 右侧字符</li>
-<li>Length()：返回串长</li>
-<li>Locate()：找出某子串</li>
-<li>SubString()：返回子串字符</li>
-<li>Lower/Upper()：返回小 / 大写</li>
-<li>LTrim/Rtrim()：去掉左 / 右侧空格</li>
-<li>Soundex()：将任何文本串转换为描述其语音表示的字母数字模式<ul>
-<li>对串进行发音比较（输入纠正，匹配输入项读音接近字串）</li>
-</ul>
-</li>
-</ul>
-<p>3、时间和日期处理（P71）</p>
-<ul>
-<li>Date()：返回日期</li>
-<li>Time()：返回时间</li>
-</ul>
-<p>4、数值处理（P74）</p>
-<ul>
-<li>Abs()：返回绝对值</li>
-<li>Sin() / Cos() / Tan()</li>
-<li>Exp() / Sqrt()</li>
-<li>Mod()</li>
-<li>Pi()：返回圆周率</li>
-<li>Rand()：返回一个随机数</li>
-</ul>
-<h3 id="汇总数据"><a href="#汇总数据" class="headerlink" title="汇总数据"></a>汇总数据</h3><p>1、聚集函数 aggregate function</p>
-<ul>
-<li>def：行组上计算和返回单个值的函数</li>
-<li>AVG()：SELECT AVG(列名) FROM 表名<ul>
-<li>仅用于确定特定数列，且列名必须以函数参数给出</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>COUNT()：SELECT COUNT(*) AS 别名 FROM 表名，统计行个数<ul>
-<li>COUNT(*) 统计NULL和非空值</li>
-<li>COUNT（列名）统计特定值，忽略值为NULL的行</li>
-</ul>
-</li>
-<li>MAX()：SELECT MAX(列名)  AS 别名 FROM 表名<ul>
-<li>可作返回任意列的最大值，按列排序的文本数据返回尾行</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>MIN()：SELECT MIN(列名)  AS 别名 FROM 表名<ul>
-<li>可作返回任意列的最小值，按列排序的文本数据返回首行</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>SUM()：SELECT SUM(列名)  AS 别名 FROM 表名<ul>
-<li>Sum(列名)返回各行该列数据之和</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>指定聚集范围ALL / DISTINCT</li>
-<li>组合聚集函数：SELECT COUNT(*) AS 别名， MIN(列名)  AS 别名，MAX(列名)  AS 别名，……，FROM 表名</li>
-</ul>
-<h3 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h3><p>1、创建分组：SELECT COUNT(*) AS 别名 FROM 表名 GROUP BY 列名</p>
-<ul>
-<li>对每个组的结果分别进行聚集，所有列结果一同计算<ul>
-<li>可包含任意数目的列</li>
-<li>每列可为检索列或有效表达式，不能为聚集函数</li>
-<li>SELECT使用表达式 - GROUP BY 必须使用相同表达式，不能使用别名</li>
-</ul>
-</li>
-<li>WITH ROLLUP：得到每个分组及其汇总级别的值<ul>
-<li>SELECT 列名，COUNT(*) AS 别名 FROM 表名 GROUP BY 列名 WITH ROLLUP</li>
-</ul>
-</li>
-</ul>
-<p>2、过滤分组：HAVING（WHERE仅可过滤行）</p>
-<ul>
-<li>适用所有WHERE句法</li>
-<li>在数据分组后进行<ul>
-<li>WHERE在数据过滤前进行，因此分组中不包含WHERE排除的行</li>
-</ul>
-</li>
-</ul>
-<p>3、分组和排序</p>
-<p>保证数据正确排序：GROUP BY + ORDER BY</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构篇：1.1数据结构的基本概念</title>
-    <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<h2 id="数据结构的基本概念"><a href="#数据结构的基本概念" class="headerlink" title="数据结构的基本概念"></a>数据结构的基本概念</h2><h3 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h3><h4 id="数据-Data"><a href="#数据-Data" class="headerlink" title="数据 Data"></a>数据 Data</h4><ul>
-<li>信息的载体，描述所有能输入到计算机并被计算机<strong>识别</strong>和<strong>处理</strong>的符号集合</li>
-</ul>
-<h4 id="数据元素-Data-Element"><a href="#数据元素-Data-Element" class="headerlink" title="数据元素 Data Element"></a>数据元素 Data Element</h4><ul>
-<li>数据的基本单位，常作为<strong>整体</strong>进行考虑</li>
-</ul>
-<h4 id="数据对象-Data-Object"><a href="#数据对象-Data-Object" class="headerlink" title="数据对象 Data Object"></a>数据对象 Data Object</h4><ul>
-<li>具<strong>相同性质</strong>的数据元素的集合，是数据的一个子集</li>
-</ul>
-<h4 id="数据类型-Data-Type"><a href="#数据类型-Data-Type" class="headerlink" title="数据类型 Data Type"></a>数据类型 Data Type</h4><ul>
-<li><p>一个<strong>值的集合</strong>、定义在此集合上的一组<strong>操作</strong></p>
-</li>
-<li><p>分类：原子类型 结构类型 抽象数据类型</p>
-<ul>
-<li>原子类型：值不可再分</li>
-<li>结构类型：值可再分为若干成分</li>
-<li>抽象数据类型 ADT：<strong>抽象数据组织</strong>及相关操作<ul>
-<li>是<strong>数据对象、数据关系、基本操作集</strong>表示的<strong>三元组</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="数据结构-Data-Structure"><a href="#数据结构-Data-Structure" class="headerlink" title="数据结构 Data Structure"></a>数据结构 Data Structure</h4><ul>
-<li>相互之间存在一种或多种<strong>特定关系</strong>的数据元素的集合</li>
-</ul>
-<h3 id="数据结构三要素"><a href="#数据结构三要素" class="headerlink" title="数据结构三要素"></a>数据结构三要素</h3><h4 id="1、数据的逻辑结构"><a href="#1、数据的逻辑结构" class="headerlink" title="1、数据的逻辑结构"></a>1、数据的逻辑结构</h4><ul>
-<li>def 数据元素之间的逻辑关系</li>
-<li>分类：线性结构 非线性结构<ul>
-<li>线性结构（有序数据元素的集合）：线性表 <strong>栈</strong> 队列 双队列 串 数组<ul>
-<li>特点：数据结构之间存在<strong>一对一</strong>的线性关系</li>
-</ul>
-</li>
-<li>非线性结构：数组 广义表 集合 树 二叉树 图</li>
-</ul>
-</li>
-</ul>
-<h4 id="2、数据的存储结构"><a href="#2、数据的存储结构" class="headerlink" title="2、数据的存储结构"></a>2、数据的存储结构</h4><ul>
-<li>def 数据结构在计算机中的表示，包括数据元素的表示和关系的表示</li>
-<li>分类：顺序存储 链式存储 索引存储 散列存储</li>
-</ul>
-<h5 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h5><ul>
-<li>def 把逻辑上的相邻元素存储在物理位置上也相邻的存储单元中</li>
-<li>优点：实现随机存取，每个元素占用最少存储空间</li>
-<li>缺点：只能使用相邻的一整块存储空间，可能产生较多外部碎片</li>
-</ul>
-<h5 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h5><ul>
-<li>def 不要求物理位置上相邻，借助指针表示元素间的逻辑关系</li>
-<li>优点：充分利用存储单元，无碎片</li>
-<li>缺点：指针占用额外存储空间，且只能顺序存取</li>
-</ul>
-<h5 id="索引存储"><a href="#索引存储" class="headerlink" title="索引存储"></a>索引存储</h5><ul>
-<li>def 存储元素信息并建立附加的<strong>索引表</strong></li>
-<li>优点：检索速度快</li>
-<li>缺点：费时，增删需修改索引表</li>
-</ul>
-<h5 id="散列存储"><a href="#散列存储" class="headerlink" title="散列存储"></a>散列存储</h5><ul>
-<li>def 根据元素关键字直接计算出存储地址</li>
-<li>优点：检索、增删结点快速</li>
-<li>缺点：散列函数不好会引起冲突，而解决增加开销</li>
-</ul>
-<h4 id="3、数据的运算"><a href="#3、数据的运算" class="headerlink" title="3、数据的运算"></a>3、数据的运算</h4><ul>
-<li>def 运算的定义和实现<ul>
-<li>定义 —— <strong>逻辑结构</strong>， 指出运算的功能</li>
-<li>实现 —— <strong>存储结构</strong>，指出运算的具体操作步骤</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>408</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>408</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构篇：1.2算法和算法评价</title>
     <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-2%E7%AE%97%E6%B3%95%E5%92%8C%E7%AE%97%E6%B3%95%E8%AF%84%E4%BB%B7/</url>
     <content><![CDATA[<h2 id="算法基本概念"><a href="#算法基本概念" class="headerlink" title="算法基本概念"></a>算法基本概念</h2><h4 id="算法-Algorithm"><a href="#算法-Algorithm" class="headerlink" title="算法 Algorithm"></a>算法 Algorithm</h4><ul>
@@ -2924,68 +2842,6 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       </tags>
   </entry>
   <entry>
-    <title>机器学习题解（二）—— 神经网络</title>
-    <url>/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
-    <content><![CDATA[<h3 id="ex3-m"><a href="#ex3-m" class="headerlink" title="ex3.m"></a>ex3.m</h3><h4 id="Part-1-Loading-and-Visualizing-Data"><a href="#Part-1-Loading-and-Visualizing-Data" class="headerlink" title="Part 1: Loading and Visualizing Data"></a>Part 1: Loading and Visualizing Data</h4><ul>
-<li>Load Training Data</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">load(<span class="string">'ex3data1.mat'</span>); <span class="comment">% training data stored in arrays X, y</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Visualization</li>
-</ul>
-<p><img src="/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20210910203101080.png" alt="可视化结果"></p>
-<h4 id="Part-2a-Vectorize-Logistic-Regression"><a href="#Part-2a-Vectorize-Logistic-Regression" class="headerlink" title="Part 2a: Vectorize Logistic Regression"></a>Part 2a: Vectorize Logistic Regression</h4><ul>
-<li>Compute the cost of a particular choice of theta. You should set J to the cost.<br>Compute the partial derivatives and set grad to the partial derivatives of the cost w.r.t. each parameter in theta</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">J = (<span class="number">1</span> / m) * sum(-y .* <span class="built_in">log</span>(sigmoid(X * theta)) - (<span class="number">1</span> - y) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(X * theta))) + (lambda / (<span class="number">2</span> * m)) * sum(theta(<span class="number">2</span>:<span class="built_in">size</span>(theta)) .^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">temp = theta;</span><br><span class="line">temp(<span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">grad = (<span class="number">1</span> / m) * (X' * (sigmoid(X * theta) - y)) + (lambda / m) * temp;</span><br></pre></td></tr></table></figure>
-<h4 id="Part-2b-One-vs-All-Training"><a href="#Part-2b-One-vs-All-Training" class="headerlink" title="Part 2b: One-vs-All Training"></a>Part 2b: One-vs-All Training</h4><ul>
-<li>You should complete the following code to train num_labels logistic regression classifiers with regularization parameter lambda.</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% Set Initial theta</span></span><br><span class="line">initial_theta = <span class="built_in">zeros</span>(n + <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">% Set options for fminunc</span></span><br><span class="line">options = optimset(<span class="string">'GradObj'</span>, <span class="string">'on'</span>, <span class="string">'MaxIter'</span>, <span class="number">50</span>);</span><br><span class="line"><span class="keyword">for</span> c = <span class="number">1</span>: num_labels</span><br><span class="line">      all_theta(c, :) = fmincg (@(t)(lrCostFunction(t, X, (y == c), lambda)), initial_theta, options);</span><br></pre></td></tr></table></figure>
-<h4 id="Part-3-Predict-for-One-Vs-All"><a href="#Part-3-Predict-for-One-Vs-All" class="headerlink" title="Part 3: Predict for One-Vs-All"></a>Part 3: Predict for One-Vs-All</h4><ul>
-<li>Complete the following code to make predictions using your learned logistic regression parameters (one-vs-all).</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">predict = sigmoid(X * all_theta');</span><br><span class="line">[~,p] = <span class="built_in">max</span>(predict, [], <span class="number">2</span>); <span class="comment">% ~ means ignore this 1st parameter output</span></span><br></pre></td></tr></table></figure>
-<h3 id="ex3-nn-m"><a href="#ex3-nn-m" class="headerlink" title="ex3_nn.m"></a>ex3_nn.m</h3><ul>
-<li>Complete the following code to make predictions using your learned neural network.</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">X = [<span class="built_in">ones</span>(m, <span class="number">1</span>) X];</span><br><span class="line">z1 = sigmoid(X * Theta1');</span><br><span class="line">z1 = [<span class="built_in">ones</span>(m, <span class="number">1</span>) z1];</span><br><span class="line">z2 = sigmoid(z1 * Theta2');</span><br><span class="line"></span><br><span class="line">[~, p] = <span class="built_in">max</span>(z2, [], <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="ex4-m"><a href="#ex4-m" class="headerlink" title="ex4.m"></a>ex4.m</h3><h4 id="Part-3-Compute-Cost-Feedforward"><a href="#Part-3-Compute-Cost-Feedforward" class="headerlink" title="Part 3: Compute Cost (Feedforward)"></a>Part 3: Compute Cost (Feedforward)</h4><ul>
-<li>Feedforward the neural network and return the cost in the variable J. After implementing Part 1, you can verify that your cost function computation is correct by verifying the cost computed in ex4.m</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% input layer</span></span><br><span class="line">a1 = X;</span><br><span class="line"></span><br><span class="line"><span class="comment">% hidden layer</span></span><br><span class="line">X = [<span class="built_in">ones</span>(m, <span class="number">1</span>) X];  <span class="comment">% 5000 * (1 + 400) = 5000 * 401</span></span><br><span class="line">z2 = Theta1 * X'; <span class="comment">% (25 * 401) * (401 * 5000) = 25 * 5000</span></span><br><span class="line">a2 = sigmoid(z2); <span class="comment">% 25 * 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% output layer</span></span><br><span class="line">a2 = [<span class="built_in">ones</span>(m, <span class="number">1</span>) a2']; <span class="comment">% 5000 * (1 + 25) = 5000 * 26</span></span><br><span class="line">z3 = Theta2 * a2'; <span class="comment">% (10 * 26) * (26 * 5000) = 10 * 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% recode the labels as vectors containing only values 0 or 1</span></span><br><span class="line">y_vec = <span class="built_in">zeros</span>(num_labels, m); <span class="comment">% 10 * 5000</span></span><br><span class="line"><span class="comment">% put value 1 for every iterated column</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: m</span><br><span class="line">    y_vec(y(<span class="built_in">i</span>), <span class="built_in">i</span>) = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% cost function</span></span><br><span class="line">h_theta = sigmoid(z3);</span><br><span class="line">J = (<span class="number">-1</span> / m) * sum(sum(y_vec .* <span class="built_in">log</span>(h_theta) + (<span class="number">1</span> - y_vec) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(h_theta))));</span><br></pre></td></tr></table></figure>
-<h4 id="Part-4-Implement-Regularization"><a href="#Part-4-Implement-Regularization" class="headerlink" title="Part 4: Implement Regularization"></a>Part 4: Implement Regularization</h4><ul>
-<li>You should now add regularization to your cost function. Notice that you can first compute the unregularized cost function J using your existing nnCostFunction.m and then later add the cost for the regularization terms.</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% regularized cost function</span></span><br><span class="line">theta1 = Theta1(:, <span class="number">2</span>:<span class="built_in">size</span>(Theta1, <span class="number">2</span>)); <span class="comment">% size(Theta1, 2) returns the nums of locumns in the matrix</span></span><br><span class="line">theta2 = Theta2(:, <span class="number">2</span>:<span class="built_in">size</span>(Theta2, <span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">J = J + lambda / (<span class="number">2</span> * m) * ( sum(sum(theta1 .^ <span class="number">2</span>)) + sum(sum(theta2 .^ <span class="number">2</span>)) ); <span class="comment">% !sum up separately</span></span><br></pre></td></tr></table></figure>
-<h4 id="Part-5-Sigmoid-Gradient"><a href="#Part-5-Sigmoid-Gradient" class="headerlink" title="Part 5: Sigmoid Gradient"></a>Part 5: Sigmoid Gradient</h4><ul>
-<li>Implement the sigmoid gradient function</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">g = sigmoid(z) .* (<span class="number">1</span> - sigmoid(z));</span><br></pre></td></tr></table></figure>
-<h4 id="Part-6-Initializing-Pameters"><a href="#Part-6-Initializing-Pameters" class="headerlink" title="Part 6: Initializing Pameters"></a>Part 6: Initializing Pameters</h4><ul>
-<li>Initialize W randomly so that we break the symmetry while training the neural network</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% Randomly initialize the weights to small values</span></span><br><span class="line">epsilon_init = <span class="number">0.12</span>;</span><br><span class="line">W = <span class="built_in">rand</span>(L_out, <span class="number">1</span> + L_in) * <span class="number">2</span> * epsilon_init - epsilon_init;</span><br></pre></td></tr></table></figure>
-<h4 id="Part-7-Implement-Backpropagation"><a href="#Part-7-Implement-Backpropagation" class="headerlink" title="Part 7: Implement Backpropagation"></a>Part 7: Implement Backpropagation</h4><ul>
-<li>Implement the backpropagation algorithm to compute the gradients Theta1_grad and Theta2_grad.</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> t = <span class="number">1</span>:m</span><br><span class="line">    <span class="comment">% Step1</span></span><br><span class="line">    a1 = X(t, :); <span class="comment">% 1 * 401</span></span><br><span class="line">    a1 = a1'; <span class="comment">% 401 * 1</span></span><br><span class="line">    z2 = Theta1 * a1; <span class="comment">% (25 * 401) * (401 * 1) = 25 * 1</span></span><br><span class="line">    a2 = sigmoid(z2); <span class="comment">% 25 * 1</span></span><br><span class="line">    </span><br><span class="line">    a2 = [<span class="number">1</span>; a2]; <span class="comment">% add bais, (25 + 1) * 1 = 26 * 1</span></span><br><span class="line">    z3 = Theta2 * a2; <span class="comment">% (10 * 26) * (26 * 1) = 10 * 1</span></span><br><span class="line">    a3 = sigmoid(z3); <span class="comment">% 10 * 1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Step2</span></span><br><span class="line">    delta_3 = a3 - y_vec(:, t); <span class="comment">% 10 * 1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">% Step3</span></span><br><span class="line">    delta_2 = (Theta2' * delta_3) .* sigmoidGradient([<span class="number">1</span>; z2]); <span class="comment">% add bais, 26 * 1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Step4</span></span><br><span class="line">    delta_2 = delta_2(<span class="number">2</span>: <span class="keyword">end</span>); <span class="comment">% 25 * 1</span></span><br><span class="line">    </span><br><span class="line">    Theta1_grad = Theta1_grad + delta_2 * a1'; <span class="comment">% 10 * 25, !sum up grad</span></span><br><span class="line">    Theta2_grad = Theta2_grad + delta_3 * a2'; <span class="comment">% 10 * 25</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">    <span class="comment">%Step5</span></span><br><span class="line">    Theta1_grad = (<span class="number">1</span> / m) * Theta1_grad;</span><br><span class="line">    Theta2_grad = (<span class="number">1</span> / m) * Theta2_grad;</span><br></pre></td></tr></table></figure>
-<h4 id="Gradient-checking"><a href="#Gradient-checking" class="headerlink" title="Gradient checking"></a>Gradient checking</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% take a look and try to understand</span></span><br><span class="line">numgrad = <span class="built_in">zeros</span>(<span class="built_in">size</span>(theta));</span><br><span class="line">perturb = <span class="built_in">zeros</span>(<span class="built_in">size</span>(theta));</span><br><span class="line">e = <span class="number">1e-4</span>;</span><br><span class="line"><span class="keyword">for</span> p = <span class="number">1</span>:<span class="built_in">numel</span>(theta)</span><br><span class="line">    <span class="comment">% Set perturbation vector</span></span><br><span class="line">    perturb(p) = e;</span><br><span class="line">    loss1 = J(theta - perturb);</span><br><span class="line">    loss2 = J(theta + perturb);</span><br><span class="line">    <span class="comment">% Compute Numerical Gradient</span></span><br><span class="line">    numgrad(p) = (loss2 - loss1) / (<span class="number">2</span>*e);</span><br><span class="line">    perturb(p) = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h4 id="Part-8-Implement-Regularization"><a href="#Part-8-Implement-Regularization" class="headerlink" title="Part 8: Implement Regularization"></a>Part 8: Implement Regularization</h4><ul>
-<li>Implement regularization with the cost function and gradients.</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">Theta1_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) = Theta1_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) + (lambda / m) * Theta1(:, <span class="number">2</span>:<span class="keyword">end</span>);</span><br><span class="line">Theta2_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) = Theta2_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) + (lambda / m) * Theta2(:, <span class="number">2</span>:<span class="keyword">end</span>);</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>题解</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>神经网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>机器学习题解（三）—— 模型评估</title>
     <url>/2021/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/</url>
     <content><![CDATA[<h3 id="ex5-m"><a href="#ex5-m" class="headerlink" title="ex5.m"></a>ex5.m</h3><h4 id="Part-2-Regularized-Linear-Regression-Cost"><a href="#Part-2-Regularized-Linear-Regression-Cost" class="headerlink" title="Part 2: Regularized Linear Regression Cost"></a>Part 2: Regularized Linear Regression Cost</h4><ul>
@@ -3055,6 +2911,68 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       </tags>
   </entry>
   <entry>
+    <title>机器学习题解（二）—— 神经网络</title>
+    <url>/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h3 id="ex3-m"><a href="#ex3-m" class="headerlink" title="ex3.m"></a>ex3.m</h3><h4 id="Part-1-Loading-and-Visualizing-Data"><a href="#Part-1-Loading-and-Visualizing-Data" class="headerlink" title="Part 1: Loading and Visualizing Data"></a>Part 1: Loading and Visualizing Data</h4><ul>
+<li>Load Training Data</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">load(<span class="string">'ex3data1.mat'</span>); <span class="comment">% training data stored in arrays X, y</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Visualization</li>
+</ul>
+<p><img src="/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20210910203101080.png" alt="可视化结果"></p>
+<h4 id="Part-2a-Vectorize-Logistic-Regression"><a href="#Part-2a-Vectorize-Logistic-Regression" class="headerlink" title="Part 2a: Vectorize Logistic Regression"></a>Part 2a: Vectorize Logistic Regression</h4><ul>
+<li>Compute the cost of a particular choice of theta. You should set J to the cost.<br>Compute the partial derivatives and set grad to the partial derivatives of the cost w.r.t. each parameter in theta</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">J = (<span class="number">1</span> / m) * sum(-y .* <span class="built_in">log</span>(sigmoid(X * theta)) - (<span class="number">1</span> - y) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(X * theta))) + (lambda / (<span class="number">2</span> * m)) * sum(theta(<span class="number">2</span>:<span class="built_in">size</span>(theta)) .^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">temp = theta;</span><br><span class="line">temp(<span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">grad = (<span class="number">1</span> / m) * (X' * (sigmoid(X * theta) - y)) + (lambda / m) * temp;</span><br></pre></td></tr></table></figure>
+<h4 id="Part-2b-One-vs-All-Training"><a href="#Part-2b-One-vs-All-Training" class="headerlink" title="Part 2b: One-vs-All Training"></a>Part 2b: One-vs-All Training</h4><ul>
+<li>You should complete the following code to train num_labels logistic regression classifiers with regularization parameter lambda.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% Set Initial theta</span></span><br><span class="line">initial_theta = <span class="built_in">zeros</span>(n + <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">% Set options for fminunc</span></span><br><span class="line">options = optimset(<span class="string">'GradObj'</span>, <span class="string">'on'</span>, <span class="string">'MaxIter'</span>, <span class="number">50</span>);</span><br><span class="line"><span class="keyword">for</span> c = <span class="number">1</span>: num_labels</span><br><span class="line">      all_theta(c, :) = fmincg (@(t)(lrCostFunction(t, X, (y == c), lambda)), initial_theta, options);</span><br></pre></td></tr></table></figure>
+<h4 id="Part-3-Predict-for-One-Vs-All"><a href="#Part-3-Predict-for-One-Vs-All" class="headerlink" title="Part 3: Predict for One-Vs-All"></a>Part 3: Predict for One-Vs-All</h4><ul>
+<li>Complete the following code to make predictions using your learned logistic regression parameters (one-vs-all).</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">predict = sigmoid(X * all_theta');</span><br><span class="line">[~,p] = <span class="built_in">max</span>(predict, [], <span class="number">2</span>); <span class="comment">% ~ means ignore this 1st parameter output</span></span><br></pre></td></tr></table></figure>
+<h3 id="ex3-nn-m"><a href="#ex3-nn-m" class="headerlink" title="ex3_nn.m"></a>ex3_nn.m</h3><ul>
+<li>Complete the following code to make predictions using your learned neural network.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">X = [<span class="built_in">ones</span>(m, <span class="number">1</span>) X];</span><br><span class="line">z1 = sigmoid(X * Theta1');</span><br><span class="line">z1 = [<span class="built_in">ones</span>(m, <span class="number">1</span>) z1];</span><br><span class="line">z2 = sigmoid(z1 * Theta2');</span><br><span class="line"></span><br><span class="line">[~, p] = <span class="built_in">max</span>(z2, [], <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="ex4-m"><a href="#ex4-m" class="headerlink" title="ex4.m"></a>ex4.m</h3><h4 id="Part-3-Compute-Cost-Feedforward"><a href="#Part-3-Compute-Cost-Feedforward" class="headerlink" title="Part 3: Compute Cost (Feedforward)"></a>Part 3: Compute Cost (Feedforward)</h4><ul>
+<li>Feedforward the neural network and return the cost in the variable J. After implementing Part 1, you can verify that your cost function computation is correct by verifying the cost computed in ex4.m</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% input layer</span></span><br><span class="line">a1 = X;</span><br><span class="line"></span><br><span class="line"><span class="comment">% hidden layer</span></span><br><span class="line">X = [<span class="built_in">ones</span>(m, <span class="number">1</span>) X];  <span class="comment">% 5000 * (1 + 400) = 5000 * 401</span></span><br><span class="line">z2 = Theta1 * X'; <span class="comment">% (25 * 401) * (401 * 5000) = 25 * 5000</span></span><br><span class="line">a2 = sigmoid(z2); <span class="comment">% 25 * 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% output layer</span></span><br><span class="line">a2 = [<span class="built_in">ones</span>(m, <span class="number">1</span>) a2']; <span class="comment">% 5000 * (1 + 25) = 5000 * 26</span></span><br><span class="line">z3 = Theta2 * a2'; <span class="comment">% (10 * 26) * (26 * 5000) = 10 * 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% recode the labels as vectors containing only values 0 or 1</span></span><br><span class="line">y_vec = <span class="built_in">zeros</span>(num_labels, m); <span class="comment">% 10 * 5000</span></span><br><span class="line"><span class="comment">% put value 1 for every iterated column</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: m</span><br><span class="line">    y_vec(y(<span class="built_in">i</span>), <span class="built_in">i</span>) = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% cost function</span></span><br><span class="line">h_theta = sigmoid(z3);</span><br><span class="line">J = (<span class="number">-1</span> / m) * sum(sum(y_vec .* <span class="built_in">log</span>(h_theta) + (<span class="number">1</span> - y_vec) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(h_theta))));</span><br></pre></td></tr></table></figure>
+<h4 id="Part-4-Implement-Regularization"><a href="#Part-4-Implement-Regularization" class="headerlink" title="Part 4: Implement Regularization"></a>Part 4: Implement Regularization</h4><ul>
+<li>You should now add regularization to your cost function. Notice that you can first compute the unregularized cost function J using your existing nnCostFunction.m and then later add the cost for the regularization terms.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% regularized cost function</span></span><br><span class="line">theta1 = Theta1(:, <span class="number">2</span>:<span class="built_in">size</span>(Theta1, <span class="number">2</span>)); <span class="comment">% size(Theta1, 2) returns the nums of locumns in the matrix</span></span><br><span class="line">theta2 = Theta2(:, <span class="number">2</span>:<span class="built_in">size</span>(Theta2, <span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">J = J + lambda / (<span class="number">2</span> * m) * ( sum(sum(theta1 .^ <span class="number">2</span>)) + sum(sum(theta2 .^ <span class="number">2</span>)) ); <span class="comment">% !sum up separately</span></span><br></pre></td></tr></table></figure>
+<h4 id="Part-5-Sigmoid-Gradient"><a href="#Part-5-Sigmoid-Gradient" class="headerlink" title="Part 5: Sigmoid Gradient"></a>Part 5: Sigmoid Gradient</h4><ul>
+<li>Implement the sigmoid gradient function</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">g = sigmoid(z) .* (<span class="number">1</span> - sigmoid(z));</span><br></pre></td></tr></table></figure>
+<h4 id="Part-6-Initializing-Pameters"><a href="#Part-6-Initializing-Pameters" class="headerlink" title="Part 6: Initializing Pameters"></a>Part 6: Initializing Pameters</h4><ul>
+<li>Initialize W randomly so that we break the symmetry while training the neural network</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% Randomly initialize the weights to small values</span></span><br><span class="line">epsilon_init = <span class="number">0.12</span>;</span><br><span class="line">W = <span class="built_in">rand</span>(L_out, <span class="number">1</span> + L_in) * <span class="number">2</span> * epsilon_init - epsilon_init;</span><br></pre></td></tr></table></figure>
+<h4 id="Part-7-Implement-Backpropagation"><a href="#Part-7-Implement-Backpropagation" class="headerlink" title="Part 7: Implement Backpropagation"></a>Part 7: Implement Backpropagation</h4><ul>
+<li>Implement the backpropagation algorithm to compute the gradients Theta1_grad and Theta2_grad.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> t = <span class="number">1</span>:m</span><br><span class="line">    <span class="comment">% Step1</span></span><br><span class="line">    a1 = X(t, :); <span class="comment">% 1 * 401</span></span><br><span class="line">    a1 = a1'; <span class="comment">% 401 * 1</span></span><br><span class="line">    z2 = Theta1 * a1; <span class="comment">% (25 * 401) * (401 * 1) = 25 * 1</span></span><br><span class="line">    a2 = sigmoid(z2); <span class="comment">% 25 * 1</span></span><br><span class="line">    </span><br><span class="line">    a2 = [<span class="number">1</span>; a2]; <span class="comment">% add bais, (25 + 1) * 1 = 26 * 1</span></span><br><span class="line">    z3 = Theta2 * a2; <span class="comment">% (10 * 26) * (26 * 1) = 10 * 1</span></span><br><span class="line">    a3 = sigmoid(z3); <span class="comment">% 10 * 1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Step2</span></span><br><span class="line">    delta_3 = a3 - y_vec(:, t); <span class="comment">% 10 * 1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">% Step3</span></span><br><span class="line">    delta_2 = (Theta2' * delta_3) .* sigmoidGradient([<span class="number">1</span>; z2]); <span class="comment">% add bais, 26 * 1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Step4</span></span><br><span class="line">    delta_2 = delta_2(<span class="number">2</span>: <span class="keyword">end</span>); <span class="comment">% 25 * 1</span></span><br><span class="line">    </span><br><span class="line">    Theta1_grad = Theta1_grad + delta_2 * a1'; <span class="comment">% 10 * 25, !sum up grad</span></span><br><span class="line">    Theta2_grad = Theta2_grad + delta_3 * a2'; <span class="comment">% 10 * 25</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">    <span class="comment">%Step5</span></span><br><span class="line">    Theta1_grad = (<span class="number">1</span> / m) * Theta1_grad;</span><br><span class="line">    Theta2_grad = (<span class="number">1</span> / m) * Theta2_grad;</span><br></pre></td></tr></table></figure>
+<h4 id="Gradient-checking"><a href="#Gradient-checking" class="headerlink" title="Gradient checking"></a>Gradient checking</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% take a look and try to understand</span></span><br><span class="line">numgrad = <span class="built_in">zeros</span>(<span class="built_in">size</span>(theta));</span><br><span class="line">perturb = <span class="built_in">zeros</span>(<span class="built_in">size</span>(theta));</span><br><span class="line">e = <span class="number">1e-4</span>;</span><br><span class="line"><span class="keyword">for</span> p = <span class="number">1</span>:<span class="built_in">numel</span>(theta)</span><br><span class="line">    <span class="comment">% Set perturbation vector</span></span><br><span class="line">    perturb(p) = e;</span><br><span class="line">    loss1 = J(theta - perturb);</span><br><span class="line">    loss2 = J(theta + perturb);</span><br><span class="line">    <span class="comment">% Compute Numerical Gradient</span></span><br><span class="line">    numgrad(p) = (loss2 - loss1) / (<span class="number">2</span>*e);</span><br><span class="line">    perturb(p) = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="Part-8-Implement-Regularization"><a href="#Part-8-Implement-Regularization" class="headerlink" title="Part 8: Implement Regularization"></a>Part 8: Implement Regularization</h4><ul>
+<li>Implement regularization with the cost function and gradients.</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">Theta1_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) = Theta1_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) + (lambda / m) * Theta1(:, <span class="number">2</span>:<span class="keyword">end</span>);</span><br><span class="line">Theta2_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) = Theta2_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) + (lambda / m) * Theta2(:, <span class="number">2</span>:<span class="keyword">end</span>);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>神经网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>机器学习题解（六）—— 异常探测与推荐系统</title>
     <url>/2021/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<h3 id="ex8-m"><a href="#ex8-m" class="headerlink" title="ex8.m"></a>ex8.m</h3><h4 id="Part-2-Estimate-the-dataset-statistics"><a href="#Part-2-Estimate-the-dataset-statistics" class="headerlink" title="Part 2: Estimate the dataset statistics"></a>Part 2: Estimate the dataset statistics</h4><ul>
@@ -3074,6 +2992,111 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       <tags>
         <tag>机器学习</tag>
         <tag>异常探测</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构篇：1.1数据结构的基本概念</title>
+    <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h2 id="数据结构的基本概念"><a href="#数据结构的基本概念" class="headerlink" title="数据结构的基本概念"></a>数据结构的基本概念</h2><h3 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h3><h4 id="数据-Data"><a href="#数据-Data" class="headerlink" title="数据 Data"></a>数据 Data</h4><ul>
+<li>信息的载体，描述所有能输入到计算机并被计算机<strong>识别</strong>和<strong>处理</strong>的符号集合</li>
+</ul>
+<h4 id="数据元素-Data-Element"><a href="#数据元素-Data-Element" class="headerlink" title="数据元素 Data Element"></a>数据元素 Data Element</h4><ul>
+<li>数据的基本单位，常作为<strong>整体</strong>进行考虑</li>
+</ul>
+<h4 id="数据对象-Data-Object"><a href="#数据对象-Data-Object" class="headerlink" title="数据对象 Data Object"></a>数据对象 Data Object</h4><ul>
+<li>具<strong>相同性质</strong>的数据元素的集合，是数据的一个子集</li>
+</ul>
+<h4 id="数据类型-Data-Type"><a href="#数据类型-Data-Type" class="headerlink" title="数据类型 Data Type"></a>数据类型 Data Type</h4><ul>
+<li><p>一个<strong>值的集合</strong>、定义在此集合上的一组<strong>操作</strong></p>
+</li>
+<li><p>分类：原子类型 结构类型 抽象数据类型</p>
+<ul>
+<li>原子类型：值不可再分</li>
+<li>结构类型：值可再分为若干成分</li>
+<li>抽象数据类型 ADT：<strong>抽象数据组织</strong>及相关操作<ul>
+<li>是<strong>数据对象、数据关系、基本操作集</strong>表示的<strong>三元组</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="数据结构-Data-Structure"><a href="#数据结构-Data-Structure" class="headerlink" title="数据结构 Data Structure"></a>数据结构 Data Structure</h4><ul>
+<li>相互之间存在一种或多种<strong>特定关系</strong>的数据元素的集合</li>
+</ul>
+<h3 id="数据结构三要素"><a href="#数据结构三要素" class="headerlink" title="数据结构三要素"></a>数据结构三要素</h3><h4 id="1、数据的逻辑结构"><a href="#1、数据的逻辑结构" class="headerlink" title="1、数据的逻辑结构"></a>1、数据的逻辑结构</h4><ul>
+<li>def 数据元素之间的逻辑关系</li>
+<li>分类：线性结构 非线性结构<ul>
+<li>线性结构（有序数据元素的集合）：线性表 <strong>栈</strong> 队列 双队列 串 数组<ul>
+<li>特点：数据结构之间存在<strong>一对一</strong>的线性关系</li>
+</ul>
+</li>
+<li>非线性结构：数组 广义表 集合 树 二叉树 图</li>
+</ul>
+</li>
+</ul>
+<h4 id="2、数据的存储结构"><a href="#2、数据的存储结构" class="headerlink" title="2、数据的存储结构"></a>2、数据的存储结构</h4><ul>
+<li>def 数据结构在计算机中的表示，包括数据元素的表示和关系的表示</li>
+<li>分类：顺序存储 链式存储 索引存储 散列存储</li>
+</ul>
+<h5 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h5><ul>
+<li>def 把逻辑上的相邻元素存储在物理位置上也相邻的存储单元中</li>
+<li>优点：实现随机存取，每个元素占用最少存储空间</li>
+<li>缺点：只能使用相邻的一整块存储空间，可能产生较多外部碎片</li>
+</ul>
+<h5 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h5><ul>
+<li>def 不要求物理位置上相邻，借助指针表示元素间的逻辑关系</li>
+<li>优点：充分利用存储单元，无碎片</li>
+<li>缺点：指针占用额外存储空间，且只能顺序存取</li>
+</ul>
+<h5 id="索引存储"><a href="#索引存储" class="headerlink" title="索引存储"></a>索引存储</h5><ul>
+<li>def 存储元素信息并建立附加的<strong>索引表</strong></li>
+<li>优点：检索速度快</li>
+<li>缺点：费时，增删需修改索引表</li>
+</ul>
+<h5 id="散列存储"><a href="#散列存储" class="headerlink" title="散列存储"></a>散列存储</h5><ul>
+<li>def 根据元素关键字直接计算出存储地址</li>
+<li>优点：检索、增删结点快速</li>
+<li>缺点：散列函数不好会引起冲突，而解决增加开销</li>
+</ul>
+<h4 id="3、数据的运算"><a href="#3、数据的运算" class="headerlink" title="3、数据的运算"></a>3、数据的运算</h4><ul>
+<li>def 运算的定义和实现<ul>
+<li>定义 —— <strong>逻辑结构</strong>， 指出运算的功能</li>
+<li>实现 —— <strong>存储结构</strong>，指出运算的具体操作步骤</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>408</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>408</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>签名cookie与令牌cookie</title>
+    <url>/2021/11/20/%E7%AD%BE%E5%90%8Dcookie%E4%B8%8E%E4%BB%A4%E7%89%8Ccookie/</url>
+    <content><![CDATA[<h3 id="签名Cookie：Sign"><a href="#签名Cookie：Sign" class="headerlink" title="签名Cookie：Sign"></a>签名Cookie：Sign</h3><ul>
+<li>def <strong>令牌</strong>，用于验证用户身份和登录状态的标识</li>
+<li>优点：验证cookie所需的一切信息都存储在cookie中；cookie可以包含额外的信息（additional infomation)，并且对这些信息进行签名也很容易</li>
+<li>缺点：正确地处理签名很难。很容易忘记对数据进行签名，或者忘记验证数据的签名，从而造成安全漏洞</li>
+</ul>
+<h3 id="令牌Cookie：Token"><a href="#令牌Cookie：Token" class="headerlink" title="令牌Cookie：Token"></a>令牌Cookie：Token</h3><ul>
+<li><strong>签名，</strong>服务端在接受用户请求时，判断该请求是否来自于自己允许的平台（自己允许的平台有统一的加密规则，防止请求在客户端发出后被拦截）</li>
+<li>优点：添加信息非常容易。cookie的体积非常小，因此移动终端和速度较慢的客户端可以更快地发送请求</li>
+<li>缺点：需要在服务器中存储更多信息。如果使用的是关系数据库，那么载入和存储 cookie的代价可能会很高</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>cookie</tag>
       </tags>
   </entry>
   <entry>
@@ -3108,29 +3131,6 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       <tags>
         <tag>机器学习</tag>
         <tag>SVM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>签名cookie与令牌cookie</title>
-    <url>/2021/11/20/%E7%AD%BE%E5%90%8Dcookie%E4%B8%8E%E4%BB%A4%E7%89%8Ccookie/</url>
-    <content><![CDATA[<h3 id="签名Cookie：Sign"><a href="#签名Cookie：Sign" class="headerlink" title="签名Cookie：Sign"></a>签名Cookie：Sign</h3><ul>
-<li>def <strong>令牌</strong>，用于验证用户身份和登录状态的标识</li>
-<li>优点：验证cookie所需的一切信息都存储在cookie中；cookie可以包含额外的信息（additional infomation)，并且对这些信息进行签名也很容易</li>
-<li>缺点：正确地处理签名很难。很容易忘记对数据进行签名，或者忘记验证数据的签名，从而造成安全漏洞</li>
-</ul>
-<h3 id="令牌Cookie：Token"><a href="#令牌Cookie：Token" class="headerlink" title="令牌Cookie：Token"></a>令牌Cookie：Token</h3><ul>
-<li><strong>签名，</strong>服务端在接受用户请求时，判断该请求是否来自于自己允许的平台（自己允许的平台有统一的加密规则，防止请求在客户端发出后被拦截）</li>
-<li>优点：添加信息非常容易。cookie的体积非常小，因此移动终端和速度较慢的客户端可以更快地发送请求</li>
-<li>缺点：需要在服务器中存储更多信息。如果使用的是关系数据库，那么载入和存储 cookie的代价可能会很高</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>JavaWeb</category>
-      </categories>
-      <tags>
-        <tag>cookie</tag>
       </tags>
   </entry>
   <entry>
@@ -3335,108 +3335,6 @@ min\{R_c,R_s\}</script><h1 id="五、协议层次及其服务模型-Protocol-Lay
       </categories>
       <tags>
         <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>西瓜书知识重温（二）：模型评估与选择</title>
-    <url>/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/</url>
-    <content><![CDATA[<h4 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h4><ul>
-<li>目的 得到在新样本上表现很好的学习器</li>
-</ul>
-<h5 id="1-训练-经验误差-training-empirical-error"><a href="#1-训练-经验误差-training-empirical-error" class="headerlink" title="1. 训练 / 经验误差 training / empirical error"></a>1. 训练 / 经验误差 training / empirical error</h5><ul>
-<li>def 学习器在训练集上的误差</li>
-</ul>
-<h5 id="2-泛化误差-generalization-error"><a href="#2-泛化误差-generalization-error" class="headerlink" title="2.  泛化误差 generalization error"></a>2.  泛化误差 generalization error</h5><ul>
-<li>def 学习器在新样本上的误差</li>
-<li>一般地，假设测试样本是从样本真是分布中独立同分布采样得到，则测试集的测试误差可视为泛化误差的近似</li>
-</ul>
-<h5 id="3-欠拟合-过拟合-underfitting-overfitting"><a href="#3-欠拟合-过拟合-underfitting-overfitting" class="headerlink" title="3. 欠拟合 / 过拟合 underfitting / overfitting"></a>3. 欠拟合 / 过拟合 underfitting / overfitting</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-1-3.png"></p>
-<ul>
-<li>def 前者单纯训练得不够或学习能力低下，后者则已经把样本自身的某些特点当做所有样本都有的一般性质，使得泛化性能下降</li>
-<li>解决 前者增加轮数， 后者无法彻底避免，仅可使得经验误差最小化以缓解其风险</li>
-</ul>
-<h4 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h4><h5 id="1-留出法-hold-out"><a href="#1-留出法-hold-out" class="headerlink" title="1. 留出法 hold-out"></a>1. 留出法 hold-out</h5><ul>
-<li><p>method 直接将数据集D划分为两<strong>互斥</strong>集合，分别作为训练集S、测试集T</p>
-<script type="math/tex; mode=display">
-D = S \cup T,S \cap T = \emptyset</script></li>
-<li><p>quiz1 如何保持数据分布的一致性？</p>
-<p>答：分层采样（stratified sampling），尽可能避免因数据划分引入额外的偏差而对最终结果产生影响</p>
-</li>
-<li><p>quiz2 给定S/T比例，如何划分？</p>
-<p>答：单次结果并不稳定，可多次随机划分，每次产生一个训练/测试集结果并评估，最后留出法返回的结果是每次划分结果的平均值</p>
-</li>
-<li><p>quiz3 最佳比例？</p>
-<p>答：2:1（67%） ~ 4:1（80%），训练集过大可能使得模型更接近用D训练出的模型，而评估结果则不够准确；若测试集过大，则S与D的差别过大，评估模型与用D训练出的模型有较大差别，降低了评估结果的保真性（fidelity）</p>
-</li>
-</ul>
-<h5 id="2-交叉验证法-cross-validation（常用）"><a href="#2-交叉验证法-cross-validation（常用）" class="headerlink" title="2. 交叉验证法 cross validation（常用）"></a>2. 交叉验证法 cross validation（常用）</h5><ul>
-<li><p>method 经分层采样，将D划分为k个大小相似的互斥子集，这样一来，每次课使用k-1个子集的并集作为训练集，余下的那个子集则作为测试集；得到k组结果，返回其均值</p>
-</li>
-<li><p>quiz1 常用k？答：10，10次十折交叉验证</p>
-</li>
-<li><p>quiz2 留一法有了解吗？</p>
-<p>答：当D包含m样本，而m恰等于k时的特例。其好处在于不受随机样本划分方式的影响，且和D训练得到的模型会很相似；坏处在于模型训练的计算开销大，计算复杂度高</p>
-</li>
-</ul>
-<h5 id="3-自助法-bootstrapping"><a href="#3-自助法-bootstrapping" class="headerlink" title="3. 自助法 bootstrapping"></a>3. 自助法 bootstrapping</h5><ul>
-<li>method 以自助采样（bootstrap sampling）为基础，给定包含m个样本的数据集D，我们对它进行采样产生数据集D’；每次随机从D中挑选一个样本，将其拷贝放入D’，再将该样本放回初始数据集D中，使得该样本在下次采样时仍有可能被采到；这个过程重复执行m次后，得到包含m个样本的数据集D’，是为自助采样的结果</li>
-<li><p>application 数据集小、难以划分；改变了初始数据集的分布，从而引入了额外的估计误差</p>
-</li>
-<li><p>quiz1 样本在m次采样中始终不被采到的概率？</p>
-<script type="math/tex; mode=display">
-\lim_{n\rightarrow+\infty}(1 - \frac{1}{m})^m \rightarrow \frac{1}{e} = 0.368</script></li>
-<li><p>quiz2 划分？</p>
-<p>答：D‘作为S，D/D’作为T，测试结果为<strong>包外估计</strong>（out-of-bag-estimate）</p>
-</li>
-</ul>
-<h4 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h4><h5 id="1-错误率-error-rate"><a href="#1-错误率-error-rate" class="headerlink" title="1. 错误率 error rate"></a>1. 错误率 error rate</h5><ul>
-<li><p>def 分类错误样本占样本总数的比例</p>
-</li>
-<li><p>m个样本中有a个样本分类错误，则</p>
-<script type="math/tex; mode=display">
-E = a / m</script></li>
-</ul>
-<h5 id="2-精度-accuracy"><a href="#2-精度-accuracy" class="headerlink" title="2. 精度 accuracy"></a>2. 精度 accuracy</h5><ul>
-<li><p>def 分类正确样本占样本总数的比例</p>
-</li>
-<li><p>m个样本中有a个样本分类正确，<strong>精度 = 1 - 错误率</strong></p>
-<script type="math/tex; mode=display">
-P = 1 - a / m</script></li>
-</ul>
-<h5 id="3-混淆矩阵-confusion-matrix"><a href="#3-混淆矩阵-confusion-matrix" class="headerlink" title="3. 混淆矩阵 confusion matrix"></a>3. 混淆矩阵 confusion matrix</h5><ul>
-<li>def 误差矩阵，表示精度评价的一种标准格式，为n行n列的矩阵形式</li>
-</ul>
-<p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-3.png"></p>
-<ol>
-<li>正例：positive，即最后结果是正向的（比如好瓜）；</li>
-<li>反例：negative，即最后结果是负向的（比如烂瓜）；</li>
-<li>TP：True Positive，把正例预测为正例，也就是说，首先预测出来是个正例，其次这是一个真正的正例（比如预测出来是个好瓜，而且是个好瓜）；</li>
-<li>FP：False Positive，把反例预测为正例，也就是说，首先预测出来是个正例，其次这是个反例（比如预测出来是个好瓜，但是是个烂瓜）；</li>
-<li>FN：False Negative，把正例预测为反例，也就是说，首先预测出来是个反例，其次这是个正例（比如预测出来是个烂瓜，但是是个好瓜）；</li>
-<li>TN：True Negative，把反例预测为反例，也就是说，首先预测出来是个反例，其次这是一个真正的反例（比如预测出来是个烂瓜，而且是个烂瓜）</li>
-</ol>
-<h5 id="4-准确率-查准率-Precision"><a href="#4-准确率-查准率-Precision" class="headerlink" title="4. 准确率 / 查准率 Precision"></a>4. 准确率 / 查准率 Precision</h5><script type="math/tex; mode=display">
-P = \frac{TP}{TP + FP}</script><h5 id="5-召回率-查全率-Recall"><a href="#5-召回率-查全率-Recall" class="headerlink" title="5. 召回率 / 查全率 Recall"></a>5. 召回率 / 查全率 Recall</h5><script type="math/tex; mode=display">
-R = \frac{TP}{TP + FN}</script><h5 id="6-P-R图"><a href="#6-P-R图" class="headerlink" title="6. P-R图"></a>6. P-R图</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-6.png"></p>
-<ul>
-<li><p>quiz 判断两个学习器的性能优劣？</p>
-<p>答：若有两学习器A、B，如果B的曲线被A完全<strong>包住</strong>，则可认为A的性能优于B；若发生交叉，则只能：（1）在具体P、R条件下进行比较；（2）直接比较A和B对应P-R曲线的线下面积Sa、Sb的大小，较大者性能更优</p>
-</li>
-</ul>
-<h5 id="7-平衡点-Break-Event-Point，BEP"><a href="#7-平衡点-Break-Event-Point，BEP" class="headerlink" title="7. 平衡点 Break-Event Point，BEP"></a>7. 平衡点 Break-Event Point，BEP</h5><ul>
-<li>def P = R时的取值</li>
-</ul>
-<h5 id="8-F1-Score"><a href="#8-F1-Score" class="headerlink" title="8. F1 Score"></a>8. F1 Score</h5><ul>
-<li>def 基于查准率和查重率的调和平均（harmonic mean）</li>
-</ul>
-<script type="math/tex; mode=display">
-F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -4107,6 +4005,108 @@ D_{P2P}=max\{\frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+{\sum_{r=1}^n}}\}</sc
       </categories>
       <tags>
         <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>西瓜书知识重温（二）：模型评估与选择</title>
+    <url>/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/</url>
+    <content><![CDATA[<h4 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h4><ul>
+<li>目的 得到在新样本上表现很好的学习器</li>
+</ul>
+<h5 id="1-训练-经验误差-training-empirical-error"><a href="#1-训练-经验误差-training-empirical-error" class="headerlink" title="1. 训练 / 经验误差 training / empirical error"></a>1. 训练 / 经验误差 training / empirical error</h5><ul>
+<li>def 学习器在训练集上的误差</li>
+</ul>
+<h5 id="2-泛化误差-generalization-error"><a href="#2-泛化误差-generalization-error" class="headerlink" title="2.  泛化误差 generalization error"></a>2.  泛化误差 generalization error</h5><ul>
+<li>def 学习器在新样本上的误差</li>
+<li>一般地，假设测试样本是从样本真是分布中独立同分布采样得到，则测试集的测试误差可视为泛化误差的近似</li>
+</ul>
+<h5 id="3-欠拟合-过拟合-underfitting-overfitting"><a href="#3-欠拟合-过拟合-underfitting-overfitting" class="headerlink" title="3. 欠拟合 / 过拟合 underfitting / overfitting"></a>3. 欠拟合 / 过拟合 underfitting / overfitting</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-1-3.png"></p>
+<ul>
+<li>def 前者单纯训练得不够或学习能力低下，后者则已经把样本自身的某些特点当做所有样本都有的一般性质，使得泛化性能下降</li>
+<li>解决 前者增加轮数， 后者无法彻底避免，仅可使得经验误差最小化以缓解其风险</li>
+</ul>
+<h4 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h4><h5 id="1-留出法-hold-out"><a href="#1-留出法-hold-out" class="headerlink" title="1. 留出法 hold-out"></a>1. 留出法 hold-out</h5><ul>
+<li><p>method 直接将数据集D划分为两<strong>互斥</strong>集合，分别作为训练集S、测试集T</p>
+<script type="math/tex; mode=display">
+D = S \cup T,S \cap T = \emptyset</script></li>
+<li><p>quiz1 如何保持数据分布的一致性？</p>
+<p>答：分层采样（stratified sampling），尽可能避免因数据划分引入额外的偏差而对最终结果产生影响</p>
+</li>
+<li><p>quiz2 给定S/T比例，如何划分？</p>
+<p>答：单次结果并不稳定，可多次随机划分，每次产生一个训练/测试集结果并评估，最后留出法返回的结果是每次划分结果的平均值</p>
+</li>
+<li><p>quiz3 最佳比例？</p>
+<p>答：2:1（67%） ~ 4:1（80%），训练集过大可能使得模型更接近用D训练出的模型，而评估结果则不够准确；若测试集过大，则S与D的差别过大，评估模型与用D训练出的模型有较大差别，降低了评估结果的保真性（fidelity）</p>
+</li>
+</ul>
+<h5 id="2-交叉验证法-cross-validation（常用）"><a href="#2-交叉验证法-cross-validation（常用）" class="headerlink" title="2. 交叉验证法 cross validation（常用）"></a>2. 交叉验证法 cross validation（常用）</h5><ul>
+<li><p>method 经分层采样，将D划分为k个大小相似的互斥子集，这样一来，每次课使用k-1个子集的并集作为训练集，余下的那个子集则作为测试集；得到k组结果，返回其均值</p>
+</li>
+<li><p>quiz1 常用k？答：10，10次十折交叉验证</p>
+</li>
+<li><p>quiz2 留一法有了解吗？</p>
+<p>答：当D包含m样本，而m恰等于k时的特例。其好处在于不受随机样本划分方式的影响，且和D训练得到的模型会很相似；坏处在于模型训练的计算开销大，计算复杂度高</p>
+</li>
+</ul>
+<h5 id="3-自助法-bootstrapping"><a href="#3-自助法-bootstrapping" class="headerlink" title="3. 自助法 bootstrapping"></a>3. 自助法 bootstrapping</h5><ul>
+<li>method 以自助采样（bootstrap sampling）为基础，给定包含m个样本的数据集D，我们对它进行采样产生数据集D’；每次随机从D中挑选一个样本，将其拷贝放入D’，再将该样本放回初始数据集D中，使得该样本在下次采样时仍有可能被采到；这个过程重复执行m次后，得到包含m个样本的数据集D’，是为自助采样的结果</li>
+<li><p>application 数据集小、难以划分；改变了初始数据集的分布，从而引入了额外的估计误差</p>
+</li>
+<li><p>quiz1 样本在m次采样中始终不被采到的概率？</p>
+<script type="math/tex; mode=display">
+\lim_{n\rightarrow+\infty}(1 - \frac{1}{m})^m \rightarrow \frac{1}{e} = 0.368</script></li>
+<li><p>quiz2 划分？</p>
+<p>答：D‘作为S，D/D’作为T，测试结果为<strong>包外估计</strong>（out-of-bag-estimate）</p>
+</li>
+</ul>
+<h4 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h4><h5 id="1-错误率-error-rate"><a href="#1-错误率-error-rate" class="headerlink" title="1. 错误率 error rate"></a>1. 错误率 error rate</h5><ul>
+<li><p>def 分类错误样本占样本总数的比例</p>
+</li>
+<li><p>m个样本中有a个样本分类错误，则</p>
+<script type="math/tex; mode=display">
+E = a / m</script></li>
+</ul>
+<h5 id="2-精度-accuracy"><a href="#2-精度-accuracy" class="headerlink" title="2. 精度 accuracy"></a>2. 精度 accuracy</h5><ul>
+<li><p>def 分类正确样本占样本总数的比例</p>
+</li>
+<li><p>m个样本中有a个样本分类正确，<strong>精度 = 1 - 错误率</strong></p>
+<script type="math/tex; mode=display">
+P = 1 - a / m</script></li>
+</ul>
+<h5 id="3-混淆矩阵-confusion-matrix"><a href="#3-混淆矩阵-confusion-matrix" class="headerlink" title="3. 混淆矩阵 confusion matrix"></a>3. 混淆矩阵 confusion matrix</h5><ul>
+<li>def 误差矩阵，表示精度评价的一种标准格式，为n行n列的矩阵形式</li>
+</ul>
+<p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-3.png"></p>
+<ol>
+<li>正例：positive，即最后结果是正向的（比如好瓜）；</li>
+<li>反例：negative，即最后结果是负向的（比如烂瓜）；</li>
+<li>TP：True Positive，把正例预测为正例，也就是说，首先预测出来是个正例，其次这是一个真正的正例（比如预测出来是个好瓜，而且是个好瓜）；</li>
+<li>FP：False Positive，把反例预测为正例，也就是说，首先预测出来是个正例，其次这是个反例（比如预测出来是个好瓜，但是是个烂瓜）；</li>
+<li>FN：False Negative，把正例预测为反例，也就是说，首先预测出来是个反例，其次这是个正例（比如预测出来是个烂瓜，但是是个好瓜）；</li>
+<li>TN：True Negative，把反例预测为反例，也就是说，首先预测出来是个反例，其次这是一个真正的反例（比如预测出来是个烂瓜，而且是个烂瓜）</li>
+</ol>
+<h5 id="4-准确率-查准率-Precision"><a href="#4-准确率-查准率-Precision" class="headerlink" title="4. 准确率 / 查准率 Precision"></a>4. 准确率 / 查准率 Precision</h5><script type="math/tex; mode=display">
+P = \frac{TP}{TP + FP}</script><h5 id="5-召回率-查全率-Recall"><a href="#5-召回率-查全率-Recall" class="headerlink" title="5. 召回率 / 查全率 Recall"></a>5. 召回率 / 查全率 Recall</h5><script type="math/tex; mode=display">
+R = \frac{TP}{TP + FN}</script><h5 id="6-P-R图"><a href="#6-P-R图" class="headerlink" title="6. P-R图"></a>6. P-R图</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-6.png"></p>
+<ul>
+<li><p>quiz 判断两个学习器的性能优劣？</p>
+<p>答：若有两学习器A、B，如果B的曲线被A完全<strong>包住</strong>，则可认为A的性能优于B；若发生交叉，则只能：（1）在具体P、R条件下进行比较；（2）直接比较A和B对应P-R曲线的线下面积Sa、Sb的大小，较大者性能更优</p>
+</li>
+</ul>
+<h5 id="7-平衡点-Break-Event-Point，BEP"><a href="#7-平衡点-Break-Event-Point，BEP" class="headerlink" title="7. 平衡点 Break-Event Point，BEP"></a>7. 平衡点 Break-Event Point，BEP</h5><ul>
+<li>def P = R时的取值</li>
+</ul>
+<h5 id="8-F1-Score"><a href="#8-F1-Score" class="headerlink" title="8. F1 Score"></a>8. F1 Score</h5><ul>
+<li>def 基于查准率和查重率的调和平均（harmonic mean）</li>
+</ul>
+<script type="math/tex; mode=display">
+F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
