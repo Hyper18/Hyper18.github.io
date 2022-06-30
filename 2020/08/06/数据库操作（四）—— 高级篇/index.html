@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -141,7 +141,7 @@
 <meta property="og:description" content="高级操作 第22 - 30章视图1、def：虚拟表，仅包含使用时动态检索的一个SQL查询 2、规则  必须唯一命名 需要访问权限 视图可嵌套 视图中的ORDER BY语句会被检索中的ORDER BY（如果有）覆盖 不可添加索引或触发器、默认值，但可与表一同使用  3、使用  创建：CREATE VIEW 查看所创建视图：SHOW CREATE VIEW viewname 删除视图：DROP VIE">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-08-06T12:39:34.000Z">
-<meta property="article:modified_time" content="2022-06-30T03:24:38.929Z">
+<meta property="article:modified_time" content="2022-06-30T05:57:07.834Z">
 <meta property="article:author" content="Hyper18">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
@@ -152,7 +152,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -1040,7 +1040,7 @@ mjx-container[display="true"] + br {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C-%E7%AC%AC22-30%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">高级操作 第22 - 30章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE"><span class="nav-number">1.1.</span> <span class="nav-text">视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%B8%E6%A0%87-cursor"><span class="nav-number">1.3.</span> <span class="nav-text">游标 cursor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-number">1.4.</span> <span class="nav-text">触发器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86-transaction-processing"><span class="nav-number">1.5.</span> <span class="nav-text">事务处理 transaction processing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E7%90%83%E5%8C%96%E4%B8%8E%E6%9C%AC%E5%9C%B0%E5%8C%96"><span class="nav-number">1.6.</span> <span class="nav-text">*全球化与本地化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86"><span class="nav-number">1.7.</span> <span class="nav-text">安全管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%B4%E6%8A%A4"><span class="nav-number">1.8.</span> <span class="nav-text">*数据库维护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E5%96%84%E6%80%A7%E8%83%BD"><span class="nav-number">1.9.</span> <span class="nav-text">改善性能</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C-%E7%AC%AC22-30%E7%AB%A0"><span class="nav-text">高级操作 第22 - 30章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE"><span class="nav-text">视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="nav-text">存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%B8%E6%A0%87-cursor"><span class="nav-text">游标 cursor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">触发器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86-transaction-processing"><span class="nav-text">事务处理 transaction processing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E7%90%83%E5%8C%96%E4%B8%8E%E6%9C%AC%E5%9C%B0%E5%8C%96"><span class="nav-text">*全球化与本地化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86"><span class="nav-text">安全管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%B4%E6%8A%A4"><span class="nav-text">*数据库维护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E5%96%84%E6%80%A7%E8%83%BD"><span class="nav-text">改善性能</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1087,7 +1087,7 @@ mjx-container[display="true"] + br {
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 

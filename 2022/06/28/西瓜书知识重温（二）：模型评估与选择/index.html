@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -144,7 +144,7 @@
 <meta property="og:image" content="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-3.png">
 <meta property="og:image" content="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-6.png">
 <meta property="article:published_time" content="2022-06-28T12:07:08.000Z">
-<meta property="article:modified_time" content="2022-06-30T04:23:00.554Z">
+<meta property="article:modified_time" content="2022-06-30T05:57:13.005Z">
 <meta property="article:author" content="Hyper18">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
@@ -156,7 +156,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -902,7 +902,7 @@ F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E8%AF%AF%E5%B7%AE%E4%B8%8E%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text">经验误差与过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E8%AE%AD%E7%BB%83-%E7%BB%8F%E9%AA%8C%E8%AF%AF%E5%B7%AE-training-empirical-error"><span class="nav-number">1.1.</span> <span class="nav-text">1. 训练 &#x2F; 经验误差 training &#x2F; empirical error</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%B3%9B%E5%8C%96%E8%AF%AF%E5%B7%AE-generalization-error"><span class="nav-number">1.2.</span> <span class="nav-text">2.  泛化误差 generalization error</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%AC%A0%E6%8B%9F%E5%90%88-%E8%BF%87%E6%8B%9F%E5%90%88-underfitting-overfitting"><span class="nav-number">1.3.</span> <span class="nav-text">3. 欠拟合 &#x2F; 过拟合 underfitting &#x2F; overfitting</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%95%99%E5%87%BA%E6%B3%95-hold-out"><span class="nav-number">2.1.</span> <span class="nav-text">1. 留出法 hold-out</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%B3%95-cross-validation%EF%BC%88%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">2. 交叉验证法 cross validation（常用）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E8%87%AA%E5%8A%A9%E6%B3%95-bootstrapping"><span class="nav-number">2.3.</span> <span class="nav-text">3. 自助法 bootstrapping</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">性能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E9%94%99%E8%AF%AF%E7%8E%87-error-rate"><span class="nav-number">3.1.</span> <span class="nav-text">1. 错误率 error rate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E7%B2%BE%E5%BA%A6-accuracy"><span class="nav-number">3.2.</span> <span class="nav-text">2. 精度 accuracy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5-confusion-matrix"><span class="nav-number">3.3.</span> <span class="nav-text">3. 混淆矩阵 confusion matrix</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E5%87%86%E7%A1%AE%E7%8E%87-%E6%9F%A5%E5%87%86%E7%8E%87-Precision"><span class="nav-number">3.4.</span> <span class="nav-text">4. 准确率 &#x2F; 查准率 Precision</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E5%8F%AC%E5%9B%9E%E7%8E%87-%E6%9F%A5%E5%85%A8%E7%8E%87-Recall"><span class="nav-number">3.5.</span> <span class="nav-text">5. 召回率 &#x2F; 查全率 Recall</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-P-R%E5%9B%BE"><span class="nav-number">3.6.</span> <span class="nav-text">6. P-R图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-%E5%B9%B3%E8%A1%A1%E7%82%B9-Break-Event-Point%EF%BC%8CBEP"><span class="nav-number">3.7.</span> <span class="nav-text">7. 平衡点 Break-Event Point，BEP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-F1-Score"><span class="nav-number">3.8.</span> <span class="nav-text">8. F1 Score</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E8%AF%AF%E5%B7%AE%E4%B8%8E%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-text">经验误差与过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E8%AE%AD%E7%BB%83-%E7%BB%8F%E9%AA%8C%E8%AF%AF%E5%B7%AE-training-empirical-error"><span class="nav-text">1. 训练 &#x2F; 经验误差 training &#x2F; empirical error</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%B3%9B%E5%8C%96%E8%AF%AF%E5%B7%AE-generalization-error"><span class="nav-text">2.  泛化误差 generalization error</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%AC%A0%E6%8B%9F%E5%90%88-%E8%BF%87%E6%8B%9F%E5%90%88-underfitting-overfitting"><span class="nav-text">3. 欠拟合 &#x2F; 过拟合 underfitting &#x2F; overfitting</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95"><span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%95%99%E5%87%BA%E6%B3%95-hold-out"><span class="nav-text">1. 留出法 hold-out</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%B3%95-cross-validation%EF%BC%88%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="nav-text">2. 交叉验证法 cross validation（常用）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E8%87%AA%E5%8A%A9%E6%B3%95-bootstrapping"><span class="nav-text">3. 自助法 bootstrapping</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F"><span class="nav-text">性能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E9%94%99%E8%AF%AF%E7%8E%87-error-rate"><span class="nav-text">1. 错误率 error rate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E7%B2%BE%E5%BA%A6-accuracy"><span class="nav-text">2. 精度 accuracy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5-confusion-matrix"><span class="nav-text">3. 混淆矩阵 confusion matrix</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E5%87%86%E7%A1%AE%E7%8E%87-%E6%9F%A5%E5%87%86%E7%8E%87-Precision"><span class="nav-text">4. 准确率 &#x2F; 查准率 Precision</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E5%8F%AC%E5%9B%9E%E7%8E%87-%E6%9F%A5%E5%85%A8%E7%8E%87-Recall"><span class="nav-text">5. 召回率 &#x2F; 查全率 Recall</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-P-R%E5%9B%BE"><span class="nav-text">6. P-R图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-%E5%B9%B3%E8%A1%A1%E7%82%B9-Break-Event-Point%EF%BC%8CBEP"><span class="nav-text">7. 平衡点 Break-Event Point，BEP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-F1-Score"><span class="nav-text">8. F1 Score</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -949,7 +949,7 @@ F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 

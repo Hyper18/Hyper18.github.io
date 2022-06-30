@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -155,7 +155,7 @@
 <meta property="og:image" content="https://hyper18.github.io/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash5.png">
 <meta property="og:image" content="https://hyper18.github.io/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash6.png">
 <meta property="article:published_time" content="2021-11-22T03:39:54.000Z">
-<meta property="article:modified_time" content="2022-06-30T03:25:34.230Z">
+<meta property="article:modified_time" content="2022-06-30T05:58:01.196Z">
 <meta property="article:author" content="Hyper18">
 <meta property="article:tag" content="Redis">
 <meta property="article:tag" content="NoSQL">
@@ -169,7 +169,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -927,7 +927,7 @@ mjx-container[display="true"] + br {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E5%85%B8"><span class="nav-number">1.</span> <span class="nav-text">字典</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.0.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.0.2.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis%E5%AD%97%E5%85%B8"><span class="nav-number">1.0.3.</span> <span class="nav-text">redis字典</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%EF%BC%9AMurmurHash2%E7%AE%97%E6%B3%95"><span class="nav-number">1.0.4.</span> <span class="nav-text">哈希算法：MurmurHash2算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%AE%E5%86%B2%E7%AA%81%E7%9A%84%E8%A7%A3%E5%86%B3"><span class="nav-number">1.0.5.</span> <span class="nav-text">键冲突的解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%A7%E5%B0%8F%E8%B0%83%E6%95%B4%EF%BC%9Arehash"><span class="nav-number">1.0.6.</span> <span class="nav-text">大小调整：rehash</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.0.6.2.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-1"><span class="nav-number">1.0.6.3.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.0.7.</span> <span class="nav-text">执行条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%9A%84%E5%A4%A7%E5%B0%8F%E8%B0%83%E6%95%B4%EF%BC%9A%E6%B8%90%E8%BF%9B%E5%BC%8Frehash"><span class="nav-number">1.0.8.</span> <span class="nav-text">优化的大小调整：渐进式rehash</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="nav-number">1.0.8.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">1.0.8.2.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-2"><span class="nav-number">1.0.8.3.</span> <span class="nav-text">步骤</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">散列表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.0.1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7"><span class="nav-number">2.0.2.</span> <span class="nav-text">高级特性</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E5%85%B8"><span class="nav-text">字典</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis%E5%AD%97%E5%85%B8"><span class="nav-text">redis字典</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%EF%BC%9AMurmurHash2%E7%AE%97%E6%B3%95"><span class="nav-text">哈希算法：MurmurHash2算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%AE%E5%86%B2%E7%AA%81%E7%9A%84%E8%A7%A3%E5%86%B3"><span class="nav-text">键冲突的解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%A7%E5%B0%8F%E8%B0%83%E6%95%B4%EF%BC%9Arehash"><span class="nav-text">大小调整：rehash</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-text">原因</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-1"><span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%9D%A1%E4%BB%B6"><span class="nav-text">执行条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%9A%84%E5%A4%A7%E5%B0%8F%E8%B0%83%E6%95%B4%EF%BC%9A%E6%B8%90%E8%BF%9B%E5%BC%8Frehash"><span class="nav-text">优化的大小调整：渐进式rehash</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-text">目的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-2"><span class="nav-text">步骤</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="nav-text">散列表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7"><span class="nav-text">高级特性</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -974,7 +974,7 @@ mjx-container[display="true"] + br {
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 

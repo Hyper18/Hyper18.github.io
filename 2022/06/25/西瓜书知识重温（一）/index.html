@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -141,7 +141,7 @@
 <meta property="og:description" content="机器学习 machine learning def 研究通过计算手段，利用经验改善系统自身性能 经验 - 数据，数据中学得结果 - 模型（学习器 learner）  1. 数据集 dataset def 一组记录的集合，其中每条记录是关于一个对象的描述  2. 属性 attribute &#x2F; 特征 feature def 反映对象某方面性质的事项  3. 特征向量 feature vector de">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-06-25T09:50:15.000Z">
-<meta property="article:modified_time" content="2022-06-30T04:22:24.999Z">
+<meta property="article:modified_time" content="2022-06-30T05:57:15.583Z">
 <meta property="article:author" content="Hyper18">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
@@ -152,7 +152,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -872,7 +872,7 @@ mjx-container[display="true"] + br {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-machine-learning"><span class="nav-number">1.</span> <span class="nav-text">机器学习 machine learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%95%B0%E6%8D%AE%E9%9B%86-dataset"><span class="nav-number">1.1.</span> <span class="nav-text">1. 数据集 dataset</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%B1%9E%E6%80%A7-attribute-%E7%89%B9%E5%BE%81-feature"><span class="nav-number">1.2.</span> <span class="nav-text">2. 属性 attribute &#x2F; 特征 feature</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F-feature-vector"><span class="nav-number">1.3.</span> <span class="nav-text">3. 特征向量 feature vector</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E7%BB%B4%E6%95%B0-dimensionality"><span class="nav-number">1.4.</span> <span class="nav-text">4. 维数 dimensionality</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E8%AE%AD%E7%BB%83%E6%A0%B7%E6%9C%AC-training-example"><span class="nav-number">1.5.</span> <span class="nav-text">5. 训练样本 training example</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE-training-data"><span class="nav-number">1.6.</span> <span class="nav-text">6. 训练数据 training data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E6%A0%87%E8%AE%B0-label"><span class="nav-number">1.7.</span> <span class="nav-text">7. 标记 label</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E6%A0%87%E8%AE%B0%E7%A9%BA%E9%97%B4-label-space"><span class="nav-number">1.8.</span> <span class="nav-text">8. 标记空间 label space</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E5%88%86%E7%B1%BB-%E5%9B%9E%E5%BD%92"><span class="nav-number">1.9.</span> <span class="nav-text">9. 分类 &#x2F; 回归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-%E6%B5%8B%E8%AF%95-testing"><span class="nav-number">1.10.</span> <span class="nav-text">10. 测试 testing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-%E7%B0%87-cluster"><span class="nav-number">1.11.</span> <span class="nav-text">11. 簇 cluster</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-%E8%81%9A%E7%B1%BB-clustering"><span class="nav-number">1.12.</span> <span class="nav-text">12. 聚类 clustering</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-%E7%9B%91%E7%9D%A3-supervised-%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0-unsupervised-learning"><span class="nav-number">1.13.</span> <span class="nav-text">13. 监督 supervised &#x2F; 无监督学习 unsupervised learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-%E7%8B%AC%E7%AB%8B%E5%90%8C%E5%88%86%E5%B8%83-independent-and-identically-distributed"><span class="nav-number">1.14.</span> <span class="nav-text">14. 独立同分布 independent and identically distributed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-%E5%BD%92%E7%BA%B3-induction-%E6%BC%94%E7%BB%8E-deduction"><span class="nav-number">1.15.</span> <span class="nav-text">15. 归纳 induction &#x2F; 演绎 deduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-%E7%89%88%E6%9C%AC%E7%A9%BA%E9%97%B4-version-space"><span class="nav-number">1.16.</span> <span class="nav-text">16.版本空间 version space</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-%E5%BD%92%E7%BA%B3%E5%81%8F%E5%A5%BD-inductive-bias"><span class="nav-number">1.17.</span> <span class="nav-text">17. 归纳偏好 inductive bias</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-machine-learning"><span class="nav-text">机器学习 machine learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%95%B0%E6%8D%AE%E9%9B%86-dataset"><span class="nav-text">1. 数据集 dataset</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%B1%9E%E6%80%A7-attribute-%E7%89%B9%E5%BE%81-feature"><span class="nav-text">2. 属性 attribute &#x2F; 特征 feature</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F-feature-vector"><span class="nav-text">3. 特征向量 feature vector</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E7%BB%B4%E6%95%B0-dimensionality"><span class="nav-text">4. 维数 dimensionality</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E8%AE%AD%E7%BB%83%E6%A0%B7%E6%9C%AC-training-example"><span class="nav-text">5. 训练样本 training example</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE-training-data"><span class="nav-text">6. 训练数据 training data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E6%A0%87%E8%AE%B0-label"><span class="nav-text">7. 标记 label</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E6%A0%87%E8%AE%B0%E7%A9%BA%E9%97%B4-label-space"><span class="nav-text">8. 标记空间 label space</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E5%88%86%E7%B1%BB-%E5%9B%9E%E5%BD%92"><span class="nav-text">9. 分类 &#x2F; 回归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-%E6%B5%8B%E8%AF%95-testing"><span class="nav-text">10. 测试 testing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-%E7%B0%87-cluster"><span class="nav-text">11. 簇 cluster</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-%E8%81%9A%E7%B1%BB-clustering"><span class="nav-text">12. 聚类 clustering</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-%E7%9B%91%E7%9D%A3-supervised-%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0-unsupervised-learning"><span class="nav-text">13. 监督 supervised &#x2F; 无监督学习 unsupervised learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-%E7%8B%AC%E7%AB%8B%E5%90%8C%E5%88%86%E5%B8%83-independent-and-identically-distributed"><span class="nav-text">14. 独立同分布 independent and identically distributed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-%E5%BD%92%E7%BA%B3-induction-%E6%BC%94%E7%BB%8E-deduction"><span class="nav-text">15. 归纳 induction &#x2F; 演绎 deduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-%E7%89%88%E6%9C%AC%E7%A9%BA%E9%97%B4-version-space"><span class="nav-text">16.版本空间 version space</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-%E5%BD%92%E7%BA%B3%E5%81%8F%E5%A5%BD-inductive-bias"><span class="nav-text">17. 归纳偏好 inductive bias</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -919,7 +919,7 @@ mjx-container[display="true"] + br {
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
