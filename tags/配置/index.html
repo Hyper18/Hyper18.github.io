@@ -17,9 +17,13 @@
   
   
     
+      
     
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+    
+      
+    
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+  <link href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css" rel="stylesheet">
 
 
 
@@ -129,7 +133,7 @@
 
 
 
-  <meta name="keywords" content="算法，查找" />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -142,21 +146,16 @@
 
 
 
-<meta name="description" content="（一）基本概念1. 查找 def 在数据集合中寻找满⾜某种条件的数据元素的过程  2. 查找表 def ⽤于查找的数据集合，由同一类型数据元素组成 操作 查（是否有某元素、特定数据结构的某属性） 插（同类型某数据元素） 删（同类型某数据元素）   分类 静态查找表：顺序查找、折半查找和散列查找 动态查找表：二叉排序树（二叉平衡树、B树）的查找、散列查找    3. 关键字 def 数据元素中唯一">
-<meta property="og:type" content="article">
-<meta property="og:title" content="面试向常用算法回顾：查找篇">
-<meta property="og:url" content="https://hyper18.github.io/2022/06/29/%E9%9D%A2%E8%AF%95%E5%90%91%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE%EF%BC%9A%E6%9F%A5%E6%89%BE%E7%AF%87/index.html">
+<meta name="description" content="blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hyperの个人博客">
+<meta property="og:url" content="https://hyper18.github.io/tags/%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hyperの个人博客">
-<meta property="og:description" content="（一）基本概念1. 查找 def 在数据集合中寻找满⾜某种条件的数据元素的过程  2. 查找表 def ⽤于查找的数据集合，由同一类型数据元素组成 操作 查（是否有某元素、特定数据结构的某属性） 插（同类型某数据元素） 删（同类型某数据元素）   分类 静态查找表：顺序查找、折半查找和散列查找 动态查找表：二叉排序树（二叉平衡树、B树）的查找、散列查找    3. 关键字 def 数据元素中唯一">
+<meta property="og:description" content="blog">
 <meta property="og:locale">
-<meta property="og:image" content="https://hyper18.github.io/2022/06/29/%E9%9D%A2%E8%AF%95%E5%90%91%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE%EF%BC%9A%E6%9F%A5%E6%89%BE%E7%AF%87/查找1.png">
-<meta property="article:published_time" content="2022-06-29T15:46:42.000Z">
-<meta property="article:modified_time" content="2022-06-30T14:24:55.289Z">
 <meta property="article:author" content="Hyperspace">
-<meta property="article:tag" content="数据结构">
-<meta property="article:tag" content="408">
+<meta property="article:tag" content="信息技术, Hyper, 博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://hyper18.github.io/2022/06/29/%E9%9D%A2%E8%AF%95%E5%90%91%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE%EF%BC%9A%E6%9F%A5%E6%89%BE%E7%AF%87/查找1.png">
 
 
 
@@ -186,13 +185,13 @@
 
 
 
-  <link rel="canonical" href="https://hyper18.github.io/2022/06/29/面试向常用算法回顾：查找篇/"/>
+  <link rel="canonical" href="https://hyper18.github.io/tags/配置/"/>
 
 
 
 
 
-  <title>面试向常用算法回顾：查找篇 | Hyperの个人博客</title>
+  <title>标签: 配置 | Hyperの个人博客</title>
   
 
 
@@ -202,119 +201,7 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-.MathJax path {
-  stroke-width: 3;
-}
-
-mjx-container[display="true"] {
-  overflow: auto hidden;
-}
-
-mjx-container[display="true"] + br {
-  display: none;
-}
-</style></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -323,7 +210,7 @@ mjx-container[display="true"] + br {
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
     
       <a target="_blank" rel="noopener" href="https://github.com/Hyper18" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -472,344 +359,54 @@ mjx-container[display="true"] + br {
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h2>配置<small>标签</small>
+        </h2>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2022/06/29/%E9%9D%A2%E8%AF%95%E5%90%91%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE%EF%BC%9A%E6%9F%A5%E6%89%BE%E7%AF%87/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyperの个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+            <a class="post-title-link" href="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/" itemprop="url">
+              
+                <span itemprop="name">pytorch的配置一二事</span>
+              
+            </a>
         
-          <h2 class="post-title" itemprop="name headline">面试向常用算法回顾：查找篇</h2>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-06-29T23:46:42+08:00">
-                2022-06-29
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2022-06-30T22:24:55+08:00">
-                2022-06-30
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/408/" itemprop="url" rel="index">
-                    <span itemprop="name">408</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2022/06/29/%E9%9D%A2%E8%AF%95%E5%90%91%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE%EF%BC%9A%E6%9F%A5%E6%89%BE%E7%AF%87/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2022/06/29/%E9%9D%A2%E8%AF%95%E5%90%91%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE%EF%BC%9A%E6%9F%A5%E6%89%BE%E7%AF%87/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv">阅读量：<i class="fa fa-user"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  803
-                </span>
-                <span>字</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-                <span>分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p><img src="/2022/06/29/%E9%9D%A2%E8%AF%95%E5%90%91%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE%EF%BC%9A%E6%9F%A5%E6%89%BE%E7%AF%87/查找1.png"></p>
-<h3 id="（一）基本概念"><a href="#（一）基本概念" class="headerlink" title="（一）基本概念"></a>（一）基本概念</h3><h4 id="1-查找"><a href="#1-查找" class="headerlink" title="1. 查找"></a>1. 查找</h4><ul>
-<li>def 在数据集合中寻找满⾜某种条件的数据元素的过程</li>
-</ul>
-<h4 id="2-查找表"><a href="#2-查找表" class="headerlink" title="2. 查找表"></a>2. 查找表</h4><ul>
-<li>def ⽤于查找的数据集合，由<strong>同一类型</strong>数据元素组成</li>
-<li>操作<ul>
-<li>查（是否有某元素、特定数据结构的某属性）</li>
-<li>插（同类型某数据元素）</li>
-<li>删（同类型某数据元素）</li>
-</ul>
-</li>
-<li>分类<ul>
-<li>静态查找表：顺序查找、折半查找和散列查找</li>
-<li>动态查找表：二叉排序树（二叉平衡树、B树）的查找、散列查找</li>
-</ul>
-</li>
-</ul>
-<h4 id="3-关键字"><a href="#3-关键字" class="headerlink" title="3. 关键字"></a>3. 关键字</h4><ul>
-<li>def 数据元素中唯一标识该元素的某数据项的值</li>
-<li>method 使用关键字查找，结果<strong>唯一</strong></li>
-</ul>
-<h4 id="4-平均查找长度-average-search-length"><a href="#4-平均查找长度-average-search-length" class="headerlink" title="4. 平均查找长度 average search length"></a>4. 平均查找长度 average search length</h4><ul>
-<li><p>def 所有查找过程中进行进行<strong>关键字比较次数</strong>的平均值</p>
-<ul>
-<li>quiz 衡量查找算法效率用什么指标？ASL</li>
-</ul>
-</li>
-<li><p>公式 令n为查找表长度，Pi = 1/n为查找第i个数据元素的概率，Ci为找到第i个数据元素的比较次数</p>
-<script type="math/tex; mode=display">
-ASL = \sum_{i=1}^{n}{P_iC_i}</script></li>
-</ul>
-<h3 id="（二）线性表查找"><a href="#（二）线性表查找" class="headerlink" title="（二）线性表查找"></a>（二）线性表查找</h3><h4 id="1-顺序查找-线性查找"><a href="#1-顺序查找-线性查找" class="headerlink" title="1. 顺序查找 / 线性查找"></a>1. 顺序查找 / 线性查找</h4><ul>
-<li><p>method 对含n个元素的表，定位第i个元素，需比较n-i+1次（注意为<strong>从后往前</strong>，严蔚敏版）</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElemType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> {</span></span><br><span class="line">	ElemType* elem; <span class="comment">// base</span></span><br><span class="line">	<span class="keyword">int</span> tableLen;   <span class="comment">// length</span></span><br><span class="line">} SSTable;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">searchSeq</span><span class="params">(SSTable ST, ElemType key)</span> </span>{</span><br><span class="line">	ST.elem[<span class="number">0</span>] = key; <span class="comment">// set sentinel at index 0</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i = ST.tableLen; ST.elem[i] != key; i--);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">
-ASL_{success} = \sum_{i=1}^{n}P_i(n-i+1) = \frac{n+1}{2}(P_i = \frac{1}{n}时)</script><script type="math/tex; mode=display">
-ASL_{fail} = n + 1</script></li>
-<li><p>优点 对数据元素的存储无要求（顺序、链式均可）</p>
-</li>
-<li><p>缺点 n较大 - ASL较大，效率低</p>
-</li>
-<li><p>时间复杂度 O(n)</p>
-</li>
-<li><p>优化</p>
-<ul>
-<li>quiz1 针对有序表的情况，有什么区别？</li>
-</ul>
-<script type="math/tex; mode=display">
-ASL_{success} = \sum_{i=1}^{n}P_i(n-i+1) = \frac{n+1}{2}(P_i = \frac{1}{n}时)</script><p>qj = 1/n+1 为到达第j个失败结点的概率，lj为第j个失败结点所在的层数，则ASL可优化为：</p>
-<script type="math/tex; mode=display">
-ASL_{fail} = \sum_{j=1}^{n}q_j(l_j-1) = \frac{n}{2} + \frac{n}{n+1}</script><ul>
-<li><p>quiz2 针对被查概率不相等的情况，又有什么方法？</p>
-<p>答：可以将被查概率大的数据元素前置，从降低关键字的比较次数Ci入手，降低ASL</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="2-折半查找-二分"><a href="#2-折半查找-二分" class="headerlink" title="2. 折半查找 / 二分"></a>2. 折半查找 / 二分</h4><ul>
-<li><p>method 每次找中间位置比较，若与给定key相等则成功；大于给定key值，则应该在前半部分（升序排列时），反之亦然</p>
-<ul>
-<li>前提 仅适用于有序的顺序表</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 区间[l, r]被划分成[l, mid]和[mid + 1, r]时使用：</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bsearch_1</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>{</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r) {</span><br><span class="line">        <span class="keyword">int</span> mid = l + ((r - l) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">check</span>(mid)) {</span><br><span class="line">            r = mid;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> {</span><br><span class="line">            l = mid + <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> l;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 区间[l, r]被划分成[l, mid - 1]和[mid, r]时使用：</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bsearch_2</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>{</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r) {</span><br><span class="line">        <span class="keyword">int</span> mid = l + ((r - l + <span class="number">1</span>) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">check</span>(mid)) {</span><br><span class="line">            l = mid;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> {</span><br><span class="line">            r = mid - <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> l;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">
-ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx log_2(n+1)-1</script></li>
-<li><p>def 判定树：折半查找形成的二叉树，是一棵<strong>平衡二叉树</strong></p>
-<script type="math/tex; mode=display">
-树高h = \lceil log_2(n+1) \rceil</script></li>
-<li><p>优点 时间复杂度较降低，为O(log2n)</p>
-</li>
-<li><p>缺点 线性表需能随机存储，即仅顺序存储结构适用，且需有序</p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    Hyperspace
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://hyper18.github.io/2022/06/29/%E9%9D%A2%E8%AF%95%E5%90%91%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE%EF%BC%9A%E6%9F%A5%E6%89%BE%E7%AF%87/" title="面试向常用算法回顾：查找篇">https://hyper18.github.io/2022/06/29/%E9%9D%A2%E8%AF%95%E5%90%91%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE%EF%BC%9A%E6%9F%A5%E6%89%BE%E7%AF%87/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2022-01-11T14:27:05+08:00"
+              content="2022-01-11" >
+          01-11
+        </time>
       </div>
-    
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
-          
-            <a href="/tags/408/" rel="tag"><i class="fa fa-tag"></i> 408</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/" rel="next" title="西瓜书知识重温（二）：模型评估与选择">
-                <i class="fa fa-chevron-left"></i> 西瓜书知识重温（二）：模型评估与选择
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
 
 
           </div>
@@ -817,13 +414,6 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
 
 
           
-
-  
-    <div class="comments" id="comments">
-    </div>
-  
-
-
 
         </div>
         
@@ -844,17 +434,8 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -882,7 +463,7 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -893,7 +474,7 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -958,22 +539,6 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">（一）基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%9F%A5%E6%89%BE"><span class="nav-text">1. 查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%9F%A5%E6%89%BE%E8%A1%A8"><span class="nav-text">2. 查找表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-text">3. 关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%B9%B3%E5%9D%87%E6%9F%A5%E6%89%BE%E9%95%BF%E5%BA%A6-average-search-length"><span class="nav-text">4. 平均查找长度 average search length</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BA%BF%E6%80%A7%E8%A1%A8%E6%9F%A5%E6%89%BE"><span class="nav-text">（二）线性表查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE-%E7%BA%BF%E6%80%A7%E6%9F%A5%E6%89%BE"><span class="nav-text">1. 顺序查找 &#x2F; 线性查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE-%E4%BA%8C%E5%88%86"><span class="nav-text">2. 折半查找 &#x2F; 二分</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
         <div class="back-to-top">
@@ -996,6 +561,7 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       <div class="footer-inner">
         <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>
+  <span class="post-meta-divider">|</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1006,6 +572,28 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
 
 
   <div class="powered-by">
+  <i class="fa fa-user-md"></i>
+	<span id="busuanzi_container_site_uv">
+		访客数：<span id="busuanzi_value_site_uv"></span>
+	</span>
+	<span class="post-meta-divider">|</span>
+	<span id="busuanzi_container_site_pv">
+		访问量：<span id="busuanzi_value_site_pv"></span>
+	</span>
+  </div>
+
+  </br>
+  
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a></div>
+
   <div id="site-runtime">
   <span class="post-meta-item-icon">
     <i class="fa fa-clock-o"></i>
@@ -1064,30 +652,6 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
     document.getElementById('site-runtime').style.display = 'none';
   }
 </script>
-
-  
-  
-  <i class="fa fa-user-md"></i>
-	<span id="busuanzi_container_site_uv">
-		访客数：<span id="busuanzi_value_site_uv"></span>
-	</span>
-	<span class="post-meta-divider">|</span>
-	<span id="busuanzi_container_site_pv">
-		访问量：<span id="busuanzi_value_site_pv"></span>
-	</span>
-  </div>
-
-  </br>
-  
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a></div>
 
 
 
@@ -1177,12 +741,12 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
   
 
   
@@ -1192,7 +756,7 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
 
   
   
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
   
 
 
@@ -1216,10 +780,6 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
