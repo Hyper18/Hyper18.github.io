@@ -115,22 +115,22 @@
 
 
 
-<meta name="description" content="模型评估与选择经验误差与过拟合 目的 得到在新样本上表现很好的学习器  1. 训练 &#x2F; 经验误差 training &#x2F; empirical error def 学习器在训练集上的误差  2.  泛化误差 generalization error def 学习器在新样本上的误差 一般地，假设测试样本是从样本真是分布中独立同分布采样得到，则测试集的测试误差可视为泛化误差的近似  3. 欠拟合 &#x2F; 过拟">
+<meta name="description" content="经验误差与过拟合 目的 得到在新样本上表现很好的学习器  1. 训练 &#x2F; 经验误差 training &#x2F; empirical error def 学习器在训练集上的误差  2.  泛化误差 generalization error def 学习器在新样本上的误差 一般地，假设测试样本是从样本真是分布中独立同分布采样得到，则测试集的测试误差可视为泛化误差的近似  3. 欠拟合 &#x2F; 过拟合 under">
 <meta property="og:type" content="article">
-<meta property="og:title" content="西瓜书第二章">
-<meta property="og:url" content="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%AC%AC%E4%BA%8C%E7%AB%A0/index.html">
+<meta property="og:title" content="西瓜书知识重温（二）：模型评估与选择">
+<meta property="og:url" content="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/index.html">
 <meta property="og:site_name" content="Hyperの个人博客">
-<meta property="og:description" content="模型评估与选择经验误差与过拟合 目的 得到在新样本上表现很好的学习器  1. 训练 &#x2F; 经验误差 training &#x2F; empirical error def 学习器在训练集上的误差  2.  泛化误差 generalization error def 学习器在新样本上的误差 一般地，假设测试样本是从样本真是分布中独立同分布采样得到，则测试集的测试误差可视为泛化误差的近似  3. 欠拟合 &#x2F; 过拟">
+<meta property="og:description" content="经验误差与过拟合 目的 得到在新样本上表现很好的学习器  1. 训练 &#x2F; 经验误差 training &#x2F; empirical error def 学习器在训练集上的误差  2.  泛化误差 generalization error def 学习器在新样本上的误差 一般地，假设测试样本是从样本真是分布中独立同分布采样得到，则测试集的测试误差可视为泛化误差的近似  3. 欠拟合 &#x2F; 过拟合 under">
 <meta property="og:locale">
-<meta property="og:image" content="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%AC%AC%E4%BA%8C%E7%AB%A0/2-1-3.png">
-<meta property="og:image" content="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%AC%AC%E4%BA%8C%E7%AB%A0/2-3-3.png">
-<meta property="og:image" content="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%AC%AC%E4%BA%8C%E7%AB%A0/2-3-6.png">
+<meta property="og:image" content="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-1-3.png">
+<meta property="og:image" content="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-3.png">
+<meta property="og:image" content="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-6.png">
 <meta property="article:published_time" content="2022-06-28T12:07:08.000Z">
-<meta property="article:modified_time" content="2022-06-30T03:24:44.259Z">
+<meta property="article:modified_time" content="2022-06-30T04:23:00.554Z">
 <meta property="article:author" content="Hyper18">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%AC%AC%E4%BA%8C%E7%AB%A0/2-1-3.png">
+<meta name="twitter:image" content="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-1-3.png">
 
 
 
@@ -160,13 +160,13 @@
 
 
 
-  <link rel="canonical" href="https://hyper18.github.io/2022/06/28/西瓜书第二章/"/>
+  <link rel="canonical" href="https://hyper18.github.io/2022/06/28/西瓜书知识重温（二）：模型评估与选择/"/>
 
 
 
 
 
-  <title>西瓜书第二章 | Hyperの个人博客</title>
+  <title>西瓜书知识重温（二）：模型评估与选择 | Hyperの个人博客</title>
   
 
 
@@ -450,7 +450,7 @@ mjx-container[display="true"] + br {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -467,7 +467,7 @@ mjx-container[display="true"] + br {
 
         
         
-          <h1 class="post-title" itemprop="name headline">西瓜书第二章</h1>
+          <h1 class="post-title" itemprop="name headline">西瓜书知识重温（二）：模型评估与选择</h1>
         
 
         <div class="post-meta">
@@ -530,18 +530,6 @@ mjx-container[display="true"] + br {
 
           
           
-             <span id="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%AC%AC%E4%BA%8C%E7%AB%A0/" class="leancloud_visitors" data-flag-title="西瓜书第二章">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>°C</span>
-             </span>
-          
 
           
 
@@ -595,7 +583,7 @@ mjx-container[display="true"] + br {
       
 
       
-        <h3 id="模型评估与选择"><a href="#模型评估与选择" class="headerlink" title="模型评估与选择"></a>模型评估与选择</h3><h4 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h4><ul>
+        <h4 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h4><ul>
 <li>目的 得到在新样本上表现很好的学习器</li>
 </ul>
 <h5 id="1-训练-经验误差-training-empirical-error"><a href="#1-训练-经验误差-training-empirical-error" class="headerlink" title="1. 训练 / 经验误差 training / empirical error"></a>1. 训练 / 经验误差 training / empirical error</h5><ul>
@@ -605,7 +593,7 @@ mjx-container[display="true"] + br {
 <li>def 学习器在新样本上的误差</li>
 <li>一般地，假设测试样本是从样本真是分布中独立同分布采样得到，则测试集的测试误差可视为泛化误差的近似</li>
 </ul>
-<h5 id="3-欠拟合-过拟合-underfitting-overfitting"><a href="#3-欠拟合-过拟合-underfitting-overfitting" class="headerlink" title="3. 欠拟合 / 过拟合 underfitting / overfitting"></a>3. 欠拟合 / 过拟合 underfitting / overfitting</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%AC%AC%E4%BA%8C%E7%AB%A0/2-1-3.png"></p>
+<h5 id="3-欠拟合-过拟合-underfitting-overfitting"><a href="#3-欠拟合-过拟合-underfitting-overfitting" class="headerlink" title="3. 欠拟合 / 过拟合 underfitting / overfitting"></a>3. 欠拟合 / 过拟合 underfitting / overfitting</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-1-3.png"></p>
 <ul>
 <li>def 前者单纯训练得不够或学习能力低下，后者则已经把样本自身的某些特点当做所有样本都有的一般性质，使得泛化性能下降</li>
 <li>解决 前者增加轮数， 后者无法彻底避免，仅可使得经验误差最小化以缓解其风险</li>
@@ -661,7 +649,7 @@ P = 1 - a / m</script></li>
 <h5 id="3-混淆矩阵-confusion-matrix"><a href="#3-混淆矩阵-confusion-matrix" class="headerlink" title="3. 混淆矩阵 confusion matrix"></a>3. 混淆矩阵 confusion matrix</h5><ul>
 <li>def 误差矩阵，表示精度评价的一种标准格式，为n行n列的矩阵形式</li>
 </ul>
-<p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%AC%AC%E4%BA%8C%E7%AB%A0/2-3-3.png"></p>
+<p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-3.png"></p>
 <ol>
 <li>正例：positive，即最后结果是正向的（比如好瓜）；</li>
 <li>反例：negative，即最后结果是负向的（比如烂瓜）；</li>
@@ -672,7 +660,7 @@ P = 1 - a / m</script></li>
 </ol>
 <h5 id="4-准确率-查准率-Precision"><a href="#4-准确率-查准率-Precision" class="headerlink" title="4. 准确率 / 查准率 Precision"></a>4. 准确率 / 查准率 Precision</h5><script type="math/tex; mode=display">
 P = \frac{TP}{TP + FP}</script><h5 id="5-召回率-查全率-Recall"><a href="#5-召回率-查全率-Recall" class="headerlink" title="5. 召回率 / 查全率 Recall"></a>5. 召回率 / 查全率 Recall</h5><script type="math/tex; mode=display">
-R = \frac{TP}{TP + FN}</script><h5 id="6-P-R图"><a href="#6-P-R图" class="headerlink" title="6. P-R图"></a>6. P-R图</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%AC%AC%E4%BA%8C%E7%AB%A0/2-3-6.png"></p>
+R = \frac{TP}{TP + FN}</script><h5 id="6-P-R图"><a href="#6-P-R图" class="headerlink" title="6. P-R图"></a>6. P-R图</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-6.png"></p>
 <ul>
 <li><p>quiz 判断两个学习器的性能优劣？</p>
 <p>答：若有两学习器A、B，如果B的曲线被A完全<strong>包住</strong>，则可认为A的性能优于B；若发生交叉，则只能：（1）在具体P、R条件下进行比较；（2）直接比较A和B对应P-R曲线的线下面积Sa、Sb的大小，较大者性能更优</p>
@@ -715,8 +703,8 @@ F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/06/25/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%AC%AC%E4%B8%80%E7%AB%A0/" rel="next" title="西瓜书第一章">
-                <i class="fa fa-chevron-left"></i> 西瓜书第一章
+              <a href="/2022/06/25/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%B8%80%EF%BC%89/" rel="next" title="西瓜书知识重温（一）">
+                <i class="fa fa-chevron-left"></i> 西瓜书知识重温（一）
               </a>
             
           </div>
@@ -896,7 +884,7 @@ F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="nav-number">1.</span> <span class="nav-text">模型评估与选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E8%AF%AF%E5%B7%AE%E4%B8%8E%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-number">1.1.</span> <span class="nav-text">经验误差与过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E8%AE%AD%E7%BB%83-%E7%BB%8F%E9%AA%8C%E8%AF%AF%E5%B7%AE-training-empirical-error"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 训练 &#x2F; 经验误差 training &#x2F; empirical error</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%B3%9B%E5%8C%96%E8%AF%AF%E5%B7%AE-generalization-error"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.  泛化误差 generalization error</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%AC%A0%E6%8B%9F%E5%90%88-%E8%BF%87%E6%8B%9F%E5%90%88-underfitting-overfitting"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 欠拟合 &#x2F; 过拟合 underfitting &#x2F; overfitting</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%95%99%E5%87%BA%E6%B3%95-hold-out"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 留出法 hold-out</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%B3%95-cross-validation%EF%BC%88%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 交叉验证法 cross validation（常用）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E8%87%AA%E5%8A%A9%E6%B3%95-bootstrapping"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 自助法 bootstrapping</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F"><span class="nav-number">1.3.</span> <span class="nav-text">性能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E9%94%99%E8%AF%AF%E7%8E%87-error-rate"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 错误率 error rate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E7%B2%BE%E5%BA%A6-accuracy"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 精度 accuracy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5-confusion-matrix"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. 混淆矩阵 confusion matrix</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E5%87%86%E7%A1%AE%E7%8E%87-%E6%9F%A5%E5%87%86%E7%8E%87-Precision"><span class="nav-number">1.3.4.</span> <span class="nav-text">4. 准确率 &#x2F; 查准率 Precision</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E5%8F%AC%E5%9B%9E%E7%8E%87-%E6%9F%A5%E5%85%A8%E7%8E%87-Recall"><span class="nav-number">1.3.5.</span> <span class="nav-text">5. 召回率 &#x2F; 查全率 Recall</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-P-R%E5%9B%BE"><span class="nav-number">1.3.6.</span> <span class="nav-text">6. P-R图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-%E5%B9%B3%E8%A1%A1%E7%82%B9-Break-Event-Point%EF%BC%8CBEP"><span class="nav-number">1.3.7.</span> <span class="nav-text">7. 平衡点 Break-Event Point，BEP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-F1-Score"><span class="nav-number">1.3.8.</span> <span class="nav-text">8. F1 Score</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E8%AF%AF%E5%B7%AE%E4%B8%8E%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text">经验误差与过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E8%AE%AD%E7%BB%83-%E7%BB%8F%E9%AA%8C%E8%AF%AF%E5%B7%AE-training-empirical-error"><span class="nav-number">1.1.</span> <span class="nav-text">1. 训练 &#x2F; 经验误差 training &#x2F; empirical error</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%B3%9B%E5%8C%96%E8%AF%AF%E5%B7%AE-generalization-error"><span class="nav-number">1.2.</span> <span class="nav-text">2.  泛化误差 generalization error</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%AC%A0%E6%8B%9F%E5%90%88-%E8%BF%87%E6%8B%9F%E5%90%88-underfitting-overfitting"><span class="nav-number">1.3.</span> <span class="nav-text">3. 欠拟合 &#x2F; 过拟合 underfitting &#x2F; overfitting</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%95%99%E5%87%BA%E6%B3%95-hold-out"><span class="nav-number">2.1.</span> <span class="nav-text">1. 留出法 hold-out</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%B3%95-cross-validation%EF%BC%88%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">2. 交叉验证法 cross validation（常用）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E8%87%AA%E5%8A%A9%E6%B3%95-bootstrapping"><span class="nav-number">2.3.</span> <span class="nav-text">3. 自助法 bootstrapping</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">性能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E9%94%99%E8%AF%AF%E7%8E%87-error-rate"><span class="nav-number">3.1.</span> <span class="nav-text">1. 错误率 error rate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E7%B2%BE%E5%BA%A6-accuracy"><span class="nav-number">3.2.</span> <span class="nav-text">2. 精度 accuracy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5-confusion-matrix"><span class="nav-number">3.3.</span> <span class="nav-text">3. 混淆矩阵 confusion matrix</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E5%87%86%E7%A1%AE%E7%8E%87-%E6%9F%A5%E5%87%86%E7%8E%87-Precision"><span class="nav-number">3.4.</span> <span class="nav-text">4. 准确率 &#x2F; 查准率 Precision</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E5%8F%AC%E5%9B%9E%E7%8E%87-%E6%9F%A5%E5%85%A8%E7%8E%87-Recall"><span class="nav-number">3.5.</span> <span class="nav-text">5. 召回率 &#x2F; 查全率 Recall</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-P-R%E5%9B%BE"><span class="nav-number">3.6.</span> <span class="nav-text">6. P-R图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-%E5%B9%B3%E8%A1%A1%E7%82%B9-Break-Event-Point%EF%BC%8CBEP"><span class="nav-number">3.7.</span> <span class="nav-text">7. 平衡点 Break-Event Point，BEP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-F1-Score"><span class="nav-number">3.8.</span> <span class="nav-text">8. F1 Score</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1420,113 +1408,6 @@ F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>
 
 
   
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("VJNXmlsagBfAYV8uHeImy24W-gzGzoHsz", "KELAEhiRxrg98LuiAhMFaTHO");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 
