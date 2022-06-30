@@ -794,7 +794,7 @@
 <li>Compute the partial derivatives and set grad to the partial derivatives of the cost w.r.t. each parameter in theta</li>
 </ul>
 <figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:<span class="built_in">size</span>(theta)</span><br><span class="line">    grad(<span class="built_in">j</span>) = (<span class="number">1</span> / m) * sum((sigmoid(X * theta) - y) .* X(:, <span class="built_in">j</span>));</span><br></pre></td></tr></table></figure>
-<h4 id="Part-3-Optimizing-using-fminunc"><a href="#Part-3-Optimizing-using-fminunc" class="headerlink" title="Part 3: Optimizing using fminunc"></a>Part 3: Optimizing using fminunc</h4><p><img src="/2021/09/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%8E%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/image-20210905193014755.png" alt="Part 3"></p>
+<h4 id="Part-3-Optimizing-using-fminunc"><a href="#Part-3-Optimizing-using-fminunc" class="headerlink" title="Part 3: Optimizing using fminunc"></a>Part 3: Optimizing using fminunc</h4><p><img src="/2021/09/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%8E%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/image-20210905193014755.png"></p>
 <h4 id="Part-4-Predict-and-Accuracies"><a href="#Part-4-Predict-and-Accuracies" class="headerlink" title="Part 4: Predict and Accuracies"></a>Part 4: Predict and Accuracies</h4><ul>
 <li>Complete the following code to make predictions using your learned logistic regression parameters. You should set p to a vector of 0’s and 1’s</li>
 </ul>
@@ -866,7 +866,7 @@
 <ul>
 <li>Visualization</li>
 </ul>
-<p><img src="/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20210910203101080.png" alt="可视化结果"></p>
+<p><img src="/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20210910203101080.png"></p>
 <h4 id="Part-2a-Vectorize-Logistic-Regression"><a href="#Part-2a-Vectorize-Logistic-Regression" class="headerlink" title="Part 2a: Vectorize Logistic Regression"></a>Part 2a: Vectorize Logistic Regression</h4><ul>
 <li>Compute the cost of a particular choice of theta. You should set J to the cost.<br>Compute the partial derivatives and set grad to the partial derivatives of the cost w.r.t. each parameter in theta</li>
 </ul>
