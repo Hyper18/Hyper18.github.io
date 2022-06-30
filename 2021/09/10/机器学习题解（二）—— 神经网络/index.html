@@ -564,6 +564,16 @@ mjx-container[display="true"] + br {
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -761,6 +771,9 @@ mjx-container[display="true"] + br {
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -1120,6 +1133,28 @@ mjx-container[display="true"] + br {
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '94h1oMX7wMkWwMBvv19fYLXE-9Nh9j0Va',
+        appKey: 'X6ccmC1fLzyoANMXihxXHqEJ',
+        placeholder: '在评论区留下你的看法！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
