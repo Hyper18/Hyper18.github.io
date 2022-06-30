@@ -473,20 +473,6 @@
   </url>
   
   <url>
-    <loc>https://hyper18.github.io/tags/Python/</loc>
-    <lastmod>2022-06-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hyper18.github.io/tags/%E7%88%AC%E8%99%AB/</loc>
-    <lastmod>2022-06-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hyper18.github.io/tags/Redis/</loc>
     <lastmod>2022-06-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -502,6 +488,20 @@
   
   <url>
     <loc>https://hyper18.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2022-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hyper18.github.io/tags/Python/</loc>
+    <lastmod>2022-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hyper18.github.io/tags/%E7%88%AC%E8%99%AB/</loc>
     <lastmod>2022-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -592,20 +592,6 @@
   </url>
   
   <url>
-    <loc>https://hyper18.github.io/tags/KNN/</loc>
-    <lastmod>2022-06-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hyper18.github.io/tags/PCA/</loc>
-    <lastmod>2022-06-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hyper18.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2022-06-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -620,7 +606,14 @@
   </url>
   
   <url>
-    <loc>https://hyper18.github.io/tags/cookie/</loc>
+    <loc>https://hyper18.github.io/tags/KNN/</loc>
+    <lastmod>2022-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hyper18.github.io/tags/PCA/</loc>
     <lastmod>2022-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -628,6 +621,13 @@
   
   <url>
     <loc>https://hyper18.github.io/tags/SVM/</loc>
+    <lastmod>2022-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hyper18.github.io/tags/cookie/</loc>
     <lastmod>2022-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -699,7 +699,7 @@
   </url>
   
   <url>
-    <loc>https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/Python/</loc>
+    <loc>https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/Redis/</loc>
     <lastmod>2022-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -713,7 +713,7 @@
   </url>
   
   <url>
-    <loc>https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/Redis/</loc>
+    <loc>https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/Python/</loc>
     <lastmod>2022-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

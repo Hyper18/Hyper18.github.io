@@ -1,77 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java面向对象（七）—— 复用类</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E7%94%A8%E7%B1%BB/</url>
-    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
-<ul>
-<li>在新类中产生现有类的对象</li>
-<li>继承</li>
-</ul>
-<p>2、组合语法</p>
-<ul>
-<li>将对象引用置于新类</li>
-<li>初始化引用的位置<ul>
-<li>定义处</li>
-<li>类构造器中</li>
-<li>惰性初始化（Delay Initialization）于使用对象前</li>
-</ul>
-</li>
-</ul>
-<p>3、继承</p>
-<ul>
-<li>声明新类与旧类类似<ul>
-<li>书写紧跟基类名称关键字extends</li>
-</ul>
-</li>
-<li>super为超类，类从超类继承</li>
-<li>使用+=可连接多个String对象</li>
-<li>构建过程（初始化过程同）是向外“扩散”的<ul>
-<li>若类带有参数，则需要用super显式编写调用</li>
-</ul>
-</li>
-</ul>
-<p>4、代理：继承与组合的中间体</p>
-<ul>
-<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
-<li>java不直接支持代理，可使用部分支持ide自动生成</li>
-</ul>
-<p>5、结合使用组合和继承</p>
-<ul>
-<li>finally()子句确保正确清理，采用自己编写的顺序清理</li>
-<li>dispose()：清理方法</li>
-<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别C++）<ul>
-<li>需要覆写：Override()，不是关键字但按关键字处理</li>
-</ul>
-</li>
-</ul>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
-<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
-<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
-<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
-<li>is-a关系 - 继承，has-a关系 - 组合</li>
-</ul>
-<p>6、protected关键字</p>
-<ul>
-<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
-</ul>
-<p>7、final关键字</p>
-<ul>
-<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
-<li>类常量 static final</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>面向对象</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java面向对象（一）—— 对象导论</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
     <content><![CDATA[<h2 id="第一章-对象导论"><a href="#第一章-对象导论" class="headerlink" title="第一章 对象导论"></a>第一章 对象导论</h2><p>1、基本特性</p>
@@ -201,6 +130,77 @@
 <li>得到最接近整数：使用Max.round() 方法</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">9.997</span></span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) Math.round(x);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>面向对象</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java面向对象（七）—— 复用类</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E7%94%A8%E7%B1%BB/</url>
+    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
+<ul>
+<li>在新类中产生现有类的对象</li>
+<li>继承</li>
+</ul>
+<p>2、组合语法</p>
+<ul>
+<li>将对象引用置于新类</li>
+<li>初始化引用的位置<ul>
+<li>定义处</li>
+<li>类构造器中</li>
+<li>惰性初始化（Delay Initialization）于使用对象前</li>
+</ul>
+</li>
+</ul>
+<p>3、继承</p>
+<ul>
+<li>声明新类与旧类类似<ul>
+<li>书写紧跟基类名称关键字extends</li>
+</ul>
+</li>
+<li>super为超类，类从超类继承</li>
+<li>使用+=可连接多个String对象</li>
+<li>构建过程（初始化过程同）是向外“扩散”的<ul>
+<li>若类带有参数，则需要用super显式编写调用</li>
+</ul>
+</li>
+</ul>
+<p>4、代理：继承与组合的中间体</p>
+<ul>
+<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
+<li>java不直接支持代理，可使用部分支持ide自动生成</li>
+</ul>
+<p>5、结合使用组合和继承</p>
+<ul>
+<li>finally()子句确保正确清理，采用自己编写的顺序清理</li>
+<li>dispose()：清理方法</li>
+<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别C++）<ul>
+<li>需要覆写：Override()，不是关键字但按关键字处理</li>
+</ul>
+</li>
+</ul>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
+<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
+<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
+<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
+<li>is-a关系 - 继承，has-a关系 - 组合</li>
+</ul>
+<p>6、protected关键字</p>
+<ul>
+<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
+</ul>
+<p>7、final关键字</p>
+<ul>
+<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
+<li>类常量 static final</li>
+</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -503,48 +503,6 @@
       </tags>
   </entry>
   <entry>
-    <title>LeetCode题解——简单题篇（1）</title>
-    <url>/2021/09/04/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%881%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a><a href="https://leetcode-cn.com/problems/two-sum/">1. 两数之和</a></h2><ul>
-<li>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。<ul>
-<li>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</li>
-<li>你可以按任意顺序返回答案。</li>
-</ul>
-</li>
-</ul>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>1.嵌套循环暴力求解，算法复杂度为O(n^2)<br>2.使用Hashmap，算法复杂度为O(n)</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
-<li>解法一</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) {</span><br><span class="line">        <span class="keyword">int</span> num1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++){</span><br><span class="line">            num1 = nums[i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; nums.length; j++){</span><br><span class="line">                num2 = nums[j];</span><br><span class="line">                <span class="keyword">if</span>(num1+ num2 == target){</span><br><span class="line">                    result[<span class="number">0</span>] = i;</span><br><span class="line">                    result[<span class="number">1</span>] = j;</span><br><span class="line">                }     </span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<ul>
-<li>解法二</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) {</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) {</span><br><span class="line">            <span class="keyword">int</span> temp = target - nums[i];</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(temp)){</span><br><span class="line">                res[<span class="number">0</span>] = map.get(temp);</span><br><span class="line">                res[<span class="number">1</span>] = i;</span><br><span class="line">            } <span class="keyword">else</span></span><br><span class="line">                map.put(nums[i], i);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/two-sum/solution/1liang-shu-zhi-he-by-hyperspace-fszg/">https://leetcode-cn.com/problems/two-sum/solution/1liang-shu-zhi-he-by-hyperspace-fszg/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h2 id="7-整数反转"><a href="#7-整数反转" class="headerlink" title="7. 整数反转"></a><a href="https://leetcode-cn.com/problems/reverse-integer/">7. 整数反转</a></h2><ul>
-<li>给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。<ul>
-<li>如果反转后整数超过 32 位的有符号整数的范围 [−231,  231 − 1] ，就返回 0。</li>
-<li>假设环境不允许存储 64 位整数（有符号或无符号）。</li>
-</ul>
-</li>
-</ul>
-<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><p>主要难点在于数据类型范围，考虑先处理正负，再在同个循环内部同时完成取当前位值和累加反转值操作，最后处理结果</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span>){</span><br><span class="line">            flag = <span class="keyword">true</span>;</span><br><span class="line">            x = -x;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x &gt; <span class="number">0</span>) {</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; (Integer.MAX_VALUE - x % <span class="number">10</span>) / <span class="number">10</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            sum = sum * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> flag ? -sum : sum;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/">https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-]]></content>
-      <categories>
-        <category>题解</category>
-        <category>LeetCode</category>
-        <category>题库</category>
-        <category>简单题</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode题解——简单题篇（2）</title>
     <url>/2021/09/08/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%882%EF%BC%89/</url>
     <content><![CDATA[<h2 id="9-回文数"><a href="#9-回文数" class="headerlink" title="9. 回文数"></a><a href="https://leetcode-cn.com/problems/palindrome-number/">9. 回文数</a></h2><ul>
@@ -581,75 +539,6 @@
       <tags>
         <tag>Java</tag>
         <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python网络爬虫（1）</title>
-    <url>/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>按照一定规则，自动抓取万维网信息的程序或脚本</li>
-</ul>
-<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
-<li><strong>通用网络爬虫（General Purpose Web Crawler）</strong>：根据一个种子url链接，扩展至整个web页面进行爬取，主要有深度优先爬行策略和广度优先爬行策略（<em>见：数据结构与算法</em>），应用于大型搜索引擎中</li>
-<li><strong>聚焦网络爬虫（Focused Crawler）</strong>：有目的性地进行爬取，将爬取目标定位在与主题相关的页面中，主要有基于内容评价、基于链接评价、基于增强学习、语境图和关于聚焦网络爬虫具体的爬行策略，主要应用在对特定信息的爬取中</li>
-<li><strong>增量式网络爬虫（Incremental Web Crawler）</strong>：是指对已下载网页采取增量式更新和只爬行新产生的或者已经发生变化网页的爬虫，在更新的时候只更新改变的地方，而未改变的地方则不更新。它能够在一定程度上保证所爬行的页面是尽可能新的页面深度网络爬虫</li>
-<li><strong>深层网络爬虫（Deep Web Crawler）</strong>：需要提交表单信息的，或者需要传递一些关键词才可以访问这个数据。最重要的部分即为表单填写部分，主要有基于领域知识的表单填写与基于网页结构分析的表单填写两种类型</li>
-</ul>
-<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p><img src="/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/爬虫基本原理.png"></p>
-<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><h4 id="数据的分类"><a href="#数据的分类" class="headerlink" title="数据的分类"></a>数据的分类</h4><ul>
-<li>用广产生的数据，微信数据、抖音</li>
-<li>政府的数据</li>
-<li>公司管理的数据：聚合</li>
-<li>自己爬取的数据</li>
-</ul>
-<h4 id="数据的用途"><a href="#数据的用途" class="headerlink" title="数据的用途"></a>数据的用途</h4><ul>
-<li>人工智能、机器学习、数据分析 etc.</li>
-</ul>
-<h4 id="robots协议"><a href="#robots协议" class="headerlink" title="robots协议"></a>robots协议</h4><ul>
-<li>网站和爬虫协商的协议，网站中某些站点不允许爬虫的访问</li>
-</ul>
-<h4 id="反爬取措施"><a href="#反爬取措施" class="headerlink" title="反爬取措施"></a>反爬取措施</h4><ul>
-<li>验证码<ul>
-<li>手机验证码</li>
-<li>静态（图片验证、文字）/动态（苹果动态验证）</li>
-</ul>
-</li>
-<li>ip检测与封禁</li>
-<li>文字混淆、js 加密</li>
-<li>点击验证、滑块验证、滑动轨迹</li>
-<li>cookie：身份校验</li>
-<li>防盗链 referer host</li>
-</ul>
-<h4 id="URL的组成"><a href="#URL的组成" class="headerlink" title="URL的组成"></a>URL的组成</h4><ul>
-<li>统一资源定位符：<a href="https://baike.baidu.com">https://baike.baidu.com</a></li>
-<li>协议：https</li>
-<li>域名：baike.baidu. com</li>
-<li>端口：443</li>
-<li>查询路径：/item/url</li>
-<li>查询参数：wd=url</li>
-<li>锚点<ul>
-<li>网页中，当前页面进行锚点定位</li>
-<li>作用在网址的导航</li>
-</ul>
-</li>
-</ul>
-<h4 id="静态数据和动态数据"><a href="#静态数据和动态数据" class="headerlink" title="静态数据和动态数据"></a>静态数据和动态数据</h4><ul>
-<li>静态数据：爬取的数据，在html源码中，并且这个页面是个静态页面</li>
-<li>动态数据：通过一定条件触发的、二次加载的数据</li>
-</ul>
-<h3 id="Chrome调试"><a href="#Chrome调试" class="headerlink" title="Chrome调试"></a>Chrome调试</h3><ul>
-<li>User-Agent：身份标识</li>
-</ul>
-<h4 id="cookie-amp-session"><a href="#cookie-amp-session" class="headerlink" title="cookie&session"></a>cookie&amp;session</h4><p><img src="/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/查看当前网站使用cookie.png"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Python</category>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -708,6 +597,48 @@
         <tag>Redis</tag>
         <tag>NoSQL</tag>
         <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode题解——简单题篇（1）</title>
+    <url>/2021/09/04/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%881%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a><a href="https://leetcode-cn.com/problems/two-sum/">1. 两数之和</a></h2><ul>
+<li>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。<ul>
+<li>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</li>
+<li>你可以按任意顺序返回答案。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>1.嵌套循环暴力求解，算法复杂度为O(n^2)<br>2.使用Hashmap，算法复杂度为O(n)</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
+<li>解法一</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) {</span><br><span class="line">        <span class="keyword">int</span> num1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++){</span><br><span class="line">            num1 = nums[i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; nums.length; j++){</span><br><span class="line">                num2 = nums[j];</span><br><span class="line">                <span class="keyword">if</span>(num1+ num2 == target){</span><br><span class="line">                    result[<span class="number">0</span>] = i;</span><br><span class="line">                    result[<span class="number">1</span>] = j;</span><br><span class="line">                }     </span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解法二</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) {</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) {</span><br><span class="line">            <span class="keyword">int</span> temp = target - nums[i];</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(temp)){</span><br><span class="line">                res[<span class="number">0</span>] = map.get(temp);</span><br><span class="line">                res[<span class="number">1</span>] = i;</span><br><span class="line">            } <span class="keyword">else</span></span><br><span class="line">                map.put(nums[i], i);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/two-sum/solution/1liang-shu-zhi-he-by-hyperspace-fszg/">https://leetcode-cn.com/problems/two-sum/solution/1liang-shu-zhi-he-by-hyperspace-fszg/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h2 id="7-整数反转"><a href="#7-整数反转" class="headerlink" title="7. 整数反转"></a><a href="https://leetcode-cn.com/problems/reverse-integer/">7. 整数反转</a></h2><ul>
+<li>给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。<ul>
+<li>如果反转后整数超过 32 位的有符号整数的范围 [−231,  231 − 1] ，就返回 0。</li>
+<li>假设环境不允许存储 64 位整数（有符号或无符号）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><p>主要难点在于数据类型范围，考虑先处理正负，再在同个循环内部同时完成取当前位值和累加反转值操作，最后处理结果</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span>){</span><br><span class="line">            flag = <span class="keyword">true</span>;</span><br><span class="line">            x = -x;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x &gt; <span class="number">0</span>) {</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; (Integer.MAX_VALUE - x % <span class="number">10</span>) / <span class="number">10</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            sum = sum * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> flag ? -sum : sum;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/">https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+]]></content>
+      <categories>
+        <category>题解</category>
+        <category>LeetCode</category>
+        <category>题库</category>
+        <category>简单题</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -820,6 +751,75 @@
         <tag>Redis</tag>
         <tag>NoSQL</tag>
         <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python网络爬虫（1）</title>
+    <url>/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>按照一定规则，自动抓取万维网信息的程序或脚本</li>
+</ul>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
+<li><strong>通用网络爬虫（General Purpose Web Crawler）</strong>：根据一个种子url链接，扩展至整个web页面进行爬取，主要有深度优先爬行策略和广度优先爬行策略（<em>见：数据结构与算法</em>），应用于大型搜索引擎中</li>
+<li><strong>聚焦网络爬虫（Focused Crawler）</strong>：有目的性地进行爬取，将爬取目标定位在与主题相关的页面中，主要有基于内容评价、基于链接评价、基于增强学习、语境图和关于聚焦网络爬虫具体的爬行策略，主要应用在对特定信息的爬取中</li>
+<li><strong>增量式网络爬虫（Incremental Web Crawler）</strong>：是指对已下载网页采取增量式更新和只爬行新产生的或者已经发生变化网页的爬虫，在更新的时候只更新改变的地方，而未改变的地方则不更新。它能够在一定程度上保证所爬行的页面是尽可能新的页面深度网络爬虫</li>
+<li><strong>深层网络爬虫（Deep Web Crawler）</strong>：需要提交表单信息的，或者需要传递一些关键词才可以访问这个数据。最重要的部分即为表单填写部分，主要有基于领域知识的表单填写与基于网页结构分析的表单填写两种类型</li>
+</ul>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p><img src="/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/爬虫基本原理.png"></p>
+<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><h4 id="数据的分类"><a href="#数据的分类" class="headerlink" title="数据的分类"></a>数据的分类</h4><ul>
+<li>用广产生的数据，微信数据、抖音</li>
+<li>政府的数据</li>
+<li>公司管理的数据：聚合</li>
+<li>自己爬取的数据</li>
+</ul>
+<h4 id="数据的用途"><a href="#数据的用途" class="headerlink" title="数据的用途"></a>数据的用途</h4><ul>
+<li>人工智能、机器学习、数据分析 etc.</li>
+</ul>
+<h4 id="robots协议"><a href="#robots协议" class="headerlink" title="robots协议"></a>robots协议</h4><ul>
+<li>网站和爬虫协商的协议，网站中某些站点不允许爬虫的访问</li>
+</ul>
+<h4 id="反爬取措施"><a href="#反爬取措施" class="headerlink" title="反爬取措施"></a>反爬取措施</h4><ul>
+<li>验证码<ul>
+<li>手机验证码</li>
+<li>静态（图片验证、文字）/动态（苹果动态验证）</li>
+</ul>
+</li>
+<li>ip检测与封禁</li>
+<li>文字混淆、js 加密</li>
+<li>点击验证、滑块验证、滑动轨迹</li>
+<li>cookie：身份校验</li>
+<li>防盗链 referer host</li>
+</ul>
+<h4 id="URL的组成"><a href="#URL的组成" class="headerlink" title="URL的组成"></a>URL的组成</h4><ul>
+<li>统一资源定位符：<a href="https://baike.baidu.com">https://baike.baidu.com</a></li>
+<li>协议：https</li>
+<li>域名：baike.baidu. com</li>
+<li>端口：443</li>
+<li>查询路径：/item/url</li>
+<li>查询参数：wd=url</li>
+<li>锚点<ul>
+<li>网页中，当前页面进行锚点定位</li>
+<li>作用在网址的导航</li>
+</ul>
+</li>
+</ul>
+<h4 id="静态数据和动态数据"><a href="#静态数据和动态数据" class="headerlink" title="静态数据和动态数据"></a>静态数据和动态数据</h4><ul>
+<li>静态数据：爬取的数据，在html源码中，并且这个页面是个静态页面</li>
+<li>动态数据：通过一定条件触发的、二次加载的数据</li>
+</ul>
+<h3 id="Chrome调试"><a href="#Chrome调试" class="headerlink" title="Chrome调试"></a>Chrome调试</h3><ul>
+<li>User-Agent：身份标识</li>
+</ul>
+<h4 id="cookie-amp-session"><a href="#cookie-amp-session" class="headerlink" title="cookie&session"></a>cookie&amp;session</h4><p><img src="/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/查看当前网站使用cookie.png"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Python</category>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -1030,39 +1030,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python文件读取细节一问</title>
-    <url>/2022/01/17/python%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E7%BB%86%E8%8A%82%E4%B8%80%E9%97%AE/</url>
-    <content><![CDATA[<ul>
-<li>字符串前加 u</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text = <span class="string">u'这是一条测试字符串'</span></span><br></pre></td></tr></table></figure>
-<p>u：short for Unicode，指明后续字符串以Unicode编码；一般用在中文字符串前面，以防止中文乱码</p>
-<ul>
-<li>字符串前加 r</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text = <span class="string">r'\t \n'</span></span><br></pre></td></tr></table></figure>
-<p>r：re，对应正则表达式re模块，用于去除<code>\</code>转义机制</p>
-<ul>
-<li>字符串前加 b</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">response = <span class="string">b'&lt;h1&gt;Hello World!&lt;/h1&gt;'</span></span><br></pre></td></tr></table></figure>
-<p>b：bytes，对应字节类型，一般用于web网络编程中</p>
-<ul>
-<li>字符串前加 f</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">'John'</span></span><br><span class="line"><span class="string">f'<span class="subst">{name.lower()}</span> is universal.'</span></span><br></pre></td></tr></table></figure>
-<p>f：f-Strings，f字符串（Python 3.6+起进入标准库中）</p>
-<p>在运行时进行渲染，方便易用</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>pytorch的配置一二事</title>
     <url>/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/</url>
     <content><![CDATA[<h2 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h2><h3 id="Step1-配置CUDA"><a href="#Step1-配置CUDA" class="headerlink" title="Step1 配置CUDA"></a>Step1 配置CUDA</h3><ul>
@@ -1161,6 +1128,39 @@
         <tag>深度学习</tag>
         <tag>pytorch</tag>
         <tag>配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python文件读取细节一问</title>
+    <url>/2022/01/17/python%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E7%BB%86%E8%8A%82%E4%B8%80%E9%97%AE/</url>
+    <content><![CDATA[<ul>
+<li>字符串前加 u</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text = <span class="string">u'这是一条测试字符串'</span></span><br></pre></td></tr></table></figure>
+<p>u：short for Unicode，指明后续字符串以Unicode编码；一般用在中文字符串前面，以防止中文乱码</p>
+<ul>
+<li>字符串前加 r</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text = <span class="string">r'\t \n'</span></span><br></pre></td></tr></table></figure>
+<p>r：re，对应正则表达式re模块，用于去除<code>\</code>转义机制</p>
+<ul>
+<li>字符串前加 b</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">response = <span class="string">b'&lt;h1&gt;Hello World!&lt;/h1&gt;'</span></span><br></pre></td></tr></table></figure>
+<p>b：bytes，对应字节类型，一般用于web网络编程中</p>
+<ul>
+<li>字符串前加 f</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">'John'</span></span><br><span class="line"><span class="string">f'<span class="subst">{name.lower()}</span> is universal.'</span></span><br></pre></td></tr></table></figure>
+<p>f：f-Strings，f字符串（Python 3.6+起进入标准库中）</p>
+<p>在运行时进行渲染，方便易用</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1420,6 +1420,135 @@
       </categories>
       <tags>
         <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分题型基础补全计划（二）—— CSS篇</title>
+    <url>/2021/11/08/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20CSS%E7%AF%87/</url>
+    <content><![CDATA[<h3 id="样式表的嵌入"><a href="#样式表的嵌入" class="headerlink" title="样式表的嵌入"></a>样式表的嵌入</h3><p>题型1：在以下的 HTML 中，哪个是正确引用外部样式表的方法？ </p>
+<ul>
+<li>A <code>&lt;style src="mystyle.css"&gt;</code></li>
+<li>B <code>&lt;link rel="stylesheet" type="text/css" href="mystyle.css"&gt;</code></li>
+<li>C <code>&lt;stylesheet&gt;mystyle.css&lt;/stylesheet&gt;</code></li>
+<li>D <code>&lt;stylesheet&gt;src=mystyle.css&lt;/stylesheet&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> B</p>
+<h5 id="外部样式表"><a href="#外部样式表" class="headerlink" title="外部样式表"></a>外部样式表</h5><ul>
+<li>适用场景：样式需应用到多个页面时，可通过引入同一个外部样式表来改变整个网页站点的外观</li>
+<li>过程：浏览器从外部样式表中逐一读取样式声明，并藉此格式化文档</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--1、链接式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"sample_style1.css"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--2、导入式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="keyword">@import</span> url(sample_style2.css);</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>题型2：哪个 HTML 标签用于定义内部样式表？ </p>
+<ul>
+<li>A <code>&lt;style&gt;</code></li>
+<li>B <code>&lt;script&gt;</code></li>
+<li>C <code>&lt;css&gt;</code></li>
+<li>D <code>&lt;html&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> A</p>
+<h5 id="内部样式表（内嵌样式）"><a href="#内部样式表（内嵌样式）" class="headerlink" title="内部样式表（内嵌样式）"></a>内部样式表（内嵌样式）</h5><ul>
+<li>适用场景：单个文档需要应用某特殊样式时</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">p</span>{</span></span><br><span class="line"><span class="css">            <span class="attribute">text-align</span>: right;  <span class="comment">/*文本右侧对齐*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">font-size</span>: <span class="number">12px</span>;  <span class="comment">/*字体大小 12 像素, 注意这里12与像素px之间不要有空格*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">line-height</span>: <span class="number">20px</span>;  <span class="comment">/*行高 20 像素*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">text-indent</span>: <span class="number">2em</span>;  <span class="comment">/*首行缩进2个文字大小空间*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">200px</span>;  <span class="comment">/*段落宽度 200 像素*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">margin</span>: <span class="number">0</span> auto;  <span class="comment">/*浏览器下居中*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;  <span class="comment">/*段落下边距 10 像素*/</span></span></span><br><span class="line"><span class="css">        }</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="内联样式（行内样式）"><a href="#内联样式（行内样式）" class="headerlink" title="内联样式（行内样式）"></a>内联样式（行内样式）</h5><ul>
+<li>适用场景：单个元素需要应用某特殊样式时</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"background-color: #666666"</span>&gt;</span></span><br><span class="line">        this is a sample text</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="注释的使用"><a href="#注释的使用" class="headerlink" title="注释的使用"></a>注释的使用</h3><p>题型：如何在 CSS 文件中插入注释？ </p>
+<ul>
+<li>A <code>// this is a comment</code></li>
+<li>B <code>// this is a comment //</code></li>
+<li>C <code>/* this is a comment */</code></li>
+<li>D <code>this is a comment</code></li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="注：实际CSS中的注释不区分单行与多行，所有被放在-和-分隔符之间的文本信息都被称为注释"><a href="#注：实际CSS中的注释不区分单行与多行，所有被放在-和-分隔符之间的文本信息都被称为注释" class="headerlink" title="注：实际CSS中的注释不区分单行与多行，所有被放在/*和*/分隔符之间的文本信息都被称为注释"></a>注：实际CSS中的注释不区分单行与多行，所有被放在<code>/*</code>和<code>*/</code>分隔符之间的文本信息都被称为注释</h5><h3 id="选择器的使用"><a href="#选择器的使用" class="headerlink" title="选择器的使用"></a>选择器的使用</h3><p>题型：如何为所有的 <code>&lt;h1&gt;</code> 元素添加背景颜色？ </p>
+<ul>
+<li>A <code>h1.all {background-color:#FFFFFF}</code></li>
+<li>B <code>h1 {background-color:#FFFFFF}</code></li>
+<li>C <code>all.h1 {background-color:#FFFFFF}</code></li>
+<li>D <code>#h1 {background-color:#FFFFFF}</code></li>
+</ul>
+<p><em>我的答案:</em> B</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*1、通用元素选择器，匹配任何元素*/</span></span><br><span class="line">* { <span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">padding</span>:<span class="number">0</span>; }</span><br><span class="line"><span class="comment">/*2、标签选择器，匹配所有使用p标签的元素*/</span></span><br><span class="line"><span class="selector-tag">p</span> { <span class="attribute">font-weight</span>:bold; }</span><br><span class="line"><span class="comment">/*3、class选择器，匹配所有class属性中包含info的元素*/</span></span><br><span class="line"><span class="selector-class">.info</span> { <span class="attribute">background</span>:<span class="number">#ff0</span>; }</span><br><span class="line"><span class="comment">/*4、id选择器，匹配所有id属性等于sample的元素*/</span></span><br><span class="line"><span class="selector-id">#sample</span> { <span class="attribute">background</span>:<span class="number">#ff0</span>; }</span><br></pre></td></tr></table></figure>
+<p>进阶内容见：<a href="http://www.ruanyifeng.com/blog/2009/03/css_selectors.html">CSS选择器笔记 - 阮一峰的网络日志 (ruanyifeng.com)</a>，总结的很全面了</p>
+<h3 id="文本样式的控制"><a href="#文本样式的控制" class="headerlink" title="文本样式的控制"></a>文本样式的控制</h3><p>题型1：在以下的 CSS 中，可使所有 <code>&lt;p&gt;</code> 元素变为粗体的正确语法是？ </p>
+<ul>
+<li>A <code>&lt;p style="font-size:bold"&gt;</code></li>
+<li>B <code>&lt;p style="text-size:bold"&gt;</code></li>
+<li>C <code>p {font-weight:bold}</code></li>
+<li>D <code>p {text-size:bold}</code></li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="font-weight"><a href="#font-weight" class="headerlink" title="font-weight"></a>font-weight</h5><ul>
+<li>默认为normal，可能值如下：<ul>
+<li>bold（粗体）</li>
+<li>bolder（顾名思义，更粗的粗体）</li>
+<li>lighter（细体）</li>
+<li>100~900的数值：400=normal，700=bold，粗细程度随数值递增</li>
+</ul>
+</li>
+</ul>
+<h3 id="列表的使用"><a href="#列表的使用" class="headerlink" title="列表的使用"></a>列表的使用</h3><p>题型：如何产生带有正方形项目的列表？ </p>
+<ul>
+<li>A <code>list-type: square</code></li>
+<li>B <code>type: 2</code></li>
+<li>C <code>type: square</code></li>
+<li>D <code>list-style-type: square</code></li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="list-style-type"><a href="#list-style-type" class="headerlink" title="list-style-type"></a>list-style-type</h5><ul>
+<li>具体的值有很多，常用disc（默认，实心圆）none（无） decimal（数字） lower-roman（小写罗马数字）</li>
+</ul>
+<h3 id="四种定位方式"><a href="#四种定位方式" class="headerlink" title="四种定位方式"></a>四种定位方式</h3><p>题型：HTML 元素默认情况下的定位方式为</p>
+<ul>
+<li>A static</li>
+<li>B relative</li>
+<li>C fixed</li>
+<li>D absolute</li>
+</ul>
+<p><em>我的答案:</em> A</p>
+<h5 id="静态定位-static"><a href="#静态定位-static" class="headerlink" title="静态定位 static"></a>静态定位 static</h5><ul>
+<li>相当于没有定位，元素正常出现在文档流中</li>
+</ul>
+<h5 id="相对定位-relative"><a href="#相对定位-relative" class="headerlink" title="相对定位 relative"></a>相对定位 relative</h5><ul>
+<li>应用此定位的元素会脱离正常的文档流，但其在文档流中的位置依然存在，只是视觉上相对原来的位置有移动</li>
+</ul>
+<h5 id="绝对定位-absolute"><a href="#绝对定位-absolute" class="headerlink" title="绝对定位 absolute"></a>绝对定位 absolute</h5><ul>
+<li>相对于 static 定位以外的首个父元素进行定位，脱离正常的文档流，且不再占据文档流中的位置</li>
+</ul>
+<h5 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 fixed"></a>固定定位 fixed</h5><ul>
+<li>相对于浏览器窗口进行定位</li>
+</ul>
+<h3 id="边框与浮动"><a href="#边框与浮动" class="headerlink" title="边框与浮动"></a>边框与浮动</h3><p>题型1：如何显示这样一个边框：上边框 10 像素、下边框 5 像素、左边框 20 像素、右边框 1 像素？ </p>
+<ul>
+<li>A <code>border-width:10px 5px 20px 1px</code></li>
+<li>B <code>border-width:10px 20px 5px 1px</code></li>
+<li>C <code>border-width:5px 20px 10px 1px</code></li>
+<li>D <code>border-width:10px 1px 5px 20px</code></li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="border-width顺序：顺时针，↑→↓←"><a href="#border-width顺序：顺时针，↑→↓←" class="headerlink" title="border-width顺序：顺时针，↑→↓←"></a>border-width顺序：顺时针，↑→↓←</h5><p>题型2：为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式？</p>
+<p>解答：</p>
+<ol>
+<li><p>浮动的出现是因为：如果在标准流下，一个父元素未设置其自身的高度height属性,那么它的高度就会被子元素的高度撑开，是出于这样一种自适应的现象；</p>
+</li>
+<li><p>需要清除浮动的场景：如1中所述，当父元素未设置自身高度而无法达到既定的视觉效果时，需要清除浮动；</p>
+</li>
+<li><p>清除浮动的方式有：</p>
+<p>（1）给父元素样式添加overflow：hidden，从而创建一个BFC（Block formatting context，块级格式化上下文），从而使其中的元素布局是不受外界的影响，达到清除浮动的目的；</p>
+<p>（2）在父元素的最后设置clear:both，使得父元素和冗余元素向子元素方向延展，直到子元素边界停止浮动，使得父元素能够成功地包裹住子元素，从而变相地消除了浮动。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -1739,135 +1868,6 @@
       </categories>
       <tags>
         <tag>小程序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>分题型基础补全计划（二）—— CSS篇</title>
-    <url>/2021/11/08/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20CSS%E7%AF%87/</url>
-    <content><![CDATA[<h3 id="样式表的嵌入"><a href="#样式表的嵌入" class="headerlink" title="样式表的嵌入"></a>样式表的嵌入</h3><p>题型1：在以下的 HTML 中，哪个是正确引用外部样式表的方法？ </p>
-<ul>
-<li>A <code>&lt;style src="mystyle.css"&gt;</code></li>
-<li>B <code>&lt;link rel="stylesheet" type="text/css" href="mystyle.css"&gt;</code></li>
-<li>C <code>&lt;stylesheet&gt;mystyle.css&lt;/stylesheet&gt;</code></li>
-<li>D <code>&lt;stylesheet&gt;src=mystyle.css&lt;/stylesheet&gt;</code></li>
-</ul>
-<p><em>我的答案:</em> B</p>
-<h5 id="外部样式表"><a href="#外部样式表" class="headerlink" title="外部样式表"></a>外部样式表</h5><ul>
-<li>适用场景：样式需应用到多个页面时，可通过引入同一个外部样式表来改变整个网页站点的外观</li>
-<li>过程：浏览器从外部样式表中逐一读取样式声明，并藉此格式化文档</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--1、链接式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"sample_style1.css"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--2、导入式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="keyword">@import</span> url(sample_style2.css);</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>题型2：哪个 HTML 标签用于定义内部样式表？ </p>
-<ul>
-<li>A <code>&lt;style&gt;</code></li>
-<li>B <code>&lt;script&gt;</code></li>
-<li>C <code>&lt;css&gt;</code></li>
-<li>D <code>&lt;html&gt;</code></li>
-</ul>
-<p><em>我的答案:</em> A</p>
-<h5 id="内部样式表（内嵌样式）"><a href="#内部样式表（内嵌样式）" class="headerlink" title="内部样式表（内嵌样式）"></a>内部样式表（内嵌样式）</h5><ul>
-<li>适用场景：单个文档需要应用某特殊样式时</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">p</span>{</span></span><br><span class="line"><span class="css">            <span class="attribute">text-align</span>: right;  <span class="comment">/*文本右侧对齐*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">font-size</span>: <span class="number">12px</span>;  <span class="comment">/*字体大小 12 像素, 注意这里12与像素px之间不要有空格*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">line-height</span>: <span class="number">20px</span>;  <span class="comment">/*行高 20 像素*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">text-indent</span>: <span class="number">2em</span>;  <span class="comment">/*首行缩进2个文字大小空间*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">200px</span>;  <span class="comment">/*段落宽度 200 像素*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">margin</span>: <span class="number">0</span> auto;  <span class="comment">/*浏览器下居中*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;  <span class="comment">/*段落下边距 10 像素*/</span></span></span><br><span class="line"><span class="css">        }</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="内联样式（行内样式）"><a href="#内联样式（行内样式）" class="headerlink" title="内联样式（行内样式）"></a>内联样式（行内样式）</h5><ul>
-<li>适用场景：单个元素需要应用某特殊样式时</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"background-color: #666666"</span>&gt;</span></span><br><span class="line">        this is a sample text</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="注释的使用"><a href="#注释的使用" class="headerlink" title="注释的使用"></a>注释的使用</h3><p>题型：如何在 CSS 文件中插入注释？ </p>
-<ul>
-<li>A <code>// this is a comment</code></li>
-<li>B <code>// this is a comment //</code></li>
-<li>C <code>/* this is a comment */</code></li>
-<li>D <code>this is a comment</code></li>
-</ul>
-<p><em>我的答案:</em> C</p>
-<h5 id="注：实际CSS中的注释不区分单行与多行，所有被放在-和-分隔符之间的文本信息都被称为注释"><a href="#注：实际CSS中的注释不区分单行与多行，所有被放在-和-分隔符之间的文本信息都被称为注释" class="headerlink" title="注：实际CSS中的注释不区分单行与多行，所有被放在/*和*/分隔符之间的文本信息都被称为注释"></a>注：实际CSS中的注释不区分单行与多行，所有被放在<code>/*</code>和<code>*/</code>分隔符之间的文本信息都被称为注释</h5><h3 id="选择器的使用"><a href="#选择器的使用" class="headerlink" title="选择器的使用"></a>选择器的使用</h3><p>题型：如何为所有的 <code>&lt;h1&gt;</code> 元素添加背景颜色？ </p>
-<ul>
-<li>A <code>h1.all {background-color:#FFFFFF}</code></li>
-<li>B <code>h1 {background-color:#FFFFFF}</code></li>
-<li>C <code>all.h1 {background-color:#FFFFFF}</code></li>
-<li>D <code>#h1 {background-color:#FFFFFF}</code></li>
-</ul>
-<p><em>我的答案:</em> B</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*1、通用元素选择器，匹配任何元素*/</span></span><br><span class="line">* { <span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">padding</span>:<span class="number">0</span>; }</span><br><span class="line"><span class="comment">/*2、标签选择器，匹配所有使用p标签的元素*/</span></span><br><span class="line"><span class="selector-tag">p</span> { <span class="attribute">font-weight</span>:bold; }</span><br><span class="line"><span class="comment">/*3、class选择器，匹配所有class属性中包含info的元素*/</span></span><br><span class="line"><span class="selector-class">.info</span> { <span class="attribute">background</span>:<span class="number">#ff0</span>; }</span><br><span class="line"><span class="comment">/*4、id选择器，匹配所有id属性等于sample的元素*/</span></span><br><span class="line"><span class="selector-id">#sample</span> { <span class="attribute">background</span>:<span class="number">#ff0</span>; }</span><br></pre></td></tr></table></figure>
-<p>进阶内容见：<a href="http://www.ruanyifeng.com/blog/2009/03/css_selectors.html">CSS选择器笔记 - 阮一峰的网络日志 (ruanyifeng.com)</a>，总结的很全面了</p>
-<h3 id="文本样式的控制"><a href="#文本样式的控制" class="headerlink" title="文本样式的控制"></a>文本样式的控制</h3><p>题型1：在以下的 CSS 中，可使所有 <code>&lt;p&gt;</code> 元素变为粗体的正确语法是？ </p>
-<ul>
-<li>A <code>&lt;p style="font-size:bold"&gt;</code></li>
-<li>B <code>&lt;p style="text-size:bold"&gt;</code></li>
-<li>C <code>p {font-weight:bold}</code></li>
-<li>D <code>p {text-size:bold}</code></li>
-</ul>
-<p><em>我的答案:</em> C</p>
-<h5 id="font-weight"><a href="#font-weight" class="headerlink" title="font-weight"></a>font-weight</h5><ul>
-<li>默认为normal，可能值如下：<ul>
-<li>bold（粗体）</li>
-<li>bolder（顾名思义，更粗的粗体）</li>
-<li>lighter（细体）</li>
-<li>100~900的数值：400=normal，700=bold，粗细程度随数值递增</li>
-</ul>
-</li>
-</ul>
-<h3 id="列表的使用"><a href="#列表的使用" class="headerlink" title="列表的使用"></a>列表的使用</h3><p>题型：如何产生带有正方形项目的列表？ </p>
-<ul>
-<li>A <code>list-type: square</code></li>
-<li>B <code>type: 2</code></li>
-<li>C <code>type: square</code></li>
-<li>D <code>list-style-type: square</code></li>
-</ul>
-<p><em>我的答案:</em> D</p>
-<h5 id="list-style-type"><a href="#list-style-type" class="headerlink" title="list-style-type"></a>list-style-type</h5><ul>
-<li>具体的值有很多，常用disc（默认，实心圆）none（无） decimal（数字） lower-roman（小写罗马数字）</li>
-</ul>
-<h3 id="四种定位方式"><a href="#四种定位方式" class="headerlink" title="四种定位方式"></a>四种定位方式</h3><p>题型：HTML 元素默认情况下的定位方式为</p>
-<ul>
-<li>A static</li>
-<li>B relative</li>
-<li>C fixed</li>
-<li>D absolute</li>
-</ul>
-<p><em>我的答案:</em> A</p>
-<h5 id="静态定位-static"><a href="#静态定位-static" class="headerlink" title="静态定位 static"></a>静态定位 static</h5><ul>
-<li>相当于没有定位，元素正常出现在文档流中</li>
-</ul>
-<h5 id="相对定位-relative"><a href="#相对定位-relative" class="headerlink" title="相对定位 relative"></a>相对定位 relative</h5><ul>
-<li>应用此定位的元素会脱离正常的文档流，但其在文档流中的位置依然存在，只是视觉上相对原来的位置有移动</li>
-</ul>
-<h5 id="绝对定位-absolute"><a href="#绝对定位-absolute" class="headerlink" title="绝对定位 absolute"></a>绝对定位 absolute</h5><ul>
-<li>相对于 static 定位以外的首个父元素进行定位，脱离正常的文档流，且不再占据文档流中的位置</li>
-</ul>
-<h5 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 fixed"></a>固定定位 fixed</h5><ul>
-<li>相对于浏览器窗口进行定位</li>
-</ul>
-<h3 id="边框与浮动"><a href="#边框与浮动" class="headerlink" title="边框与浮动"></a>边框与浮动</h3><p>题型1：如何显示这样一个边框：上边框 10 像素、下边框 5 像素、左边框 20 像素、右边框 1 像素？ </p>
-<ul>
-<li>A <code>border-width:10px 5px 20px 1px</code></li>
-<li>B <code>border-width:10px 20px 5px 1px</code></li>
-<li>C <code>border-width:5px 20px 10px 1px</code></li>
-<li>D <code>border-width:10px 1px 5px 20px</code></li>
-</ul>
-<p><em>我的答案:</em> D</p>
-<h5 id="border-width顺序：顺时针，↑→↓←"><a href="#border-width顺序：顺时针，↑→↓←" class="headerlink" title="border-width顺序：顺时针，↑→↓←"></a>border-width顺序：顺时针，↑→↓←</h5><p>题型2：为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式？</p>
-<p>解答：</p>
-<ol>
-<li><p>浮动的出现是因为：如果在标准流下，一个父元素未设置其自身的高度height属性,那么它的高度就会被子元素的高度撑开，是出于这样一种自适应的现象；</p>
-</li>
-<li><p>需要清除浮动的场景：如1中所述，当父元素未设置自身高度而无法达到既定的视觉效果时，需要清除浮动；</p>
-</li>
-<li><p>清除浮动的方式有：</p>
-<p>（1）给父元素样式添加overflow：hidden，从而创建一个BFC（Block formatting context，块级格式化上下文），从而使其中的元素布局是不受外界的影响，达到清除浮动的目的；</p>
-<p>（2）在父元素的最后设置clear:both，使得父元素和冗余元素向子元素方向延展，直到子元素边界停止浮动，使得父元素能够成功地包裹住子元素，从而变相地消除了浮动。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>JavaWeb</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -2630,6 +2630,88 @@
       </tags>
   </entry>
   <entry>
+    <title>数据结构篇：1.1数据结构的基本概念</title>
+    <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h2 id="数据结构的基本概念"><a href="#数据结构的基本概念" class="headerlink" title="数据结构的基本概念"></a>数据结构的基本概念</h2><h3 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h3><h4 id="数据-Data"><a href="#数据-Data" class="headerlink" title="数据 Data"></a>数据 Data</h4><ul>
+<li>信息的载体，描述所有能输入到计算机并被计算机<strong>识别</strong>和<strong>处理</strong>的符号集合</li>
+</ul>
+<h4 id="数据元素-Data-Element"><a href="#数据元素-Data-Element" class="headerlink" title="数据元素 Data Element"></a>数据元素 Data Element</h4><ul>
+<li>数据的基本单位，常作为<strong>整体</strong>进行考虑</li>
+</ul>
+<h4 id="数据对象-Data-Object"><a href="#数据对象-Data-Object" class="headerlink" title="数据对象 Data Object"></a>数据对象 Data Object</h4><ul>
+<li>具<strong>相同性质</strong>的数据元素的集合，是数据的一个子集</li>
+</ul>
+<h4 id="数据类型-Data-Type"><a href="#数据类型-Data-Type" class="headerlink" title="数据类型 Data Type"></a>数据类型 Data Type</h4><ul>
+<li><p>一个<strong>值的集合</strong>、定义在此集合上的一组<strong>操作</strong></p>
+</li>
+<li><p>分类：原子类型 结构类型 抽象数据类型</p>
+<ul>
+<li>原子类型：值不可再分</li>
+<li>结构类型：值可再分为若干成分</li>
+<li>抽象数据类型 ADT：<strong>抽象数据组织</strong>及相关操作<ul>
+<li>是<strong>数据对象、数据关系、基本操作集</strong>表示的<strong>三元组</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="数据结构-Data-Structure"><a href="#数据结构-Data-Structure" class="headerlink" title="数据结构 Data Structure"></a>数据结构 Data Structure</h4><ul>
+<li>相互之间存在一种或多种<strong>特定关系</strong>的数据元素的集合</li>
+</ul>
+<h3 id="数据结构三要素"><a href="#数据结构三要素" class="headerlink" title="数据结构三要素"></a>数据结构三要素</h3><h4 id="1、数据的逻辑结构"><a href="#1、数据的逻辑结构" class="headerlink" title="1、数据的逻辑结构"></a>1、数据的逻辑结构</h4><ul>
+<li>def 数据元素之间的逻辑关系</li>
+<li>分类：线性结构 非线性结构<ul>
+<li>线性结构（有序数据元素的集合）：线性表 <strong>栈</strong> 队列 双队列 串 数组<ul>
+<li>特点：数据结构之间存在<strong>一对一</strong>的线性关系</li>
+</ul>
+</li>
+<li>非线性结构：数组 广义表 集合 树 二叉树 图</li>
+</ul>
+</li>
+</ul>
+<h4 id="2、数据的存储结构"><a href="#2、数据的存储结构" class="headerlink" title="2、数据的存储结构"></a>2、数据的存储结构</h4><ul>
+<li>def 数据结构在计算机中的表示，包括数据元素的表示和关系的表示</li>
+<li>分类：顺序存储 链式存储 索引存储 散列存储</li>
+</ul>
+<h5 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h5><ul>
+<li>def 把逻辑上的相邻元素存储在物理位置上也相邻的存储单元中</li>
+<li>优点：实现随机存取，每个元素占用最少存储空间</li>
+<li>缺点：只能使用相邻的一整块存储空间，可能产生较多外部碎片</li>
+</ul>
+<h5 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h5><ul>
+<li>def 不要求物理位置上相邻，借助指针表示元素间的逻辑关系</li>
+<li>优点：充分利用存储单元，无碎片</li>
+<li>缺点：指针占用额外存储空间，且只能顺序存取</li>
+</ul>
+<h5 id="索引存储"><a href="#索引存储" class="headerlink" title="索引存储"></a>索引存储</h5><ul>
+<li>def 存储元素信息并建立附加的<strong>索引表</strong></li>
+<li>优点：检索速度快</li>
+<li>缺点：费时，增删需修改索引表</li>
+</ul>
+<h5 id="散列存储"><a href="#散列存储" class="headerlink" title="散列存储"></a>散列存储</h5><ul>
+<li>def 根据元素关键字直接计算出存储地址</li>
+<li>优点：检索、增删结点快速</li>
+<li>缺点：散列函数不好会引起冲突，而解决增加开销</li>
+</ul>
+<h4 id="3、数据的运算"><a href="#3、数据的运算" class="headerlink" title="3、数据的运算"></a>3、数据的运算</h4><ul>
+<li>def 运算的定义和实现<ul>
+<li>定义 —— <strong>逻辑结构</strong>， 指出运算的功能</li>
+<li>实现 —— <strong>存储结构</strong>，指出运算的具体操作步骤</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>408</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>408</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构篇：1.2算法和算法评价</title>
     <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-2%E7%AE%97%E6%B3%95%E5%92%8C%E7%AE%97%E6%B3%95%E8%AF%84%E4%BB%B7/</url>
     <content><![CDATA[<h2 id="算法基本概念"><a href="#算法基本概念" class="headerlink" title="算法基本概念"></a>算法基本概念</h2><h4 id="算法-Algorithm"><a href="#算法-Algorithm" class="headerlink" title="算法 Algorithm"></a>算法 Algorithm</h4><ul>
@@ -2877,40 +2959,6 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       </tags>
   </entry>
   <entry>
-    <title>机器学习题解（五）—— KNN与PCA</title>
-    <url>/2021/10/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20KNN%E4%B8%8EPCA/</url>
-    <content><![CDATA[<h3 id="ex7-m"><a href="#ex7-m" class="headerlink" title="ex7.m"></a>ex7.m</h3><h4 id="Part-1-Find-Closest-Centroids"><a href="#Part-1-Find-Closest-Centroids" class="headerlink" title="Part 1: Find Closest Centroids"></a>Part 1: Find Closest Centroids</h4><ul>
-<li>Go over every example, find its closest centroid, and store the index inside idx at the appropriate location</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X,<span class="number">1</span>) <span class="comment">% query from 1 to 300</span></span><br><span class="line">    d = <span class="built_in">zeros</span>(<span class="number">1</span>, K); <span class="comment">% distance: 1*3 matrix</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: K</span><br><span class="line">        d(<span class="number">1</span>, <span class="built_in">j</span>) = <span class="built_in">sqrt</span>(sum(power(X(<span class="built_in">i</span>, :) - centroids(<span class="built_in">j</span>, :), <span class="number">2</span>))); <span class="comment">% use Euclidean Distance, centroids: 3*2 matrix</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    [~, idx(<span class="built_in">i</span>)] = <span class="built_in">min</span>(d); <span class="comment">% get the 2nd parameter from distance matrix only</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h4 id="Part-2-Compute-Means"><a href="#Part-2-Compute-Means" class="headerlink" title="Part 2: Compute Means"></a>Part 2: Compute Means</h4><ul>
-<li>Go over every centroid and compute mean of all points that belong to it</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : K</span><br><span class="line">    <span class="comment">% find all the points that is nearest to No.i centroid, then count their</span></span><br><span class="line">    <span class="comment">% mean</span></span><br><span class="line">    points = X(idx==<span class="built_in">i</span>, :);</span><br><span class="line">    centroids(<span class="built_in">i</span>, :) = <span class="built_in">mean</span>(points);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h3 id="ex7-pca-m"><a href="#ex7-pca-m" class="headerlink" title="ex7 pca.m"></a>ex7 pca.m</h3><h4 id="Part-2-Principal-Component-Analysis"><a href="#Part-2-Principal-Component-Analysis" class="headerlink" title="Part 2: Principal Component Analysis"></a>Part 2: Principal Component Analysis</h4><ul>
-<li>You should first compute the covariance matrix. Then, you should use the “svd” function to compute the eigenvectors and eigenvalues of the covariance matrix</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% compute sigma</span></span><br><span class="line">sigma = (X' * X) / m;</span><br><span class="line"><span class="comment">% use SVD to compute the eigenvectors and eigenvalues of the covariance matrix</span></span><br><span class="line">[U, S, V] = svd(sigma);</span><br></pre></td></tr></table></figure>
-<h4 id="Part-3-Dimension-Reduction"><a href="#Part-3-Dimension-Reduction" class="headerlink" title="Part 3: Dimension Reduction"></a>Part 3: Dimension Reduction</h4><ul>
-<li>Compute the projection of the data using only the top K  eigenvectors in U (first K columns)</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% using only the top K eigenvectors in U</span></span><br><span class="line">U_reduce = U(:, <span class="number">1</span>:K);</span><br><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X, <span class="number">1</span>)</span><br><span class="line">    x = X(<span class="built_in">i</span>, :)';</span><br><span class="line">    <span class="keyword">for</span> k = <span class="number">1</span>: K</span><br><span class="line">        projection_k = x' * U_reduce;</span><br><span class="line">        Z(<span class="built_in">i</span>, :) = projection_k;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Compute the approximation of the data by projecting back onto the original space using the top K eigenvectors in U</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(Z, <span class="number">1</span>)</span><br><span class="line">    v = Z(<span class="built_in">i</span>, :)';</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: <span class="built_in">size</span>(U, <span class="number">1</span>)</span><br><span class="line">        recovered_j = v' * U(:, <span class="number">1</span>:K)';</span><br><span class="line">        <span class="comment">% 2D -&gt; 1D</span></span><br><span class="line">        X_rec(<span class="built_in">i</span>, :) = recovered_j;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>题解</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>KNN</tag>
-        <tag>PCA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>机器学习题解（二）—— 神经网络</title>
     <url>/2021/09/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
     <content><![CDATA[<h3 id="ex3-m"><a href="#ex3-m" class="headerlink" title="ex3.m"></a>ex3.m</h3><h4 id="Part-1-Loading-and-Visualizing-Data"><a href="#Part-1-Loading-and-Visualizing-Data" class="headerlink" title="Part 1: Loading and Visualizing Data"></a>Part 1: Loading and Visualizing Data</h4><ul>
@@ -2995,108 +3043,37 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       </tags>
   </entry>
   <entry>
-    <title>数据结构篇：1.1数据结构的基本概念</title>
-    <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<h2 id="数据结构的基本概念"><a href="#数据结构的基本概念" class="headerlink" title="数据结构的基本概念"></a>数据结构的基本概念</h2><h3 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h3><h4 id="数据-Data"><a href="#数据-Data" class="headerlink" title="数据 Data"></a>数据 Data</h4><ul>
-<li>信息的载体，描述所有能输入到计算机并被计算机<strong>识别</strong>和<strong>处理</strong>的符号集合</li>
+    <title>机器学习题解（五）—— KNN与PCA</title>
+    <url>/2021/10/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20KNN%E4%B8%8EPCA/</url>
+    <content><![CDATA[<h3 id="ex7-m"><a href="#ex7-m" class="headerlink" title="ex7.m"></a>ex7.m</h3><h4 id="Part-1-Find-Closest-Centroids"><a href="#Part-1-Find-Closest-Centroids" class="headerlink" title="Part 1: Find Closest Centroids"></a>Part 1: Find Closest Centroids</h4><ul>
+<li>Go over every example, find its closest centroid, and store the index inside idx at the appropriate location</li>
 </ul>
-<h4 id="数据元素-Data-Element"><a href="#数据元素-Data-Element" class="headerlink" title="数据元素 Data Element"></a>数据元素 Data Element</h4><ul>
-<li>数据的基本单位，常作为<strong>整体</strong>进行考虑</li>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X,<span class="number">1</span>) <span class="comment">% query from 1 to 300</span></span><br><span class="line">    d = <span class="built_in">zeros</span>(<span class="number">1</span>, K); <span class="comment">% distance: 1*3 matrix</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: K</span><br><span class="line">        d(<span class="number">1</span>, <span class="built_in">j</span>) = <span class="built_in">sqrt</span>(sum(power(X(<span class="built_in">i</span>, :) - centroids(<span class="built_in">j</span>, :), <span class="number">2</span>))); <span class="comment">% use Euclidean Distance, centroids: 3*2 matrix</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    [~, idx(<span class="built_in">i</span>)] = <span class="built_in">min</span>(d); <span class="comment">% get the 2nd parameter from distance matrix only</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="Part-2-Compute-Means"><a href="#Part-2-Compute-Means" class="headerlink" title="Part 2: Compute Means"></a>Part 2: Compute Means</h4><ul>
+<li>Go over every centroid and compute mean of all points that belong to it</li>
 </ul>
-<h4 id="数据对象-Data-Object"><a href="#数据对象-Data-Object" class="headerlink" title="数据对象 Data Object"></a>数据对象 Data Object</h4><ul>
-<li>具<strong>相同性质</strong>的数据元素的集合，是数据的一个子集</li>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : K</span><br><span class="line">    <span class="comment">% find all the points that is nearest to No.i centroid, then count their</span></span><br><span class="line">    <span class="comment">% mean</span></span><br><span class="line">    points = X(idx==<span class="built_in">i</span>, :);</span><br><span class="line">    centroids(<span class="built_in">i</span>, :) = <span class="built_in">mean</span>(points);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="ex7-pca-m"><a href="#ex7-pca-m" class="headerlink" title="ex7 pca.m"></a>ex7 pca.m</h3><h4 id="Part-2-Principal-Component-Analysis"><a href="#Part-2-Principal-Component-Analysis" class="headerlink" title="Part 2: Principal Component Analysis"></a>Part 2: Principal Component Analysis</h4><ul>
+<li>You should first compute the covariance matrix. Then, you should use the “svd” function to compute the eigenvectors and eigenvalues of the covariance matrix</li>
 </ul>
-<h4 id="数据类型-Data-Type"><a href="#数据类型-Data-Type" class="headerlink" title="数据类型 Data Type"></a>数据类型 Data Type</h4><ul>
-<li><p>一个<strong>值的集合</strong>、定义在此集合上的一组<strong>操作</strong></p>
-</li>
-<li><p>分类：原子类型 结构类型 抽象数据类型</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% compute sigma</span></span><br><span class="line">sigma = (X' * X) / m;</span><br><span class="line"><span class="comment">% use SVD to compute the eigenvectors and eigenvalues of the covariance matrix</span></span><br><span class="line">[U, S, V] = svd(sigma);</span><br></pre></td></tr></table></figure>
+<h4 id="Part-3-Dimension-Reduction"><a href="#Part-3-Dimension-Reduction" class="headerlink" title="Part 3: Dimension Reduction"></a>Part 3: Dimension Reduction</h4><ul>
+<li>Compute the projection of the data using only the top K  eigenvectors in U (first K columns)</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% using only the top K eigenvectors in U</span></span><br><span class="line">U_reduce = U(:, <span class="number">1</span>:K);</span><br><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X, <span class="number">1</span>)</span><br><span class="line">    x = X(<span class="built_in">i</span>, :)';</span><br><span class="line">    <span class="keyword">for</span> k = <span class="number">1</span>: K</span><br><span class="line">        projection_k = x' * U_reduce;</span><br><span class="line">        Z(<span class="built_in">i</span>, :) = projection_k;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>原子类型：值不可再分</li>
-<li>结构类型：值可再分为若干成分</li>
-<li>抽象数据类型 ADT：<strong>抽象数据组织</strong>及相关操作<ul>
-<li>是<strong>数据对象、数据关系、基本操作集</strong>表示的<strong>三元组</strong></li>
+<li>Compute the approximation of the data by projecting back onto the original space using the top K eigenvectors in U</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="数据结构-Data-Structure"><a href="#数据结构-Data-Structure" class="headerlink" title="数据结构 Data Structure"></a>数据结构 Data Structure</h4><ul>
-<li>相互之间存在一种或多种<strong>特定关系</strong>的数据元素的集合</li>
-</ul>
-<h3 id="数据结构三要素"><a href="#数据结构三要素" class="headerlink" title="数据结构三要素"></a>数据结构三要素</h3><h4 id="1、数据的逻辑结构"><a href="#1、数据的逻辑结构" class="headerlink" title="1、数据的逻辑结构"></a>1、数据的逻辑结构</h4><ul>
-<li>def 数据元素之间的逻辑关系</li>
-<li>分类：线性结构 非线性结构<ul>
-<li>线性结构（有序数据元素的集合）：线性表 <strong>栈</strong> 队列 双队列 串 数组<ul>
-<li>特点：数据结构之间存在<strong>一对一</strong>的线性关系</li>
-</ul>
-</li>
-<li>非线性结构：数组 广义表 集合 树 二叉树 图</li>
-</ul>
-</li>
-</ul>
-<h4 id="2、数据的存储结构"><a href="#2、数据的存储结构" class="headerlink" title="2、数据的存储结构"></a>2、数据的存储结构</h4><ul>
-<li>def 数据结构在计算机中的表示，包括数据元素的表示和关系的表示</li>
-<li>分类：顺序存储 链式存储 索引存储 散列存储</li>
-</ul>
-<h5 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h5><ul>
-<li>def 把逻辑上的相邻元素存储在物理位置上也相邻的存储单元中</li>
-<li>优点：实现随机存取，每个元素占用最少存储空间</li>
-<li>缺点：只能使用相邻的一整块存储空间，可能产生较多外部碎片</li>
-</ul>
-<h5 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h5><ul>
-<li>def 不要求物理位置上相邻，借助指针表示元素间的逻辑关系</li>
-<li>优点：充分利用存储单元，无碎片</li>
-<li>缺点：指针占用额外存储空间，且只能顺序存取</li>
-</ul>
-<h5 id="索引存储"><a href="#索引存储" class="headerlink" title="索引存储"></a>索引存储</h5><ul>
-<li>def 存储元素信息并建立附加的<strong>索引表</strong></li>
-<li>优点：检索速度快</li>
-<li>缺点：费时，增删需修改索引表</li>
-</ul>
-<h5 id="散列存储"><a href="#散列存储" class="headerlink" title="散列存储"></a>散列存储</h5><ul>
-<li>def 根据元素关键字直接计算出存储地址</li>
-<li>优点：检索、增删结点快速</li>
-<li>缺点：散列函数不好会引起冲突，而解决增加开销</li>
-</ul>
-<h4 id="3、数据的运算"><a href="#3、数据的运算" class="headerlink" title="3、数据的运算"></a>3、数据的运算</h4><ul>
-<li>def 运算的定义和实现<ul>
-<li>定义 —— <strong>逻辑结构</strong>， 指出运算的功能</li>
-<li>实现 —— <strong>存储结构</strong>，指出运算的具体操作步骤</li>
-</ul>
-</li>
-</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(Z, <span class="number">1</span>)</span><br><span class="line">    v = Z(<span class="built_in">i</span>, :)';</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: <span class="built_in">size</span>(U, <span class="number">1</span>)</span><br><span class="line">        recovered_j = v' * U(:, <span class="number">1</span>:K)';</span><br><span class="line">        <span class="comment">% 2D -&gt; 1D</span></span><br><span class="line">        X_rec(<span class="built_in">i</span>, :) = recovered_j;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>笔记</category>
-        <category>408</category>
-        <category>数据结构</category>
+        <category>题解</category>
+        <category>机器学习</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
-        <tag>408</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>签名cookie与令牌cookie</title>
-    <url>/2021/11/20/%E7%AD%BE%E5%90%8Dcookie%E4%B8%8E%E4%BB%A4%E7%89%8Ccookie/</url>
-    <content><![CDATA[<h3 id="签名Cookie：Sign"><a href="#签名Cookie：Sign" class="headerlink" title="签名Cookie：Sign"></a>签名Cookie：Sign</h3><ul>
-<li>def <strong>令牌</strong>，用于验证用户身份和登录状态的标识</li>
-<li>优点：验证cookie所需的一切信息都存储在cookie中；cookie可以包含额外的信息（additional infomation)，并且对这些信息进行签名也很容易</li>
-<li>缺点：正确地处理签名很难。很容易忘记对数据进行签名，或者忘记验证数据的签名，从而造成安全漏洞</li>
-</ul>
-<h3 id="令牌Cookie：Token"><a href="#令牌Cookie：Token" class="headerlink" title="令牌Cookie：Token"></a>令牌Cookie：Token</h3><ul>
-<li><strong>签名，</strong>服务端在接受用户请求时，判断该请求是否来自于自己允许的平台（自己允许的平台有统一的加密规则，防止请求在客户端发出后被拦截）</li>
-<li>优点：添加信息非常容易。cookie的体积非常小，因此移动终端和速度较慢的客户端可以更快地发送请求</li>
-<li>缺点：需要在服务器中存储更多信息。如果使用的是关系数据库，那么载入和存储 cookie的代价可能会很高</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>JavaWeb</category>
-      </categories>
-      <tags>
-        <tag>cookie</tag>
+        <tag>机器学习</tag>
+        <tag>KNN</tag>
+        <tag>PCA</tag>
       </tags>
   </entry>
   <entry>
@@ -3131,6 +3108,29 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       <tags>
         <tag>机器学习</tag>
         <tag>SVM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>签名cookie与令牌cookie</title>
+    <url>/2021/11/20/%E7%AD%BE%E5%90%8Dcookie%E4%B8%8E%E4%BB%A4%E7%89%8Ccookie/</url>
+    <content><![CDATA[<h3 id="签名Cookie：Sign"><a href="#签名Cookie：Sign" class="headerlink" title="签名Cookie：Sign"></a>签名Cookie：Sign</h3><ul>
+<li>def <strong>令牌</strong>，用于验证用户身份和登录状态的标识</li>
+<li>优点：验证cookie所需的一切信息都存储在cookie中；cookie可以包含额外的信息（additional infomation)，并且对这些信息进行签名也很容易</li>
+<li>缺点：正确地处理签名很难。很容易忘记对数据进行签名，或者忘记验证数据的签名，从而造成安全漏洞</li>
+</ul>
+<h3 id="令牌Cookie：Token"><a href="#令牌Cookie：Token" class="headerlink" title="令牌Cookie：Token"></a>令牌Cookie：Token</h3><ul>
+<li><strong>签名，</strong>服务端在接受用户请求时，判断该请求是否来自于自己允许的平台（自己允许的平台有统一的加密规则，防止请求在客户端发出后被拦截）</li>
+<li>优点：添加信息非常容易。cookie的体积非常小，因此移动终端和速度较慢的客户端可以更快地发送请求</li>
+<li>缺点：需要在服务器中存储更多信息。如果使用的是关系数据库，那么载入和存储 cookie的代价可能会很高</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>cookie</tag>
       </tags>
   </entry>
   <entry>
@@ -3335,6 +3335,108 @@ min\{R_c,R_s\}</script><h1 id="五、协议层次及其服务模型-Protocol-Lay
       </categories>
       <tags>
         <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>西瓜书知识重温（二）：模型评估与选择</title>
+    <url>/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/</url>
+    <content><![CDATA[<h4 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h4><ul>
+<li>目的 得到在新样本上表现很好的学习器</li>
+</ul>
+<h5 id="1-训练-经验误差-training-empirical-error"><a href="#1-训练-经验误差-training-empirical-error" class="headerlink" title="1. 训练 / 经验误差 training / empirical error"></a>1. 训练 / 经验误差 training / empirical error</h5><ul>
+<li>def 学习器在训练集上的误差</li>
+</ul>
+<h5 id="2-泛化误差-generalization-error"><a href="#2-泛化误差-generalization-error" class="headerlink" title="2.  泛化误差 generalization error"></a>2.  泛化误差 generalization error</h5><ul>
+<li>def 学习器在新样本上的误差</li>
+<li>一般地，假设测试样本是从样本真是分布中独立同分布采样得到，则测试集的测试误差可视为泛化误差的近似</li>
+</ul>
+<h5 id="3-欠拟合-过拟合-underfitting-overfitting"><a href="#3-欠拟合-过拟合-underfitting-overfitting" class="headerlink" title="3. 欠拟合 / 过拟合 underfitting / overfitting"></a>3. 欠拟合 / 过拟合 underfitting / overfitting</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-1-3.png"></p>
+<ul>
+<li>def 前者单纯训练得不够或学习能力低下，后者则已经把样本自身的某些特点当做所有样本都有的一般性质，使得泛化性能下降</li>
+<li>解决 前者增加轮数， 后者无法彻底避免，仅可使得经验误差最小化以缓解其风险</li>
+</ul>
+<h4 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h4><h5 id="1-留出法-hold-out"><a href="#1-留出法-hold-out" class="headerlink" title="1. 留出法 hold-out"></a>1. 留出法 hold-out</h5><ul>
+<li><p>method 直接将数据集D划分为两<strong>互斥</strong>集合，分别作为训练集S、测试集T</p>
+<script type="math/tex; mode=display">
+D = S \cup T,S \cap T = \emptyset</script></li>
+<li><p>quiz1 如何保持数据分布的一致性？</p>
+<p>答：分层采样（stratified sampling），尽可能避免因数据划分引入额外的偏差而对最终结果产生影响</p>
+</li>
+<li><p>quiz2 给定S/T比例，如何划分？</p>
+<p>答：单次结果并不稳定，可多次随机划分，每次产生一个训练/测试集结果并评估，最后留出法返回的结果是每次划分结果的平均值</p>
+</li>
+<li><p>quiz3 最佳比例？</p>
+<p>答：2:1（67%） ~ 4:1（80%），训练集过大可能使得模型更接近用D训练出的模型，而评估结果则不够准确；若测试集过大，则S与D的差别过大，评估模型与用D训练出的模型有较大差别，降低了评估结果的保真性（fidelity）</p>
+</li>
+</ul>
+<h5 id="2-交叉验证法-cross-validation（常用）"><a href="#2-交叉验证法-cross-validation（常用）" class="headerlink" title="2. 交叉验证法 cross validation（常用）"></a>2. 交叉验证法 cross validation（常用）</h5><ul>
+<li><p>method 经分层采样，将D划分为k个大小相似的互斥子集，这样一来，每次课使用k-1个子集的并集作为训练集，余下的那个子集则作为测试集；得到k组结果，返回其均值</p>
+</li>
+<li><p>quiz1 常用k？答：10，10次十折交叉验证</p>
+</li>
+<li><p>quiz2 留一法有了解吗？</p>
+<p>答：当D包含m样本，而m恰等于k时的特例。其好处在于不受随机样本划分方式的影响，且和D训练得到的模型会很相似；坏处在于模型训练的计算开销大，计算复杂度高</p>
+</li>
+</ul>
+<h5 id="3-自助法-bootstrapping"><a href="#3-自助法-bootstrapping" class="headerlink" title="3. 自助法 bootstrapping"></a>3. 自助法 bootstrapping</h5><ul>
+<li>method 以自助采样（bootstrap sampling）为基础，给定包含m个样本的数据集D，我们对它进行采样产生数据集D’；每次随机从D中挑选一个样本，将其拷贝放入D’，再将该样本放回初始数据集D中，使得该样本在下次采样时仍有可能被采到；这个过程重复执行m次后，得到包含m个样本的数据集D’，是为自助采样的结果</li>
+<li><p>application 数据集小、难以划分；改变了初始数据集的分布，从而引入了额外的估计误差</p>
+</li>
+<li><p>quiz1 样本在m次采样中始终不被采到的概率？</p>
+<script type="math/tex; mode=display">
+\lim_{n\rightarrow+\infty}(1 - \frac{1}{m})^m \rightarrow \frac{1}{e} = 0.368</script></li>
+<li><p>quiz2 划分？</p>
+<p>答：D‘作为S，D/D’作为T，测试结果为<strong>包外估计</strong>（out-of-bag-estimate）</p>
+</li>
+</ul>
+<h4 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h4><h5 id="1-错误率-error-rate"><a href="#1-错误率-error-rate" class="headerlink" title="1. 错误率 error rate"></a>1. 错误率 error rate</h5><ul>
+<li><p>def 分类错误样本占样本总数的比例</p>
+</li>
+<li><p>m个样本中有a个样本分类错误，则</p>
+<script type="math/tex; mode=display">
+E = a / m</script></li>
+</ul>
+<h5 id="2-精度-accuracy"><a href="#2-精度-accuracy" class="headerlink" title="2. 精度 accuracy"></a>2. 精度 accuracy</h5><ul>
+<li><p>def 分类正确样本占样本总数的比例</p>
+</li>
+<li><p>m个样本中有a个样本分类正确，<strong>精度 = 1 - 错误率</strong></p>
+<script type="math/tex; mode=display">
+P = 1 - a / m</script></li>
+</ul>
+<h5 id="3-混淆矩阵-confusion-matrix"><a href="#3-混淆矩阵-confusion-matrix" class="headerlink" title="3. 混淆矩阵 confusion matrix"></a>3. 混淆矩阵 confusion matrix</h5><ul>
+<li>def 误差矩阵，表示精度评价的一种标准格式，为n行n列的矩阵形式</li>
+</ul>
+<p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-3.png"></p>
+<ol>
+<li>正例：positive，即最后结果是正向的（比如好瓜）；</li>
+<li>反例：negative，即最后结果是负向的（比如烂瓜）；</li>
+<li>TP：True Positive，把正例预测为正例，也就是说，首先预测出来是个正例，其次这是一个真正的正例（比如预测出来是个好瓜，而且是个好瓜）；</li>
+<li>FP：False Positive，把反例预测为正例，也就是说，首先预测出来是个正例，其次这是个反例（比如预测出来是个好瓜，但是是个烂瓜）；</li>
+<li>FN：False Negative，把正例预测为反例，也就是说，首先预测出来是个反例，其次这是个正例（比如预测出来是个烂瓜，但是是个好瓜）；</li>
+<li>TN：True Negative，把反例预测为反例，也就是说，首先预测出来是个反例，其次这是一个真正的反例（比如预测出来是个烂瓜，而且是个烂瓜）</li>
+</ol>
+<h5 id="4-准确率-查准率-Precision"><a href="#4-准确率-查准率-Precision" class="headerlink" title="4. 准确率 / 查准率 Precision"></a>4. 准确率 / 查准率 Precision</h5><script type="math/tex; mode=display">
+P = \frac{TP}{TP + FP}</script><h5 id="5-召回率-查全率-Recall"><a href="#5-召回率-查全率-Recall" class="headerlink" title="5. 召回率 / 查全率 Recall"></a>5. 召回率 / 查全率 Recall</h5><script type="math/tex; mode=display">
+R = \frac{TP}{TP + FN}</script><h5 id="6-P-R图"><a href="#6-P-R图" class="headerlink" title="6. P-R图"></a>6. P-R图</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-6.png"></p>
+<ul>
+<li><p>quiz 判断两个学习器的性能优劣？</p>
+<p>答：若有两学习器A、B，如果B的曲线被A完全<strong>包住</strong>，则可认为A的性能优于B；若发生交叉，则只能：（1）在具体P、R条件下进行比较；（2）直接比较A和B对应P-R曲线的线下面积Sa、Sb的大小，较大者性能更优</p>
+</li>
+</ul>
+<h5 id="7-平衡点-Break-Event-Point，BEP"><a href="#7-平衡点-Break-Event-Point，BEP" class="headerlink" title="7. 平衡点 Break-Event Point，BEP"></a>7. 平衡点 Break-Event Point，BEP</h5><ul>
+<li>def P = R时的取值</li>
+</ul>
+<h5 id="8-F1-Score"><a href="#8-F1-Score" class="headerlink" title="8. F1 Score"></a>8. F1 Score</h5><ul>
+<li>def 基于查准率和查重率的调和平均（harmonic mean）</li>
+</ul>
+<script type="math/tex; mode=display">
+F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -4005,108 +4107,6 @@ D_{P2P}=max\{\frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+{\sum_{r=1}^n}}\}</sc
       </categories>
       <tags>
         <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>西瓜书知识重温（二）：模型评估与选择</title>
-    <url>/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/</url>
-    <content><![CDATA[<h4 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h4><ul>
-<li>目的 得到在新样本上表现很好的学习器</li>
-</ul>
-<h5 id="1-训练-经验误差-training-empirical-error"><a href="#1-训练-经验误差-training-empirical-error" class="headerlink" title="1. 训练 / 经验误差 training / empirical error"></a>1. 训练 / 经验误差 training / empirical error</h5><ul>
-<li>def 学习器在训练集上的误差</li>
-</ul>
-<h5 id="2-泛化误差-generalization-error"><a href="#2-泛化误差-generalization-error" class="headerlink" title="2.  泛化误差 generalization error"></a>2.  泛化误差 generalization error</h5><ul>
-<li>def 学习器在新样本上的误差</li>
-<li>一般地，假设测试样本是从样本真是分布中独立同分布采样得到，则测试集的测试误差可视为泛化误差的近似</li>
-</ul>
-<h5 id="3-欠拟合-过拟合-underfitting-overfitting"><a href="#3-欠拟合-过拟合-underfitting-overfitting" class="headerlink" title="3. 欠拟合 / 过拟合 underfitting / overfitting"></a>3. 欠拟合 / 过拟合 underfitting / overfitting</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-1-3.png"></p>
-<ul>
-<li>def 前者单纯训练得不够或学习能力低下，后者则已经把样本自身的某些特点当做所有样本都有的一般性质，使得泛化性能下降</li>
-<li>解决 前者增加轮数， 后者无法彻底避免，仅可使得经验误差最小化以缓解其风险</li>
-</ul>
-<h4 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h4><h5 id="1-留出法-hold-out"><a href="#1-留出法-hold-out" class="headerlink" title="1. 留出法 hold-out"></a>1. 留出法 hold-out</h5><ul>
-<li><p>method 直接将数据集D划分为两<strong>互斥</strong>集合，分别作为训练集S、测试集T</p>
-<script type="math/tex; mode=display">
-D = S \cup T,S \cap T = \emptyset</script></li>
-<li><p>quiz1 如何保持数据分布的一致性？</p>
-<p>答：分层采样（stratified sampling），尽可能避免因数据划分引入额外的偏差而对最终结果产生影响</p>
-</li>
-<li><p>quiz2 给定S/T比例，如何划分？</p>
-<p>答：单次结果并不稳定，可多次随机划分，每次产生一个训练/测试集结果并评估，最后留出法返回的结果是每次划分结果的平均值</p>
-</li>
-<li><p>quiz3 最佳比例？</p>
-<p>答：2:1（67%） ~ 4:1（80%），训练集过大可能使得模型更接近用D训练出的模型，而评估结果则不够准确；若测试集过大，则S与D的差别过大，评估模型与用D训练出的模型有较大差别，降低了评估结果的保真性（fidelity）</p>
-</li>
-</ul>
-<h5 id="2-交叉验证法-cross-validation（常用）"><a href="#2-交叉验证法-cross-validation（常用）" class="headerlink" title="2. 交叉验证法 cross validation（常用）"></a>2. 交叉验证法 cross validation（常用）</h5><ul>
-<li><p>method 经分层采样，将D划分为k个大小相似的互斥子集，这样一来，每次课使用k-1个子集的并集作为训练集，余下的那个子集则作为测试集；得到k组结果，返回其均值</p>
-</li>
-<li><p>quiz1 常用k？答：10，10次十折交叉验证</p>
-</li>
-<li><p>quiz2 留一法有了解吗？</p>
-<p>答：当D包含m样本，而m恰等于k时的特例。其好处在于不受随机样本划分方式的影响，且和D训练得到的模型会很相似；坏处在于模型训练的计算开销大，计算复杂度高</p>
-</li>
-</ul>
-<h5 id="3-自助法-bootstrapping"><a href="#3-自助法-bootstrapping" class="headerlink" title="3. 自助法 bootstrapping"></a>3. 自助法 bootstrapping</h5><ul>
-<li>method 以自助采样（bootstrap sampling）为基础，给定包含m个样本的数据集D，我们对它进行采样产生数据集D’；每次随机从D中挑选一个样本，将其拷贝放入D’，再将该样本放回初始数据集D中，使得该样本在下次采样时仍有可能被采到；这个过程重复执行m次后，得到包含m个样本的数据集D’，是为自助采样的结果</li>
-<li><p>application 数据集小、难以划分；改变了初始数据集的分布，从而引入了额外的估计误差</p>
-</li>
-<li><p>quiz1 样本在m次采样中始终不被采到的概率？</p>
-<script type="math/tex; mode=display">
-\lim_{n\rightarrow+\infty}(1 - \frac{1}{m})^m \rightarrow \frac{1}{e} = 0.368</script></li>
-<li><p>quiz2 划分？</p>
-<p>答：D‘作为S，D/D’作为T，测试结果为<strong>包外估计</strong>（out-of-bag-estimate）</p>
-</li>
-</ul>
-<h4 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h4><h5 id="1-错误率-error-rate"><a href="#1-错误率-error-rate" class="headerlink" title="1. 错误率 error rate"></a>1. 错误率 error rate</h5><ul>
-<li><p>def 分类错误样本占样本总数的比例</p>
-</li>
-<li><p>m个样本中有a个样本分类错误，则</p>
-<script type="math/tex; mode=display">
-E = a / m</script></li>
-</ul>
-<h5 id="2-精度-accuracy"><a href="#2-精度-accuracy" class="headerlink" title="2. 精度 accuracy"></a>2. 精度 accuracy</h5><ul>
-<li><p>def 分类正确样本占样本总数的比例</p>
-</li>
-<li><p>m个样本中有a个样本分类正确，<strong>精度 = 1 - 错误率</strong></p>
-<script type="math/tex; mode=display">
-P = 1 - a / m</script></li>
-</ul>
-<h5 id="3-混淆矩阵-confusion-matrix"><a href="#3-混淆矩阵-confusion-matrix" class="headerlink" title="3. 混淆矩阵 confusion matrix"></a>3. 混淆矩阵 confusion matrix</h5><ul>
-<li>def 误差矩阵，表示精度评价的一种标准格式，为n行n列的矩阵形式</li>
-</ul>
-<p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-3.png"></p>
-<ol>
-<li>正例：positive，即最后结果是正向的（比如好瓜）；</li>
-<li>反例：negative，即最后结果是负向的（比如烂瓜）；</li>
-<li>TP：True Positive，把正例预测为正例，也就是说，首先预测出来是个正例，其次这是一个真正的正例（比如预测出来是个好瓜，而且是个好瓜）；</li>
-<li>FP：False Positive，把反例预测为正例，也就是说，首先预测出来是个正例，其次这是个反例（比如预测出来是个好瓜，但是是个烂瓜）；</li>
-<li>FN：False Negative，把正例预测为反例，也就是说，首先预测出来是个反例，其次这是个正例（比如预测出来是个烂瓜，但是是个好瓜）；</li>
-<li>TN：True Negative，把反例预测为反例，也就是说，首先预测出来是个反例，其次这是一个真正的反例（比如预测出来是个烂瓜，而且是个烂瓜）</li>
-</ol>
-<h5 id="4-准确率-查准率-Precision"><a href="#4-准确率-查准率-Precision" class="headerlink" title="4. 准确率 / 查准率 Precision"></a>4. 准确率 / 查准率 Precision</h5><script type="math/tex; mode=display">
-P = \frac{TP}{TP + FP}</script><h5 id="5-召回率-查全率-Recall"><a href="#5-召回率-查全率-Recall" class="headerlink" title="5. 召回率 / 查全率 Recall"></a>5. 召回率 / 查全率 Recall</h5><script type="math/tex; mode=display">
-R = \frac{TP}{TP + FN}</script><h5 id="6-P-R图"><a href="#6-P-R图" class="headerlink" title="6. P-R图"></a>6. P-R图</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-6.png"></p>
-<ul>
-<li><p>quiz 判断两个学习器的性能优劣？</p>
-<p>答：若有两学习器A、B，如果B的曲线被A完全<strong>包住</strong>，则可认为A的性能优于B；若发生交叉，则只能：（1）在具体P、R条件下进行比较；（2）直接比较A和B对应P-R曲线的线下面积Sa、Sb的大小，较大者性能更优</p>
-</li>
-</ul>
-<h5 id="7-平衡点-Break-Event-Point，BEP"><a href="#7-平衡点-Break-Event-Point，BEP" class="headerlink" title="7. 平衡点 Break-Event Point，BEP"></a>7. 平衡点 Break-Event Point，BEP</h5><ul>
-<li>def P = R时的取值</li>
-</ul>
-<h5 id="8-F1-Score"><a href="#8-F1-Score" class="headerlink" title="8. F1 Score"></a>8. F1 Score</h5><ul>
-<li>def 基于查准率和查重率的调和平均（harmonic mean）</li>
-</ul>
-<script type="math/tex; mode=display">
-F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
