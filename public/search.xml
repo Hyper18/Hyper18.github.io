@@ -72,6 +72,77 @@
       </tags>
   </entry>
   <entry>
+    <title>Java面向对象（七）—— 复用类</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E7%94%A8%E7%B1%BB/</url>
+    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
+<ul>
+<li>在新类中产生现有类的对象</li>
+<li>继承</li>
+</ul>
+<p>2、组合语法</p>
+<ul>
+<li>将对象引用置于新类</li>
+<li>初始化引用的位置<ul>
+<li>定义处</li>
+<li>类构造器中</li>
+<li>惰性初始化（Delay Initialization）于使用对象前</li>
+</ul>
+</li>
+</ul>
+<p>3、继承</p>
+<ul>
+<li>声明新类与旧类类似<ul>
+<li>书写紧跟基类名称关键字extends</li>
+</ul>
+</li>
+<li>super为超类，类从超类继承</li>
+<li>使用+=可连接多个String对象</li>
+<li>构建过程（初始化过程同）是向外“扩散”的<ul>
+<li>若类带有参数，则需要用super显式编写调用</li>
+</ul>
+</li>
+</ul>
+<p>4、代理：继承与组合的中间体</p>
+<ul>
+<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
+<li>java不直接支持代理，可使用部分支持ide自动生成</li>
+</ul>
+<p>5、结合使用组合和继承</p>
+<ul>
+<li>finally()子句确保正确清理，采用自己编写的顺序清理</li>
+<li>dispose()：清理方法</li>
+<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别C++）<ul>
+<li>需要覆写：Override()，不是关键字但按关键字处理</li>
+</ul>
+</li>
+</ul>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
+<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
+<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
+<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
+<li>is-a关系 - 继承，has-a关系 - 组合</li>
+</ul>
+<p>6、protected关键字</p>
+<ul>
+<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
+</ul>
+<p>7、final关键字</p>
+<ul>
+<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
+<li>类常量 static final</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>面向对象</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java面向对象（三）—— 操作符</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%93%8D%E4%BD%9C%E7%AC%A6/</url>
     <content><![CDATA[<h2 id="第三章-操作符"><a href="#第三章-操作符" class="headerlink" title="第三章 操作符"></a>第三章 操作符</h2><p>1、别名现象</p>
@@ -142,64 +213,94 @@
       </tags>
   </entry>
   <entry>
-    <title>Java面向对象（七）—— 复用类</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E7%94%A8%E7%B1%BB/</url>
-    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
+    <title>Java面向对象（五）—— 初始化与清理</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%8E%E6%B8%85%E7%90%86/</url>
+    <content><![CDATA[<h2 id="第五章-初始化与清理"><a href="#第五章-初始化与清理" class="headerlink" title="第五章 初始化与清理"></a>第五章 初始化与清理</h2><h3 id="一、初始化"><a href="#一、初始化" class="headerlink" title="一、初始化"></a>一、初始化</h3><p>1、构造器 constructor</p>
 <ul>
-<li>在新类中产生现有类的对象</li>
-<li>继承</li>
+<li>自动调用对应构造器保证初始化</li>
+<li>构造器采用与类相同的名称（因此构造器方法首字母无需小写）</li>
+<li>绑定初始化和创建</li>
+<li>不返回任何值</li>
 </ul>
-<p>2、组合语法</p>
+<p>2、方法重载：不同构造器，参数列表独一无二</p>
+<p>3、默认构造器（无参）</p>
 <ul>
-<li>将对象引用置于新类</li>
-<li>初始化引用的位置<ul>
-<li>定义处</li>
-<li>类构造器中</li>
-<li>惰性初始化（Delay Initialization）于使用对象前</li>
+<li>创建默认对象</li>
+<li>this关键字<ul>
+<li>表：对调用方法的按个对象的应用</li>
+<li>若为同一个类的另一个方法，不使用this关键字，精简</li>
+<li>若要明确指出对当前对象的引用，使用this关键字</li>
 </ul>
 </li>
 </ul>
-<p>3、继承</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 例1</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apricot</span></span>{</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pick</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">void</span> pit{ pick() };</span><br><span class="line">    <span class="comment">// 以下写法没有必要</span></span><br><span class="line">    <span class="keyword">void</span> pit{ <span class="keyword">this</span>.pick() };</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 例2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leaf</span></span>{</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="function">Leaf <span class="title">increment</span><span class="params">()</span> </span>{</span><br><span class="line">        i++;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>; <span class="comment">// 返回对当前对象的引用</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>{</span><br><span class="line">    System.out.println(<span class="string">"i = "</span> + i);</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">    Leaf x = <span class="keyword">new</span> Leaf();</span><br><span class="line">    x.increment().increment().increment().print();</span><br><span class="line">}</span><br><span class="line"><span class="comment">/* Output: </span></span><br><span class="line"><span class="comment">i = 3</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//:~</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>声明新类与旧类类似<ul>
-<li>书写紧跟基类名称关键字extends</li>
+<li>构造器中调用构造器：仅可用this调用一个，且调用位于最起始处</li>
+</ul>
+<p>4、成员初始化</p>
+<ul>
+<li>基本数据类型有默认初值，自定义的局部变量则必须给出初始化值</li>
+<li>注意初始化的顺序</li>
+</ul>
+<p>5、构造器初始化</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// i先置为0，后变为7</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    Counter() {</span><br><span class="line">        i = <span class="number">7</span>;</span><br><span class="line">    }</span><br><span class="line">    ...</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<ul>
+<li>初始化将在构造器<strong>被调用前</strong>发生</li>
+<li>类内部，变量定义顺序决定了初始化顺序</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Window</span> </span>{</span><br><span class="line">    Window(<span class="keyword">int</span> marker) {</span><br><span class="line">        print(<span class="string">"Windows("</span> + marker + <span class="string">")"</span>); <span class="comment">// 初始化时打印</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">House</span> </span>{</span><br><span class="line">    Window w1 = <span class="keyword">new</span> Window(<span class="number">1</span>); <span class="comment">// 调用构造器前</span></span><br><span class="line">    House() {</span><br><span class="line">        print(<span class="string">"House()"</span>);</span><br><span class="line">        w3 = <span class="keyword">new</span> Window(<span class="number">33</span>);</span><br><span class="line">    }</span><br><span class="line">    Window w2 = <span class="keyword">new</span> Window(<span class="number">2</span>); <span class="comment">// 调用构造器后</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">finished</span><span class="params">()</span> </span>{</span><br><span class="line">        print(<span class="string">"finished()"</span>);</span><br><span class="line">    }</span><br><span class="line">    Window w3 = <span class="keyword">new</span> Window(<span class="number">3</span>); <span class="comment">// 末尾</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderOfInitialization</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        House h = <span class="keyword">new</span> House();</span><br><span class="line">        h.finished();</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">/* Output:</span></span><br><span class="line"><span class="comment">Window(1)</span></span><br><span class="line"><span class="comment">Window(2)</span></span><br><span class="line"><span class="comment">Window(3)</span></span><br><span class="line"><span class="comment">House()</span></span><br><span class="line"><span class="comment">Window(33)</span></span><br><span class="line"><span class="comment">finished()</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//~</span></span><br></pre></td></tr></table></figure>
+<p>上例说明，即使对象散布在Window的不同部分，仍会在调用构造器或其他方法前得到初始化。</p>
+<ul>
+<li>先初始化静态对象，后其他对象</li>
+<li>静态块：显式的静态初始化</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> {</span><br><span class="line">	代码块<span class="number">1</span></span><br><span class="line">    代码块<span class="number">2</span></span><br><span class="line">    ...</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>静态初始化动作只进行一次</p>
+<p>6、数组的初始化</p>
+<p>以下两种均可（前者更合理，后者符合C、C++习惯）：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a;</span><br><span class="line"><span class="keyword">int</span> a[];</span><br><span class="line"><span class="comment">// 尽量在定义时初始化</span></span><br><span class="line"><span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[rand.nextInt(<span class="number">20</span>)];</span><br><span class="line"><span class="comment">// 产生一维数组的可打印版本</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line">print(Arrays.toString(a));</span><br><span class="line"><span class="comment">// 注：toString默认打印 类名 和 对象的地址（@+16进制数字）</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>不允许指定数组的大小，分配空间必须写初始化表达式</li>
+<li>使用花括号括起来的列表初始化</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">    <span class="comment">// 形式1</span></span><br><span class="line">    Interger[] a = {</span><br><span class="line">    <span class="keyword">new</span> Interger(<span class="number">1</span>),</span><br><span class="line">    <span class="keyword">new</span> Interger(<span class="number">2</span>),</span><br><span class="line">    <span class="number">3</span>,</span><br><span class="line">};</span><br><span class="line">	<span class="comment">// 形式2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicArray</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Other.main(<span class="keyword">new</span> String[]){ <span class="string">"fiddle"</span>, <span class="string">"de"</span>, <span class="string">"dum"</span>};</span><br><span class="line">        <span class="comment">// 在方法调用处创建数组，可在调用时提供可替换的参数</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Other</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">for</span>(String s : args) </span><br><span class="line">            System.out.print(s + <span class="string">" "</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">/* Output:</span></span><br><span class="line"><span class="comment">fiddle de dum</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//~</span></span><br></pre></td></tr></table></figure>
+<p>7、可变参数列表</p>
+<ul>
+<li>将0个参数传递给可变参数列表是可行的</li>
+<li>不依赖于自动包装机制，使用基本类型</li>
+<li>使得重载变得复杂，编译器在各个情况均要使用自动包装机制来匹配重载<ul>
+<li>在不适用参数调用时，则无法确定了。此时应添加一个非可变参数</li>
 </ul>
 </li>
-<li>super为超类，类从超类继承</li>
-<li>使用+=可连接多个String对象</li>
-<li>构建过程（初始化过程同）是向外“扩散”的<ul>
-<li>若类带有参数，则需要用super显式编写调用</li>
+</ul>
+<h3 id="二、清理"><a href="#二、清理" class="headerlink" title="二、清理"></a>二、清理</h3><p>1、finalize()：清理不是new创建的内存</p>
+<ul>
+<li>使用原因：回收程序不再使用的内存</li>
+<li>终结条件的验证</li>
+</ul>
+<p>2、辨析：并非所有对象都会被垃圾回收</p>
+<p>3、回收</p>
+<ul>
+<li>引用计数：释放引用计数为9的空间<ul>
+<li>简单，速度很慢</li>
+<li>缺陷：对循环引用不适用，应被回收的值，其引用计数不为0</li>
+</ul>
+</li>
+<li>停止 - 复制（自适应）技术：动作发生时，程序暂停</li>
+<li>JIT 即时编译器技术：翻译程序为本地机器码以提升速度<ul>
+<li>即时编译<ul>
+<li>缺陷：累加时长长，且会增加可执行代码的长度，导致页面调度</li>
+</ul>
+</li>
+<li>惰性评估：尽在必要时编译</li>
 </ul>
 </li>
 </ul>
-<p>4、代理：继承与组合的中间体</p>
+<h3 id="三、枚举类型-enum"><a href="#三、枚举类型-enum" class="headerlink" title="三、枚举类型 enum"></a>三、枚举类型 enum</h3><p>1、toString</p>
+<p>2、ordinal：用于表示特定枚举常量的声明顺序</p>
+<p>3、可把enum视作类，具有自己的方法</p>
 <ul>
-<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
-<li>java不直接支持代理，可使用部分支持ide自动生成</li>
-</ul>
-<p>5、结合使用组合和继承</p>
-<ul>
-<li>finally()子句确保正确清理，采用自己编写的顺序清理</li>
-<li>dispose()：清理方法</li>
-<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别C++）<ul>
-<li>需要覆写：Override()，不是关键字但按关键字处理</li>
-</ul>
-</li>
-</ul>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
-<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
-<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
-<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
-<li>is-a关系 - 继承，has-a关系 - 组合</li>
-</ul>
-<p>6、protected关键字</p>
-<ul>
-<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
-</ul>
-<p>7、final关键字</p>
-<ul>
-<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
-<li>类常量 static final</li>
+<li>可在switch语句中使用，配合在有限可能值集合中选择</li>
 </ul>
 ]]></content>
       <categories>
@@ -314,107 +415,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java面向对象（五）—— 初始化与清理</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%8E%E6%B8%85%E7%90%86/</url>
-    <content><![CDATA[<h2 id="第五章-初始化与清理"><a href="#第五章-初始化与清理" class="headerlink" title="第五章 初始化与清理"></a>第五章 初始化与清理</h2><h3 id="一、初始化"><a href="#一、初始化" class="headerlink" title="一、初始化"></a>一、初始化</h3><p>1、构造器 constructor</p>
-<ul>
-<li>自动调用对应构造器保证初始化</li>
-<li>构造器采用与类相同的名称（因此构造器方法首字母无需小写）</li>
-<li>绑定初始化和创建</li>
-<li>不返回任何值</li>
-</ul>
-<p>2、方法重载：不同构造器，参数列表独一无二</p>
-<p>3、默认构造器（无参）</p>
-<ul>
-<li>创建默认对象</li>
-<li>this关键字<ul>
-<li>表：对调用方法的按个对象的应用</li>
-<li>若为同一个类的另一个方法，不使用this关键字，精简</li>
-<li>若要明确指出对当前对象的引用，使用this关键字</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 例1</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apricot</span></span>{</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pick</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">void</span> pit{ pick() };</span><br><span class="line">    <span class="comment">// 以下写法没有必要</span></span><br><span class="line">    <span class="keyword">void</span> pit{ <span class="keyword">this</span>.pick() };</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 例2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leaf</span></span>{</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="function">Leaf <span class="title">increment</span><span class="params">()</span> </span>{</span><br><span class="line">        i++;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>; <span class="comment">// 返回对当前对象的引用</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>{</span><br><span class="line">    System.out.println(<span class="string">"i = "</span> + i);</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">    Leaf x = <span class="keyword">new</span> Leaf();</span><br><span class="line">    x.increment().increment().increment().print();</span><br><span class="line">}</span><br><span class="line"><span class="comment">/* Output: </span></span><br><span class="line"><span class="comment">i = 3</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//:~</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>构造器中调用构造器：仅可用this调用一个，且调用位于最起始处</li>
-</ul>
-<p>4、成员初始化</p>
-<ul>
-<li>基本数据类型有默认初值，自定义的局部变量则必须给出初始化值</li>
-<li>注意初始化的顺序</li>
-</ul>
-<p>5、构造器初始化</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// i先置为0，后变为7</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    Counter() {</span><br><span class="line">        i = <span class="number">7</span>;</span><br><span class="line">    }</span><br><span class="line">    ...</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<ul>
-<li>初始化将在构造器<strong>被调用前</strong>发生</li>
-<li>类内部，变量定义顺序决定了初始化顺序</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Window</span> </span>{</span><br><span class="line">    Window(<span class="keyword">int</span> marker) {</span><br><span class="line">        print(<span class="string">"Windows("</span> + marker + <span class="string">")"</span>); <span class="comment">// 初始化时打印</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">House</span> </span>{</span><br><span class="line">    Window w1 = <span class="keyword">new</span> Window(<span class="number">1</span>); <span class="comment">// 调用构造器前</span></span><br><span class="line">    House() {</span><br><span class="line">        print(<span class="string">"House()"</span>);</span><br><span class="line">        w3 = <span class="keyword">new</span> Window(<span class="number">33</span>);</span><br><span class="line">    }</span><br><span class="line">    Window w2 = <span class="keyword">new</span> Window(<span class="number">2</span>); <span class="comment">// 调用构造器后</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">finished</span><span class="params">()</span> </span>{</span><br><span class="line">        print(<span class="string">"finished()"</span>);</span><br><span class="line">    }</span><br><span class="line">    Window w3 = <span class="keyword">new</span> Window(<span class="number">3</span>); <span class="comment">// 末尾</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderOfInitialization</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        House h = <span class="keyword">new</span> House();</span><br><span class="line">        h.finished();</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">/* Output:</span></span><br><span class="line"><span class="comment">Window(1)</span></span><br><span class="line"><span class="comment">Window(2)</span></span><br><span class="line"><span class="comment">Window(3)</span></span><br><span class="line"><span class="comment">House()</span></span><br><span class="line"><span class="comment">Window(33)</span></span><br><span class="line"><span class="comment">finished()</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//~</span></span><br></pre></td></tr></table></figure>
-<p>上例说明，即使对象散布在Window的不同部分，仍会在调用构造器或其他方法前得到初始化。</p>
-<ul>
-<li>先初始化静态对象，后其他对象</li>
-<li>静态块：显式的静态初始化</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> {</span><br><span class="line">	代码块<span class="number">1</span></span><br><span class="line">    代码块<span class="number">2</span></span><br><span class="line">    ...</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>静态初始化动作只进行一次</p>
-<p>6、数组的初始化</p>
-<p>以下两种均可（前者更合理，后者符合C、C++习惯）：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a;</span><br><span class="line"><span class="keyword">int</span> a[];</span><br><span class="line"><span class="comment">// 尽量在定义时初始化</span></span><br><span class="line"><span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[rand.nextInt(<span class="number">20</span>)];</span><br><span class="line"><span class="comment">// 产生一维数组的可打印版本</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line">print(Arrays.toString(a));</span><br><span class="line"><span class="comment">// 注：toString默认打印 类名 和 对象的地址（@+16进制数字）</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>不允许指定数组的大小，分配空间必须写初始化表达式</li>
-<li>使用花括号括起来的列表初始化</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">    <span class="comment">// 形式1</span></span><br><span class="line">    Interger[] a = {</span><br><span class="line">    <span class="keyword">new</span> Interger(<span class="number">1</span>),</span><br><span class="line">    <span class="keyword">new</span> Interger(<span class="number">2</span>),</span><br><span class="line">    <span class="number">3</span>,</span><br><span class="line">};</span><br><span class="line">	<span class="comment">// 形式2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicArray</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Other.main(<span class="keyword">new</span> String[]){ <span class="string">"fiddle"</span>, <span class="string">"de"</span>, <span class="string">"dum"</span>};</span><br><span class="line">        <span class="comment">// 在方法调用处创建数组，可在调用时提供可替换的参数</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Other</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">for</span>(String s : args) </span><br><span class="line">            System.out.print(s + <span class="string">" "</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">/* Output:</span></span><br><span class="line"><span class="comment">fiddle de dum</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//~</span></span><br></pre></td></tr></table></figure>
-<p>7、可变参数列表</p>
-<ul>
-<li>将0个参数传递给可变参数列表是可行的</li>
-<li>不依赖于自动包装机制，使用基本类型</li>
-<li>使得重载变得复杂，编译器在各个情况均要使用自动包装机制来匹配重载<ul>
-<li>在不适用参数调用时，则无法确定了。此时应添加一个非可变参数</li>
-</ul>
-</li>
-</ul>
-<h3 id="二、清理"><a href="#二、清理" class="headerlink" title="二、清理"></a>二、清理</h3><p>1、finalize()：清理不是new创建的内存</p>
-<ul>
-<li>使用原因：回收程序不再使用的内存</li>
-<li>终结条件的验证</li>
-</ul>
-<p>2、辨析：并非所有对象都会被垃圾回收</p>
-<p>3、回收</p>
-<ul>
-<li>引用计数：释放引用计数为9的空间<ul>
-<li>简单，速度很慢</li>
-<li>缺陷：对循环引用不适用，应被回收的值，其引用计数不为0</li>
-</ul>
-</li>
-<li>停止 - 复制（自适应）技术：动作发生时，程序暂停</li>
-<li>JIT 即时编译器技术：翻译程序为本地机器码以提升速度<ul>
-<li>即时编译<ul>
-<li>缺陷：累加时长长，且会增加可执行代码的长度，导致页面调度</li>
-</ul>
-</li>
-<li>惰性评估：尽在必要时编译</li>
-</ul>
-</li>
-</ul>
-<h3 id="三、枚举类型-enum"><a href="#三、枚举类型-enum" class="headerlink" title="三、枚举类型 enum"></a>三、枚举类型 enum</h3><p>1、toString</p>
-<p>2、ordinal：用于表示特定枚举常量的声明顺序</p>
-<p>3、可把enum视作类，具有自己的方法</p>
-<ul>
-<li>可在switch语句中使用，配合在有限可能值集合中选择</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>面向对象</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java面向对象（六）—— 访问权限控制</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</url>
     <content><![CDATA[<h2 id="第六章-访问权限控制"><a href="#第六章-访问权限控制" class="headerlink" title="第六章 访问权限控制"></a>第六章 访问权限控制</h2><p>1、类库 library：将不变的内容和重构的代码内容区分开</p>
@@ -500,6 +500,75 @@
       <tags>
         <tag>Java</tag>
         <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python网络爬虫（1）</title>
+    <url>/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>按照一定规则，自动抓取万维网信息的程序或脚本</li>
+</ul>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
+<li><strong>通用网络爬虫（General Purpose Web Crawler）</strong>：根据一个种子url链接，扩展至整个web页面进行爬取，主要有深度优先爬行策略和广度优先爬行策略（<em>见：数据结构与算法</em>），应用于大型搜索引擎中</li>
+<li><strong>聚焦网络爬虫（Focused Crawler）</strong>：有目的性地进行爬取，将爬取目标定位在与主题相关的页面中，主要有基于内容评价、基于链接评价、基于增强学习、语境图和关于聚焦网络爬虫具体的爬行策略，主要应用在对特定信息的爬取中</li>
+<li><strong>增量式网络爬虫（Incremental Web Crawler）</strong>：是指对已下载网页采取增量式更新和只爬行新产生的或者已经发生变化网页的爬虫，在更新的时候只更新改变的地方，而未改变的地方则不更新。它能够在一定程度上保证所爬行的页面是尽可能新的页面深度网络爬虫</li>
+<li><strong>深层网络爬虫（Deep Web Crawler）</strong>：需要提交表单信息的，或者需要传递一些关键词才可以访问这个数据。最重要的部分即为表单填写部分，主要有基于领域知识的表单填写与基于网页结构分析的表单填写两种类型</li>
+</ul>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p><img src="/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/爬虫基本原理.png"></p>
+<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><h4 id="数据的分类"><a href="#数据的分类" class="headerlink" title="数据的分类"></a>数据的分类</h4><ul>
+<li>用广产生的数据，微信数据、抖音</li>
+<li>政府的数据</li>
+<li>公司管理的数据：聚合</li>
+<li>自己爬取的数据</li>
+</ul>
+<h4 id="数据的用途"><a href="#数据的用途" class="headerlink" title="数据的用途"></a>数据的用途</h4><ul>
+<li>人工智能、机器学习、数据分析 etc.</li>
+</ul>
+<h4 id="robots协议"><a href="#robots协议" class="headerlink" title="robots协议"></a>robots协议</h4><ul>
+<li>网站和爬虫协商的协议，网站中某些站点不允许爬虫的访问</li>
+</ul>
+<h4 id="反爬取措施"><a href="#反爬取措施" class="headerlink" title="反爬取措施"></a>反爬取措施</h4><ul>
+<li>验证码<ul>
+<li>手机验证码</li>
+<li>静态（图片验证、文字）/动态（苹果动态验证）</li>
+</ul>
+</li>
+<li>ip检测与封禁</li>
+<li>文字混淆、js 加密</li>
+<li>点击验证、滑块验证、滑动轨迹</li>
+<li>cookie：身份校验</li>
+<li>防盗链 referer host</li>
+</ul>
+<h4 id="URL的组成"><a href="#URL的组成" class="headerlink" title="URL的组成"></a>URL的组成</h4><ul>
+<li>统一资源定位符：<a href="https://baike.baidu.com">https://baike.baidu.com</a></li>
+<li>协议：https</li>
+<li>域名：baike.baidu. com</li>
+<li>端口：443</li>
+<li>查询路径：/item/url</li>
+<li>查询参数：wd=url</li>
+<li>锚点<ul>
+<li>网页中，当前页面进行锚点定位</li>
+<li>作用在网址的导航</li>
+</ul>
+</li>
+</ul>
+<h4 id="静态数据和动态数据"><a href="#静态数据和动态数据" class="headerlink" title="静态数据和动态数据"></a>静态数据和动态数据</h4><ul>
+<li>静态数据：爬取的数据，在html源码中，并且这个页面是个静态页面</li>
+<li>动态数据：通过一定条件触发的、二次加载的数据</li>
+</ul>
+<h3 id="Chrome调试"><a href="#Chrome调试" class="headerlink" title="Chrome调试"></a>Chrome调试</h3><ul>
+<li>User-Agent：身份标识</li>
+</ul>
+<h4 id="cookie-amp-session"><a href="#cookie-amp-session" class="headerlink" title="cookie&session"></a>cookie&amp;session</h4><p><img src="/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/查看当前网站使用cookie.png"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Python</category>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -754,75 +823,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python网络爬虫（1）</title>
-    <url>/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>按照一定规则，自动抓取万维网信息的程序或脚本</li>
-</ul>
-<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
-<li><strong>通用网络爬虫（General Purpose Web Crawler）</strong>：根据一个种子url链接，扩展至整个web页面进行爬取，主要有深度优先爬行策略和广度优先爬行策略（<em>见：数据结构与算法</em>），应用于大型搜索引擎中</li>
-<li><strong>聚焦网络爬虫（Focused Crawler）</strong>：有目的性地进行爬取，将爬取目标定位在与主题相关的页面中，主要有基于内容评价、基于链接评价、基于增强学习、语境图和关于聚焦网络爬虫具体的爬行策略，主要应用在对特定信息的爬取中</li>
-<li><strong>增量式网络爬虫（Incremental Web Crawler）</strong>：是指对已下载网页采取增量式更新和只爬行新产生的或者已经发生变化网页的爬虫，在更新的时候只更新改变的地方，而未改变的地方则不更新。它能够在一定程度上保证所爬行的页面是尽可能新的页面深度网络爬虫</li>
-<li><strong>深层网络爬虫（Deep Web Crawler）</strong>：需要提交表单信息的，或者需要传递一些关键词才可以访问这个数据。最重要的部分即为表单填写部分，主要有基于领域知识的表单填写与基于网页结构分析的表单填写两种类型</li>
-</ul>
-<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p><img src="/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/爬虫基本原理.png"></p>
-<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><h4 id="数据的分类"><a href="#数据的分类" class="headerlink" title="数据的分类"></a>数据的分类</h4><ul>
-<li>用广产生的数据，微信数据、抖音</li>
-<li>政府的数据</li>
-<li>公司管理的数据：聚合</li>
-<li>自己爬取的数据</li>
-</ul>
-<h4 id="数据的用途"><a href="#数据的用途" class="headerlink" title="数据的用途"></a>数据的用途</h4><ul>
-<li>人工智能、机器学习、数据分析 etc.</li>
-</ul>
-<h4 id="robots协议"><a href="#robots协议" class="headerlink" title="robots协议"></a>robots协议</h4><ul>
-<li>网站和爬虫协商的协议，网站中某些站点不允许爬虫的访问</li>
-</ul>
-<h4 id="反爬取措施"><a href="#反爬取措施" class="headerlink" title="反爬取措施"></a>反爬取措施</h4><ul>
-<li>验证码<ul>
-<li>手机验证码</li>
-<li>静态（图片验证、文字）/动态（苹果动态验证）</li>
-</ul>
-</li>
-<li>ip检测与封禁</li>
-<li>文字混淆、js 加密</li>
-<li>点击验证、滑块验证、滑动轨迹</li>
-<li>cookie：身份校验</li>
-<li>防盗链 referer host</li>
-</ul>
-<h4 id="URL的组成"><a href="#URL的组成" class="headerlink" title="URL的组成"></a>URL的组成</h4><ul>
-<li>统一资源定位符：<a href="https://baike.baidu.com">https://baike.baidu.com</a></li>
-<li>协议：https</li>
-<li>域名：baike.baidu. com</li>
-<li>端口：443</li>
-<li>查询路径：/item/url</li>
-<li>查询参数：wd=url</li>
-<li>锚点<ul>
-<li>网页中，当前页面进行锚点定位</li>
-<li>作用在网址的导航</li>
-</ul>
-</li>
-</ul>
-<h4 id="静态数据和动态数据"><a href="#静态数据和动态数据" class="headerlink" title="静态数据和动态数据"></a>静态数据和动态数据</h4><ul>
-<li>静态数据：爬取的数据，在html源码中，并且这个页面是个静态页面</li>
-<li>动态数据：通过一定条件触发的、二次加载的数据</li>
-</ul>
-<h3 id="Chrome调试"><a href="#Chrome调试" class="headerlink" title="Chrome调试"></a>Chrome调试</h3><ul>
-<li>User-Agent：身份标识</li>
-</ul>
-<h4 id="cookie-amp-session"><a href="#cookie-amp-session" class="headerlink" title="cookie&session"></a>cookie&amp;session</h4><p><img src="/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/查看当前网站使用cookie.png"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Python</category>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>爬虫</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Redis原理初探（二）—— 列表</title>
     <url>/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/</url>
     <content><![CDATA[<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
@@ -1030,6 +1030,39 @@
       </tags>
   </entry>
   <entry>
+    <title>python文件读取细节一问</title>
+    <url>/2022/01/17/python%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E7%BB%86%E8%8A%82%E4%B8%80%E9%97%AE/</url>
+    <content><![CDATA[<ul>
+<li>字符串前加 u</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text = <span class="string">u'这是一条测试字符串'</span></span><br></pre></td></tr></table></figure>
+<p>u：short for Unicode，指明后续字符串以Unicode编码；一般用在中文字符串前面，以防止中文乱码</p>
+<ul>
+<li>字符串前加 r</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text = <span class="string">r'\t \n'</span></span><br></pre></td></tr></table></figure>
+<p>r：re，对应正则表达式re模块，用于去除<code>\</code>转义机制</p>
+<ul>
+<li>字符串前加 b</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">response = <span class="string">b'&lt;h1&gt;Hello World!&lt;/h1&gt;'</span></span><br></pre></td></tr></table></figure>
+<p>b：bytes，对应字节类型，一般用于web网络编程中</p>
+<ul>
+<li>字符串前加 f</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">'John'</span></span><br><span class="line"><span class="string">f'<span class="subst">{name.lower()}</span> is universal.'</span></span><br></pre></td></tr></table></figure>
+<p>f：f-Strings，f字符串（Python 3.6+起进入标准库中）</p>
+<p>在运行时进行渲染，方便易用</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>pytorch的配置一二事</title>
     <url>/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/</url>
     <content><![CDATA[<h2 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h2><h3 id="Step1-配置CUDA"><a href="#Step1-配置CUDA" class="headerlink" title="Step1 配置CUDA"></a>Step1 配置CUDA</h3><ul>
@@ -1128,39 +1161,6 @@
         <tag>深度学习</tag>
         <tag>pytorch</tag>
         <tag>配置</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python文件读取细节一问</title>
-    <url>/2022/01/17/python%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E7%BB%86%E8%8A%82%E4%B8%80%E9%97%AE/</url>
-    <content><![CDATA[<ul>
-<li>字符串前加 u</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text = <span class="string">u'这是一条测试字符串'</span></span><br></pre></td></tr></table></figure>
-<p>u：short for Unicode，指明后续字符串以Unicode编码；一般用在中文字符串前面，以防止中文乱码</p>
-<ul>
-<li>字符串前加 r</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text = <span class="string">r'\t \n'</span></span><br></pre></td></tr></table></figure>
-<p>r：re，对应正则表达式re模块，用于去除<code>\</code>转义机制</p>
-<ul>
-<li>字符串前加 b</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">response = <span class="string">b'&lt;h1&gt;Hello World!&lt;/h1&gt;'</span></span><br></pre></td></tr></table></figure>
-<p>b：bytes，对应字节类型，一般用于web网络编程中</p>
-<ul>
-<li>字符串前加 f</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">'John'</span></span><br><span class="line"><span class="string">f'<span class="subst">{name.lower()}</span> is universal.'</span></span><br></pre></td></tr></table></figure>
-<p>f：f-Strings，f字符串（Python 3.6+起进入标准库中）</p>
-<p>在运行时进行渲染，方便易用</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1423,6 +1423,111 @@
       </tags>
   </entry>
   <entry>
+    <title>分题型基础补全计划（三）—— JavaScript篇</title>
+    <url>/2021/11/11/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20JavaScript%E7%AF%87/</url>
+    <content><![CDATA[<h3 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h3><p>​    作为一门一切皆为对象的语言，首先需要搞明白指针this的指向问题。以下为常见的两种指向情况：</p>
+<h5 id="作为构造函数调用"><a href="#作为构造函数调用" class="headerlink" title="作为构造函数调用"></a><strong>作为构造函数调用</strong></h5><p>题型1</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">"123"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> foo = <span class="string">"456"</span>;</span><br><span class="line">  <span class="built_in">this</span>.foo = <span class="string">"789"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(foo);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">print();</span><br></pre></td></tr></table></figure>
+<p><em>我的答案:</em> 456</p>
+<ul>
+<li>通过print()函数，可以生成一个新对象。这时，<code>this</code>就指这个新对象，this.foo就作为这个新对象的成员</li>
+</ul>
+<h5 id="纯粹的函数调用"><a href="#纯粹的函数调用" class="headerlink" title="纯粹的函数调用"></a><strong>纯粹的函数调用</strong></h5><p>题型2</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>{</span><br><span class="line">  a = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  alert(a);</span><br><span class="line">  alert(<span class="built_in">this</span>.a);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> a;</span><br><span class="line">  alert(a);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p><em>我的答案:</em> 弹出0,5,0</p>
+<ul>
+<li>全局性调用，因此<code>this</code>就代表全局对象，this.a则调用全局变量a，故弹出结果为5</li>
+</ul>
+<p>其余详见：<a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html">Javascript 的 this 用法 - 阮一峰的网络日志 (ruanyifeng.com)</a>，讲的很透彻</p>
+<h3 id="鼠标事件与键盘事件"><a href="#鼠标事件与键盘事件" class="headerlink" title="鼠标事件与键盘事件"></a>鼠标事件与键盘事件</h3><p>题型：下列事件哪个不是由鼠标触发的事件（）</p>
+<p>A click</p>
+<p>B contextmenu</p>
+<p>C mouseout</p>
+<p>D keydown</p>
+<p><em>我的答案:</em> D</p>
+<h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1.鼠标点击左键触发</span></span><br><span class="line">onclick</span><br><span class="line"><span class="comment">//2.鼠标经过触发</span></span><br><span class="line">onmouseover</span><br><span class="line"><span class="comment">//3.鼠标离开触发</span></span><br><span class="line">onmouseout</span><br><span class="line"><span class="comment">//4.获得鼠标焦点触发</span></span><br><span class="line">onfocus</span><br><span class="line"><span class="comment">//5.失去鼠标触发</span></span><br><span class="line">onblur</span><br><span class="line"><span class="comment">//6.鼠标移动触发</span></span><br><span class="line">onmousemove</span><br><span class="line"><span class="comment">//7.鼠标弹起触发</span></span><br><span class="line">onmouseup</span><br><span class="line"><span class="comment">//8.鼠标按下触发</span></span><br><span class="line">onmousedown</span><br><span class="line"><span class="comment">//9.鼠标经过时触发,但是不会冒泡</span></span><br><span class="line">onmouseenter</span><br><span class="line"><span class="comment">//10.鼠标离开时触发,但是不会冒泡</span></span><br><span class="line">onmouseleave</span><br></pre></td></tr></table></figure>
+<h5 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1.返回鼠标相对于浏览器窗口可视区的X坐标</span></span><br><span class="line">e.clientX</span><br><span class="line"><span class="comment">//2.返回鼠标相对于浏览器窗口可视区的Y坐标</span></span><br><span class="line">e.clientY</span><br><span class="line"><span class="comment">//3.返回鼠标相对于文档页面的X坐标</span></span><br><span class="line">e.pageX</span><br><span class="line"><span class="comment">//4.返回鼠标相对于文档页面的Y坐标</span></span><br><span class="line">e.pageY</span><br><span class="line"><span class="comment">//5.返回鼠标相对于屏幕的X坐标</span></span><br><span class="line">e.screenX</span><br><span class="line"><span class="comment">//6.返回鼠标相对于屏幕的Y坐标</span></span><br><span class="line">e.screenY</span><br></pre></td></tr></table></figure>
+<h5 id="禁用鼠标事件"><a href="#禁用鼠标事件" class="headerlink" title="*禁用鼠标事件"></a>*禁用鼠标事件</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//禁止鼠标右键菜单</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'contextmenu'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">    e.preventDefault();</span><br><span class="line">})</span><br><span class="line"><span class="comment">//禁止鼠标选中</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'selectstart'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">    e.preventDefault();</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+<h5 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1.某个键盘按键被松开时触发</span></span><br><span class="line">onkeyup</span><br><span class="line"><span class="comment">//2.某个键盘按键被按下时触发</span></span><br><span class="line">onkeydown</span><br><span class="line"><span class="comment">//3.某个键盘被按下时触发,不识别功能键如ctrl、shift etc.</span></span><br><span class="line">onkeypress</span><br></pre></td></tr></table></figure>
+<p>注：<code>onkeypress</code>区分大小写，<code>onkeydown</code> 和<code>onkeyup</code> 不区分</p>
+<h3 id="作用域问题"><a href="#作用域问题" class="headerlink" title="作用域问题"></a>作用域问题</h3><p>题型：</p>
+<p><code>&lt;ul&gt;</code></p>
+<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
+<p><code>&lt;li&gt;click me&lt;/li&gt;</code> </p>
+<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
+<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
+<p><code>&lt;/ul&gt;</code></p>
+<p> 运行如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line"><span class="keyword">var</span> length = elements.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) {</span><br><span class="line">  elements[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    alert(i);</span><br><span class="line">  };</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>依次点击 4 个 li 标签，哪一个选项是正确的运行结果（） </p>
+<p>A 依次弹出 1， 2， 3， 4</p>
+<p>B 依次弹出 0， 1， 2， 3</p>
+<p>C 依次弹出 3， 3， 3， 3</p>
+<p>D 依次弹出 4， 4， 4， 4</p>
+<p><em>我的答案:</em> D</p>
+<ul>
+<li>在《JavaScript高级程序设计》有如下解释<ul>
+<li>这是由于作用域链的这种配置机制引出的一个副作用，即闭包只能取得包含函数中任何变量的最后一个值。<strong>闭包所保存的是整个变量对象</strong>，而不是某个特殊的变量。</li>
+</ul>
+</li>
+<li>回归具体问题，这里alert(i)中绑定的i实际上不是i的值，而是i本身。当循环结束后，因此执行onclick事件、执行alert()时，本身onclick绑定的function的作用域中没有变量i，i为w未定义的(undefined)，则解析引擎会寻找父级作用域，发现父级作用域中有i，则取得的i对应值始终为4。</li>
+</ul>
+<h5 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1、利用块级域</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {                </span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    }, <span class="number">1000</span>);</span><br><span class="line">} </span><br><span class="line"><span class="comment">//2、利用自执行函数传参</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>{</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">         <span class="built_in">console</span>.log(i);</span><br><span class="line"> }, <span class="number">1000</span>);</span><br><span class="line"> })(i);        </span><br><span class="line">}</span><br><span class="line"><span class="comment">//3、利用设置延时的第三个参数传递</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>{</span><br><span class="line"> <span class="built_in">console</span>.log(j);</span><br><span class="line"> }, <span class="number">1000</span>, i);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//4、利用promise</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line"> <span class="keyword">var</span> j = i;</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">     <span class="built_in">console</span>.log(j)</span><br><span class="line"> }, <span class="number">1000</span>);</span><br><span class="line"> })</span><br><span class="line">}</span><br><span class="line"><span class="comment">//5、利用async函数</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> <span class="keyword">let</span> result = <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">     resolve(i);</span><br><span class="line">         }, <span class="number">1000</span>); <span class="comment">// 每隔1s打印数字 0 - 9</span></span><br><span class="line"> });</span><br><span class="line"> <span class="built_in">console</span>.log(result);</span><br><span class="line"> }</span><br><span class="line">}</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+<h3 id="js中的原始类型"><a href="#js中的原始类型" class="headerlink" title="js中的原始类型"></a>js中的原始类型</h3><p>题型：关于javascript的原始类型（primitive type），错误的是 </p>
+<p>A 有5种primitive type，分别是Undefined、Null、Boolean、Number 和 String。</p>
+<p>B var sTemp = “test string”;alert (typeof sTemp);结果为string</p>
+<p>C var oTemp;alert(oTemp == undefined)为true</p>
+<p>D alert(null == undefined);结果为false</p>
+<p><em>我的答案:</em> D</p>
+<h5 id="六大原始类型"><a href="#六大原始类型" class="headerlink" title="六大原始类型"></a>六大原始类型</h5><ul>
+<li>数字类型 number</li>
+<li>字符串类型 string</li>
+<li>布尔类型 boolean</li>
+<li>空值 null</li>
+<li>未定义 undefined</li>
+<li>独一无二类型(ES6新增) symbol：引入以防止属性名的冲突</li>
+</ul>
+<p>注：其他类型均为引用类型（Object）</p>
+<h3 id="最大值的求法"><a href="#最大值的求法" class="headerlink" title="最大值的求法"></a>最大值的求法</h3><p>题型：下面求a中最大值正确的是()</p>
+<p>A Math.max(a)</p>
+<p>B Array.max(a)</p>
+<p>C Math.max.call(null,a)</p>
+<p>D Math.max.apply(null,a)</p>
+<p><em>我的答案:</em> D</p>
+<h5 id="Math-max"><a href="#Math-max" class="headerlink" title="Math.max"></a>Math.max</h5><pre><code> 返回一组数中的最大值
+</code></pre><h5 id="Math-max-apply"><a href="#Math-max-apply" class="headerlink" title="Math.max.apply"></a>Math.max.apply</h5><p>​    返回一个对象（如：数组）中的最大值</p>
+<h3 id="标准事件模型-IE9"><a href="#标准事件模型-IE9" class="headerlink" title="*标准事件模型 IE9+"></a>*标准事件模型 IE9+</h3><p>题型：w3c 制定的 javascript 标准事件模型，以下正确的顺序以及描述是？ </p>
+<p>A 事件捕获&gt;事件冒泡</p>
+<p>B 事件捕获-&gt;事件处理-&gt;事件冒泡</p>
+<p>C 事件冒泡-&gt;事件处理</p>
+<p>D 事件处理-&gt;事件捕获-&gt;事件冒泡</p>
+<p><em>我的答案:</em> B</p>
+<h3 id="异步执行调用"><a href="#异步执行调用" class="headerlink" title="异步执行调用"></a>异步执行调用</h3><p>题型：以下语句的执行结果是什么？</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"one"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"two"</span>);</span><br><span class="line">}, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"three"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"four"</span>);</span><br></pre></td></tr></table></figure>
+<p><em>我的答案:</em> “one” “three” “four” “two”</p>
+<ul>
+<li>这是由于setTimeout()方法是异步执行的。当调用该方法时，会把函数参数与函数体中的内容放入消息队列，直到当前主程序执行完成后，再予以调用</li>
+</ul>
+<h3 id="浮点数运算问题"><a href="#浮点数运算问题" class="headerlink" title="浮点数运算问题"></a>浮点数运算问题</h3><p>题型：写一个求和的函数 sum，达到下面的效果</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Should equal 15</span></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 0</span></span><br><span class="line">sum(<span class="number">5</span>, <span class="literal">null</span>, -<span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 10</span></span><br><span class="line">sum(<span class="string">'1.0'</span>, <span class="literal">false</span>, <span class="number">1</span>, <span class="literal">true</span>, <span class="number">1</span>, <span class="string">'A'</span>, <span class="number">1</span>, <span class="string">'B'</span>, <span class="number">1</span>, <span class="string">'C'</span>, <span class="number">1</span>, <span class="string">'D'</span>, <span class="number">1</span>, <span class="string">'E'</span>, <span class="number">1</span>, <span class="string">'F'</span>, <span class="number">1</span>, <span class="string">'G'</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// Should equal 0.3, not 0.30000000000000004</span></span><br><span class="line">sum(<span class="number">0.1</span>, <span class="number">0.2</span>);</span><br></pre></td></tr></table></figure>
+<p>我的答案：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>{</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> add = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(<span class="keyword">typeof</span> <span class="built_in">arguments</span>[i] == <span class="string">"boolean"</span>)) {</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!<span class="built_in">isNaN</span>(<span class="built_in">arguments</span>[i])) {</span><br><span class="line"></span><br><span class="line">        add += <span class="built_in">Number</span>(<span class="built_in">arguments</span>[i]);</span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  alert(<span class="built_in">Math</span>.round(add * <span class="number">10</span>) / <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<ul>
+<li>为什么1+2≠3？因为js采用的是IEEE754标准处理浮点数，视作双精度数，结果为结果是0.30000000000000004（计组内容）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>分题型基础补全计划（二）—— CSS篇</title>
     <url>/2021/11/08/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20CSS%E7%AF%87/</url>
     <content><![CDATA[<h3 id="样式表的嵌入"><a href="#样式表的嵌入" class="headerlink" title="样式表的嵌入"></a>样式表的嵌入</h3><p>题型1：在以下的 HTML 中，哪个是正确引用外部样式表的方法？ </p>
@@ -1549,111 +1654,6 @@
       <tags>
         <tag>html</tag>
         <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>分题型基础补全计划（三）—— JavaScript篇</title>
-    <url>/2021/11/11/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20JavaScript%E7%AF%87/</url>
-    <content><![CDATA[<h3 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h3><p>​    作为一门一切皆为对象的语言，首先需要搞明白指针this的指向问题。以下为常见的两种指向情况：</p>
-<h5 id="作为构造函数调用"><a href="#作为构造函数调用" class="headerlink" title="作为构造函数调用"></a><strong>作为构造函数调用</strong></h5><p>题型1</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">"123"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> foo = <span class="string">"456"</span>;</span><br><span class="line">  <span class="built_in">this</span>.foo = <span class="string">"789"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(foo);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">print();</span><br></pre></td></tr></table></figure>
-<p><em>我的答案:</em> 456</p>
-<ul>
-<li>通过print()函数，可以生成一个新对象。这时，<code>this</code>就指这个新对象，this.foo就作为这个新对象的成员</li>
-</ul>
-<h5 id="纯粹的函数调用"><a href="#纯粹的函数调用" class="headerlink" title="纯粹的函数调用"></a><strong>纯粹的函数调用</strong></h5><p>题型2</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>{</span><br><span class="line">  a = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  alert(a);</span><br><span class="line">  alert(<span class="built_in">this</span>.a);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> a;</span><br><span class="line">  alert(a);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p><em>我的答案:</em> 弹出0,5,0</p>
-<ul>
-<li>全局性调用，因此<code>this</code>就代表全局对象，this.a则调用全局变量a，故弹出结果为5</li>
-</ul>
-<p>其余详见：<a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html">Javascript 的 this 用法 - 阮一峰的网络日志 (ruanyifeng.com)</a>，讲的很透彻</p>
-<h3 id="鼠标事件与键盘事件"><a href="#鼠标事件与键盘事件" class="headerlink" title="鼠标事件与键盘事件"></a>鼠标事件与键盘事件</h3><p>题型：下列事件哪个不是由鼠标触发的事件（）</p>
-<p>A click</p>
-<p>B contextmenu</p>
-<p>C mouseout</p>
-<p>D keydown</p>
-<p><em>我的答案:</em> D</p>
-<h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1.鼠标点击左键触发</span></span><br><span class="line">onclick</span><br><span class="line"><span class="comment">//2.鼠标经过触发</span></span><br><span class="line">onmouseover</span><br><span class="line"><span class="comment">//3.鼠标离开触发</span></span><br><span class="line">onmouseout</span><br><span class="line"><span class="comment">//4.获得鼠标焦点触发</span></span><br><span class="line">onfocus</span><br><span class="line"><span class="comment">//5.失去鼠标触发</span></span><br><span class="line">onblur</span><br><span class="line"><span class="comment">//6.鼠标移动触发</span></span><br><span class="line">onmousemove</span><br><span class="line"><span class="comment">//7.鼠标弹起触发</span></span><br><span class="line">onmouseup</span><br><span class="line"><span class="comment">//8.鼠标按下触发</span></span><br><span class="line">onmousedown</span><br><span class="line"><span class="comment">//9.鼠标经过时触发,但是不会冒泡</span></span><br><span class="line">onmouseenter</span><br><span class="line"><span class="comment">//10.鼠标离开时触发,但是不会冒泡</span></span><br><span class="line">onmouseleave</span><br></pre></td></tr></table></figure>
-<h5 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1.返回鼠标相对于浏览器窗口可视区的X坐标</span></span><br><span class="line">e.clientX</span><br><span class="line"><span class="comment">//2.返回鼠标相对于浏览器窗口可视区的Y坐标</span></span><br><span class="line">e.clientY</span><br><span class="line"><span class="comment">//3.返回鼠标相对于文档页面的X坐标</span></span><br><span class="line">e.pageX</span><br><span class="line"><span class="comment">//4.返回鼠标相对于文档页面的Y坐标</span></span><br><span class="line">e.pageY</span><br><span class="line"><span class="comment">//5.返回鼠标相对于屏幕的X坐标</span></span><br><span class="line">e.screenX</span><br><span class="line"><span class="comment">//6.返回鼠标相对于屏幕的Y坐标</span></span><br><span class="line">e.screenY</span><br></pre></td></tr></table></figure>
-<h5 id="禁用鼠标事件"><a href="#禁用鼠标事件" class="headerlink" title="*禁用鼠标事件"></a>*禁用鼠标事件</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//禁止鼠标右键菜单</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'contextmenu'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">    e.preventDefault();</span><br><span class="line">})</span><br><span class="line"><span class="comment">//禁止鼠标选中</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'selectstart'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">    e.preventDefault();</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
-<h5 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1.某个键盘按键被松开时触发</span></span><br><span class="line">onkeyup</span><br><span class="line"><span class="comment">//2.某个键盘按键被按下时触发</span></span><br><span class="line">onkeydown</span><br><span class="line"><span class="comment">//3.某个键盘被按下时触发,不识别功能键如ctrl、shift etc.</span></span><br><span class="line">onkeypress</span><br></pre></td></tr></table></figure>
-<p>注：<code>onkeypress</code>区分大小写，<code>onkeydown</code> 和<code>onkeyup</code> 不区分</p>
-<h3 id="作用域问题"><a href="#作用域问题" class="headerlink" title="作用域问题"></a>作用域问题</h3><p>题型：</p>
-<p><code>&lt;ul&gt;</code></p>
-<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
-<p><code>&lt;li&gt;click me&lt;/li&gt;</code> </p>
-<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
-<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
-<p><code>&lt;/ul&gt;</code></p>
-<p> 运行如下代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line"><span class="keyword">var</span> length = elements.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) {</span><br><span class="line">  elements[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    alert(i);</span><br><span class="line">  };</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>依次点击 4 个 li 标签，哪一个选项是正确的运行结果（） </p>
-<p>A 依次弹出 1， 2， 3， 4</p>
-<p>B 依次弹出 0， 1， 2， 3</p>
-<p>C 依次弹出 3， 3， 3， 3</p>
-<p>D 依次弹出 4， 4， 4， 4</p>
-<p><em>我的答案:</em> D</p>
-<ul>
-<li>在《JavaScript高级程序设计》有如下解释<ul>
-<li>这是由于作用域链的这种配置机制引出的一个副作用，即闭包只能取得包含函数中任何变量的最后一个值。<strong>闭包所保存的是整个变量对象</strong>，而不是某个特殊的变量。</li>
-</ul>
-</li>
-<li>回归具体问题，这里alert(i)中绑定的i实际上不是i的值，而是i本身。当循环结束后，因此执行onclick事件、执行alert()时，本身onclick绑定的function的作用域中没有变量i，i为w未定义的(undefined)，则解析引擎会寻找父级作用域，发现父级作用域中有i，则取得的i对应值始终为4。</li>
-</ul>
-<h5 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1、利用块级域</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {                </span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    }, <span class="number">1000</span>);</span><br><span class="line">} </span><br><span class="line"><span class="comment">//2、利用自执行函数传参</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>{</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">         <span class="built_in">console</span>.log(i);</span><br><span class="line"> }, <span class="number">1000</span>);</span><br><span class="line"> })(i);        </span><br><span class="line">}</span><br><span class="line"><span class="comment">//3、利用设置延时的第三个参数传递</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>{</span><br><span class="line"> <span class="built_in">console</span>.log(j);</span><br><span class="line"> }, <span class="number">1000</span>, i);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//4、利用promise</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line"> <span class="keyword">var</span> j = i;</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">     <span class="built_in">console</span>.log(j)</span><br><span class="line"> }, <span class="number">1000</span>);</span><br><span class="line"> })</span><br><span class="line">}</span><br><span class="line"><span class="comment">//5、利用async函数</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> <span class="keyword">let</span> result = <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">     resolve(i);</span><br><span class="line">         }, <span class="number">1000</span>); <span class="comment">// 每隔1s打印数字 0 - 9</span></span><br><span class="line"> });</span><br><span class="line"> <span class="built_in">console</span>.log(result);</span><br><span class="line"> }</span><br><span class="line">}</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
-<h3 id="js中的原始类型"><a href="#js中的原始类型" class="headerlink" title="js中的原始类型"></a>js中的原始类型</h3><p>题型：关于javascript的原始类型（primitive type），错误的是 </p>
-<p>A 有5种primitive type，分别是Undefined、Null、Boolean、Number 和 String。</p>
-<p>B var sTemp = “test string”;alert (typeof sTemp);结果为string</p>
-<p>C var oTemp;alert(oTemp == undefined)为true</p>
-<p>D alert(null == undefined);结果为false</p>
-<p><em>我的答案:</em> D</p>
-<h5 id="六大原始类型"><a href="#六大原始类型" class="headerlink" title="六大原始类型"></a>六大原始类型</h5><ul>
-<li>数字类型 number</li>
-<li>字符串类型 string</li>
-<li>布尔类型 boolean</li>
-<li>空值 null</li>
-<li>未定义 undefined</li>
-<li>独一无二类型(ES6新增) symbol：引入以防止属性名的冲突</li>
-</ul>
-<p>注：其他类型均为引用类型（Object）</p>
-<h3 id="最大值的求法"><a href="#最大值的求法" class="headerlink" title="最大值的求法"></a>最大值的求法</h3><p>题型：下面求a中最大值正确的是()</p>
-<p>A Math.max(a)</p>
-<p>B Array.max(a)</p>
-<p>C Math.max.call(null,a)</p>
-<p>D Math.max.apply(null,a)</p>
-<p><em>我的答案:</em> D</p>
-<h5 id="Math-max"><a href="#Math-max" class="headerlink" title="Math.max"></a>Math.max</h5><pre><code> 返回一组数中的最大值
-</code></pre><h5 id="Math-max-apply"><a href="#Math-max-apply" class="headerlink" title="Math.max.apply"></a>Math.max.apply</h5><p>​    返回一个对象（如：数组）中的最大值</p>
-<h3 id="标准事件模型-IE9"><a href="#标准事件模型-IE9" class="headerlink" title="*标准事件模型 IE9+"></a>*标准事件模型 IE9+</h3><p>题型：w3c 制定的 javascript 标准事件模型，以下正确的顺序以及描述是？ </p>
-<p>A 事件捕获&gt;事件冒泡</p>
-<p>B 事件捕获-&gt;事件处理-&gt;事件冒泡</p>
-<p>C 事件冒泡-&gt;事件处理</p>
-<p>D 事件处理-&gt;事件捕获-&gt;事件冒泡</p>
-<p><em>我的答案:</em> B</p>
-<h3 id="异步执行调用"><a href="#异步执行调用" class="headerlink" title="异步执行调用"></a>异步执行调用</h3><p>题型：以下语句的执行结果是什么？</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"one"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"two"</span>);</span><br><span class="line">}, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"three"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"four"</span>);</span><br></pre></td></tr></table></figure>
-<p><em>我的答案:</em> “one” “three” “four” “two”</p>
-<ul>
-<li>这是由于setTimeout()方法是异步执行的。当调用该方法时，会把函数参数与函数体中的内容放入消息队列，直到当前主程序执行完成后，再予以调用</li>
-</ul>
-<h3 id="浮点数运算问题"><a href="#浮点数运算问题" class="headerlink" title="浮点数运算问题"></a>浮点数运算问题</h3><p>题型：写一个求和的函数 sum，达到下面的效果</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Should equal 15</span></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 0</span></span><br><span class="line">sum(<span class="number">5</span>, <span class="literal">null</span>, -<span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 10</span></span><br><span class="line">sum(<span class="string">'1.0'</span>, <span class="literal">false</span>, <span class="number">1</span>, <span class="literal">true</span>, <span class="number">1</span>, <span class="string">'A'</span>, <span class="number">1</span>, <span class="string">'B'</span>, <span class="number">1</span>, <span class="string">'C'</span>, <span class="number">1</span>, <span class="string">'D'</span>, <span class="number">1</span>, <span class="string">'E'</span>, <span class="number">1</span>, <span class="string">'F'</span>, <span class="number">1</span>, <span class="string">'G'</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// Should equal 0.3, not 0.30000000000000004</span></span><br><span class="line">sum(<span class="number">0.1</span>, <span class="number">0.2</span>);</span><br></pre></td></tr></table></figure>
-<p>我的答案：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>{</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> add = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(<span class="keyword">typeof</span> <span class="built_in">arguments</span>[i] == <span class="string">"boolean"</span>)) {</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!<span class="built_in">isNaN</span>(<span class="built_in">arguments</span>[i])) {</span><br><span class="line"></span><br><span class="line">        add += <span class="built_in">Number</span>(<span class="built_in">arguments</span>[i]);</span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  alert(<span class="built_in">Math</span>.round(add * <span class="number">10</span>) / <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<ul>
-<li>为什么1+2≠3？因为js采用的是IEEE754标准处理浮点数，视作双精度数，结果为结果是0.30000000000000004（计组内容）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>JavaWeb</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-        <tag>css</tag>
-        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -3021,28 +3021,6 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       </tags>
   </entry>
   <entry>
-    <title>机器学习题解（六）—— 异常探测与推荐系统</title>
-    <url>/2021/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h3 id="ex8-m"><a href="#ex8-m" class="headerlink" title="ex8.m"></a>ex8.m</h3><h4 id="Part-2-Estimate-the-dataset-statistics"><a href="#Part-2-Estimate-the-dataset-statistics" class="headerlink" title="Part 2: Estimate the dataset statistics"></a>Part 2: Estimate the dataset statistics</h4><ul>
-<li>Compute the mean of the data and the variances</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">mu = sum(X) / m;</span><br><span class="line">sigma2 = sum((X - <span class="built_in">repmat</span>(mu, m, <span class="number">1</span>)).^<span class="number">2</span>) / m; <span class="comment">% X - 307 * 1 matrix</span></span><br></pre></td></tr></table></figure>
-<h4 id="Part-3-Find-Outliers"><a href="#Part-3-Find-Outliers" class="headerlink" title="Part 3: Find Outliers"></a>Part 3: Find Outliers</h4><ul>
-<li>Compute the F1 score of choosing epsilon as the threshold and place the value in F1</li>
-</ul>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% define the anomolous condition</span></span><br><span class="line">    condition = pval &lt; epsilon;</span><br><span class="line">    <span class="comment">% sum up to get each parameter</span></span><br><span class="line">    fp = sum((condition == <span class="number">1</span>) &amp; (yval == <span class="number">0</span>));</span><br><span class="line">    fn = sum((condition == <span class="number">0</span>) &amp; (yval == <span class="number">1</span>));</span><br><span class="line">    tp = sum((condition == <span class="number">1</span>) &amp; (yval == <span class="number">1</span>));</span><br><span class="line">    <span class="comment">% define precision and recall</span></span><br><span class="line">    prec = tp / (tp + fp);</span><br><span class="line">    rec = tp / (tp + fn);</span><br><span class="line">    <span class="comment">% use F1 score to estimate its performance</span></span><br><span class="line">    F1 = (<span class="number">2</span> * prec * rec) / (prec + rec);</span><br></pre></td></tr></table></figure>
-<h3 id="ex8-cofi-m"><a href="#ex8-cofi-m" class="headerlink" title="ex8_cofi.m"></a>ex8_cofi.m</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% compute cost function</span></span><br><span class="line">J = sum(sum((((X * Theta' - Y) .* R) .^ <span class="number">2</span>))) / <span class="number">2</span>;</span><br><span class="line"><span class="comment">% compute gradient</span></span><br><span class="line">X_grad = ((X * Theta' - Y) .* R) * Theta;</span><br><span class="line">Theta_grad = ((X * Theta' - Y) .* R)' * X;</span><br><span class="line"><span class="comment">% compute cost function with regularization</span></span><br><span class="line">J = J + lambda / <span class="number">2</span> * ((sum(sum(Theta .^ <span class="number">2</span>)) + sum(sum(X .^ <span class="number">2</span>))));</span><br><span class="line"><span class="comment">% compute gradient with regularization</span></span><br><span class="line">X_grad = X_grad + lambda * X;</span><br><span class="line">Theta_grad = Theta_grad + lambda * Theta;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>题解</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>异常探测</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>机器学习题解（五）—— KNN与PCA</title>
     <url>/2021/10/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20KNN%E4%B8%8EPCA/</url>
     <content><![CDATA[<h3 id="ex7-m"><a href="#ex7-m" class="headerlink" title="ex7.m"></a>ex7.m</h3><h4 id="Part-1-Find-Closest-Centroids"><a href="#Part-1-Find-Closest-Centroids" class="headerlink" title="Part 1: Find Closest Centroids"></a>Part 1: Find Closest Centroids</h4><ul>
@@ -3074,6 +3052,28 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
         <tag>机器学习</tag>
         <tag>KNN</tag>
         <tag>PCA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习题解（六）—— 异常探测与推荐系统</title>
+    <url>/2021/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h3 id="ex8-m"><a href="#ex8-m" class="headerlink" title="ex8.m"></a>ex8.m</h3><h4 id="Part-2-Estimate-the-dataset-statistics"><a href="#Part-2-Estimate-the-dataset-statistics" class="headerlink" title="Part 2: Estimate the dataset statistics"></a>Part 2: Estimate the dataset statistics</h4><ul>
+<li>Compute the mean of the data and the variances</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">mu = sum(X) / m;</span><br><span class="line">sigma2 = sum((X - <span class="built_in">repmat</span>(mu, m, <span class="number">1</span>)).^<span class="number">2</span>) / m; <span class="comment">% X - 307 * 1 matrix</span></span><br></pre></td></tr></table></figure>
+<h4 id="Part-3-Find-Outliers"><a href="#Part-3-Find-Outliers" class="headerlink" title="Part 3: Find Outliers"></a>Part 3: Find Outliers</h4><ul>
+<li>Compute the F1 score of choosing epsilon as the threshold and place the value in F1</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% define the anomolous condition</span></span><br><span class="line">    condition = pval &lt; epsilon;</span><br><span class="line">    <span class="comment">% sum up to get each parameter</span></span><br><span class="line">    fp = sum((condition == <span class="number">1</span>) &amp; (yval == <span class="number">0</span>));</span><br><span class="line">    fn = sum((condition == <span class="number">0</span>) &amp; (yval == <span class="number">1</span>));</span><br><span class="line">    tp = sum((condition == <span class="number">1</span>) &amp; (yval == <span class="number">1</span>));</span><br><span class="line">    <span class="comment">% define precision and recall</span></span><br><span class="line">    prec = tp / (tp + fp);</span><br><span class="line">    rec = tp / (tp + fn);</span><br><span class="line">    <span class="comment">% use F1 score to estimate its performance</span></span><br><span class="line">    F1 = (<span class="number">2</span> * prec * rec) / (prec + rec);</span><br></pre></td></tr></table></figure>
+<h3 id="ex8-cofi-m"><a href="#ex8-cofi-m" class="headerlink" title="ex8_cofi.m"></a>ex8_cofi.m</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% compute cost function</span></span><br><span class="line">J = sum(sum((((X * Theta' - Y) .* R) .^ <span class="number">2</span>))) / <span class="number">2</span>;</span><br><span class="line"><span class="comment">% compute gradient</span></span><br><span class="line">X_grad = ((X * Theta' - Y) .* R) * Theta;</span><br><span class="line">Theta_grad = ((X * Theta' - Y) .* R)' * X;</span><br><span class="line"><span class="comment">% compute cost function with regularization</span></span><br><span class="line">J = J + lambda / <span class="number">2</span> * ((sum(sum(Theta .^ <span class="number">2</span>)) + sum(sum(X .^ <span class="number">2</span>))));</span><br><span class="line"><span class="comment">% compute gradient with regularization</span></span><br><span class="line">X_grad = X_grad + lambda * X;</span><br><span class="line">Theta_grad = Theta_grad + lambda * Theta;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>异常探测</tag>
       </tags>
   </entry>
   <entry>
@@ -3210,6 +3210,108 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       </tags>
   </entry>
   <entry>
+    <title>西瓜书知识重温（二）：模型评估与选择</title>
+    <url>/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/</url>
+    <content><![CDATA[<h4 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h4><ul>
+<li>目的 得到在新样本上表现很好的学习器</li>
+</ul>
+<h5 id="1-训练-经验误差-training-empirical-error"><a href="#1-训练-经验误差-training-empirical-error" class="headerlink" title="1. 训练 / 经验误差 training / empirical error"></a>1. 训练 / 经验误差 training / empirical error</h5><ul>
+<li>def 学习器在训练集上的误差</li>
+</ul>
+<h5 id="2-泛化误差-generalization-error"><a href="#2-泛化误差-generalization-error" class="headerlink" title="2.  泛化误差 generalization error"></a>2.  泛化误差 generalization error</h5><ul>
+<li>def 学习器在新样本上的误差</li>
+<li>一般地，假设测试样本是从样本真是分布中独立同分布采样得到，则测试集的测试误差可视为泛化误差的近似</li>
+</ul>
+<h5 id="3-欠拟合-过拟合-underfitting-overfitting"><a href="#3-欠拟合-过拟合-underfitting-overfitting" class="headerlink" title="3. 欠拟合 / 过拟合 underfitting / overfitting"></a>3. 欠拟合 / 过拟合 underfitting / overfitting</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-1-3.png"></p>
+<ul>
+<li>def 前者单纯训练得不够或学习能力低下，后者则已经把样本自身的某些特点当做所有样本都有的一般性质，使得泛化性能下降</li>
+<li>解决 前者增加轮数， 后者无法彻底避免，仅可使得经验误差最小化以缓解其风险</li>
+</ul>
+<h4 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h4><h5 id="1-留出法-hold-out"><a href="#1-留出法-hold-out" class="headerlink" title="1. 留出法 hold-out"></a>1. 留出法 hold-out</h5><ul>
+<li><p>method 直接将数据集D划分为两<strong>互斥</strong>集合，分别作为训练集S、测试集T</p>
+<script type="math/tex; mode=display">
+D = S \cup T,S \cap T = \emptyset</script></li>
+<li><p>quiz1 如何保持数据分布的一致性？</p>
+<p>答：分层采样（stratified sampling），尽可能避免因数据划分引入额外的偏差而对最终结果产生影响</p>
+</li>
+<li><p>quiz2 给定S/T比例，如何划分？</p>
+<p>答：单次结果并不稳定，可多次随机划分，每次产生一个训练/测试集结果并评估，最后留出法返回的结果是每次划分结果的平均值</p>
+</li>
+<li><p>quiz3 最佳比例？</p>
+<p>答：2:1（67%） ~ 4:1（80%），训练集过大可能使得模型更接近用D训练出的模型，而评估结果则不够准确；若测试集过大，则S与D的差别过大，评估模型与用D训练出的模型有较大差别，降低了评估结果的保真性（fidelity）</p>
+</li>
+</ul>
+<h5 id="2-交叉验证法-cross-validation（常用）"><a href="#2-交叉验证法-cross-validation（常用）" class="headerlink" title="2. 交叉验证法 cross validation（常用）"></a>2. 交叉验证法 cross validation（常用）</h5><ul>
+<li><p>method 经分层采样，将D划分为k个大小相似的互斥子集，这样一来，每次课使用k-1个子集的并集作为训练集，余下的那个子集则作为测试集；得到k组结果，返回其均值</p>
+</li>
+<li><p>quiz1 常用k？答：10，10次十折交叉验证</p>
+</li>
+<li><p>quiz2 留一法有了解吗？</p>
+<p>答：当D包含m样本，而m恰等于k时的特例。其好处在于不受随机样本划分方式的影响，且和D训练得到的模型会很相似；坏处在于模型训练的计算开销大，计算复杂度高</p>
+</li>
+</ul>
+<h5 id="3-自助法-bootstrapping"><a href="#3-自助法-bootstrapping" class="headerlink" title="3. 自助法 bootstrapping"></a>3. 自助法 bootstrapping</h5><ul>
+<li>method 以自助采样（bootstrap sampling）为基础，给定包含m个样本的数据集D，我们对它进行采样产生数据集D’；每次随机从D中挑选一个样本，将其拷贝放入D’，再将该样本放回初始数据集D中，使得该样本在下次采样时仍有可能被采到；这个过程重复执行m次后，得到包含m个样本的数据集D’，是为自助采样的结果</li>
+<li><p>application 数据集小、难以划分；改变了初始数据集的分布，从而引入了额外的估计误差</p>
+</li>
+<li><p>quiz1 样本在m次采样中始终不被采到的概率？</p>
+<script type="math/tex; mode=display">
+\lim_{n\rightarrow+\infty}(1 - \frac{1}{m})^m \rightarrow \frac{1}{e} = 0.368</script></li>
+<li><p>quiz2 划分？</p>
+<p>答：D‘作为S，D/D’作为T，测试结果为<strong>包外估计</strong>（out-of-bag-estimate）</p>
+</li>
+</ul>
+<h4 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h4><h5 id="1-错误率-error-rate"><a href="#1-错误率-error-rate" class="headerlink" title="1. 错误率 error rate"></a>1. 错误率 error rate</h5><ul>
+<li><p>def 分类错误样本占样本总数的比例</p>
+</li>
+<li><p>m个样本中有a个样本分类错误，则</p>
+<script type="math/tex; mode=display">
+E = a / m</script></li>
+</ul>
+<h5 id="2-精度-accuracy"><a href="#2-精度-accuracy" class="headerlink" title="2. 精度 accuracy"></a>2. 精度 accuracy</h5><ul>
+<li><p>def 分类正确样本占样本总数的比例</p>
+</li>
+<li><p>m个样本中有a个样本分类正确，<strong>精度 = 1 - 错误率</strong></p>
+<script type="math/tex; mode=display">
+P = 1 - a / m</script></li>
+</ul>
+<h5 id="3-混淆矩阵-confusion-matrix"><a href="#3-混淆矩阵-confusion-matrix" class="headerlink" title="3. 混淆矩阵 confusion matrix"></a>3. 混淆矩阵 confusion matrix</h5><ul>
+<li>def 误差矩阵，表示精度评价的一种标准格式，为n行n列的矩阵形式</li>
+</ul>
+<p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-3.png"></p>
+<ol>
+<li>正例：positive，即最后结果是正向的（比如好瓜）；</li>
+<li>反例：negative，即最后结果是负向的（比如烂瓜）；</li>
+<li>TP：True Positive，把正例预测为正例，也就是说，首先预测出来是个正例，其次这是一个真正的正例（比如预测出来是个好瓜，而且是个好瓜）；</li>
+<li>FP：False Positive，把反例预测为正例，也就是说，首先预测出来是个正例，其次这是个反例（比如预测出来是个好瓜，但是是个烂瓜）；</li>
+<li>FN：False Negative，把正例预测为反例，也就是说，首先预测出来是个反例，其次这是个正例（比如预测出来是个烂瓜，但是是个好瓜）；</li>
+<li>TN：True Negative，把反例预测为反例，也就是说，首先预测出来是个反例，其次这是一个真正的反例（比如预测出来是个烂瓜，而且是个烂瓜）</li>
+</ol>
+<h5 id="4-准确率-查准率-Precision"><a href="#4-准确率-查准率-Precision" class="headerlink" title="4. 准确率 / 查准率 Precision"></a>4. 准确率 / 查准率 Precision</h5><script type="math/tex; mode=display">
+P = \frac{TP}{TP + FP}</script><h5 id="5-召回率-查全率-Recall"><a href="#5-召回率-查全率-Recall" class="headerlink" title="5. 召回率 / 查全率 Recall"></a>5. 召回率 / 查全率 Recall</h5><script type="math/tex; mode=display">
+R = \frac{TP}{TP + FN}</script><h5 id="6-P-R图"><a href="#6-P-R图" class="headerlink" title="6. P-R图"></a>6. P-R图</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-6.png"></p>
+<ul>
+<li><p>quiz 判断两个学习器的性能优劣？</p>
+<p>答：若有两学习器A、B，如果B的曲线被A完全<strong>包住</strong>，则可认为A的性能优于B；若发生交叉，则只能：（1）在具体P、R条件下进行比较；（2）直接比较A和B对应P-R曲线的线下面积Sa、Sb的大小，较大者性能更优</p>
+</li>
+</ul>
+<h5 id="7-平衡点-Break-Event-Point，BEP"><a href="#7-平衡点-Break-Event-Point，BEP" class="headerlink" title="7. 平衡点 Break-Event Point，BEP"></a>7. 平衡点 Break-Event Point，BEP</h5><ul>
+<li>def P = R时的取值</li>
+</ul>
+<h5 id="8-F1-Score"><a href="#8-F1-Score" class="headerlink" title="8. F1 Score"></a>8. F1 Score</h5><ul>
+<li>def 基于查准率和查重率的调和平均（harmonic mean）</li>
+</ul>
+<script type="math/tex; mode=display">
+F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>计算机网络（一）：计算机网络与互联网</title>
     <url>/2020/07/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91/</url>
     <content><![CDATA[<h1 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h1><p>1、<strong>主机</strong> host（<strong>端系统</strong> end system）：所有计算机器的统称，通过<strong>通信链路</strong>（communication link）与<strong>分组交换机</strong>相互连接</p>
@@ -3335,108 +3437,6 @@ min\{R_c,R_s\}</script><h1 id="五、协议层次及其服务模型-Protocol-Lay
       </categories>
       <tags>
         <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>西瓜书知识重温（二）：模型评估与选择</title>
-    <url>/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/</url>
-    <content><![CDATA[<h4 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h4><ul>
-<li>目的 得到在新样本上表现很好的学习器</li>
-</ul>
-<h5 id="1-训练-经验误差-training-empirical-error"><a href="#1-训练-经验误差-training-empirical-error" class="headerlink" title="1. 训练 / 经验误差 training / empirical error"></a>1. 训练 / 经验误差 training / empirical error</h5><ul>
-<li>def 学习器在训练集上的误差</li>
-</ul>
-<h5 id="2-泛化误差-generalization-error"><a href="#2-泛化误差-generalization-error" class="headerlink" title="2.  泛化误差 generalization error"></a>2.  泛化误差 generalization error</h5><ul>
-<li>def 学习器在新样本上的误差</li>
-<li>一般地，假设测试样本是从样本真是分布中独立同分布采样得到，则测试集的测试误差可视为泛化误差的近似</li>
-</ul>
-<h5 id="3-欠拟合-过拟合-underfitting-overfitting"><a href="#3-欠拟合-过拟合-underfitting-overfitting" class="headerlink" title="3. 欠拟合 / 过拟合 underfitting / overfitting"></a>3. 欠拟合 / 过拟合 underfitting / overfitting</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-1-3.png"></p>
-<ul>
-<li>def 前者单纯训练得不够或学习能力低下，后者则已经把样本自身的某些特点当做所有样本都有的一般性质，使得泛化性能下降</li>
-<li>解决 前者增加轮数， 后者无法彻底避免，仅可使得经验误差最小化以缓解其风险</li>
-</ul>
-<h4 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h4><h5 id="1-留出法-hold-out"><a href="#1-留出法-hold-out" class="headerlink" title="1. 留出法 hold-out"></a>1. 留出法 hold-out</h5><ul>
-<li><p>method 直接将数据集D划分为两<strong>互斥</strong>集合，分别作为训练集S、测试集T</p>
-<script type="math/tex; mode=display">
-D = S \cup T,S \cap T = \emptyset</script></li>
-<li><p>quiz1 如何保持数据分布的一致性？</p>
-<p>答：分层采样（stratified sampling），尽可能避免因数据划分引入额外的偏差而对最终结果产生影响</p>
-</li>
-<li><p>quiz2 给定S/T比例，如何划分？</p>
-<p>答：单次结果并不稳定，可多次随机划分，每次产生一个训练/测试集结果并评估，最后留出法返回的结果是每次划分结果的平均值</p>
-</li>
-<li><p>quiz3 最佳比例？</p>
-<p>答：2:1（67%） ~ 4:1（80%），训练集过大可能使得模型更接近用D训练出的模型，而评估结果则不够准确；若测试集过大，则S与D的差别过大，评估模型与用D训练出的模型有较大差别，降低了评估结果的保真性（fidelity）</p>
-</li>
-</ul>
-<h5 id="2-交叉验证法-cross-validation（常用）"><a href="#2-交叉验证法-cross-validation（常用）" class="headerlink" title="2. 交叉验证法 cross validation（常用）"></a>2. 交叉验证法 cross validation（常用）</h5><ul>
-<li><p>method 经分层采样，将D划分为k个大小相似的互斥子集，这样一来，每次课使用k-1个子集的并集作为训练集，余下的那个子集则作为测试集；得到k组结果，返回其均值</p>
-</li>
-<li><p>quiz1 常用k？答：10，10次十折交叉验证</p>
-</li>
-<li><p>quiz2 留一法有了解吗？</p>
-<p>答：当D包含m样本，而m恰等于k时的特例。其好处在于不受随机样本划分方式的影响，且和D训练得到的模型会很相似；坏处在于模型训练的计算开销大，计算复杂度高</p>
-</li>
-</ul>
-<h5 id="3-自助法-bootstrapping"><a href="#3-自助法-bootstrapping" class="headerlink" title="3. 自助法 bootstrapping"></a>3. 自助法 bootstrapping</h5><ul>
-<li>method 以自助采样（bootstrap sampling）为基础，给定包含m个样本的数据集D，我们对它进行采样产生数据集D’；每次随机从D中挑选一个样本，将其拷贝放入D’，再将该样本放回初始数据集D中，使得该样本在下次采样时仍有可能被采到；这个过程重复执行m次后，得到包含m个样本的数据集D’，是为自助采样的结果</li>
-<li><p>application 数据集小、难以划分；改变了初始数据集的分布，从而引入了额外的估计误差</p>
-</li>
-<li><p>quiz1 样本在m次采样中始终不被采到的概率？</p>
-<script type="math/tex; mode=display">
-\lim_{n\rightarrow+\infty}(1 - \frac{1}{m})^m \rightarrow \frac{1}{e} = 0.368</script></li>
-<li><p>quiz2 划分？</p>
-<p>答：D‘作为S，D/D’作为T，测试结果为<strong>包外估计</strong>（out-of-bag-estimate）</p>
-</li>
-</ul>
-<h4 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h4><h5 id="1-错误率-error-rate"><a href="#1-错误率-error-rate" class="headerlink" title="1. 错误率 error rate"></a>1. 错误率 error rate</h5><ul>
-<li><p>def 分类错误样本占样本总数的比例</p>
-</li>
-<li><p>m个样本中有a个样本分类错误，则</p>
-<script type="math/tex; mode=display">
-E = a / m</script></li>
-</ul>
-<h5 id="2-精度-accuracy"><a href="#2-精度-accuracy" class="headerlink" title="2. 精度 accuracy"></a>2. 精度 accuracy</h5><ul>
-<li><p>def 分类正确样本占样本总数的比例</p>
-</li>
-<li><p>m个样本中有a个样本分类正确，<strong>精度 = 1 - 错误率</strong></p>
-<script type="math/tex; mode=display">
-P = 1 - a / m</script></li>
-</ul>
-<h5 id="3-混淆矩阵-confusion-matrix"><a href="#3-混淆矩阵-confusion-matrix" class="headerlink" title="3. 混淆矩阵 confusion matrix"></a>3. 混淆矩阵 confusion matrix</h5><ul>
-<li>def 误差矩阵，表示精度评价的一种标准格式，为n行n列的矩阵形式</li>
-</ul>
-<p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-3.png"></p>
-<ol>
-<li>正例：positive，即最后结果是正向的（比如好瓜）；</li>
-<li>反例：negative，即最后结果是负向的（比如烂瓜）；</li>
-<li>TP：True Positive，把正例预测为正例，也就是说，首先预测出来是个正例，其次这是一个真正的正例（比如预测出来是个好瓜，而且是个好瓜）；</li>
-<li>FP：False Positive，把反例预测为正例，也就是说，首先预测出来是个正例，其次这是个反例（比如预测出来是个好瓜，但是是个烂瓜）；</li>
-<li>FN：False Negative，把正例预测为反例，也就是说，首先预测出来是个反例，其次这是个正例（比如预测出来是个烂瓜，但是是个好瓜）；</li>
-<li>TN：True Negative，把反例预测为反例，也就是说，首先预测出来是个反例，其次这是一个真正的反例（比如预测出来是个烂瓜，而且是个烂瓜）</li>
-</ol>
-<h5 id="4-准确率-查准率-Precision"><a href="#4-准确率-查准率-Precision" class="headerlink" title="4. 准确率 / 查准率 Precision"></a>4. 准确率 / 查准率 Precision</h5><script type="math/tex; mode=display">
-P = \frac{TP}{TP + FP}</script><h5 id="5-召回率-查全率-Recall"><a href="#5-召回率-查全率-Recall" class="headerlink" title="5. 召回率 / 查全率 Recall"></a>5. 召回率 / 查全率 Recall</h5><script type="math/tex; mode=display">
-R = \frac{TP}{TP + FN}</script><h5 id="6-P-R图"><a href="#6-P-R图" class="headerlink" title="6. P-R图"></a>6. P-R图</h5><p><img src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-6.png"></p>
-<ul>
-<li><p>quiz 判断两个学习器的性能优劣？</p>
-<p>答：若有两学习器A、B，如果B的曲线被A完全<strong>包住</strong>，则可认为A的性能优于B；若发生交叉，则只能：（1）在具体P、R条件下进行比较；（2）直接比较A和B对应P-R曲线的线下面积Sa、Sb的大小，较大者性能更优</p>
-</li>
-</ul>
-<h5 id="7-平衡点-Break-Event-Point，BEP"><a href="#7-平衡点-Break-Event-Point，BEP" class="headerlink" title="7. 平衡点 Break-Event Point，BEP"></a>7. 平衡点 Break-Event Point，BEP</h5><ul>
-<li>def P = R时的取值</li>
-</ul>
-<h5 id="8-F1-Score"><a href="#8-F1-Score" class="headerlink" title="8. F1 Score"></a>8. F1 Score</h5><ul>
-<li>def 基于查准率和查重率的调和平均（harmonic mean）</li>
-</ul>
-<script type="math/tex; mode=display">
-F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
