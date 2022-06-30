@@ -1245,14 +1245,6 @@ avg_{单条连接的吞吐量} =  \frac{1.22 * MSS}{RTT * \sqrt{L}}</script><p>�
 
 
   <div class="powered-by">
-  <i class="fa fa-user-md"></i>
-	<span id="busuanzi_container_site_uv">
-		本站访客数:<span id="busuanzi_value_site_uv"></span>
-	</span>
-	<span class="post-meta-divider">|</span>
-	<span id="busuanzi_container_site_pv">
-		本站访问量<span id="busuanzi_value_site_pv"></span>
-	</span>
   <div id="site-runtime">
   <span class="post-meta-item-icon">
     <i class="fa fa-clock-o"></i>
@@ -1296,7 +1288,7 @@ avg_{单条连接的吞吐量} =  \frac{1.22 * MSS}{RTT * \sqrt{L}}</script><p>�
     var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
 
     if (openOnPC) {
-      document.getElementById("runtime").innerHTML = "Running: " + diffYears + " years " + diffDays + " days " + diffHours + " hours " + diffMinutes + " mins " + diffSeconds + " secs";
+      document.getElementById("runtime").innerHTML = "站点已诞生: " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分 " + diffSeconds + " 秒";
     } else {
       document.getElementById("runtime").innerHTML = "Running: " + diffYears + "y " + diffDays + "d " + diffHours + "h " + diffMinutes + "m " + diffSeconds + "s";
     }
@@ -1313,6 +1305,15 @@ avg_{单条连接的吞吐量} =  \frac{1.22 * MSS}{RTT * \sqrt{L}}</script><p>�
 </script>
 
   
+  
+  <i class="fa fa-user-md"></i>
+	<span id="busuanzi_container_site_uv">
+		访客数：<span id="busuanzi_value_site_uv"></span>
+	</span>
+	<span class="post-meta-divider">|</span>
+	<span id="busuanzi_container_site_pv">
+		访问量：<span id="busuanzi_value_site_pv"></span>
+	</span>
   </div>
 
   </br>
