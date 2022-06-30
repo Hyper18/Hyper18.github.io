@@ -1,77 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java面向对象（七）—— 复用类</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E7%94%A8%E7%B1%BB/</url>
-    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
-<ul>
-<li>在新类中产生现有类的对象</li>
-<li>继承</li>
-</ul>
-<p>2、组合语法</p>
-<ul>
-<li>将对象引用置于新类</li>
-<li>初始化引用的位置<ul>
-<li>定义处</li>
-<li>类构造器中</li>
-<li>惰性初始化（Delay Initialization）于使用对象前</li>
-</ul>
-</li>
-</ul>
-<p>3、继承</p>
-<ul>
-<li>声明新类与旧类类似<ul>
-<li>书写紧跟基类名称关键字extends</li>
-</ul>
-</li>
-<li>super为超类，类从超类继承</li>
-<li>使用+=可连接多个String对象</li>
-<li>构建过程（初始化过程同）是向外“扩散”的<ul>
-<li>若类带有参数，则需要用super显式编写调用</li>
-</ul>
-</li>
-</ul>
-<p>4、代理：继承与组合的中间体</p>
-<ul>
-<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
-<li>java不直接支持代理，可使用部分支持ide自动生成</li>
-</ul>
-<p>5、结合使用组合和继承</p>
-<ul>
-<li>finally()子句确保正确清理，采用自己编写的顺序清理</li>
-<li>dispose()：清理方法</li>
-<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别C++）<ul>
-<li>需要覆写：Override()，不是关键字但按关键字处理</li>
-</ul>
-</li>
-</ul>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
-<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
-<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
-<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
-<li>is-a关系 - 继承，has-a关系 - 组合</li>
-</ul>
-<p>6、protected关键字</p>
-<ul>
-<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
-</ul>
-<p>7、final关键字</p>
-<ul>
-<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
-<li>类常量 static final</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>面向对象</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java面向对象（一）—— 对象导论</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
     <content><![CDATA[<h2 id="第一章-对象导论"><a href="#第一章-对象导论" class="headerlink" title="第一章 对象导论"></a>第一章 对象导论</h2><p>1、基本特性</p>
@@ -131,6 +60,77 @@
 <li>使用垃圾回收器，自发发现不再被使用的对象，有效避免内存泄漏</li>
 </ul>
 <p>11、必须编写异常处理的代码</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>面向对象</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java面向对象（七）—— 复用类</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E7%94%A8%E7%B1%BB/</url>
+    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
+<ul>
+<li>在新类中产生现有类的对象</li>
+<li>继承</li>
+</ul>
+<p>2、组合语法</p>
+<ul>
+<li>将对象引用置于新类</li>
+<li>初始化引用的位置<ul>
+<li>定义处</li>
+<li>类构造器中</li>
+<li>惰性初始化（Delay Initialization）于使用对象前</li>
+</ul>
+</li>
+</ul>
+<p>3、继承</p>
+<ul>
+<li>声明新类与旧类类似<ul>
+<li>书写紧跟基类名称关键字extends</li>
+</ul>
+</li>
+<li>super为超类，类从超类继承</li>
+<li>使用+=可连接多个String对象</li>
+<li>构建过程（初始化过程同）是向外“扩散”的<ul>
+<li>若类带有参数，则需要用super显式编写调用</li>
+</ul>
+</li>
+</ul>
+<p>4、代理：继承与组合的中间体</p>
+<ul>
+<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
+<li>java不直接支持代理，可使用部分支持ide自动生成</li>
+</ul>
+<p>5、结合使用组合和继承</p>
+<ul>
+<li>finally()子句确保正确清理，采用自己编写的顺序清理</li>
+<li>dispose()：清理方法</li>
+<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别C++）<ul>
+<li>需要覆写：Override()，不是关键字但按关键字处理</li>
+</ul>
+</li>
+</ul>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
+<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
+<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
+<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
+<li>is-a关系 - 继承，has-a关系 - 组合</li>
+</ul>
+<p>6、protected关键字</p>
+<ul>
+<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
+</ul>
+<p>7、final关键字</p>
+<ul>
+<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
+<li>类常量 static final</li>
+</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -314,6 +314,67 @@
       </tags>
   </entry>
   <entry>
+    <title>Java面向对象（六）—— 访问权限控制</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<h2 id="第六章-访问权限控制"><a href="#第六章-访问权限控制" class="headerlink" title="第六章 访问权限控制"></a>第六章 访问权限控制</h2><p>1、类库 library：将不变的内容和重构的代码内容区分开</p>
+<p>2、访问权限修饰词：public protected private</p>
+<ul>
+<li>无关键字则默认包访问权限，其包内成员相对于外部的所有类均为private</li>
+<li>取得访问权的方式<ul>
+<li>使该成员成为public</li>
+<li>不加修饰词，并将其他类放置于同一个包</li>
+<li>继承</li>
+<li>使用访问器和变异器（mutator）读取和改变数值</li>
+</ul>
+</li>
+</ul>
+<p>3、包 package：库单元</p>
+<ul>
+<li>功能：将构件捆绑至一个内聚的类库单元中</li>
+<li>默认（未命名）包：包含本地源代码文件</li>
+<li>编译单元：正在编写的文件</li>
+</ul>
+<p>4、代码组织</p>
+<ul>
+<li>package：群组，对每个文件，需声明该编译单元的类库</li>
+<li>分割单一的全局名字空间，避免名称冲突的可能性</li>
+<li>创建独一无二的包名<ul>
+<li>层次化组织</li>
+<li>反序因特网域名 / 分解包名为机器目录</li>
+</ul>
+</li>
+</ul>
+<p>5、定制工具库</p>
+<ul>
+<li>输出：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line">System.out.println(<span class="number">123</span>); <span class="comment">//换行打印</span></span><br><span class="line">System.out.print(<span class="number">123</span>); <span class="comment">//不换行打印</span></span><br><span class="line">System.out.write(<span class="number">234</span>); <span class="comment">//字节输出</span></span><br><span class="line">System.out.printf(<span class="string">"%+8.5f\n"</span>, <span class="number">3.14</span>); <span class="comment">//按格式输出</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>range()</li>
+</ul>
+<p>6、接口和实现</p>
+<ul>
+<li>访问控制基本思想：将接口与具体实现分离</li>
+<li>可采用的形式（注：接口与实现仍混合，仅易于阅读）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> OrganizedByAccess {</span><br><span class="line">	<span class="keyword">public</span> ...;</span><br><span class="line">	<span class="keyword">public</span> ...;</span><br><span class="line">	<span class="comment">// 阅读到此处结束</span></span><br><span class="line">	<span class="keyword">private</span> ...;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>7、类的访问权限</p>
+<ul>
+<li>每个编译单元都只能有一个公共接口，以public关键字修饰</li>
+<li>类仅可为默认（包访问权限）或public修饰，其他修饰词不可用</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>面向对象</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java面向对象（五）—— 初始化与清理</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%8E%E6%B8%85%E7%90%86/</url>
     <content><![CDATA[<h2 id="第五章-初始化与清理"><a href="#第五章-初始化与清理" class="headerlink" title="第五章 初始化与清理"></a>第五章 初始化与清理</h2><h3 id="一、初始化"><a href="#一、初始化" class="headerlink" title="一、初始化"></a>一、初始化</h3><p>1、构造器 constructor</p>
@@ -415,94 +476,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java面向对象（四）—— 控制执行流程</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E6%8E%A7%E5%88%B6%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<h2 id="第四章-控制执行流程"><a href="#第四章-控制执行流程" class="headerlink" title="第四章 控制执行流程"></a>第四章 控制执行流程</h2><p>1、foreach（SE5+）</p>
-<ul>
-<li>对于任何返回一个<strong>数组</strong>的方法，不必创建int变量计即可自动计数</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> HelloWorld;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForEachFloat</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{</span><br><span class="line">        Random rand = <span class="keyword">new</span> Random(<span class="number">47</span>);</span><br><span class="line">        <span class="keyword">float</span>[] f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++){</span><br><span class="line">            f[i] = rand.nextFloat();</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">float</span> x:f) <span class="comment">// 定义一个float类型变量x，将每个f元素赋给x</span></span><br><span class="line">            System.out.println(x);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<ul>
-<li>还可用于任何Iterable对象<ul>
-<li>Iterable：Java中的迭代器对象，是能够对List这样的集合进行迭代遍历的底层依赖</li>
-</ul>
-</li>
-</ul>
-<p>2、迭代前的标签：嵌套另一迭代或开关时使用</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">label1:</span><br><span class="line">outer-iteration {</span><br><span class="line">    inner-iteration{</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span> label1; <span class="comment">// 转至label1</span></span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span> label1;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>面向对象</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java面向对象（六）—— 访问权限控制</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</url>
-    <content><![CDATA[<h2 id="第六章-访问权限控制"><a href="#第六章-访问权限控制" class="headerlink" title="第六章 访问权限控制"></a>第六章 访问权限控制</h2><p>1、类库 library：将不变的内容和重构的代码内容区分开</p>
-<p>2、访问权限修饰词：public protected private</p>
-<ul>
-<li>无关键字则默认包访问权限，其包内成员相对于外部的所有类均为private</li>
-<li>取得访问权的方式<ul>
-<li>使该成员成为public</li>
-<li>不加修饰词，并将其他类放置于同一个包</li>
-<li>继承</li>
-<li>使用访问器和变异器（mutator）读取和改变数值</li>
-</ul>
-</li>
-</ul>
-<p>3、包 package：库单元</p>
-<ul>
-<li>功能：将构件捆绑至一个内聚的类库单元中</li>
-<li>默认（未命名）包：包含本地源代码文件</li>
-<li>编译单元：正在编写的文件</li>
-</ul>
-<p>4、代码组织</p>
-<ul>
-<li>package：群组，对每个文件，需声明该编译单元的类库</li>
-<li>分割单一的全局名字空间，避免名称冲突的可能性</li>
-<li>创建独一无二的包名<ul>
-<li>层次化组织</li>
-<li>反序因特网域名 / 分解包名为机器目录</li>
-</ul>
-</li>
-</ul>
-<p>5、定制工具库</p>
-<ul>
-<li>输出：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line">System.out.println(<span class="number">123</span>); <span class="comment">//换行打印</span></span><br><span class="line">System.out.print(<span class="number">123</span>); <span class="comment">//不换行打印</span></span><br><span class="line">System.out.write(<span class="number">234</span>); <span class="comment">//字节输出</span></span><br><span class="line">System.out.printf(<span class="string">"%+8.5f\n"</span>, <span class="number">3.14</span>); <span class="comment">//按格式输出</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>range()</li>
-</ul>
-<p>6、接口和实现</p>
-<ul>
-<li>访问控制基本思想：将接口与具体实现分离</li>
-<li>可采用的形式（注：接口与实现仍混合，仅易于阅读）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> OrganizedByAccess {</span><br><span class="line">	<span class="keyword">public</span> ...;</span><br><span class="line">	<span class="keyword">public</span> ...;</span><br><span class="line">	<span class="comment">// 阅读到此处结束</span></span><br><span class="line">	<span class="keyword">private</span> ...;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>7、类的访问权限</p>
-<ul>
-<li>每个编译单元都只能有一个公共接口，以public关键字修饰</li>
-<li>类仅可为默认（包访问权限）或public修饰，其他修饰词不可用</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>面向对象</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode题解——简单题篇（1）</title>
     <url>/2021/09/04/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%881%EF%BC%89/</url>
     <content><![CDATA[<h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a><a href="https://leetcode-cn.com/problems/two-sum/">1. 两数之和</a></h2><ul>
@@ -542,6 +515,33 @@
       <tags>
         <tag>Java</tag>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java面向对象（四）—— 控制执行流程</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E6%8E%A7%E5%88%B6%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="第四章-控制执行流程"><a href="#第四章-控制执行流程" class="headerlink" title="第四章 控制执行流程"></a>第四章 控制执行流程</h2><p>1、foreach（SE5+）</p>
+<ul>
+<li>对于任何返回一个<strong>数组</strong>的方法，不必创建int变量计即可自动计数</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> HelloWorld;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForEachFloat</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{</span><br><span class="line">        Random rand = <span class="keyword">new</span> Random(<span class="number">47</span>);</span><br><span class="line">        <span class="keyword">float</span>[] f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++){</span><br><span class="line">            f[i] = rand.nextFloat();</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">float</span> x:f) <span class="comment">// 定义一个float类型变量x，将每个f元素赋给x</span></span><br><span class="line">            System.out.println(x);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<ul>
+<li>还可用于任何Iterable对象<ul>
+<li>Iterable：Java中的迭代器对象，是能够对List这样的集合进行迭代遍历的底层依赖</li>
+</ul>
+</li>
+</ul>
+<p>2、迭代前的标签：嵌套另一迭代或开关时使用</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">label1:</span><br><span class="line">outer-iteration {</span><br><span class="line">    inner-iteration{</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">continue</span> label1; <span class="comment">// 转至label1</span></span><br><span class="line">        ...</span><br><span class="line">            <span class="keyword">break</span> label1;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>面向对象</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
       </tags>
   </entry>
   <entry>
@@ -1063,105 +1063,6 @@
       </tags>
   </entry>
   <entry>
-    <title>pytorch的配置一二事</title>
-    <url>/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/</url>
-    <content><![CDATA[<h2 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h2><h3 id="Step1-配置CUDA"><a href="#Step1-配置CUDA" class="headerlink" title="Step1 配置CUDA"></a>Step1 配置CUDA</h3><ul>
-<li>首先，不确定本机是否已安装的情况下，可前往默认目录<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\</code>下查看，若已安装则有对应版本的CUDA：</li>
-</ul>
-<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-1.png"></p>
-<ul>
-<li>若尚未安装，进入<code>https://developer.nvidia.com/cuda-downloads</code>，选取合适配置安装。此处以Win11系统为例：</li>
-</ul>
-<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-2.png"></p>
-<ul>
-<li>安装完成后，再配置系统环境变量：</li>
-</ul>
-<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-3.png"></p>
-<ul>
-<li><code>win+R</code>呼出控制台，键入<code>nvcc --version</code> <code>nvcc -V</code>指令（两者择一即可）：</li>
-</ul>
-<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-4.png"></p>
-<ul>
-<li>显示版本号及相关内容，说明配置成功</li>
-</ul>
-<h3 id="Step2-配置CuDDN"><a href="#Step2-配置CuDDN" class="headerlink" title="Step2 配置CuDDN"></a>Step2 配置CuDDN</h3><ul>
-<li>前往<code>https://developer.nvidia.com/rdp/cudnn-archive</code>下载</li>
-</ul>
-<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤2-1.png"></p>
-<ul>
-<li>解压下载得到的压缩包，将得到的三个文件夹<code>bin</code>、<code>include</code>与<code>lib</code>分别覆盖至Step1中所述CUDA根目录，如默认位置<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v版本号</code>：</li>
-</ul>
-<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤2-2.png"></p>
-<h3 id="Step3-配置Pytorch"><a href="#Step3-配置Pytorch" class="headerlink" title="Step3 配置Pytorch"></a>Step3 配置Pytorch</h3><ul>
-<li>前往<code>https://pytorch.org/get-started/locally/</code>官网，可通过点选得到合适的安装命令</li>
-</ul>
-<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-1.png"></p>
-<ul>
-<li>注意到这里给的源默认为<code>-c pytorch</code>，为提高下载速度可换用国内源：</li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>国内镜像</th>
-<th>位置</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>清华源</td>
-<td><code>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</code></td>
-</tr>
-<tr>
-<td>中科大源</td>
-<td><code>https://pypi.mirrors.ustc.edu.cn/simple</code></td>
-</tr>
-<tr>
-<td>豆瓣源</td>
-<td><code>https://pypi.douban.com/simple</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li>这里采用清华源，输入安装指令：</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cudatoolkit=<span class="number">11.3</span> -c https:<span class="comment">//mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span></span><br></pre></td></tr></table></figure>
-<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-2.png"></p>
-<ul>
-<li>如上图所示，此时键入<code>y</code>以继续进行(proceed)。耐心等待，直至安装完成</li>
-<li>新建一个python程序，简单验证下pytorch是否工作正常：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Torch version {}"</span>.<span class="built_in">format</span>(torch.__version__))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"CUDA is available: {}"</span>.<span class="built_in">format</span>(torch.cuda.is_available()))</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-3.png"></p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>CUDA（Compute Unified Device Architecture），统一计算设备架构<ul>
-<li>def 是使GPU能够解决复杂计算问题的通用并行计算架构</li>
-<li>与显驱的关系：显卡驱动用于识别计算机的GPU硬件并调用其资源；而CUDA是在此基础上的框架，用于进行一系列复杂的并行计算</li>
-</ul>
-</li>
-<li>cuDNN<ul>
-<li>def 深度神经网络库，是针对深度卷积神经网络的加速库</li>
-<li>强调性能、易用性和低内存开销</li>
-</ul>
-</li>
-<li>pytorch<ul>
-<li>def cuDNN加速框架之一，是一个基于Torch的开源Python机器学习库</li>
-<li>包含张量计算和自动求导系统的深度神经网络两大重要功能</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>深度学习</category>
-        <category>pytorch</category>
-      </categories>
-      <tags>
-        <tag>深度学习，pytorch，配置</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>分题型基础补全计划（一）—— HTML篇</title>
     <url>/2021/11/04/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20HTML%E7%AF%87/</url>
     <content><![CDATA[<h4 id="URL样式"><a href="#URL样式" class="headerlink" title="URL样式"></a>URL样式</h4><p>题型：使用<code>http://localhost:8080/web01/test.jsp?user=admin&amp;password=admin</code> 进行访问WEB应用时候，下列说法哪个是错误的：( )</p>
@@ -1418,6 +1319,105 @@
       </categories>
       <tags>
         <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pytorch的配置一二事</title>
+    <url>/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/</url>
+    <content><![CDATA[<h2 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h2><h3 id="Step1-配置CUDA"><a href="#Step1-配置CUDA" class="headerlink" title="Step1 配置CUDA"></a>Step1 配置CUDA</h3><ul>
+<li>首先，不确定本机是否已安装的情况下，可前往默认目录<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\</code>下查看，若已安装则有对应版本的CUDA：</li>
+</ul>
+<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-1.png"></p>
+<ul>
+<li>若尚未安装，进入<code>https://developer.nvidia.com/cuda-downloads</code>，选取合适配置安装。此处以Win11系统为例：</li>
+</ul>
+<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-2.png"></p>
+<ul>
+<li>安装完成后，再配置系统环境变量：</li>
+</ul>
+<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-3.png"></p>
+<ul>
+<li><code>win+R</code>呼出控制台，键入<code>nvcc --version</code> <code>nvcc -V</code>指令（两者择一即可）：</li>
+</ul>
+<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-4.png"></p>
+<ul>
+<li>显示版本号及相关内容，说明配置成功</li>
+</ul>
+<h3 id="Step2-配置CuDDN"><a href="#Step2-配置CuDDN" class="headerlink" title="Step2 配置CuDDN"></a>Step2 配置CuDDN</h3><ul>
+<li>前往<code>https://developer.nvidia.com/rdp/cudnn-archive</code>下载</li>
+</ul>
+<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤2-1.png"></p>
+<ul>
+<li>解压下载得到的压缩包，将得到的三个文件夹<code>bin</code>、<code>include</code>与<code>lib</code>分别覆盖至Step1中所述CUDA根目录，如默认位置<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v版本号</code>：</li>
+</ul>
+<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤2-2.png"></p>
+<h3 id="Step3-配置Pytorch"><a href="#Step3-配置Pytorch" class="headerlink" title="Step3 配置Pytorch"></a>Step3 配置Pytorch</h3><ul>
+<li>前往<code>https://pytorch.org/get-started/locally/</code>官网，可通过点选得到合适的安装命令</li>
+</ul>
+<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-1.png"></p>
+<ul>
+<li>注意到这里给的源默认为<code>-c pytorch</code>，为提高下载速度可换用国内源：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>国内镜像</th>
+<th>位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>清华源</td>
+<td><code>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</code></td>
+</tr>
+<tr>
+<td>中科大源</td>
+<td><code>https://pypi.mirrors.ustc.edu.cn/simple</code></td>
+</tr>
+<tr>
+<td>豆瓣源</td>
+<td><code>https://pypi.douban.com/simple</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>这里采用清华源，输入安装指令：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cudatoolkit=<span class="number">11.3</span> -c https:<span class="comment">//mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-2.png"></p>
+<ul>
+<li>如上图所示，此时键入<code>y</code>以继续进行(proceed)。耐心等待，直至安装完成</li>
+<li>新建一个python程序，简单验证下pytorch是否工作正常：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Torch version {}"</span>.<span class="built_in">format</span>(torch.__version__))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"CUDA is available: {}"</span>.<span class="built_in">format</span>(torch.cuda.is_available()))</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-3.png"></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>CUDA（Compute Unified Device Architecture），统一计算设备架构<ul>
+<li>def 是使GPU能够解决复杂计算问题的通用并行计算架构</li>
+<li>与显驱的关系：显卡驱动用于识别计算机的GPU硬件并调用其资源；而CUDA是在此基础上的框架，用于进行一系列复杂的并行计算</li>
+</ul>
+</li>
+<li>cuDNN<ul>
+<li>def 深度神经网络库，是针对深度卷积神经网络的加速库</li>
+<li>强调性能、易用性和低内存开销</li>
+</ul>
+</li>
+<li>pytorch<ul>
+<li>def cuDNN加速框架之一，是一个基于Torch的开源Python机器学习库</li>
+<li>包含张量计算和自动求导系统的深度神经网络两大重要功能</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>深度学习</category>
+        <category>pytorch</category>
+      </categories>
+      <tags>
+        <tag>深度学习，pytorch，配置</tag>
       </tags>
   </entry>
   <entry>
@@ -1869,121 +1869,6 @@
       </tags>
   </entry>
   <entry>
-    <title>数据库操作（一）—— 基础篇</title>
-    <url>/2020/07/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
-    <content><![CDATA[<p>基础操作（1~8章）</p>
-<p>1、数据库 database：保存有组织数据的容器</p>
-<p>2、表 table：特定类型数据的结构化清单</p>
-<p>3、行 row / record：表中的一个记录</p>
-<p>4、<strong>主键</strong> primary key：每一行中可以<strong>唯一</strong>标识自己的一列</p>
-<ul>
-<li>前提：任意两行不具有相同值、每行必须具有一个主键值</li>
-<li>习惯：主键值不更新 不重用，不在主键使用可能会更改的值</li>
-</ul>
-<p>5、关键字 key word：作为一个保留字</p>
-<p>键入</p>
-<p>1、书写习惯</p>
-<ul>
-<li><p>命令行用分号 ; 结尾多条语句也需用分号分割</p>
-</li>
-<li><p>对于关键字：使用大小写均可，全用大写并分成多行，易于阅读、调试</p>
-</li>
-<li>在选择多个列时，一定要在列名之间加上逗号吗，<strong>但最后一列不加</strong></li>
-</ul>
-<p>2、使用数据库： USE 数据库名</p>
-<p>显示：SHOW语句</p>
-<ul>
-<li>SHOW DATABASES：显示所有数据库列表</li>
-<li>SHOW TABLES：显示某个库内所有表的列表</li>
-<li>SHOW COLUMNS FROM：表名显示某个库内所有列的列表<ul>
-<li>快速写法：DESCRIBE 表名</li>
-</ul>
-</li>
-<li>SHOW STATUS：显示广泛的服务器信息</li>
-<li>SHOW CREATE DATABASE / TABLE：显示创建的特定数据库或表表示的Mysql语句</li>
-<li>SHOW GRANTS：显示授权用户的安全权限</li>
-<li>SHOW ERRORS / WARNINGS：显示服务器的错误或警告信息</li>
-</ul>
-<p>选择：SELECT语句</p>
-<ul>
-<li>SELECT 列名 FROM 表名：检索，输出的是未排序数据</li>
-<li>SELECT * FROM 表名：检索所有列<ul>
-<li>给定*通配符，则返回表中所有列，而且可检索出未知列；但滥用会降低效能</li>
-</ul>
-</li>
-<li>SELECT DISTINCT 列名：只返回唯一（去重）的行</li>
-<li>SELECT 列名 FROM 表名 LIMIT 行数：检索指定的行数<ul>
-<li>SELECT 列名 FROM 表名 LIMIT 开始行 行数：检索指定从行号为第一个值的位置开始的行数</li>
-<li>替代语法：SELECT 列名 FROM 表名 LIMIT  行数 OFFSET 开始行</li>
-</ul>
-</li>
-<li>SELECT 表名.列名 FROM 表名：完全限定的列名</li>
-</ul>
-<p>排序</p>
-<p>1、子句：一个关键字和所提供的数据组成</p>
-<p>2、ORDER BY语句</p>
-<ul>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名：以字母顺序排序数据的ORDER BY子句</li>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名1 子句名2 ……</li>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名 DESC：降序排列</li>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名1 DESC 子句名2：子句1降序 2升序<ul>
-<li>即：DESC只应用到<strong>直接</strong>位于其前面的列名</li>
-<li>ASC asending：默认的情形就是升序，略</li>
-</ul>
-</li>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名 LIMIT 行数：按升序显示表中数据指定列子句的指定行数</li>
-</ul>
-<p>过滤：</p>
-<p>1、通配符 wildcard：用来匹配值的一部分特殊字符</p>
-<ul>
-<li>Mysql中使用通配符：LIKE操作符指示，LIKE是*谓词（predicate）</li>
-</ul>
-<p>2、搜索模式：由字面值、通配符或两者组合构成的搜索条件</p>
-<p>3、WHERE子句</p>
-<ul>
-<li>SELECT 列名 FROM 表名 WHERE 数据 =（&lt;= / &gt;= / &gt; / &lt;） 该指定值：只返回指定值的行</li>
-<li>同时使用ORDER BY：需要让ORDER BY位于WHERE之后</li>
-<li>不匹配检查：SELECT 列名 FROM 表名 WHERE 数据 &lt;&gt; 值（效果同!=）</li>
-<li>范围值检查：SELECT 列名 FROM 表名 WHERE 数据 BETWEEN 值1 AND 值2</li>
-<li>空值检查：SELECT 列名 FROM 表名 WHERE 数据 IS NULL</li>
-<li>多限定条件：SELECT 列名 FROM 表名 WHERE 数据 = 值1 AND 数据 &lt; 值2 OR 数据 &gt; 值3<ul>
-<li>优先处理AND操作符</li>
-</ul>
-</li>
-<li>范围选取：SELECT 列名 FROM 表名 WHERE 数据 IN （值1，值2）<ul>
-<li>完成与OR相同的功能</li>
-<li>直观易管理</li>
-<li>运行更快</li>
-<li>可包含其他SELECT语句，动态创建WHERE子句</li>
-</ul>
-</li>
-<li>否定：SELECT 列名 FROM 表名 WHERE 数据 <strong>NOT</strong> IN （值1，值2） ORDER BY 子句名<ul>
-<li>常用于IN的复杂句式中取反</li>
-</ul>
-</li>
-<li>通配符操作：SELECT 列名 FROM 表名 WHERE 数据 LIKE ‘_字符串%’<ul>
-<li>%用于表示接受字符串后续的任意字符<ul>
-<li>‘%字符串%’则表示任何位置的匹配</li>
-<li>‘字符串1%字符串2’则表示字符串1开头、字符串2结尾的匹配</li>
-<li>注意当存在空格时， ‘%字符串’不会匹配</li>
-<li>NULL任何情况均不会被匹配</li>
-</ul>
-</li>
-<li>_只匹配单个字符</li>
-<li>通配符的弊端：耗时较长（尤其位于起始处） 使用容易出错</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据库操作（三）—— 核心篇</title>
     <url>/2020/08/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A0%B8%E5%BF%83%E7%AF%87/</url>
     <content><![CDATA[<h2 id="核心操作-第14-21章"><a href="#核心操作-第14-21章" class="headerlink" title="核心操作 第14 - 21章"></a>核心操作 第14 - 21章</h2><h3 id="子查询-subquery"><a href="#子查询-subquery" class="headerlink" title="子查询 subquery"></a>子查询 subquery</h3><p>1、处理顺序：从内向外</p>
@@ -2237,6 +2122,268 @@
       </tags>
   </entry>
   <entry>
+    <title>数据库操作（一）—— 基础篇</title>
+    <url>/2020/07/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
+    <content><![CDATA[<p>基础操作（1~8章）</p>
+<p>1、数据库 database：保存有组织数据的容器</p>
+<p>2、表 table：特定类型数据的结构化清单</p>
+<p>3、行 row / record：表中的一个记录</p>
+<p>4、<strong>主键</strong> primary key：每一行中可以<strong>唯一</strong>标识自己的一列</p>
+<ul>
+<li>前提：任意两行不具有相同值、每行必须具有一个主键值</li>
+<li>习惯：主键值不更新 不重用，不在主键使用可能会更改的值</li>
+</ul>
+<p>5、关键字 key word：作为一个保留字</p>
+<p>键入</p>
+<p>1、书写习惯</p>
+<ul>
+<li><p>命令行用分号 ; 结尾多条语句也需用分号分割</p>
+</li>
+<li><p>对于关键字：使用大小写均可，全用大写并分成多行，易于阅读、调试</p>
+</li>
+<li>在选择多个列时，一定要在列名之间加上逗号吗，<strong>但最后一列不加</strong></li>
+</ul>
+<p>2、使用数据库： USE 数据库名</p>
+<p>显示：SHOW语句</p>
+<ul>
+<li>SHOW DATABASES：显示所有数据库列表</li>
+<li>SHOW TABLES：显示某个库内所有表的列表</li>
+<li>SHOW COLUMNS FROM：表名显示某个库内所有列的列表<ul>
+<li>快速写法：DESCRIBE 表名</li>
+</ul>
+</li>
+<li>SHOW STATUS：显示广泛的服务器信息</li>
+<li>SHOW CREATE DATABASE / TABLE：显示创建的特定数据库或表表示的Mysql语句</li>
+<li>SHOW GRANTS：显示授权用户的安全权限</li>
+<li>SHOW ERRORS / WARNINGS：显示服务器的错误或警告信息</li>
+</ul>
+<p>选择：SELECT语句</p>
+<ul>
+<li>SELECT 列名 FROM 表名：检索，输出的是未排序数据</li>
+<li>SELECT * FROM 表名：检索所有列<ul>
+<li>给定*通配符，则返回表中所有列，而且可检索出未知列；但滥用会降低效能</li>
+</ul>
+</li>
+<li>SELECT DISTINCT 列名：只返回唯一（去重）的行</li>
+<li>SELECT 列名 FROM 表名 LIMIT 行数：检索指定的行数<ul>
+<li>SELECT 列名 FROM 表名 LIMIT 开始行 行数：检索指定从行号为第一个值的位置开始的行数</li>
+<li>替代语法：SELECT 列名 FROM 表名 LIMIT  行数 OFFSET 开始行</li>
+</ul>
+</li>
+<li>SELECT 表名.列名 FROM 表名：完全限定的列名</li>
+</ul>
+<p>排序</p>
+<p>1、子句：一个关键字和所提供的数据组成</p>
+<p>2、ORDER BY语句</p>
+<ul>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名：以字母顺序排序数据的ORDER BY子句</li>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名1 子句名2 ……</li>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名 DESC：降序排列</li>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名1 DESC 子句名2：子句1降序 2升序<ul>
+<li>即：DESC只应用到<strong>直接</strong>位于其前面的列名</li>
+<li>ASC asending：默认的情形就是升序，略</li>
+</ul>
+</li>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名 LIMIT 行数：按升序显示表中数据指定列子句的指定行数</li>
+</ul>
+<p>过滤：</p>
+<p>1、通配符 wildcard：用来匹配值的一部分特殊字符</p>
+<ul>
+<li>Mysql中使用通配符：LIKE操作符指示，LIKE是*谓词（predicate）</li>
+</ul>
+<p>2、搜索模式：由字面值、通配符或两者组合构成的搜索条件</p>
+<p>3、WHERE子句</p>
+<ul>
+<li>SELECT 列名 FROM 表名 WHERE 数据 =（&lt;= / &gt;= / &gt; / &lt;） 该指定值：只返回指定值的行</li>
+<li>同时使用ORDER BY：需要让ORDER BY位于WHERE之后</li>
+<li>不匹配检查：SELECT 列名 FROM 表名 WHERE 数据 &lt;&gt; 值（效果同!=）</li>
+<li>范围值检查：SELECT 列名 FROM 表名 WHERE 数据 BETWEEN 值1 AND 值2</li>
+<li>空值检查：SELECT 列名 FROM 表名 WHERE 数据 IS NULL</li>
+<li>多限定条件：SELECT 列名 FROM 表名 WHERE 数据 = 值1 AND 数据 &lt; 值2 OR 数据 &gt; 值3<ul>
+<li>优先处理AND操作符</li>
+</ul>
+</li>
+<li>范围选取：SELECT 列名 FROM 表名 WHERE 数据 IN （值1，值2）<ul>
+<li>完成与OR相同的功能</li>
+<li>直观易管理</li>
+<li>运行更快</li>
+<li>可包含其他SELECT语句，动态创建WHERE子句</li>
+</ul>
+</li>
+<li>否定：SELECT 列名 FROM 表名 WHERE 数据 <strong>NOT</strong> IN （值1，值2） ORDER BY 子句名<ul>
+<li>常用于IN的复杂句式中取反</li>
+</ul>
+</li>
+<li>通配符操作：SELECT 列名 FROM 表名 WHERE 数据 LIKE ‘_字符串%’<ul>
+<li>%用于表示接受字符串后续的任意字符<ul>
+<li>‘%字符串%’则表示任何位置的匹配</li>
+<li>‘字符串1%字符串2’则表示字符串1开头、字符串2结尾的匹配</li>
+<li>注意当存在空格时， ‘%字符串’不会匹配</li>
+<li>NULL任何情况均不会被匹配</li>
+</ul>
+</li>
+<li>_只匹配单个字符</li>
+<li>通配符的弊端：耗时较长（尤其位于起始处） 使用容易出错</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库操作（二）—— 进阶篇</title>
+    <url>/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/</url>
+    <content><![CDATA[<h2 id="进阶操作-第9-13章"><a href="#进阶操作-第9-13章" class="headerlink" title="进阶操作 第9-13章"></a>进阶操作 第9-13章</h2><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ul>
+<li>作用：匹配文本</li>
+<li>基本字符匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值’ ORDER BY 子句名<ul>
+<li>.特殊字符表匹配任意一个字符，如‘.000’可匹配1000和2000，etc</li>
+<li>与LIKE匹配的区别：出现的匹配文本，其相应行将被REGEXP返回</li>
+<li>默认匹配不区分大小写，使用BINARY可区分大小写</li>
+</ul>
+</li>
+<li>OR匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值1 | 值2’ ORDER BY 子句名<ul>
+<li>匹配一组特定字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1值2值3]’ ORDER BY 子句名</li>
+</ul>
+</li>
+<li>匹配范围：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1-值2]’ ORDER BY 子句名</li>
+<li>匹配特殊字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘<span>\</span>\.’ ORDER BY 子句名<ul>
+<li>引用元字符：<span>\</span>\f换页 <span>\</span>\n <span>\</span>\r回车 <span>\</span>\t <span>\</span>\v 横、纵向制表</li>
+<li>匹配反斜杠：<span>\</span><span>\</span>\<ul>
+<li>解释：第一个反斜杠由Mysql解释，第二个才是正则表达式解释</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>匹配字符类 character class（P58）</li>
+<li>匹配多个实例：如结尾s可选用?</li>
+<li>匹配特定位置文本：定位符<ul>
+<li>^文本开始 $文本结尾 :&lt;:词的开始  :&gt;:词的结尾<ul>
+<li>注意^的另一种用法是集合中作[]取和</li>
+<li>可以配套使用^$，使用法同LIKE</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>正则表达式的测试：使用SELECT，返回1匹配，反之不匹配<ul>
+<li>优点：无需调用数据库表</li>
+</ul>
+</li>
+</ul>
+<h3 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h3><p>1、字段 field：意义同列，用于计算字段的连接</p>
+<p>2、拼接 concatenate：联结值成为一个单个值</p>
+<ul>
+<li>实际操作：在SELECT中使用Concat()函数<ul>
+<li>SELECT Concat(值1，值2) FROM 表名 ORDER BY 子句名</li>
+<li>或使用RTrim() / LTrim()函数，可删除数据右侧 / 左侧多余空格来整理数据</li>
+</ul>
+</li>
+</ul>
+<p>3、别名 alias / 导出列 derived column：字段或值的替换名</p>
+<ul>
+<li>SELECT Concat(值1，值2) AS 别名 FROM 表名 ORDER BY 子句名</li>
+</ul>
+<p>4、基本计算：四则运算符</p>
+<ul>
+<li>测试计算：省略FROM子句</li>
+</ul>
+<h3 id="数据处理函数"><a href="#数据处理函数" class="headerlink" title="数据处理函数"></a>数据处理函数</h3><p>1、可移植性：多数函数不同SQL存在差异，做好注释</p>
+<p>2、文本处理（P69）</p>
+<ul>
+<li>Left / Right()：返回左 / 右侧字符</li>
+<li>Length()：返回串长</li>
+<li>Locate()：找出某子串</li>
+<li>SubString()：返回子串字符</li>
+<li>Lower/Upper()：返回小 / 大写</li>
+<li>LTrim/Rtrim()：去掉左 / 右侧空格</li>
+<li>Soundex()：将任何文本串转换为描述其语音表示的字母数字模式<ul>
+<li>对串进行发音比较（输入纠正，匹配输入项读音接近字串）</li>
+</ul>
+</li>
+</ul>
+<p>3、时间和日期处理（P71）</p>
+<ul>
+<li>Date()：返回日期</li>
+<li>Time()：返回时间</li>
+</ul>
+<p>4、数值处理（P74）</p>
+<ul>
+<li>Abs()：返回绝对值</li>
+<li>Sin() / Cos() / Tan()</li>
+<li>Exp() / Sqrt()</li>
+<li>Mod()</li>
+<li>Pi()：返回圆周率</li>
+<li>Rand()：返回一个随机数</li>
+</ul>
+<h3 id="汇总数据"><a href="#汇总数据" class="headerlink" title="汇总数据"></a>汇总数据</h3><p>1、聚集函数 aggregate function</p>
+<ul>
+<li>def：行组上计算和返回单个值的函数</li>
+<li>AVG()：SELECT AVG(列名) FROM 表名<ul>
+<li>仅用于确定特定数列，且列名必须以函数参数给出</li>
+<li>忽略值为NULL的行</li>
+</ul>
+</li>
+<li>COUNT()：SELECT COUNT(*) AS 别名 FROM 表名，统计行个数<ul>
+<li>COUNT(*) 统计NULL和非空值</li>
+<li>COUNT（列名）统计特定值，忽略值为NULL的行</li>
+</ul>
+</li>
+<li>MAX()：SELECT MAX(列名)  AS 别名 FROM 表名<ul>
+<li>可作返回任意列的最大值，按列排序的文本数据返回尾行</li>
+<li>忽略值为NULL的行</li>
+</ul>
+</li>
+<li>MIN()：SELECT MIN(列名)  AS 别名 FROM 表名<ul>
+<li>可作返回任意列的最小值，按列排序的文本数据返回首行</li>
+<li>忽略值为NULL的行</li>
+</ul>
+</li>
+<li>SUM()：SELECT SUM(列名)  AS 别名 FROM 表名<ul>
+<li>Sum(列名)返回各行该列数据之和</li>
+<li>忽略值为NULL的行</li>
+</ul>
+</li>
+<li>指定聚集范围ALL / DISTINCT</li>
+<li>组合聚集函数：SELECT COUNT(*) AS 别名， MIN(列名)  AS 别名，MAX(列名)  AS 别名，……，FROM 表名</li>
+</ul>
+<h3 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h3><p>1、创建分组：SELECT COUNT(*) AS 别名 FROM 表名 GROUP BY 列名</p>
+<ul>
+<li>对每个组的结果分别进行聚集，所有列结果一同计算<ul>
+<li>可包含任意数目的列</li>
+<li>每列可为检索列或有效表达式，不能为聚集函数</li>
+<li>SELECT使用表达式 - GROUP BY 必须使用相同表达式，不能使用别名</li>
+</ul>
+</li>
+<li>WITH ROLLUP：得到每个分组及其汇总级别的值<ul>
+<li>SELECT 列名，COUNT(*) AS 别名 FROM 表名 GROUP BY 列名 WITH ROLLUP</li>
+</ul>
+</li>
+</ul>
+<p>2、过滤分组：HAVING（WHERE仅可过滤行）</p>
+<ul>
+<li>适用所有WHERE句法</li>
+<li>在数据分组后进行<ul>
+<li>WHERE在数据过滤前进行，因此分组中不包含WHERE排除的行</li>
+</ul>
+</li>
+</ul>
+<p>3、分组和排序</p>
+<p>保证数据正确排序：GROUP BY + ORDER BY</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据库操作（四）—— 高级篇</title>
     <url>/2020/08/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%AB%98%E7%BA%A7%E7%AF%87/</url>
     <content><![CDATA[<h2 id="高级操作-第22-30章"><a href="#高级操作-第22-30章" class="headerlink" title="高级操作 第22 - 30章"></a>高级操作 第22 - 30章</h2><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>1、def：虚拟表，仅包含使用时动态检索的一个SQL查询</p>
@@ -2471,153 +2618,6 @@
 </ul>
 <h3 id="改善性能"><a href="#改善性能" class="headerlink" title="改善性能"></a>改善性能</h3><p>1、EXPLAIN语句：使mysql解释如何解释一条SELECT语句</p>
 <p>2、DELAYED关键字：把控制立即返回给调用程序</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库操作（二）—— 进阶篇</title>
-    <url>/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/</url>
-    <content><![CDATA[<h2 id="进阶操作-第9-13章"><a href="#进阶操作-第9-13章" class="headerlink" title="进阶操作 第9-13章"></a>进阶操作 第9-13章</h2><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ul>
-<li>作用：匹配文本</li>
-<li>基本字符匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值’ ORDER BY 子句名<ul>
-<li>.特殊字符表匹配任意一个字符，如‘.000’可匹配1000和2000，etc</li>
-<li>与LIKE匹配的区别：出现的匹配文本，其相应行将被REGEXP返回</li>
-<li>默认匹配不区分大小写，使用BINARY可区分大小写</li>
-</ul>
-</li>
-<li>OR匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值1 | 值2’ ORDER BY 子句名<ul>
-<li>匹配一组特定字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1值2值3]’ ORDER BY 子句名</li>
-</ul>
-</li>
-<li>匹配范围：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值1-值2]’ ORDER BY 子句名</li>
-<li>匹配特殊字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘<span>\</span>\.’ ORDER BY 子句名<ul>
-<li>引用元字符：<span>\</span>\f换页 <span>\</span>\n <span>\</span>\r回车 <span>\</span>\t <span>\</span>\v 横、纵向制表</li>
-<li>匹配反斜杠：<span>\</span><span>\</span>\<ul>
-<li>解释：第一个反斜杠由Mysql解释，第二个才是正则表达式解释</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>匹配字符类 character class（P58）</li>
-<li>匹配多个实例：如结尾s可选用?</li>
-<li>匹配特定位置文本：定位符<ul>
-<li>^文本开始 $文本结尾 :&lt;:词的开始  :&gt;:词的结尾<ul>
-<li>注意^的另一种用法是集合中作[]取和</li>
-<li>可以配套使用^$，使用法同LIKE</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>正则表达式的测试：使用SELECT，返回1匹配，反之不匹配<ul>
-<li>优点：无需调用数据库表</li>
-</ul>
-</li>
-</ul>
-<h3 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h3><p>1、字段 field：意义同列，用于计算字段的连接</p>
-<p>2、拼接 concatenate：联结值成为一个单个值</p>
-<ul>
-<li>实际操作：在SELECT中使用Concat()函数<ul>
-<li>SELECT Concat(值1，值2) FROM 表名 ORDER BY 子句名</li>
-<li>或使用RTrim() / LTrim()函数，可删除数据右侧 / 左侧多余空格来整理数据</li>
-</ul>
-</li>
-</ul>
-<p>3、别名 alias / 导出列 derived column：字段或值的替换名</p>
-<ul>
-<li>SELECT Concat(值1，值2) AS 别名 FROM 表名 ORDER BY 子句名</li>
-</ul>
-<p>4、基本计算：四则运算符</p>
-<ul>
-<li>测试计算：省略FROM子句</li>
-</ul>
-<h3 id="数据处理函数"><a href="#数据处理函数" class="headerlink" title="数据处理函数"></a>数据处理函数</h3><p>1、可移植性：多数函数不同SQL存在差异，做好注释</p>
-<p>2、文本处理（P69）</p>
-<ul>
-<li>Left / Right()：返回左 / 右侧字符</li>
-<li>Length()：返回串长</li>
-<li>Locate()：找出某子串</li>
-<li>SubString()：返回子串字符</li>
-<li>Lower/Upper()：返回小 / 大写</li>
-<li>LTrim/Rtrim()：去掉左 / 右侧空格</li>
-<li>Soundex()：将任何文本串转换为描述其语音表示的字母数字模式<ul>
-<li>对串进行发音比较（输入纠正，匹配输入项读音接近字串）</li>
-</ul>
-</li>
-</ul>
-<p>3、时间和日期处理（P71）</p>
-<ul>
-<li>Date()：返回日期</li>
-<li>Time()：返回时间</li>
-</ul>
-<p>4、数值处理（P74）</p>
-<ul>
-<li>Abs()：返回绝对值</li>
-<li>Sin() / Cos() / Tan()</li>
-<li>Exp() / Sqrt()</li>
-<li>Mod()</li>
-<li>Pi()：返回圆周率</li>
-<li>Rand()：返回一个随机数</li>
-</ul>
-<h3 id="汇总数据"><a href="#汇总数据" class="headerlink" title="汇总数据"></a>汇总数据</h3><p>1、聚集函数 aggregate function</p>
-<ul>
-<li>def：行组上计算和返回单个值的函数</li>
-<li>AVG()：SELECT AVG(列名) FROM 表名<ul>
-<li>仅用于确定特定数列，且列名必须以函数参数给出</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>COUNT()：SELECT COUNT(*) AS 别名 FROM 表名，统计行个数<ul>
-<li>COUNT(*) 统计NULL和非空值</li>
-<li>COUNT（列名）统计特定值，忽略值为NULL的行</li>
-</ul>
-</li>
-<li>MAX()：SELECT MAX(列名)  AS 别名 FROM 表名<ul>
-<li>可作返回任意列的最大值，按列排序的文本数据返回尾行</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>MIN()：SELECT MIN(列名)  AS 别名 FROM 表名<ul>
-<li>可作返回任意列的最小值，按列排序的文本数据返回首行</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>SUM()：SELECT SUM(列名)  AS 别名 FROM 表名<ul>
-<li>Sum(列名)返回各行该列数据之和</li>
-<li>忽略值为NULL的行</li>
-</ul>
-</li>
-<li>指定聚集范围ALL / DISTINCT</li>
-<li>组合聚集函数：SELECT COUNT(*) AS 别名， MIN(列名)  AS 别名，MAX(列名)  AS 别名，……，FROM 表名</li>
-</ul>
-<h3 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h3><p>1、创建分组：SELECT COUNT(*) AS 别名 FROM 表名 GROUP BY 列名</p>
-<ul>
-<li>对每个组的结果分别进行聚集，所有列结果一同计算<ul>
-<li>可包含任意数目的列</li>
-<li>每列可为检索列或有效表达式，不能为聚集函数</li>
-<li>SELECT使用表达式 - GROUP BY 必须使用相同表达式，不能使用别名</li>
-</ul>
-</li>
-<li>WITH ROLLUP：得到每个分组及其汇总级别的值<ul>
-<li>SELECT 列名，COUNT(*) AS 别名 FROM 表名 GROUP BY 列名 WITH ROLLUP</li>
-</ul>
-</li>
-</ul>
-<p>2、过滤分组：HAVING（WHERE仅可过滤行）</p>
-<ul>
-<li>适用所有WHERE句法</li>
-<li>在数据分组后进行<ul>
-<li>WHERE在数据过滤前进行，因此分组中不包含WHERE排除的行</li>
-</ul>
-</li>
-</ul>
-<p>3、分组和排序</p>
-<p>保证数据正确排序：GROUP BY + ORDER BY</p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -3350,339 +3350,6 @@ min\{R_c,R_s\}</script><h1 id="五、协议层次及其服务模型-Protocol-Lay
       </tags>
   </entry>
   <entry>
-    <title>计算机网络（二）：应用层</title>
-    <url>/2020/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%BA%94%E7%94%A8%E5%B1%82/</url>
-    <content><![CDATA[<h1 id="应用层协议原理"><a href="#应用层协议原理" class="headerlink" title="应用层协议原理"></a>应用层协议原理</h1><h2 id="网络应用程序体系结构"><a href="#网络应用程序体系结构" class="headerlink" title="网络应用程序体系结构"></a>网络应用程序体系结构</h2><p>1、<strong>客户 - 服务器体系架构</strong>（client-server architecture）</p>
-<ul>
-<li>服务器主机总是打开，接收客户主机请求</li>
-<li>客户之间不相互通信</li>
-</ul>
-<p>2、<strong>P2P体系结构</strong></p>
-<ul>
-<li>对数据中心的专用服务器仅有最小依赖</li>
-<li>标识：发起通信为客户，等待联系为服务器</li>
-<li>间断连接的主机间使用直接通信<ul>
-<li>这样的一组主机称对等方</li>
-</ul>
-</li>
-<li><strong>自扩展性</strong> self-scalability<ul>
-<li>向对等方发送文件</li>
-<li>请求产生工作负载，但也为系统增加服务能力</li>
-</ul>
-</li>
-</ul>
-<h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><p>1、进程 process</p>
-<ul>
-<li>def：运行在端系统的一个程序</li>
-<li>通信进程对：每对两个进程互相发送报文</li>
-<li><strong>进程寻址</strong>的要求<ul>
-<li>主机地址</li>
-<li>目的主机需指定接收进程的标识符</li>
-</ul>
-</li>
-</ul>
-<p>2、套接字 socket：向网络发送 / 接收报文的软件接口</p>
-<p>3、应用程序编程接口 <em>API</em></p>
-<ul>
-<li>建立网络应用程序的可编程接口</li>
-<li>运输层的控制<ul>
-<li>选择运输层协议</li>
-<li>部分运输层参数</li>
-</ul>
-</li>
-</ul>
-<h2 id="可供应用程序使用的运输服务"><a href="#可供应用程序使用的运输服务" class="headerlink" title="可供应用程序使用的运输服务"></a>可供应用程序使用的运输服务</h2><p>1、<strong>可靠数据传输</strong>：正确、完全地交付数据</p>
-<p>2、吞吐量</p>
-<ul>
-<li>带宽敏感 / 弹性应用</li>
-</ul>
-<p>3、<strong>定时保证</strong></p>
-<ul>
-<li>交互式实时应用</li>
-</ul>
-<p>4、安全性</p>
-<h2 id="因特网提供的运输服务"><a href="#因特网提供的运输服务" class="headerlink" title="因特网提供的运输服务"></a>因特网提供的运输服务</h2><p>1、TCP服务</p>
-<ul>
-<li>面向连接：流动前互换运输层控制信息，结束后拆除连接</li>
-<li>可靠数据传送：无差错、按适当顺序交付</li>
-<li><strong>拥塞控制</strong></li>
-<li>无加密机制<ul>
-<li>改进：*安全套接字层（Secure Socket Layer，SSL）</li>
-</ul>
-</li>
-</ul>
-<p>2、UDP服务</p>
-<ul>
-<li>轻量级，仅提供最小服务</li>
-<li>不可靠数据传送：不保证到达、可乱序</li>
-<li>可选定数据的传输速率</li>
-<li>无加密机制</li>
-</ul>
-<h2 id="应用层协议"><a href="#应用层协议" class="headerlink" title="应用层协议"></a>应用层协议</h2><p>1、RFC（Request For Comments）文档：一系列以编号排定的文件</p>
-<ul>
-<li>位于公共域中</li>
-<li>收录几乎所有互联网标准</li>
-</ul>
-<p>2、超文本传输协议 HTTP</p>
-<p>3、简单邮件传输协议 SMTP</p>
-<h1 id="HyperText-Transfer-Protocol"><a href="#HyperText-Transfer-Protocol" class="headerlink" title="HyperText Transfer Protocol"></a>HyperText Transfer Protocol</h1><p>1、超文本传输协议 HTTP</p>
-<ul>
-<li>定义报文的结构和客户、服务器进行报文交换的方式</li>
-<li>实现：一个客户程序和一个服务器程序（P65）</li>
-<li>支撑运输协议：<em>TCP</em></li>
-<li>无状态协议 stateless protocol：不保存关于客户的任何信息</li>
-</ul>
-<p>2、连接方式</p>
-<ul>
-<li><strong>非持续连接</strong> non-persistent connection<ul>
-<li>请求 / 响应经一单独TCP连接发送</li>
-<li>为每个请求对象建立和维护一个全新连接</li>
-<li><strong>三次握手</strong>：发送确认<em>RTT</em> - 返回确认<em>RTT</em> - 传输<ul>
-<li>往返时间 Round-Trip Time，<em>RTT</em></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>持续连接</strong>（默认）<ul>
-<li>请求 / 响应经相同的TCP连接发送</li>
-<li>带流水线（默认）：对对象的请求可依次发出，不必等待未决请求</li>
-</ul>
-</li>
-</ul>
-<p>3、报文格式</p>
-<p><strong>请求报文（P68，CR回车，LF换行）</strong></p>
-<ul>
-<li>组成：<ul>
-<li>第一行称<strong>请求行</strong> request line<ul>
-<li>三个部分：方法字段 URL字段 HTTP字段</li>
-</ul>
-</li>
-<li>后继行称<strong>首部行</strong> header line</li>
-<li>实体体 entity body：POST方法使用</li>
-</ul>
-</li>
-<li>方法字段：GET POST HEAD PUT DELETE<ul>
-<li>GET：请求对象、提交表单（HTML表单）</li>
-<li>POST：提交表单</li>
-<li>HEAD：响应请求，但不返回对象<ul>
-<li>*试跟踪</li>
-</ul>
-</li>
-<li>PUT：常与Web发行工具共用，上传对象到指定Web服务器指定路径</li>
-<li>DELETE：允许删除Web服务器上对象</li>
-</ul>
-</li>
-</ul>
-<p><strong>响应报文（P69）</strong></p>
-<ul>
-<li>组成<ul>
-<li>状态行 status line <ul>
-<li>三个部分：协议版本字段 状态码 相应状态信息</li>
-</ul>
-</li>
-<li>首部行和实体体</li>
-</ul>
-</li>
-<li>常见状态码：200 OK；301请求对象已经永久转移；400/404；505 不支持的HTTP协议版本</li>
-</ul>
-<p>4、Cookie</p>
-<ul>
-<li>组成<ul>
-<li>响应报文中的一个cookie首部行</li>
-<li>请求报文中的一个cookie首部行</li>
-<li>用户端系统保留的一个cookie文件</li>
-<li>位于Web站点的一个后端数据库</li>
-</ul>
-</li>
-<li><strong>识别码</strong> Set-cookie：用于标识一个用户<ul>
-<li>*用户隐私侵害</li>
-</ul>
-</li>
-</ul>
-<p>5、Web缓存</p>
-<ul>
-<li>Web缓存器 Web Cache / 代理服务器 <em>proxy server</em><ul>
-<li>配置后的浏览器请求被定向至代理服务器</li>
-<li>发送给用户服务器的是保存的一份<strong>副本</strong></li>
-<li>从整体上大大降低因特网的流量</li>
-</ul>
-</li>
-<li>内容分发网络 Content Distribution Network，CDN：使大量流量实现本地化</li>
-<li><strong>条件Get方法</strong>：执行最新检查<ul>
-<li>If-Modified-Since = Last-Modified -&gt; 304 Not Modified</li>
-</ul>
-</li>
-</ul>
-<h1 id="因特网电子邮件"><a href="#因特网电子邮件" class="headerlink" title="因特网电子邮件"></a>因特网电子邮件</h1><p>1、组成：用户代理（user agent）邮件服务器（mail server）简单邮件传输协议（SMTP）</p>
-<p>2、支撑应用层服务：TCP</p>
-<p>3、SMTP</p>
-<ul>
-<li>因特网电子邮件的核心</li>
-<li>仅能采用简单的7比特ASCII表示</li>
-<li>传送多谋体数据编码需先转码</li>
-<li>无存留：一般不使用中间邮件服务器</li>
-<li>使用持续连接</li>
-</ul>
-<h5 id="对比HTTP"><a href="#对比HTTP" class="headerlink" title="对比HTTP"></a>对比HTTP</h5><ul>
-<li>HTTP不需要对多谋体数据编码转码</li>
-<li>HTTP是拉协议（pull protocol）而SMTP基本上是推协议（push protocol）</li>
-<li>HTTP封装对象，SMTP将所有对象存放在一个报文中</li>
-</ul>
-<p>4、邮件报文格式</p>
-<ul>
-<li>首部：From To （Subject，其他可选首部行）</li>
-<li>一个空白行</li>
-<li>报文体（ASCII格式）</li>
-</ul>
-<p>5、邮件访问协议</p>
-<ul>
-<li>第三版的邮局协议 Post Office Protocol - Version 3，POP3<ul>
-<li>三个工作阶段<ul>
-<li>特许（authorization）：明文发送用户名和口令以鉴别用户</li>
-<li>事务处理：取回报文；标记 / 删除报文标记、获取邮件统计信息（可选）</li>
-<li>更新：在quit命令发出后结束会话</li>
-</ul>
-</li>
-<li>下载方式：下载并删除（不同机器不可读） / 下载并保留（可多端查看）</li>
-<li>优点：会话中不包含状态信息，大大简化了服务的实现</li>
-</ul>
-</li>
-<li>因特网邮件访问协议 Internet Mail Access Protocol，IMAP<ul>
-<li>实现访问远程服务器文件夹</li>
-<li>维护用户状态信息</li>
-<li>允许用户代理获取报文的某些指定部分（灵活）</li>
-<li>用户-&gt;邮件服务器：HTTP  邮件服务器-&gt;邮件服务器：SMTP</li>
-</ul>
-</li>
-</ul>
-<h1 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h1><h2 id="提供服务"><a href="#提供服务" class="headerlink" title="提供服务"></a>提供服务</h2><ul>
-<li>核心：主机名-&gt;IP名转换的目录服务</li>
-<li>提供主机别名（host aliasing）：此时原名称称规范主机名（canonical hostname）</li>
-<li>邮件服务器别名</li>
-<li>负载分配（load distribution）：每个回答循环响应，在冗余的Web服务器间分配负载</li>
-</ul>
-<h2 id="工作机理"><a href="#工作机理" class="headerlink" title="工作机理"></a>工作机理</h2><p>1、实现</p>
-<ul>
-<li>一个分层的DNS服务器实现的分布式数据库</li>
-<li>使主机可查询数据库的应用层协议</li>
-</ul>
-<p>2、支撑应用层服务：UDP（53号端口）</p>
-<p>3、分布式、层次数据库</p>
-<ul>
-<li>集中式的弊端<ul>
-<li>单点故障</li>
-<li>通信容量（traffic volume）</li>
-<li>远距离的集中式数据库</li>
-<li>维护</li>
-</ul>
-</li>
-<li>服务器类型（P87）<ul>
-<li>根DNS服务器：提供TLD服务器的IP地址</li>
-<li>顶级域服务器 TLD：提供权威DNS服务器的IP地址</li>
-<li>权威DNS服务器：提供公共可访问的DNS记录</li>
-<li>本地DNS服务器</li>
-</ul>
-</li>
-<li><p>查询方式：主机-&gt;服务器递归查询，其余均为迭代查询</p>
-<p>4、DNS缓存</p>
-</li>
-<li><p>将映射缓存在本地存储器中</p>
-</li>
-<li>可绕过根服务器：存在缓存，立即返回IP地址</li>
-<li>一段时间丢弃信息（默认：两天）</li>
-</ul>
-<h2 id="DNS记录和报文"><a href="#DNS记录和报文" class="headerlink" title="DNS记录和报文"></a>DNS记录和报文</h2><p>1、资源记录 Resource Record，RR</p>
-<ul>
-<li>提供主机名到IP地址的映射</li>
-<li>格式：（Name，Value，Type，TTL）<ul>
-<li>TTL：记录的生存时间</li>
-</ul>
-</li>
-</ul>
-<p>2、Type的不同类型</p>
-<ul>
-<li>Type：A <ul>
-<li>Name：主机名 </li>
-<li>Value：主机名对应IP地址</li>
-</ul>
-</li>
-<li>Type：NS <ul>
-<li>Name：个域</li>
-<li>Value：可提供主机IP地址的权威DNS服务器主机名</li>
-</ul>
-</li>
-<li>Type：CNAME <ul>
-<li>Name：别名为Name的主机名称</li>
-<li>Value：该主机的规范主机名</li>
-</ul>
-</li>
-<li>Type：MX<ul>
-<li>Name：别名为Name的服务器主机名称</li>
-<li>Value：该服务器主机的规范主机名</li>
-</ul>
-</li>
-</ul>
-<p>3、报文格式（P90）</p>
-<ul>
-<li>首部区域（12字节）：标识符 标志 问题数 回答 / 权威 / 附加RR数</li>
-<li>问题区域：名字 类型</li>
-<li>权威区域</li>
-<li>附加区域</li>
-</ul>
-<p>4、插入记录：注册登记机构（registrar）验证域名唯一性，输入DNS数据库</p>
-<p>*5、DNS的健壮性</p>
-<h1 id="P2P文件分发"><a href="#P2P文件分发" class="headerlink" title="P2P文件分发"></a>P2P文件分发</h1><p>1、def：成对间歇的主机（对等方）彼此直接通信</p>
-<p>2、最小分发时间：</p>
-<script type="math/tex; mode=display">
-D_{P2P}=max\{\frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+{\sum_{r=1}^n}}\}</script><p>3、Bittorrent</p>
-<ul>
-<li>洪流 torrent：参与一个特定文件分发的所有对等方的集合</li>
-<li>块 chunk：典型（256kb）等长文件块</li>
-<li>加入过程：向追踪器注册 - 周期性通知仍在洪流中</li>
-<li>最稀缺优先 rarest first：优先请求那些邻居中副本数量最少的块，以均衡每个洪流的副本数量</li>
-<li>疏通 unchoked：一个时间间隔后重新计算最高速率并修改对等方集合，保证最高速率</li>
-<li>*分布式散列表 DHT：分布在多个对等方的简单数据库</li>
-</ul>
-<h1 id="视频流和内容分发网-CDN"><a href="#视频流和内容分发网-CDN" class="headerlink" title="视频流和内容分发网 CDN"></a>视频流和内容分发网 CDN</h1><p>1、压缩<strong>比特率</strong>，提高图像质量</p>
-<p>2、流式视频的重要衡量：avg端到端时延</p>
-<p>3、DASH：经HTTP的动态适应流</p>
-<ul>
-<li>告示文件（manifest file）提供比特率和URL</li>
-<li>速率决定算法选择后继请求块</li>
-</ul>
-<p>4、CDN</p>
-<ul>
-<li>分类：专用CDN 第三方CDN</li>
-<li>服务器安置原则<ul>
-<li>深入：靠近端用户，改善时延和吞吐量</li>
-<li>邀请做客：邀请到放置在IXP的集群，降低维护和管理开销</li>
-</ul>
-</li>
-<li>机制：截获 重定向</li>
-<li>*实时测量</li>
-<li>案例：油管 Netflix 迅雷</li>
-</ul>
-<h1 id="套接字编程"><a href="#套接字编程" class="headerlink" title="套接字编程"></a>套接字编程</h1><p>1、分类：协议标准定义 或 专用网络的网络应用程序</p>
-<p>2、UDP套接字</p>
-<ul>
-<li>过程：键入，发送数据至服务器 - 转换报文，发送给客户 - 客户端监视器显示</li>
-<li>需显式创建分组并附上目的地址</li>
-</ul>
-<p>3、TCP套接字</p>
-<ul>
-<li>欢迎套接字和连接套接字</li>
-<li>仅需将数据放入TCP连接</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计算机网络（三）：运输层</title>
     <url>/2020/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E8%BF%90%E8%BE%93%E5%B1%82/</url>
     <content><![CDATA[<h1 id="运输层服务"><a href="#运输层服务" class="headerlink" title="运输层服务"></a>运输层服务</h1><p>1、工作位置：端系统</p>
@@ -4009,6 +3676,339 @@ avg_{单条连接的吞吐量} =  \frac{1.22 * MSS}{RTT * \sqrt{L}}</script><p>�
 <li>好处：无需再由发送方通过观察分组丢失来推断拥塞</li>
 <li>过程：接收主机收到ECN拥塞指示 -&gt; 设置ECN（拥塞通告回显）-&gt; 通知发送方 -&gt; 收到拥塞指示，减半拥塞窗口、设置CWR比特（拥塞窗口缩减）</li>
 <li>*利用网络层发送ECN信号：数据包拥塞控制协议 DCCP、数据中心TCP DCTCP</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络（二）：应用层</title>
+    <url>/2020/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%BA%94%E7%94%A8%E5%B1%82/</url>
+    <content><![CDATA[<h1 id="应用层协议原理"><a href="#应用层协议原理" class="headerlink" title="应用层协议原理"></a>应用层协议原理</h1><h2 id="网络应用程序体系结构"><a href="#网络应用程序体系结构" class="headerlink" title="网络应用程序体系结构"></a>网络应用程序体系结构</h2><p>1、<strong>客户 - 服务器体系架构</strong>（client-server architecture）</p>
+<ul>
+<li>服务器主机总是打开，接收客户主机请求</li>
+<li>客户之间不相互通信</li>
+</ul>
+<p>2、<strong>P2P体系结构</strong></p>
+<ul>
+<li>对数据中心的专用服务器仅有最小依赖</li>
+<li>标识：发起通信为客户，等待联系为服务器</li>
+<li>间断连接的主机间使用直接通信<ul>
+<li>这样的一组主机称对等方</li>
+</ul>
+</li>
+<li><strong>自扩展性</strong> self-scalability<ul>
+<li>向对等方发送文件</li>
+<li>请求产生工作负载，但也为系统增加服务能力</li>
+</ul>
+</li>
+</ul>
+<h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><p>1、进程 process</p>
+<ul>
+<li>def：运行在端系统的一个程序</li>
+<li>通信进程对：每对两个进程互相发送报文</li>
+<li><strong>进程寻址</strong>的要求<ul>
+<li>主机地址</li>
+<li>目的主机需指定接收进程的标识符</li>
+</ul>
+</li>
+</ul>
+<p>2、套接字 socket：向网络发送 / 接收报文的软件接口</p>
+<p>3、应用程序编程接口 <em>API</em></p>
+<ul>
+<li>建立网络应用程序的可编程接口</li>
+<li>运输层的控制<ul>
+<li>选择运输层协议</li>
+<li>部分运输层参数</li>
+</ul>
+</li>
+</ul>
+<h2 id="可供应用程序使用的运输服务"><a href="#可供应用程序使用的运输服务" class="headerlink" title="可供应用程序使用的运输服务"></a>可供应用程序使用的运输服务</h2><p>1、<strong>可靠数据传输</strong>：正确、完全地交付数据</p>
+<p>2、吞吐量</p>
+<ul>
+<li>带宽敏感 / 弹性应用</li>
+</ul>
+<p>3、<strong>定时保证</strong></p>
+<ul>
+<li>交互式实时应用</li>
+</ul>
+<p>4、安全性</p>
+<h2 id="因特网提供的运输服务"><a href="#因特网提供的运输服务" class="headerlink" title="因特网提供的运输服务"></a>因特网提供的运输服务</h2><p>1、TCP服务</p>
+<ul>
+<li>面向连接：流动前互换运输层控制信息，结束后拆除连接</li>
+<li>可靠数据传送：无差错、按适当顺序交付</li>
+<li><strong>拥塞控制</strong></li>
+<li>无加密机制<ul>
+<li>改进：*安全套接字层（Secure Socket Layer，SSL）</li>
+</ul>
+</li>
+</ul>
+<p>2、UDP服务</p>
+<ul>
+<li>轻量级，仅提供最小服务</li>
+<li>不可靠数据传送：不保证到达、可乱序</li>
+<li>可选定数据的传输速率</li>
+<li>无加密机制</li>
+</ul>
+<h2 id="应用层协议"><a href="#应用层协议" class="headerlink" title="应用层协议"></a>应用层协议</h2><p>1、RFC（Request For Comments）文档：一系列以编号排定的文件</p>
+<ul>
+<li>位于公共域中</li>
+<li>收录几乎所有互联网标准</li>
+</ul>
+<p>2、超文本传输协议 HTTP</p>
+<p>3、简单邮件传输协议 SMTP</p>
+<h1 id="HyperText-Transfer-Protocol"><a href="#HyperText-Transfer-Protocol" class="headerlink" title="HyperText Transfer Protocol"></a>HyperText Transfer Protocol</h1><p>1、超文本传输协议 HTTP</p>
+<ul>
+<li>定义报文的结构和客户、服务器进行报文交换的方式</li>
+<li>实现：一个客户程序和一个服务器程序（P65）</li>
+<li>支撑运输协议：<em>TCP</em></li>
+<li>无状态协议 stateless protocol：不保存关于客户的任何信息</li>
+</ul>
+<p>2、连接方式</p>
+<ul>
+<li><strong>非持续连接</strong> non-persistent connection<ul>
+<li>请求 / 响应经一单独TCP连接发送</li>
+<li>为每个请求对象建立和维护一个全新连接</li>
+<li><strong>三次握手</strong>：发送确认<em>RTT</em> - 返回确认<em>RTT</em> - 传输<ul>
+<li>往返时间 Round-Trip Time，<em>RTT</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>持续连接</strong>（默认）<ul>
+<li>请求 / 响应经相同的TCP连接发送</li>
+<li>带流水线（默认）：对对象的请求可依次发出，不必等待未决请求</li>
+</ul>
+</li>
+</ul>
+<p>3、报文格式</p>
+<p><strong>请求报文（P68，CR回车，LF换行）</strong></p>
+<ul>
+<li>组成：<ul>
+<li>第一行称<strong>请求行</strong> request line<ul>
+<li>三个部分：方法字段 URL字段 HTTP字段</li>
+</ul>
+</li>
+<li>后继行称<strong>首部行</strong> header line</li>
+<li>实体体 entity body：POST方法使用</li>
+</ul>
+</li>
+<li>方法字段：GET POST HEAD PUT DELETE<ul>
+<li>GET：请求对象、提交表单（HTML表单）</li>
+<li>POST：提交表单</li>
+<li>HEAD：响应请求，但不返回对象<ul>
+<li>*试跟踪</li>
+</ul>
+</li>
+<li>PUT：常与Web发行工具共用，上传对象到指定Web服务器指定路径</li>
+<li>DELETE：允许删除Web服务器上对象</li>
+</ul>
+</li>
+</ul>
+<p><strong>响应报文（P69）</strong></p>
+<ul>
+<li>组成<ul>
+<li>状态行 status line <ul>
+<li>三个部分：协议版本字段 状态码 相应状态信息</li>
+</ul>
+</li>
+<li>首部行和实体体</li>
+</ul>
+</li>
+<li>常见状态码：200 OK；301请求对象已经永久转移；400/404；505 不支持的HTTP协议版本</li>
+</ul>
+<p>4、Cookie</p>
+<ul>
+<li>组成<ul>
+<li>响应报文中的一个cookie首部行</li>
+<li>请求报文中的一个cookie首部行</li>
+<li>用户端系统保留的一个cookie文件</li>
+<li>位于Web站点的一个后端数据库</li>
+</ul>
+</li>
+<li><strong>识别码</strong> Set-cookie：用于标识一个用户<ul>
+<li>*用户隐私侵害</li>
+</ul>
+</li>
+</ul>
+<p>5、Web缓存</p>
+<ul>
+<li>Web缓存器 Web Cache / 代理服务器 <em>proxy server</em><ul>
+<li>配置后的浏览器请求被定向至代理服务器</li>
+<li>发送给用户服务器的是保存的一份<strong>副本</strong></li>
+<li>从整体上大大降低因特网的流量</li>
+</ul>
+</li>
+<li>内容分发网络 Content Distribution Network，CDN：使大量流量实现本地化</li>
+<li><strong>条件Get方法</strong>：执行最新检查<ul>
+<li>If-Modified-Since = Last-Modified -&gt; 304 Not Modified</li>
+</ul>
+</li>
+</ul>
+<h1 id="因特网电子邮件"><a href="#因特网电子邮件" class="headerlink" title="因特网电子邮件"></a>因特网电子邮件</h1><p>1、组成：用户代理（user agent）邮件服务器（mail server）简单邮件传输协议（SMTP）</p>
+<p>2、支撑应用层服务：TCP</p>
+<p>3、SMTP</p>
+<ul>
+<li>因特网电子邮件的核心</li>
+<li>仅能采用简单的7比特ASCII表示</li>
+<li>传送多谋体数据编码需先转码</li>
+<li>无存留：一般不使用中间邮件服务器</li>
+<li>使用持续连接</li>
+</ul>
+<h5 id="对比HTTP"><a href="#对比HTTP" class="headerlink" title="对比HTTP"></a>对比HTTP</h5><ul>
+<li>HTTP不需要对多谋体数据编码转码</li>
+<li>HTTP是拉协议（pull protocol）而SMTP基本上是推协议（push protocol）</li>
+<li>HTTP封装对象，SMTP将所有对象存放在一个报文中</li>
+</ul>
+<p>4、邮件报文格式</p>
+<ul>
+<li>首部：From To （Subject，其他可选首部行）</li>
+<li>一个空白行</li>
+<li>报文体（ASCII格式）</li>
+</ul>
+<p>5、邮件访问协议</p>
+<ul>
+<li>第三版的邮局协议 Post Office Protocol - Version 3，POP3<ul>
+<li>三个工作阶段<ul>
+<li>特许（authorization）：明文发送用户名和口令以鉴别用户</li>
+<li>事务处理：取回报文；标记 / 删除报文标记、获取邮件统计信息（可选）</li>
+<li>更新：在quit命令发出后结束会话</li>
+</ul>
+</li>
+<li>下载方式：下载并删除（不同机器不可读） / 下载并保留（可多端查看）</li>
+<li>优点：会话中不包含状态信息，大大简化了服务的实现</li>
+</ul>
+</li>
+<li>因特网邮件访问协议 Internet Mail Access Protocol，IMAP<ul>
+<li>实现访问远程服务器文件夹</li>
+<li>维护用户状态信息</li>
+<li>允许用户代理获取报文的某些指定部分（灵活）</li>
+<li>用户-&gt;邮件服务器：HTTP  邮件服务器-&gt;邮件服务器：SMTP</li>
+</ul>
+</li>
+</ul>
+<h1 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h1><h2 id="提供服务"><a href="#提供服务" class="headerlink" title="提供服务"></a>提供服务</h2><ul>
+<li>核心：主机名-&gt;IP名转换的目录服务</li>
+<li>提供主机别名（host aliasing）：此时原名称称规范主机名（canonical hostname）</li>
+<li>邮件服务器别名</li>
+<li>负载分配（load distribution）：每个回答循环响应，在冗余的Web服务器间分配负载</li>
+</ul>
+<h2 id="工作机理"><a href="#工作机理" class="headerlink" title="工作机理"></a>工作机理</h2><p>1、实现</p>
+<ul>
+<li>一个分层的DNS服务器实现的分布式数据库</li>
+<li>使主机可查询数据库的应用层协议</li>
+</ul>
+<p>2、支撑应用层服务：UDP（53号端口）</p>
+<p>3、分布式、层次数据库</p>
+<ul>
+<li>集中式的弊端<ul>
+<li>单点故障</li>
+<li>通信容量（traffic volume）</li>
+<li>远距离的集中式数据库</li>
+<li>维护</li>
+</ul>
+</li>
+<li>服务器类型（P87）<ul>
+<li>根DNS服务器：提供TLD服务器的IP地址</li>
+<li>顶级域服务器 TLD：提供权威DNS服务器的IP地址</li>
+<li>权威DNS服务器：提供公共可访问的DNS记录</li>
+<li>本地DNS服务器</li>
+</ul>
+</li>
+<li><p>查询方式：主机-&gt;服务器递归查询，其余均为迭代查询</p>
+<p>4、DNS缓存</p>
+</li>
+<li><p>将映射缓存在本地存储器中</p>
+</li>
+<li>可绕过根服务器：存在缓存，立即返回IP地址</li>
+<li>一段时间丢弃信息（默认：两天）</li>
+</ul>
+<h2 id="DNS记录和报文"><a href="#DNS记录和报文" class="headerlink" title="DNS记录和报文"></a>DNS记录和报文</h2><p>1、资源记录 Resource Record，RR</p>
+<ul>
+<li>提供主机名到IP地址的映射</li>
+<li>格式：（Name，Value，Type，TTL）<ul>
+<li>TTL：记录的生存时间</li>
+</ul>
+</li>
+</ul>
+<p>2、Type的不同类型</p>
+<ul>
+<li>Type：A <ul>
+<li>Name：主机名 </li>
+<li>Value：主机名对应IP地址</li>
+</ul>
+</li>
+<li>Type：NS <ul>
+<li>Name：个域</li>
+<li>Value：可提供主机IP地址的权威DNS服务器主机名</li>
+</ul>
+</li>
+<li>Type：CNAME <ul>
+<li>Name：别名为Name的主机名称</li>
+<li>Value：该主机的规范主机名</li>
+</ul>
+</li>
+<li>Type：MX<ul>
+<li>Name：别名为Name的服务器主机名称</li>
+<li>Value：该服务器主机的规范主机名</li>
+</ul>
+</li>
+</ul>
+<p>3、报文格式（P90）</p>
+<ul>
+<li>首部区域（12字节）：标识符 标志 问题数 回答 / 权威 / 附加RR数</li>
+<li>问题区域：名字 类型</li>
+<li>权威区域</li>
+<li>附加区域</li>
+</ul>
+<p>4、插入记录：注册登记机构（registrar）验证域名唯一性，输入DNS数据库</p>
+<p>*5、DNS的健壮性</p>
+<h1 id="P2P文件分发"><a href="#P2P文件分发" class="headerlink" title="P2P文件分发"></a>P2P文件分发</h1><p>1、def：成对间歇的主机（对等方）彼此直接通信</p>
+<p>2、最小分发时间：</p>
+<script type="math/tex; mode=display">
+D_{P2P}=max\{\frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+{\sum_{r=1}^n}}\}</script><p>3、Bittorrent</p>
+<ul>
+<li>洪流 torrent：参与一个特定文件分发的所有对等方的集合</li>
+<li>块 chunk：典型（256kb）等长文件块</li>
+<li>加入过程：向追踪器注册 - 周期性通知仍在洪流中</li>
+<li>最稀缺优先 rarest first：优先请求那些邻居中副本数量最少的块，以均衡每个洪流的副本数量</li>
+<li>疏通 unchoked：一个时间间隔后重新计算最高速率并修改对等方集合，保证最高速率</li>
+<li>*分布式散列表 DHT：分布在多个对等方的简单数据库</li>
+</ul>
+<h1 id="视频流和内容分发网-CDN"><a href="#视频流和内容分发网-CDN" class="headerlink" title="视频流和内容分发网 CDN"></a>视频流和内容分发网 CDN</h1><p>1、压缩<strong>比特率</strong>，提高图像质量</p>
+<p>2、流式视频的重要衡量：avg端到端时延</p>
+<p>3、DASH：经HTTP的动态适应流</p>
+<ul>
+<li>告示文件（manifest file）提供比特率和URL</li>
+<li>速率决定算法选择后继请求块</li>
+</ul>
+<p>4、CDN</p>
+<ul>
+<li>分类：专用CDN 第三方CDN</li>
+<li>服务器安置原则<ul>
+<li>深入：靠近端用户，改善时延和吞吐量</li>
+<li>邀请做客：邀请到放置在IXP的集群，降低维护和管理开销</li>
+</ul>
+</li>
+<li>机制：截获 重定向</li>
+<li>*实时测量</li>
+<li>案例：油管 Netflix 迅雷</li>
+</ul>
+<h1 id="套接字编程"><a href="#套接字编程" class="headerlink" title="套接字编程"></a>套接字编程</h1><p>1、分类：协议标准定义 或 专用网络的网络应用程序</p>
+<p>2、UDP套接字</p>
+<ul>
+<li>过程：键入，发送数据至服务器 - 转换报文，发送给客户 - 客户端监视器显示</li>
+<li>需显式创建分组并附上目的地址</li>
+</ul>
+<p>3、TCP套接字</p>
+<ul>
+<li>欢迎套接字和连接套接字</li>
+<li>仅需将数据放入TCP连接</li>
 </ul>
 ]]></content>
       <categories>
