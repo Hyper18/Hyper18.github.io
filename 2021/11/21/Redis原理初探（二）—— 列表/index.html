@@ -436,7 +436,7 @@ mjx-container[display="true"] + br {
 <h4 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h4><ul>
 <li>当一个列表键只包含少量列表项，并且每个列表项要么就是小整数值，要么就是长度比较短的字符串</li>
 </ul>
-<h3 id="压缩列表的组成"><a href="#压缩列表的组成" class="headerlink" title="压缩列表的组成"></a>压缩列表的组成</h3><p><img data-src="./压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;"></p>
+<h3 id="压缩列表的组成"><a href="#压缩列表的组成" class="headerlink" title="压缩列表的组成"></a>压缩列表的组成</h3><p><img data-src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;"></p>
 <ul>
 <li>zlbytes：4bytes，<strong>记录整个压缩列表占用的内存字节数</strong></li>
 <li> zltail：4bytes，<strong>记录压缩列表表尾节点距离压缩列表的起始地址有多少字节</strong><ul>
@@ -447,7 +447,7 @@ mjx-container[display="true"] + br {
 <li> entryX：列表节点，<strong>节点的长度由节点保存的内容决定</strong></li>
 <li> zlend：1byte，值 0xFF 表示 2^8-1=255，<strong>用于标记压缩列表的末端</strong></li>
 </ul>
-<h3 id="压缩列表结点的构成"><a href="#压缩列表结点的构成" class="headerlink" title="压缩列表结点的构成"></a>压缩列表结点的构成</h3><p><img data-src="./压缩列表结点的各个组成部分.png" alt="压缩列表结点的各个组成部分"></p>
+<h3 id="压缩列表结点的构成"><a href="#压缩列表结点的构成" class="headerlink" title="压缩列表结点的构成"></a>压缩列表结点的构成</h3><p><img data-src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/压缩列表结点的各个组成部分.png" alt="压缩列表结点的各个组成部分"></p>
 <ul>
 <li>previous_entry_length：1byte/5bytes，记录<strong>压缩列表中前一个节点的长度</strong><ul>
 <li>前一节点的长度小于 254 字节，previous_entry_length 属性的长度为 1 字节，保存值为前一个结点长度</li>
@@ -455,7 +455,7 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 </ul>
-<p><img data-src="./运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;"></p>
+<p><img data-src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;"></p>
 <ul>
 <li>encoding：记录<strong>节点的 content 属性所保存数据的类型以及长度</strong> D:</li>
 <li>content：保存节点的值，值的类型和长度由节点的 encoding 属性决定<ul>
@@ -483,22 +483,22 @@ mjx-container[display="true"] + br {
   <div class="popular-posts-header">相关文章：</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2021\11\22\Redis原理初探（三）—— 散列表\" rel="bookmark">Redis原理初探（三）—— 散列表</a></div>
+      <div class="popular-posts-title"><a href="\2021\11\19\Redis原理初探（一）—— 字符串\" rel="bookmark">Redis 原理初探（一）—— 字符串</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2021\11\19\Redis原理初探（一）—— 字符串\" rel="bookmark">Redis原理初探（一）—— 字符串</a></div>
+      <div class="popular-posts-title"><a href="\2021\11\22\Redis原理初探（三）—— 散列表\" rel="bookmark">Redis 原理初探（三）—— 散列表</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2021\11\23\Redis原理初探（五）—— 有序集合\" rel="bookmark">Redis原理初探（五）——有序集合</a></div>
+      <div class="popular-posts-title"><a href="\2021\11\23\Redis原理初探（五）—— 有序集合\" rel="bookmark">Redis 原理初探（五）—— 有序集合</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2021\11\23\Redis原理初探（四）—— 集合\" rel="bookmark">Redis原理初探（四）—— 集合</a></div>
+      <div class="popular-posts-title"><a href="\2021\11\23\Redis原理初探（四）—— 集合\" rel="bookmark">Redis 原理初探（四）—— 集合</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2022\01\23\数据结构篇：1-1数据结构的基本概念\" rel="bookmark">数据结构篇：1.1数据结构的基本概念</a></div>
+      <div class="popular-posts-title"><a href="\2022\01\23\数据结构篇：1-2算法和算法评价\" rel="bookmark">数据结构篇：1.2 算法和算法评价</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2022\01\23\数据结构篇：1-2算法和算法评价\" rel="bookmark">数据结构篇：1.2算法和算法评价</a></div>
+      <div class="popular-posts-title"><a href="\2022\06\29\数据结构篇：常用查找算法回顾\" rel="bookmark">数据结构篇：常用查找算法回顾</a></div>
     </li>
   </ul>
 
