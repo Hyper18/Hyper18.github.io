@@ -22,7 +22,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"hyper18.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+    var CONFIG = {"hostname":"hyper18.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":{"livere":{"order":-1}},"activeClass":"livere"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
   <meta name="description" content="第三章 操作符1、别名现象 赋值操作是对一个对象的引用，对象与对象相互赋值则丢失信息 2、生成数字：Random 类  nextInt &#x2F; nextFloat …  3、可使用一元加减号 1234&#x2F;&#x2F; 以下操作均合法x &#x3D; -a;x &#x3D; a * -b;s &#x3D; a * (-b); 4、关系操作符  若为基本类型，直接比较 不为基本类型，使用所有对象都适用的特殊方法 equals ()  默认执行比较">
@@ -469,22 +469,22 @@ mjx-container[display="true"] + br {
   <div class="popular-posts-header">相关文章：</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\08\26\Java面向对象（一）—— 对象导论\" rel="bookmark">Java 面向对象（一）—— 对象导论</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2020\08\26\Java面向对象（七）—— 复用类\" rel="bookmark">Java 面向对象（七）—— 复用类</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\08\26\Java面向对象（五）—— 初始化与清理\" rel="bookmark">Java 面向对象（五）—— 初始化与清理</a></div>
+      <div class="popular-posts-title"><a href="\2020\08\26\Java面向对象（一）—— 对象导论\" rel="bookmark">Java 面向对象（一）—— 对象导论</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\08\26\Java面向对象（六）—— 访问权限控制\" rel="bookmark">Java 面向对象（六）—— 访问权限控制</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2020\08\26\Java面向对象（二）—— 一切都是对象\" rel="bookmark">Java 面向对象（二）—— 一切都是对象</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\08\26\Java面向对象（四）—— 控制执行流程\" rel="bookmark">Java 面向对象（四）—— 控制执行流程</a></div>
+      <div class="popular-posts-title"><a href="\2020\08\26\Java面向对象（五）—— 初始化与清理\" rel="bookmark">Java 面向对象（五）—— 初始化与清理</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\08\26\Java面向对象（六）—— 访问权限控制\" rel="bookmark">Java 面向对象（六）—— 访问权限控制</a></div>
+      <div class="popular-posts-title"><a href="\2020\08\26\Java面向对象（四）—— 控制执行流程\" rel="bookmark">Java 面向对象（四）—— 控制执行流程</a></div>
     </li>
   </ul>
 
@@ -538,7 +538,11 @@ mjx-container[display="true"] + br {
 
           </div>
           
-    <div class="comments" id="gitalk-container"></div>
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81NjcxOC8zMzE4Mg=="></div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -969,23 +973,19 @@ window.addEventListener('pjax:success', () => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
 <script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '9dada126867f0e012f30',
-      clientSecret: '81c3bd8a42b8acb3718911fa4c8b3c9758c911b2',
-      repo        : 'Hyper18.github.io',
-      owner       : 'Hyper18',
-      admin       : ['Hyper18'],
-      id          : 'b6502a6dab9515ac4c1e146a5574e1b7',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
 });
 </script>
 
