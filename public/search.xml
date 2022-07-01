@@ -3503,6 +3503,7 @@ min\{R_c,R_s\}</script><h1 id="五、协议层次及其服务模型-Protocol-Lay
 ]]></content>
       <categories>
         <category>笔记</category>
+        <category>408</category>
         <category>计算机网络</category>
       </categories>
       <tags>
@@ -3840,6 +3841,7 @@ avg_{单条连接的吞吐量} =  \frac{1.22 * MSS}{RTT * \sqrt{L}}</script><p>�
 ]]></content>
       <categories>
         <category>笔记</category>
+        <category>408</category>
         <category>计算机网络</category>
       </categories>
       <tags>
@@ -4173,6 +4175,7 @@ D_{P2P}=max\{\frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+{\sum_{r=1}^n}}\}</sc
 ]]></content>
       <categories>
         <category>笔记</category>
+        <category>408</category>
         <category>计算机网络</category>
       </categories>
       <tags>
