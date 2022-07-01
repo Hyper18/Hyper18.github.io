@@ -1,77 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java 面向对象（七）—— 复用类</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E7%94%A8%E7%B1%BB/</url>
-    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
-<ul>
-<li>在新类中产生现有类的对象</li>
-<li>继承</li>
-</ul>
-<p>2、组合语法</p>
-<ul>
-<li>将对象引用置于新类</li>
-<li>初始化引用的位置<ul>
-<li>定义处</li>
-<li>类构造器中</li>
-<li>惰性初始化（Delay Initialization）于使用对象前</li>
-</ul>
-</li>
-</ul>
-<p>3、继承</p>
-<ul>
-<li>声明新类与旧类类似<ul>
-<li>书写紧跟基类名称关键字 extends</li>
-</ul>
-</li>
-<li>super 为超类，类从超类继承</li>
-<li>使用 += 可连接多个 String 对象</li>
-<li>构建过程（初始化过程同）是向外 “扩散” 的<ul>
-<li>若类带有参数，则需要用 super 显式编写调用</li>
-</ul>
-</li>
-</ul>
-<p>4、代理：继承与组合的中间体</p>
-<ul>
-<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
-<li> java 不直接支持代理，可使用部分支持 ide 自动生成</li>
-</ul>
-<p>5、结合使用组合和继承</p>
-<ul>
-<li>finally () 子句确保正确清理，采用自己编写的顺序清理</li>
-<li> dispose ()：清理方法</li>
-<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别 C++）<ul>
-<li>需要覆写：Override ()，不是关键字但按关键字处理</li>
-</ul>
-</li>
-</ul>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
-<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
-<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
-<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
-<li> is-a 关系 - 继承，has-a 关系 - 组合</li>
-</ul>
-<p>6、protected 关键字</p>
-<ul>
-<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
-</ul>
-<p>7、final 关键字</p>
-<ul>
-<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
-<li>类常量 static final</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>面向对象</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java 面向对象（一）—— 对象导论</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
     <content><![CDATA[<h2 id="第一章-对象导论"><a href="#第一章-对象导论" class="headerlink" title="第一章 对象导论"></a>第一章 对象导论</h2><p>1、基本特性</p>
@@ -143,6 +72,77 @@
       </tags>
   </entry>
   <entry>
+    <title>Java 面向对象（七）—— 复用类</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%20%E5%A4%8D%E7%94%A8%E7%B1%BB/</url>
+    <content><![CDATA[<h2 id="第七章-复用类"><a href="#第七章-复用类" class="headerlink" title="第七章 复用类"></a>第七章 复用类</h2><p>1、复用的方法</p>
+<ul>
+<li>在新类中产生现有类的对象</li>
+<li>继承</li>
+</ul>
+<p>2、组合语法</p>
+<ul>
+<li>将对象引用置于新类</li>
+<li>初始化引用的位置<ul>
+<li>定义处</li>
+<li>类构造器中</li>
+<li>惰性初始化（Delay Initialization）于使用对象前</li>
+</ul>
+</li>
+</ul>
+<p>3、继承</p>
+<ul>
+<li>声明新类与旧类类似<ul>
+<li>书写紧跟基类名称关键字 extends</li>
+</ul>
+</li>
+<li>super 为超类，类从超类继承</li>
+<li>使用 += 可连接多个 String 对象</li>
+<li>构建过程（初始化过程同）是向外 “扩散” 的<ul>
+<li>若类带有参数，则需要用 super 显式编写调用</li>
+</ul>
+</li>
+</ul>
+<p>4、代理：继承与组合的中间体</p>
+<ul>
+<li>异同：组合将成员对象置于要构造类中，但在新类中暴露了成员对象的所有方法；相较之，代理使用接口，这样与继承得到的接口相同而又只提供成员对象的某个子集，从而得到更多的控制力</li>
+<li> java 不直接支持代理，可使用部分支持 ide 自动生成</li>
+</ul>
+<p>5、结合使用组合和继承</p>
+<ul>
+<li>finally () 子句确保正确清理，采用自己编写的顺序清理</li>
+<li> dispose ()：清理方法</li>
+<li>无名称屏蔽：重载方法不会屏蔽基类方法（区别 C++）<ul>
+<li>需要覆写：Override ()，不是关键字但按关键字处理</li>
+</ul>
+</li>
+</ul>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
+<li>组合显式允许在新类中放置子类，但继承为隐式创建</li>
+<li>组合适用于在新类中使用现有类的功能而非接口，继承反之</li>
+<li>组合允许直接访问新类中的组合成分（public），继承相对更为安全且易于理解端口</li>
+<li> is-a 关系 - 继承，has-a 关系 - 组合</li>
+</ul>
+<p>6、protected 关键字</p>
+<ul>
+<li>提供包内和继承于此类的导出类的访问权限，对类用户私密</li>
+</ul>
+<p>7、final 关键字</p>
+<ul>
+<li>对数据使用：编译时常量 或 运行时被初始化的值</li>
+<li>类常量 static final</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>面向对象</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java 面向对象（三）—— 操作符</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%93%8D%E4%BD%9C%E7%AC%A6/</url>
     <content><![CDATA[<h2 id="第三章-操作符"><a href="#第三章-操作符" class="headerlink" title="第三章 操作符"></a>第三章 操作符</h2><p>1、别名现象</p>
@@ -201,67 +201,6 @@
 <li>得到最接近整数：使用 Max.round () 方法 </li>
 </ul>
 <figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x = <span class="number">9.997</span></span><br><span class="line"><span class="keyword">int</span> nx = (<span class="keyword">int</span>) Math.round(x);</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>面向对象</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java 面向对象（六）—— 访问权限控制</title>
-    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</url>
-    <content><![CDATA[<h2 id="第六章-访问权限控制"><a href="#第六章-访问权限控制" class="headerlink" title="第六章 访问权限控制"></a>第六章 访问权限控制</h2><p>1、类库 library：将不变的内容和重构的代码内容区分开</p>
-<p>2、访问权限修饰词：public protected private</p>
-<ul>
-<li>无关键字则默认包访问权限，其包内成员相对于外部的所有类均为 private</li>
-<li> 取得访问权的方式<ul>
-<li>使该成员成为 public</li>
-<li> 不加修饰词，并将其他类放置于同一个包</li>
-<li>继承</li>
-<li>使用访问器和变异器（mutator）读取和改变数值</li>
-</ul>
-</li>
-</ul>
-<p>3、包 package：库单元</p>
-<ul>
-<li>功能：将构件捆绑至一个内聚的类库单元中</li>
-<li>默认（未命名）包：包含本地源代码文件</li>
-<li>编译单元：正在编写的文件</li>
-</ul>
-<p>4、代码组织</p>
-<ul>
-<li>package：群组，对每个文件，需声明该编译单元的类库</li>
-<li>分割单一的全局名字空间，避免名称冲突的可能性</li>
-<li>创建独一无二的包名<ul>
-<li>层次化组织</li>
-<li>反序因特网域名 / 分解包名为机器目录</li>
-</ul>
-</li>
-</ul>
-<p>5、定制工具库</p>
-<ul>
-<li>输出：</li>
-</ul>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line">System.out.println(<span class="number">123</span>); <span class="comment">//换行打印</span></span><br><span class="line">System.out.print(<span class="number">123</span>); <span class="comment">//不换行打印</span></span><br><span class="line">System.out.write(<span class="number">234</span>); <span class="comment">//字节输出</span></span><br><span class="line">System.out.printf(<span class="string">"%+8.5f\n"</span>, <span class="number">3.14</span>); <span class="comment">//按格式输出</span></span><br></pre></td></tr></tbody></table></figure>
-<ul>
-<li>range()</li>
-</ul>
-<p>6、接口和实现</p>
-<ul>
-<li>访问控制基本思想：将接口与具体实现分离</li>
-<li>可采用的形式（注：接口与实现仍混合，仅易于阅读）</li>
-</ul>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> OrganizedByAccess {</span><br><span class="line">	<span class="keyword">public</span> ...;</span><br><span class="line">	<span class="keyword">public</span> ...;</span><br><span class="line">	<span class="comment">// 阅读到此处结束</span></span><br><span class="line">	<span class="keyword">private</span> ...;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>7、类的访问权限</p>
-<ul>
-<li>每个编译单元都只能有一个公共接口，以 public 关键字修饰</li>
-<li>类仅可为默认（包访问权限）或 public 修饰，其他修饰词不可用</li>
-</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -476,6 +415,67 @@
       </tags>
   </entry>
   <entry>
+    <title>Java 面向对象（六）—— 访问权限控制</title>
+    <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%20%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<h2 id="第六章-访问权限控制"><a href="#第六章-访问权限控制" class="headerlink" title="第六章 访问权限控制"></a>第六章 访问权限控制</h2><p>1、类库 library：将不变的内容和重构的代码内容区分开</p>
+<p>2、访问权限修饰词：public protected private</p>
+<ul>
+<li>无关键字则默认包访问权限，其包内成员相对于外部的所有类均为 private</li>
+<li> 取得访问权的方式<ul>
+<li>使该成员成为 public</li>
+<li> 不加修饰词，并将其他类放置于同一个包</li>
+<li>继承</li>
+<li>使用访问器和变异器（mutator）读取和改变数值</li>
+</ul>
+</li>
+</ul>
+<p>3、包 package：库单元</p>
+<ul>
+<li>功能：将构件捆绑至一个内聚的类库单元中</li>
+<li>默认（未命名）包：包含本地源代码文件</li>
+<li>编译单元：正在编写的文件</li>
+</ul>
+<p>4、代码组织</p>
+<ul>
+<li>package：群组，对每个文件，需声明该编译单元的类库</li>
+<li>分割单一的全局名字空间，避免名称冲突的可能性</li>
+<li>创建独一无二的包名<ul>
+<li>层次化组织</li>
+<li>反序因特网域名 / 分解包名为机器目录</li>
+</ul>
+</li>
+</ul>
+<p>5、定制工具库</p>
+<ul>
+<li>输出：</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line">System.out.println(<span class="number">123</span>); <span class="comment">//换行打印</span></span><br><span class="line">System.out.print(<span class="number">123</span>); <span class="comment">//不换行打印</span></span><br><span class="line">System.out.write(<span class="number">234</span>); <span class="comment">//字节输出</span></span><br><span class="line">System.out.printf(<span class="string">"%+8.5f\n"</span>, <span class="number">3.14</span>); <span class="comment">//按格式输出</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>range()</li>
+</ul>
+<p>6、接口和实现</p>
+<ul>
+<li>访问控制基本思想：将接口与具体实现分离</li>
+<li>可采用的形式（注：接口与实现仍混合，仅易于阅读）</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> OrganizedByAccess {</span><br><span class="line">	<span class="keyword">public</span> ...;</span><br><span class="line">	<span class="keyword">public</span> ...;</span><br><span class="line">	<span class="comment">// 阅读到此处结束</span></span><br><span class="line">	<span class="keyword">private</span> ...;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>7、类的访问权限</p>
+<ul>
+<li>每个编译单元都只能有一个公共接口，以 public 关键字修饰</li>
+<li>类仅可为默认（包访问权限）或 public 修饰，其他修饰词不可用</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>面向对象</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java 面向对象（四）—— 控制执行流程</title>
     <url>/2020/08/26/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E6%8E%A7%E5%88%B6%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</url>
     <content><![CDATA[<h2 id="第四章-控制执行流程"><a href="#第四章-控制执行流程" class="headerlink" title="第四章 控制执行流程"></a>第四章 控制执行流程</h2><p>1、foreach（SE5+）</p>
@@ -532,6 +532,45 @@
 <h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><p>主要难点在于数据类型范围，考虑先处理正负，再在同个循环内部同时完成取当前位值和累加反转值操作，最后处理结果</p>
 <h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span>){</span><br><span class="line">            flag = <span class="keyword">true</span>;</span><br><span class="line">            x = -x;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x &gt; <span class="number">0</span>) {</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; (Integer.MAX_VALUE - x % <span class="number">10</span>) / <span class="number">10</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            sum = sum * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> flag ? -sum : sum;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/">https://leetcode-cn.com/problems/reverse-integer/solution/7zheng-shu-fan-zhuan-by-hyperspace-081q/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+]]></content>
+      <categories>
+        <category>题解</category>
+        <category>LeetCode</category>
+        <category>题库</category>
+        <category>简单题</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 题解 —— 简单题篇（2）</title>
+    <url>/2021/09/08/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%882%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="9-回文数"><a href="#9-回文数" class="headerlink" title="9. 回文数"></a><a href="https://leetcode-cn.com/problems/palindrome-number/">9. 回文数</a></h2><ul>
+<li>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<ul>
+<li>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>借鉴第七题 <a href="https://leetcode-cn.com/problems/reverse-integer/">7. 整数反转</a>思想，取反后比较两数是否相同</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> temp = x;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(temp &gt; <span class="number">0</span>) {</span><br><span class="line">            sum = sum * <span class="number">10</span> + temp % <span class="number">10</span>;</span><br><span class="line">            temp /= <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> sum == x ? <span class="keyword">true</span> : <span class="keyword">false</span>; </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/palindrome-number/solution/9tong-wen-shu-by-hyperspace-gnuo/">https://leetcode-cn.com/problems/palindrome-number/solution/9tong-wen-shu-by-hyperspace-gnuo/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h2 id="13-罗马数字转整数"><a href="#13-罗马数字转整数" class="headerlink" title="13. 罗马数字转整数"></a><a href="https://leetcode-cn.com/problems/roman-to-integer/">13. 罗马数字转整数</a></h2><ul>
+<li>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。<ul>
+<li>I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。</li>
+<li>X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 </li>
+<li>C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><ul>
+<li>一开始想法很复杂，考虑前后位置上的减法</li>
+<li>后来借鉴思路是抓核心问题，对于第一个字符对应的数值，依次向后找，遇到比它还大的则减去，否则累加和。最后再处理最后一位上的加和，得到结果。</li>
+<li>值得多斟酌，单个 for 循环，算法复杂度为 O (n)</li>
+</ul>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num_former = transform(s.charAt(<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; s.length(); i++) {</span><br><span class="line">            <span class="keyword">int</span> num_latter = transform(s.charAt(i));</span><br><span class="line">            <span class="keyword">if</span>(num_former &lt; num_latter)</span><br><span class="line">                sum -= num_former;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                sum += num_former;</span><br><span class="line">            num_former = num_latter;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> sum+num_former;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">transform</span><span class="params">(<span class="keyword">char</span> c)</span> </span>{</span><br><span class="line">        <span class="keyword">switch</span>(c){</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'I'</span>: <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'V'</span>: <span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'X'</span>: <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'L'</span>: <span class="keyword">return</span> <span class="number">50</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'C'</span>: <span class="keyword">return</span> <span class="number">100</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'D'</span>: <span class="keyword">return</span> <span class="number">500</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'M'</span>: <span class="keyword">return</span> <span class="number">1000</span>;</span><br><span class="line">            <span class="keyword">default</span>: <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/roman-to-integer/solution/13luo-ma-shu-zi-zhuan-zheng-shu-by-hyper-9kae/">https://leetcode-cn.com/problems/roman-to-integer/solution/13luo-ma-shu-zi-zhuan-zheng-shu-by-hyper-9kae/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 ]]></content>
       <categories>
         <category>题解</category>
@@ -611,103 +650,6 @@
       <tags>
         <tag>Python</tag>
         <tag>爬虫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 题解 —— 简单题篇（2）</title>
-    <url>/2021/09/08/LeetCode%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E9%A2%98%E7%AF%87%EF%BC%882%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="9-回文数"><a href="#9-回文数" class="headerlink" title="9. 回文数"></a><a href="https://leetcode-cn.com/problems/palindrome-number/">9. 回文数</a></h2><ul>
-<li>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<ul>
-<li>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。</li>
-</ul>
-</li>
-</ul>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>借鉴第七题 <a href="https://leetcode-cn.com/problems/reverse-integer/">7. 整数反转</a>思想，取反后比较两数是否相同</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> temp = x;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(temp &gt; <span class="number">0</span>) {</span><br><span class="line">            sum = sum * <span class="number">10</span> + temp % <span class="number">10</span>;</span><br><span class="line">            temp /= <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> sum == x ? <span class="keyword">true</span> : <span class="keyword">false</span>; </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/palindrome-number/solution/9tong-wen-shu-by-hyperspace-gnuo/">https://leetcode-cn.com/problems/palindrome-number/solution/9tong-wen-shu-by-hyperspace-gnuo/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h2 id="13-罗马数字转整数"><a href="#13-罗马数字转整数" class="headerlink" title="13. 罗马数字转整数"></a><a href="https://leetcode-cn.com/problems/roman-to-integer/">13. 罗马数字转整数</a></h2><ul>
-<li>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。<ul>
-<li>I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。</li>
-<li>X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 </li>
-<li>C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。</li>
-</ul>
-</li>
-</ul>
-<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><ul>
-<li>一开始想法很复杂，考虑前后位置上的减法</li>
-<li>后来借鉴思路是抓核心问题，对于第一个字符对应的数值，依次向后找，遇到比它还大的则减去，否则累加和。最后再处理最后一位上的加和，得到结果。</li>
-<li>值得多斟酌，单个 for 循环，算法复杂度为 O (n)</li>
-</ul>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num_former = transform(s.charAt(<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; s.length(); i++) {</span><br><span class="line">            <span class="keyword">int</span> num_latter = transform(s.charAt(i));</span><br><span class="line">            <span class="keyword">if</span>(num_former &lt; num_latter)</span><br><span class="line">                sum -= num_former;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                sum += num_former;</span><br><span class="line">            num_former = num_latter;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> sum+num_former;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">transform</span><span class="params">(<span class="keyword">char</span> c)</span> </span>{</span><br><span class="line">        <span class="keyword">switch</span>(c){</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'I'</span>: <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'V'</span>: <span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'X'</span>: <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'L'</span>: <span class="keyword">return</span> <span class="number">50</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'C'</span>: <span class="keyword">return</span> <span class="number">100</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'D'</span>: <span class="keyword">return</span> <span class="number">500</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'M'</span>: <span class="keyword">return</span> <span class="number">1000</span>;</span><br><span class="line">            <span class="keyword">default</span>: <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>作者：hyperspace<br>链接：<a href="https://leetcode-cn.com/problems/roman-to-integer/solution/13luo-ma-shu-zi-zhuan-zheng-shu-by-hyper-9kae/">https://leetcode-cn.com/problems/roman-to-integer/solution/13luo-ma-shu-zi-zhuan-zheng-shu-by-hyper-9kae/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-]]></content>
-      <categories>
-        <category>题解</category>
-        <category>LeetCode</category>
-        <category>题库</category>
-        <category>简单题</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Redis 原理初探（一）—— 字符串</title>
-    <url>/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<h2 id="简单动态字符串（simple-dynamic-string，SDS）"><a href="#简单动态字符串（simple-dynamic-string，SDS）" class="headerlink" title="简单动态字符串（simple dynamic string，SDS）"></a>简单动态字符串（simple dynamic string，SDS）</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>redis 的默认字符表示，作为一个可被修改的字符串值</li>
-<li>作为字符串的底层实现 </li>
-</ul>
-<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">/* data */</span></span><br><span class="line">    <span class="keyword">int</span> len;    -- 数组已使用字节数量</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">free</span>;   -- 数组未使用字节数量</span><br><span class="line">    <span class="keyword">char</span> buf[]; -- 字节数组</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
-<p>注：buf [] 的最后一个字节会用于保存空字符’\0’(同 C style)</p>
-<h3 id="使用SDS而非C-style字符串的好处"><a href="#使用SDS而非C-style字符串的好处" class="headerlink" title="使用SDS而非C style字符串的好处"></a>使用 SDS 而非 C style 字符串的好处</h3><h4 id="获取字符串长度不为性能瓶颈"><a href="#获取字符串长度不为性能瓶颈" class="headerlink" title="获取字符串长度不为性能瓶颈"></a>获取字符串长度不为性能瓶颈</h4><ul>
-<li>由定义可知，SDS 的结构体中已经保存了数组的长度（len），从而只需使用 STRLEN () 获取值，其对应算法复杂度始终仅为 O (1)；C 字符串由于没有保存该信息，则需要对数组进行遍历得到长度，其算法复杂度为 O (n)</li>
-</ul>
-<h4 id="API安全，排除了缓冲区溢出的风险"><a href="#API安全，排除了缓冲区溢出的风险" class="headerlink" title="API安全，排除了缓冲区溢出的风险"></a>API 安全，排除了缓冲区溢出的风险</h4><ul>
-<li>对于 C 字符串而言，缓冲区容易溢出其实是不记录数组长度的衍生问题。如考虑下述场景：</li>
-</ul>
-<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcat</span><span class="params">(<span class="keyword">char</span> *c1, <span class="keyword">const</span> <span class="keyword">char</span> *c2)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
-<p>​    strcat () 方法会假定系统尚且分配了足够的内存给 c1，以容纳 c2 中的所有内容；而 c2 数组长度过长且超出内存限制时，就造成了缓冲区的溢出。这可能会给相邻内存的内容带来意外的后果（如：未指定的意外修改，etc.）</p>
-<p>​    而 SDS 的 API 会自动对 len 进行修改和更新；当当前空间不能满足要求时，则会自动扩展当前 SDS 的空间。对应 redis 中字符串拼接方法为：</p>
-<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line">sdscat(c1, c2);</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="是二进制安全的"><a href="#是二进制安全的" class="headerlink" title="是二进制安全的"></a>是二进制安全的</h4><p>​    既可存储文本数据、也可存储二进制数据</p>
-<h4 id="兼容部分C-style字符串"><a href="#兼容部分C-style字符串" class="headerlink" title="兼容部分C style字符串"></a>兼容部分 C style 字符串</h4><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// string compare</span></span><br><span class="line">strcasecmp(c1-&gt;c2, <span class="string">"hello world"</span>);</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h4><ul>
-<li>作为数据库中字符串值、整数值和浮点数值的存储 </li>
-</ul>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">RPUSH fruits "apple" "banana" "cherry"</span><br><span class="line"><span class="comment">-- output：(integer) 3</span></span><br></pre></td></tr></tbody></table></figure>
-<ul>
-<li>作为缓冲区（buffer）</li>
-</ul>
-<h3 id="空间分配策略"><a href="#空间分配策略" class="headerlink" title="空间分配策略"></a>空间分配策略</h3><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>​    减少连续执行字符串增长操作所需的内存重分配次数</p>
-<ul>
-<li>策略 1：空间预分配<ul>
-<li>当未使用空间足够时，无需进行内存重分配，即没有对字符串进行修改</li>
-<li>若修改后的字符串长度小于 1MB，将分配与当前数组已使用长度等长的未使用空间</li>
-<li>若修改后的字符串长度大于 1MB，将分配 1MB 的未使用空间</li>
-</ul>
-</li>
-<li>策略 2：惰性空间释放<ul>
-<li>当空间被释放成为空余空间后，并不会立即对其进行回收，而是先由 free 属性记录下来</li>
-<li>避免了缩短字符串时所需的内存重分配操作，并为将来可能有的增长操作提供了优化</li>
-<li>当有实际空间需要时，会通过对应 API 真正完成空余空间的释放</li>
-</ul>
-</li>
-</ul>
-<h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><h4 id="自增-自减"><a href="#自增-自减" class="headerlink" title="自增/自减"></a>自增 / 自减</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis()</span><br><span class="line"><span class="comment"># 获取对应key:只要该字符串值可以被解释为整数值，则可进行下述处理</span></span><br><span class="line"></span><br><span class="line">conn.get(<span class="string">'sample_key'</span>)</span><br><span class="line"><span class="comment"># 对该key进行自增操作 incr = short for increase</span></span><br><span class="line">conn.incr(<span class="string">'sample_key'</span>)</span><br><span class="line"><span class="comment"># 也可以以数字形式指定自增参数，下两者效果相同</span></span><br><span class="line"><span class="comment"># INCRBY sample_key 10</span></span><br><span class="line">conn.incr(<span class="string">'sample_key'</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对该key进行自减操作 decr = short for decrease</span></span><br><span class="line"><span class="comment"># DECRBY sample_key 8</span></span><br><span class="line">conn.decr(<span class="string">'sample_key'</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 二次获取当前的数值</span></span><br><span class="line">conn.get(<span class="string">'sample_key'</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h4 id="打包-package-处理结构化数据"><a href="#打包-package-处理结构化数据" class="headerlink" title="打包(package)处理结构化数据"></a>打包 (package) 处理结构化数据</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">'127.0.0.1'</span>, port=<span class="number">6379</span>, password=<span class="string">'123456'</span>)</span><br><span class="line"><span class="comment"># 执行APPEND命令：返回的是当前字符串的长度</span></span><br><span class="line"><span class="comment"># 此时前者可不存在或为空串，则得到的新字符串长度显然为后者的长</span></span><br><span class="line">conn.append(<span class="string">'sample_string'</span>, <span class="string">'hello '</span>)</span><br><span class="line">conn.append(<span class="string">'sample_string'</span>, <span class="string">'world!'</span>)</span><br><span class="line"><span class="comment"># 操作后sample_string的长度：12</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SUBSTR：获取字符串子串（部分区间值）</span></span><br><span class="line"><span class="comment"># redis数组索引也是从0开始，则取得的值为llo</span></span><br><span class="line">conn.substr(<span class="string">'sample_string'</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETRANGE：为字符串设置范围</span></span><br><span class="line"><span class="comment"># 设置后仅改变输出的字符串内容</span></span><br><span class="line"><span class="comment"># 字符串长度仍为总长度，而非处理后的范围长度</span></span><br><span class="line">conn.setrange(<span class="string">'sample_string'</span>, <span class="number">0</span>, <span class="string">'H'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETBIT：单独改变某二进制位</span></span><br></pre></td></tr></tbody></table></figure>
-<p><em>【参考】</em><br><em>[1] 《Redis 的设计与实现》</em></p>
-<p><em>[2] 《Redis 实战》</em></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Redis</tag>
-        <tag>NoSQL</tag>
-        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -809,6 +751,64 @@
 <h2 id="散列表操作"><a href="#散列表操作" class="headerlink" title="散列表操作"></a>散列表操作</h2><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">'127.0.0.1'</span>, port=<span class="number">6379</span>, password=<span class="string">'123456'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># HMSET：设置散列表键值对，可添加多个键值对</span></span><br><span class="line">conn.hmset(<span class="string">'hash_key'</span>, {<span class="string">'k1'</span>: <span class="string">'v1'</span>, <span class="string">'k2'</span>: <span class="string">'v2'</span>, <span class="string">'k3'</span>: <span class="string">'v3'</span>})</span><br><span class="line"><span class="comment"># HMGET：根据键（key）从散列中获取值（value），可同时获取多个值</span></span><br><span class="line">conn.hmget(<span class="string">'hash_key'</span>, [<span class="string">'k1'</span>, <span class="string">'k2'</span>])</span><br><span class="line"><span class="comment"># HDEL：从散列表中删除指定键值对，可同时删除多个键值对</span></span><br><span class="line">conn.hdel(<span class="string">'hash_key'</span>, <span class="string">'k2'</span>, <span class="string">'k3'</span>)</span><br><span class="line"><span class="comment"># HLEN：获取散列表当前长度</span></span><br><span class="line">conn.hlen(<span class="string">'hash_key'</span>)</span><br><span class="line"><span class="comment"># HSET:将散列表中设置指定键的值为给定值</span></span><br><span class="line">conn.hset(<span class="string">'hash_key'</span>, <span class="string">'k1'</span>, [<span class="string">'value1'</span>])</span><br><span class="line"><span class="comment"># HGET:获取散列表中指定键的值</span></span><br><span class="line">conn.hget(<span class="string">'hash_key'</span>, <span class="string">'k1'</span>)</span><br><span class="line"><span class="comment"># HSETNX：为散列表中不存在的字段赋值</span></span><br><span class="line">conn.setnx(<span class="string">'hash_key'</span>, <span class="string">'new_field'</span>, <span class="string">'hello_world'</span>)</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># HEXISTS：检查给定键（key）是否存在于散列中</span></span><br><span class="line">conn.exists(<span class="string">'hash_key'</span>, <span class="string">'k1'</span>)</span><br><span class="line"><span class="comment"># HKEYS：获取所有键（key）</span></span><br><span class="line">conn.keys(<span class="string">'hash_key'</span>)</span><br><span class="line"><span class="comment"># HVALS：获取所有值（value）</span></span><br><span class="line">conn.hvals(<span class="string">'hash_key'</span>)</span><br><span class="line"><span class="comment"># HGETALL：获取所有键值对</span></span><br><span class="line">conn.hgetall(<span class="string">'hash_key'</span>)</span><br><span class="line"></span><br><span class="line">conn.hmset(<span class="string">'hash_key'</span>, {<span class="string">'num_int'</span>: <span class="string">'0'</span>, <span class="string">'num_float'</span>: <span class="string">'0.0'</span>})</span><br><span class="line"><span class="comment"># HINCRBY：将散列中指定键值加上一个给定整数</span></span><br><span class="line">conn.hincrby(<span class="string">'hash_key'</span>, <span class="string">'num_int'</span>)</span><br><span class="line"><span class="comment"># HINCRBYFLOAT：将散列中指定键值加上一个给定浮点数数</span></span><br><span class="line">conn.hincrbyfloat(<span class="string">'hash_key'</span>, <span class="string">'num_float'</span>)</span><br></pre></td></tr></tbody></table></figure>
 <p>注：当散列中键值对的数目过多时，可以考虑先用 HKEYS 获取所有键（key），再通过 HVALS 只获取必要的值以减少需要传输的数据量</p>
+<p><em>【参考】</em><br><em>[1] 《Redis 的设计与实现》</em></p>
+<p><em>[2] 《Redis 实战》</em></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+        <tag>NoSQL</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis 原理初探（一）—— 字符串</title>
+    <url>/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<h2 id="简单动态字符串（simple-dynamic-string，SDS）"><a href="#简单动态字符串（simple-dynamic-string，SDS）" class="headerlink" title="简单动态字符串（simple dynamic string，SDS）"></a>简单动态字符串（simple dynamic string，SDS）</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>redis 的默认字符表示，作为一个可被修改的字符串值</li>
+<li>作为字符串的底层实现 </li>
+</ul>
+<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">/* data */</span></span><br><span class="line">    <span class="keyword">int</span> len;    -- 数组已使用字节数量</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">free</span>;   -- 数组未使用字节数量</span><br><span class="line">    <span class="keyword">char</span> buf[]; -- 字节数组</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+<p>注：buf [] 的最后一个字节会用于保存空字符’\0’(同 C style)</p>
+<h3 id="使用SDS而非C-style字符串的好处"><a href="#使用SDS而非C-style字符串的好处" class="headerlink" title="使用SDS而非C style字符串的好处"></a>使用 SDS 而非 C style 字符串的好处</h3><h4 id="获取字符串长度不为性能瓶颈"><a href="#获取字符串长度不为性能瓶颈" class="headerlink" title="获取字符串长度不为性能瓶颈"></a>获取字符串长度不为性能瓶颈</h4><ul>
+<li>由定义可知，SDS 的结构体中已经保存了数组的长度（len），从而只需使用 STRLEN () 获取值，其对应算法复杂度始终仅为 O (1)；C 字符串由于没有保存该信息，则需要对数组进行遍历得到长度，其算法复杂度为 O (n)</li>
+</ul>
+<h4 id="API安全，排除了缓冲区溢出的风险"><a href="#API安全，排除了缓冲区溢出的风险" class="headerlink" title="API安全，排除了缓冲区溢出的风险"></a>API 安全，排除了缓冲区溢出的风险</h4><ul>
+<li>对于 C 字符串而言，缓冲区容易溢出其实是不记录数组长度的衍生问题。如考虑下述场景：</li>
+</ul>
+<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcat</span><span class="params">(<span class="keyword">char</span> *c1, <span class="keyword">const</span> <span class="keyword">char</span> *c2)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
+<p>​    strcat () 方法会假定系统尚且分配了足够的内存给 c1，以容纳 c2 中的所有内容；而 c2 数组长度过长且超出内存限制时，就造成了缓冲区的溢出。这可能会给相邻内存的内容带来意外的后果（如：未指定的意外修改，etc.）</p>
+<p>​    而 SDS 的 API 会自动对 len 进行修改和更新；当当前空间不能满足要求时，则会自动扩展当前 SDS 的空间。对应 redis 中字符串拼接方法为：</p>
+<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line">sdscat(c1, c2);</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="是二进制安全的"><a href="#是二进制安全的" class="headerlink" title="是二进制安全的"></a>是二进制安全的</h4><p>​    既可存储文本数据、也可存储二进制数据</p>
+<h4 id="兼容部分C-style字符串"><a href="#兼容部分C-style字符串" class="headerlink" title="兼容部分C style字符串"></a>兼容部分 C style 字符串</h4><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// string compare</span></span><br><span class="line">strcasecmp(c1-&gt;c2, <span class="string">"hello world"</span>);</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h4><ul>
+<li>作为数据库中字符串值、整数值和浮点数值的存储 </li>
+</ul>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">RPUSH fruits "apple" "banana" "cherry"</span><br><span class="line"><span class="comment">-- output：(integer) 3</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>作为缓冲区（buffer）</li>
+</ul>
+<h3 id="空间分配策略"><a href="#空间分配策略" class="headerlink" title="空间分配策略"></a>空间分配策略</h3><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>​    减少连续执行字符串增长操作所需的内存重分配次数</p>
+<ul>
+<li>策略 1：空间预分配<ul>
+<li>当未使用空间足够时，无需进行内存重分配，即没有对字符串进行修改</li>
+<li>若修改后的字符串长度小于 1MB，将分配与当前数组已使用长度等长的未使用空间</li>
+<li>若修改后的字符串长度大于 1MB，将分配 1MB 的未使用空间</li>
+</ul>
+</li>
+<li>策略 2：惰性空间释放<ul>
+<li>当空间被释放成为空余空间后，并不会立即对其进行回收，而是先由 free 属性记录下来</li>
+<li>避免了缩短字符串时所需的内存重分配操作，并为将来可能有的增长操作提供了优化</li>
+<li>当有实际空间需要时，会通过对应 API 真正完成空余空间的释放</li>
+</ul>
+</li>
+</ul>
+<h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><h4 id="自增-自减"><a href="#自增-自减" class="headerlink" title="自增/自减"></a>自增 / 自减</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis()</span><br><span class="line"><span class="comment"># 获取对应key:只要该字符串值可以被解释为整数值，则可进行下述处理</span></span><br><span class="line"></span><br><span class="line">conn.get(<span class="string">'sample_key'</span>)</span><br><span class="line"><span class="comment"># 对该key进行自增操作 incr = short for increase</span></span><br><span class="line">conn.incr(<span class="string">'sample_key'</span>)</span><br><span class="line"><span class="comment"># 也可以以数字形式指定自增参数，下两者效果相同</span></span><br><span class="line"><span class="comment"># INCRBY sample_key 10</span></span><br><span class="line">conn.incr(<span class="string">'sample_key'</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对该key进行自减操作 decr = short for decrease</span></span><br><span class="line"><span class="comment"># DECRBY sample_key 8</span></span><br><span class="line">conn.decr(<span class="string">'sample_key'</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 二次获取当前的数值</span></span><br><span class="line">conn.get(<span class="string">'sample_key'</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="打包-package-处理结构化数据"><a href="#打包-package-处理结构化数据" class="headerlink" title="打包(package)处理结构化数据"></a>打包 (package) 处理结构化数据</h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">'127.0.0.1'</span>, port=<span class="number">6379</span>, password=<span class="string">'123456'</span>)</span><br><span class="line"><span class="comment"># 执行APPEND命令：返回的是当前字符串的长度</span></span><br><span class="line"><span class="comment"># 此时前者可不存在或为空串，则得到的新字符串长度显然为后者的长</span></span><br><span class="line">conn.append(<span class="string">'sample_string'</span>, <span class="string">'hello '</span>)</span><br><span class="line">conn.append(<span class="string">'sample_string'</span>, <span class="string">'world!'</span>)</span><br><span class="line"><span class="comment"># 操作后sample_string的长度：12</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SUBSTR：获取字符串子串（部分区间值）</span></span><br><span class="line"><span class="comment"># redis数组索引也是从0开始，则取得的值为llo</span></span><br><span class="line">conn.substr(<span class="string">'sample_string'</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETRANGE：为字符串设置范围</span></span><br><span class="line"><span class="comment"># 设置后仅改变输出的字符串内容</span></span><br><span class="line"><span class="comment"># 字符串长度仍为总长度，而非处理后的范围长度</span></span><br><span class="line">conn.setrange(<span class="string">'sample_string'</span>, <span class="number">0</span>, <span class="string">'H'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETBIT：单独改变某二进制位</span></span><br></pre></td></tr></tbody></table></figure>
 <p><em>【参考】</em><br><em>[1] 《Redis 的设计与实现》</em></p>
 <p><em>[2] 《Redis 实战》</em></p>
 ]]></content>
@@ -1164,111 +1164,6 @@
       </tags>
   </entry>
   <entry>
-    <title>分题型基础补全计划（三）—— JavaScript 篇</title>
-    <url>/2021/11/11/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20JavaScript%E7%AF%87/</url>
-    <content><![CDATA[<h3 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this 的指向问题</h3><p>​    作为一门一切皆为对象的语言，首先需要搞明白指针 this 的指向问题。以下为常见的两种指向情况：</p>
-<h5 id="作为构造函数调用"><a href="#作为构造函数调用" class="headerlink" title="作为构造函数调用"></a><strong>作为构造函数调用</strong></h5><p>题型 1</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">"123"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> foo = <span class="string">"456"</span>;</span><br><span class="line">  <span class="built_in">this</span>.foo = <span class="string">"789"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(foo);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">print();</span><br></pre></td></tr></tbody></table></figure>
-<p><em>我的答案:</em> 456</p>
-<ul>
-<li>通过 print () 函数，可以生成一个新对象。这时，<code>this</code> 就指这个新对象，this.foo 就作为这个新对象的成员</li>
-</ul>
-<h5 id="纯粹的函数调用"><a href="#纯粹的函数调用" class="headerlink" title="纯粹的函数调用"></a><strong>纯粹的函数调用</strong></h5><p>题型 2</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>{</span><br><span class="line">  a = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  alert(a);</span><br><span class="line">  alert(<span class="built_in">this</span>.a);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> a;</span><br><span class="line">  alert(a);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p><em>我的答案:</em> 弹出 0,5,0</p>
-<ul>
-<li>全局性调用，因此 <code>this</code> 就代表全局对象，this.a 则调用全局变量 a，故弹出结果为 5</li>
-</ul>
-<p>其余详见：<a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html">Javascript 的 this 用法 - 阮一峰的网络日志 (ruanyifeng.com)</a>，讲的很透彻</p>
-<h3 id="鼠标事件与键盘事件"><a href="#鼠标事件与键盘事件" class="headerlink" title="鼠标事件与键盘事件"></a>鼠标事件与键盘事件</h3><p>题型：下列事件哪个不是由鼠标触发的事件（）</p>
-<p>A click</p>
-<p>B contextmenu</p>
-<p>C mouseout</p>
-<p>D keydown</p>
-<p><em>我的答案:</em> D</p>
-<h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//1.鼠标点击左键触发</span></span><br><span class="line">onclick</span><br><span class="line"><span class="comment">//2.鼠标经过触发</span></span><br><span class="line">onmouseover</span><br><span class="line"><span class="comment">//3.鼠标离开触发</span></span><br><span class="line">onmouseout</span><br><span class="line"><span class="comment">//4.获得鼠标焦点触发</span></span><br><span class="line">onfocus</span><br><span class="line"><span class="comment">//5.失去鼠标触发</span></span><br><span class="line">onblur</span><br><span class="line"><span class="comment">//6.鼠标移动触发</span></span><br><span class="line">onmousemove</span><br><span class="line"><span class="comment">//7.鼠标弹起触发</span></span><br><span class="line">onmouseup</span><br><span class="line"><span class="comment">//8.鼠标按下触发</span></span><br><span class="line">onmousedown</span><br><span class="line"><span class="comment">//9.鼠标经过时触发,但是不会冒泡</span></span><br><span class="line">onmouseenter</span><br><span class="line"><span class="comment">//10.鼠标离开时触发,但是不会冒泡</span></span><br><span class="line">onmouseleave</span><br></pre></td></tr></tbody></table></figure>
-<h5 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h5><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//1.返回鼠标相对于浏览器窗口可视区的X坐标</span></span><br><span class="line">e.clientX</span><br><span class="line"><span class="comment">//2.返回鼠标相对于浏览器窗口可视区的Y坐标</span></span><br><span class="line">e.clientY</span><br><span class="line"><span class="comment">//3.返回鼠标相对于文档页面的X坐标</span></span><br><span class="line">e.pageX</span><br><span class="line"><span class="comment">//4.返回鼠标相对于文档页面的Y坐标</span></span><br><span class="line">e.pageY</span><br><span class="line"><span class="comment">//5.返回鼠标相对于屏幕的X坐标</span></span><br><span class="line">e.screenX</span><br><span class="line"><span class="comment">//6.返回鼠标相对于屏幕的Y坐标</span></span><br><span class="line">e.screenY</span><br></pre></td></tr></tbody></table></figure>
-<h5 id="禁用鼠标事件"><a href="#禁用鼠标事件" class="headerlink" title="*禁用鼠标事件"></a>* 禁用鼠标事件</h5><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//禁止鼠标右键菜单</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'contextmenu'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">    e.preventDefault();</span><br><span class="line">})</span><br><span class="line"><span class="comment">//禁止鼠标选中</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'selectstart'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">    e.preventDefault();</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-<h5 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h5><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//1.某个键盘按键被松开时触发</span></span><br><span class="line">onkeyup</span><br><span class="line"><span class="comment">//2.某个键盘按键被按下时触发</span></span><br><span class="line">onkeydown</span><br><span class="line"><span class="comment">//3.某个键盘被按下时触发,不识别功能键如ctrl、shift etc.</span></span><br><span class="line">onkeypress</span><br></pre></td></tr></tbody></table></figure>
-<p>注：<code>onkeypress</code> 区分大小写，<code>onkeydown</code> 和 <code>onkeyup</code> 不区分</p>
-<h3 id="作用域问题"><a href="#作用域问题" class="headerlink" title="作用域问题"></a>作用域问题</h3><p>题型：</p>
-<p><code>&lt;ul&gt;</code></p>
-<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
-<p><code>&lt;li&gt;click me&lt;/li&gt;</code> </p>
-<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
-<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
-<p><code>&lt;/ul&gt;</code></p>
-<p> 运行如下代码：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line"><span class="keyword">var</span> length = elements.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) {</span><br><span class="line">  elements[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    alert(i);</span><br><span class="line">  };</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>依次点击 4 个 li 标签，哪一个选项是正确的运行结果（） </p>
-<p>A 依次弹出 1， 2， 3， 4</p>
-<p>B 依次弹出 0， 1， 2， 3</p>
-<p>C 依次弹出 3， 3， 3， 3</p>
-<p>D 依次弹出 4， 4， 4， 4</p>
-<p><em>我的答案:</em> D</p>
-<ul>
-<li>在《JavaScript 高级程序设计》有如下解释<ul>
-<li>这是由于作用域链的这种配置机制引出的一个副作用，即闭包只能取得包含函数中任何变量的最后一个值。<strong>闭包所保存的是整个变量对象</strong>，而不是某个特殊的变量。</li>
-</ul>
-</li>
-<li>回归具体问题，这里 alert (i) 中绑定的 i 实际上不是 i 的值，而是 i 本身。当循环结束后，因此执行 onclick 事件、执行 alert () 时，本身 onclick 绑定的 function 的作用域中没有变量 i，i 为 w 未定义的 (undefined)，则解析引擎会寻找父级作用域，发现父级作用域中有 i，则取得的 i 对应值始终为 4。</li>
-</ul>
-<h5 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h5><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//1、利用块级域</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {                </span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    }, <span class="number">1000</span>);</span><br><span class="line">} </span><br><span class="line"><span class="comment">//2、利用自执行函数传参</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>{</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">         <span class="built_in">console</span>.log(i);</span><br><span class="line"> }, <span class="number">1000</span>);</span><br><span class="line"> })(i);        </span><br><span class="line">}</span><br><span class="line"><span class="comment">//3、利用设置延时的第三个参数传递</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>{</span><br><span class="line"> <span class="built_in">console</span>.log(j);</span><br><span class="line"> }, <span class="number">1000</span>, i);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//4、利用promise</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line"> <span class="keyword">var</span> j = i;</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">     <span class="built_in">console</span>.log(j)</span><br><span class="line"> }, <span class="number">1000</span>);</span><br><span class="line"> })</span><br><span class="line">}</span><br><span class="line"><span class="comment">//5、利用async函数</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> <span class="keyword">let</span> result = <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">     resolve(i);</span><br><span class="line">         }, <span class="number">1000</span>); <span class="comment">// 每隔1s打印数字 0 - 9</span></span><br><span class="line"> });</span><br><span class="line"> <span class="built_in">console</span>.log(result);</span><br><span class="line"> }</span><br><span class="line">}</span><br><span class="line">foo();</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="js中的原始类型"><a href="#js中的原始类型" class="headerlink" title="js中的原始类型"></a>js 中的原始类型</h3><p>题型：关于 javascript 的原始类型（primitive type），错误的是 </p>
-<p>A 有 5 种 primitive type，分别是 Undefined、Null、Boolean、Number 和 String。</p>
-<p>B var sTemp = “test string”;alert (typeof sTemp); 结果为 string</p>
-<p>C var oTemp;alert (oTemp == undefined) 为 true</p>
-<p>D alert (null == undefined); 结果为 false</p>
-<p><em>我的答案:</em> D</p>
-<h5 id="六大原始类型"><a href="#六大原始类型" class="headerlink" title="六大原始类型"></a>六大原始类型</h5><ul>
-<li>数字类型 number</li>
-<li> 字符串类型 string</li>
-<li> 布尔类型 boolean</li>
-<li> 空值 null</li>
-<li> 未定义 undefined</li>
-<li> 独一无二类型 (ES6 新增) symbol：引入以防止属性名的冲突</li>
-</ul>
-<p>注：其他类型均为引用类型（Object）</p>
-<h3 id="最大值的求法"><a href="#最大值的求法" class="headerlink" title="最大值的求法"></a>最大值的求法</h3><p>题型：下面求 a 中最大值正确的是 ()</p>
-<p>A Math.max(a)</p>
-<p>B Array.max(a)</p>
-<p>C Math.max.call(null,a)</p>
-<p>D Math.max.apply(null,a)</p>
-<p><em>我的答案:</em> D</p>
-<h5 id="Math-max"><a href="#Math-max" class="headerlink" title="Math.max"></a>Math.max</h5><pre><code> 返回一组数中的最大值
-</code></pre><h5 id="Math-max-apply"><a href="#Math-max-apply" class="headerlink" title="Math.max.apply"></a>Math.max.apply</h5><p>​    返回一个对象（如：数组）中的最大值</p>
-<h3 id="标准事件模型-IE9"><a href="#标准事件模型-IE9" class="headerlink" title="*标准事件模型 IE9+"></a>* 标准事件模型 IE9+</h3><p>题型：w3c 制定的 javascript 标准事件模型，以下正确的顺序以及描述是？ </p>
-<p>A 事件捕获 &gt; 事件冒泡</p>
-<p>B 事件捕获 -&gt; 事件处理 -&gt; 事件冒泡</p>
-<p>C 事件冒泡 -&gt; 事件处理</p>
-<p>D 事件处理 -&gt; 事件捕获 -&gt; 事件冒泡</p>
-<p><em>我的答案:</em> B</p>
-<h3 id="异步执行调用"><a href="#异步执行调用" class="headerlink" title="异步执行调用"></a>异步执行调用</h3><p>题型：以下语句的执行结果是什么？</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"one"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"two"</span>);</span><br><span class="line">}, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"three"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"four"</span>);</span><br></pre></td></tr></tbody></table></figure>
-<p><em>我的答案:</em> “one” “three” “four” “two”</p>
-<ul>
-<li>这是由于 setTimeout () 方法是异步执行的。当调用该方法时，会把函数参数与函数体中的内容放入消息队列，直到当前主程序执行完成后，再予以调用</li>
-</ul>
-<h3 id="浮点数运算问题"><a href="#浮点数运算问题" class="headerlink" title="浮点数运算问题"></a>浮点数运算问题</h3><p>题型：写一个求和的函数 sum，达到下面的效果</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// Should equal 15</span></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 0</span></span><br><span class="line">sum(<span class="number">5</span>, <span class="literal">null</span>, -<span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 10</span></span><br><span class="line">sum(<span class="string">'1.0'</span>, <span class="literal">false</span>, <span class="number">1</span>, <span class="literal">true</span>, <span class="number">1</span>, <span class="string">'A'</span>, <span class="number">1</span>, <span class="string">'B'</span>, <span class="number">1</span>, <span class="string">'C'</span>, <span class="number">1</span>, <span class="string">'D'</span>, <span class="number">1</span>, <span class="string">'E'</span>, <span class="number">1</span>, <span class="string">'F'</span>, <span class="number">1</span>, <span class="string">'G'</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// Should equal 0.3, not 0.30000000000000004</span></span><br><span class="line">sum(<span class="number">0.1</span>, <span class="number">0.2</span>);</span><br></pre></td></tr></tbody></table></figure>
-<p>我的答案：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>{</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> add = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(<span class="keyword">typeof</span> <span class="built_in">arguments</span>[i] == <span class="string">"boolean"</span>)) {</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!<span class="built_in">isNaN</span>(<span class="built_in">arguments</span>[i])) {</span><br><span class="line"></span><br><span class="line">        add += <span class="built_in">Number</span>(<span class="built_in">arguments</span>[i]);</span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  alert(<span class="built_in">Math</span>.round(add * <span class="number">10</span>) / <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<ul>
-<li>为什么 1+2≠3？因为 js 采用的是 IEEE754 标准处理浮点数，视作双精度数，结果为结果是 0.30000000000000004（计组内容）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Java</category>
-        <category>JavaWeb</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-        <tag>css</tag>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>分题型基础补全计划（一）—— HTML 篇</title>
     <url>/2021/11/04/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20HTML%E7%AF%87/</url>
     <content><![CDATA[<h4 id="URL样式"><a href="#URL样式" class="headerlink" title="URL样式"></a>URL 样式</h4><p>题型：使用 <code>http://localhost:8080/web01/test.jsp?user=admin&amp;password=admin</code> 进行访问 WEB 应用时候，下列说法哪个是错误的：( )</p>
@@ -1524,6 +1419,111 @@
       </categories>
       <tags>
         <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分题型基础补全计划（三）—— JavaScript 篇</title>
+    <url>/2021/11/11/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20JavaScript%E7%AF%87/</url>
+    <content><![CDATA[<h3 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this 的指向问题</h3><p>​    作为一门一切皆为对象的语言，首先需要搞明白指针 this 的指向问题。以下为常见的两种指向情况：</p>
+<h5 id="作为构造函数调用"><a href="#作为构造函数调用" class="headerlink" title="作为构造函数调用"></a><strong>作为构造函数调用</strong></h5><p>题型 1</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">"123"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> foo = <span class="string">"456"</span>;</span><br><span class="line">  <span class="built_in">this</span>.foo = <span class="string">"789"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(foo);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">print();</span><br></pre></td></tr></tbody></table></figure>
+<p><em>我的答案:</em> 456</p>
+<ul>
+<li>通过 print () 函数，可以生成一个新对象。这时，<code>this</code> 就指这个新对象，this.foo 就作为这个新对象的成员</li>
+</ul>
+<h5 id="纯粹的函数调用"><a href="#纯粹的函数调用" class="headerlink" title="纯粹的函数调用"></a><strong>纯粹的函数调用</strong></h5><p>题型 2</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>{</span><br><span class="line">  a = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  alert(a);</span><br><span class="line">  alert(<span class="built_in">this</span>.a);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> a;</span><br><span class="line">  alert(a);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><em>我的答案:</em> 弹出 0,5,0</p>
+<ul>
+<li>全局性调用，因此 <code>this</code> 就代表全局对象，this.a 则调用全局变量 a，故弹出结果为 5</li>
+</ul>
+<p>其余详见：<a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html">Javascript 的 this 用法 - 阮一峰的网络日志 (ruanyifeng.com)</a>，讲的很透彻</p>
+<h3 id="鼠标事件与键盘事件"><a href="#鼠标事件与键盘事件" class="headerlink" title="鼠标事件与键盘事件"></a>鼠标事件与键盘事件</h3><p>题型：下列事件哪个不是由鼠标触发的事件（）</p>
+<p>A click</p>
+<p>B contextmenu</p>
+<p>C mouseout</p>
+<p>D keydown</p>
+<p><em>我的答案:</em> D</p>
+<h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//1.鼠标点击左键触发</span></span><br><span class="line">onclick</span><br><span class="line"><span class="comment">//2.鼠标经过触发</span></span><br><span class="line">onmouseover</span><br><span class="line"><span class="comment">//3.鼠标离开触发</span></span><br><span class="line">onmouseout</span><br><span class="line"><span class="comment">//4.获得鼠标焦点触发</span></span><br><span class="line">onfocus</span><br><span class="line"><span class="comment">//5.失去鼠标触发</span></span><br><span class="line">onblur</span><br><span class="line"><span class="comment">//6.鼠标移动触发</span></span><br><span class="line">onmousemove</span><br><span class="line"><span class="comment">//7.鼠标弹起触发</span></span><br><span class="line">onmouseup</span><br><span class="line"><span class="comment">//8.鼠标按下触发</span></span><br><span class="line">onmousedown</span><br><span class="line"><span class="comment">//9.鼠标经过时触发,但是不会冒泡</span></span><br><span class="line">onmouseenter</span><br><span class="line"><span class="comment">//10.鼠标离开时触发,但是不会冒泡</span></span><br><span class="line">onmouseleave</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h5><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//1.返回鼠标相对于浏览器窗口可视区的X坐标</span></span><br><span class="line">e.clientX</span><br><span class="line"><span class="comment">//2.返回鼠标相对于浏览器窗口可视区的Y坐标</span></span><br><span class="line">e.clientY</span><br><span class="line"><span class="comment">//3.返回鼠标相对于文档页面的X坐标</span></span><br><span class="line">e.pageX</span><br><span class="line"><span class="comment">//4.返回鼠标相对于文档页面的Y坐标</span></span><br><span class="line">e.pageY</span><br><span class="line"><span class="comment">//5.返回鼠标相对于屏幕的X坐标</span></span><br><span class="line">e.screenX</span><br><span class="line"><span class="comment">//6.返回鼠标相对于屏幕的Y坐标</span></span><br><span class="line">e.screenY</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="禁用鼠标事件"><a href="#禁用鼠标事件" class="headerlink" title="*禁用鼠标事件"></a>* 禁用鼠标事件</h5><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//禁止鼠标右键菜单</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'contextmenu'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">    e.preventDefault();</span><br><span class="line">})</span><br><span class="line"><span class="comment">//禁止鼠标选中</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'selectstart'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">    e.preventDefault();</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h5><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//1.某个键盘按键被松开时触发</span></span><br><span class="line">onkeyup</span><br><span class="line"><span class="comment">//2.某个键盘按键被按下时触发</span></span><br><span class="line">onkeydown</span><br><span class="line"><span class="comment">//3.某个键盘被按下时触发,不识别功能键如ctrl、shift etc.</span></span><br><span class="line">onkeypress</span><br></pre></td></tr></tbody></table></figure>
+<p>注：<code>onkeypress</code> 区分大小写，<code>onkeydown</code> 和 <code>onkeyup</code> 不区分</p>
+<h3 id="作用域问题"><a href="#作用域问题" class="headerlink" title="作用域问题"></a>作用域问题</h3><p>题型：</p>
+<p><code>&lt;ul&gt;</code></p>
+<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
+<p><code>&lt;li&gt;click me&lt;/li&gt;</code> </p>
+<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
+<p><code>&lt;li&gt;click me&lt;/li&gt;</code></p>
+<p><code>&lt;/ul&gt;</code></p>
+<p> 运行如下代码：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line"><span class="keyword">var</span> length = elements.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) {</span><br><span class="line">  elements[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    alert(i);</span><br><span class="line">  };</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>依次点击 4 个 li 标签，哪一个选项是正确的运行结果（） </p>
+<p>A 依次弹出 1， 2， 3， 4</p>
+<p>B 依次弹出 0， 1， 2， 3</p>
+<p>C 依次弹出 3， 3， 3， 3</p>
+<p>D 依次弹出 4， 4， 4， 4</p>
+<p><em>我的答案:</em> D</p>
+<ul>
+<li>在《JavaScript 高级程序设计》有如下解释<ul>
+<li>这是由于作用域链的这种配置机制引出的一个副作用，即闭包只能取得包含函数中任何变量的最后一个值。<strong>闭包所保存的是整个变量对象</strong>，而不是某个特殊的变量。</li>
+</ul>
+</li>
+<li>回归具体问题，这里 alert (i) 中绑定的 i 实际上不是 i 的值，而是 i 本身。当循环结束后，因此执行 onclick 事件、执行 alert () 时，本身 onclick 绑定的 function 的作用域中没有变量 i，i 为 w 未定义的 (undefined)，则解析引擎会寻找父级作用域，发现父级作用域中有 i，则取得的 i 对应值始终为 4。</li>
+</ul>
+<h5 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h5><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//1、利用块级域</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {                </span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    }, <span class="number">1000</span>);</span><br><span class="line">} </span><br><span class="line"><span class="comment">//2、利用自执行函数传参</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>{</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">         <span class="built_in">console</span>.log(i);</span><br><span class="line"> }, <span class="number">1000</span>);</span><br><span class="line"> })(i);        </span><br><span class="line">}</span><br><span class="line"><span class="comment">//3、利用设置延时的第三个参数传递</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>{</span><br><span class="line"> <span class="built_in">console</span>.log(j);</span><br><span class="line"> }, <span class="number">1000</span>, i);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//4、利用promise</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line"> <span class="keyword">var</span> j = i;</span><br><span class="line"> <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">     <span class="built_in">console</span>.log(j)</span><br><span class="line"> }, <span class="number">1000</span>);</span><br><span class="line"> })</span><br><span class="line">}</span><br><span class="line"><span class="comment">//5、利用async函数</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line"> <span class="keyword">let</span> result = <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line">     <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">     resolve(i);</span><br><span class="line">         }, <span class="number">1000</span>); <span class="comment">// 每隔1s打印数字 0 - 9</span></span><br><span class="line"> });</span><br><span class="line"> <span class="built_in">console</span>.log(result);</span><br><span class="line"> }</span><br><span class="line">}</span><br><span class="line">foo();</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="js中的原始类型"><a href="#js中的原始类型" class="headerlink" title="js中的原始类型"></a>js 中的原始类型</h3><p>题型：关于 javascript 的原始类型（primitive type），错误的是 </p>
+<p>A 有 5 种 primitive type，分别是 Undefined、Null、Boolean、Number 和 String。</p>
+<p>B var sTemp = “test string”;alert (typeof sTemp); 结果为 string</p>
+<p>C var oTemp;alert (oTemp == undefined) 为 true</p>
+<p>D alert (null == undefined); 结果为 false</p>
+<p><em>我的答案:</em> D</p>
+<h5 id="六大原始类型"><a href="#六大原始类型" class="headerlink" title="六大原始类型"></a>六大原始类型</h5><ul>
+<li>数字类型 number</li>
+<li> 字符串类型 string</li>
+<li> 布尔类型 boolean</li>
+<li> 空值 null</li>
+<li> 未定义 undefined</li>
+<li> 独一无二类型 (ES6 新增) symbol：引入以防止属性名的冲突</li>
+</ul>
+<p>注：其他类型均为引用类型（Object）</p>
+<h3 id="最大值的求法"><a href="#最大值的求法" class="headerlink" title="最大值的求法"></a>最大值的求法</h3><p>题型：下面求 a 中最大值正确的是 ()</p>
+<p>A Math.max(a)</p>
+<p>B Array.max(a)</p>
+<p>C Math.max.call(null,a)</p>
+<p>D Math.max.apply(null,a)</p>
+<p><em>我的答案:</em> D</p>
+<h5 id="Math-max"><a href="#Math-max" class="headerlink" title="Math.max"></a>Math.max</h5><pre><code> 返回一组数中的最大值
+</code></pre><h5 id="Math-max-apply"><a href="#Math-max-apply" class="headerlink" title="Math.max.apply"></a>Math.max.apply</h5><p>​    返回一个对象（如：数组）中的最大值</p>
+<h3 id="标准事件模型-IE9"><a href="#标准事件模型-IE9" class="headerlink" title="*标准事件模型 IE9+"></a>* 标准事件模型 IE9+</h3><p>题型：w3c 制定的 javascript 标准事件模型，以下正确的顺序以及描述是？ </p>
+<p>A 事件捕获 &gt; 事件冒泡</p>
+<p>B 事件捕获 -&gt; 事件处理 -&gt; 事件冒泡</p>
+<p>C 事件冒泡 -&gt; 事件处理</p>
+<p>D 事件处理 -&gt; 事件捕获 -&gt; 事件冒泡</p>
+<p><em>我的答案:</em> B</p>
+<h3 id="异步执行调用"><a href="#异步执行调用" class="headerlink" title="异步执行调用"></a>异步执行调用</h3><p>题型：以下语句的执行结果是什么？</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"one"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"two"</span>);</span><br><span class="line">}, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"three"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"four"</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p><em>我的答案:</em> “one” “three” “four” “two”</p>
+<ul>
+<li>这是由于 setTimeout () 方法是异步执行的。当调用该方法时，会把函数参数与函数体中的内容放入消息队列，直到当前主程序执行完成后，再予以调用</li>
+</ul>
+<h3 id="浮点数运算问题"><a href="#浮点数运算问题" class="headerlink" title="浮点数运算问题"></a>浮点数运算问题</h3><p>题型：写一个求和的函数 sum，达到下面的效果</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// Should equal 15</span></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 0</span></span><br><span class="line">sum(<span class="number">5</span>, <span class="literal">null</span>, -<span class="number">5</span>);</span><br><span class="line"><span class="comment">// Should equal 10</span></span><br><span class="line">sum(<span class="string">'1.0'</span>, <span class="literal">false</span>, <span class="number">1</span>, <span class="literal">true</span>, <span class="number">1</span>, <span class="string">'A'</span>, <span class="number">1</span>, <span class="string">'B'</span>, <span class="number">1</span>, <span class="string">'C'</span>, <span class="number">1</span>, <span class="string">'D'</span>, <span class="number">1</span>, <span class="string">'E'</span>, <span class="number">1</span>, <span class="string">'F'</span>, <span class="number">1</span>, <span class="string">'G'</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// Should equal 0.3, not 0.30000000000000004</span></span><br><span class="line">sum(<span class="number">0.1</span>, <span class="number">0.2</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p>我的答案：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>{</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> add = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!(<span class="keyword">typeof</span> <span class="built_in">arguments</span>[i] == <span class="string">"boolean"</span>)) {</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!<span class="built_in">isNaN</span>(<span class="built_in">arguments</span>[i])) {</span><br><span class="line"></span><br><span class="line">        add += <span class="built_in">Number</span>(<span class="built_in">arguments</span>[i]);</span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  alert(<span class="built_in">Math</span>.round(add * <span class="number">10</span>) / <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>为什么 1+2≠3？因为 js 采用的是 IEEE754 标准处理浮点数，视作双精度数，结果为结果是 0.30000000000000004（计组内容）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -1867,6 +1867,121 @@
       </categories>
       <tags>
         <tag>小程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库操作（一）—— 基础篇</title>
+    <url>/2020/07/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
+    <content><![CDATA[<p>基础操作（1~8 章）</p>
+<p>1、数据库 database：保存有组织数据的容器</p>
+<p>2、表 table：特定类型数据的结构化清单</p>
+<p>3、行 row /record：表中的一个记录</p>
+<p>4、<strong>主键</strong> primary key：每一行中可以<strong>唯一</strong>标识自己的一列</p>
+<ul>
+<li>前提：任意两行不具有相同值、每行必须具有一个主键值</li>
+<li>习惯：主键值不更新 不重用，不在主键使用可能会更改的值</li>
+</ul>
+<p>5、关键字 key word：作为一个保留字</p>
+<p>键入</p>
+<p>1、书写习惯</p>
+<ul>
+<li><p>命令行用分号；结尾多条语句也需用分号分割</p>
+</li>
+<li><p>对于关键字：使用大小写均可，全用大写并分成多行，易于阅读、调试</p>
+</li>
+<li>在选择多个列时，一定要在列名之间加上逗号吗，<strong>但最后一列不加</strong></li>
+</ul>
+<p>2、使用数据库： USE 数据库名</p>
+<p>显示：SHOW 语句</p>
+<ul>
+<li>SHOW DATABASES：显示所有数据库列表</li>
+<li> SHOW TABLES：显示某个库内所有表的列表</li>
+<li> SHOW COLUMNS FROM：表名显示某个库内所有列的列表<ul>
+<li>快速写法：DESCRIBE 表名</li>
+</ul>
+</li>
+<li> SHOW STATUS：显示广泛的服务器信息</li>
+<li> SHOW CREATE DATABASE / TABLE：显示创建的特定数据库或表表示的 Mysql 语句</li>
+<li> SHOW GRANTS：显示授权用户的安全权限</li>
+<li> SHOW ERRORS / WARNINGS：显示服务器的错误或警告信息</li>
+</ul>
+<p>选择：SELECT 语句</p>
+<ul>
+<li>SELECT 列名 FROM 表名：检索，输出的是未排序数据</li>
+<li> SELECT * FROM 表名：检索所有列<ul>
+<li>给定 * 通配符，则返回表中所有列，而且可检索出未知列；但滥用会降低效能</li>
+</ul>
+</li>
+<li> SELECT DISTINCT 列名：只返回唯一（去重）的行</li>
+<li> SELECT 列名 FROM 表名 LIMIT 行数：检索指定的行数<ul>
+<li> SELECT 列名 FROM 表名 LIMIT 开始行 行数：检索指定从行号为第一个值的位置开始的行数</li>
+<li>替代语法：SELECT 列名 FROM 表名 LIMIT  行数 OFFSET 开始行</li>
+</ul>
+</li>
+<li> SELECT 表名。列名 FROM 表名：完全限定的列名</li>
+</ul>
+<p>排序</p>
+<p>1、子句：一个关键字和所提供的数据组成</p>
+<p>2、ORDER BY 语句</p>
+<ul>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名：以字母顺序排序数据的 ORDER BY 子句</li>
+<li> SELECT 列名 FROM 表名 ORDER BY 子句名 1 子句名 2 ……</li>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名 DESC：降序排列</li>
+<li> SELECT 列名 FROM 表名 ORDER BY 子句名 1 DESC 子句名 2：子句 1 降序 2 升序<ul>
+<li>即：DESC 只应用到<strong>直接</strong>位于其前面的列名</li>
+<li> ASC asending：默认的情形就是升序，略</li>
+</ul>
+</li>
+<li> SELECT 列名 FROM 表名 ORDER BY 子句名 LIMIT 行数：按升序显示表中数据指定列子句的指定行数</li>
+</ul>
+<p>过滤：</p>
+<p>1、通配符 wildcard：用来匹配值的一部分特殊字符</p>
+<ul>
+<li>Mysql 中使用通配符：LIKE 操作符指示，LIKE 是 * 谓词（predicate）</li>
+</ul>
+<p>2、搜索模式：由字面值、通配符或两者组合构成的搜索条件</p>
+<p>3、WHERE 子句</p>
+<ul>
+<li>SELECT 列名 FROM 表名 WHERE 数据 =（&lt;= /&gt;= / &gt; / &lt;） 该指定值：只返回指定值的行</li>
+<li>同时使用 ORDER BY：需要让 ORDER BY 位于 WHERE 之后</li>
+<li>不匹配检查：SELECT 列名 FROM 表名 WHERE 数据 &lt;&gt; 值（效果同！=）</li>
+<li>范围值检查：SELECT 列名 FROM 表名 WHERE 数据 BETWEEN 值 1 AND 值 2</li>
+<li> 空值检查：SELECT 列名 FROM 表名 WHERE 数据 IS NULL</li>
+<li> 多限定条件：SELECT 列名 FROM 表名 WHERE 数据 = 值 1 AND 数据 &lt;值 2 OR 数据&gt; 值 3<ul>
+<li> 优先处理 AND 操作符</li>
+</ul>
+</li>
+<li>范围选取：SELECT 列名 FROM 表名 WHERE 数据 IN （值 1，值 2）<ul>
+<li>完成与 OR 相同的功能</li>
+<li>直观易管理</li>
+<li>运行更快</li>
+<li>可包含其他 SELECT 语句，动态创建 WHERE 子句</li>
+</ul>
+</li>
+<li>否定：SELECT 列名 FROM 表名 WHERE 数据 <strong>NOT</strong> IN （值 1，值 2） ORDER BY 子句名<ul>
+<li>常用于 IN 的复杂句式中取反</li>
+</ul>
+</li>
+<li>通配符操作：SELECT 列名 FROM 表名 WHERE 数据 LIKE ‘_字符串 %’<ul>
+<li>% 用于表示接受字符串后续的任意字符<ul>
+<li>‘% 字符串 %’则表示任何位置的匹配</li>
+<li>‘字符串 1% 字符串 2’则表示字符串 1 开头、字符串 2 结尾的匹配</li>
+<li>注意当存在空格时， ‘% 字符串’不会匹配</li>
+<li> NULL 任何情况均不会被匹配</li>
+</ul>
+</li>
+<li>_只匹配单个字符</li>
+<li>通配符的弊端：耗时较长（尤其位于起始处） 使用容易出错</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -2270,203 +2385,6 @@
       </tags>
   </entry>
   <entry>
-    <title>数据库操作（一）—— 基础篇</title>
-    <url>/2020/07/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
-    <content><![CDATA[<p>基础操作（1~8 章）</p>
-<p>1、数据库 database：保存有组织数据的容器</p>
-<p>2、表 table：特定类型数据的结构化清单</p>
-<p>3、行 row /record：表中的一个记录</p>
-<p>4、<strong>主键</strong> primary key：每一行中可以<strong>唯一</strong>标识自己的一列</p>
-<ul>
-<li>前提：任意两行不具有相同值、每行必须具有一个主键值</li>
-<li>习惯：主键值不更新 不重用，不在主键使用可能会更改的值</li>
-</ul>
-<p>5、关键字 key word：作为一个保留字</p>
-<p>键入</p>
-<p>1、书写习惯</p>
-<ul>
-<li><p>命令行用分号；结尾多条语句也需用分号分割</p>
-</li>
-<li><p>对于关键字：使用大小写均可，全用大写并分成多行，易于阅读、调试</p>
-</li>
-<li>在选择多个列时，一定要在列名之间加上逗号吗，<strong>但最后一列不加</strong></li>
-</ul>
-<p>2、使用数据库： USE 数据库名</p>
-<p>显示：SHOW 语句</p>
-<ul>
-<li>SHOW DATABASES：显示所有数据库列表</li>
-<li> SHOW TABLES：显示某个库内所有表的列表</li>
-<li> SHOW COLUMNS FROM：表名显示某个库内所有列的列表<ul>
-<li>快速写法：DESCRIBE 表名</li>
-</ul>
-</li>
-<li> SHOW STATUS：显示广泛的服务器信息</li>
-<li> SHOW CREATE DATABASE / TABLE：显示创建的特定数据库或表表示的 Mysql 语句</li>
-<li> SHOW GRANTS：显示授权用户的安全权限</li>
-<li> SHOW ERRORS / WARNINGS：显示服务器的错误或警告信息</li>
-</ul>
-<p>选择：SELECT 语句</p>
-<ul>
-<li>SELECT 列名 FROM 表名：检索，输出的是未排序数据</li>
-<li> SELECT * FROM 表名：检索所有列<ul>
-<li>给定 * 通配符，则返回表中所有列，而且可检索出未知列；但滥用会降低效能</li>
-</ul>
-</li>
-<li> SELECT DISTINCT 列名：只返回唯一（去重）的行</li>
-<li> SELECT 列名 FROM 表名 LIMIT 行数：检索指定的行数<ul>
-<li> SELECT 列名 FROM 表名 LIMIT 开始行 行数：检索指定从行号为第一个值的位置开始的行数</li>
-<li>替代语法：SELECT 列名 FROM 表名 LIMIT  行数 OFFSET 开始行</li>
-</ul>
-</li>
-<li> SELECT 表名。列名 FROM 表名：完全限定的列名</li>
-</ul>
-<p>排序</p>
-<p>1、子句：一个关键字和所提供的数据组成</p>
-<p>2、ORDER BY 语句</p>
-<ul>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名：以字母顺序排序数据的 ORDER BY 子句</li>
-<li> SELECT 列名 FROM 表名 ORDER BY 子句名 1 子句名 2 ……</li>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名 DESC：降序排列</li>
-<li> SELECT 列名 FROM 表名 ORDER BY 子句名 1 DESC 子句名 2：子句 1 降序 2 升序<ul>
-<li>即：DESC 只应用到<strong>直接</strong>位于其前面的列名</li>
-<li> ASC asending：默认的情形就是升序，略</li>
-</ul>
-</li>
-<li> SELECT 列名 FROM 表名 ORDER BY 子句名 LIMIT 行数：按升序显示表中数据指定列子句的指定行数</li>
-</ul>
-<p>过滤：</p>
-<p>1、通配符 wildcard：用来匹配值的一部分特殊字符</p>
-<ul>
-<li>Mysql 中使用通配符：LIKE 操作符指示，LIKE 是 * 谓词（predicate）</li>
-</ul>
-<p>2、搜索模式：由字面值、通配符或两者组合构成的搜索条件</p>
-<p>3、WHERE 子句</p>
-<ul>
-<li>SELECT 列名 FROM 表名 WHERE 数据 =（&lt;= /&gt;= / &gt; / &lt;） 该指定值：只返回指定值的行</li>
-<li>同时使用 ORDER BY：需要让 ORDER BY 位于 WHERE 之后</li>
-<li>不匹配检查：SELECT 列名 FROM 表名 WHERE 数据 &lt;&gt; 值（效果同！=）</li>
-<li>范围值检查：SELECT 列名 FROM 表名 WHERE 数据 BETWEEN 值 1 AND 值 2</li>
-<li> 空值检查：SELECT 列名 FROM 表名 WHERE 数据 IS NULL</li>
-<li> 多限定条件：SELECT 列名 FROM 表名 WHERE 数据 = 值 1 AND 数据 &lt;值 2 OR 数据&gt; 值 3<ul>
-<li> 优先处理 AND 操作符</li>
-</ul>
-</li>
-<li>范围选取：SELECT 列名 FROM 表名 WHERE 数据 IN （值 1，值 2）<ul>
-<li>完成与 OR 相同的功能</li>
-<li>直观易管理</li>
-<li>运行更快</li>
-<li>可包含其他 SELECT 语句，动态创建 WHERE 子句</li>
-</ul>
-</li>
-<li>否定：SELECT 列名 FROM 表名 WHERE 数据 <strong>NOT</strong> IN （值 1，值 2） ORDER BY 子句名<ul>
-<li>常用于 IN 的复杂句式中取反</li>
-</ul>
-</li>
-<li>通配符操作：SELECT 列名 FROM 表名 WHERE 数据 LIKE ‘_字符串 %’<ul>
-<li>% 用于表示接受字符串后续的任意字符<ul>
-<li>‘% 字符串 %’则表示任何位置的匹配</li>
-<li>‘字符串 1% 字符串 2’则表示字符串 1 开头、字符串 2 结尾的匹配</li>
-<li>注意当存在空格时， ‘% 字符串’不会匹配</li>
-<li> NULL 任何情况均不会被匹配</li>
-</ul>
-</li>
-<li>_只匹配单个字符</li>
-<li>通配符的弊端：耗时较长（尤其位于起始处） 使用容易出错</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构篇：1.1 数据结构的基本概念</title>
-    <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<h2 id="数据结构的基本概念"><a href="#数据结构的基本概念" class="headerlink" title="数据结构的基本概念"></a>数据结构的基本概念</h2><h3 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h3><h4 id="数据-Data"><a href="#数据-Data" class="headerlink" title="数据 Data"></a>数据 Data</h4><ul>
-<li>信息的载体，描述所有能输入到计算机并被计算机<strong>识别</strong>和<strong>处理</strong>的符号集合</li>
-</ul>
-<h4 id="数据元素-Data-Element"><a href="#数据元素-Data-Element" class="headerlink" title="数据元素 Data Element"></a>数据元素 Data Element</h4><ul>
-<li>数据的基本单位，常作为<strong>整体</strong>进行考虑</li>
-</ul>
-<h4 id="数据对象-Data-Object"><a href="#数据对象-Data-Object" class="headerlink" title="数据对象 Data Object"></a>数据对象 Data Object</h4><ul>
-<li>具<strong>相同性质</strong>的数据元素的集合，是数据的一个子集</li>
-</ul>
-<h4 id="数据类型-Data-Type"><a href="#数据类型-Data-Type" class="headerlink" title="数据类型 Data Type"></a>数据类型 Data Type</h4><ul>
-<li><p>一个<strong>值的集合</strong>、定义在此集合上的一组<strong>操作</strong></p>
-</li>
-<li><p>分类：原子类型 结构类型 抽象数据类型</p>
-<ul>
-<li>原子类型：值不可再分</li>
-<li>结构类型：值可再分为若干成分</li>
-<li>抽象数据类型 ADT：<strong>抽象数据组织</strong>及相关操作<ul>
-<li>是<strong>数据对象、数据关系、基本操作集</strong>表示的<strong>三元组</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="数据结构-Data-Structure"><a href="#数据结构-Data-Structure" class="headerlink" title="数据结构 Data Structure"></a>数据结构 Data Structure</h4><ul>
-<li>相互之间存在一种或多种<strong>特定关系</strong>的数据元素的集合</li>
-</ul>
-<h3 id="数据结构三要素"><a href="#数据结构三要素" class="headerlink" title="数据结构三要素"></a>数据结构三要素</h3><h4 id="1、数据的逻辑结构"><a href="#1、数据的逻辑结构" class="headerlink" title="1、数据的逻辑结构"></a>1、数据的逻辑结构</h4><ul>
-<li>def 数据元素之间的逻辑关系</li>
-<li>分类：线性结构 非线性结构<ul>
-<li>线性结构（有序数据元素的集合）：线性表 <strong>栈</strong> 队列 双队列 串 数组<ul>
-<li>特点：数据结构之间存在<strong>一对一</strong>的线性关系</li>
-</ul>
-</li>
-<li>非线性结构：数组 广义表 集合 树 二叉树 图</li>
-</ul>
-</li>
-</ul>
-<h4 id="2、数据的存储结构"><a href="#2、数据的存储结构" class="headerlink" title="2、数据的存储结构"></a>2、数据的存储结构</h4><ul>
-<li>def 数据结构在计算机中的表示，包括数据元素的表示和关系的表示</li>
-<li>分类：顺序存储 链式存储 索引存储 散列存储</li>
-</ul>
-<h5 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h5><ul>
-<li>def 把逻辑上的相邻元素存储在物理位置上也相邻的存储单元中</li>
-<li>优点：实现随机存取，每个元素占用最少存储空间</li>
-<li>缺点：只能使用相邻的一整块存储空间，可能产生较多外部碎片</li>
-</ul>
-<h5 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h5><ul>
-<li>def 不要求物理位置上相邻，借助指针表示元素间的逻辑关系</li>
-<li>优点：充分利用存储单元，无碎片</li>
-<li>缺点：指针占用额外存储空间，且只能顺序存取</li>
-</ul>
-<h5 id="索引存储"><a href="#索引存储" class="headerlink" title="索引存储"></a>索引存储</h5><ul>
-<li>def 存储元素信息并建立附加的<strong>索引表</strong></li>
-<li>优点：检索速度快</li>
-<li>缺点：费时，增删需修改索引表</li>
-</ul>
-<h5 id="散列存储"><a href="#散列存储" class="headerlink" title="散列存储"></a>散列存储</h5><ul>
-<li>def 根据元素关键字直接计算出存储地址</li>
-<li>优点：检索、增删结点快速</li>
-<li>缺点：散列函数不好会引起冲突，而解决增加开销</li>
-</ul>
-<h4 id="3、数据的运算"><a href="#3、数据的运算" class="headerlink" title="3、数据的运算"></a>3、数据的运算</h4><ul>
-<li>def 运算的定义和实现<ul>
-<li>定义 —— <strong>逻辑结构</strong>， 指出运算的功能</li>
-<li>实现 —— <strong>存储结构</strong>，指出运算的具体操作步骤</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>408</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>408</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据库操作（四）—— 高级篇</title>
     <url>/2020/08/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%AB%98%E7%BA%A7%E7%AF%87/</url>
     <content><![CDATA[<h2 id="高级操作-第22-30章"><a href="#高级操作-第22-30章" class="headerlink" title="高级操作 第22 - 30章"></a>高级操作 第 22 - 30 章</h2><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>1、def：虚拟表，仅包含使用时动态检索的一个 SQL 查询</p>
@@ -2711,11 +2629,226 @@
       </tags>
   </entry>
   <entry>
+    <title>数据结构篇：1.1 数据结构的基本概念</title>
+    <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h2 id="数据结构的基本概念"><a href="#数据结构的基本概念" class="headerlink" title="数据结构的基本概念"></a>数据结构的基本概念</h2><h3 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h3><h4 id="数据-Data"><a href="#数据-Data" class="headerlink" title="数据 Data"></a>数据 Data</h4><ul>
+<li>信息的载体，描述所有能输入到计算机并被计算机<strong>识别</strong>和<strong>处理</strong>的符号集合</li>
+</ul>
+<h4 id="数据元素-Data-Element"><a href="#数据元素-Data-Element" class="headerlink" title="数据元素 Data Element"></a>数据元素 Data Element</h4><ul>
+<li>数据的基本单位，常作为<strong>整体</strong>进行考虑</li>
+</ul>
+<h4 id="数据对象-Data-Object"><a href="#数据对象-Data-Object" class="headerlink" title="数据对象 Data Object"></a>数据对象 Data Object</h4><ul>
+<li>具<strong>相同性质</strong>的数据元素的集合，是数据的一个子集</li>
+</ul>
+<h4 id="数据类型-Data-Type"><a href="#数据类型-Data-Type" class="headerlink" title="数据类型 Data Type"></a>数据类型 Data Type</h4><ul>
+<li><p>一个<strong>值的集合</strong>、定义在此集合上的一组<strong>操作</strong></p>
+</li>
+<li><p>分类：原子类型 结构类型 抽象数据类型</p>
+<ul>
+<li>原子类型：值不可再分</li>
+<li>结构类型：值可再分为若干成分</li>
+<li>抽象数据类型 ADT：<strong>抽象数据组织</strong>及相关操作<ul>
+<li>是<strong>数据对象、数据关系、基本操作集</strong>表示的<strong>三元组</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="数据结构-Data-Structure"><a href="#数据结构-Data-Structure" class="headerlink" title="数据结构 Data Structure"></a>数据结构 Data Structure</h4><ul>
+<li>相互之间存在一种或多种<strong>特定关系</strong>的数据元素的集合</li>
+</ul>
+<h3 id="数据结构三要素"><a href="#数据结构三要素" class="headerlink" title="数据结构三要素"></a>数据结构三要素</h3><h4 id="1、数据的逻辑结构"><a href="#1、数据的逻辑结构" class="headerlink" title="1、数据的逻辑结构"></a>1、数据的逻辑结构</h4><ul>
+<li>def 数据元素之间的逻辑关系</li>
+<li>分类：线性结构 非线性结构<ul>
+<li>线性结构（有序数据元素的集合）：线性表 <strong>栈</strong> 队列 双队列 串 数组<ul>
+<li>特点：数据结构之间存在<strong>一对一</strong>的线性关系</li>
+</ul>
+</li>
+<li>非线性结构：数组 广义表 集合 树 二叉树 图</li>
+</ul>
+</li>
+</ul>
+<h4 id="2、数据的存储结构"><a href="#2、数据的存储结构" class="headerlink" title="2、数据的存储结构"></a>2、数据的存储结构</h4><ul>
+<li>def 数据结构在计算机中的表示，包括数据元素的表示和关系的表示</li>
+<li>分类：顺序存储 链式存储 索引存储 散列存储</li>
+</ul>
+<h5 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h5><ul>
+<li>def 把逻辑上的相邻元素存储在物理位置上也相邻的存储单元中</li>
+<li>优点：实现随机存取，每个元素占用最少存储空间</li>
+<li>缺点：只能使用相邻的一整块存储空间，可能产生较多外部碎片</li>
+</ul>
+<h5 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h5><ul>
+<li>def 不要求物理位置上相邻，借助指针表示元素间的逻辑关系</li>
+<li>优点：充分利用存储单元，无碎片</li>
+<li>缺点：指针占用额外存储空间，且只能顺序存取</li>
+</ul>
+<h5 id="索引存储"><a href="#索引存储" class="headerlink" title="索引存储"></a>索引存储</h5><ul>
+<li>def 存储元素信息并建立附加的<strong>索引表</strong></li>
+<li>优点：检索速度快</li>
+<li>缺点：费时，增删需修改索引表</li>
+</ul>
+<h5 id="散列存储"><a href="#散列存储" class="headerlink" title="散列存储"></a>散列存储</h5><ul>
+<li>def 根据元素关键字直接计算出存储地址</li>
+<li>优点：检索、增删结点快速</li>
+<li>缺点：散列函数不好会引起冲突，而解决增加开销</li>
+</ul>
+<h4 id="3、数据的运算"><a href="#3、数据的运算" class="headerlink" title="3、数据的运算"></a>3、数据的运算</h4><ul>
+<li>def 运算的定义和实现<ul>
+<li>定义 —— <strong>逻辑结构</strong>， 指出运算的功能</li>
+<li>实现 —— <strong>存储结构</strong>，指出运算的具体操作步骤</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>408</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>408</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构篇：1.2 算法和算法评价</title>
+    <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-2%E7%AE%97%E6%B3%95%E5%92%8C%E7%AE%97%E6%B3%95%E8%AF%84%E4%BB%B7/</url>
+    <content><![CDATA[<h2 id="算法基本概念"><a href="#算法基本概念" class="headerlink" title="算法基本概念"></a>算法基本概念</h2><h4 id="算法-Algorithm"><a href="#算法-Algorithm" class="headerlink" title="算法 Algorithm"></a>算法 Algorithm</h4><ul>
+<li>对解决方案的<strong>完整而准确</strong>的描述，是指令的有限序列，每条指令表示一个或多个操作</li>
+</ul>
+<h3 id="算法的五大重要特性"><a href="#算法的五大重要特性" class="headerlink" title="算法的五大重要特性"></a>算法的五大重要特性</h3><h4 id="有穷性"><a href="#有穷性" class="headerlink" title="有穷性"></a>有穷性</h4><ul>
+<li>算法需在执行<strong>有穷步</strong>后结束，且每步在有穷时间内完成</li>
+</ul>
+<h4 id="确定性"><a href="#确定性" class="headerlink" title="确定性"></a>确定性</h4><ul>
+<li>算法的每条指令需有确切含义，对于<strong>相同的输入</strong>只能得到一个<strong>相同的输出</strong></li>
+</ul>
+<h4 id="可行性"><a href="#可行性" class="headerlink" title="可行性"></a>可行性</h4><ul>
+<li>算法中的操作均可通过已实现的<strong>基本运算执行有限次</strong>实现</li>
+</ul>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><ul>
+<li>有 0 或多个，取于特定对象集合</li>
+</ul>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><ul>
+<li>有 1 或多个，与输出有特定关系</li>
+</ul>
+<h3 id="“好”的算法标准"><a href="#“好”的算法标准" class="headerlink" title="“好”的算法标准"></a>“好” 的算法标准</h3><h4 id="正确性"><a href="#正确性" class="headerlink" title="正确性"></a>正确性</h4><ul>
+<li>算法应能正确解决问题</li>
+</ul>
+<h4 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h4><ul>
+<li>算法应具良好的可读性</li>
+</ul>
+<h4 id="健壮性"><a href="#健壮性" class="headerlink" title="健壮性"></a>健壮性</h4><ul>
+<li>对非法数据做出适当反应、处理</li>
+</ul>
+<h4 id="效率和低存储量需求"><a href="#效率和低存储量需求" class="headerlink" title="效率和低存储量需求"></a>效率和低存储量需求</h4><ul>
+<li>算法执行时间与执行过程中所需的最大存储空间</li>
+</ul>
+<h2 id="算法效率度量"><a href="#算法效率度量" class="headerlink" title="算法效率度量"></a>算法效率度量</h2><h3 id="时间复杂度（P6）"><a href="#时间复杂度（P6）" class="headerlink" title="时间复杂度（P6）"></a>时间复杂度（P6）</h3><ul>
+<li>分类：最坏时间复杂度 平均时间复杂度 最好时间复杂度<ul>
+<li>平均时间复杂度：所有可能输入实例在<strong>等概率出现</strong>的情况下，算法的期望运行时间</li>
+</ul>
+</li>
+</ul>
+<h4 id="频度"><a href="#频度" class="headerlink" title="频度"></a>频度</h4><ul>
+<li>def 语句在算法中被重复执行的次数</li>
+</ul>
+<h4 id="T-n"><a href="#T-n" class="headerlink" title="T(n)"></a>T(n)</h4><ul>
+<li>def 算法中所有语句的频度之和</li>
+</ul>
+<h4 id="渐进时间复杂度公式"><a href="#渐进时间复杂度公式" class="headerlink" title="渐进时间复杂度公式"></a>渐进时间复杂度公式</h4><h4 id="两个计算规则"><a href="#两个计算规则" class="headerlink" title="两个计算规则"></a>两个计算规则</h4><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><h4 id="S-n"><a href="#S-n" class="headerlink" title="S(n)"></a>S(n)</h4><ul>
+<li>def 算法耗费的存储空间，是为实现计算所需信息的辅助空间<ul>
+<li>原地工作：算法所需的辅助空间为常量 O (1)</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>408</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>408</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构篇：常用排序算法回顾</title>
+    <url>/2022/07/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE/</url>
+    <content><![CDATA[<p><img data-src="/2022/07/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE/排序1.png" alt="图1 常见排序算法"></p>
+<h3 id="（一）基本概念"><a href="#（一）基本概念" class="headerlink" title="（一）基本概念"></a>（一）基本概念</h3><h4 id="1-排序"><a href="#1-排序" class="headerlink" title="1. 排序"></a>1. 排序</h4><ul>
+<li>def 重排列表中元素，使其满足<strong>按关键字有序</strong>的过程</li>
+</ul>
+<h4 id="2-算法的稳定性"><a href="#2-算法的稳定性" class="headerlink" title="2. 算法的稳定性"></a>2. 算法的稳定性</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">稳定的排序</th>
+<th style="text-align:center">不稳定排序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">冒泡排序</td>
+<td style="text-align:center">快速排序</td>
+</tr>
+<tr>
+<td style="text-align:center">插入排序</td>
+<td style="text-align:center">希尔排序</td>
+</tr>
+<tr>
+<td style="text-align:center">归并排序</td>
+<td style="text-align:center">简单选择排序</td>
+</tr>
+<tr>
+<td style="text-align:center">基数排序</td>
+<td style="text-align:center">堆排序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p> quiz 如何说明某算法是不稳定的？</p>
+<p>答：对于该算法，可证有一组关键字的实例，在排序后原先排序相对在前的元素现被置后（相对位置改变），是为不稳定的</p>
+</li>
+</ul>
+<h4 id="3-分类"><a href="#3-分类" class="headerlink" title="3. 分类"></a>3. 分类</h4><ul>
+<li>内部排序<ul>
+<li> def 排序期间，元素全部的存放在内存中</li>
+<li>基于比较（除基数排序）和移动，关注复杂度</li>
+</ul>
+</li>
+<li>外部排序<ul>
+<li> def 排序期间，元素无法全部同时存放在内存中，需要在内存与外存间不断移动</li>
+<li>除复杂度考量，还需关注如何减少磁盘 IO</li>
+</ul>
+</li>
+</ul>
+<h2 id="（二）插入排序"><a href="#（二）插入排序" class="headerlink" title="（二）插入排序"></a>（二）插入排序</h2><h4 id="1-直接插入排序"><a href="#1-直接插入排序" class="headerlink" title="1. 直接插入排序"></a>1. 直接插入排序</h4><figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 直接插入排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(ElemType a[], <span class="keyword">int</span> n)</span> </span>{</span><br><span class="line">	<span class="keyword">int</span> i, j;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) {</span><br><span class="line">		<span class="keyword">if</span> (a[i] &lt; a[i - <span class="number">1</span>]) {</span><br><span class="line">			a[<span class="number">0</span>] = a[i];         <span class="comment">// a[0]: sentinel</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; a[j] &gt; a[<span class="number">0</span>]; j--)</span><br><span class="line">				a[j + <span class="number">1</span>] = a[j]; <span class="comment">// shift right</span></span><br><span class="line">			a[j + <span class="number">1</span>] = a[<span class="number">0</span>];	 <span class="comment">// insert</span></span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>method 每次取⼀待排序记录按关键字大小插入到前面已排好序的子序列中， 重复直到完成</li>
+<li>时间复杂度：<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="5.832ex" height="2.452ex" role="img" focusable="false" viewbox="0 -833.9 2577.6 1083.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"/></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/></g><g data-mml-node="msup" transform="translate(1152,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"/></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g></g><g data-mml-node="mo" transform="translate(2188.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/></g></g></g></svg></mjx-container>，最好情况下比较 0 次、移动 n-1 次，为 O (n)；最坏情况下比较<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.777ex;" xmlns="http://www.w3.org/2000/svg" width="6.331ex" height="2.563ex" role="img" focusable="false" viewbox="0 -789.6 2798.3 1132.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mspace"/><g data-mml-node="munderover"><g data-mml-node="mo"><path data-c="2211" d="M61 748Q64 750 489 750H913L954 640Q965 609 976 579T993 533T999 516H979L959 517Q936 579 886 621T777 682Q724 700 655 705T436 710H319Q183 710 183 709Q186 706 348 484T511 259Q517 250 513 244L490 216Q466 188 420 134T330 27L149 -187Q149 -188 362 -188Q388 -188 436 -188T506 -189Q679 -189 778 -162T936 -43Q946 -27 959 6H999L913 -249L489 -250Q65 -250 62 -248Q56 -246 56 -239Q56 -234 118 -161Q186 -81 245 -11L428 206Q428 207 242 462L57 717L56 728Q56 744 61 748Z"/></g><g data-mml-node="TeXAtom" transform="translate(1089,477.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"/></g></g><g data-mml-node="TeXAtom" transform="translate(1089,-285.4) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/></g><g data-mml-node="mo" transform="translate(345,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/></g><g data-mml-node="mn" transform="translate(1123,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g></g></g><g data-mml-node="mi" transform="translate(2453.3,0)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/></g></g></g></svg></mjx-container>次、移动<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.777ex;" xmlns="http://www.w3.org/2000/svg" width="11.611ex" height="2.563ex" role="img" focusable="false" viewbox="0 -789.6 5132.1 1132.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mspace"/><g data-mml-node="munderover"><g data-mml-node="mo"><path data-c="2211" d="M61 748Q64 750 489 750H913L954 640Q965 609 976 579T993 533T999 516H979L959 517Q936 579 886 621T777 682Q724 700 655 705T436 710H319Q183 710 183 709Q186 706 348 484T511 259Q517 250 513 244L490 216Q466 188 420 134T330 27L149 -187Q149 -188 362 -188Q388 -188 436 -188T506 -189Q679 -189 778 -162T936 -43Q946 -27 959 6H999L913 -249L489 -250Q65 -250 62 -248Q56 -246 56 -239Q56 -234 118 -161Q186 -81 245 -11L428 206Q428 207 242 462L57 717L56 728Q56 744 61 748Z"/></g><g data-mml-node="TeXAtom" transform="translate(1089,477.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"/></g></g><g data-mml-node="TeXAtom" transform="translate(1089,-285.4) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/></g><g data-mml-node="mo" transform="translate(345,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/></g><g data-mml-node="mn" transform="translate(1123,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g></g></g><g data-mml-node="mo" transform="translate(2286.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/></g><g data-mml-node="mi" transform="translate(2675.6,0)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/></g><g data-mml-node="mo" transform="translate(3242.9,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"/></g><g data-mml-node="mn" transform="translate(4243.1,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/></g><g data-mml-node="mo" transform="translate(4743.1,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/></g></g></g></svg></mjx-container>次</li>
+<li>空间复杂度：O (1)</li>
+<li> 稳定性：稳定</li>
+<li>适用：顺序和链式存储，链式存储可从前往后依次查找</li>
+</ul>
+<h4 id="2-折半插入排序"><a href="#2-折半插入排序" class="headerlink" title="2. 折半插入排序"></a>2. 折半插入排序</h4><h4 id="3-希尔排序"><a href="#3-希尔排序" class="headerlink" title="3. 希尔排序"></a>3. 希尔排序</h4>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>408</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>408</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构篇：常用查找算法回顾</title>
     <url>/2022/06/29/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A%E5%B8%B8%E7%94%A8%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE/</url>
     <content><![CDATA[<p><img data-src="/2022/06/29/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A%E5%B8%B8%E7%94%A8%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95%E5%9B%9E%E9%A1%BE/查找1.png"></p>
 <h3 id="（一）基本概念"><a href="#（一）基本概念" class="headerlink" title="（一）基本概念"></a>（一）基本概念</h3><h4 id="1-查找"><a href="#1-查找" class="headerlink" title="1. 查找"></a>1. 查找</h4><ul>
-<li>def 在数据集合中寻找满⾜某种条件的数据元素的过程</li>
+<li>def 在数据集合中寻找满满足某种条件的数据元素的过程</li>
 </ul>
 <h4 id="2-查找表"><a href="#2-查找表" class="headerlink" title="2. 查找表"></a>2. 查找表</h4><ul>
 <li>def ⽤于查找的数据集合，由<strong>同一类型</strong>数据元素组成</li>
@@ -2799,103 +2932,6 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       </tags>
   </entry>
   <entry>
-    <title>数据结构篇：1.2 算法和算法评价</title>
-    <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A1-2%E7%AE%97%E6%B3%95%E5%92%8C%E7%AE%97%E6%B3%95%E8%AF%84%E4%BB%B7/</url>
-    <content><![CDATA[<h2 id="算法基本概念"><a href="#算法基本概念" class="headerlink" title="算法基本概念"></a>算法基本概念</h2><h4 id="算法-Algorithm"><a href="#算法-Algorithm" class="headerlink" title="算法 Algorithm"></a>算法 Algorithm</h4><ul>
-<li>对解决方案的<strong>完整而准确</strong>的描述，是指令的有限序列，每条指令表示一个或多个操作</li>
-</ul>
-<h3 id="算法的五大重要特性"><a href="#算法的五大重要特性" class="headerlink" title="算法的五大重要特性"></a>算法的五大重要特性</h3><h4 id="有穷性"><a href="#有穷性" class="headerlink" title="有穷性"></a>有穷性</h4><ul>
-<li>算法需在执行<strong>有穷步</strong>后结束，且每步在有穷时间内完成</li>
-</ul>
-<h4 id="确定性"><a href="#确定性" class="headerlink" title="确定性"></a>确定性</h4><ul>
-<li>算法的每条指令需有确切含义，对于<strong>相同的输入</strong>只能得到一个<strong>相同的输出</strong></li>
-</ul>
-<h4 id="可行性"><a href="#可行性" class="headerlink" title="可行性"></a>可行性</h4><ul>
-<li>算法中的操作均可通过已实现的<strong>基本运算执行有限次</strong>实现</li>
-</ul>
-<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><ul>
-<li>有 0 或多个，取于特定对象集合</li>
-</ul>
-<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><ul>
-<li>有 1 或多个，与输出有特定关系</li>
-</ul>
-<h3 id="“好”的算法标准"><a href="#“好”的算法标准" class="headerlink" title="“好”的算法标准"></a>“好” 的算法标准</h3><h4 id="正确性"><a href="#正确性" class="headerlink" title="正确性"></a>正确性</h4><ul>
-<li>算法应能正确解决问题</li>
-</ul>
-<h4 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h4><ul>
-<li>算法应具良好的可读性</li>
-</ul>
-<h4 id="健壮性"><a href="#健壮性" class="headerlink" title="健壮性"></a>健壮性</h4><ul>
-<li>对非法数据做出适当反应、处理</li>
-</ul>
-<h4 id="效率和低存储量需求"><a href="#效率和低存储量需求" class="headerlink" title="效率和低存储量需求"></a>效率和低存储量需求</h4><ul>
-<li>算法执行时间与执行过程中所需的最大存储空间</li>
-</ul>
-<h2 id="算法效率度量"><a href="#算法效率度量" class="headerlink" title="算法效率度量"></a>算法效率度量</h2><h3 id="时间复杂度（P6）"><a href="#时间复杂度（P6）" class="headerlink" title="时间复杂度（P6）"></a>时间复杂度（P6）</h3><ul>
-<li>分类：最坏时间复杂度 平均时间复杂度 最好时间复杂度<ul>
-<li>平均时间复杂度：所有可能输入实例在<strong>等概率出现</strong>的情况下，算法的期望运行时间</li>
-</ul>
-</li>
-</ul>
-<h4 id="频度"><a href="#频度" class="headerlink" title="频度"></a>频度</h4><ul>
-<li>def 语句在算法中被重复执行的次数</li>
-</ul>
-<h4 id="T-n"><a href="#T-n" class="headerlink" title="T(n)"></a>T(n)</h4><ul>
-<li>def 算法中所有语句的频度之和</li>
-</ul>
-<h4 id="渐进时间复杂度公式"><a href="#渐进时间复杂度公式" class="headerlink" title="渐进时间复杂度公式"></a>渐进时间复杂度公式</h4><h4 id="两个计算规则"><a href="#两个计算规则" class="headerlink" title="两个计算规则"></a>两个计算规则</h4><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><h4 id="S-n"><a href="#S-n" class="headerlink" title="S(n)"></a>S(n)</h4><ul>
-<li>def 算法耗费的存储空间，是为实现计算所需信息的辅助空间<ul>
-<li>原地工作：算法所需的辅助空间为常量 O (1)</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>408</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>408</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>机器学习题解（三）—— 模型评估</title>
-    <url>/2021/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/</url>
-    <content><![CDATA[<h3 id="ex5-m"><a href="#ex5-m" class="headerlink" title="ex5.m"></a>ex5.m</h3><h4 id="Part-2-Regularized-Linear-Regression-Cost"><a href="#Part-2-Regularized-Linear-Regression-Cost" class="headerlink" title="Part 2: Regularized Linear Regression Cost"></a>Part 2: Regularized Linear Regression Cost</h4><ul>
-<li>Compute the cost and gradient of regularized linear regression for a particular choice of theta.</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">% cost function</span></span><br><span class="line">J = <span class="number">1</span> / (<span class="number">2</span> * m) * (X * theta - y)' * (X * theta - y);</span><br><span class="line">J = J + lambda / (<span class="number">2</span> * m) * (theta(<span class="number">2</span>:<span class="keyword">end</span>)' * (theta(<span class="number">2</span>:<span class="keyword">end</span>)));</span><br><span class="line"></span><br><span class="line"><span class="comment">% for j = 0</span></span><br><span class="line">theta_temp = theta;</span><br><span class="line">theta_temp(<span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line"><span class="comment">% for j = 1</span></span><br><span class="line">grad = (<span class="number">1</span> / m) * (X * theta - y)' * X + (lambda / m) * theta_temp';</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-4-Train-Linear-Regression"><a href="#Part-4-Train-Linear-Regression" class="headerlink" title="Part 4: Train Linear Regression"></a>Part 4: Train Linear Regression</h4><ul>
-<li>In this part, we set regularization parameter λ to zero. <ul>
-<li>Because our current implementation of linear regression is trying to fit a 2-dimensional θ, regularization will not be incredibly helpful for a θ of such low dimension.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">% Initialize Theta</span></span><br><span class="line">initial_theta = <span class="built_in">zeros</span>(<span class="built_in">size</span>(X, <span class="number">2</span>), <span class="number">1</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">% Create "short hand" for the cost function to be minimized</span></span><br><span class="line">costFunction = @(t) linearRegCostFunction(X, y, t, lambda);</span><br><span class="line"></span><br><span class="line"><span class="comment">% Now, costFunction is a function that takes in only one argument</span></span><br><span class="line">options = optimset(<span class="string">'MaxIter'</span>, <span class="number">200</span>, <span class="string">'GradObj'</span>, <span class="string">'on'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% Minimize using fmincg</span></span><br><span class="line">theta = fmincg(costFunction, initial_theta, options);</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-5-Learning-Curve-for-Linear-Regression"><a href="#Part-5-Learning-Curve-for-Linear-Regression" class="headerlink" title="Part 5: Learning Curve for Linear Regression"></a>Part 5: Learning Curve for Linear Regression</h4><ul>
-<li>Fill in this function to return training errors in error_train and the cross validation errors in error_val.</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: m</span><br><span class="line">   subset_x = X(<span class="number">1</span>: <span class="built_in">i</span>, :);</span><br><span class="line">   subset_y = y(<span class="number">1</span>: <span class="built_in">i</span>);</span><br><span class="line">   theta = trainLinearReg(subset_x, subset_y, lambda);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">% for training set error, compute on the training subset</span></span><br><span class="line">   error_train(<span class="built_in">i</span>) = linearRegCostFunction(subset_x, subset_y, theta, <span class="number">0</span>); <span class="comment">% set λ to 0</span></span><br><span class="line">   <span class="comment">% for cross validation error, compute over the entire cross validation set</span></span><br><span class="line">   error_val(<span class="built_in">i</span>) = linearRegCostFunction(Xval, yval, theta, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-6-Feature-Mapping-for-Polynomial-Regression"><a href="#Part-6-Feature-Mapping-for-Polynomial-Regression" class="headerlink" title="Part 6: Feature Mapping for Polynomial Regression"></a>Part 6: Feature Mapping for Polynomial Regression</h4><ul>
-<li>Given a vector X, return a matrix X_poly where the p-th column of X contains the values of X to the p-th power.</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">m = <span class="built_in">size</span>(X, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: m</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:p</span><br><span class="line">        X_poly(<span class="built_in">i</span>, <span class="built_in">j</span>) = X(<span class="built_in">i</span>) .^<span class="built_in">j</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-8-Validation-for-Selecting-Lambda"><a href="#Part-8-Validation-for-Selecting-Lambda" class="headerlink" title="Part 8: Validation for Selecting Lambda"></a>Part 8: Validation for Selecting Lambda</h4><ul>
-<li>Fill in this function to return training errors in error_train and the validation errors in error_val.</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">length</span>(lambda_vec)</span><br><span class="line">    <span class="comment">% take each lambda and test</span></span><br><span class="line">    lambda = lambda_vec(<span class="built_in">i</span>);</span><br><span class="line">    theta = trainLinearReg(X, y, lambda);</span><br><span class="line">    </span><br><span class="line">    error_train(<span class="built_in">i</span>) = linearRegCostFunction(X, y, theta, <span class="number">0</span>); <span class="comment">% set λ to 0</span></span><br><span class="line">    error_val(<span class="built_in">i</span>) = linearRegCostFunction(Xval, yval, theta, <span class="number">0</span>);</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>题解</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>机器学习题解（一）—— 线性回归与逻辑回归</title>
     <url>/2021/09/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%8E%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</url>
     <content><![CDATA[<h3 id="ex1-m"><a href="#ex1-m" class="headerlink" title="ex1.m"></a>ex1.m</h3><h4 id="Part-1-Basic-Function"><a href="#Part-1-Basic-Function" class="headerlink" title="Part 1: Basic Function"></a>Part 1: Basic Function</h4><ul>
@@ -2958,28 +2994,31 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       </tags>
   </entry>
   <entry>
-    <title>机器学习题解（五）—— KNN 与 PCA</title>
-    <url>/2021/10/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20KNN%E4%B8%8EPCA/</url>
-    <content><![CDATA[<h3 id="ex7-m"><a href="#ex7-m" class="headerlink" title="ex7.m"></a>ex7.m</h3><h4 id="Part-1-Find-Closest-Centroids"><a href="#Part-1-Find-Closest-Centroids" class="headerlink" title="Part 1: Find Closest Centroids"></a>Part 1: Find Closest Centroids</h4><ul>
-<li>Go over every example, find its closest centroid, and store the index inside idx at the appropriate location</li>
+    <title>机器学习题解（三）—— 模型评估</title>
+    <url>/2021/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/</url>
+    <content><![CDATA[<h3 id="ex5-m"><a href="#ex5-m" class="headerlink" title="ex5.m"></a>ex5.m</h3><h4 id="Part-2-Regularized-Linear-Regression-Cost"><a href="#Part-2-Regularized-Linear-Regression-Cost" class="headerlink" title="Part 2: Regularized Linear Regression Cost"></a>Part 2: Regularized Linear Regression Cost</h4><ul>
+<li>Compute the cost and gradient of regularized linear regression for a particular choice of theta.</li>
 </ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X,<span class="number">1</span>) <span class="comment">% query from 1 to 300</span></span><br><span class="line">    d = <span class="built_in">zeros</span>(<span class="number">1</span>, K); <span class="comment">% distance: 1*3 matrix</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: K</span><br><span class="line">        d(<span class="number">1</span>, <span class="built_in">j</span>) = <span class="built_in">sqrt</span>(sum(power(X(<span class="built_in">i</span>, :) - centroids(<span class="built_in">j</span>, :), <span class="number">2</span>))); <span class="comment">% use Euclidean Distance, centroids: 3*2 matrix</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    [~, idx(<span class="built_in">i</span>)] = <span class="built_in">min</span>(d); <span class="comment">% get the 2nd parameter from distance matrix only</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-2-Compute-Means"><a href="#Part-2-Compute-Means" class="headerlink" title="Part 2: Compute Means"></a>Part 2: Compute Means</h4><ul>
-<li>Go over every centroid and compute mean of all points that belong to it</li>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">% cost function</span></span><br><span class="line">J = <span class="number">1</span> / (<span class="number">2</span> * m) * (X * theta - y)' * (X * theta - y);</span><br><span class="line">J = J + lambda / (<span class="number">2</span> * m) * (theta(<span class="number">2</span>:<span class="keyword">end</span>)' * (theta(<span class="number">2</span>:<span class="keyword">end</span>)));</span><br><span class="line"></span><br><span class="line"><span class="comment">% for j = 0</span></span><br><span class="line">theta_temp = theta;</span><br><span class="line">theta_temp(<span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line"><span class="comment">% for j = 1</span></span><br><span class="line">grad = (<span class="number">1</span> / m) * (X * theta - y)' * X + (lambda / m) * theta_temp';</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="Part-4-Train-Linear-Regression"><a href="#Part-4-Train-Linear-Regression" class="headerlink" title="Part 4: Train Linear Regression"></a>Part 4: Train Linear Regression</h4><ul>
+<li>In this part, we set regularization parameter λ to zero. <ul>
+<li>Because our current implementation of linear regression is trying to fit a 2-dimensional θ, regularization will not be incredibly helpful for a θ of such low dimension.</li>
 </ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : K</span><br><span class="line">    <span class="comment">% find all the points that is nearest to No.i centroid, then count their</span></span><br><span class="line">    <span class="comment">% mean</span></span><br><span class="line">    points = X(idx==<span class="built_in">i</span>, :);</span><br><span class="line">    centroids(<span class="built_in">i</span>, :) = <span class="built_in">mean</span>(points);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
-<h3 id="ex7-pca-m"><a href="#ex7-pca-m" class="headerlink" title="ex7 pca.m"></a>ex7 pca.m</h3><h4 id="Part-2-Principal-Component-Analysis"><a href="#Part-2-Principal-Component-Analysis" class="headerlink" title="Part 2: Principal Component Analysis"></a>Part 2: Principal Component Analysis</h4><ul>
-<li>You should first compute the covariance matrix. Then, you should use the “svd” function to compute the eigenvectors and eigenvalues of the covariance matrix</li>
+</li>
 </ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">% compute sigma</span></span><br><span class="line">sigma = (X' * X) / m;</span><br><span class="line"><span class="comment">% use SVD to compute the eigenvectors and eigenvalues of the covariance matrix</span></span><br><span class="line">[U, S, V] = svd(sigma);</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-3-Dimension-Reduction"><a href="#Part-3-Dimension-Reduction" class="headerlink" title="Part 3: Dimension Reduction"></a>Part 3: Dimension Reduction</h4><ul>
-<li>Compute the projection of the data using only the top K  eigenvectors in U (first K columns)</li>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">% Initialize Theta</span></span><br><span class="line">initial_theta = <span class="built_in">zeros</span>(<span class="built_in">size</span>(X, <span class="number">2</span>), <span class="number">1</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">% Create "short hand" for the cost function to be minimized</span></span><br><span class="line">costFunction = @(t) linearRegCostFunction(X, y, t, lambda);</span><br><span class="line"></span><br><span class="line"><span class="comment">% Now, costFunction is a function that takes in only one argument</span></span><br><span class="line">options = optimset(<span class="string">'MaxIter'</span>, <span class="number">200</span>, <span class="string">'GradObj'</span>, <span class="string">'on'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% Minimize using fmincg</span></span><br><span class="line">theta = fmincg(costFunction, initial_theta, options);</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="Part-5-Learning-Curve-for-Linear-Regression"><a href="#Part-5-Learning-Curve-for-Linear-Regression" class="headerlink" title="Part 5: Learning Curve for Linear Regression"></a>Part 5: Learning Curve for Linear Regression</h4><ul>
+<li>Fill in this function to return training errors in error_train and the cross validation errors in error_val.</li>
 </ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">% using only the top K eigenvectors in U</span></span><br><span class="line">U_reduce = U(:, <span class="number">1</span>:K);</span><br><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X, <span class="number">1</span>)</span><br><span class="line">    x = X(<span class="built_in">i</span>, :)';</span><br><span class="line">    <span class="keyword">for</span> k = <span class="number">1</span>: K</span><br><span class="line">        projection_k = x' * U_reduce;</span><br><span class="line">        Z(<span class="built_in">i</span>, :) = projection_k;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
-<ul>
-<li>Compute the approximation of the data by projecting back onto the original space using the top K eigenvectors in U</li>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: m</span><br><span class="line">   subset_x = X(<span class="number">1</span>: <span class="built_in">i</span>, :);</span><br><span class="line">   subset_y = y(<span class="number">1</span>: <span class="built_in">i</span>);</span><br><span class="line">   theta = trainLinearReg(subset_x, subset_y, lambda);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">% for training set error, compute on the training subset</span></span><br><span class="line">   error_train(<span class="built_in">i</span>) = linearRegCostFunction(subset_x, subset_y, theta, <span class="number">0</span>); <span class="comment">% set λ to 0</span></span><br><span class="line">   <span class="comment">% for cross validation error, compute over the entire cross validation set</span></span><br><span class="line">   error_val(<span class="built_in">i</span>) = linearRegCostFunction(Xval, yval, theta, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="Part-6-Feature-Mapping-for-Polynomial-Regression"><a href="#Part-6-Feature-Mapping-for-Polynomial-Regression" class="headerlink" title="Part 6: Feature Mapping for Polynomial Regression"></a>Part 6: Feature Mapping for Polynomial Regression</h4><ul>
+<li>Given a vector X, return a matrix X_poly where the p-th column of X contains the values of X to the p-th power.</li>
 </ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(Z, <span class="number">1</span>)</span><br><span class="line">    v = Z(<span class="built_in">i</span>, :)';</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: <span class="built_in">size</span>(U, <span class="number">1</span>)</span><br><span class="line">        recovered_j = v' * U(:, <span class="number">1</span>:K)';</span><br><span class="line">        <span class="comment">% 2D -&gt; 1D</span></span><br><span class="line">        X_rec(<span class="built_in">i</span>, :) = recovered_j;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line">m = <span class="built_in">size</span>(X, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: m</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:p</span><br><span class="line">        X_poly(<span class="built_in">i</span>, <span class="built_in">j</span>) = X(<span class="built_in">i</span>) .^<span class="built_in">j</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="Part-8-Validation-for-Selecting-Lambda"><a href="#Part-8-Validation-for-Selecting-Lambda" class="headerlink" title="Part 8: Validation for Selecting Lambda"></a>Part 8: Validation for Selecting Lambda</h4><ul>
+<li>Fill in this function to return training errors in error_train and the validation errors in error_val.</li>
+</ul>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">length</span>(lambda_vec)</span><br><span class="line">    <span class="comment">% take each lambda and test</span></span><br><span class="line">    lambda = lambda_vec(<span class="built_in">i</span>);</span><br><span class="line">    theta = trainLinearReg(X, y, lambda);</span><br><span class="line">    </span><br><span class="line">    error_train(<span class="built_in">i</span>) = linearRegCostFunction(X, y, theta, <span class="number">0</span>); <span class="comment">% set λ to 0</span></span><br><span class="line">    error_val(<span class="built_in">i</span>) = linearRegCostFunction(Xval, yval, theta, <span class="number">0</span>);</span><br></pre></td></tr></tbody></table></figure>
 ]]></content>
       <categories>
         <category>题解</category>
@@ -2987,8 +3026,6 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       </categories>
       <tags>
         <tag>机器学习</tag>
-        <tag>KNN</tag>
-        <tag>PCA</tag>
       </tags>
   </entry>
   <entry>
@@ -3051,6 +3088,40 @@ ASL_{success} = \frac{1}{n}\sum_{i=1}^{n}l_i = \frac{n+1}{n}log_2(n+1)-1 \approx
       <tags>
         <tag>机器学习</tag>
         <tag>神经网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习题解（五）—— KNN 与 PCA</title>
+    <url>/2021/10/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20KNN%E4%B8%8EPCA/</url>
+    <content><![CDATA[<h3 id="ex7-m"><a href="#ex7-m" class="headerlink" title="ex7.m"></a>ex7.m</h3><h4 id="Part-1-Find-Closest-Centroids"><a href="#Part-1-Find-Closest-Centroids" class="headerlink" title="Part 1: Find Closest Centroids"></a>Part 1: Find Closest Centroids</h4><ul>
+<li>Go over every example, find its closest centroid, and store the index inside idx at the appropriate location</li>
+</ul>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X,<span class="number">1</span>) <span class="comment">% query from 1 to 300</span></span><br><span class="line">    d = <span class="built_in">zeros</span>(<span class="number">1</span>, K); <span class="comment">% distance: 1*3 matrix</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: K</span><br><span class="line">        d(<span class="number">1</span>, <span class="built_in">j</span>) = <span class="built_in">sqrt</span>(sum(power(X(<span class="built_in">i</span>, :) - centroids(<span class="built_in">j</span>, :), <span class="number">2</span>))); <span class="comment">% use Euclidean Distance, centroids: 3*2 matrix</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    [~, idx(<span class="built_in">i</span>)] = <span class="built_in">min</span>(d); <span class="comment">% get the 2nd parameter from distance matrix only</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="Part-2-Compute-Means"><a href="#Part-2-Compute-Means" class="headerlink" title="Part 2: Compute Means"></a>Part 2: Compute Means</h4><ul>
+<li>Go over every centroid and compute mean of all points that belong to it</li>
+</ul>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : K</span><br><span class="line">    <span class="comment">% find all the points that is nearest to No.i centroid, then count their</span></span><br><span class="line">    <span class="comment">% mean</span></span><br><span class="line">    points = X(idx==<span class="built_in">i</span>, :);</span><br><span class="line">    centroids(<span class="built_in">i</span>, :) = <span class="built_in">mean</span>(points);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="ex7-pca-m"><a href="#ex7-pca-m" class="headerlink" title="ex7 pca.m"></a>ex7 pca.m</h3><h4 id="Part-2-Principal-Component-Analysis"><a href="#Part-2-Principal-Component-Analysis" class="headerlink" title="Part 2: Principal Component Analysis"></a>Part 2: Principal Component Analysis</h4><ul>
+<li>You should first compute the covariance matrix. Then, you should use the “svd” function to compute the eigenvectors and eigenvalues of the covariance matrix</li>
+</ul>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">% compute sigma</span></span><br><span class="line">sigma = (X' * X) / m;</span><br><span class="line"><span class="comment">% use SVD to compute the eigenvectors and eigenvalues of the covariance matrix</span></span><br><span class="line">[U, S, V] = svd(sigma);</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="Part-3-Dimension-Reduction"><a href="#Part-3-Dimension-Reduction" class="headerlink" title="Part 3: Dimension Reduction"></a>Part 3: Dimension Reduction</h4><ul>
+<li>Compute the projection of the data using only the top K  eigenvectors in U (first K columns)</li>
+</ul>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">% using only the top K eigenvectors in U</span></span><br><span class="line">U_reduce = U(:, <span class="number">1</span>:K);</span><br><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(X, <span class="number">1</span>)</span><br><span class="line">    x = X(<span class="built_in">i</span>, :)';</span><br><span class="line">    <span class="keyword">for</span> k = <span class="number">1</span>: K</span><br><span class="line">        projection_k = x' * U_reduce;</span><br><span class="line">        Z(<span class="built_in">i</span>, :) = projection_k;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>Compute the approximation of the data by projecting back onto the original space using the top K eigenvectors in U</li>
+</ul>
+<figure class="highlight matlab"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">% implementing PCA</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">size</span>(Z, <span class="number">1</span>)</span><br><span class="line">    v = Z(<span class="built_in">i</span>, :)';</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>: <span class="built_in">size</span>(U, <span class="number">1</span>)</span><br><span class="line">        recovered_j = v' * U(:, <span class="number">1</span>:K)';</span><br><span class="line">        <span class="comment">% 2D -&gt; 1D</span></span><br><span class="line">        X_rec(<span class="built_in">i</span>, :) = recovered_j;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>题解</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>KNN</tag>
+        <tag>PCA</tag>
       </tags>
   </entry>
   <entry>
@@ -4276,6 +4347,47 @@ D_{P2P}=max\{\frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+{\sum_{r=1}^n}}\}</sc
       </tags>
   </entry>
   <entry>
+    <title>设计模式之结构型模式的设计与实现（三）</title>
+    <url>/2022/01/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h2><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>​    使用外观模式模拟《Java 设计模式》教材 187 页第 5 题</p>
+<h4 id="外观"><a href="#外观" class="headerlink" title="外观"></a>外观</h4><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 外观类：主板</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainFrame</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Definition: 内存 CPU 硬盘 操作系统</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Memory memory;</span><br><span class="line">    <span class="keyword">private</span> CPU cpu;</span><br><span class="line">    <span class="keyword">private</span> HardDisk disk;</span><br><span class="line">    <span class="keyword">private</span> OS os;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Constructor</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MainFrame</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.memory = <span class="keyword">new</span> Memory();</span><br><span class="line">        <span class="keyword">this</span>.cpu = <span class="keyword">new</span> CPU();</span><br><span class="line">        <span class="keyword">this</span>.disk = <span class="keyword">new</span> HardDisk();</span><br><span class="line">        <span class="keyword">this</span>.os = <span class="keyword">new</span> OS();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 按下主机的开机按钮</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">on</span><span class="params">()</span> </span>{</span><br><span class="line">        memory.check();</span><br><span class="line">        cpu.run();</span><br><span class="line">        disk.read();</span><br><span class="line">        os.load();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="子系统类"><a href="#子系统类" class="headerlink" title="子系统类"></a>子系统类</h4><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 子系统类：内存</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Memory</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Memory</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"内存已被调用"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 内存自检</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">check</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"正在自检内存！"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 子系统类：CPU</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CPU</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CPU</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"CPU已被调用"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 运行CPU</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"正在运行CPU！"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 子系统类：硬盘</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HardDisk</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HardDisk</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"硬盘已被调用"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 读取硬盘</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"正在读取硬盘！"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 子系统类：操作系统</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OS</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OS</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"操作系统已被调用！"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">load</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"正在载入操作系统！"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户端类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        MainFrame mainFrame = <span class="keyword">new</span> MainFrame();</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            mainFrame.on();</span><br><span class="line">        } <span class="keyword">catch</span> (Exception e) {</span><br><span class="line">            e.toString();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><img data-src="/2022/01/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%B8%89%EF%BC%89/外观模式类图.png"></p>
+<h4 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h4><ul>
+<li><p>Facade（外观角色）</p>
+<p>在客户端中调用它的方法，以知道相关子系统的功能和责任；一般情况下，可以将客户端中发来的请求委派到相应的子系统，传递给对应的子系统对象处理</p>
+</li>
+<li><p>SubSystem（子系统角色）</p>
+<p>每个子系统是一个类的集合，用于实现子系统的功能，可被客户端或外观角色调用</p>
+</li>
+</ul>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><p>​    对外有一个统一接口，外部应用程序不用关心内部子系统的具体细节，大大降低应用程序的复杂度，提高了程序的可维护性</p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>对客户端屏蔽了子系统组件，减少了客户端所需处理的对象数目，并使子系统更为易用</li>
+<li>实现了子系统与客户端之间的松耦合关系，使得子系统的变化不会影响到调用它的客户端，只需要调整外观类即可</li>
+<li>一个子系统的修改对其他子系统无任何影响，且子系统内部变化不会影响到外观对象</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>不能很好地限制客户端直接使用子系统类，如果对客户端访问子系统类做太多的限制则减少了可变性和灵活性</li>
+<li>如果设计不当，增加新的子系统可能需要修改外观类的源代码，违背了开闭原则</li>
+</ul>
+<h4 id="适用环境"><a href="#适用环境" class="headerlink" title="适用环境"></a>适用环境</h4><ul>
+<li>要为访问一系列复杂的子系统提供一个简单入口</li>
+<li>客户端程序与多个子系统之间存在很大的依赖性</li>
+<li>在层次化结构中，可以使用外观模式的定义系统中每一层的入口，层与层之间不直接产生联系，而是通过外观类建立联系，降低层之间的耦合度</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>设计模式</tag>
+        <tag>大作业</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>设计模式之结构型模式的设计与实现（二）</title>
     <url>/2022/01/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[<h2 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h2><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>​    使用桥接模式模拟《Java 设计模式》教材 136 页图 10-4 所表达问题</p>
@@ -4316,47 +4428,6 @@ D_{P2P}=max\{\frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+{\sum_{r=1}^n}}\}</sc
 <li>抽象部分和实现部分可以以继承的方式独立扩展而互不影响</li>
 <li>一个类存在两个（或多个）独立变化的维度，且这两个（或多个）维度都需要独立地进行扩展</li>
 <li>不希望使用继承或因为多层继承导致系统类的个数急剧增加的系统</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>设计模式</category>
-      </categories>
-      <tags>
-        <tag>设计模式</tag>
-        <tag>大作业</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>设计模式之结构型模式的设计与实现（三）</title>
-    <url>/2022/01/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%B8%89%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h2><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>​    使用外观模式模拟《Java 设计模式》教材 187 页第 5 题</p>
-<h4 id="外观"><a href="#外观" class="headerlink" title="外观"></a>外观</h4><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 外观类：主板</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainFrame</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Definition: 内存 CPU 硬盘 操作系统</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Memory memory;</span><br><span class="line">    <span class="keyword">private</span> CPU cpu;</span><br><span class="line">    <span class="keyword">private</span> HardDisk disk;</span><br><span class="line">    <span class="keyword">private</span> OS os;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Constructor</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MainFrame</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.memory = <span class="keyword">new</span> Memory();</span><br><span class="line">        <span class="keyword">this</span>.cpu = <span class="keyword">new</span> CPU();</span><br><span class="line">        <span class="keyword">this</span>.disk = <span class="keyword">new</span> HardDisk();</span><br><span class="line">        <span class="keyword">this</span>.os = <span class="keyword">new</span> OS();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 按下主机的开机按钮</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">on</span><span class="params">()</span> </span>{</span><br><span class="line">        memory.check();</span><br><span class="line">        cpu.run();</span><br><span class="line">        disk.read();</span><br><span class="line">        os.load();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="子系统类"><a href="#子系统类" class="headerlink" title="子系统类"></a>子系统类</h4><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 子系统类：内存</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Memory</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Memory</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"内存已被调用"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 内存自检</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">check</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"正在自检内存！"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 子系统类：CPU</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CPU</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CPU</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"CPU已被调用"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 运行CPU</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"正在运行CPU！"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 子系统类：硬盘</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HardDisk</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HardDisk</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"硬盘已被调用"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 读取硬盘</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"正在读取硬盘！"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 子系统类：操作系统</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OS</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OS</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"操作系统已被调用！"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">load</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"正在载入操作系统！"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户端类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        MainFrame mainFrame = <span class="keyword">new</span> MainFrame();</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            mainFrame.on();</span><br><span class="line">        } <span class="keyword">catch</span> (Exception e) {</span><br><span class="line">            e.toString();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><img data-src="/2022/01/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%B8%89%EF%BC%89/外观模式类图.png"></p>
-<h4 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h4><ul>
-<li><p>Facade（外观角色）</p>
-<p>在客户端中调用它的方法，以知道相关子系统的功能和责任；一般情况下，可以将客户端中发来的请求委派到相应的子系统，传递给对应的子系统对象处理</p>
-</li>
-<li><p>SubSystem（子系统角色）</p>
-<p>每个子系统是一个类的集合，用于实现子系统的功能，可被客户端或外观角色调用</p>
-</li>
-</ul>
-<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><p>​    对外有一个统一接口，外部应用程序不用关心内部子系统的具体细节，大大降低应用程序的复杂度，提高了程序的可维护性</p>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>对客户端屏蔽了子系统组件，减少了客户端所需处理的对象数目，并使子系统更为易用</li>
-<li>实现了子系统与客户端之间的松耦合关系，使得子系统的变化不会影响到调用它的客户端，只需要调整外观类即可</li>
-<li>一个子系统的修改对其他子系统无任何影响，且子系统内部变化不会影响到外观对象</li>
-</ul>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>不能很好地限制客户端直接使用子系统类，如果对客户端访问子系统类做太多的限制则减少了可变性和灵活性</li>
-<li>如果设计不当，增加新的子系统可能需要修改外观类的源代码，违背了开闭原则</li>
-</ul>
-<h4 id="适用环境"><a href="#适用环境" class="headerlink" title="适用环境"></a>适用环境</h4><ul>
-<li>要为访问一系列复杂的子系统提供一个简单入口</li>
-<li>客户端程序与多个子系统之间存在很大的依赖性</li>
-<li>在层次化结构中，可以使用外观模式的定义系统中每一层的入口，层与层之间不直接产生联系，而是通过外观类建立联系，降低层之间的耦合度</li>
 </ul>
 ]]></content>
       <categories>

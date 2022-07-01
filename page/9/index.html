@@ -253,7 +253,7 @@ mjx-container[display="true"] + br {
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">45</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">46</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -313,6 +313,338 @@ mjx-container[display="true"] + br {
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A0%B8%E5%BF%83%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyperspace">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyper の 个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A0%B8%E5%BF%83%E7%AF%87/" class="post-title-link" itemprop="url">数据库操作（三）—— 核心篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-04 20:39:31" itemprop="dateCreated datePublished" datetime="2020-08-04T20:39:31+08:00">2020-08-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-30 13:57:05" itemprop="dateModified" datetime="2022-06-30T13:57:05+08:00">2022-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="核心操作-第14-21章"><a href="#核心操作-第14-21章" class="headerlink" title="核心操作 第14 - 21章"></a>核心操作 第 14 - 21 章</h2><h3 id="子查询-subquery"><a href="#子查询-subquery" class="headerlink" title="子查询 subquery"></a>子查询 subquery</h3><p>1、处理顺序：从内向外</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust-name, cust_contact</span><br><span class="line">FROM customers</span><br><span class="line">WHERE cust_id IN (SELECT cust_id</span><br><span class="line">                  FROM orders</span><br><span class="line">                  WHERE order_num IN (SELECT order_num</span><br><span class="line">                                     FROM orderitems</span><br><span class="line">                                     WHERE prod_id = 'TNT2'));</span><br></pre></td></tr></tbody></table></figure>
+<p>2、格式化：分解多行 适当缩进</p>
+<p>3、基本思想：将硬编码转换为子查询，减少代码量</p>
+<ul>
+<li>列必须匹配：SELECT 子句和 WHERE 子句中的列数量相同</li>
+<li>最常见：用于 WHERE 子句的 IN 操作符和填充计算列</li>
+</ul>
+<p>4、相关子查询 correlated subquery</p>
+<ul>
+<li>使用完全限定列名，指定调用 customers 表中该列名（否则默认自身比较，相当于自检）；若非完全限定引用一个具有二义性的列名，将返回错误 </li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WHERE orders.cust_id = customers.cust.id;</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>注意限制有歧义性的列名</li>
+</ul>
+<h3 id="联结表"><a href="#联结表" class="headerlink" title="联结表"></a>联结表</h3><p>1、关系</p>
+<ul>
+<li><p>主键 primary key：唯一标识</p>
+</li>
+<li><p>外键 foreign key：某个表的一列，包含另一表主键值</p>
+</li>
+</ul>
+<p>2、可伸缩性 scale well：可适应不断增加的工作量并良好运作</p>
+<p>3、创建联结（等值联结 equijoin）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price</span><br><span class="line">FROM vendors, products</span><br><span class="line">WHERE vendors.vend.id = products.vend.id</span><br><span class="line">ORDER BY vend_name, prod_name;</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>笛卡尔积：由没有联结条件的表关系返回的结果（def 离散）<ul>
+<li>因而需保证所有联结都有 WHERE 子句</li>
+<li>交叉联结 cross join</li>
+</ul>
+</li>
+</ul>
+<p>4、* 内部联结</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price</span><br><span class="line">FROM vendors INNER JOIN products</span><br><span class="line">ON vendors.vend.id = products.vend_id;</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>联结条件：使用特定的 ON 子句给出</li>
+</ul>
+<p>5、实例：相对子查询优化效率（具体问题具体分析）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM customers, orders, orderitems</span><br><span class="line">WHERE customers.cust_id = orders.cust_id</span><br><span class="line">	AND orderitems.order_num = orders.order_num</span><br><span class="line">	AND prod_id = 'TNT2';</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="高级联结"><a href="#高级联结" class="headerlink" title="高级联结"></a>高级联结</h3><p>1、使用表别名</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT Concat(RTrim(vend_name), '(', RTrim(vend_country), ')') AS</span><br><span class="line">vend_title</span><br><span class="line">FROM vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></tbody></table></figure>
+<p>作用：</p>
+<ul>
+<li>缩短语句</li>
+<li>允许单条 SELECT 多次使用相同表，如：</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM customers AS a, orders AS i, orderitems AS ai</span><br><span class="line">WHERE a.cust_id = i.cust_id</span><br><span class="line">	AND ai.order_num = i.order_num</span><br><span class="line">	AND prod_id = 'TNT2';</span><br></pre></td></tr></tbody></table></figure>
+<p>2、自联结</p>
+<ul>
+<li>作为外部语句来替代从相同表中检索使用的子查询 </li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT p1.prod_id, p1.prod_name</span><br><span class="line">FROM products AS p1, products AS p2</span><br><span class="line">WHERE p1.vend_id = p2.vend_id</span><br><span class="line">	AND p2.prod_id = 'DTNTR';</span><br></pre></td></tr></tbody></table></figure>
+<p>注：实际问题，效率需具体分析，不一定优于子查询</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT p1.prod_id, p1.prod_name</span><br><span class="line">FROM products</span><br><span class="line">WHERE vend_id = (SELECT vend_id</span><br><span class="line">                FROM products</span><br><span class="line">                WHERE prod_id = 'DTNTR');</span><br></pre></td></tr></tbody></table></figure>
+<p>3、自然联结</p>
+<ul>
+<li>排除多次出现的列，仅使每个列返回一次（仅选择唯一列）<ul>
+<li>通常对表使用通配符 SELECT *</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT c.*, o.order_num, o.order_date,</span><br><span class="line">		oi.prod_id, oi.quantity, OI.item_price</span><br><span class="line">FROM customers AS c, orders AS o, orderitems AS oi</span><br><span class="line">WHERE c.cust_id = o.cust_id</span><br><span class="line">	AND oi.order_num = o.order_num</span><br><span class="line">	AND prod_id = 'FB';</span><br></pre></td></tr></tbody></table></figure>
+<p>4、外部联结 OUTER JOIN （较少使用）</p>
+<ul>
+<li>联结包含了没有关联行的行</li>
+<li>类型：左外部联结 右外部联结<ul>
+<li>使用时需要用 RIGHT / LEFT 关键字指定行范围（从右 / 左侧的表中选择所有行）<ul>
+<li>mysql 不支持 *= 等一系列简化操作符！</li>
+</ul>
+</li>
+<li>可通过颠倒 FROM / WHERE 子句互换使用</li>
+</ul>
+</li>
+</ul>
+<p>5、带聚集函数的联结</p>
+<h3 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h3><p>1、并 union：执行多个查询，将结果作为单个查询结果集返回</p>
+<ul>
+<li>使用情景：单个查询从多个表返回类似数据；对单个表多个查询，按单个返回</li>
+<li>多个 WHERE 子句的单条查询可以达到相同的作用</li>
+<li>使用于较为复杂过滤条件</li>
+</ul>
+<p>2、UNION 规则</p>
+<ul>
+<li>由两条及以上 SELECT 语句构成</li>
+<li>每个查询包含相同表达式</li>
+<li>列数据类型兼容</li>
+</ul>
+<p>3、功能</p>
+<ul>
+<li>自动去重（默认）<ul>
+<li>返回所有匹配行：UNION ALL</li>
+</ul>
+</li>
+<li> 与 ORDER BY 排序：必须出现在最后一条 SELECT 语句后 </li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_id, prod_id, prod_price</span><br><span class="line">FROM products</span><br><span class="line">WHERE prod_price &lt;= 5</span><br><span class="line">UNION</span><br><span class="line">SELECT vend_id, prod_id, prod_price</span><br><span class="line">FROM products</span><br><span class="line">WHERE vend_id IN(1001, 1002)</span><br><span class="line">ORDER BY vend_id, prod_price;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="全文本搜索"><a href="#全文本搜索" class="headerlink" title="全文本搜索"></a>全文本搜索</h3><p>1、支持的数据库引擎：MyISAM（InnoDB 不支持）</p>
+<p>2、使用全文本搜索：随数据改变不断索引被搜索的列</p>
+<ul>
+<li>FULLTEXT ()：索引列<ul>
+<li>不要在导入数据使用，降低导入速率</li>
+</ul>
+</li>
+<li> Match ()：指定被搜索的列<ul>
+<li>使用值必须与 FULLTEXT () 中定义相同</li>
+<li>多个列索引，其次序与 FULLTEXT () 中保持一致</li>
+</ul>
+</li>
+<li> Against ()：指定要使用的搜索表达式<ul>
+<li>文本中，靠前的行的给定词等级值高于后继</li>
+<li>对多个搜索项，包含更多匹配词的行等级值更高</li>
+</ul>
+</li>
+<li>索引的搜索速度相当快</li>
+</ul>
+<p>3、查询扩展</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT note_text</span><br><span class="line">FROM productnotes</span><br><span class="line">WHERE Match(note_text) Against('anvils' WITH QUERY EXPANSION);</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>步骤<ul>
+<li>先进行全文本搜索</li>
+<li>检查匹配行，判定<strong>有用</strong>词（与给定词相关词）</li>
+<li>运用有用词和原给定词再次进行全文本搜索</li>
+</ul>
+</li>
+<li>文本行数越多，查询扩展结果越好</li>
+</ul>
+<p>4、布尔文本搜索</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT note_text</span><br><span class="line">FROM productnotes</span><br><span class="line">WHERE Match(note_text) Against('heavy -rope*' IN BOOLEAN MODE)</span><br></pre></td></tr></tbody></table></figure>
+<p>匹配词 heavy，但排除任何包含以 rope 开始的词</p>
+<ul>
+<li>布尔方式 boolean mode<ul>
+<li> 提供：匹配词 排斥词 排列提示 表达式分组 etc.</li>
+<li> 没有定义 FULLTEXT 索引也可使用</li>
+</ul>
+</li>
+<li>全文本布尔操作符（P128）<ul>
+<li>如 + /- ：包含 / 排除</li>
+<li> &lt; &gt;：包含，并减少 / 增加等级值</li>
+<li> -：取消一个</li>
+<li> *：词尾通配符</li>
+</ul>
+</li>
+</ul>
+<p>5、默认注意事项</p>
+<ul>
+<li>短词（&lt;=3 个字符的词）从索引中被排除</li>
+<li>内建的非用词（stopword）被忽略</li>
+<li>出现行数高于 50% 的词作为非用词忽略</li>
+<li>少于三行的文本不返回结果</li>
+<li>忽略词中的单引号</li>
+<li>中文、日文等不具有词分隔符的语言无法正确返回结果</li>
+</ul>
+<h3 id="数据插入-INSERT"><a href="#数据插入-INSERT" class="headerlink" title="数据插入 INSERT"></a>数据插入 INSERT</h3><p>1、插入完整行</p>
+<ul>
+<li>每组值用一对圆括号括起来，以逗号分隔</li>
+<li>多使用 cust_id 明确插入，可在表结构改变后继续发挥作用</li>
+<li> INSERT 一般无输出结果</li>
+<li>必须给出 VALUES 的正确数目；不提供列名则必须对每列给出一个值 </li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO customers(cust_name,</span><br><span class="line">                     cust_contact,</span><br><span class="line">                     cust_country)</span><br><span class="line">VALUES('Peter',</span><br><span class="line">      NULL,</span><br><span class="line">      'UK');</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>省略列：NULL<ul>
+<li> 表的定义中给出默认值：不给定值时使用</li>
+</ul>
+</li>
+<li>提高整体性能：用 INSERT LOW_PRIORITY INTO 降低插入的优先级</li>
+</ul>
+<p>2、插入多行</p>
+<ul>
+<li>使用多条 INSERT 语句（可一次性提交）</li>
+</ul>
+<p>3、插入检索所得数据</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO customers(cust_name,</span><br><span class="line">                     cust_contact,</span><br><span class="line">                     cust_country)</span><br><span class="line">VALUES('Peter',</span><br><span class="line">      NULL,</span><br><span class="line">      'UK');</span><br><span class="line">SELECT cust_name,</span><br><span class="line">		cust_contact, </span><br><span class="line">		cust_country</span><br><span class="line">FROM custnew;</span><br></pre></td></tr></tbody></table></figure>
+<p>其中，列名不一定匹配，仅作顺序填充</p>
+<ul>
+<li>可包含 WHERE 子句以过滤插入数据</li>
+</ul>
+<h3 id="更新和删除数据"><a href="#更新和删除数据" class="headerlink" title="更新和删除数据"></a>更新和删除数据</h3><p>1、更新：UPDATE 语句</p>
+<ul>
+<li>不省略 WHERE 语句，避免更新表中所有行</li>
+<li>语句组成：要更新的表名 列名及其新值 要更新行的条件 </li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UPDATE IGNORE customers</span><br><span class="line">SET cust_email = 'balabala@qq.com',</span><br><span class="line">	cust_name = 'bob'</span><br><span class="line">WHERE cust_id = 10005;</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>更新多个列：逗号分隔（最后一行除外）</li>
+<li>IGNORE 关键字：在发生错误时依旧更新</li>
+<li>设为 NULL：删除某列值</li>
+</ul>
+<p>2、删除：DELETE 语句</p>
+<ul>
+<li>不省略 WHERE 语句</li>
+<li>语句组成：要删除的表名 要删除行的条件<ul>
+<li>注：即便删除表中所有行，DELETE 不执行删除表操作</li>
+<li>删除所有行使用 TRUNCATE TABLE </li>
+</ul>
+</li>
+</ul>
+<p>注：</p>
+<ul>
+<li>两者使用前最好先用 SELECT 语句测试，保证过滤的记录正确</li>
+<li>在使用强行引用完整数据库的更删时，仅可操作与其他表无关的数据行</li>
+</ul>
+<h3 id="创建和操纵表"><a href="#创建和操纵表" class="headerlink" title="创建和操纵表"></a>创建和操纵表</h3><p>1、创建：CREATE TABLE 语句</p>
+<ul>
+<li>需给出信息：无冲突表名 列名及定义</li>
+<li> NULL、NOT NULL：允许 / 阻止插入没有值的列<ul>
+<li>空串‘ ’视为一有效值</li>
+</ul>
+</li>
+<li>主键可在创建时或创建后定义</li>
+<li> AUTO_INCREMENT：自动增量<ul>
+<li>每表仅一个列允许，以作为主键值</li>
+</ul>
+</li>
+<li> DEFAULT 数值：指定默认值<ul>
+<li>仅可为常量，mysql 不支持函数</li>
+</ul>
+</li>
+<li> ENGINE=InnoDB（MyISAM，etc.）：指定所用引擎<ul>
+<li>外键不可跨引擎调取</li>
+</ul>
+</li>
+</ul>
+<p>2、更新表：ALTER TABLE</p>
+<ul>
+<li>常用于定义外键 </li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE orderitems</span><br><span class="line">ADD CONSTRAINT fk_orderitems_order</span><br><span class="line">FOREIGN KEY (order_num) REFERENCES orders (order_num);</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>更改表步骤<ul>
+<li>用新布局创建新表</li>
+<li> INSERT SELECT 复制数据</li>
+<li>检验新表，重命名或删除旧表，命名新表</li>
+<li>重新创建触发器、索引等</li>
+</ul>
+</li>
+</ul>
+<p>3、删除表：DROP TABLE</p>
+<p>4、重命名表：RENAME TABLE</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RENAME TABLE table1 TO table2</span><br></pre></td></tr></tbody></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1561,217 +1893,10 @@ D_{P2P}=max\{\frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+{\sum_{r=1}^n}}\}</sc
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/07/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hyperspace">
-      <meta itemprop="description" content="blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyper の 个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91/" class="post-title-link" itemprop="url">计算机网络（一）：计算机网络与互联网</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-20 20:21:03" itemprop="dateCreated datePublished" datetime="2020-07-20T20:21:03+08:00">2020-07-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-30 13:56:35" itemprop="dateModified" datetime="2022-06-30T13:56:35+08:00">2022-06-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h1><p>1、<strong>主机</strong> host（<strong>端系统</strong> end system）：所有计算机器的统称，通过<strong>通信链路</strong>（communication link）与<strong>分组交换机</strong>相互连接</p>
-<ul>
-<li>概念辨析：主机 = 端系统</li>
-<li>主机的两大类型：客户（client）和服务器（server）</li>
-</ul>
-<p>2、分组交换机：常用类型为路由器（router）和 链路层交换机（link-layer switch）两种，均朝最终目的地转发分组</p>
-<p>3、<strong>分组</strong> packet：一台端系统向另一台端系统发送数据时，发送端系统将数据分段并为每段加上首部字节所形成的信息包</p>
-<p>4、<strong>路径</strong> path/route：一个分组所经历的一系列通信链路和分组交换机为通过该网络的路径</p>
-<p>5、<strong>因特网服务提供商</strong> ISP：一个由多个分组交换机和多段通信链路组成的网络，提供不同类型的网络接入服务</p>
-<ul>
-<li>可为内容提供者提供因特网接入服务用于直连</li>
-<li>各个 ISP 相互独立管理</li>
-</ul>
-<p>6、<strong>协议</strong> protocol：控制因特网中信息的接收和发送，定义了通信实体间交换、发送和接收报文的<strong>格式</strong>和<strong>顺序</strong>，及报文发送和 / 或接收一条报文或其他事件所采取的动作。</p>
-<ul>
-<li>因特网的主体协议：TCP/IP</li>
-</ul>
-<p>7、分布式应用程序 distributed application：涉及多个相互交换数据的端系统的应用程序</p>
-<p>8、套接字接口 socket interface: 一套发送程序必须遵循的规则集合，规定了交付数据的方式</p>
-<h1 id="二、The-Network-Edge"><a href="#二、The-Network-Edge" class="headerlink" title="二、The Network Edge"></a>二、The Network Edge</h1><p>1、接入网</p>
-<ul>
-<li>数据用户线（DSL）：从本地电话接入的本地电话公司获得</li>
-<li>电缆因特网接入（cable Internet access）：从提供有线电视的公司获得<ul>
-<li> * 混合光纤同轴系统（HFC）</li>
-</ul>
-</li>
-<li>光纤到户（FTTH）</li>
-<li>以太网、WiFi</li>
-<li>4G、LTE（长期演进）</li>
-</ul>
-<p>2、物理媒体：成本相对小</p>
-<ul>
-<li>导引型媒体：双绞铜线、同轴电缆、光纤</li>
-<li>非导引型媒体：无线局域网、数字卫星频道</li>
-</ul>
-<h1 id="三、The-Network-Core"><a href="#三、The-Network-Core" class="headerlink" title="三、The Network Core"></a>三、The Network Core</h1><h2 id="分组交换-packet-switching"><a href="#分组交换-packet-switching" class="headerlink" title="分组交换 packet switching"></a>分组交换 packet switching</h2><p>1、<strong>存储转发传输</strong> store-and-forward transmission</p>
-<ul>
-<li><p>定义 def：在交换机能够开始向输出链路传输该分组的第一个比特之前，必须接收到整个分组</p>
-</li>
-<li><p>端到端时延（简化式）：</p>
-<script type="math/tex; mode=display">
-d_{端到端} = N\frac{L}{R}</script><p>其中，N：路径条数，R：速率 ，L bit/s：分组大小 bit</p>
-</li>
-</ul>
-<p>2、排队时延和分组丢失</p>
-<p>​    对于每条相连的链路，分组交换机具有一个<strong>输出缓存</strong>（ouput buffer），如果已到达分组的链路正在进行另一分组的传输，此时分组承受<strong>排队时延</strong>（queuing delay）；若缓存已占满，新进入的分组出现<strong>丢包</strong>（packet loss）</p>
-<p>3、转发表和路由选择协议</p>
-<p>​    路由器通过<strong>路由选择协议</strong>（routing protocol）自动设置<strong>转发表</strong>（forwarding table），转发表映射目的地址成为输出链路</p>
-<h2 id="电路交换-circuit-switching"><a href="#电路交换-circuit-switching" class="headerlink" title="电路交换 circuit switching"></a>电路交换 circuit switching</h2><p>1、def：通信时创建<strong>端到端连接</strong>（end-to-end connection），预留电路<strong>带宽</strong>（bandwidth）并加以维护，尽最大努力实时交付分组</p>
-<p>2、实现方式</p>
-<ul>
-<li>频分复用（FDM）：在连接期间，链路为每条连接专用一个频段</li>
-<li>时分复用（TDM）：时间划分为固定期间的<strong>帧</strong>，每个帧划分为固定数量的<strong>时隙</strong>；当网络跨越一条链路创建一条链接时，网络为每个帧指定一个时隙，并把这些时隙用于该链接的专用传输</li>
-</ul>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p> 分组交换不适合实时服务（原因：端到端时延不可预测），但提供更好的宽带共享、按需分配也较简单经济；电路交换实时传输，但不考虑需求，即便链接处于<strong>静默期</strong></p>
-<h2 id="网络的网络"><a href="#网络的网络" class="headerlink" title="网络的网络"></a>网络的网络</h2><p>1、ISP 的互联模型（P24）</p>
-<p>2、一些概念</p>
-<ul>
-<li>存在点 PoP：存在于所有层次，提供对接</li>
-<li>多宿 multi-home：可与两个或更多提供商连接</li>
-<li>对等 peer：层次同一级不进行结算，即无需相互付费</li>
-<li>因特网交换点 IXP：一个或多个 ISP 在此处一起对等</li>
-<li> * 我国国家级 ISP：Tian</li>
-</ul>
-<h1 id="四、分组交换网-Packet-Switched-Networks"><a href="#四、分组交换网-Packet-Switched-Networks" class="headerlink" title="四、分组交换网 Packet-Switched Networks"></a>四、分组交换网 Packet-Switched Networks</h1><h2 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h2><p>1、总时延：</p>
-<script type="math/tex; mode=display">
-d_{nodel} = d_{proc} + d_{queue} + d_{trans} + d_{prop}</script><p></p><center>总时延 = 处理时延 + 排队时延 + 传输时延 + 传播时延</center><p></p>
-<ul>
-<li>流量强度：用于估计排队时延的范围<script type="math/tex; mode=display">
-\frac LR</script></li>
-</ul>
-<p>​    设计系统的流量强度不能大于 1，否则排队时延趋于 +∞</p>
-<p>2、端到端时延（一般式）</p>
-<script type="math/tex; mode=display">
-d_{end-end} = N(d_{proc} + d_{trans} + d_{prop})</script><p>​    适用情况：各节点具有不同的时延 / 每个节点具有不同的时延和每个节点存在平均排队时延</p>
-<p>3、瞬时 / 平均吞吐量 instantaneous /average throughtout </p>
-<ul>
-<li>瓶颈链路（bottleneck link）：传输速率前大后小（进水管道宽于出水），吞吐量由两者中的较小者决定。因特网连接中，<strong>接入网</strong>是吞吐量的主要限制因素</li>
-</ul>
-<script type="math/tex; mode=display">
-min\{R_c,R_s\}</script><h1 id="五、协议层次及其服务模型-Protocol-Layers-and-Their-Service-Models"><a href="#五、协议层次及其服务模型-Protocol-Layers-and-Their-Service-Models" class="headerlink" title="五、协议层次及其服务模型 Protocol Layers and Their Service Models"></a>五、协议层次及其服务模型 Protocol Layers and Their Service Models</h1><h2 id="协议分层"><a href="#协议分层" class="headerlink" title="协议分层"></a>协议分层</h2><p>1、优点：概念化 结构化 缺点：单一层可能冗余较低层的功能 违反了层次分离的目标</p>
-<p>2、协议栈 protocol stack</p>
-<ul>
-<li>5 层因特网协议栈：物 链 网 运 应</li>
-<li> 7 层 ISO OSI 参考模型：物 链 网 运 <strong>会话 表示</strong> 应<ul>
-<li>表示层：使通讯的应用程序能够解释交换数据的含义</li>
-<li>会话层：提供数据交换的<strong>定界</strong>和<strong>同步</strong>功能</li>
-</ul>
-</li>
-</ul>
-<p>3、封装 encapsulation</p>
-<h1 id="六、Networks-Under-Attack"><a href="#六、Networks-Under-Attack" class="headerlink" title="*六、Networks Under Attack"></a>* 六、Networks Under Attack</h1><p>1、常见有害程序</p>
-<ul>
-<li>僵尸网络（botnet）</li>
-<li>病毒</li>
-<li>蠕虫</li>
-</ul>
-<p>2、针对服务器 / 网络基础设施</p>
-<ul>
-<li>弱点攻击</li>
-<li>带宽洪泛：短时间大量分组阻塞合法分组到达服务器，如：DDoS 攻击</li>
-<li>连接洪泛：创建大量伪造的半开 / 全开的 TCP 连接，使得主机受困、停止接收合法连接</li>
-</ul>
-<p>3、分组嗅探、伪装</p>
-<ul>
-<li>分组嗅探器（packet sniffer）：记录每个流经的分组副本的<strong>被动</strong>接收机（不向信道注入信息）。难以发觉，可应用密码学规避</li>
-<li> IP 哄骗（IP Spoofing）：将具有虚假源地址的分组注入因特网（主动），可采用端点鉴别</li>
-</ul>
-<h1 id="七、History-of-Computer-Networking"><a href="#七、History-of-Computer-Networking" class="headerlink" title="*七、History of Computer Networking"></a>* 七、History of Computer Networking</h1><ul>
-<li>分组交换的发展（1961-1972）<ul>
-<li>NCP：ARPAnet 端系统间第一台主机 - 主机协议</li>
-</ul>
-</li>
-<li>专用网络和网络互联 Interneting（1972-1980）</li>
-<li>激增和爆炸（1980 - 至今）</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1839,7 +1964,7 @@ min\{R_c,R_s\}</script><h1 id="五、协议层次及其服务模型-Protocol-Lay
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1886,7 +2011,7 @@ min\{R_c,R_s\}</script><h1 id="五、协议层次及其服务模型-Protocol-Lay
           <h5 class="widget-title">词云图</h5>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
               </canvas>
           </div>
       </div>
