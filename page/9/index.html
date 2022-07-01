@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=EB Garamond:300,300italic,400,400italic,700,700italic|Noto Serif SC:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hyper18.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hyperの个人博客">
+<meta property="og:url" content="https://hyper18.github.io/page/9/index.html">
+<meta property="og:site_name" content="Hyperの个人博客">
+<meta property="og:description" content="blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Hyperspace">
+<meta property="article:tag" content="信息技术, Hyper, 博客">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://hyper18.github.io/page/9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Hyperの个人博客 - 交流技术，分享生活</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/rss2.xml" title="Hyperの个人博客" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hyperの个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">交流技术，分享生活</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">32</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">21</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">45</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/Hyper18" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyperspace">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/" class="post-title-link" itemprop="url">数据库操作（二）—— 进阶篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-02 20:39:28" itemprop="dateCreated datePublished" datetime="2020-08-02T20:39:28+08:00">2020-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-30 13:57:01" itemprop="dateModified" datetime="2022-06-30T13:57:01+08:00">2022-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="进阶操作-第9-13章"><a href="#进阶操作-第9-13章" class="headerlink" title="进阶操作 第9-13章"></a>进阶操作 第 9-13 章</h2><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ul>
+<li>作用：匹配文本</li>
+<li>基本字符匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值’ ORDER BY 子句名<ul>
+<li>. 特殊字符表匹配任意一个字符，如‘.000’可匹配 1000 和 2000，etc</li>
+<li> 与 LIKE 匹配的区别：出现的匹配文本，其相应行将被 REGEXP 返回</li>
+<li>默认匹配不区分大小写，使用 BINARY 可区分大小写</li>
+</ul>
+</li>
+<li> OR 匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值 1 | 值 2’ ORDER BY 子句名<ul>
+<li>匹配一组特定字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值 1 值 2 值 3]’ ORDER BY 子句名</li>
+</ul>
+</li>
+<li>匹配范围：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值 1 - 值 2]’ ORDER BY 子句名</li>
+<li>匹配特殊字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘<span>\</span>\.’ ORDER BY 子句名<ul>
+<li>引用元字符：<span>\</span>\f 换页 <span>\</span>\n <span>\</span>\r 回车 <span>\</span>\t <span>\</span>\v 横、纵向制表</li>
+<li>匹配反斜杠：<span>\</span><span>\</span>\<ul>
+<li> 解释：第一个反斜杠由 Mysql 解释，第二个才是正则表达式解释</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>匹配字符类 character class（P58）</li>
+<li>匹配多个实例：如结尾 s 可选用？</li>
+<li>匹配特定位置文本：定位符<ul>
+<li> ^ 文本开始 $ 文本结尾 :&lt;: 词的开始  :&gt;: 词的结尾<ul>
+<li>注意 ^ 的另一种用法是集合中作 [] 取和</li>
+<li>可以配套使用 ^$，使用法同 LIKE</li>
+</ul>
+</li>
+</ul>
+</li>
+<li> 正则表达式的测试：使用 SELECT，返回 1 匹配，反之不匹配<ul>
+<li>优点：无需调用数据库表</li>
+</ul>
+</li>
+</ul>
+<h3 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h3><p>1、字段 field：意义同列，用于计算字段的连接</p>
+<p>2、拼接 concatenate：联结值成为一个单个值</p>
+<ul>
+<li>实际操作：在 SELECT 中使用 Concat () 函数<ul>
+<li> SELECT Concat (值 1，值 2) FROM 表名 ORDER BY 子句名</li>
+<li>或使用 RTrim () / LTrim () 函数，可删除数据右侧 / 左侧多余空格来整理数据</li>
+</ul>
+</li>
+</ul>
+<p>3、别名 alias / 导出列 derived column：字段或值的替换名</p>
+<ul>
+<li>SELECT Concat (值 1，值 2) AS 别名 FROM 表名 ORDER BY 子句名</li>
+</ul>
+<p>4、基本计算：四则运算符</p>
+<ul>
+<li>测试计算：省略 FROM 子句</li>
+</ul>
+<h3 id="数据处理函数"><a href="#数据处理函数" class="headerlink" title="数据处理函数"></a>数据处理函数</h3><p>1、可移植性：多数函数不同 SQL 存在差异，做好注释</p>
+<p>2、文本处理（P69）</p>
+<ul>
+<li>Left / Right ()：返回左 / 右侧字符</li>
+<li> Length ()：返回串长</li>
+<li> Locate ()：找出某子串</li>
+<li> SubString ()：返回子串字符</li>
+<li> Lower/Upper ()：返回小 / 大写</li>
+<li> LTrim/Rtrim ()：去掉左 / 右侧空格</li>
+<li> Soundex ()：将任何文本串转换为描述其语音表示的字母数字模式<ul>
+<li>对串进行发音比较（输入纠正，匹配输入项读音接近字串）</li>
+</ul>
+</li>
+</ul>
+<p>3、时间和日期处理（P71）</p>
+<ul>
+<li>Date ()：返回日期</li>
+<li> Time ()：返回时间</li>
+</ul>
+<p>4、数值处理（P74）</p>
+<ul>
+<li>Abs ()：返回绝对值</li>
+<li> Sin() / Cos() / Tan()</li>
+<li>Exp() / Sqrt()</li>
+<li>Mod()</li>
+<li>Pi ()：返回圆周率</li>
+<li> Rand ()：返回一个随机数</li>
+</ul>
+<h3 id="汇总数据"><a href="#汇总数据" class="headerlink" title="汇总数据"></a>汇总数据</h3><p>1、聚集函数 aggregate function</p>
+<ul>
+<li>def：行组上计算和返回单个值的函数</li>
+<li> AVG ()：SELECT AVG (列名) FROM 表名<ul>
+<li>仅用于确定特定数列，且列名必须以函数参数给出</li>
+<li>忽略值为 NULL 的行</li>
+</ul>
+</li>
+<li> COUNT ()：SELECT COUNT (*) AS 别名 FROM 表名，统计行个数<ul>
+<li> COUNT (*) 统计 NULL 和非空值</li>
+<li> COUNT（列名）统计特定值，忽略值为 NULL 的行</li>
+</ul>
+</li>
+<li> MAX ()：SELECT MAX (列名)  AS 别名 FROM 表名<ul>
+<li>可作返回任意列的最大值，按列排序的文本数据返回尾行</li>
+<li>忽略值为 NULL 的行</li>
+</ul>
+</li>
+<li> MIN ()：SELECT MIN (列名)  AS 别名 FROM 表名<ul>
+<li>可作返回任意列的最小值，按列排序的文本数据返回首行</li>
+<li>忽略值为 NULL 的行</li>
+</ul>
+</li>
+<li> SUM ()：SELECT SUM (列名)  AS 别名 FROM 表名<ul>
+<li> Sum (列名) 返回各行该列数据之和</li>
+<li>忽略值为 NULL 的行</li>
+</ul>
+</li>
+<li>指定聚集范围 ALL / DISTINCT</li>
+<li> 组合聚集函数：SELECT COUNT (*) AS 别名， MIN (列名)  AS 别名，MAX (列名)  AS 别名，……，FROM 表名</li>
+</ul>
+<h3 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h3><p>1、创建分组：SELECT COUNT (*) AS 别名 FROM 表名 GROUP BY 列名</p>
+<ul>
+<li>对每个组的结果分别进行聚集，所有列结果一同计算<ul>
+<li>可包含任意数目的列</li>
+<li>每列可为检索列或有效表达式，不能为聚集函数</li>
+<li> SELECT 使用表达式 - GROUP BY 必须使用相同表达式，不能使用别名</li>
+</ul>
+</li>
+<li> WITH ROLLUP：得到每个分组及其汇总级别的值<ul>
+<li> SELECT 列名，COUNT (*) AS 别名 FROM 表名 GROUP BY 列名 WITH ROLLUP</li>
+</ul>
+</li>
+</ul>
+<p>2、过滤分组：HAVING（WHERE 仅可过滤行）</p>
+<ul>
+<li>适用所有 WHERE 句法</li>
+<li>在数据分组后进行<ul>
+<li> WHERE 在数据过滤前进行，因此分组中不包含 WHERE 排除的行</li>
+</ul>
+</li>
+</ul>
+<p>3、分组和排序</p>
+<p>保证数据正确排序：GROUP BY + ORDER BY</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E8%BF%90%E8%BE%93%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyperspace">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E8%BF%90%E8%BE%93%E5%B1%82/" class="post-title-link" itemprop="url">计算机网络（三）：运输层</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-29 20:26:04" itemprop="dateCreated datePublished" datetime="2020-07-29T20:26:04+08:00">2020-07-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-30 13:56:00" itemprop="dateModified" datetime="2022-06-30T13:56:00+08:00">2022-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="运输层服务"><a href="#运输层服务" class="headerlink" title="运输层服务"></a>运输层服务</h1><p>1、工作位置：端系统</p>
+<p>2、分类：用户数据报协议 UDP 传输控制协议 TCP</p>
+<p>3、IP 服务：尽力而为交付（best-effort delivery server）的不可靠模型</p>
+<h2 id="多路复用与多路分解"><a href="#多路复用与多路分解" class="headerlink" title="多路复用与多路分解"></a>多路复用与多路分解</h2><p>1、多路分解</p>
+<ul>
+<li>def：将运输层报文段中的数据交付到正确的套接字<ul>
+<li>每个套接字都有唯一确定的标识符</li>
+<li>每个报文段需有特殊字段来指示该报文段所需交付到的套接字</li>
+</ul>
+</li>
+<li>端口字段 <ul>
+<li>长度：32 比特</li>
+<li>包含信息：源端口号字段 目的端口号字段 <ul>
+<li>端口号：16 比特的数，大小在 0~65535</li>
+<li>* 周知端口号：0~1023（受限）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>2、多路复用</p>
+<ul>
+<li>def：从不同套接字收集数据块、封装首部信息生成报文段并传递到网络层的一系列工作</li>
+</ul>
+<p>3、无连接的多路复用与多路分解</p>
+<ul>
+<li>创建 UDP 套接字<ul>
+<li>分配方式：自动 or bind () 关联特定端口</li>
+<li>组成：二元组，包括 目的 IP 地址 和 目的端口号</li>
+<li>源端口号和目的端口号的反转：服务器使用 recvfrom () 方法</li>
+</ul>
+</li>
+</ul>
+<p>4、面向连接的多路复用与多路分解</p>
+<ul>
+<li>创建 TCP 套接字<ul>
+<li>组成：四元组， 源 IP 地址、源端口号；目的 IP 地址、目的端口号</li>
+</ul>
+</li>
+<li>不同源 IP 地址 / 端口号，其定位到的套接字不同</li>
+</ul>
+<p>*5、顺序端口扫描：nmap</p>
+<h2 id="无连接运输：UDP"><a href="#无连接运输：UDP" class="headerlink" title="无连接运输：UDP"></a>无连接运输：UDP</h2><p>1、特征</p>
+<ul>
+<li>无连接传输：发送和接收方的运输层实体之间没有握手</li>
+</ul>
+<p>2、UDP 的优劣</p>
+<p>优点</p>
+<ul>
+<li>精细控制、立即交付</li>
+<li>无需连接建立：不引入连接时延</li>
+<li>无连接状态：不维护连接状态，不跟踪对应参数</li>
+<li>分组首部开销小：仅需 8 字节（TCP：20 字节）</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>缺乏拥塞控制带来的高丢包率</li>
+<li>引起并击垮发送方的 TCP 会话</li>
+</ul>
+<p>3、UDP 报文段结构（P132）</p>
+<ul>
+<li>组成：源端口号 目的端口号 长度 检验和 应用数据<ul>
+<li>端口号：使得目的主机可执行分解功能</li>
+<li>长度字段：指示报文段的字节数（首部 + 数据）</li>
+<li>检验和<ul>
+<li>功能：用于确定传输过程中比特是否改变</li>
+<li>操作：反码运算，溢出<strong>回卷</strong>（P133）</li>
+<li>遵循原则：端到端原则</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>仅提供差错检测，无差错恢复机制</li>
+</ul>
+<h2 id="可靠数据传输原理"><a href="#可靠数据传输原理" class="headerlink" title="可靠数据传输原理"></a>可靠数据传输原理</h2><p>1、特征</p>
+<ul>
+<li>数据通过一条可靠信道传输，为上层实体提供服务</li>
+<li>可将较低层直接视为不可靠的点对点信道</li>
+<li>假设底层信道不会对分组重排序，交付分组可能丢失</li>
+</ul>
+<p>2、构造</p>
+<ul>
+<li>理想模型 rdt1.0<ul>
+<li> 有限状态机 Finite-State Machine，FSM：发送端与接收端各自的机器</li>
+<li>所有分组从发送方流向接收方</li>
+<li>接收端不提供任何反馈</li>
+</ul>
+</li>
+<li>具有比特差错信道 rdt2.0<ul>
+<li> 本质：停等协议</li>
+<li>功能：查错检测 接收方反馈 重传（产生冗余数据分组）</li>
+<li>自动重传协议 Automatic Repeat reQuest，ARQ：基于肯定确认（ACK）和否定确认（NAK）的重传机制的可靠数据传输协议</li>
+<li>处理 ACK / NAK 受损情况：发送方发送加入数据分组序号的新字段</li>
+<li>改进<ul>
+<li> rdt2.1：加入接收方到发送方的肯定和否定确认</li>
+<li> rdt2.2：使用 ACK 0 或 ACK 1 的确认信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>具有比特差错的丢包信道 rdt3.0<ul>
+<li> 本质：比特交替协议</li>
+<li>倒计数计时器 countdown timer：发送分组时启动、响应中断、终止</li>
+</ul>
+</li>
+</ul>
+<p>3、流水线（pipelining）可靠数据传输协议</p>
+<ul>
+<li><p>问题：低利用率的网络协议可能限制底层网络硬件所提供的能力</p>
+</li>
+<li><p>解决：不以停等方式运行，允许发送多个分组而无需等待确认</p>
+</li>
+<li><p>差错恢复方法</p>
+<ul>
+<li><p>回退 N 步（GBN 协议，P145）</p>
+<ul>
+<li><p>本质：滑动窗口协议</p>
+</li>
+<li><p>设基序号为 base，nextseqnum 位下一个最小的未使用序号：</p>
+<ul>
+<li>序号范围 [0, base - 1]：已发送并确认的分组</li>
+<li>序号范围 [base, nextseqnum - 1]：发送但未确认的分组</li>
+<li> [nextseqnum, base + N - 1]：若有上层数据将被立即发送的分组</li>
+<li> &gt;= base + N：当前流水线不可被使用的分组</li>
+</ul>
+<p>其中 N 为<strong>窗口长度</strong>，分组的序号范围是 [0, 2^k - 1]，k 为比特数</p>
+</li>
+<li><p>注：涉及序号运算一律使用模 2^k 运算</p>
+</li>
+</ul>
+</li>
+<li><p>选择重传（SR 协议，P150）</p>
+<ul>
+<li>每个分组拥有自己的逻辑定时器，超时后发送单个分组</li>
+<li>接收到分组的 ACK 后，标记当前窗口基序号的分组为已接收，并且接收方需重新确认已收到过的序号小于当前窗口基序号的分组；若该分组序号等于 send_base，则移动窗口基序号到具有最小序号的未确认分组处</li>
+</ul>
+</li>
+<li><p>因特网下的重新排序问题：假定分组的最大存活时间不会超过某个固定最大时间量（默认大约 3min）来避免信道中的冗余分组</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="面向连接的运输：TCP"><a href="#面向连接的运输：TCP" class="headerlink" title="面向连接的运输：TCP"></a>面向连接的运输：TCP</h2><p>1、建立连接：三次握手，客户发送  - 服务器响应 - 客户响应</p>
+<ul>
+<li>第三个报文段承载有效载荷</li>
+<li>组成：一对主机上的缓存、变量及与进程连接的套接字</li>
+<li>辨析：其间的网络元素不参与分配任何缓存和变量</li>
+</ul>
+<p>2、最大报文段长度 Max  Segment Size，MSS</p>
+<ul>
+<li>辨析：仅报文段中应用层数据的最大长度，而非包括首部</li>
+<li>由本地发送主机的最大链路层帧长度（最大传输单元 Max Transmission Unit，MTU）设置</li>
+<li>要求：保证适合单个链路层帧</li>
+<li>典型值大小：1460 字节（以太网与链路层协议中都具有 1500 字节的 MTU）</li>
+</ul>
+<p>3、TCP 报文段结构（P154）</p>
+<ul>
+<li>序号字段和确认号字段：各 32 比特，用于实现可靠数据传输<ul>
+<li>可靠传输服务的关键部分</li>
+<li>序号是该报文段首字节的字节流编号，确认号是主机期望从另一主机收到的下一字节的序号</li>
+<li>功能：提供<strong>累积确认</strong>，仅确认到流中至第一个丢失字节为止的字节</li>
+</ul>
+</li>
+<li>首部长度字段：4 比特，指示首部的长度</li>
+<li>选项字段：可选和变长</li>
+<li>标志字段：ACK 确认 RST、SYN、FIN 建立和拆除连接 PSH 提交给上层 URG 指示紧急数据</li>
+</ul>
+<p>4、实例：Telnet</p>
+<ul>
+<li>回显 echo back：远程主机回送每个字符的副本给用户，并显示在 Telnet 用户的屏幕上</li>
+<li>被<strong>捎带</strong> piggybacked：指 对客户 to 服务器的数据的确认 被装载在一个承载服务器 to 客户的数据的报文段中</li>
+</ul>
+<p>5、往返时间的估计与超时</p>
+<ul>
+<li><p>往返时间：仅为传输一次的报文段测量 SampleRTT</p>
+<ul>
+<li><strong>指数加权移动平均</strong> EWMA：更新估计往返时间（EstimatedRTT）</li>
+</ul>
+<script type="math/tex; mode=display">
+EstimatedRTT = （1 — α）* EstimatedRTT + α * SampleRTT</script><p>其中，[RFC 6298] 给出的 α 推荐值为 0.125。</p>
+<ul>
+<li>DevRTT：RTT 偏差，用于衡量测量往返时间偏离估计往返时间的程度</li>
+</ul>
+<script type="math/tex; mode=display">
+DevRTT = (1 - β) * DevRTT + β * |SampleRTT - EstimatedRTT|</script><p>其中，β 的推荐值为 0.25。</p>
+</li>
+<li><p>超时间隔</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+TimeoutInterval = EstimatedRTT + 4 * DevRTT</script><p>​    其中，TimeoutInterval 的推荐初始值为 1s。</p>
+<p>6、可靠数据传输</p>
+<ul>
+<li>TCP 服务是在 IP 服务的尽力而为服务上创建的一种可靠数据传输服务</li>
+<li>超时间隔加倍：避免链路拥塞</li>
+<li>收到三个冗余 ACK 后执行<strong>快速重传</strong></li>
+<li>差错恢复机制：GBN 与 SR 的结合体，可有选择地确认失序报文段，而非累积确认最后一个正确接收的有序报文段</li>
+</ul>
+<p>7、流量控制（P165）</p>
+<ul>
+<li>辨析：拥塞控制是为防止因 IP 网络拥塞而被遏制的情形；而流量控制是为消除发送方使接收方缓存溢出的可能性，是一个速度匹配服务</li>
+<li>方式：一对发送方各自维护一个<strong>接收窗口</strong>（rwnd）</li>
+<li>定义变量<ul>
+<li> LastByteRead：另一主机读出流中的最后一个字节的编号</li>
+<li> LastByteRevd：放入接收缓存流中的最后一个字节的编号</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+LastByteRevd - LastByteRead \le RcvBuffer</script><script type="math/tex; mode=display">
+rwnd = RcvBuffer - [LastByteRevd - LastByteRead]</script><ul>
+<li>注：当接收主机空间耗尽时，由于发送方尽在有数据或有确认要发送是才会发送报文段，因此当接收主机的 rwnd = 0 时，主机将发送仅一个字节数据的报文段以清空接收主机 RcvBuffer，并返回一个包含非 0 的 rwnd 值</li>
+</ul>
+<p>8、连接管理</p>
+<ul>
+<li>3 次握手<ul>
+<li>客户端发送特殊报文段 to 服务器端，首部的 SYN 比特置 1</li>
+<li>SYNACK 报文段：服务器端 SYN 比特被置为 1，确认号字段替换为客户端 + 1，服务器选择自己的初始序号</li>
+<li>客户端分配缓存和变量，连接建立，SYN 比特被置为 0</li>
+</ul>
+</li>
+<li>TCP 状态（P168）<ul>
+<li>SYN cookie：不为未经确认的请求分配资源以杜绝洪泛攻击</li>
+</ul>
+</li>
+</ul>
+<h2 id="拥塞控制原理"><a href="#拥塞控制原理" class="headerlink" title="拥塞控制原理"></a>拥塞控制原理</h2><p>1、不同情形</p>
+<ul>
+<li>理想情况，两个发送方、无限缓存的路由器：分组到达速率接近链路容量时，分组经历巨大的排队时延</li>
+<li>两个发送方、有限缓存的路由器：还附加执行重传以补偿因缓存溢出而丢失的分组</li>
+<li> 4 个发送方与有限缓存路由器的多跳路径：被丢弃分组，其上游路由器转发到丢弃过程中使用的传输容量被浪费</li>
+</ul>
+<p>2、方法</p>
+<ul>
+<li>端到端：超时或三次冗余 ACK 确认</li>
+<li>网络辅助：路由器向发送方提供显式的网络拥塞状态反馈信息<ul>
+<li>发送阻塞分组（choke pocket）</li>
+<li>标记或更新某个字段以指示</li>
+</ul>
+</li>
+</ul>
+<h2 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP 拥塞控制</h2><p>1、拥塞窗口 congestion window，cwnd</p>
+<script type="math/tex; mode=display">
+LastByteSent - LastByteRead \le min\{cwnd, rwnd\}</script><p>其中，发送速率随 cwnd 变化，约为 cwnd / RTT byte/s。</p>
+<p>2、特性：自计时 self-clocking，得名于 TCP 使用确认来触发增大 cwnd</p>
+<p>3、指导性原则</p>
+<ul>
+<li>丢失报文段时，适当降低 TCP 发送方的速率<ul>
+<li>从拥塞控制角度看，应着手减少 cwnd 以降低发送速率</li>
+</ul>
+</li>
+<li>当对先前收到的未确认的报文段的确认到达时，可以增加发送方的速率<ul>
+<li>表明此时的 TCP 链路是畅通的，报文段可顺利交付</li>
+</ul>
+</li>
+<li>带宽探测：当未出现丢包前，不断增加速率以响应到达的 ACK；否则才减小速率<ul>
+<li> “得寸进尺，受挫尚退”</li>
+</ul>
+</li>
+</ul>
+<p>4、<strong>TCP 拥塞控制算法</strong> TCP congestion control algorithm</p>
+<ul>
+<li><p>慢启动 slow-start（P179）</p>
+<ul>
+<li>def：首次以 1 个 MSS 开始，其后以 2 的幂指数递增，即每过一个 RTT 翻番</li>
+<li>何时结束增长？<ul>
+<li>丢包：重新慢启动，设置 cwnd = 1，慢启动阈值 ssthresh = cwnd / 2</li>
+<li> 到达或超过慢启动阈值：结束慢启动，启动拥塞避免模式</li>
+<li>检测到三个冗余 ACK：执行快速重传，进入快速恢复状态</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>拥塞避免</p>
+<ul>
+<li>def：到达或超过慢启动阈值时，与其再翻番 cwnd，采用保守方法，仅自增 cwnd</li>
+<li> 方法：同慢启动，设置 cwnd = 1，置慢启动阈值 ssthresh = cwnd / 2</li>
+</ul>
+</li>
+<li><p> 快速恢复</p>
+<ul>
+<li>对于每一个冗余 ACK，cwnd 增加 1；当对丢失报文段 ACK 到达后，再降低 cwnd 进入拥塞避免状态</li>
+</ul>
+</li>
+<li><p>特性：<strong>加性增 乘性减</strong>（Additive-Increase， Multiplicative-Decrease，AIMD P181）</p>
+<ul>
+<li>def：每个 RTT 内 cwnd 线性（加性）增加 1MSS，3 个冗余 ACK 减半（乘性减）</li>
+</ul>
+</li>
+<li><p>TCP 吞吐量</p>
+<ul>
+<li>宏观模型</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+  avg_{单条连接的吞吐量} =  \frac{0.75 * W}{RTT}</script><p>​    其中，W 为丢包时间发生时，窗口长度的字节数。</p>
+<ul>
+<li>高带宽路径</li>
+</ul>
+<script type="math/tex; mode=display">
+avg_{单条连接的吞吐量} =  \frac{1.22 * MSS}{RTT * \sqrt{L}}</script><p>​    其中，L 为链路的丢包率。</p>
+<p>5、实例：TCP 分岔</p>
+<ul>
+<li>目的：优化云服务，改善用户体验</li>
+<li>手段：部署临近用户的前端服务器 或 利用 TCP 分岔（TCP splitting）来分裂 TCP 连接</li>
+<li>公式</li>
+</ul>
+<script type="math/tex; mode=display">
+4 * RTT_{FE} + RTT_{BE} + 处理时间</script><p>其中 FE、BE 分别为客户 to 前端服务器、前端服务器到数据中心（后端服务器）的往返时间</p>
+<ul>
+<li>效果：降低时延到原来的约 1/4</li>
+</ul>
+<p>6、公平性</p>
+<ul>
+<li>UDP 源可能压制 TCP 流量</li>
+<li>并行 TCP 连接占用较大带宽而不常见</li>
+</ul>
+<p>7、明确拥塞通告 Explicit Congestion Notification，ECN</p>
+<ul>
+<li>def：允许网络明确向 TCP 发送方和接收方发送显式拥塞信号</li>
+<li>好处：无需再由发送方通过观察分组丢失来推断拥塞</li>
+<li>过程：接收主机收到 ECN 拥塞指示 -&gt; 设置 ECN（拥塞通告回显）-&gt; 通知发送方 -&gt; 收到拥塞指示，减半拥塞窗口、设置 CWR 比特（拥塞窗口缩减）</li>
+<li>* 利用网络层发送 ECN 信号：数据包拥塞控制协议 DCCP、数据中心 TCP DCTCP</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/07/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%9F%BA%E7%A1%80%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyperspace">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%9F%BA%E7%A1%80%E7%AF%87/" class="post-title-link" itemprop="url">数据库操作（一）—— 基础篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-28 20:32:41" itemprop="dateCreated datePublished" datetime="2020-07-28T20:32:41+08:00">2020-07-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-30 13:57:10" itemprop="dateModified" datetime="2022-06-30T13:57:10+08:00">2022-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>基础操作（1~8 章）</p>
+<p>1、数据库 database：保存有组织数据的容器</p>
+<p>2、表 table：特定类型数据的结构化清单</p>
+<p>3、行 row /record：表中的一个记录</p>
+<p>4、<strong>主键</strong> primary key：每一行中可以<strong>唯一</strong>标识自己的一列</p>
+<ul>
+<li>前提：任意两行不具有相同值、每行必须具有一个主键值</li>
+<li>习惯：主键值不更新 不重用，不在主键使用可能会更改的值</li>
+</ul>
+<p>5、关键字 key word：作为一个保留字</p>
+<p>键入</p>
+<p>1、书写习惯</p>
+<ul>
+<li><p>命令行用分号；结尾多条语句也需用分号分割</p>
+</li>
+<li><p>对于关键字：使用大小写均可，全用大写并分成多行，易于阅读、调试</p>
+</li>
+<li>在选择多个列时，一定要在列名之间加上逗号吗，<strong>但最后一列不加</strong></li>
+</ul>
+<p>2、使用数据库： USE 数据库名</p>
+<p>显示：SHOW 语句</p>
+<ul>
+<li>SHOW DATABASES：显示所有数据库列表</li>
+<li> SHOW TABLES：显示某个库内所有表的列表</li>
+<li> SHOW COLUMNS FROM：表名显示某个库内所有列的列表<ul>
+<li>快速写法：DESCRIBE 表名</li>
+</ul>
+</li>
+<li> SHOW STATUS：显示广泛的服务器信息</li>
+<li> SHOW CREATE DATABASE / TABLE：显示创建的特定数据库或表表示的 Mysql 语句</li>
+<li> SHOW GRANTS：显示授权用户的安全权限</li>
+<li> SHOW ERRORS / WARNINGS：显示服务器的错误或警告信息</li>
+</ul>
+<p>选择：SELECT 语句</p>
+<ul>
+<li>SELECT 列名 FROM 表名：检索，输出的是未排序数据</li>
+<li> SELECT * FROM 表名：检索所有列<ul>
+<li>给定 * 通配符，则返回表中所有列，而且可检索出未知列；但滥用会降低效能</li>
+</ul>
+</li>
+<li> SELECT DISTINCT 列名：只返回唯一（去重）的行</li>
+<li> SELECT 列名 FROM 表名 LIMIT 行数：检索指定的行数<ul>
+<li> SELECT 列名 FROM 表名 LIMIT 开始行 行数：检索指定从行号为第一个值的位置开始的行数</li>
+<li>替代语法：SELECT 列名 FROM 表名 LIMIT  行数 OFFSET 开始行</li>
+</ul>
+</li>
+<li> SELECT 表名。列名 FROM 表名：完全限定的列名</li>
+</ul>
+<p>排序</p>
+<p>1、子句：一个关键字和所提供的数据组成</p>
+<p>2、ORDER BY 语句</p>
+<ul>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名：以字母顺序排序数据的 ORDER BY 子句</li>
+<li> SELECT 列名 FROM 表名 ORDER BY 子句名 1 子句名 2 ……</li>
+<li>SELECT 列名 FROM 表名 ORDER BY 子句名 DESC：降序排列</li>
+<li> SELECT 列名 FROM 表名 ORDER BY 子句名 1 DESC 子句名 2：子句 1 降序 2 升序<ul>
+<li>即：DESC 只应用到<strong>直接</strong>位于其前面的列名</li>
+<li> ASC asending：默认的情形就是升序，略</li>
+</ul>
+</li>
+<li> SELECT 列名 FROM 表名 ORDER BY 子句名 LIMIT 行数：按升序显示表中数据指定列子句的指定行数</li>
+</ul>
+<p>过滤：</p>
+<p>1、通配符 wildcard：用来匹配值的一部分特殊字符</p>
+<ul>
+<li>Mysql 中使用通配符：LIKE 操作符指示，LIKE 是 * 谓词（predicate）</li>
+</ul>
+<p>2、搜索模式：由字面值、通配符或两者组合构成的搜索条件</p>
+<p>3、WHERE 子句</p>
+<ul>
+<li>SELECT 列名 FROM 表名 WHERE 数据 =（&lt;= /&gt;= / &gt; / &lt;） 该指定值：只返回指定值的行</li>
+<li>同时使用 ORDER BY：需要让 ORDER BY 位于 WHERE 之后</li>
+<li>不匹配检查：SELECT 列名 FROM 表名 WHERE 数据 &lt;&gt; 值（效果同！=）</li>
+<li>范围值检查：SELECT 列名 FROM 表名 WHERE 数据 BETWEEN 值 1 AND 值 2</li>
+<li> 空值检查：SELECT 列名 FROM 表名 WHERE 数据 IS NULL</li>
+<li> 多限定条件：SELECT 列名 FROM 表名 WHERE 数据 = 值 1 AND 数据 &lt;值 2 OR 数据&gt; 值 3<ul>
+<li> 优先处理 AND 操作符</li>
+</ul>
+</li>
+<li>范围选取：SELECT 列名 FROM 表名 WHERE 数据 IN （值 1，值 2）<ul>
+<li>完成与 OR 相同的功能</li>
+<li>直观易管理</li>
+<li>运行更快</li>
+<li>可包含其他 SELECT 语句，动态创建 WHERE 子句</li>
+</ul>
+</li>
+<li>否定：SELECT 列名 FROM 表名 WHERE 数据 <strong>NOT</strong> IN （值 1，值 2） ORDER BY 子句名<ul>
+<li>常用于 IN 的复杂句式中取反</li>
+</ul>
+</li>
+<li>通配符操作：SELECT 列名 FROM 表名 WHERE 数据 LIKE ‘_字符串 %’<ul>
+<li>% 用于表示接受字符串后续的任意字符<ul>
+<li>‘% 字符串 %’则表示任何位置的匹配</li>
+<li>‘字符串 1% 字符串 2’则表示字符串 1 开头、字符串 2 结尾的匹配</li>
+<li>注意当存在空格时， ‘% 字符串’不会匹配</li>
+<li> NULL 任何情况均不会被匹配</li>
+</ul>
+</li>
+<li>_只匹配单个字符</li>
+<li>通配符的弊端：耗时较长（尤其位于起始处） 使用容易出错</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%BA%94%E7%94%A8%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyperspace">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%BA%94%E7%94%A8%E5%B1%82/" class="post-title-link" itemprop="url">计算机网络（二）：应用层</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-25 20:25:59" itemprop="dateCreated datePublished" datetime="2020-07-25T20:25:59+08:00">2020-07-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-30 13:56:31" itemprop="dateModified" datetime="2022-06-30T13:56:31+08:00">2022-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="应用层协议原理"><a href="#应用层协议原理" class="headerlink" title="应用层协议原理"></a>应用层协议原理</h1><h2 id="网络应用程序体系结构"><a href="#网络应用程序体系结构" class="headerlink" title="网络应用程序体系结构"></a>网络应用程序体系结构</h2><p>1、<strong>客户 - 服务器体系架构</strong>（client-server architecture）</p>
+<ul>
+<li>服务器主机总是打开，接收客户主机请求</li>
+<li>客户之间不相互通信</li>
+</ul>
+<p>2、<strong>P2P 体系结构</strong></p>
+<ul>
+<li>对数据中心的专用服务器仅有最小依赖</li>
+<li>标识：发起通信为客户，等待联系为服务器</li>
+<li>间断连接的主机间使用直接通信<ul>
+<li>这样的一组主机称对等方</li>
+</ul>
+</li>
+<li><strong>自扩展性</strong> self-scalability<ul>
+<li> 向对等方发送文件</li>
+<li>请求产生工作负载，但也为系统增加服务能力</li>
+</ul>
+</li>
+</ul>
+<h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><p>1、进程 process</p>
+<ul>
+<li>def：运行在端系统的一个程序</li>
+<li>通信进程对：每对两个进程互相发送报文</li>
+<li><strong>进程寻址</strong>的要求<ul>
+<li>主机地址</li>
+<li>目的主机需指定接收进程的标识符</li>
+</ul>
+</li>
+</ul>
+<p>2、套接字 socket：向网络发送 / 接收报文的软件接口</p>
+<p>3、应用程序编程接口 <em>API</em></p>
+<ul>
+<li>建立网络应用程序的可编程接口</li>
+<li>运输层的控制<ul>
+<li>选择运输层协议</li>
+<li>部分运输层参数</li>
+</ul>
+</li>
+</ul>
+<h2 id="可供应用程序使用的运输服务"><a href="#可供应用程序使用的运输服务" class="headerlink" title="可供应用程序使用的运输服务"></a>可供应用程序使用的运输服务</h2><p>1、<strong>可靠数据传输</strong>：正确、完全地交付数据</p>
+<p>2、吞吐量</p>
+<ul>
+<li>带宽敏感 / 弹性应用</li>
+</ul>
+<p>3、<strong>定时保证</strong></p>
+<ul>
+<li>交互式实时应用</li>
+</ul>
+<p>4、安全性</p>
+<h2 id="因特网提供的运输服务"><a href="#因特网提供的运输服务" class="headerlink" title="因特网提供的运输服务"></a>因特网提供的运输服务</h2><p>1、TCP 服务</p>
+<ul>
+<li>面向连接：流动前互换运输层控制信息，结束后拆除连接</li>
+<li>可靠数据传送：无差错、按适当顺序交付</li>
+<li><strong>拥塞控制</strong></li>
+<li>无加密机制<ul>
+<li>改进：* 安全套接字层（Secure Socket Layer，SSL）</li>
+</ul>
+</li>
+</ul>
+<p>2、UDP 服务</p>
+<ul>
+<li>轻量级，仅提供最小服务</li>
+<li>不可靠数据传送：不保证到达、可乱序</li>
+<li>可选定数据的传输速率</li>
+<li>无加密机制</li>
+</ul>
+<h2 id="应用层协议"><a href="#应用层协议" class="headerlink" title="应用层协议"></a>应用层协议</h2><p>1、RFC（Request For Comments）文档：一系列以编号排定的文件</p>
+<ul>
+<li>位于公共域中</li>
+<li>收录几乎所有互联网标准</li>
+</ul>
+<p>2、超文本传输协议 HTTP</p>
+<p>3、简单邮件传输协议 SMTP</p>
+<h1 id="HyperText-Transfer-Protocol"><a href="#HyperText-Transfer-Protocol" class="headerlink" title="HyperText Transfer Protocol"></a>HyperText Transfer Protocol</h1><p>1、超文本传输协议 HTTP</p>
+<ul>
+<li>定义报文的结构和客户、服务器进行报文交换的方式</li>
+<li>实现：一个客户程序和一个服务器程序（P65）</li>
+<li>支撑运输协议：<em>TCP</em></li>
+<li> 无状态协议 stateless protocol：不保存关于客户的任何信息</li>
+</ul>
+<p>2、连接方式</p>
+<ul>
+<li><strong>非持续连接</strong> non-persistent connection<ul>
+<li> 请求 / 响应经一单独 TCP 连接发送</li>
+<li>为每个请求对象建立和维护一个全新连接</li>
+<li><strong>三次握手</strong>：发送确认 <em>RTT</em> - 返回确认 <em>RTT</em> - 传输<ul>
+<li>往返时间 Round-Trip Time，<em>RTT</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong> 持续连接</strong>（默认）<ul>
+<li>请求 / 响应经相同的 TCP 连接发送</li>
+<li>带流水线（默认）：对对象的请求可依次发出，不必等待未决请求</li>
+</ul>
+</li>
+</ul>
+<p>3、报文格式</p>
+<p><strong>请求报文（P68，CR 回车，LF 换行）</strong></p>
+<ul>
+<li>组成：<ul>
+<li>第一行称<strong>请求行</strong> request line<ul>
+<li> 三个部分：方法字段 URL 字段 HTTP 字段</li>
+</ul>
+</li>
+<li>后继行称<strong>首部行</strong> header line</li>
+<li> 实体体 entity body：POST 方法使用</li>
+</ul>
+</li>
+<li>方法字段：GET POST HEAD PUT DELETE<ul>
+<li>GET：请求对象、提交表单（HTML 表单）</li>
+<li>POST：提交表单</li>
+<li> HEAD：响应请求，但不返回对象<ul>
+<li> * 试跟踪</li>
+</ul>
+</li>
+<li> PUT：常与 Web 发行工具共用，上传对象到指定 Web 服务器指定路径</li>
+<li> DELETE：允许删除 Web 服务器上对象</li>
+</ul>
+</li>
+</ul>
+<p><strong>响应报文（P69）</strong></p>
+<ul>
+<li>组成<ul>
+<li>状态行 status line <ul>
+<li>三个部分：协议版本字段 状态码 相应状态信息</li>
+</ul>
+</li>
+<li>首部行和实体体</li>
+</ul>
+</li>
+<li>常见状态码：200 OK；301 请求对象已经永久转移；400/404；505 不支持的 HTTP 协议版本</li>
+</ul>
+<p>4、Cookie</p>
+<ul>
+<li>组成<ul>
+<li>响应报文中的一个 cookie 首部行</li>
+<li>请求报文中的一个 cookie 首部行</li>
+<li>用户端系统保留的一个 cookie 文件</li>
+<li>位于 Web 站点的一个后端数据库</li>
+</ul>
+</li>
+<li><strong>识别码</strong> Set-cookie：用于标识一个用户<ul>
+<li> * 用户隐私侵害</li>
+</ul>
+</li>
+</ul>
+<p>5、Web 缓存</p>
+<ul>
+<li>Web 缓存器 Web Cache / 代理服务器 <em>proxy server</em><ul>
+<li> 配置后的浏览器请求被定向至代理服务器</li>
+<li>发送给用户服务器的是保存的一份<strong>副本</strong></li>
+<li>从整体上大大降低因特网的流量</li>
+</ul>
+</li>
+<li>内容分发网络 Content Distribution Network，CDN：使大量流量实现本地化</li>
+<li><strong>条件 Get 方法</strong>：执行最新检查<ul>
+<li> If-Modified-Since = Last-Modified -&gt; 304 Not Modified</li>
+</ul>
+</li>
+</ul>
+<h1 id="因特网电子邮件"><a href="#因特网电子邮件" class="headerlink" title="因特网电子邮件"></a>因特网电子邮件</h1><p>1、组成：用户代理（user agent）邮件服务器（mail server）简单邮件传输协议（SMTP）</p>
+<p>2、支撑应用层服务：TCP</p>
+<p>3、SMTP</p>
+<ul>
+<li>因特网电子邮件的核心</li>
+<li>仅能采用简单的 7 比特 ASCII 表示</li>
+<li>传送多谋体数据编码需先转码</li>
+<li>无存留：一般不使用中间邮件服务器</li>
+<li>使用持续连接</li>
+</ul>
+<h5 id="对比HTTP"><a href="#对比HTTP" class="headerlink" title="对比HTTP"></a>对比 HTTP</h5><ul>
+<li>HTTP 不需要对多谋体数据编码转码</li>
+<li> HTTP 是拉协议（pull protocol）而 SMTP 基本上是推协议（push protocol）</li>
+<li>HTTP 封装对象，SMTP 将所有对象存放在一个报文中</li>
+</ul>
+<p>4、邮件报文格式</p>
+<ul>
+<li>首部：From To （Subject，其他可选首部行）</li>
+<li>一个空白行</li>
+<li>报文体（ASCII 格式）</li>
+</ul>
+<p>5、邮件访问协议</p>
+<ul>
+<li>第三版的邮局协议 Post Office Protocol - Version 3，POP3<ul>
+<li> 三个工作阶段<ul>
+<li>特许（authorization）：明文发送用户名和口令以鉴别用户</li>
+<li>事务处理：取回报文；标记 / 删除报文标记、获取邮件统计信息（可选）</li>
+<li>更新：在 quit 命令发出后结束会话</li>
+</ul>
+</li>
+<li>下载方式：下载并删除（不同机器不可读） / 下载并保留（可多端查看）</li>
+<li>优点：会话中不包含状态信息，大大简化了服务的实现</li>
+</ul>
+</li>
+<li>因特网邮件访问协议 Internet Mail Access Protocol，IMAP<ul>
+<li> 实现访问远程服务器文件夹</li>
+<li>维护用户状态信息</li>
+<li>允许用户代理获取报文的某些指定部分（灵活）</li>
+<li>用户 -&gt; 邮件服务器：HTTP  邮件服务器 -&gt; 邮件服务器：SMTP</li>
+</ul>
+</li>
+</ul>
+<h1 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h1><h2 id="提供服务"><a href="#提供服务" class="headerlink" title="提供服务"></a>提供服务</h2><ul>
+<li>核心：主机名 -&gt;IP 名转换的目录服务</li>
+<li>提供主机别名（host aliasing）：此时原名称称规范主机名（canonical hostname）</li>
+<li>邮件服务器别名</li>
+<li>负载分配（load distribution）：每个回答循环响应，在冗余的 Web 服务器间分配负载</li>
+</ul>
+<h2 id="工作机理"><a href="#工作机理" class="headerlink" title="工作机理"></a>工作机理</h2><p>1、实现</p>
+<ul>
+<li>一个分层的 DNS 服务器实现的分布式数据库</li>
+<li>使主机可查询数据库的应用层协议</li>
+</ul>
+<p>2、支撑应用层服务：UDP（53 号端口）</p>
+<p>3、分布式、层次数据库</p>
+<ul>
+<li>集中式的弊端<ul>
+<li>单点故障</li>
+<li>通信容量（traffic volume）</li>
+<li>远距离的集中式数据库</li>
+<li>维护</li>
+</ul>
+</li>
+<li>服务器类型（P87）<ul>
+<li>根 DNS 服务器：提供 TLD 服务器的 IP 地址</li>
+<li>顶级域服务器 TLD：提供权威 DNS 服务器的 IP 地址</li>
+<li>权威 DNS 服务器：提供公共可访问的 DNS 记录</li>
+<li>本地 DNS 服务器</li>
+</ul>
+</li>
+<li><p>查询方式：主机 -&gt; 服务器递归查询，其余均为迭代查询</p>
+<p>4、DNS 缓存</p>
+</li>
+<li><p>将映射缓存在本地存储器中</p>
+</li>
+<li>可绕过根服务器：存在缓存，立即返回 IP 地址</li>
+<li>一段时间丢弃信息（默认：两天）</li>
+</ul>
+<h2 id="DNS记录和报文"><a href="#DNS记录和报文" class="headerlink" title="DNS记录和报文"></a>DNS 记录和报文</h2><p>1、资源记录 Resource Record，RR</p>
+<ul>
+<li>提供主机名到 IP 地址的映射</li>
+<li>格式：（Name，Value，Type，TTL）<ul>
+<li>TTL：记录的生存时间</li>
+</ul>
+</li>
+</ul>
+<p>2、Type 的不同类型</p>
+<ul>
+<li>Type：A <ul>
+<li>Name：主机名 </li>
+<li>Value：主机名对应 IP 地址</li>
+</ul>
+</li>
+<li> Type：NS <ul>
+<li>Name：个域</li>
+<li> Value：可提供主机 IP 地址的权威 DNS 服务器主机名</li>
+</ul>
+</li>
+<li> Type：CNAME <ul>
+<li>Name：别名为 Name 的主机名称</li>
+<li> Value：该主机的规范主机名</li>
+</ul>
+</li>
+<li> Type：MX<ul>
+<li>Name：别名为 Name 的服务器主机名称</li>
+<li> Value：该服务器主机的规范主机名</li>
+</ul>
+</li>
+</ul>
+<p>3、报文格式（P90）</p>
+<ul>
+<li>首部区域（12 字节）：标识符 标志 问题数 回答 / 权威 / 附加 RR 数</li>
+<li>问题区域：名字 类型</li>
+<li>权威区域</li>
+<li>附加区域</li>
+</ul>
+<p>4、插入记录：注册登记机构（registrar）验证域名唯一性，输入 DNS 数据库</p>
+<p>*5、DNS 的健壮性</p>
+<h1 id="P2P文件分发"><a href="#P2P文件分发" class="headerlink" title="P2P文件分发"></a>P2P 文件分发</h1><p>1、def：成对间歇的主机（对等方）彼此直接通信</p>
+<p>2、最小分发时间：</p>
+<script type="math/tex; mode=display">
+D_{P2P}=max\{\frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+{\sum_{r=1}^n}}\}</script><p>3、Bittorrent</p>
+<ul>
+<li>洪流 torrent：参与一个特定文件分发的所有对等方的集合</li>
+<li>块 chunk：典型（256kb）等长文件块</li>
+<li>加入过程：向追踪器注册 - 周期性通知仍在洪流中</li>
+<li>最稀缺优先 rarest first：优先请求那些邻居中副本数量最少的块，以均衡每个洪流的副本数量</li>
+<li>疏通 unchoked：一个时间间隔后重新计算最高速率并修改对等方集合，保证最高速率</li>
+<li> * 分布式散列表 DHT：分布在多个对等方的简单数据库</li>
+</ul>
+<h1 id="视频流和内容分发网-CDN"><a href="#视频流和内容分发网-CDN" class="headerlink" title="视频流和内容分发网 CDN"></a>视频流和内容分发网 CDN</h1><p>1、压缩<strong>比特率</strong>，提高图像质量</p>
+<p>2、流式视频的重要衡量：avg 端到端时延</p>
+<p>3、DASH：经 HTTP 的动态适应流</p>
+<ul>
+<li>告示文件（manifest file）提供比特率和 URL</li>
+<li> 速率决定算法选择后继请求块</li>
+</ul>
+<p>4、CDN</p>
+<ul>
+<li>分类：专用 CDN 第三方 CDN</li>
+<li> 服务器安置原则<ul>
+<li>深入：靠近端用户，改善时延和吞吐量</li>
+<li>邀请做客：邀请到放置在 IXP 的集群，降低维护和管理开销</li>
+</ul>
+</li>
+<li>机制：截获 重定向</li>
+<li> * 实时测量</li>
+<li>案例：油管 Netflix 迅雷</li>
+</ul>
+<h1 id="套接字编程"><a href="#套接字编程" class="headerlink" title="套接字编程"></a>套接字编程</h1><p>1、分类：协议标准定义 或 专用网络的网络应用程序</p>
+<p>2、UDP 套接字</p>
+<ul>
+<li>过程：键入，发送数据至服务器 - 转换报文，发送给客户 - 客户端监视器显示</li>
+<li>需显式创建分组并附上目的地址</li>
+</ul>
+<p>3、TCP 套接字</p>
+<ul>
+<li>欢迎套接字和连接套接字</li>
+<li>仅需将数据放入 TCP 连接</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/07/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyperspace">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyperの个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91/" class="post-title-link" itemprop="url">计算机网络（一）：计算机网络与互联网</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-20 20:21:03" itemprop="dateCreated datePublished" datetime="2020-07-20T20:21:03+08:00">2020-07-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-30 13:56:35" itemprop="dateModified" datetime="2022-06-30T13:56:35+08:00">2022-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h1><p>1、<strong>主机</strong> host（<strong>端系统</strong> end system）：所有计算机器的统称，通过<strong>通信链路</strong>（communication link）与<strong>分组交换机</strong>相互连接</p>
+<ul>
+<li>概念辨析：主机 = 端系统</li>
+<li>主机的两大类型：客户（client）和服务器（server）</li>
+</ul>
+<p>2、分组交换机：常用类型为路由器（router）和 链路层交换机（link-layer switch）两种，均朝最终目的地转发分组</p>
+<p>3、<strong>分组</strong> packet：一台端系统向另一台端系统发送数据时，发送端系统将数据分段并为每段加上首部字节所形成的信息包</p>
+<p>4、<strong>路径</strong> path/route：一个分组所经历的一系列通信链路和分组交换机为通过该网络的路径</p>
+<p>5、<strong>因特网服务提供商</strong> ISP：一个由多个分组交换机和多段通信链路组成的网络，提供不同类型的网络接入服务</p>
+<ul>
+<li>可为内容提供者提供因特网接入服务用于直连</li>
+<li>各个 ISP 相互独立管理</li>
+</ul>
+<p>6、<strong>协议</strong> protocol：控制因特网中信息的接收和发送，定义了通信实体间交换、发送和接收报文的<strong>格式</strong>和<strong>顺序</strong>，及报文发送和 / 或接收一条报文或其他事件所采取的动作。</p>
+<ul>
+<li>因特网的主体协议：TCP/IP</li>
+</ul>
+<p>7、分布式应用程序 distributed application：涉及多个相互交换数据的端系统的应用程序</p>
+<p>8、套接字接口 socket interface: 一套发送程序必须遵循的规则集合，规定了交付数据的方式</p>
+<h1 id="二、The-Network-Edge"><a href="#二、The-Network-Edge" class="headerlink" title="二、The Network Edge"></a>二、The Network Edge</h1><p>1、接入网</p>
+<ul>
+<li>数据用户线（DSL）：从本地电话接入的本地电话公司获得</li>
+<li>电缆因特网接入（cable Internet access）：从提供有线电视的公司获得<ul>
+<li> * 混合光纤同轴系统（HFC）</li>
+</ul>
+</li>
+<li>光纤到户（FTTH）</li>
+<li>以太网、WiFi</li>
+<li>4G、LTE（长期演进）</li>
+</ul>
+<p>2、物理媒体：成本相对小</p>
+<ul>
+<li>导引型媒体：双绞铜线、同轴电缆、光纤</li>
+<li>非导引型媒体：无线局域网、数字卫星频道</li>
+</ul>
+<h1 id="三、The-Network-Core"><a href="#三、The-Network-Core" class="headerlink" title="三、The Network Core"></a>三、The Network Core</h1><h2 id="分组交换-packet-switching"><a href="#分组交换-packet-switching" class="headerlink" title="分组交换 packet switching"></a>分组交换 packet switching</h2><p>1、<strong>存储转发传输</strong> store-and-forward transmission</p>
+<ul>
+<li><p>定义 def：在交换机能够开始向输出链路传输该分组的第一个比特之前，必须接收到整个分组</p>
+</li>
+<li><p>端到端时延（简化式）：</p>
+<script type="math/tex; mode=display">
+d_{端到端} = N\frac{L}{R}</script><p>其中，N：路径条数，R：速率 ，L bit/s：分组大小 bit</p>
+</li>
+</ul>
+<p>2、排队时延和分组丢失</p>
+<p>​    对于每条相连的链路，分组交换机具有一个<strong>输出缓存</strong>（ouput buffer），如果已到达分组的链路正在进行另一分组的传输，此时分组承受<strong>排队时延</strong>（queuing delay）；若缓存已占满，新进入的分组出现<strong>丢包</strong>（packet loss）</p>
+<p>3、转发表和路由选择协议</p>
+<p>​    路由器通过<strong>路由选择协议</strong>（routing protocol）自动设置<strong>转发表</strong>（forwarding table），转发表映射目的地址成为输出链路</p>
+<h2 id="电路交换-circuit-switching"><a href="#电路交换-circuit-switching" class="headerlink" title="电路交换 circuit switching"></a>电路交换 circuit switching</h2><p>1、def：通信时创建<strong>端到端连接</strong>（end-to-end connection），预留电路<strong>带宽</strong>（bandwidth）并加以维护，尽最大努力实时交付分组</p>
+<p>2、实现方式</p>
+<ul>
+<li>频分复用（FDM）：在连接期间，链路为每条连接专用一个频段</li>
+<li>时分复用（TDM）：时间划分为固定期间的<strong>帧</strong>，每个帧划分为固定数量的<strong>时隙</strong>；当网络跨越一条链路创建一条链接时，网络为每个帧指定一个时隙，并把这些时隙用于该链接的专用传输</li>
+</ul>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p> 分组交换不适合实时服务（原因：端到端时延不可预测），但提供更好的宽带共享、按需分配也较简单经济；电路交换实时传输，但不考虑需求，即便链接处于<strong>静默期</strong></p>
+<h2 id="网络的网络"><a href="#网络的网络" class="headerlink" title="网络的网络"></a>网络的网络</h2><p>1、ISP 的互联模型（P24）</p>
+<p>2、一些概念</p>
+<ul>
+<li>存在点 PoP：存在于所有层次，提供对接</li>
+<li>多宿 multi-home：可与两个或更多提供商连接</li>
+<li>对等 peer：层次同一级不进行结算，即无需相互付费</li>
+<li>因特网交换点 IXP：一个或多个 ISP 在此处一起对等</li>
+<li> * 我国国家级 ISP：Tian</li>
+</ul>
+<h1 id="四、分组交换网-Packet-Switched-Networks"><a href="#四、分组交换网-Packet-Switched-Networks" class="headerlink" title="四、分组交换网 Packet-Switched Networks"></a>四、分组交换网 Packet-Switched Networks</h1><h2 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h2><p>1、总时延：</p>
+<script type="math/tex; mode=display">
+d_{nodel} = d_{proc} + d_{queue} + d_{trans} + d_{prop}</script><p></p><center>总时延 = 处理时延 + 排队时延 + 传输时延 + 传播时延</center><p></p>
+<ul>
+<li>流量强度：用于估计排队时延的范围<script type="math/tex; mode=display">
+\frac LR</script></li>
+</ul>
+<p>​    设计系统的流量强度不能大于 1，否则排队时延趋于 +∞</p>
+<p>2、端到端时延（一般式）</p>
+<script type="math/tex; mode=display">
+d_{end-end} = N(d_{proc} + d_{trans} + d_{prop})</script><p>​    适用情况：各节点具有不同的时延 / 每个节点具有不同的时延和每个节点存在平均排队时延</p>
+<p>3、瞬时 / 平均吞吐量 instantaneous /average throughtout </p>
+<ul>
+<li>瓶颈链路（bottleneck link）：传输速率前大后小（进水管道宽于出水），吞吐量由两者中的较小者决定。因特网连接中，<strong>接入网</strong>是吞吐量的主要限制因素</li>
+</ul>
+<script type="math/tex; mode=display">
+min\{R_c,R_s\}</script><h1 id="五、协议层次及其服务模型-Protocol-Layers-and-Their-Service-Models"><a href="#五、协议层次及其服务模型-Protocol-Layers-and-Their-Service-Models" class="headerlink" title="五、协议层次及其服务模型 Protocol Layers and Their Service Models"></a>五、协议层次及其服务模型 Protocol Layers and Their Service Models</h1><h2 id="协议分层"><a href="#协议分层" class="headerlink" title="协议分层"></a>协议分层</h2><p>1、优点：概念化 结构化 缺点：单一层可能冗余较低层的功能 违反了层次分离的目标</p>
+<p>2、协议栈 protocol stack</p>
+<ul>
+<li>5 层因特网协议栈：物 链 网 运 应</li>
+<li> 7 层 ISO OSI 参考模型：物 链 网 运 <strong>会话 表示</strong> 应<ul>
+<li>表示层：使通讯的应用程序能够解释交换数据的含义</li>
+<li>会话层：提供数据交换的<strong>定界</strong>和<strong>同步</strong>功能</li>
+</ul>
+</li>
+</ul>
+<p>3、封装 encapsulation</p>
+<h1 id="六、Networks-Under-Attack"><a href="#六、Networks-Under-Attack" class="headerlink" title="*六、Networks Under Attack"></a>* 六、Networks Under Attack</h1><p>1、常见有害程序</p>
+<ul>
+<li>僵尸网络（botnet）</li>
+<li>病毒</li>
+<li>蠕虫</li>
+</ul>
+<p>2、针对服务器 / 网络基础设施</p>
+<ul>
+<li>弱点攻击</li>
+<li>带宽洪泛：短时间大量分组阻塞合法分组到达服务器，如：DDoS 攻击</li>
+<li>连接洪泛：创建大量伪造的半开 / 全开的 TCP 连接，使得主机受困、停止接收合法连接</li>
+</ul>
+<p>3、分组嗅探、伪装</p>
+<ul>
+<li>分组嗅探器（packet sniffer）：记录每个流经的分组副本的<strong>被动</strong>接收机（不向信道注入信息）。难以发觉，可应用密码学规避</li>
+<li> IP 哄骗（IP Spoofing）：将具有虚假源地址的分组注入因特网（主动），可采用端点鉴别</li>
+</ul>
+<h1 id="七、History-of-Computer-Networking"><a href="#七、History-of-Computer-Networking" class="headerlink" title="*七、History of Computer Networking"></a>* 七、History of Computer Networking</h1><ul>
+<li>分组交换的发展（1961-1972）<ul>
+<li>NCP：ARPAnet 端系统间第一台主机 - 主机协议</li>
+</ul>
+</li>
+<li>专用网络和网络互联 Interneting（1972-1980）</li>
+<li>激增和爆炸（1980 - 至今）</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hyperspace"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Hyperspace</p>
+  <div class="site-description" itemprop="description">blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Hyper18" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Hyper18" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:windhyperspace@gmail.com" title="E-Mail → mailto:windhyperspace@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/Hyper18/" title="博客园 → https:&#x2F;&#x2F;www.cnblogs.com&#x2F;Hyper18&#x2F;" rel="noopener" target="_blank"><i class="fa fa-crosshairs fa-fw"></i>博客园</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/6197936413/profile?rightmod=1&wvr=6&mod=personnumber" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;6197936413&#x2F;profile?rightmod&#x3D;1&amp;wvr&#x3D;6&amp;mod&#x3D;personnumber" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hyperspace</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div id="site-runtime">
+  <span class="post-meta-item-icon">
+    <i class="fa fa-clock-o"></i>
+  </span>
+  <span id="runtime"></span>
+</div>
+
+<script language="javascript">
+  function isPC() {
+    var userAgentInfo = navigator.userAgent;
+    var agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+    for (var i = 0; i < agents.length; i++) {
+      if (userAgentInfo.indexOf(agents[i]) > 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function siteTime(openOnPC, start) {
+    window.setTimeout("siteTime(openOnPC, start)", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+      start = new Date("2020-07-20 00:00:00 +0800");
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth() + 1;
+    var date = now.getDate();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    var diff = now - start;
+
+    var diffYears = Math.floor(diff / years);
+    var diffDays = Math.floor((diff / days) - diffYears * 365);
+    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+    if (openOnPC) {
+      document.getElementById("runtime").innerHTML = "站点已诞生: " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分 " + diffSeconds + " 秒";
+    } else {
+      document.getElementById("runtime").innerHTML = "Running: " + diffYears + "y " + diffDays + "d " + diffHours + "h " + diffMinutes + "m " + diffSeconds + "s";
+    }
+  }
+
+  var showOnMobile = false;
+  var openOnPC = isPC();
+  var start = new Date();
+  siteTime(openOnPC, start);
+
+  if (!openOnPC && !showOnMobile) {
+    document.getElementById('site-runtime').style.display = 'none';
+  }
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+    </div>
+</body>
+</html>
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+
