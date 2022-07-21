@@ -9,8 +9,37 @@
     <atom:link href="https://hyper18.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>blog</description>
-    <pubDate>Mon, 18 Jul 2022 01:40:34 GMT</pubDate>
+    <pubDate>Thu, 21 Jul 2022 16:10:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>计算机网络篇：体系结构回顾</title>
+      <link>https://hyper18.github.io/2022/07/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AF%87%EF%BC%9A%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9B%9E%E9%A1%BE/</link>
+      <guid>https://hyper18.github.io/2022/07/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AF%87%EF%BC%9A%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9B%9E%E9%A1%BE/</guid>
+      <pubDate>Thu, 21 Jul 2022 02:04:41 GMT</pubDate>
+      
+      <description>计算机网络是将分散、具独立功能的计算机系统，通过通信设备与线路连接起来，由功能完善的软件实现资源共享和信息传递的系统……</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="（一）概述"><a href="#（一）概述" class="headerlink" title="（一）概述"></a>（一）概述</h3><h4 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h4><ul><li><p>def </p><ul><li>将分散、具独立功能的计算机系统，通过通信设备与线路连接起来，由功能完善的软件实现资源共享和信息传递的系统</li><li>互连、自治的计算机集合</li></ul></li><li><p>组成</p><ul><li>组成部分： 硬件 软件 协议</li><li>工作方式： 边缘部分（主机） 核心部分（网络、路由器）</li><li>功能组成： <ul><li>资源子网：数据通信，含应用层、表示层和会话层</li><li>通信子网：资源共享，含网络层、数据链路层和物理层</li></ul></li></ul></li><li><p>性能指标</p><ul><li><p>数据传输率 / 速率：连接在计算机网络上的主机在数字信道上传送数据位数的速率</p></li><li><p>带宽：网络的通信线路传送数据的能力，单位时间内从网络中的一点到另一点所能通过的 “最高数据率”</p></li><li><p>吞吐量：单位时间内通过某网络的数据量</p></li><li><p>时延：数据从网络的一端传送到另一端所需的时间</p><p></p><center>总时延 = 处理时延 + 排队时延 + 传输时延 + 传播时延</center><p></p><script type="math/tex; mode=display">d_{nodel} = d_{proc} + d_{queue} + d_{trans} + d_{prop}</script></li><li><p>时延带宽积：以比特为单位的链路长度</p><p></p><center>时延带宽积 = 传播时延 * 带宽</center><p></p></li><li><p>往返时延 RTT：从发送方发送数据开始，到发送方收到接收方的确认经历的时延</p><p></p><center>往返时延 = 传播时延 * 2 + 末端处理时间</center><p></p></li><li><p>利用率</p><script type="math/tex; mode=display">信道利用率 = \frac{有数据通过时间}{总时间}</script><script type="math/tex; mode=display">网络利用率 = 信道利用率的加权平均</script></li></ul></li></ul><h3 id="（二）体系结构"><a href="#（二）体系结构" class="headerlink" title="（二）体系结构"></a>（二）体系结构</h3>]]></content:encoded>
+      
+      
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/408/">408</category>
+      
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/408/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</category>
+      
+      
+      <category domain="https://hyper18.github.io/tags/408/">408</category>
+      
+      <category domain="https://hyper18.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</category>
+      
+      
+      <comments>https://hyper18.github.io/2022/07/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AF%87%EF%BC%9A%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9B%9E%E9%A1%BE/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>数据结构篇：常用排序算法回顾</title>
@@ -602,38 +631,6 @@
       
       
       <comments>https://hyper18.github.io/2021/11/20/%E7%AD%BE%E5%90%8Dcookie%E4%B8%8E%E4%BB%A4%E7%89%8Ccookie/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Redis 原理初探（一）—— 字符串</title>
-      <link>https://hyper18.github.io/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
-      <guid>https://hyper18.github.io/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
-      <pubDate>Fri, 19 Nov 2021 14:47:09 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;简单动态字符串（simple-dynamic-string，SDS）&quot;&gt;&lt;a href=&quot;#简单动态字符串（simple-dynamic-string，SDS）&quot; class=&quot;headerlink&quot; title=&quot;简单动态字符串（simple dynamic s</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="简单动态字符串（simple-dynamic-string，SDS）"><a href="#简单动态字符串（simple-dynamic-string，SDS）" class="headerlink" title="简单动态字符串（simple dynamic string，SDS）"></a>简单动态字符串（simple dynamic string，SDS）</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul><li>redis 的默认字符表示，作为一个可被修改的字符串值</li><li>作为字符串的底层实现 </li></ul><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">/* data */</span></span><br><span class="line">    <span class="keyword">int</span> len;    -- 数组已使用字节数量</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">free</span>;   -- 数组未使用字节数量</span><br><span class="line">    <span class="keyword">char</span> buf[]; -- 字节数组</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure><p>注：buf [] 的最后一个字节会用于保存空字符’\0’(同 C style)</p><h3 id="使用SDS而非C-style字符串的好处"><a href="#使用SDS而非C-style字符串的好处" class="headerlink" title="使用SDS而非C style字符串的好处"></a>使用 SDS 而非 C style 字符串的好处</h3><h4 id="获取字符串长度不为性能瓶颈"><a href="#获取字符串长度不为性能瓶颈" class="headerlink" title="获取字符串长度不为性能瓶颈"></a>获取字符串长度不为性能瓶颈</h4><ul><li>由定义可知，SDS 的结构体中已经保存了数组的长度（len），从而只需使用 STRLEN () 获取值，其对应算法复杂度始终仅为 O (1)；C 字符串由于没有保存该信息，则需要对数组进行遍历得到长度，其算法复杂度为 O (n)</li></ul><h4 id="API安全，排除了缓冲区溢出的风险"><a href="#API安全，排除了缓冲区溢出的风险" class="headerlink" title="API安全，排除了缓冲区溢出的风险"></a>API 安全，排除了缓冲区溢出的风险</h4><ul><li>对于 C 字符串而言，缓冲区容易溢出其实是不记录数组长度的衍生问题。如考虑下述场景：</li></ul><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcat</span><span class="params">(<span class="keyword">char</span> *c1, <span class="keyword">const</span> <span class="keyword">char</span> *c2)</span></span>;</span><br></pre></td></tr></tbody></table></figure><p>​    strcat () 方法会假定系统尚且分配了足够的内存给 c1，以容纳 c2 中的所有内容；而 c2 数组长度过长且超出内存限制时，就造成了缓冲区的溢出。这可能会给相邻内存的内容带来意外的后果（如：未指定的意外修改，etc.）</p><p>​    而 SDS 的 API 会自动对 len 进行修改和更新；当当前空间不能满足要求时，则会自动扩展当前 SDS 的空间。对应 redis 中字符串拼接方法为：</p><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdscat(c1, c2);</span><br></pre></td></tr></tbody></table></figure><h4 id="是二进制安全的"><a href="#是二进制安全的" class="headerlink" title="是二进制安全的"></a>是二进制安全的</h4><p>​    既可存储文本数据、也可存储二进制数据</p><h4 id="兼容部分C-style字符串"><a href="#兼容部分C-style字符串" class="headerlink" title="兼容部分C style字符串"></a>兼容部分 C style 字符串</h4><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// string compare</span></span><br><span class="line">strcasecmp(c1-&gt;c2, <span class="string">"hello world"</span>);</span><br></pre></td></tr></tbody></table></figure><h4 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h4><ul><li>作为数据库中字符串值、整数值和浮点数值的存储 </li></ul><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RPUSH fruits "apple" "banana" "cherry"</span><br><span class="line"><span class="comment">-- output：(integer) 3</span></span><br></pre></td></tr></tbody></table></figure><ul><li>作为缓冲区（buffer）</li></ul><h3 id="空间分配策略"><a href="#空间分配策略" class="headerlink" title="空间分配策略"></a>空间分配策略</h3><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>​    减少连续执行字符串增长操作所需的内存重分配次数</p><ul><li>策略 1：空间预分配<ul><li>当未使用空间足够时，无需进行内存重分配，即没有对字符串进行修改</li><li>若修改后的字符串长度小于 1MB，将分配与当前数组已使用长度等长的未使用空间</li><li>若修改后的字符串长度大于 1MB，将分配 1MB 的未使用空间</li></ul></li><li>策略 2：惰性空间释放<ul><li>当空间被释放成为空余空间后，并不会立即对其进行回收，而是先由 free 属性记录下来</li><li>避免了缩短字符串时所需的内存重分配操作，并为将来可能有的增长操作提供了优化</li><li>当有实际空间需要时，会通过对应 API 真正完成空余空间的释放</li></ul></li></ul><h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><h4 id="自增-自减"><a href="#自增-自减" class="headerlink" title="自增/自减"></a>自增 / 自减</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis()</span><br><span class="line"><span class="comment"># 获取对应key:只要该字符串值可以被解释为整数值，则可进行下述处理</span></span><br><span class="line"></span><br><span class="line">conn.get(<span class="string">'sample_key'</span>)</span><br><span class="line"><span class="comment"># 对该key进行自增操作 incr = short for increase</span></span><br><span class="line">conn.incr(<span class="string">'sample_key'</span>)</span><br><span class="line"><span class="comment"># 也可以以数字形式指定自增参数，下两者效果相同</span></span><br><span class="line"><span class="comment"># INCRBY sample_key 10</span></span><br><span class="line">conn.incr(<span class="string">'sample_key'</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对该key进行自减操作 decr = short for decrease</span></span><br><span class="line"><span class="comment"># DECRBY sample_key 8</span></span><br><span class="line">conn.decr(<span class="string">'sample_key'</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 二次获取当前的数值</span></span><br><span class="line">conn.get(<span class="string">'sample_key'</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure><h4 id="打包-package-处理结构化数据"><a href="#打包-package-处理结构化数据" class="headerlink" title="打包(package)处理结构化数据"></a>打包 (package) 处理结构化数据</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">'127.0.0.1'</span>, port=<span class="number">6379</span>, password=<span class="string">'123456'</span>)</span><br><span class="line"><span class="comment"># 执行APPEND命令：返回的是当前字符串的长度</span></span><br><span class="line"><span class="comment"># 此时前者可不存在或为空串，则得到的新字符串长度显然为后者的长</span></span><br><span class="line">conn.append(<span class="string">'sample_string'</span>, <span class="string">'hello '</span>)</span><br><span class="line">conn.append(<span class="string">'sample_string'</span>, <span class="string">'world!'</span>)</span><br><span class="line"><span class="comment"># 操作后sample_string的长度：12</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SUBSTR：获取字符串子串（部分区间值）</span></span><br><span class="line"><span class="comment"># redis数组索引也是从0开始，则取得的值为llo</span></span><br><span class="line">conn.substr(<span class="string">'sample_string'</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETRANGE：为字符串设置范围</span></span><br><span class="line"><span class="comment"># 设置后仅改变输出的字符串内容</span></span><br><span class="line"><span class="comment"># 字符串长度仍为总长度，而非处理后的范围长度</span></span><br><span class="line">conn.setrange(<span class="string">'sample_string'</span>, <span class="number">0</span>, <span class="string">'H'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETBIT：单独改变某二进制位</span></span><br></pre></td></tr></tbody></table></figure><p><em>【参考】</em><br><em>[1] 《Redis 的设计与实现》</em></p><p><em>[2] 《Redis 实战》</em></p>]]></content:encoded>
-      
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/Redis/">Redis</category>
-      
-      
-      <category domain="https://hyper18.github.io/tags/Redis/">Redis</category>
-      
-      <category domain="https://hyper18.github.io/tags/NoSQL/">NoSQL</category>
-      
-      <category domain="https://hyper18.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
-      
-      
-      <comments>https://hyper18.github.io/2021/11/19/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20%E5%AD%97%E7%AC%A6%E4%B8%B2/#disqus_thread</comments>
       
     </item>
     
