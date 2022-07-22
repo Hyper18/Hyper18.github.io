@@ -33,7 +33,7 @@
 <meta property="og:description" content="计算机网络是将分散、具独立功能的计算机系统，通过通信设备与线路连接起来，由功能完善的软件实现资源共享和信息传递的系统……">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-21T02:04:41.000Z">
-<meta property="article:modified_time" content="2022-07-21T16:10:42.291Z">
+<meta property="article:modified_time" content="2022-07-22T02:49:05.873Z">
 <meta property="article:author" content="Hyperspace">
 <meta property="article:tag" content="408">
 <meta property="article:tag" content="计算机网络">
@@ -351,7 +351,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-22 00:10:42" itemprop="dateModified" datetime="2022-07-22T00:10:42+08:00">2022-07-22</time>
+                <time title="修改时间：2022-07-22 10:49:05" itemprop="dateModified" datetime="2022-07-22T10:49:05+08:00">2022-07-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -384,7 +384,7 @@ mjx-container[display="true"] + br {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>496</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -447,7 +447,57 @@ d_{nodel} = d_{proc} + d_{queue} + d_{trans} + d_{prop}</script></li>
 </ul>
 </li>
 </ul>
-<h3 id="（二）体系结构"><a href="#（二）体系结构" class="headerlink" title="（二）体系结构"></a>（二）体系结构</h3>
+<h3 id="（二）体系结构"><a href="#（二）体系结构" class="headerlink" title="（二）体系结构"></a>（二）体系结构</h3><h4 id="分层结构"><a href="#分层结构" class="headerlink" title="分层结构"></a>分层结构</h4><ul>
+<li>服务数据单元 SDU：为完成用户要求功能而应传送的数据</li>
+<li>协议控制信息 PCI：控制协议操作的信息</li>
+<li>协议数据单元 PDU：对等层次间查传送的数据单位</li>
+</ul>
+<h4 id="OSI参考模型（7层）"><a href="#OSI参考模型（7层）" class="headerlink" title="OSI参考模型（7层）"></a>OSI 参考模型（7 层）</h4><p>物理层（比特流）、数据链路层（帧）、网络层（分组）、运输层（TPDU：TCP 用报文段，UDP 用用户数据报）、会话层（SPDU）、 表示层（PPDU）、应用层（APDU）</p>
+<ul>
+<li>应用层：所有能和用户交互产生网络流量的程序</li>
+<li>表示层：处理两通信系统中交换信息的表示方式<ul>
+<li>数据格式变换、加解密和压缩恢复</li>
+</ul>
+</li>
+<li>会话层：建立同步，向表示层实体 / 用户进程提供建立连接并在连接上有序地传输数据<ul>
+<li>管理会话</li>
+<li>使用校验点可使会话在通信失效时从校验点 / 同步点继续恢复通信，实现数据同步</li>
+</ul>
+</li>
+<li>传输层：负责端到端通信<ul>
+<li>传输单位：报文段 / 用户数据报</li>
+<li>功能：可靠传输 差错控制 流量控制 复用分用</li>
+</ul>
+</li>
+<li>网络层：把分组从源端传到目的端，为分组交换网上的不同主机提供通信服务<ul>
+<li>传输单位：数据报</li>
+<li>功能：路由选择 流量控制 查错控制 拥塞控制</li>
+</ul>
+</li>
+<li>数据链路层：把网络层传下来的数据报组装成帧<ul>
+<li>传输单位：帧</li>
+<li>功能：成帧 差错控制 流量控制 访问控制</li>
+</ul>
+</li>
+<li>物理层：在物理媒体上实现比特流的透明传输<ul>
+<li>传输单位：比特</li>
+<li>功能：定义接口特性、传输模式、传输速率、比特同步和比特编码</li>
+</ul>
+</li>
+</ul>
+<h4 id="五层参考模型"><a href="#五层参考模型" class="headerlink" title="五层参考模型"></a>五层参考模型</h4><ul>
+<li>层次：应用层 传输层 网络层 数据链路层 物理层<ul>
+<li>将会话层、表示层并入应用层</li>
+</ul>
+</li>
+</ul>
+<h4 id="TCP-IP参考模型（4层）"><a href="#TCP-IP参考模型（4层）" class="headerlink" title="TCP/IP参考模型（4层）"></a>TCP/IP 参考模型（4 层）</h4><ul>
+<li>层次：应用层 传输层 网络层 网络接口层<ul>
+<li>再将物理层和数据链路层合并为网络接口层</li>
+</ul>
+</li>
+</ul>
+
     </div>
 
     
@@ -574,7 +624,7 @@ d_{nodel} = d_{proc} + d_{queue} + d_{trans} + d_{prop}</script></li>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E6%A6%82%E8%BF%B0"><span class="nav-text">（一）概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="nav-text">计算机网络</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-text">（二）体系结构</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E6%A6%82%E8%BF%B0"><span class="nav-text">（一）概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="nav-text">计算机网络</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-text">（二）体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%B1%82%E7%BB%93%E6%9E%84"><span class="nav-text">分层结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B%EF%BC%887%E5%B1%82%EF%BC%89"><span class="nav-text">OSI 参考模型（7 层）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%94%E5%B1%82%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="nav-text">五层参考模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B%EF%BC%884%E5%B1%82%EF%BC%89"><span class="nav-text">TCP&#x2F;IP 参考模型（4 层）</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
