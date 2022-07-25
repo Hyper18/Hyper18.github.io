@@ -253,7 +253,7 @@ mjx-container[display="true"] + br {
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">47</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">48</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -431,6 +431,125 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2022/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AF%87%EF%BC%9A%E7%89%A9%E7%90%86%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyperspace">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyper の 个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AF%87%EF%BC%9A%E7%89%A9%E7%90%86%E5%B1%82/" class="post-title-link" itemprop="url">计算机网络篇：物理层</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-25 09:37:00 / 修改时间：10:40:43" itemprop="dateCreated datePublished" datetime="2022-07-25T09:37:00+08:00">2022-07-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/408/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>393</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="数据通信系统模型"><a href="#数据通信系统模型" class="headerlink" title="数据通信系统模型"></a>数据通信系统模型</h4><p><img data-src="/2022/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AF%87%EF%BC%9A%E7%89%A9%E7%90%86%E5%B1%82/2-1.png" alt></p>
+<ul>
+<li>发送端为源系统</li>
+<li>传输网络为传输系统</li>
+<li>接收端为目的系统</li>
+</ul>
+<h4 id="信道通信方式"><a href="#信道通信方式" class="headerlink" title="信道通信方式"></a>信道通信方式</h4><ul>
+<li>单向通信：单工通信，只能有单方向通信而没有反方向交互</li>
+<li>双向交互通信：半双工通信，通信双方都可发送信息，但不能双方同时发送 / 接收消息</li>
+<li>双向同时通信：全双工通信，通信双方同时发送 / 接收信息</li>
+</ul>
+<h4 id="数据传输方式"><a href="#数据传输方式" class="headerlink" title="数据传输方式"></a>数据传输方式</h4><ul>
+<li>串行传输：将一个字符的 8 位二进制数按由低位到高位的顺序依次发送</li>
+<li>并行传输：将表示一个字符的 8 位二进制数同时通过 8 条信道发送</li>
+</ul>
+<h4 id="极限信息传输速率"><a href="#极限信息传输速率" class="headerlink" title="极限信息传输速率"></a>极限信息传输速率</h4><script type="math/tex; mode=display">
+C = W\ log_2(\frac{1+S}{N})\ (bit/s)</script><ul>
+<li>香农公式表明，信道的带宽或信道中的信噪比越大，信息的极限传输速率就越高</li>
+</ul>
+<h4 id="信道复用"><a href="#信道复用" class="headerlink" title="信道复用"></a>信道复用</h4><p><img data-src="/2022/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AF%87%EF%BC%9A%E7%89%A9%E7%90%86%E5%B1%82/2-2.png" alt></p>
+<p><img data-src="/2022/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AF%87%EF%BC%9A%E7%89%A9%E7%90%86%E5%B1%82/2-3.png" alt></p>
+<ul>
+<li>频分复用 FDM：所有用户在同样的时间占用不同的带宽资源</li>
+<li>时分复用 TDM：所有用户是在不同的时间占用同样的频带宽度</li>
+<li>统计时分复用 STDM：改进的时分复用，明显提高信道的利用率</li>
+<li>波分复用 WDM</li>
+<li> 码分复用 CDM</li>
+</ul>
+<p>参考资料：</p>
+<p>《计算机网络（第 7 版）》，谢希仁著</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2022/07/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AF%87%EF%BC%9A%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9B%9E%E9%A1%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -462,7 +581,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-22 10:49:55" itemprop="dateModified" datetime="2022-07-22T10:49:55+08:00">2022-07-22</time>
+                <time title="修改时间：2022-07-23 09:38:27" itemprop="dateModified" datetime="2022-07-23T09:38:27+08:00">2022-07-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -736,187 +855,6 @@ mjx-container[display="true"] + br {
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hyperspace">
-      <meta itemprop="description" content="blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyper の 个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/" class="post-title-link" itemprop="url">西瓜书知识重温（二）：模型评估与选择</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-06-28 20:07:08" itemprop="dateCreated datePublished" datetime="2022-06-28T20:07:08+08:00">2022-06-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-30 13:57:13" itemprop="dateModified" datetime="2022-06-30T13:57:13+08:00">2022-06-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h4><ul>
-<li>目的 得到在新样本上表现很好的学习器</li>
-</ul>
-<h5 id="1-训练-经验误差-training-empirical-error"><a href="#1-训练-经验误差-training-empirical-error" class="headerlink" title="1. 训练 / 经验误差 training / empirical error"></a>1. 训练 / 经验误差 training /empirical error</h5><ul>
-<li>def 学习器在训练集上的误差</li>
-</ul>
-<h5 id="2-泛化误差-generalization-error"><a href="#2-泛化误差-generalization-error" class="headerlink" title="2.  泛化误差 generalization error"></a>2.  泛化误差 generalization error</h5><ul>
-<li>def 学习器在新样本上的误差</li>
-<li>一般地，假设测试样本是从样本真是分布中独立同分布采样得到，则测试集的测试误差可视为泛化误差的近似</li>
-</ul>
-<h5 id="3-欠拟合-过拟合-underfitting-overfitting"><a href="#3-欠拟合-过拟合-underfitting-overfitting" class="headerlink" title="3. 欠拟合 / 过拟合 underfitting / overfitting"></a>3. 欠拟合 / 过拟合 underfitting /overfitting</h5><p><img data-src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-1-3.png"></p>
-<ul>
-<li>def 前者单纯训练得不够或学习能力低下，后者则已经把样本自身的某些特点当做所有样本都有的一般性质，使得泛化性能下降</li>
-<li>解决 前者增加轮数， 后者无法彻底避免，仅可使得经验误差最小化以缓解其风险</li>
-</ul>
-<h4 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h4><h5 id="1-留出法-hold-out"><a href="#1-留出法-hold-out" class="headerlink" title="1. 留出法 hold-out"></a>1. 留出法 hold-out</h5><ul>
-<li><p>method 直接将数据集 D 划分为两<strong>互斥</strong>集合，分别作为训练集 S、测试集 T</p>
-<script type="math/tex; mode=display">
-D = S \cup T,S \cap T = \emptyset</script></li>
-<li><p>quiz1 如何保持数据分布的一致性？</p>
-<p>答：分层采样（stratified sampling），尽可能避免因数据划分引入额外的偏差而对最终结果产生影响</p>
-</li>
-<li><p>quiz2 给定 S/T 比例，如何划分？</p>
-<p>答：单次结果并不稳定，可多次随机划分，每次产生一个训练 / 测试集结果并评估，最后留出法返回的结果是每次划分结果的平均值</p>
-</li>
-<li><p>quiz3 最佳比例？</p>
-<p>答：2:1（67%） ~ 4:1（80%），训练集过大可能使得模型更接近用 D 训练出的模型，而评估结果则不够准确；若测试集过大，则 S 与 D 的差别过大，评估模型与用 D 训练出的模型有较大差别，降低了评估结果的保真性（fidelity）</p>
-</li>
-</ul>
-<h5 id="2-交叉验证法-cross-validation（常用）"><a href="#2-交叉验证法-cross-validation（常用）" class="headerlink" title="2. 交叉验证法 cross validation（常用）"></a>2. 交叉验证法 cross validation（常用）</h5><ul>
-<li><p>method 经分层采样，将 D 划分为 k 个大小相似的互斥子集，这样一来，每次课使用 k-1 个子集的并集作为训练集，余下的那个子集则作为测试集；得到 k 组结果，返回其均值</p>
-</li>
-<li><p>quiz1 常用 k？答：10，10 次十折交叉验证</p>
-</li>
-<li><p>quiz2 留一法有了解吗？</p>
-<p>答：当 D 包含 m 样本，而 m 恰等于 k 时的特例。其好处在于不受随机样本划分方式的影响，且和 D 训练得到的模型会很相似；坏处在于模型训练的计算开销大，计算复杂度高</p>
-</li>
-</ul>
-<h5 id="3-自助法-bootstrapping"><a href="#3-自助法-bootstrapping" class="headerlink" title="3. 自助法 bootstrapping"></a>3. 自助法 bootstrapping</h5><ul>
-<li>method 以自助采样（bootstrap sampling）为基础，给定包含 m 个样本的数据集 D，我们对它进行采样产生数据集 D’；每次随机从 D 中挑选一个样本，将其拷贝放入 D’，再将该样本放回初始数据集 D 中，使得该样本在下次采样时仍有可能被采到；这个过程重复执行 m 次后，得到包含 m 个样本的数据集 D’，是为自助采样的结果</li>
-<li><p> application 数据集小、难以划分；改变了初始数据集的分布，从而引入了额外的估计误差</p>
-</li>
-<li><p>quiz1 样本在 m 次采样中始终不被采到的概率？</p>
-<script type="math/tex; mode=display">
-\lim_{n\rightarrow+\infty}(1 - \frac{1}{m})^m \rightarrow \frac{1}{e} = 0.368</script></li>
-<li><p>quiz2 划分？</p>
-<p>答：D‘作为 S，D/D’作为 T，测试结果为<strong>包外估计</strong>（out-of-bag-estimate）</p>
-</li>
-</ul>
-<h4 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h4><h5 id="1-错误率-error-rate"><a href="#1-错误率-error-rate" class="headerlink" title="1. 错误率 error rate"></a>1. 错误率 error rate</h5><ul>
-<li><p>def 分类错误样本占样本总数的比例</p>
-</li>
-<li><p>m 个样本中有 a 个样本分类错误，则</p>
-<script type="math/tex; mode=display">
-E = a / m</script></li>
-</ul>
-<h5 id="2-精度-accuracy"><a href="#2-精度-accuracy" class="headerlink" title="2. 精度 accuracy"></a>2. 精度 accuracy</h5><ul>
-<li><p>def 分类正确样本占样本总数的比例</p>
-</li>
-<li><p>m 个样本中有 a 个样本分类正确，<strong>精度 = 1 - 错误率</strong></p>
-<script type="math/tex; mode=display">
-P = 1 - a / m</script></li>
-</ul>
-<h5 id="3-混淆矩阵-confusion-matrix"><a href="#3-混淆矩阵-confusion-matrix" class="headerlink" title="3. 混淆矩阵 confusion matrix"></a>3. 混淆矩阵 confusion matrix</h5><ul>
-<li>def 误差矩阵，表示精度评价的一种标准格式，为 n 行 n 列的矩阵形式</li>
-</ul>
-<p><img data-src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-3.png"></p>
-<ol>
-<li>正例：positive，即最后结果是正向的（比如好瓜）；</li>
-<li>反例：negative，即最后结果是负向的（比如烂瓜）；</li>
-<li>TP：True Positive，把正例预测为正例，也就是说，首先预测出来是个正例，其次这是一个真正的正例（比如预测出来是个好瓜，而且是个好瓜）；</li>
-<li>FP：False Positive，把反例预测为正例，也就是说，首先预测出来是个正例，其次这是个反例（比如预测出来是个好瓜，但是是个烂瓜）；</li>
-<li>FN：False Negative，把正例预测为反例，也就是说，首先预测出来是个反例，其次这是个正例（比如预测出来是个烂瓜，但是是个好瓜）；</li>
-<li>TN：True Negative，把反例预测为反例，也就是说，首先预测出来是个反例，其次这是一个真正的反例（比如预测出来是个烂瓜，而且是个烂瓜）</li>
-</ol>
-<h5 id="4-准确率-查准率-Precision"><a href="#4-准确率-查准率-Precision" class="headerlink" title="4. 准确率 / 查准率 Precision"></a>4. 准确率 / 查准率 Precision</h5><script type="math/tex; mode=display">
-P = \frac{TP}{TP + FP}</script><h5 id="5-召回率-查全率-Recall"><a href="#5-召回率-查全率-Recall" class="headerlink" title="5. 召回率 / 查全率 Recall"></a>5. 召回率 / 查全率 Recall</h5><script type="math/tex; mode=display">
-R = \frac{TP}{TP + FN}</script><h5 id="6-P-R图"><a href="#6-P-R图" class="headerlink" title="6. P-R图"></a>6. P-R 图</h5><p><img data-src="/2022/06/28/%E8%A5%BF%E7%93%9C%E4%B9%A6%E7%9F%A5%E8%AF%86%E9%87%8D%E6%B8%A9%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/2-3-6.png"></p>
-<ul>
-<li><p>quiz 判断两个学习器的性能优劣？</p>
-<p>答：若有两学习器 A、B，如果 B 的曲线被 A 完全<strong>包住</strong>，则可认为 A 的性能优于 B；若发生交叉，则只能：（1）在具体 P、R 条件下进行比较；（2）直接比较 A 和 B 对应 P-R 曲线的线下面积 Sa、Sb 的大小，较大者性能更优</p>
-</li>
-</ul>
-<h5 id="7-平衡点-Break-Event-Point，BEP"><a href="#7-平衡点-Break-Event-Point，BEP" class="headerlink" title="7. 平衡点 Break-Event Point，BEP"></a>7. 平衡点 Break-Event Point，BEP</h5><ul>
-<li>def P = R 时的取值</li>
-</ul>
-<h5 id="8-F1-Score"><a href="#8-F1-Score" class="headerlink" title="8. F1 Score"></a>8. F1 Score</h5><ul>
-<li>def 基于查准率和查重率的调和平均（harmonic mean）</li>
-</ul>
-<script type="math/tex; mode=display">
-F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -988,7 +926,7 @@ F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1035,7 +973,7 @@ F1 = \frac{2*P*R}{P+R} = \frac{2*TP}{样例总数+TP-TN}</script>
           <h5 class="widget-title">词云图</h5>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
               </canvas>
           </div>
       </div>

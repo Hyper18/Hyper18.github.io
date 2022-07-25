@@ -253,7 +253,7 @@ mjx-container[display="true"] + br {
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">47</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">48</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -313,6 +313,187 @@ mjx-container[display="true"] + br {
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyperspace">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyper の 个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/" class="post-title-link" itemprop="url">pytorch 的配置一二事</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-11 14:27:05" itemprop="dateCreated datePublished" datetime="2022-01-11T14:27:05+08:00">2022-01-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-30 22:39:09" itemprop="dateModified" datetime="2022-06-30T22:39:09+08:00">2022-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h2><h3 id="Step1-配置CUDA"><a href="#Step1-配置CUDA" class="headerlink" title="Step1 配置CUDA"></a>Step1 配置 CUDA</h3><ul>
+<li>首先，不确定本机是否已安装的情况下，可前往默认目录 <code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\</code> 下查看，若已安装则有对应版本的 CUDA：</li>
+</ul>
+<p><img data-src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-1.png"></p>
+<ul>
+<li>若尚未安装，进入 <code>https://developer.nvidia.com/cuda-downloads</code>，选取合适配置安装。此处以 Win11 系统为例：</li>
+</ul>
+<p><img data-src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-2.png"></p>
+<ul>
+<li>安装完成后，再配置系统环境变量：</li>
+</ul>
+<p><img data-src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-3.png"></p>
+<ul>
+<li><code>win+R</code> 呼出控制台，键入 <code>nvcc --version</code> <code>nvcc -V</code> 指令（两者择一即可）：</li>
+</ul>
+<p><img data-src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-4.png"></p>
+<ul>
+<li>显示版本号及相关内容，说明配置成功</li>
+</ul>
+<h3 id="Step2-配置CuDDN"><a href="#Step2-配置CuDDN" class="headerlink" title="Step2 配置CuDDN"></a>Step2 配置 CuDDN</h3><ul>
+<li>前往 <code>https://developer.nvidia.com/rdp/cudnn-archive</code> 下载</li>
+</ul>
+<p><img data-src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤2-1.png"></p>
+<ul>
+<li>解压下载得到的压缩包，将得到的三个文件夹 <code>bin</code>、<code>include</code> 与 <code>lib</code> 分别覆盖至 Step1 中所述 CUDA 根目录，如默认位置 <code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v版本号</code>：</li>
+</ul>
+<p><img data-src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤2-2.png"></p>
+<h3 id="Step3-配置Pytorch"><a href="#Step3-配置Pytorch" class="headerlink" title="Step3 配置Pytorch"></a>Step3 配置 Pytorch</h3><ul>
+<li>前往 <code>https://pytorch.org/get-started/locally/</code> 官网，可通过点选得到合适的安装命令</li>
+</ul>
+<p><img data-src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-1.png"></p>
+<ul>
+<li>注意到这里给的源默认为 <code>-c pytorch</code>，为提高下载速度可换用国内源：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>国内镜像</th>
+<th>位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>清华源</td>
+<td><code>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</code></td>
+</tr>
+<tr>
+<td>中科大源</td>
+<td><code>https://pypi.mirrors.ustc.edu.cn/simple</code></td>
+</tr>
+<tr>
+<td>豆瓣源</td>
+<td><code>https://pypi.douban.com/simple</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>这里采用清华源，输入安装指令：</li>
+</ul>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cudatoolkit=<span class="number">11.3</span> -c https:<span class="comment">//mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img data-src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-2.png"></p>
+<ul>
+<li>如上图所示，此时键入 <code>y</code> 以继续进行 (proceed)。耐心等待，直至安装完成</li>
+<li>新建一个 python 程序，简单验证下 pytorch 是否工作正常：</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Torch version {}"</span>.<span class="built_in">format</span>(torch.__version__))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"CUDA is available: {}"</span>.<span class="built_in">format</span>(torch.cuda.is_available()))</span><br></pre></td></tr></tbody></table></figure>
+<p><img data-src="/2022/01/11/pytorch%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-3.png"></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>CUDA（Compute Unified Device Architecture），统一计算设备架构<ul>
+<li> def 是使 GPU 能够解决复杂计算问题的通用并行计算架构</li>
+<li>与显驱的关系：显卡驱动用于识别计算机的 GPU 硬件并调用其资源；而 CUDA 是在此基础上的框架，用于进行一系列复杂的并行计算</li>
+</ul>
+</li>
+<li> cuDNN<ul>
+<li>def 深度神经网络库，是针对深度卷积神经网络的加速库</li>
+<li>强调性能、易用性和低内存开销</li>
+</ul>
+</li>
+<li> pytorch<ul>
+<li>def cuDNN 加速框架之一，是一个基于 Torch 的开源 Python 机器学习库</li>
+<li>包含张量计算和自动求导系统的深度神经网络两大重要功能</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -988,156 +1169,6 @@ mjx-container[display="true"] + br {
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hyperspace">
-      <meta itemprop="description" content="blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyper の 个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/" class="post-title-link" itemprop="url">Python 网络爬虫（1）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-27 09:55:52" itemprop="dateCreated datePublished" datetime="2021-11-27T09:55:52+08:00">2021-11-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-30 13:57:50" itemprop="dateModified" datetime="2022-06-30T13:57:50+08:00">2022-06-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/Python/%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>881</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>按照一定规则，自动抓取万维网信息的程序或脚本</li>
-</ul>
-<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
-<li><strong>通用网络爬虫（General Purpose Web Crawler）</strong>：根据一个种子 url 链接，扩展至整个 web 页面进行爬取，主要有深度优先爬行策略和广度优先爬行策略（<em>见：数据结构与算法</em>），应用于大型搜索引擎中</li>
-<li><strong>聚焦网络爬虫（Focused Crawler）</strong>：有目的性地进行爬取，将爬取目标定位在与主题相关的页面中，主要有基于内容评价、基于链接评价、基于增强学习、语境图和关于聚焦网络爬虫具体的爬行策略，主要应用在对特定信息的爬取中</li>
-<li><strong>增量式网络爬虫（Incremental Web Crawler）</strong>：是指对已下载网页采取增量式更新和只爬行新产生的或者已经发生变化网页的爬虫，在更新的时候只更新改变的地方，而未改变的地方则不更新。它能够在一定程度上保证所爬行的页面是尽可能新的页面深度网络爬虫</li>
-<li><strong>深层网络爬虫（Deep Web Crawler）</strong>：需要提交表单信息的，或者需要传递一些关键词才可以访问这个数据。最重要的部分即为表单填写部分，主要有基于领域知识的表单填写与基于网页结构分析的表单填写两种类型</li>
-</ul>
-<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p><img data-src="/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/爬虫基本原理.png"></p>
-<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><h4 id="数据的分类"><a href="#数据的分类" class="headerlink" title="数据的分类"></a>数据的分类</h4><ul>
-<li>用广产生的数据，微信数据、抖音</li>
-<li>政府的数据</li>
-<li>公司管理的数据：聚合</li>
-<li>自己爬取的数据</li>
-</ul>
-<h4 id="数据的用途"><a href="#数据的用途" class="headerlink" title="数据的用途"></a>数据的用途</h4><ul>
-<li>人工智能、机器学习、数据分析 etc.</li>
-</ul>
-<h4 id="robots协议"><a href="#robots协议" class="headerlink" title="robots协议"></a>robots 协议</h4><ul>
-<li>网站和爬虫协商的协议，网站中某些站点不允许爬虫的访问</li>
-</ul>
-<h4 id="反爬取措施"><a href="#反爬取措施" class="headerlink" title="反爬取措施"></a>反爬取措施</h4><ul>
-<li>验证码<ul>
-<li>手机验证码</li>
-<li>静态（图片验证、文字）/ 动态（苹果动态验证）</li>
-</ul>
-</li>
-<li>ip 检测与封禁</li>
-<li>文字混淆、js 加密</li>
-<li>点击验证、滑块验证、滑动轨迹</li>
-<li> cookie：身份校验</li>
-<li>防盗链 referer host</li>
-</ul>
-<h4 id="URL的组成"><a href="#URL的组成" class="headerlink" title="URL的组成"></a>URL 的组成</h4><ul>
-<li>统一资源定位符：<a target="_blank" rel="noopener" href="https://baike.baidu.com">https://baike.baidu.com</a></li>
-<li> 协议：https</li>
-<li> 域名：baike.baidu. com</li>
-<li> 端口：443</li>
-<li> 查询路径：/item/url</li>
-<li> 查询参数：wd=url</li>
-<li> 锚点<ul>
-<li>网页中，当前页面进行锚点定位</li>
-<li>作用在网址的导航</li>
-</ul>
-</li>
-</ul>
-<h4 id="静态数据和动态数据"><a href="#静态数据和动态数据" class="headerlink" title="静态数据和动态数据"></a>静态数据和动态数据</h4><ul>
-<li>静态数据：爬取的数据，在 html 源码中，并且这个页面是个静态页面</li>
-<li>动态数据：通过一定条件触发的、二次加载的数据</li>
-</ul>
-<h3 id="Chrome调试"><a href="#Chrome调试" class="headerlink" title="Chrome调试"></a>Chrome 调试</h3><ul>
-<li>User-Agent：身份标识</li>
-</ul>
-<h4 id="cookie-amp-session"><a href="#cookie-amp-session" class="headerlink" title="cookie&amp;session"></a>cookie&amp;session</h4><p><img data-src="/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/查看当前网站使用cookie.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1209,7 +1240,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1256,7 +1287,7 @@ mjx-container[display="true"] + br {
           <h5 class="widget-title">词云图</h5>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
               </canvas>
           </div>
       </div>
