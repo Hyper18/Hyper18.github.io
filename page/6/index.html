@@ -243,17 +243,17 @@ mjx-container[display="true"] + br {
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">32</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">33</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">21</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">48</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">49</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -317,6 +317,216 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/08/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20CSS%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyperspace">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyper の 个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/08/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20CSS%E7%AF%87/" class="post-title-link" itemprop="url">分题型基础补全计划（二）—— CSS 篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-08 13:16:12" itemprop="dateCreated datePublished" datetime="2021-11-08T13:16:12+08:00">2021-11-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-30 13:56:05" itemprop="dateModified" datetime="2022-06-30T13:56:05+08:00">2022-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="样式表的嵌入"><a href="#样式表的嵌入" class="headerlink" title="样式表的嵌入"></a>样式表的嵌入</h3><p>题型 1：在以下的 HTML 中，哪个是正确引用外部样式表的方法？ </p>
+<ul>
+<li>A <code>&lt;style src="mystyle.css"&gt;</code></li>
+<li>B <code>&lt;link rel="stylesheet" type="text/css" href="mystyle.css"&gt;</code></li>
+<li>C <code>&lt;stylesheet&gt;mystyle.css&lt;/stylesheet&gt;</code></li>
+<li>D <code>&lt;stylesheet&gt;src=mystyle.css&lt;/stylesheet&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> B</p>
+<h5 id="外部样式表"><a href="#外部样式表" class="headerlink" title="外部样式表"></a>外部样式表</h5><ul>
+<li>适用场景：样式需应用到多个页面时，可通过引入同一个外部样式表来改变整个网页站点的外观</li>
+<li>过程：浏览器从外部样式表中逐一读取样式声明，并藉此格式化文档 </li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--1、链接式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"sample_style1.css"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--2、导入式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="keyword">@import</span> url(sample_style2.css);</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>题型 2：哪个 HTML 标签用于定义内部样式表？ </p>
+<ul>
+<li>A <code>&lt;style&gt;</code></li>
+<li>B <code>&lt;script&gt;</code></li>
+<li>C <code>&lt;css&gt;</code></li>
+<li>D <code>&lt;html&gt;</code></li>
+</ul>
+<p><em>我的答案:</em> A</p>
+<h5 id="内部样式表（内嵌样式）"><a href="#内部样式表（内嵌样式）" class="headerlink" title="内部样式表（内嵌样式）"></a>内部样式表（内嵌样式）</h5><ul>
+<li>适用场景：单个文档需要应用某特殊样式时 </li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">p</span>{</span></span><br><span class="line"><span class="css">            <span class="attribute">text-align</span>: right;  <span class="comment">/*文本右侧对齐*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">font-size</span>: <span class="number">12px</span>;  <span class="comment">/*字体大小 12 像素, 注意这里12与像素px之间不要有空格*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">line-height</span>: <span class="number">20px</span>;  <span class="comment">/*行高 20 像素*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">text-indent</span>: <span class="number">2em</span>;  <span class="comment">/*首行缩进2个文字大小空间*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">200px</span>;  <span class="comment">/*段落宽度 200 像素*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">margin</span>: <span class="number">0</span> auto;  <span class="comment">/*浏览器下居中*/</span></span></span><br><span class="line"><span class="css">            <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;  <span class="comment">/*段落下边距 10 像素*/</span></span></span><br><span class="line"><span class="css">        }</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h5 id="内联样式（行内样式）"><a href="#内联样式（行内样式）" class="headerlink" title="内联样式（行内样式）"></a>内联样式（行内样式）</h5><ul>
+<li>适用场景：单个元素需要应用某特殊样式时 </li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"background-color: #666666"</span>&gt;</span></span><br><span class="line">        this is a sample text</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="注释的使用"><a href="#注释的使用" class="headerlink" title="注释的使用"></a>注释的使用</h3><p>题型：如何在 CSS 文件中插入注释？ </p>
+<ul>
+<li>A <code>// this is a comment</code></li>
+<li>B <code>// this is a comment //</code></li>
+<li>C <code>/* this is a comment */</code></li>
+<li>D <code>this is a comment</code></li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="注：实际CSS中的注释不区分单行与多行，所有被放在-和-分隔符之间的文本信息都被称为注释"><a href="#注：实际CSS中的注释不区分单行与多行，所有被放在-和-分隔符之间的文本信息都被称为注释" class="headerlink" title="注：实际CSS中的注释不区分单行与多行，所有被放在/*和*/分隔符之间的文本信息都被称为注释"></a>注：实际 CSS 中的注释不区分单行与多行，所有被放在 <code>/*</code> 和 <code>*/</code> 分隔符之间的文本信息都被称为注释</h5><h3 id="选择器的使用"><a href="#选择器的使用" class="headerlink" title="选择器的使用"></a>选择器的使用</h3><p>题型：如何为所有的 <code>&lt;h1&gt;</code> 元素添加背景颜色？ </p>
+<ul>
+<li>A <code>h1.all {background-color:#FFFFFF}</code></li>
+<li>B <code>h1 {background-color:#FFFFFF}</code></li>
+<li>C <code>all.h1 {background-color:#FFFFFF}</code></li>
+<li>D <code>#h1 {background-color:#FFFFFF}</code></li>
+</ul>
+<p><em>我的答案:</em> B</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*1、通用元素选择器，匹配任何元素*/</span></span><br><span class="line">* { <span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">padding</span>:<span class="number">0</span>; }</span><br><span class="line"><span class="comment">/*2、标签选择器，匹配所有使用p标签的元素*/</span></span><br><span class="line"><span class="selector-tag">p</span> { <span class="attribute">font-weight</span>:bold; }</span><br><span class="line"><span class="comment">/*3、class选择器，匹配所有class属性中包含info的元素*/</span></span><br><span class="line"><span class="selector-class">.info</span> { <span class="attribute">background</span>:<span class="number">#ff0</span>; }</span><br><span class="line"><span class="comment">/*4、id选择器，匹配所有id属性等于sample的元素*/</span></span><br><span class="line"><span class="selector-id">#sample</span> { <span class="attribute">background</span>:<span class="number">#ff0</span>; }</span><br></pre></td></tr></tbody></table></figure>
+<p>进阶内容见：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2009/03/css_selectors.html">CSS 选择器笔记 - 阮一峰的网络日志 (ruanyifeng.com)</a>，总结的很全面了</p>
+<h3 id="文本样式的控制"><a href="#文本样式的控制" class="headerlink" title="文本样式的控制"></a>文本样式的控制</h3><p>题型 1：在以下的 CSS 中，可使所有 <code>&lt;p&gt;</code> 元素变为粗体的正确语法是？ </p>
+<ul>
+<li>A <code>&lt;p style="font-size:bold"&gt;</code></li>
+<li>B <code>&lt;p style="text-size:bold"&gt;</code></li>
+<li>C <code>p {font-weight:bold}</code></li>
+<li>D <code>p {text-size:bold}</code></li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="font-weight"><a href="#font-weight" class="headerlink" title="font-weight"></a>font-weight</h5><ul>
+<li>默认为 normal，可能值如下：<ul>
+<li>bold（粗体）</li>
+<li>bolder（顾名思义，更粗的粗体）</li>
+<li>lighter（细体）</li>
+<li>100~900 的数值：400=normal，700=bold，粗细程度随数值递增</li>
+</ul>
+</li>
+</ul>
+<h3 id="列表的使用"><a href="#列表的使用" class="headerlink" title="列表的使用"></a>列表的使用</h3><p>题型：如何产生带有正方形项目的列表？ </p>
+<ul>
+<li>A <code>list-type: square</code></li>
+<li>B <code>type: 2</code></li>
+<li>C <code>type: square</code></li>
+<li>D <code>list-style-type: square</code></li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="list-style-type"><a href="#list-style-type" class="headerlink" title="list-style-type"></a>list-style-type</h5><ul>
+<li>具体的值有很多，常用 disc（默认，实心圆）none（无） decimal（数字） lower-roman（小写罗马数字）</li>
+</ul>
+<h3 id="四种定位方式"><a href="#四种定位方式" class="headerlink" title="四种定位方式"></a>四种定位方式</h3><p>题型：HTML 元素默认情况下的定位方式为</p>
+<ul>
+<li>A static</li>
+<li>B relative</li>
+<li>C fixed</li>
+<li>D absolute</li>
+</ul>
+<p><em>我的答案:</em> A</p>
+<h5 id="静态定位-static"><a href="#静态定位-static" class="headerlink" title="静态定位 static"></a>静态定位 static</h5><ul>
+<li>相当于没有定位，元素正常出现在文档流中</li>
+</ul>
+<h5 id="相对定位-relative"><a href="#相对定位-relative" class="headerlink" title="相对定位 relative"></a>相对定位 relative</h5><ul>
+<li>应用此定位的元素会脱离正常的文档流，但其在文档流中的位置依然存在，只是视觉上相对原来的位置有移动</li>
+</ul>
+<h5 id="绝对定位-absolute"><a href="#绝对定位-absolute" class="headerlink" title="绝对定位 absolute"></a>绝对定位 absolute</h5><ul>
+<li>相对于 static 定位以外的首个父元素进行定位，脱离正常的文档流，且不再占据文档流中的位置</li>
+</ul>
+<h5 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 fixed"></a>固定定位 fixed</h5><ul>
+<li>相对于浏览器窗口进行定位</li>
+</ul>
+<h3 id="边框与浮动"><a href="#边框与浮动" class="headerlink" title="边框与浮动"></a>边框与浮动</h3><p>题型 1：如何显示这样一个边框：上边框 10 像素、下边框 5 像素、左边框 20 像素、右边框 1 像素？ </p>
+<ul>
+<li>A <code>border-width:10px 5px 20px 1px</code></li>
+<li>B <code>border-width:10px 20px 5px 1px</code></li>
+<li>C <code>border-width:5px 20px 10px 1px</code></li>
+<li>D <code>border-width:10px 1px 5px 20px</code></li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="border-width顺序：顺时针，↑→↓←"><a href="#border-width顺序：顺时针，↑→↓←" class="headerlink" title="border-width顺序：顺时针，↑→↓←"></a>border-width 顺序：顺时针，↑→↓←</h5><p>题型 2：为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式？</p>
+<p>解答：</p>
+<ol>
+<li><p>浮动的出现是因为：如果在标准流下，一个父元素未设置其自身的高度 height 属性，那么它的高度就会被子元素的高度撑开，是出于这样一种自适应的现象；</p>
+</li>
+<li><p>需要清除浮动的场景：如 1 中所述，当父元素未设置自身高度而无法达到既定的视觉效果时，需要清除浮动；</p>
+</li>
+<li><p>清除浮动的方式有：</p>
+<p>（1）给父元素样式添加 overflow：hidden，从而创建一个 BFC（Block formatting context，块级格式化上下文），从而使其中的元素布局是不受外界的影响，达到清除浮动的目的；</p>
+<p>（2）在父元素的最后设置 clear:both，使得父元素和冗余元素向子元素方向延展，直到子元素边界停止浮动，使得父元素能够成功地包裹住子元素，从而变相地消除了浮动。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/04/%E5%88%86%E9%A2%98%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%20HTML%E7%AF%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -374,14 +584,14 @@ mjx-container[display="true"] + br {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.1k</span>
+              <span>6.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -546,7 +756,7 @@ mjx-container[display="true"] + br {
 </ul>
 <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">"verdana"</span> <span class="attr">color</span>=<span class="string">"red"</span> <span class="attr">size</span>=<span class="string">4</span>&gt;</span>sample text<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 <p>呈现效果：</p>
-<font face="verdana" color="red" size="4>sample" text< font>
+<font face="verdana" color="red" size="4>sample" text<="" font="">
 
 
 
@@ -600,7 +810,7 @@ mjx-container[display="true"] + br {
  Last name:<br>
 <input type="text" name="lastname">
 <br>
-<input type="radio" name="sex" value="male" checked>Male
+<input type="radio" name="sex" value="male" checked="">Male
 <br>
 <input type="radio" name="sex" value="female">Female
 <br>
@@ -636,7 +846,7 @@ mjx-container[display="true"] + br {
 <p>呈现效果（看不见喔）：</p>
 <!-- 基本语法 -->
 <p><input type="hidden" name="field＿name" value="value"><br><!-- 示例 --></p>
-<p hidden>我会隐身哦</p>
+<p hidden="">我会隐身哦</p>
 
 </font>
       
@@ -710,7 +920,7 @@ mjx-container[display="true"] + br {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>885</span>
+              <span>905</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -810,7 +1020,7 @@ mjx-container[display="true"] + br {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -976,120 +1186,6 @@ mjx-container[display="true"] + br {
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hyperspace">
-      <meta itemprop="description" content="blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyper の 个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/" class="post-title-link" itemprop="url">机器学习题解（三）—— 模型评估</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-09-14 21:09:52" itemprop="dateCreated datePublished" datetime="2021-09-14T21:09:52+08:00">2021-09-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-30 13:56:18" itemprop="dateModified" datetime="2022-06-30T13:56:18+08:00">2022-06-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="ex5-m"><a href="#ex5-m" class="headerlink" title="ex5.m"></a>ex5.m</h3><h4 id="Part-2-Regularized-Linear-Regression-Cost"><a href="#Part-2-Regularized-Linear-Regression-Cost" class="headerlink" title="Part 2: Regularized Linear Regression Cost"></a>Part 2: Regularized Linear Regression Cost</h4><ul>
-<li>Compute the cost and gradient of regularized linear regression for a particular choice of theta.</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% cost function</span></span><br><span class="line">J = <span class="number">1</span> / (<span class="number">2</span> * m) * (X * theta - y)' * (X * theta - y);</span><br><span class="line">J = J + lambda / (<span class="number">2</span> * m) * (theta(<span class="number">2</span>:<span class="keyword">end</span>)' * (theta(<span class="number">2</span>:<span class="keyword">end</span>)));</span><br><span class="line"></span><br><span class="line"><span class="comment">% for j = 0</span></span><br><span class="line">theta_temp = theta;</span><br><span class="line">theta_temp(<span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line"><span class="comment">% for j = 1</span></span><br><span class="line">grad = (<span class="number">1</span> / m) * (X * theta - y)' * X + (lambda / m) * theta_temp';</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-4-Train-Linear-Regression"><a href="#Part-4-Train-Linear-Regression" class="headerlink" title="Part 4: Train Linear Regression"></a>Part 4: Train Linear Regression</h4><ul>
-<li>In this part, we set regularization parameter λ to zero. <ul>
-<li>Because our current implementation of linear regression is trying to fit a 2-dimensional θ, regularization will not be incredibly helpful for a θ of such low dimension.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Initialize Theta</span></span><br><span class="line">initial_theta = <span class="built_in">zeros</span>(<span class="built_in">size</span>(X, <span class="number">2</span>), <span class="number">1</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">% Create "short hand" for the cost function to be minimized</span></span><br><span class="line">costFunction = @(t) linearRegCostFunction(X, y, t, lambda);</span><br><span class="line"></span><br><span class="line"><span class="comment">% Now, costFunction is a function that takes in only one argument</span></span><br><span class="line">options = optimset(<span class="string">'MaxIter'</span>, <span class="number">200</span>, <span class="string">'GradObj'</span>, <span class="string">'on'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% Minimize using fmincg</span></span><br><span class="line">theta = fmincg(costFunction, initial_theta, options);</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-5-Learning-Curve-for-Linear-Regression"><a href="#Part-5-Learning-Curve-for-Linear-Regression" class="headerlink" title="Part 5: Learning Curve for Linear Regression"></a>Part 5: Learning Curve for Linear Regression</h4><ul>
-<li>Fill in this function to return training errors in error_train and the cross validation errors in error_val.</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: m</span><br><span class="line">   subset_x = X(<span class="number">1</span>: <span class="built_in">i</span>, :);</span><br><span class="line">   subset_y = y(<span class="number">1</span>: <span class="built_in">i</span>);</span><br><span class="line">   theta = trainLinearReg(subset_x, subset_y, lambda);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">% for training set error, compute on the training subset</span></span><br><span class="line">   error_train(<span class="built_in">i</span>) = linearRegCostFunction(subset_x, subset_y, theta, <span class="number">0</span>); <span class="comment">% set λ to 0</span></span><br><span class="line">   <span class="comment">% for cross validation error, compute over the entire cross validation set</span></span><br><span class="line">   error_val(<span class="built_in">i</span>) = linearRegCostFunction(Xval, yval, theta, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-6-Feature-Mapping-for-Polynomial-Regression"><a href="#Part-6-Feature-Mapping-for-Polynomial-Regression" class="headerlink" title="Part 6: Feature Mapping for Polynomial Regression"></a>Part 6: Feature Mapping for Polynomial Regression</h4><ul>
-<li>Given a vector X, return a matrix X_poly where the p-th column of X contains the values of X to the p-th power.</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">m = <span class="built_in">size</span>(X, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: m</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:p</span><br><span class="line">        X_poly(<span class="built_in">i</span>, <span class="built_in">j</span>) = X(<span class="built_in">i</span>) .^<span class="built_in">j</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-8-Validation-for-Selecting-Lambda"><a href="#Part-8-Validation-for-Selecting-Lambda" class="headerlink" title="Part 8: Validation for Selecting Lambda"></a>Part 8: Validation for Selecting Lambda</h4><ul>
-<li>Fill in this function to return training errors in error_train and the validation errors in error_val.</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="built_in">length</span>(lambda_vec)</span><br><span class="line">    <span class="comment">% take each lambda and test</span></span><br><span class="line">    lambda = lambda_vec(<span class="built_in">i</span>);</span><br><span class="line">    theta = trainLinearReg(X, y, lambda);</span><br><span class="line">    </span><br><span class="line">    error_train(<span class="built_in">i</span>) = linearRegCostFunction(X, y, theta, <span class="number">0</span>); <span class="comment">% set λ to 0</span></span><br><span class="line">    error_val(<span class="built_in">i</span>) = linearRegCostFunction(Xval, yval, theta, <span class="number">0</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1161,20 +1257,20 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1208,7 +1304,7 @@ mjx-container[display="true"] + br {
           <h5 class="widget-title">词云图</h5>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intel-SGX/" rel="tag">Intel SGX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
               </canvas>
           </div>
       </div>
