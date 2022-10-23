@@ -342,7 +342,7 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-10-23 15:45:37 / 修改时间：16:19:47" itemprop="dateCreated datePublished" datetime="2022-10-23T15:45:37+08:00">2022-10-23</time>
+              <time title="创建时间：2022-10-23 15:45:37 / 修改时间：16:31:57" itemprop="dateCreated datePublished" datetime="2022-10-23T15:45:37+08:00">2022-10-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -391,16 +391,16 @@ mjx-container[display="true"] + br {
 <h3 id="Step1-检查硬件环境"><a href="#Step1-检查硬件环境" class="headerlink" title="Step1 检查硬件环境"></a>Step1 检查硬件环境</h3><ul>
 <li>首先，应确定自己的 CPU、主板是否支持，可查看<a target="_blank" rel="noopener" href="https://ark.intel.com/content/www/cn/zh/ark.html">英特尔 ® 产品规范 (intel.com)</a>。以本机为例，可知九代酷睿在有 Intel ME 时支持 SGX：</li>
 </ul>
-<p><img data-src="./步骤1-1.png"></p>
+<p><img data-src="/2022/10/23/Intel%20SGX%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-1.png" alt></p>
 <ul>
 <li>主板为 HP 8504，启用对应选项；默认是软件控制，可改为启用（Enabled）</li>
 </ul>
-<p><img data-src="./步骤1-2.png"></p>
+<p><img data-src="/2022/10/23/Intel%20SGX%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤1-2.png" alt></p>
 <h3 id="Step2-准备SGX"><a href="#Step2-准备SGX" class="headerlink" title="Step2 准备SGX"></a>Step2 准备 SGX</h3><p><a target="_blank" rel="noopener" href="https://registrationcenter.intel.com/en/forms/?productid=2614&amp;pass=yes">Commercial Product Request - Intel® Products</a>，注册下载 Intel® SGX SDK、Intel® SGX Platform Software，所填信息必须都为英文：</p>
 <h3 id="Step3-准备软件环境"><a href="#Step3-准备软件环境" class="headerlink" title="Step3 准备软件环境"></a>Step3 准备软件环境</h3><ul>
 <li>安装 <a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/download/682431/intel-management-engine-drivers-for-windows-10-and-windows-11.html?wapkw=Intel® Management Engine Drive for Windows 10">Intel® Management Engine Drivers for Windows® 10 and Windows® 11</a>，可在设备管理器 - 系统设备查看，若没有需安装：</li>
 </ul>
-<p><img data-src="./步骤3-1.png"></p>
+<p><img data-src="/2022/10/23/Intel%20SGX%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-1.png" alt></p>
 <ul>
 <li><p>安装 <a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/zh-hans/search/?query=Visual+Studio+2017&amp;lang=zh-hans">Visual Studio (microsoft.com)</a>，Intel® SGX Win 2.16 release 对应需使用 Visual Studio Professional 2017/19 版本</p>
 </li>
@@ -412,25 +412,25 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 </ul>
-<p><img data-src="./步骤3-4.png"></p>
+<p><img data-src="/2022/10/23/Intel%20SGX%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-4.png" alt></p>
 <p>以上按序依次安装后，new 一个项目验证，若出现 Enclave Project 则已配置成功：</p>
-<p><img data-src="./步骤3-5.png"></p>
+<p><img data-src="/2022/10/23/Intel%20SGX%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/步骤3-5.png" alt></p>
 <h3 id="Trouble-Shooting"><a href="#Trouble-Shooting" class="headerlink" title="Trouble Shooting"></a>Trouble Shooting</h3><ul>
 <li>Q1：ME 安装显示 “安装出现严重错误”？<ul>
 <li>A：若 ME 安装显示 “安装出现严重错误”，应当检查 Windows 更新，再更新.NET3.5 至最新版本</li>
 </ul>
 </li>
 </ul>
-<p><img data-src="./ts1-1.png"></p>
+<p><img data-src="/2022/10/23/Intel%20SGX%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/ts1-1.png" alt></p>
 <p>重新安装 Intel ME，此时可行</p>
-<p><img data-src="./ts1-2.png"></p>
+<p><img data-src="/2022/10/23/Intel%20SGX%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/ts1-2.png" alt></p>
 <ul>
 <li>Q2：安装 sdk 一半会闪退？<ul>
 <li>A：若本机环境已安装 Visual Studio 2022，则出现版本不兼容情况。<a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/support/articles/000090735/software/intel-security-products.html">Unable to install Intel® Software Guard Extensions (Intel® SGX) SDK for Windows and Platform Software (PSW) while Visual Studio* (VS) 2022 is installed</a> 写明，按照下述步骤操作即可解决：</li>
 </ul>
 </li>
 </ul>
-<p><img data-src="./ts2.png"></p>
+<p><img data-src="/2022/10/23/Intel%20SGX%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/ts2.png" alt></p>
 
       
     </div>
@@ -520,7 +520,7 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="数据通信系统模型"><a href="#数据通信系统模型" class="headerlink" title="数据通信系统模型"></a>数据通信系统模型</h4><p><img data-src="./2-1.png" alt=""></p>
+          <h4 id="数据通信系统模型"><a href="#数据通信系统模型" class="headerlink" title="数据通信系统模型"></a>数据通信系统模型</h4><p><img data-src="/2022/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AF%87%EF%BC%9A%E7%89%A9%E7%90%86%E5%B1%82/2-1.png" alt></p>
 <ul>
 <li>发送端为源系统</li>
 <li>传输网络为传输系统</li>
@@ -539,8 +539,8 @@ mjx-container[display="true"] + br {
 C = W\ log_2(\frac{1+S}{N})\ (bit/s)</script><ul>
 <li>香农公式表明，信道的带宽或信道中的信噪比越大，信息的极限传输速率就越高</li>
 </ul>
-<h4 id="信道复用"><a href="#信道复用" class="headerlink" title="信道复用"></a>信道复用</h4><p><img data-src="./2-2.png" alt=""></p>
-<p><img data-src="./2-3.png" alt=""></p>
+<h4 id="信道复用"><a href="#信道复用" class="headerlink" title="信道复用"></a>信道复用</h4><p><img data-src="/2022/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AF%87%EF%BC%9A%E7%89%A9%E7%90%86%E5%B1%82/2-2.png" alt></p>
+<p><img data-src="/2022/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AF%87%EF%BC%9A%E7%89%A9%E7%90%86%E5%B1%82/2-3.png" alt></p>
 <ul>
 <li>频分复用 FDM：所有用户在同样的时间占用不同的带宽资源</li>
 <li>时分复用 TDM：所有用户是在不同的时间占用同样的频带宽度</li>
