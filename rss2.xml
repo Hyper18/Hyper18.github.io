@@ -9,8 +9,41 @@
     <atom:link href="https://hyper18.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>blog</description>
-    <pubDate>Fri, 28 Oct 2022 09:13:48 GMT</pubDate>
+    <pubDate>Fri, 28 Oct 2022 13:02:39 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Java 内存区域</title>
+      <link>https://hyper18.github.io/2022/10/28/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/</link>
+      <guid>https://hyper18.github.io/2022/10/28/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/</guid>
+      <pubDate>Fri, 28 Oct 2022 11:53:52 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;img data-src=&quot;/2022/10/28/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/Java虚拟机运行时数据区.png&quot; alt&gt;&lt;/p&gt;
+&lt;h2 id=&quot;一、程序计数器&quot;&gt;&lt;a href=&quot;#一、程序计数器&quot; class</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><img data-src="/2022/10/28/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/Java虚拟机运行时数据区.png" alt></p><h2 id="一、程序计数器"><a href="#一、程序计数器" class="headerlink" title="一、程序计数器"></a>一、程序计数器</h2><ul><li>def 一块较小的内存空间，可看作当前线程所执行字节码的<strong>行号指示器</strong></li><li>作用 用来存储指向下一条指令的地址，供执行引擎读取<ul><li>类比物理寄存器的 PC，JVM 中的 PC 寄存器是它的抽象模拟</li></ul></li></ul><h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1. 特点"></a>1. 特点</h3><ul><li>线程私有，生命周期和线程一致<ul><li>每个线程都有其程序计数器，互不影响、独立存储</li></ul></li><li>程序控制流的指示器：分支、循环、跳转、异常处理、线程恢复等功能都依赖其完成</li><li>根据线程正在执行方法的不同，其记录的值不同<ul><li>若为 Java 方法，记录 JVM 字节码指令的地址</li><li>若为 Native 方法，置空（undefined）</li></ul></li><li>唯一没有规定任何 <code>OutOfMemoryError</code> 的区域</li></ul><h3 id="2-相关问题"><a href="#2-相关问题" class="headerlink" title="2. 相关问题"></a>2. 相关问题</h3><h4 id="Q1：为什么程序计数器被设定为线程私有的"><a href="#Q1：为什么程序计数器被设定为线程私有的" class="headerlink" title="Q1：为什么程序计数器被设定为线程私有的"></a>Q1：为什么程序计数器被设定为线程私有的</h4><p>A：因为 Java 中的多线程实际上是通过各线程之间轮流切换、分配 CPU 处理时间来实现的，任一确定的时刻，CPU 只执行一条线程中的指令；为了在线程切换后能够恢复到正确的执行位置，每条线程都需要一个独立的程序计数器，其内存区域是线程私有的。</p><h4 id="Q2：为什么使用PC寄存器记录当前线程的执行地址"><a href="#Q2：为什么使用PC寄存器记录当前线程的执行地址" class="headerlink" title="Q2：为什么使用PC寄存器记录当前线程的执行地址"></a>Q2：为什么使用 PC 寄存器记录当前线程的执行地址</h4><p>A：字节码解释器（interpreter）需要通过<strong>改变程序计数器的值</strong>，来明确下一条应该执行的字节码指令</p><h2 id="二、虚拟机栈"><a href="#二、虚拟机栈" class="headerlink" title="二、虚拟机栈"></a>二、虚拟机栈</h2><ul><li>def 描述 Java 方法执行时的线程内存模型：每个线程在创建的时候都会创建一个虚拟机栈，其内部保存一个个的<strong>栈帧</strong>（Stack Frame），对应着一次次的 Java 方法调用</li><li>作用 主管 Java 程序的运行</li></ul><h3 id="1-特点-1"><a href="#1-特点-1" class="headerlink" title="1. 特点"></a>1. 特点</h3><ul><li>线程私有，生命周期和线程一致</li><li> JVM 直接对虚拟机栈进行的操作只有两个：方法执行<strong>入栈</strong>，执行结束<strong>出栈</strong></li><li>不存在垃圾回收问题<ul><li>对固定大小栈，若线程请求分配的栈容量超过 Java 虚拟机栈允许的最大容量，JVM 将抛出 <code>StackOverflowError</code> 异常</li><li>对动态扩展栈，若没有足够的内存，JVM 将抛出 <code>OutOfMemoryError</code> 异常</li></ul></li></ul><h3 id="2-栈帧的构成"><a href="#2-栈帧的构成" class="headerlink" title="2. 栈帧的构成"></a>2. 栈帧的构成</h3><ul><li>局部变量表（Local Variables）：存储方法参数和定义在方法体内的局部变量，如基本数据类型、对象引用等<ul><li>基本存储单元：<strong>局部变量槽</strong>（slot），32 位以内的类型占用一个 Slot，64 位的类型占用两个连续的 Slot</li></ul></li><li> 操作数栈（Operand Stack）：在方法执行过程中，根据字节码指令，往操作数栈中写入数据或提取数据，即入栈（push）、出栈（pop）<ul><li>主要用于保存计算的中间结果，并作为计算过程中变量的临时存储空间</li></ul></li><li>动态链接（Dynamic Linking）：每一个栈帧内部都包含一个指向运行时常量池中，该栈帧所属方法的引用，以实现动态链接</li><li>方法返回地址（Return Address）：存放调用该方法的程序计数器的值<ul><li>正常返回出口：返回值传递给上层的方法调用者</li><li>异常返回出口：不产生任何返回值</li></ul></li><li>附加信息</li></ul><h3 id="3-相关问题"><a href="#3-相关问题" class="headerlink" title="3. 相关问题"></a>3. 相关问题</h3><h4 id="Q1：栈帧的创建-销毁时机"><a href="#Q1：栈帧的创建-销毁时机" class="headerlink" title="Q1：栈帧的创建/销毁时机"></a>Q1：栈帧的创建 / 销毁时机</h4><p>A：当方法被执行时，JVM 会同步创建一个栈帧；方法从调用到执行结束的过程，对应着栈帧在虚拟机栈从入栈到出栈的过程。</p><h4 id="Q2：如何访问局部变量表中一个-64bit的局部变量值"><a href="#Q2：如何访问局部变量表中一个-64bit的局部变量值" class="headerlink" title="Q2：如何访问局部变量表中一个 64bit的局部变量值"></a>Q2：如何访问局部变量表中一个 64bit 的局部变量值</h4><p>A：JVM 会为局部变量表中的每一个局部变量槽都分配一个访问索引，因为 64bit 的局部变量值占据两个 slot 空间，故应使用该局部变量的前一个索引访问（不能采用任何方式单独访问其中的某一个 Slot）</p><p>参考资料：</p><ol><li>《深入理解 Java 虚拟机（第 3 版）》，周志明著 </li><li><a href="https://www.pdai.tech/md/java/jvm/java-jvm-struct.html">JVM 基础 - JVM 内存结构 | Java 全栈知识体系 (pdai.tech)</a></li></ol>]]></content:encoded>
+      
+      
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/Java/">Java</category>
+      
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/Java/JVM/">JVM</category>
+      
+      
+      <category domain="https://hyper18.github.io/tags/Java/">Java</category>
+      
+      <category domain="https://hyper18.github.io/tags/JVM/">JVM</category>
+      
+      
+      <comments>https://hyper18.github.io/2022/10/28/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Java 操作 C++ 底层代码</title>
@@ -603,38 +636,6 @@
       
       
       <comments>https://hyper18.github.io/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Redis 原理初探（四）—— 集合</title>
-      <link>https://hyper18.github.io/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%9B%86%E5%90%88/</link>
-      <guid>https://hyper18.github.io/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%9B%86%E5%90%88/</guid>
-      <pubDate>Tue, 23 Nov 2021 10:24:13 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;整数集合（intset）&quot;&gt;&lt;a href=&quot;#整数集合（intset）&quot; class=&quot;headerlink&quot; title=&quot;整数集合（intset）&quot;&gt;&lt;/a&gt;整数集合（intset）&lt;/h2&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="整数集合（intset）"><a href="#整数集合（intset）" class="headerlink" title="整数集合（intset）"></a>整数集合（intset）</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul><li>用于保存整数值的集合抽象数据结构<ul><li>可保存类型为 int16_t、int32_t 或 int64_t 的整数值</li><li>保证集合中不会出现重复元素</li></ul></li><li>集合键的底层实现之一 </li></ul><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">intset</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">//编码方式，决定contents数组的真正类型</span></span><br><span class="line">    <span class="keyword">uint32_t</span> encoding;</span><br><span class="line">    <span class="comment">//集合包含的元素数量</span></span><br><span class="line">    <span class="keyword">uint32_t</span> length;</span><br><span class="line">    <span class="comment">//保存元素的数组</span></span><br><span class="line">    <span class="keyword">int8_t</span> contents[];</span><br><span class="line">} intset;</span><br></pre></td></tr></tbody></table></figure><p>注：contents 数组是整数集合的底层实现，每个数组元素作为一个数组项（item），各个项在数组中按值的大小从小到大有序地排列，并且数组中不包含任何重复项。</p><h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><ul><li>集合只包含整数值元素，并且该集合的元素数量不多</li></ul><h3 id="升级（upgrade）"><a href="#升级（upgrade）" class="headerlink" title="升级（upgrade）"></a>升级（upgrade）</h3><h4 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h4><ul><li>添加新元素到数组中时，由于新元素的类型比整数集合现有所有元素的类型都要长时，整数集合需要先进行升级</li></ul><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><ul><li>提升整数集合的灵活性：因为整数集合可以通过自动升级底层数组来适应新元素，所以我们可以随意地将 int16_t、int32_t 或者 int64_t 类型的整数添加到集合中，而不必担心出现类型错误</li><li>尽可能地节约内存</li></ul><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul><li>根据新元素的类型，扩展整数集合底层数组的空间大小，并为新元素分配空间</li><li>将底层数组现有的所有元素都转换成与新元素相同的类型，并将类型转换后的元素放置到正确的位上，而且在放置元素的过程中，需要<strong>继续维持底层数组的有序性质不变</strong>。</li><li>将新元素添加到底层数组中，再更新原整数集合的 encoding 和 length</li></ul><h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><ul><li>O (N)：每次升级都需要对底层数组中已有的所有元素进行类型转换</li></ul><h3 id="降级（degrade）"><a href="#降级（degrade）" class="headerlink" title="降级（degrade）"></a>降级（degrade）</h3><ul><li>整数集合不支持该操作。这也意味着一旦整数集合经过升级并占用更大的内存后，即便经过后续操作后不再需要过大的内存空间时，也无法进行回退</li></ul><h2 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h2><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">'127.0.0.1'</span>, password=<span class="string">'123456'</span>, port=<span class="number">6379</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SADD：向指定集合中添加尚不存在的元素（可一次添加多个）</span></span><br><span class="line"><span class="comment"># 返回的是被添加元素的数量</span></span><br><span class="line">conn.sadd(<span class="string">'set_key'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>)</span><br><span class="line"><span class="comment"># SREM：从指定集合中移除元素（可一次移除多个）</span></span><br><span class="line"><span class="comment"># 注：Python中返回布尔值；实际redis中返回的是被移除元素的数量</span></span><br><span class="line">conn.srem(<span class="string">'set_key'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br><span class="line"><span class="comment"># SISMEMBER：检查数据项item是否存在于指定集合中</span></span><br><span class="line">conn.sismember(<span class="string">'set_key'</span>, <span class="string">'val'</span>)</span><br><span class="line"><span class="comment"># SCARD：返回集合中元素的数量</span></span><br><span class="line">conn.scard(<span class="string">'set_key'</span>)</span><br><span class="line"><span class="comment"># SMEMBERS：返回集合中包含的所有元素</span></span><br><span class="line">conn.smembers(<span class="string">'set_key'</span>)</span><br><span class="line"><span class="comment"># SRANDMEMBER：从指定集合中随机返回一个或多个元素值</span></span><br><span class="line"><span class="comment"># 这里可以指定count参数，但该值不是随机返回元素的个数</span></span><br><span class="line"><span class="comment"># 而是根据其正负情况决定是否返回重复元素（有无放回）</span></span><br><span class="line"><span class="comment"># 若为正数，则不会重复；否则可以取出重复的值</span></span><br><span class="line">conn.srandmember(<span class="string">'set_key'</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="comment"># SPOP：随机（！）的移除指定集合中的一个元素</span></span><br><span class="line"><span class="comment"># 返回被移除的元素</span></span><br><span class="line">conn.spop(<span class="string">'set_key'</span>)</span><br><span class="line"><span class="comment"># SMOVE：从集合1中移除元素并移动到集合2中</span></span><br><span class="line"><span class="comment"># 若成功，返回1；否则返回0，相当于命令无效</span></span><br><span class="line">conn.smove(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>, <span class="string">'a'</span>)</span><br></pre></td></tr></tbody></table></figure><h4 id="差集、交集与并集运算"><a href="#差集、交集与并集运算" class="headerlink" title="差集、交集与并集运算"></a>差集、交集与并集运算</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SDIFF：对两个集合作差集运算</span></span><br><span class="line"><span class="comment"># 返回存在于第一个集合但不存在于第二个集合的所有元素</span></span><br><span class="line">conn.sdiff(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SDIFFSTORE：对两个集合作差集运算</span></span><br><span class="line"><span class="comment"># 储存存在于第一个集合但不存在于第二个集合的所有元素</span></span><br><span class="line">conn.sdiffstore(<span class="string">'store_key'</span>, <span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SINTER：对两个集合作交集运算</span></span><br><span class="line"><span class="comment"># 返回那些同时存在于所有集合的元素</span></span><br><span class="line">conn.sinter(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SINTERSTORE：对两个集合作交集运算</span></span><br><span class="line"><span class="comment"># 储存那些同时存在于所有集合的元素</span></span><br><span class="line">conn.sinterstore(<span class="string">'store_key'</span>, <span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SUNION：对两个集合作并集运算</span></span><br><span class="line"><span class="comment"># 返回那些至少存在于一个集合的元素</span></span><br><span class="line">conn.sunion(<span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br><span class="line"><span class="comment"># SUNIONSTORE：对两个集合作并集运算</span></span><br><span class="line"><span class="comment"># 储存那些至少存在于一个集合的元素</span></span><br><span class="line">conn.sunionstore(<span class="string">'store_key'</span>, <span class="string">'set_key'</span>, <span class="string">'set_key2'</span>)</span><br></pre></td></tr></tbody></table></figure><p>注：就集合这一结构而言，其基本功能在 Python 与 Redis 中的实现并无过大差别。Redis 集合的好处在于，可以同时被多个客户端进行远程访问。</p><p><em>【参考】</em><br><em>[1] 《Redis 的设计与实现》</em></p><p><em>[2] 《Redis 实战》</em></p>]]></content:encoded>
-      
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/Redis/">Redis</category>
-      
-      
-      <category domain="https://hyper18.github.io/tags/Redis/">Redis</category>
-      
-      <category domain="https://hyper18.github.io/tags/NoSQL/">NoSQL</category>
-      
-      <category domain="https://hyper18.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
-      
-      
-      <comments>https://hyper18.github.io/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%9B%86%E5%90%88/#disqus_thread</comments>
       
     </item>
     

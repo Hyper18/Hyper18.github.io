@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java 内存区域</title>
+    <url>/2022/10/28/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/</url>
+    <content><![CDATA[<p><img data-src="/2022/10/28/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/Java虚拟机运行时数据区.png" alt></p>
+<h2 id="一、程序计数器"><a href="#一、程序计数器" class="headerlink" title="一、程序计数器"></a>一、程序计数器</h2><ul>
+<li>def 一块较小的内存空间，可看作当前线程所执行字节码的<strong>行号指示器</strong></li>
+<li>作用 用来存储指向下一条指令的地址，供执行引擎读取<ul>
+<li>类比物理寄存器的 PC，JVM 中的 PC 寄存器是它的抽象模拟</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1. 特点"></a>1. 特点</h3><ul>
+<li>线程私有，生命周期和线程一致<ul>
+<li>每个线程都有其程序计数器，互不影响、独立存储</li>
+</ul>
+</li>
+<li>程序控制流的指示器：分支、循环、跳转、异常处理、线程恢复等功能都依赖其完成</li>
+<li>根据线程正在执行方法的不同，其记录的值不同<ul>
+<li>若为 Java 方法，记录 JVM 字节码指令的地址</li>
+<li>若为 Native 方法，置空（undefined）</li>
+</ul>
+</li>
+<li>唯一没有规定任何 <code>OutOfMemoryError</code> 的区域</li>
+</ul>
+<h3 id="2-相关问题"><a href="#2-相关问题" class="headerlink" title="2. 相关问题"></a>2. 相关问题</h3><h4 id="Q1：为什么程序计数器被设定为线程私有的"><a href="#Q1：为什么程序计数器被设定为线程私有的" class="headerlink" title="Q1：为什么程序计数器被设定为线程私有的"></a>Q1：为什么程序计数器被设定为线程私有的</h4><p>A：因为 Java 中的多线程实际上是通过各线程之间轮流切换、分配 CPU 处理时间来实现的，任一确定的时刻，CPU 只执行一条线程中的指令；为了在线程切换后能够恢复到正确的执行位置，每条线程都需要一个独立的程序计数器，其内存区域是线程私有的。</p>
+<h4 id="Q2：为什么使用PC寄存器记录当前线程的执行地址"><a href="#Q2：为什么使用PC寄存器记录当前线程的执行地址" class="headerlink" title="Q2：为什么使用PC寄存器记录当前线程的执行地址"></a>Q2：为什么使用 PC 寄存器记录当前线程的执行地址</h4><p>A：字节码解释器（interpreter）需要通过<strong>改变程序计数器的值</strong>，来明确下一条应该执行的字节码指令</p>
+<h2 id="二、虚拟机栈"><a href="#二、虚拟机栈" class="headerlink" title="二、虚拟机栈"></a>二、虚拟机栈</h2><ul>
+<li>def 描述 Java 方法执行时的线程内存模型：每个线程在创建的时候都会创建一个虚拟机栈，其内部保存一个个的<strong>栈帧</strong>（Stack Frame），对应着一次次的 Java 方法调用</li>
+<li>作用 主管 Java 程序的运行</li>
+</ul>
+<h3 id="1-特点-1"><a href="#1-特点-1" class="headerlink" title="1. 特点"></a>1. 特点</h3><ul>
+<li>线程私有，生命周期和线程一致</li>
+<li> JVM 直接对虚拟机栈进行的操作只有两个：方法执行<strong>入栈</strong>，执行结束<strong>出栈</strong></li>
+<li>不存在垃圾回收问题<ul>
+<li>对固定大小栈，若线程请求分配的栈容量超过 Java 虚拟机栈允许的最大容量，JVM 将抛出 <code>StackOverflowError</code> 异常</li>
+<li>对动态扩展栈，若没有足够的内存，JVM 将抛出 <code>OutOfMemoryError</code> 异常</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-栈帧的构成"><a href="#2-栈帧的构成" class="headerlink" title="2. 栈帧的构成"></a>2. 栈帧的构成</h3><ul>
+<li>局部变量表（Local Variables）：存储方法参数和定义在方法体内的局部变量，如基本数据类型、对象引用等<ul>
+<li>基本存储单元：<strong>局部变量槽</strong>（slot），32 位以内的类型占用一个 Slot，64 位的类型占用两个连续的 Slot</li>
+</ul>
+</li>
+<li> 操作数栈（Operand Stack）：在方法执行过程中，根据字节码指令，往操作数栈中写入数据或提取数据，即入栈（push）、出栈（pop）<ul>
+<li>主要用于保存计算的中间结果，并作为计算过程中变量的临时存储空间</li>
+</ul>
+</li>
+<li>动态链接（Dynamic Linking）：每一个栈帧内部都包含一个指向运行时常量池中，该栈帧所属方法的引用，以实现动态链接</li>
+<li>方法返回地址（Return Address）：存放调用该方法的程序计数器的值<ul>
+<li>正常返回出口：返回值传递给上层的方法调用者</li>
+<li>异常返回出口：不产生任何返回值</li>
+</ul>
+</li>
+<li>附加信息</li>
+</ul>
+<h3 id="3-相关问题"><a href="#3-相关问题" class="headerlink" title="3. 相关问题"></a>3. 相关问题</h3><h4 id="Q1：栈帧的创建-销毁时机"><a href="#Q1：栈帧的创建-销毁时机" class="headerlink" title="Q1：栈帧的创建/销毁时机"></a>Q1：栈帧的创建 / 销毁时机</h4><p>A：当方法被执行时，JVM 会同步创建一个栈帧；方法从调用到执行结束的过程，对应着栈帧在虚拟机栈从入栈到出栈的过程。</p>
+<h4 id="Q2：如何访问局部变量表中一个-64bit的局部变量值"><a href="#Q2：如何访问局部变量表中一个-64bit的局部变量值" class="headerlink" title="Q2：如何访问局部变量表中一个 64bit的局部变量值"></a>Q2：如何访问局部变量表中一个 64bit 的局部变量值</h4><p>A：JVM 会为局部变量表中的每一个局部变量槽都分配一个访问索引，因为 64bit 的局部变量值占据两个 slot 空间，故应使用该局部变量的前一个索引访问（不能采用任何方式单独访问其中的某一个 Slot）</p>
+<p>参考资料：</p>
+<ol>
+<li>《深入理解 Java 虚拟机（第 3 版）》，周志明著 </li>
+<li><a href="https://www.pdai.tech/md/java/jvm/java-jvm-struct.html">JVM 基础 - JVM 内存结构 | Java 全栈知识体系 (pdai.tech)</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Java</category>
+        <category>JVM</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java 操作 C++ 底层代码</title>
     <url>/2022/10/28/Java%E6%93%8D%E4%BD%9CC++%E5%BA%95%E5%B1%82%E4%BB%A3%E7%A0%81/</url>
     <content><![CDATA[<h2 id="JNI"><a href="#JNI" class="headerlink" title="JNI"></a>JNI</h2><p>JNI 全称 Java 动态接口（Java Native Interface），专门于为其他语言提供自己的规范</p>
