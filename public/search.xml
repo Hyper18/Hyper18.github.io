@@ -209,6 +209,57 @@
       </tags>
   </entry>
   <entry>
+    <title>Windows Terminal 的配置一二事</title>
+    <url>/2023/10/12/Windows%20Terminal%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/</url>
+    <content><![CDATA[<p><img data-src="/2023/10/12/Windows%20Terminal%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/1_成果展示.png" alt></p>
+<h3 id="一、允许脚本运行"><a href="#一、允许脚本运行" class="headerlink" title="一、允许脚本运行"></a>一、允许脚本运行</h3><ul>
+<li>设置执行策略 </li>
+</ul>
+<figure class="highlight cmd"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Set</span>-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</span><br><span class="line">Get-ExecutionPolicy -Scope CurrentUser</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="二、支持自动补全"><a href="#二、支持自动补全" class="headerlink" title="二、支持自动补全"></a>二、支持自动补全</h3><ul>
+<li>安装 PSReadLine 以支持自动补全 </li>
+</ul>
+<figure class="highlight cmd"><table><tbody><tr><td class="code"><pre><span class="line">Install-Module -Name PSReadLine -AllowPrerelease -Force</span><br></pre></td></tr></tbody></table></figure>
+<p>注：问题 Install-Module : 找不到与参数名称 “AllowPrerelease” 匹配的参数 的解决</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="code"><pre><span class="line">Install-Module -Name PackageManagement -Repository PSGallery -Force</span><br><span class="line">Install-Module -Name PowerShellGet -Repository PSGallery -Force</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>重启 powershell，再次输入 </li>
+</ul>
+<figure class="highlight cmd"><table><tbody><tr><td class="code"><pre><span class="line">Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="三、使用自定义主题"><a href="#三、使用自定义主题" class="headerlink" title="三、使用自定义主题"></a>三、使用自定义主题</h3><ul>
+<li>安装 oh-my-posh 以提供自定义主题和配色 </li>
+</ul>
+<figure class="highlight cmd"><table><tbody><tr><td class="code"><pre><span class="line"># 使用 winget 安装 OhMyPosh</span><br><span class="line">winget install JanDeDobbeleer.OhMyPosh -s winget</span><br><span class="line"></span><br><span class="line"># （后续需要更新时）使用 winget 更新 OhMyPosh</span><br><span class="line"># winget upgrade JanDeDobbeleer.OhMyPosh -s winget</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>安装 posh-git 以提供了 git 的状态显示和命令补全等 </li>
+</ul>
+<figure class="highlight cmd"><table><tbody><tr><td class="code"><pre><span class="line">Install-Module posh-git -Scope CurrentUser</span><br><span class="line"> </span><br><span class="line"># 卸载</span><br><span class="line"># Uninstall-Module posh-git -AllVersions</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>编辑 Powershell 配置文件 </li>
+</ul>
+<figure class="highlight cmd"><table><tbody><tr><td class="code"><pre><span class="line">notepad $Profile</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Import-Module posh-git</span><br><span class="line">Import-Module PSReadLine</span><br><span class="line"># 这里配置的主题为 robbyrussell。可打开如下路径文件夹，查看全部的主题并选择自己喜欢的： $env:POSH_THEMES_PATH</span><br><span class="line">oh-my-posh init pwsh --config $env:POSH_THEMES_PATH\Agnoster.omp.json | Invoke-Expression</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>安装自定义字体 </li>
+</ul>
+<p><a href="https://www.nerdfonts.com/font-downloads">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher</a></p>
+<p>放置到 C:\Windows\Fonts 文件夹下</p>
+<h3 id="四、Windows-Terminal快捷键"><a href="#四、Windows-Terminal快捷键" class="headerlink" title="四、Windows Terminal快捷键"></a>四、Windows Terminal 快捷键</h3><p>默认情况针对于 Windows Terminal 的快捷键为：</p>
+<ul>
+<li>SHIFT + ALT + ‘-‘ ：水平分割，以创建一个新窗口</li>
+<li> SHIFT + ALT + ‘+’ ：垂直分割，以创建一个新窗口</li>
+<li> CTRL + SHIFT + ‘W’ ：关闭此时所处的窗口</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>配置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java 内存区域</title>
     <url>/2022/10/28/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/</url>
     <content><![CDATA[<p><img data-src="/2022/10/28/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/Java虚拟机运行时数据区.png" alt></p>

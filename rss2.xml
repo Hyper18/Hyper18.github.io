@@ -9,7 +9,7 @@
     <atom:link href="https://hyper18.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>blog</description>
-    <pubDate>Sat, 28 Oct 2023 13:14:35 GMT</pubDate>
+    <pubDate>Sat, 28 Oct 2023 13:55:04 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -18,7 +18,7 @@
       <guid>https://hyper18.github.io/2023/10/21/WSL2%E9%83%A8%E7%BD%B2Ubuntu-20-04%E5%8F%8A%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
       <pubDate>Sat, 21 Oct 2023 12:40:18 GMT</pubDate>
       
-      <description>在WSL2中部署Ubuntu-20.04，配置C/C++和Python的开发环境，并安装OpenSSL与Docker</description>
+      <description>在WSL2中部署Ubuntu-20.04，配置C/C++和Python的开发环境，安装OpenSSL、Docker……</description>
       
       
       
@@ -38,6 +38,31 @@
       
       
       <comments>https://hyper18.github.io/2023/10/21/WSL2%E9%83%A8%E7%BD%B2Ubuntu-20-04%E5%8F%8A%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Windows Terminal 的配置一二事</title>
+      <link>https://hyper18.github.io/2023/10/12/Windows%20Terminal%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/</link>
+      <guid>https://hyper18.github.io/2023/10/12/Windows%20Terminal%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/</guid>
+      <pubDate>Thu, 12 Oct 2023 11:21:19 GMT</pubDate>
+      
+      <description>Windows Terminal美化与基本配置，包括Powershell无法运行脚本的问题解决、支持命令行自动补全、自定义主题……</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p><img data-src="/2023/10/12/Windows%20Terminal%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/1_成果展示.png" alt></p><h3 id="一、允许脚本运行"><a href="#一、允许脚本运行" class="headerlink" title="一、允许脚本运行"></a>一、允许脚本运行</h3><ul><li>设置执行策略 </li></ul><figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set</span>-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</span><br><span class="line">Get-ExecutionPolicy -Scope CurrentUser</span><br></pre></td></tr></tbody></table></figure><h3 id="二、支持自动补全"><a href="#二、支持自动补全" class="headerlink" title="二、支持自动补全"></a>二、支持自动补全</h3><ul><li>安装 PSReadLine 以支持自动补全 </li></ul><figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Install-Module -Name PSReadLine -AllowPrerelease -Force</span><br></pre></td></tr></tbody></table></figure><p>注：问题 Install-Module : 找不到与参数名称 “AllowPrerelease” 匹配的参数 的解决</p><figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Install-Module -Name PackageManagement -Repository PSGallery -Force</span><br><span class="line">Install-Module -Name PowerShellGet -Repository PSGallery -Force</span><br></pre></td></tr></tbody></table></figure><ul><li>重启 powershell，再次输入 </li></ul><figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force</span><br></pre></td></tr></tbody></table></figure><h3 id="三、使用自定义主题"><a href="#三、使用自定义主题" class="headerlink" title="三、使用自定义主题"></a>三、使用自定义主题</h3><ul><li>安装 oh-my-posh 以提供自定义主题和配色 </li></ul><figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 使用 winget 安装 OhMyPosh</span><br><span class="line">winget install JanDeDobbeleer.OhMyPosh -s winget</span><br><span class="line"></span><br><span class="line"># （后续需要更新时）使用 winget 更新 OhMyPosh</span><br><span class="line"># winget upgrade JanDeDobbeleer.OhMyPosh -s winget</span><br></pre></td></tr></tbody></table></figure><ul><li>安装 posh-git 以提供了 git 的状态显示和命令补全等 </li></ul><figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Install-Module posh-git -Scope CurrentUser</span><br><span class="line"> </span><br><span class="line"># 卸载</span><br><span class="line"># Uninstall-Module posh-git -AllVersions</span><br></pre></td></tr></tbody></table></figure><ul><li>编辑 Powershell 配置文件 </li></ul><figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">notepad $Profile</span><br></pre></td></tr></tbody></table></figure><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Import-Module posh-git</span><br><span class="line">Import-Module PSReadLine</span><br><span class="line"># 这里配置的主题为 robbyrussell。可打开如下路径文件夹，查看全部的主题并选择自己喜欢的： $env:POSH_THEMES_PATH</span><br><span class="line">oh-my-posh init pwsh --config $env:POSH_THEMES_PATH\Agnoster.omp.json | Invoke-Expression</span><br></pre></td></tr></tbody></table></figure><ul><li>安装自定义字体 </li></ul><p><a href="https://www.nerdfonts.com/font-downloads">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher</a></p><p>放置到 C:\Windows\Fonts 文件夹下</p><h3 id="四、Windows-Terminal快捷键"><a href="#四、Windows-Terminal快捷键" class="headerlink" title="四、Windows Terminal快捷键"></a>四、Windows Terminal 快捷键</h3><p>默认情况针对于 Windows Terminal 的快捷键为：</p><ul><li>SHIFT + ALT + ‘-‘ ：水平分割，以创建一个新窗口</li><li> SHIFT + ALT + ‘+’ ：垂直分割，以创建一个新窗口</li><li> CTRL + SHIFT + ‘W’ ：关闭此时所处的窗口</li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/Linux/">Linux</category>
+      
+      
+      <category domain="https://hyper18.github.io/tags/%E9%85%8D%E7%BD%AE/">配置</category>
+      
+      
+      <comments>https://hyper18.github.io/2023/10/12/Windows%20Terminal%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%80%E4%BA%8C%E4%BA%8B/#disqus_thread</comments>
       
     </item>
     
@@ -600,39 +625,6 @@
       
       
       <comments>https://hyper18.github.io/2022/01/08/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%B8%80%EF%BC%89/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Python 网络爬虫（1）</title>
-      <link>https://hyper18.github.io/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/</link>
-      <guid>https://hyper18.github.io/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/</guid>
-      <pubDate>Sat, 27 Nov 2021 01:55:52 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;ul&gt;
-&lt;</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul><li>按照一定规则，自动抓取万维网信息的程序或脚本</li></ul><h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul><li><strong>通用网络爬虫（General Purpose Web Crawler）</strong>：根据一个种子 url 链接，扩展至整个 web 页面进行爬取，主要有深度优先爬行策略和广度优先爬行策略（<em>见：数据结构与算法</em>），应用于大型搜索引擎中</li><li><strong>聚焦网络爬虫（Focused Crawler）</strong>：有目的性地进行爬取，将爬取目标定位在与主题相关的页面中，主要有基于内容评价、基于链接评价、基于增强学习、语境图和关于聚焦网络爬虫具体的爬行策略，主要应用在对特定信息的爬取中</li><li><strong>增量式网络爬虫（Incremental Web Crawler）</strong>：是指对已下载网页采取增量式更新和只爬行新产生的或者已经发生变化网页的爬虫，在更新的时候只更新改变的地方，而未改变的地方则不更新。它能够在一定程度上保证所爬行的页面是尽可能新的页面深度网络爬虫</li><li><strong>深层网络爬虫（Deep Web Crawler）</strong>：需要提交表单信息的，或者需要传递一些关键词才可以访问这个数据。最重要的部分即为表单填写部分，主要有基于领域知识的表单填写与基于网页结构分析的表单填写两种类型</li></ul><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p><img data-src="/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/爬虫基本原理.png"></p><h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><h4 id="数据的分类"><a href="#数据的分类" class="headerlink" title="数据的分类"></a>数据的分类</h4><ul><li>用广产生的数据，微信数据、抖音</li><li>政府的数据</li><li>公司管理的数据：聚合</li><li>自己爬取的数据</li></ul><h4 id="数据的用途"><a href="#数据的用途" class="headerlink" title="数据的用途"></a>数据的用途</h4><ul><li>人工智能、机器学习、数据分析 etc.</li></ul><h4 id="robots协议"><a href="#robots协议" class="headerlink" title="robots协议"></a>robots 协议</h4><ul><li>网站和爬虫协商的协议，网站中某些站点不允许爬虫的访问</li></ul><h4 id="反爬取措施"><a href="#反爬取措施" class="headerlink" title="反爬取措施"></a>反爬取措施</h4><ul><li>验证码<ul><li>手机验证码</li><li>静态（图片验证、文字）/ 动态（苹果动态验证）</li></ul></li><li>ip 检测与封禁</li><li>文字混淆、js 加密</li><li>点击验证、滑块验证、滑动轨迹</li><li> cookie：身份校验</li><li>防盗链 referer host</li></ul><h4 id="URL的组成"><a href="#URL的组成" class="headerlink" title="URL的组成"></a>URL 的组成</h4><ul><li>统一资源定位符：<a href="https://baike.baidu.com">https://baike.baidu.com</a></li><li> 协议：https</li><li> 域名：baike.baidu. com</li><li> 端口：443</li><li> 查询路径：/item/url</li><li> 查询参数：wd=url</li><li> 锚点<ul><li>网页中，当前页面进行锚点定位</li><li>作用在网址的导航</li></ul></li></ul><h4 id="静态数据和动态数据"><a href="#静态数据和动态数据" class="headerlink" title="静态数据和动态数据"></a>静态数据和动态数据</h4><ul><li>静态数据：爬取的数据，在 html 源码中，并且这个页面是个静态页面</li><li>动态数据：通过一定条件触发的、二次加载的数据</li></ul><h3 id="Chrome调试"><a href="#Chrome调试" class="headerlink" title="Chrome调试"></a>Chrome 调试</h3><ul><li>User-Agent：身份标识</li></ul><h4 id="cookie-amp-session"><a href="#cookie-amp-session" class="headerlink" title="cookie&amp;session"></a>cookie&amp;session</h4><p><img data-src="/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/查看当前网站使用cookie.png"></p>]]></content:encoded>
-      
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/Python/">Python</category>
-      
-      <category domain="https://hyper18.github.io/categories/%E7%AC%94%E8%AE%B0/Python/%E7%88%AC%E8%99%AB/">爬虫</category>
-      
-      
-      <category domain="https://hyper18.github.io/tags/Python/">Python</category>
-      
-      <category domain="https://hyper18.github.io/tags/%E7%88%AC%E8%99%AB/">爬虫</category>
-      
-      
-      <comments>https://hyper18.github.io/2021/11/27/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%EF%BC%881%EF%BC%89/#disqus_thread</comments>
       
     </item>
     
