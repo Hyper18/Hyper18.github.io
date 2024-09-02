@@ -25,16 +25,16 @@
     var CONFIG = {"hostname":"hyper18.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":{"livere":{"order":-1}},"activeClass":"livere"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="一、程序计数器 def 一块较小的内存空间，可看作当前线程所执行字节码的行号指示器 作用 用来存储指向下一条指令的地址，供执行引擎读取 类比物理寄存器的 PC，JVM 中的 PC 寄存器是它的抽象模拟    1. 特点 线程私有，生命周期和线程一致 每个线程都有其程序计数器，互不影响、独立存储   程序控制流的指示器：分支、循环、跳转、异常处理、线程恢复等功能都依赖其完成 根据线程正在执行方法的">
+  <meta name="description" content="一、程序计数器 def 一块较小的内存空间，可看作当前线程所执行字节码的行号指示器 作用 用来存储指向下一条指令的地址，供执行引擎读取 直观的说法是，程序计数器用于记录当前代码执行的位置 类比物理寄存器的 PC，JVM 中的 PC 寄存器是它的抽象模拟    1. 特点 线程私有，生命周期和线程一致 每个线程都有其程序计数器，互不影响、独立存储   程序控制流的指示器：分支、循环、跳转、异常处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 内存区域">
 <meta property="og:url" content="https://hyper18.github.io/2022/10/28/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/index.html">
 <meta property="og:site_name" content="Hyper の 个人博客">
-<meta property="og:description" content="一、程序计数器 def 一块较小的内存空间，可看作当前线程所执行字节码的行号指示器 作用 用来存储指向下一条指令的地址，供执行引擎读取 类比物理寄存器的 PC，JVM 中的 PC 寄存器是它的抽象模拟    1. 特点 线程私有，生命周期和线程一致 每个线程都有其程序计数器，互不影响、独立存储   程序控制流的指示器：分支、循环、跳转、异常处理、线程恢复等功能都依赖其完成 根据线程正在执行方法的">
+<meta property="og:description" content="一、程序计数器 def 一块较小的内存空间，可看作当前线程所执行字节码的行号指示器 作用 用来存储指向下一条指令的地址，供执行引擎读取 直观的说法是，程序计数器用于记录当前代码执行的位置 类比物理寄存器的 PC，JVM 中的 PC 寄存器是它的抽象模拟    1. 特点 线程私有，生命周期和线程一致 每个线程都有其程序计数器，互不影响、独立存储   程序控制流的指示器：分支、循环、跳转、异常处理">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://hyper18.github.io/2022/10/28/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/Java虚拟机运行时数据区.png">
 <meta property="article:published_time" content="2022-10-28T11:53:52.000Z">
-<meta property="article:modified_time" content="2023-10-28T13:14:38.290Z">
+<meta property="article:modified_time" content="2024-08-30T06:30:28.082Z">
 <meta property="article:author" content="Hyperspace">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="JVM">
@@ -353,7 +353,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-28 21:14:38" itemprop="dateModified" datetime="2023-10-28T21:14:38+08:00">2023-10-28</time>
+                <time title="修改时间：2024-08-30 14:30:28" itemprop="dateModified" datetime="2024-08-30T14:30:28+08:00">2024-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -386,7 +386,7 @@ mjx-container[display="true"] + br {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -409,6 +409,7 @@ mjx-container[display="true"] + br {
 <h2 id="一、程序计数器"><a href="#一、程序计数器" class="headerlink" title="一、程序计数器"></a>一、程序计数器</h2><ul>
 <li>def 一块较小的内存空间，可看作当前线程所执行字节码的<strong>行号指示器</strong></li>
 <li>作用 用来存储指向下一条指令的地址，供执行引擎读取<ul>
+<li>直观的说法是，程序计数器用于记录当前代码执行的位置</li>
 <li>类比物理寄存器的 PC，JVM 中的 PC 寄存器是它的抽象模拟</li>
 </ul>
 </li>
@@ -450,7 +451,7 @@ mjx-container[display="true"] + br {
 <li>主要用于保存计算的中间结果，并作为计算过程中变量的临时存储空间</li>
 </ul>
 </li>
-<li>动态链接（Dynamic Linking）：每一个栈帧内部都包含一个指向运行时常量池中，该栈帧所属方法的引用，以实现动态链接</li>
+<li>动态链接（Dynamic Linking）：每个栈帧内部均包含一个可指向<strong>当前方法所在类的运行时常量池</strong>，该栈帧所属方法的引用，以实现动态链接</li>
 <li>方法返回地址（Return Address）：存放调用该方法的程序计数器的值<ul>
 <li>正常返回出口：返回值传递给上层的方法调用者</li>
 <li>异常返回出口：不产生任何返回值</li>
@@ -484,14 +485,27 @@ mjx-container[display="true"] + br {
 </blockquote>
 <h2 id="四、堆"><a href="#四、堆" class="headerlink" title="四、堆"></a>四、堆</h2><ul>
 <li>作用 存放对象实例，几乎所有对象实例和数据均在此分配内存</li>
+<li>注：JDK1.7 后，字符串常量池从方法区移动到了堆中</li>
 </ul>
 <h3 id="1-特点-3"><a href="#1-特点-3" class="headerlink" title="1. 特点"></a>1. 特点</h3><ul>
+<li>所有线程共享</li>
 <li>是虚拟机所管理的最大一块内存</li>
+</ul>
+<h2 id="五、方法区"><a href="#五、方法区" class="headerlink" title="五、方法区"></a>五、方法区</h2><ul>
+<li>作用 存储已被虚拟机加载的类信息、常量、静态变量、即时编译器的代码缓存等数据</li>
+</ul>
+<h3 id="1-特点-4"><a href="#1-特点-4" class="headerlink" title="1. 特点"></a>1. 特点</h3><ul>
+<li>所有线程共享</li>
+</ul>
+<h3 id="2-方法区的构成"><a href="#2-方法区的构成" class="headerlink" title="2. 方法区的构成"></a>2. 方法区的构成</h3><ul>
+<li>类信息表</li>
+<li>运行时常量池</li>
 </ul>
 <p>参考资料：</p>
 <ol>
 <li>《深入理解 Java 虚拟机（第 3 版）》，周志明著 </li>
 <li><a target="_blank" rel="noopener" href="https://www.pdai.tech/md/java/jvm/java-jvm-struct.html">JVM 基础 - JVM 内存结构 | Java 全栈知识体系 (pdai.tech)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Er4y1r7as">Java JVM 虚拟机 已完结（IDEA 2021 版本）4K 蓝光画质 全程劝退</a></li>
 </ol>
 
     </div>
@@ -623,7 +637,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-text">一、程序计数器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%89%B9%E7%82%B9"><span class="nav-text">1. 特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-text">2. 相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Q1%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8%E8%A2%AB%E8%AE%BE%E5%AE%9A%E4%B8%BA%E7%BA%BF%E7%A8%8B%E7%A7%81%E6%9C%89%E7%9A%84"><span class="nav-text">Q1：为什么程序计数器被设定为线程私有的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q2%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8PC%E5%AF%84%E5%AD%98%E5%99%A8%E8%AE%B0%E5%BD%95%E5%BD%93%E5%89%8D%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%E5%9C%B0%E5%9D%80"><span class="nav-text">Q2：为什么使用 PC 寄存器记录当前线程的执行地址</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="nav-text">二、虚拟机栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%89%B9%E7%82%B9-1"><span class="nav-text">1. 特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%A0%88%E5%B8%A7%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-text">2. 栈帧的构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-text">3. 相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Q1%EF%BC%9A%E6%A0%88%E5%B8%A7%E7%9A%84%E5%88%9B%E5%BB%BA-%E9%94%80%E6%AF%81%E6%97%B6%E6%9C%BA"><span class="nav-text">Q1：栈帧的创建 &#x2F; 销毁时机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q2%EF%BC%9A%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AE%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E8%A1%A8%E4%B8%AD%E4%B8%80%E4%B8%AA-64bit%E7%9A%84%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%80%BC"><span class="nav-text">Q2：如何访问局部变量表中一个 64bit 的局部变量值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-text">三、本地方法栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%89%B9%E7%82%B9-2"><span class="nav-text">1. 特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%8E%A5%E5%8F%A3%EF%BC%8CJNI"><span class="nav-text">2. 本地方法接口，JNI</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%A0%86"><span class="nav-text">四、堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%89%B9%E7%82%B9-3"><span class="nav-text">1. 特点</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-text">一、程序计数器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%89%B9%E7%82%B9"><span class="nav-text">1. 特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-text">2. 相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Q1%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8%E8%A2%AB%E8%AE%BE%E5%AE%9A%E4%B8%BA%E7%BA%BF%E7%A8%8B%E7%A7%81%E6%9C%89%E7%9A%84"><span class="nav-text">Q1：为什么程序计数器被设定为线程私有的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q2%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8PC%E5%AF%84%E5%AD%98%E5%99%A8%E8%AE%B0%E5%BD%95%E5%BD%93%E5%89%8D%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%E5%9C%B0%E5%9D%80"><span class="nav-text">Q2：为什么使用 PC 寄存器记录当前线程的执行地址</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="nav-text">二、虚拟机栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%89%B9%E7%82%B9-1"><span class="nav-text">1. 特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%A0%88%E5%B8%A7%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-text">2. 栈帧的构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-text">3. 相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Q1%EF%BC%9A%E6%A0%88%E5%B8%A7%E7%9A%84%E5%88%9B%E5%BB%BA-%E9%94%80%E6%AF%81%E6%97%B6%E6%9C%BA"><span class="nav-text">Q1：栈帧的创建 &#x2F; 销毁时机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q2%EF%BC%9A%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AE%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E8%A1%A8%E4%B8%AD%E4%B8%80%E4%B8%AA-64bit%E7%9A%84%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%80%BC"><span class="nav-text">Q2：如何访问局部变量表中一个 64bit 的局部变量值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-text">三、本地方法栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%89%B9%E7%82%B9-2"><span class="nav-text">1. 特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%8E%A5%E5%8F%A3%EF%BC%8CJNI"><span class="nav-text">2. 本地方法接口，JNI</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%A0%86"><span class="nav-text">四、堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%89%B9%E7%82%B9-3"><span class="nav-text">1. 特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-text">五、方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%89%B9%E7%82%B9-4"><span class="nav-text">1. 特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%96%B9%E6%B3%95%E5%8C%BA%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-text">2. 方法区的构成</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -710,7 +724,7 @@ mjx-container[display="true"] + br {
 <div class="copyright">
   
   &copy; 2020 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

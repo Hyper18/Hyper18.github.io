@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://hyper18.github.io/2023/10/21/WSL2%E9%83%A8%E7%BD%B2Ubuntu-20-04%E5%8F%8A%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/5_获取conda的清华源channel.png">
 <meta property="og:image" content="https://hyper18.github.io/2023/10/21/WSL2%E9%83%A8%E7%BD%B2Ubuntu-20-04%E5%8F%8A%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/6_开启Docker中的WSL集成开关.png">
 <meta property="article:published_time" content="2023-10-21T12:40:18.000Z">
-<meta property="article:modified_time" content="2023-10-28T13:55:04.911Z">
+<meta property="article:modified_time" content="2024-08-30T07:07:53.969Z">
 <meta property="article:author" content="Hyperspace">
 <meta property="article:tag" content="配置">
 <meta property="article:tag" content="Linux">
@@ -359,7 +359,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-28 21:55:04" itemprop="dateModified" datetime="2023-10-28T21:55:04+08:00">2023-10-28</time>
+                <time title="修改时间：2024-08-30 15:07:53" itemprop="dateModified" datetime="2024-08-30T15:07:53+08:00">2024-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -388,14 +388,14 @@ mjx-container[display="true"] + br {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.7k</span>
+              <span>8.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>7 分钟</span>
             </span>
             <div class="post-description">在WSL2中部署Ubuntu-20.04，配置C/C++和Python的开发环境，安装OpenSSL、Docker……</div>
 
@@ -437,9 +437,14 @@ mjx-container[display="true"] + br {
 </ul>
 <figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ubuntu2004.exe config --default-user hyper</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="2-基本配置"><a href="#2-基本配置" class="headerlink" title="2. 基本配置"></a>2. 基本配置</h4><ul>
-<li>换用清华源 </li>
+<li>首先查看系统版本 </li>
 </ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>根据系统版本换用清华源 </li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># Ubuntu 20.04</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># Ubuntu 22.04</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ jammy-security main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ jammy-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ jammy-updates main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ jammy-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ jammy-proposed main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ jammy-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse</span><br><span class="line"># deb-src http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>更新 </li>
 </ul>
@@ -495,6 +500,8 @@ mjx-container[display="true"] + br {
 </ul>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/hyper/software/Qt5.14.2/Tools/QtCreator/bin</span><br><span class="line">./qtcreator</span><br></pre></td></tr></tbody></table></figure>
 <p><img data-src="/2023/10/21/WSL2%E9%83%A8%E7%BD%B2Ubuntu-20-04%E5%8F%8A%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/4_验证Qtcreator.png" alt></p>
+<h4 id="3-Cmake"><a href="#3-Cmake" class="headerlink" title="3. Cmake"></a>3. Cmake</h4><p><a target="_blank" rel="noopener" href="https://github.com/Kitware/CMake/releases/">https://github.com/Kitware/CMake/releases/</a></p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install cmake</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="三、OpenSSL"><a href="#三、OpenSSL" class="headerlink" title="三、OpenSSL"></a>三、OpenSSL</h3><ul>
 <li>查看通过 WSL2 下载的 Ubuntu 中自带的 openssl 位置 </li>
 </ul>
@@ -593,14 +600,43 @@ mjx-container[display="true"] + br {
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></tbody></table></figure>
 <p>Output</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"><span class="meta"> $</span><span class="bash"> docker run -it ubuntu bash</span></span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="六、其他密码学库"><a href="#六、其他密码学库" class="headerlink" title="六、其他密码学库"></a>六、其他密码学库</h3><h4 id="1-GMP"><a href="#1-GMP" class="headerlink" title="1. GMP"></a>1. GMP</h4><p><a target="_blank" rel="noopener" href="https://gmplib.org/">https://gmplib.org/</a></p>
+<ul>
+<li> 解压 </li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xf gmp-6.3.0.tar.xz -C ../software/</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>确保已安装 g++ 和 m4</li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install g++</span><br><span class="line">sudo apt install m4</span><br><span class="line">g++ -v</span><br><span class="line">m4 --v</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>进入目录安装 </li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make check</span><br><span class="line">sudo make install</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>更新共享库的链接和缓存，使系统能够正确加载动态链接共享库。否则，后续安装 NTL 库时会出现 <code>version number mismatch: inconsistency between gmp.h and libgmp</code> 报错 </li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ldconfig</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="2-NTL"><a href="#2-NTL" class="headerlink" title="2. NTL"></a>2. NTL</h4><p><a target="_blank" rel="noopener" href="https://libntl.org/download.html">https://libntl.org/download.html</a></p>
+<ul>
+<li> 解压 </li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xzvf ntl-11.5.1.tar.gz -C ../software/</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>进入 src 子目录，安装 </li>
+</ul>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make check</span><br><span class="line">sudo make install</span><br></pre></td></tr></tbody></table></figure>
 <p>参考文章</p>
 <ol>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37605642/article/details/127812965?spm=1001.2014.3001.5506">【精选】【WSL2 教程】WSL 迁移到非系统盘_wsl2 迁移_花花少年的博客 - CSDN 博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37605642/article/details/127812965?spm=1001.2014.3001.5506">【WSL2 教程】WSL 迁移到非系统盘_wsl2 迁移_花花少年的博客 - CSDN 博客</a></li>
 <li><a target="_blank" rel="noopener" href="https://docs.hostnextra.com/how-to-install-openssl-3-on-ubuntu/">How To Install OpenSSL 3 on Ubuntu 22.04 - HostnExtra</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Baby_of_breath/article/details/124041687?spm=1001.2014.3001.5506">【精选】ubuntu 安装 Miniconda_Baby_of_breath 的博客 - CSDN 博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Baby_of_breath/article/details/124041687?spm=1001.2014.3001.5506">ubuntu 安装 Miniconda_Baby_of_breath 的博客 - CSDN 博客</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Morgandas/article/details/113184920?spm=1001.2014.3001.5506">Ubuntu20.04 安装 Qt5.14.2~ 遇到问题 “段错误 (核心已转储)” “qt.qpa.plugin: Could not load the Qt platform plugin “xcb”“_qtcreator 已放弃核心已转储 - CSDN 博客</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/iuu77/article/details/129229361?spm=1001.2014.3001.5506">cmake 使用详细教程（日常使用这一篇就足够了）_cmake 教程_李吱恩的博客 - CSDN 博客</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/636915049">基于 WSL2 的 VeighNa Docker 安装指南 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45599342/article/details/121293041">在 Ubuntu 上安装 NTL 库以及编译测试</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/50046463/version-number-mismatch-inconsistency-between-gmp-h-and-libgmp">Version number mismatch: inconsistency between gmp.h and libgmp</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013671216/article/details/124499323">ntl - 安装及使用</a></li>
 </ol>
 
     </div>
@@ -721,7 +757,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81WSL%E9%85%8D%E7%BD%AE"><span class="nav-text">一、WSL 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%BB%8E%E7%B3%BB%E7%BB%9F%E7%9B%98%E8%BF%81%E7%A7%BB"><span class="nav-text">1. 从系统盘迁移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="nav-text">2. 基本配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81C-C-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">二、C&#x2F;C++ 开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-VS-Code"><span class="nav-text">1. VS Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Qt"><span class="nav-text">2. Qt</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81OpenSSL"><span class="nav-text">三、OpenSSL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Python%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">四、Python 开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-miniconda"><span class="nav-text">1. miniconda</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-pip"><span class="nav-text">2. pip</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81Docker"><span class="nav-text">五、Docker</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81WSL%E9%85%8D%E7%BD%AE"><span class="nav-text">一、WSL 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%BB%8E%E7%B3%BB%E7%BB%9F%E7%9B%98%E8%BF%81%E7%A7%BB"><span class="nav-text">1. 从系统盘迁移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="nav-text">2. 基本配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81C-C-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">二、C&#x2F;C++ 开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-VS-Code"><span class="nav-text">1. VS Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Qt"><span class="nav-text">2. Qt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Cmake"><span class="nav-text">3. Cmake</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81OpenSSL"><span class="nav-text">三、OpenSSL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Python%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">四、Python 开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-miniconda"><span class="nav-text">1. miniconda</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-pip"><span class="nav-text">2. pip</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81Docker"><span class="nav-text">五、Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%85%B6%E4%BB%96%E5%AF%86%E7%A0%81%E5%AD%A6%E5%BA%93"><span class="nav-text">六、其他密码学库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-GMP"><span class="nav-text">1. GMP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-NTL"><span class="nav-text">2. NTL</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -808,7 +844,7 @@ mjx-container[display="true"] + br {
 <div class="copyright">
   
   &copy; 2020 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
