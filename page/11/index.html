@@ -243,17 +243,17 @@ mjx-container[display="true"] + br {
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">37</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">40</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">25</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">26</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">53</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">57</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -313,6 +313,1844 @@ mjx-container[display="true"] + br {
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%AB%98%E7%BA%A7%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyperspace">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyper の 个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%AB%98%E7%BA%A7%E7%AF%87/" class="post-title-link" itemprop="url">数据库操作（四）—— 高级篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-06 20:39:34" itemprop="dateCreated datePublished" datetime="2020-08-06T20:39:34+08:00">2020-08-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-30 13:57:07" itemprop="dateModified" datetime="2022-06-30T13:57:07+08:00">2022-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="高级操作-第22-30章">高级操作 第 22 - 30 章</h2>
+<h3 id="视图">视图</h3>
+<p>1、def：虚拟表，仅包含使用时动态检索的一个 SQL 查询</p>
+<p>2、规则</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>必须唯一命名</p>
+</li>
+<li class="lvl-2">
+<p>需要访问权限</p>
+</li>
+<li class="lvl-2">
+<p>视图可嵌套</p>
+</li>
+<li class="lvl-2">
+<p>视图中的 ORDER BY 语句会被检索中的 ORDER BY（如果有）覆盖</p>
+</li>
+<li class="lvl-2">
+<p>不可添加索引或触发器、默认值，但可与表一同使用</p>
+</li>
+</ul>
+<p>3、使用</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>创建：CREATE VIEW</p>
+</li>
+<li class="lvl-2">
+<p>查看所创建视图：SHOW CREATE VIEW viewname</p>
+</li>
+<li class="lvl-2">
+<p>删除视图：DROP VIEW viewname</p>
+</li>
+<li class="lvl-2">
+<p>过滤视图、简化计算字段</p>
+</li>
+</ul>
+<p>4、重新格式化检索出的数据</p>
+<p>把多次需要的结果通过转化为视图存放</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW vendorlocations AS</span><br><span class="line">SELECT Concat(RTrim(vend_name),'(', RTrim(vend_country),')')</span><br><span class="line">		AS vend_title</span><br><span class="line">FROM vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></tbody></table></figure>
+<p>再次检索出数据：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM vendorlocations;</span><br></pre></td></tr></tbody></table></figure>
+<p>5、更新视图：CREATE OR REPLACE VIEW</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>以下情况视图不可更新：</p>
+<ul class="lvl-2">
+<li class="lvl-4">存在 GRUOP BY 分组</li>
+<li class="lvl-4">联结、子查询、并</li>
+<li class="lvl-4">聚集函数、DISTINCT</li>
+<li class="lvl-4"> 导出计算列</li>
+</ul>
+</li>
+</ul>
+<h3 id="存储过程">存储过程</h3>
+<p>1、使用原因</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>封装处理，简化操作、提高性能</p>
+</li>
+<li class="lvl-2">
+<p>无需反复建立处理步骤，保证了数据完整性</p>
+</li>
+<li class="lvl-2">
+<p>简化变动管理 - 安全性</p>
+</li>
+</ul>
+<p>2、执行存储过程：CALL</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CALL productpricing(@pricelow,</span><br><span class="line">                   @pricehigh,</span><br><span class="line">                   @priceaverage);</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>mysql 中所有变量名都必须以 @开始</p>
+</li>
+<li class="lvl-2">
+<p>mysql 中注释以–开头</p>
+</li>
+</ul>
+<p>3、创建存储过程：CREATE PROCEDURE</p>
+<p>创建一个新的存储过程，没有返回数据：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE PROCEDURE productpricing()</span><br><span class="line">BEGIN</span><br><span class="line">	SELECT Avg(prod_price) AS priceaverage</span><br><span class="line">	FROM products;</span><br><span class="line">END;</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>DELEMITER：指定新的语句分隔符，避免；被 mysql 命令行实用程序解释为存储过程的成分</p>
+</li>
+</ul>
+<p>4、删除存储过程：DROP PROCEDURE</p>
+<p>5、使用参数</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>存储过程的参数允许的数据类型与表中一致</p>
+<ul class="lvl-2">
+<li class="lvl-4">记录集不是允许的类型。记录集：从指定数据库中检索到的数据的集合</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>创建布尔值：IN 参数名 BOOLEAN</p>
+</li>
+<li class="lvl-2">
+<p>IF / ELSEIF / ELSE 子句</p>
+</li>
+</ul>
+<p>6、检查存储过程：SHOW CREATE PROCEDURE</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>获取详细信息的存储过程列表：SHOW PROCUDURE STATUS</p>
+</li>
+</ul>
+<h3 id="游标-cursor">游标 cursor</h3>
+<p>1、使用游标</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>必须先声明再打开，结束后关闭</p>
+</li>
+<li class="lvl-2">
+<p>创建与访问：DECLARE / FETCH</p>
+</li>
+<li class="lvl-2">
+<p>打开与关闭：OPEN / CLOSE CURSOR</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CREATE PROCEDURE processorders()</span><br><span class="line">BEGIN</span><br><span class="line">	DECLARE ordernumbers CURSOR</span><br><span class="line">	FOR</span><br><span class="line">	SELECT order_num FROM orders</span><br><span class="line">END;</span><br><span class="line"></span><br><span class="line">-- 打开游标</span><br><span class="line">OPEN ordernumbers;</span><br><span class="line">-- 关闭游标</span><br><span class="line">CLOSE ordernumbers;</span><br><span class="line">-- 检索order_num列到一名为o的局部变量中（不处理检索出的数据）</span><br><span class="line">FETCH ordernumbers INTO o;</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>UNTIL done END REPEAT：反复执行直到布尔值 done 为真</p>
+<ul class="lvl-2">
+<li class="lvl-4">手动退出：LEAVE</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>CONTINUE HANDLER：条件出现时才被执行</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DECLARE done BOOLEAN DEFAULT 0;</span><br><span class="line">DECLARE CONTINUE HANDLER FOR SQLSTATE ‘02000’ SET done = 1;</span><br></pre></td></tr></tbody></table></figure>
+<p>说明在 SQLSTATE ‘02000’出现时，把 done 的值从默认值 0 设置为 1</p>
+<p>2、DECLARE 的次序</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>定义顺序：DECLARE 定义的局部变量 - 游标 - 句柄</p>
+<ul class="lvl-2">
+<li class="lvl-4">句柄（Handle）：用来标识对象或者项目的标识符</li>
+</ul>
+</li>
+</ul>
+<h3 id="触发器">触发器</h3>
+<p>1、需给出信息：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>最好每个数据库中触发器名称唯一</p>
+</li>
+<li class="lvl-2">
+<p>关联表</p>
+</li>
+<li class="lvl-2">
+<p>应响应活动与执行时机</p>
+</li>
+</ul>
+<p>2、创建：CREATE TRIGGER</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>相应以下任意语句：DELETE INSERT UPDATE</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER newproduct AFTER INSERT ON products</span><br><span class="line">FOR EACH ROW SELECT 'Product added'</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>仅表可用触发器，视图不行</p>
+<ul class="lvl-2">
+<li class="lvl-4">每张表最多支持 6 个触发器（3 种语句 * 2 个时机）</li>
+<li class="lvl-4">某时机前触发 BEFORE 失败：则若有 AFTER 触发器，默认不执行</li>
+</ul>
+</li>
+</ul>
+<p>3、删除：DROP TRIGGER</p>
+<p>4、使用</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>可引用 NEW 虚拟表，以访问被插入行</p>
+<ul class="lvl-2">
+<li class="lvl-4">可在 BEFORE INSERT 触发器中更新 NEW 表中的值</li>
+<li class="lvl-4">对于 AUTO_INCREMENT，INSERT 前置 0，后为新值</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>DELETE 触发器可引用 OLD 访问被删除行</p>
+<ul class="lvl-2">
+<li class="lvl-4">仅只读，不可再更新</li>
+<li class="lvl-4"> BEFORE DELETE 相对 AFTER ~ 优点：不可存档，DELETE 本身将被放弃 </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER deleteorder BEFORE DELETE ON orders</span><br><span class="line">FOR EACH ROW </span><br><span class="line">BEGIN</span><br><span class="line">	INSERT INTO archive_orders(order_num, order_date, cust_id);</span><br><span class="line">	VALUES(OLD.order_num, OLD.order_date, OLD.cust_id);</span><br><span class="line">END;</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>UPDATE 触发器可用 NEW、OLD</p>
+<ul class="lvl-2">
+<li class="lvl-4">BEFORE UPDATE 触发器中，NEW 中可改动的 UPDATE 值可被更新</li>
+<li class="lvl-4"> OLD 表仅可读，不可更新</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>触发器是自动执行的，可能需要特殊权限</p>
+</li>
+<li class="lvl-2">
+<p>不支持在触发器中使用 CALL 语句</p>
+</li>
+</ul>
+<p>5、展望</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>内容仍较初级，有诸多改进空间</p>
+</li>
+<li class="lvl-2">
+<p>可用于保证数据一致性、创建审计跟踪</p>
+</li>
+</ul>
+<h3 id="事务处理-transaction-processing">事务处理 transaction processing</h3>
+<p>1、一些概念</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>事务：一组 SQL 语句</p>
+</li>
+<li class="lvl-2">
+<p>回退 rollback：撤销指定语句的过程</p>
+</li>
+<li class="lvl-2">
+<p>（隐含）提交 commit：（自动）将未存储语句写入表</p>
+</li>
+<li class="lvl-2">
+<p>保留点 savepoint：设置的临时占位符（placeholder），可回退</p>
+</li>
+</ul>
+<p>2、使用事务处理</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-- 回退</span><br><span class="line">SELECT * FROM ordertotals;</span><br><span class="line">START TRANSACTION;</span><br><span class="line">DELETE FROM ordertotals;</span><br><span class="line">SELECT * FROM ordertotals;</span><br><span class="line">ROLLBACK;</span><br><span class="line">SELECT * FROM ordertotals;</span><br><span class="line"></span><br><span class="line">-- 提交（例中两个DELETE都返回成功才COMMIT）</span><br><span class="line">START TRANSACTION;</span><br><span class="line">DELETE FROM orderitems WHERE order_num = 20010;</span><br><span class="line">DELETE FROM orders WHERE order_num = 20010;</span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line">-- 使用保留点</span><br><span class="line">SAVEPOINT delete1;</span><br><span class="line">ROLLBACK TO delete1;</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>回退后不再显示空结果</p>
+</li>
+<li class="lvl-2">
+<p>三种操作执行流结束后事务均会自动关闭</p>
+</li>
+<li class="lvl-2">
+<p>保留点个数越多越好，灵活回退</p>
+</li>
+</ul>
+<p>3、更改默认的提交行为</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>仅针对每个连接，不针对服务器</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 此时不自动提交</span><br><span class="line">SET autocommit =  0;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="全球化与本地化">* 全球化与本地化</h3>
+<p>1、使用</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>显示字符集、校对顺序：SHOW CHARACTER SET / COLLATION；</p>
+</li>
+<li class="lvl-2">
+<p>显示特定字符集：SHOW VARIABLES LIKE ‘character%’；</p>
+</li>
+<li class="lvl-2">
+<p>与创建表不同的校对顺序查询</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM customers;</span><br><span class="line">ORDER BY lastname, firstname, CLLATE latin1_general_cs;</span><br></pre></td></tr></tbody></table></figure>
+<p>2、串在字符集间的转换：Cast () / Conver () 函数</p>
+<h3 id="安全管理">安全管理</h3>
+<p>1、访问控制</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>谨慎使用 root 登录</p>
+</li>
+<li class="lvl-2">
+<p>给予用户适当的访问权</p>
+</li>
+</ul>
+<p>2、管理用户</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>获取所用用户列表</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">USE mysql；</span><br><span class="line">SELECT user FROM user；</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>创建用户账号</p>
+<ul class="lvl-2">
+<li class="lvl-4">IDENTIFIED BY：指定纯文本口令</li>
+<li class="lvl-4">或使用 GRANT / INSERT 语句（不好）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER bob IDENTIFIED BY 'mypassword'</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>重命名：RENAME USER</p>
+</li>
+<li class="lvl-2">
+<p>删除：DROP USER</p>
+</li>
+<li class="lvl-2">
+<p>设置管理权限：SHOW GRANTS FOR 用户名</p>
+<ul class="lvl-2">
+<li class="lvl-4">* 表示无权限</li>
+</ul>
+</li>
+</ul>
+<p>3、GRANT / REVOKE 语句</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>需给出的信息：需授予权限 所需库或表 用户名</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 给予权限</span><br><span class="line">SHOW GRANTS FOR bob;</span><br><span class="line">GRANT SELECT ON crashcourse.* to bob;</span><br><span class="line">-- 撤销权限</span><br><span class="line">REVOKE GRANTS FOR bob;</span><br><span class="line">REVOKE SELECT ON crashcourse.* to bob;</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>可更改权限（P202）</p>
+</li>
+<li class="lvl-2">
+<p>可提前设置授权：对所涉及对象，可不存在就设定权限</p>
+</li>
+<li class="lvl-2">
+<p>简化多次授权</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT SELECT, SELECT ON crashcourse.* TO bob;</span><br></pre></td></tr></tbody></table></figure>
+<p>4、更改口令：SET PASSWORD</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET PASSWORD FOR bob = PASSWORD('newpassword');</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="数据库维护">* 数据库维护</h3>
+<p>1、备份</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>使用 mysqldump 转储到外部文件</p>
+</li>
+<li class="lvl-2">
+<p>使用 mysqlhotcopy 复制到另一数据库</p>
+</li>
+<li class="lvl-2">
+<p>使用 BACKUP TABLE / SELECT INTO OUTFILE 转储</p>
+<ul class="lvl-2">
+<li class="lvl-4">复原：RESTORE TABLE</li>
+<li class="lvl-4"> 刷新：FLUSH TABLES，保证所有数据及索引被写入磁盘</li>
+</ul>
+</li>
+</ul>
+<p>2、维护</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>ANALYZE TABLE：检查表键是否正确</p>
+</li>
+<li class="lvl-2">
+<p>CHECK TABLE：检查各类问题</p>
+<ul class="lvl-2">
+<li class="lvl-4">CHANGED：最后一次检查以来改动的表</li>
+<li class="lvl-4"> ENTENDED：最彻底检查</li>
+<li class="lvl-4"> FAST：未正常关闭表</li>
+<li class="lvl-4"> MEDIUM：检验所有删除链接及键检验</li>
+<li class="lvl-4"> QUICK：快扫</li>
+</ul>
+</li>
+</ul>
+<p>3、诊断启动问题</p>
+<p>–safe-mode</p>
+<p>–help、–verbose：显示全文本消息</p>
+<p>4、日志文件</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>错误日志：hostname.err</p>
+</li>
+<li class="lvl-2">
+<p>查询日志：hostname.log</p>
+</li>
+<li class="lvl-2">
+<p>缓慢查询日志：hostname-slow.log</p>
+</li>
+</ul>
+<h3 id="改善性能">改善性能</h3>
+<p>1、EXPLAIN 语句：使 mysql 解释如何解释一条 SELECT 语句</p>
+<p>2、DELAYED 关键字：把控制立即返回给调用程序</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A0%B8%E5%BF%83%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyperspace">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyper の 个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%A0%B8%E5%BF%83%E7%AF%87/" class="post-title-link" itemprop="url">数据库操作（三）—— 核心篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-04 20:39:31" itemprop="dateCreated datePublished" datetime="2020-08-04T20:39:31+08:00">2020-08-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-30 13:57:05" itemprop="dateModified" datetime="2022-06-30T13:57:05+08:00">2022-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="核心操作-第14-21章">核心操作 第 14 - 21 章</h2>
+<h3 id="子查询-subquery">子查询 subquery</h3>
+<p>1、处理顺序：从内向外</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust-name, cust_contact</span><br><span class="line">FROM customers</span><br><span class="line">WHERE cust_id IN (SELECT cust_id</span><br><span class="line">                  FROM orders</span><br><span class="line">                  WHERE order_num IN (SELECT order_num</span><br><span class="line">                                     FROM orderitems</span><br><span class="line">                                     WHERE prod_id = 'TNT2'));</span><br></pre></td></tr></tbody></table></figure>
+<p>2、格式化：分解多行 适当缩进</p>
+<p>3、基本思想：将硬编码转换为子查询，减少代码量</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>列必须匹配：SELECT 子句和 WHERE 子句中的列数量相同</p>
+</li>
+<li class="lvl-2">
+<p>最常见：用于 WHERE 子句的 IN 操作符和填充计算列</p>
+</li>
+</ul>
+<p>4、相关子查询 correlated subquery</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>使用完全限定列名，指定调用 customers 表中该列名（否则默认自身比较，相当于自检）；若非完全限定引用一个具有二义性的列名，将返回错误</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WHERE orders.cust_id = customers.cust.id;</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>注意限制有歧义性的列名</p>
+</li>
+</ul>
+<h3 id="联结表">联结表</h3>
+<p>1、关系</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>主键 primary key：唯一标识</p>
+</li>
+<li class="lvl-2">
+<p>外键 foreign key：某个表的一列，包含另一表主键值</p>
+</li>
+</ul>
+<p>2、可伸缩性 scale well：可适应不断增加的工作量并良好运作</p>
+<p>3、创建联结（等值联结 equijoin）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price</span><br><span class="line">FROM vendors, products</span><br><span class="line">WHERE vendors.vend.id = products.vend.id</span><br><span class="line">ORDER BY vend_name, prod_name;</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>笛卡尔积：由没有联结条件的表关系返回的结果（def 离散）</p>
+<ul class="lvl-2">
+<li class="lvl-4">因而需保证所有联结都有 WHERE 子句</li>
+<li class="lvl-4">交叉联结 cross join</li>
+</ul>
+</li>
+</ul>
+<p>4、* 内部联结</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_name, prod_name, prod_price</span><br><span class="line">FROM vendors INNER JOIN products</span><br><span class="line">ON vendors.vend.id = products.vend_id;</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>联结条件：使用特定的 ON 子句给出</p>
+</li>
+</ul>
+<p>5、实例：相对子查询优化效率（具体问题具体分析）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM customers, orders, orderitems</span><br><span class="line">WHERE customers.cust_id = orders.cust_id</span><br><span class="line">	AND orderitems.order_num = orders.order_num</span><br><span class="line">	AND prod_id = 'TNT2';</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="高级联结">高级联结</h3>
+<p>1、使用表别名</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT Concat(RTrim(vend_name), '(', RTrim(vend_country), ')') AS</span><br><span class="line">vend_title</span><br><span class="line">FROM vendors</span><br><span class="line">ORDER BY vend_name;</span><br></pre></td></tr></tbody></table></figure>
+<p>作用：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>缩短语句</p>
+</li>
+<li class="lvl-2">
+<p>允许单条 SELECT 多次使用相同表，如：</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM customers AS a, orders AS i, orderitems AS ai</span><br><span class="line">WHERE a.cust_id = i.cust_id</span><br><span class="line">	AND ai.order_num = i.order_num</span><br><span class="line">	AND prod_id = 'TNT2';</span><br></pre></td></tr></tbody></table></figure>
+<p>2、自联结</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>作为外部语句来替代从相同表中检索使用的子查询</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT p1.prod_id, p1.prod_name</span><br><span class="line">FROM products AS p1, products AS p2</span><br><span class="line">WHERE p1.vend_id = p2.vend_id</span><br><span class="line">	AND p2.prod_id = 'DTNTR';</span><br></pre></td></tr></tbody></table></figure>
+<p>注：实际问题，效率需具体分析，不一定优于子查询</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT p1.prod_id, p1.prod_name</span><br><span class="line">FROM products</span><br><span class="line">WHERE vend_id = (SELECT vend_id</span><br><span class="line">                FROM products</span><br><span class="line">                WHERE prod_id = 'DTNTR');</span><br></pre></td></tr></tbody></table></figure>
+<p>3、自然联结</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>排除多次出现的列，仅使每个列返回一次（仅选择唯一列）</p>
+<ul class="lvl-2">
+<li class="lvl-4">通常对表使用通配符 SELECT *</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT c.*, o.order_num, o.order_date,</span><br><span class="line">		oi.prod_id, oi.quantity, OI.item_price</span><br><span class="line">FROM customers AS c, orders AS o, orderitems AS oi</span><br><span class="line">WHERE c.cust_id = o.cust_id</span><br><span class="line">	AND oi.order_num = o.order_num</span><br><span class="line">	AND prod_id = 'FB';</span><br></pre></td></tr></tbody></table></figure>
+<p>4、外部联结 OUTER JOIN （较少使用）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>联结包含了没有关联行的行</p>
+</li>
+<li class="lvl-2">
+<p>类型：左外部联结 右外部联结</p>
+<ul class="lvl-2">
+<li class="lvl-4">使用时需要用 RIGHT / LEFT 关键字指定行范围（从右 / 左侧的表中选择所有行）
+<ul class="lvl-4">
+<li class="lvl-6">mysql 不支持 *= 等一系列简化操作符！</li>
+</ul>
+</li>
+<li class="lvl-4">可通过颠倒 FROM / WHERE 子句互换使用</li>
+</ul>
+</li>
+</ul>
+<p>5、带聚集函数的联结</p>
+<h3 id="组合查询">组合查询</h3>
+<p>1、并 union：执行多个查询，将结果作为单个查询结果集返回</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>使用情景：单个查询从多个表返回类似数据；对单个表多个查询，按单个返回</p>
+</li>
+<li class="lvl-2">
+<p>多个 WHERE 子句的单条查询可以达到相同的作用</p>
+</li>
+<li class="lvl-2">
+<p>使用于较为复杂过滤条件</p>
+</li>
+</ul>
+<p>2、UNION 规则</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>由两条及以上 SELECT 语句构成</p>
+</li>
+<li class="lvl-2">
+<p>每个查询包含相同表达式</p>
+</li>
+<li class="lvl-2">
+<p>列数据类型兼容</p>
+</li>
+</ul>
+<p>3、功能</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>自动去重（默认）</p>
+<ul class="lvl-2">
+<li class="lvl-4">返回所有匹配行：UNION ALL</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>与 ORDER BY 排序：必须出现在最后一条 SELECT 语句后</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_id, prod_id, prod_price</span><br><span class="line">FROM products</span><br><span class="line">WHERE prod_price &lt;= 5</span><br><span class="line">UNION</span><br><span class="line">SELECT vend_id, prod_id, prod_price</span><br><span class="line">FROM products</span><br><span class="line">WHERE vend_id IN(1001, 1002)</span><br><span class="line">ORDER BY vend_id, prod_price;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="全文本搜索">全文本搜索</h3>
+<p>1、支持的数据库引擎：MyISAM（InnoDB 不支持）</p>
+<p>2、使用全文本搜索：随数据改变不断索引被搜索的列</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>FULLTEXT ()：索引列</p>
+<ul class="lvl-2">
+<li class="lvl-4">不要在导入数据使用，降低导入速率</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>Match ()：指定被搜索的列</p>
+<ul class="lvl-2">
+<li class="lvl-4">使用值必须与 FULLTEXT () 中定义相同</li>
+<li class="lvl-4">多个列索引，其次序与 FULLTEXT () 中保持一致</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>Against ()：指定要使用的搜索表达式</p>
+<ul class="lvl-2">
+<li class="lvl-4">文本中，靠前的行的给定词等级值高于后继</li>
+<li class="lvl-4">对多个搜索项，包含更多匹配词的行等级值更高</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>索引的搜索速度相当快</p>
+</li>
+</ul>
+<p>3、查询扩展</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT note_text</span><br><span class="line">FROM productnotes</span><br><span class="line">WHERE Match(note_text) Against('anvils' WITH QUERY EXPANSION);</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>步骤</p>
+<ul class="lvl-2">
+<li class="lvl-4">先进行全文本搜索</li>
+<li class="lvl-4">检查匹配行，判定<strong>有用</strong>词（与给定词相关词）</li>
+<li class="lvl-4">运用有用词和原给定词再次进行全文本搜索</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>文本行数越多，查询扩展结果越好</p>
+</li>
+</ul>
+<p>4、布尔文本搜索</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT note_text</span><br><span class="line">FROM productnotes</span><br><span class="line">WHERE Match(note_text) Against('heavy -rope*' IN BOOLEAN MODE)</span><br></pre></td></tr></tbody></table></figure>
+<p>匹配词 heavy，但排除任何包含以 rope 开始的词</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>布尔方式 boolean mode</p>
+<ul class="lvl-2">
+<li class="lvl-4">提供：匹配词 排斥词 排列提示 表达式分组 etc.</li>
+<li class="lvl-4"> 没有定义 FULLTEXT 索引也可使用</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>全文本布尔操作符（P128）</p>
+<ul class="lvl-2">
+<li class="lvl-4">如 + /- ：包含 / 排除</li>
+<li class="lvl-4"> &lt; &gt;：包含，并减少 / 增加等级值</li>
+<li class="lvl-4"> -：取消一个</li>
+<li class="lvl-4"> *：词尾通配符</li>
+</ul>
+</li>
+</ul>
+<p>5、默认注意事项</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>短词（&lt;=3 个字符的词）从索引中被排除</p>
+</li>
+<li class="lvl-2">
+<p>内建的非用词（stopword）被忽略</p>
+</li>
+<li class="lvl-2">
+<p>出现行数高于 50% 的词作为非用词忽略</p>
+</li>
+<li class="lvl-2">
+<p>少于三行的文本不返回结果</p>
+</li>
+<li class="lvl-2">
+<p>忽略词中的单引号</p>
+</li>
+<li class="lvl-2">
+<p>中文、日文等不具有词分隔符的语言无法正确返回结果</p>
+</li>
+</ul>
+<h3 id="数据插入-INSERT">数据插入 INSERT</h3>
+<p>1、插入完整行</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>每组值用一对圆括号括起来，以逗号分隔</p>
+</li>
+<li class="lvl-2">
+<p>多使用 cust_id 明确插入，可在表结构改变后继续发挥作用</p>
+</li>
+<li class="lvl-2">
+<p>INSERT 一般无输出结果</p>
+</li>
+<li class="lvl-2">
+<p>必须给出 VALUES 的正确数目；不提供列名则必须对每列给出一个值</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO customers(cust_name,</span><br><span class="line">                     cust_contact,</span><br><span class="line">                     cust_country)</span><br><span class="line">VALUES('Peter',</span><br><span class="line">      NULL,</span><br><span class="line">      'UK');</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>省略列：NULL</p>
+<ul class="lvl-2">
+<li class="lvl-4">表的定义中给出默认值：不给定值时使用</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>提高整体性能：用 INSERT LOW_PRIORITY INTO 降低插入的优先级</p>
+</li>
+</ul>
+<p>2、插入多行</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>使用多条 INSERT 语句（可一次性提交）</p>
+</li>
+</ul>
+<p>3、插入检索所得数据</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO customers(cust_name,</span><br><span class="line">                     cust_contact,</span><br><span class="line">                     cust_country)</span><br><span class="line">VALUES('Peter',</span><br><span class="line">      NULL,</span><br><span class="line">      'UK');</span><br><span class="line">SELECT cust_name,</span><br><span class="line">		cust_contact, </span><br><span class="line">		cust_country</span><br><span class="line">FROM custnew;</span><br></pre></td></tr></tbody></table></figure>
+<p>其中，列名不一定匹配，仅作顺序填充</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>可包含 WHERE 子句以过滤插入数据</p>
+</li>
+</ul>
+<h3 id="更新和删除数据">更新和删除数据</h3>
+<p>1、更新：UPDATE 语句</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>不省略 WHERE 语句，避免更新表中所有行</p>
+</li>
+<li class="lvl-2">
+<p>语句组成：要更新的表名 列名及其新值 要更新行的条件</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UPDATE IGNORE customers</span><br><span class="line">SET cust_email = 'balabala@qq.com',</span><br><span class="line">	cust_name = 'bob'</span><br><span class="line">WHERE cust_id = 10005;</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>更新多个列：逗号分隔（最后一行除外）</p>
+</li>
+<li class="lvl-2">
+<p>IGNORE 关键字：在发生错误时依旧更新</p>
+</li>
+<li class="lvl-2">
+<p>设为 NULL：删除某列值</p>
+</li>
+</ul>
+<p>2、删除：DELETE 语句</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>不省略 WHERE 语句</p>
+</li>
+<li class="lvl-2">
+<p>语句组成：要删除的表名 要删除行的条件</p>
+<ul class="lvl-2">
+<li class="lvl-4">注：即便删除表中所有行，DELETE 不执行删除表操作</li>
+<li class="lvl-4">删除所有行使用 TRUNCATE TABLE</li>
+</ul>
+</li>
+</ul>
+<p>注：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>两者使用前最好先用 SELECT 语句测试，保证过滤的记录正确</p>
+</li>
+<li class="lvl-2">
+<p>在使用强行引用完整数据库的更删时，仅可操作与其他表无关的数据行</p>
+</li>
+</ul>
+<h3 id="创建和操纵表">创建和操纵表</h3>
+<p>1、创建：CREATE TABLE 语句</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>需给出信息：无冲突表名 列名及定义</p>
+</li>
+<li class="lvl-2">
+<p>NULL、NOT NULL：允许 / 阻止插入没有值的列</p>
+<ul class="lvl-2">
+<li class="lvl-4">空串‘ ’视为一有效值</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>主键可在创建时或创建后定义</p>
+</li>
+<li class="lvl-2">
+<p>AUTO_INCREMENT：自动增量</p>
+<ul class="lvl-2">
+<li class="lvl-4">每表仅一个列允许，以作为主键值</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>DEFAULT 数值：指定默认值</p>
+<ul class="lvl-2">
+<li class="lvl-4">仅可为常量，mysql 不支持函数</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>ENGINE=InnoDB（MyISAM，etc.）：指定所用引擎</p>
+<ul class="lvl-2">
+<li class="lvl-4">外键不可跨引擎调取</li>
+</ul>
+</li>
+</ul>
+<p>2、更新表：ALTER TABLE</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>常用于定义外键</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE orderitems</span><br><span class="line">ADD CONSTRAINT fk_orderitems_order</span><br><span class="line">FOREIGN KEY (order_num) REFERENCES orders (order_num);</span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>更改表步骤</p>
+<ul class="lvl-2">
+<li class="lvl-4">用新布局创建新表</li>
+<li class="lvl-4"> INSERT SELECT 复制数据</li>
+<li class="lvl-4">检验新表，重命名或删除旧表，命名新表</li>
+<li class="lvl-4">重新创建触发器、索引等</li>
+</ul>
+</li>
+</ul>
+<p>3、删除表：DROP TABLE</p>
+<p>4、重命名表：RENAME TABLE</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RENAME TABLE table1 TO table2</span><br></pre></td></tr></tbody></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyperspace">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyper の 个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E8%BF%9B%E9%98%B6%E7%AF%87/" class="post-title-link" itemprop="url">数据库操作（二）—— 进阶篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-02 20:39:28" itemprop="dateCreated datePublished" datetime="2020-08-02T20:39:28+08:00">2020-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-30 13:57:01" itemprop="dateModified" datetime="2022-06-30T13:57:01+08:00">2022-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="进阶操作-第9-13章">进阶操作 第 9-13 章</h2>
+<h3 id="正则表达式">正则表达式</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>作用：匹配文本</p>
+</li>
+<li class="lvl-2">
+<p>基本字符匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值’ ORDER BY 子句名</p>
+<ul class="lvl-2">
+<li class="lvl-5">. 特殊字符表匹配任意一个字符，如‘.000’可匹配 1000 和 2000，etc</li>
+<li class="lvl-5"> 与 LIKE 匹配的区别：出现的匹配文本，其相应行将被 REGEXP 返回</li>
+<li class="lvl-5">默认匹配不区分大小写，使用 BINARY 可区分大小写</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>OR 匹配：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘值 1 | 值 2’ ORDER BY 子句名</p>
+<ul class="lvl-2">
+<li class="lvl-4">匹配一组特定字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值 1 值 2 值 3]’ ORDER BY 子句名</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>匹配范围：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘[值 1 - 值 2]’ ORDER BY 子句名</p>
+</li>
+<li class="lvl-2">
+<p>匹配特殊字符：SELECT 列名 FROM 表名 WHERE 列名 REGEXP ‘<span>\</span>.’ ORDER BY 子句名</p>
+<ul class="lvl-2">
+<li class="lvl-4">引用元字符：<span>\</span>f 换页 <span>\</span>n <span>\</span>r 回车 <span>\</span>t <span>\</span>v 横、纵向制表</li>
+<li class="lvl-4">匹配反斜杠：<span>\</span>\
+<ul class="lvl-4">
+<li class="lvl-6">解释：第一个反斜杠由 Mysql 解释，第二个才是正则表达式解释</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>匹配字符类 character class（P58）</p>
+</li>
+<li class="lvl-2">
+<p>匹配多个实例：如结尾 s 可选用？</p>
+</li>
+<li class="lvl-2">
+<p>匹配特定位置文本：定位符</p>
+<ul class="lvl-2">
+<li class="lvl-4">^ 文本开始 $ 文本结尾 :&lt;: 词的开始  :&gt;: 词的结尾
+<ul class="lvl-4">
+<li class="lvl-6">注意 ^ 的另一种用法是集合中作 [] 取和</li>
+<li class="lvl-6">可以配套使用 ^$，使用法同 LIKE</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>正则表达式的测试：使用 SELECT，返回 1 匹配，反之不匹配</p>
+<ul class="lvl-2">
+<li class="lvl-4">优点：无需调用数据库表</li>
+</ul>
+</li>
+</ul>
+<h3 id="计算字段">计算字段</h3>
+<p>1、字段 field：意义同列，用于计算字段的连接</p>
+<p>2、拼接 concatenate：联结值成为一个单个值</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>实际操作：在 SELECT 中使用 Concat () 函数</p>
+<ul class="lvl-2">
+<li class="lvl-4">SELECT Concat (值 1，值 2) FROM 表名 ORDER BY 子句名</li>
+<li class="lvl-4">或使用 RTrim () / LTrim () 函数，可删除数据右侧 / 左侧多余空格来整理数据</li>
+</ul>
+</li>
+</ul>
+<p>3、别名 alias / 导出列 derived column：字段或值的替换名</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>SELECT Concat (值 1，值 2) AS 别名 FROM 表名 ORDER BY 子句名</p>
+</li>
+</ul>
+<p>4、基本计算：四则运算符</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>测试计算：省略 FROM 子句</p>
+</li>
+</ul>
+<h3 id="数据处理函数">数据处理函数</h3>
+<p>1、可移植性：多数函数不同 SQL 存在差异，做好注释</p>
+<p>2、文本处理（P69）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Left / Right ()：返回左 / 右侧字符</p>
+</li>
+<li class="lvl-2">
+<p>Length ()：返回串长</p>
+</li>
+<li class="lvl-2">
+<p>Locate ()：找出某子串</p>
+</li>
+<li class="lvl-2">
+<p>SubString ()：返回子串字符</p>
+</li>
+<li class="lvl-2">
+<p>Lower/Upper ()：返回小 / 大写</p>
+</li>
+<li class="lvl-2">
+<p>LTrim/Rtrim ()：去掉左 / 右侧空格</p>
+</li>
+<li class="lvl-2">
+<p>Soundex ()：将任何文本串转换为描述其语音表示的字母数字模式</p>
+<ul class="lvl-2">
+<li class="lvl-4">对串进行发音比较（输入纠正，匹配输入项读音接近字串）</li>
+</ul>
+</li>
+</ul>
+<p>3、时间和日期处理（P71）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Date ()：返回日期</p>
+</li>
+<li class="lvl-2">
+<p>Time ()：返回时间</p>
+</li>
+</ul>
+<p>4、数值处理（P74）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Abs ()：返回绝对值</p>
+</li>
+<li class="lvl-2">
+<p>Sin() / Cos() / Tan()</p>
+</li>
+<li class="lvl-2">
+<p>Exp() / Sqrt()</p>
+</li>
+<li class="lvl-2">
+<p>Mod()</p>
+</li>
+<li class="lvl-2">
+<p>Pi ()：返回圆周率</p>
+</li>
+<li class="lvl-2">
+<p>Rand ()：返回一个随机数</p>
+</li>
+</ul>
+<h3 id="汇总数据">汇总数据</h3>
+<p>1、聚集函数 aggregate function</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>def：行组上计算和返回单个值的函数</p>
+</li>
+<li class="lvl-2">
+<p>AVG ()：SELECT AVG (列名) FROM 表名</p>
+<ul class="lvl-2">
+<li class="lvl-4">仅用于确定特定数列，且列名必须以函数参数给出</li>
+<li class="lvl-4">忽略值为 NULL 的行</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>COUNT ()：SELECT COUNT (*) AS 别名 FROM 表名，统计行个数</p>
+<ul class="lvl-2">
+<li class="lvl-4">COUNT (*) 统计 NULL 和非空值</li>
+<li class="lvl-4"> COUNT（列名）统计特定值，忽略值为 NULL 的行</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>MAX ()：SELECT MAX (列名)  AS 别名 FROM 表名</p>
+<ul class="lvl-2">
+<li class="lvl-4">可作返回任意列的最大值，按列排序的文本数据返回尾行</li>
+<li class="lvl-4">忽略值为 NULL 的行</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>MIN ()：SELECT MIN (列名)  AS 别名 FROM 表名</p>
+<ul class="lvl-2">
+<li class="lvl-4">可作返回任意列的最小值，按列排序的文本数据返回首行</li>
+<li class="lvl-4">忽略值为 NULL 的行</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>SUM ()：SELECT SUM (列名)  AS 别名 FROM 表名</p>
+<ul class="lvl-2">
+<li class="lvl-4">Sum (列名) 返回各行该列数据之和</li>
+<li class="lvl-4">忽略值为 NULL 的行</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>指定聚集范围 ALL / DISTINCT</p>
+</li>
+<li class="lvl-2">
+<p>组合聚集函数：SELECT COUNT (*) AS 别名， MIN (列名)  AS 别名，MAX (列名)  AS 别名，……，FROM 表名</p>
+</li>
+</ul>
+<h3 id="分组数据">分组数据</h3>
+<p>1、创建分组：SELECT COUNT (*) AS 别名 FROM 表名 GROUP BY 列名</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>对每个组的结果分别进行聚集，所有列结果一同计算</p>
+<ul class="lvl-2">
+<li class="lvl-4">可包含任意数目的列</li>
+<li class="lvl-4">每列可为检索列或有效表达式，不能为聚集函数</li>
+<li class="lvl-4"> SELECT 使用表达式 - GROUP BY 必须使用相同表达式，不能使用别名</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>WITH ROLLUP：得到每个分组及其汇总级别的值</p>
+<ul class="lvl-2">
+<li class="lvl-4">SELECT 列名，COUNT (*) AS 别名 FROM 表名 GROUP BY 列名 WITH ROLLUP</li>
+</ul>
+</li>
+</ul>
+<p>2、过滤分组：HAVING（WHERE 仅可过滤行）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>适用所有 WHERE 句法</p>
+</li>
+<li class="lvl-2">
+<p>在数据分组后进行</p>
+<ul class="lvl-2">
+<li class="lvl-4">WHERE 在数据过滤前进行，因此分组中不包含 WHERE 排除的行</li>
+</ul>
+</li>
+</ul>
+<p>3、分组和排序</p>
+<p>保证数据正确排序：GROUP BY + ORDER BY</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E8%BF%90%E8%BE%93%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyperspace">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyper の 个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E8%BF%90%E8%BE%93%E5%B1%82/" class="post-title-link" itemprop="url">计算机网络（三）：运输层</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-29 20:26:04" itemprop="dateCreated datePublished" datetime="2020-07-29T20:26:04+08:00">2020-07-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-02 00:13:18" itemprop="dateModified" datetime="2022-07-02T00:13:18+08:00">2022-07-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/408/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>运输层服务</h1>
+<p>1、工作位置：端系统</p>
+<p>2、分类：用户数据报协议 UDP 传输控制协议 TCP</p>
+<p>3、IP 服务：尽力而为交付（best-effort delivery server）的不可靠模型</p>
+<h2 id="多路复用与多路分解">多路复用与多路分解</h2>
+<p>1、多路分解</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>def：将运输层报文段中的数据交付到正确的套接字</p>
+<ul class="lvl-2">
+<li class="lvl-4">每个套接字都有唯一确定的标识符</li>
+<li class="lvl-4">每个报文段需有特殊字段来指示该报文段所需交付到的套接字</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>端口字段</p>
+<ul class="lvl-2">
+<li class="lvl-4">长度：32 比特</li>
+<li class="lvl-4">包含信息：源端口号字段 目的端口号字段
+<ul class="lvl-4">
+<li class="lvl-6">端口号：16 比特的数，大小在 0~65535</li>
+<li class="lvl-6">* 周知端口号：0~1023（受限）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>2、多路复用</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>def：从不同套接字收集数据块、封装首部信息生成报文段并传递到网络层的一系列工作</p>
+</li>
+</ul>
+<p>3、无连接的多路复用与多路分解</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>创建 UDP 套接字</p>
+<ul class="lvl-2">
+<li class="lvl-4">分配方式：自动 or bind () 关联特定端口</li>
+<li class="lvl-4">组成：二元组，包括 目的 IP 地址 和 目的端口号</li>
+<li class="lvl-4">源端口号和目的端口号的反转：服务器使用 recvfrom () 方法</li>
+</ul>
+</li>
+</ul>
+<p>4、面向连接的多路复用与多路分解</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>创建 TCP 套接字</p>
+<ul class="lvl-2">
+<li class="lvl-4">组成：四元组， 源 IP 地址、源端口号；目的 IP 地址、目的端口号</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>不同源 IP 地址 / 端口号，其定位到的套接字不同</p>
+</li>
+</ul>
+<p>*5、顺序端口扫描：nmap</p>
+<h2 id="无连接运输：UDP">无连接运输：UDP</h2>
+<p>1、特征</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>无连接传输：发送和接收方的运输层实体之间没有握手</p>
+</li>
+</ul>
+<p>2、UDP 的优劣</p>
+<p>优点</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>精细控制、立即交付</p>
+</li>
+<li class="lvl-2">
+<p>无需连接建立：不引入连接时延</p>
+</li>
+<li class="lvl-2">
+<p>无连接状态：不维护连接状态，不跟踪对应参数</p>
+</li>
+<li class="lvl-2">
+<p>分组首部开销小：仅需 8 字节（TCP：20 字节）</p>
+</li>
+</ul>
+<p>缺点</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>缺乏拥塞控制带来的高丢包率</p>
+</li>
+<li class="lvl-2">
+<p>引起并击垮发送方的 TCP 会话</p>
+</li>
+</ul>
+<p>3、UDP 报文段结构（P132）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>组成：源端口号 目的端口号 长度 检验和 应用数据</p>
+<ul class="lvl-2">
+<li class="lvl-4">端口号：使得目的主机可执行分解功能</li>
+<li class="lvl-4">长度字段：指示报文段的字节数（首部 + 数据）</li>
+<li class="lvl-4">检验和
+<ul class="lvl-4">
+<li class="lvl-6">功能：用于确定传输过程中比特是否改变</li>
+<li class="lvl-6">操作：反码运算，溢出<strong>回卷</strong>（P133）</li>
+<li class="lvl-6">遵循原则：端到端原则</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>仅提供差错检测，无差错恢复机制</p>
+</li>
+</ul>
+<h2 id="可靠数据传输原理">可靠数据传输原理</h2>
+<p>1、特征</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>数据通过一条可靠信道传输，为上层实体提供服务</p>
+</li>
+<li class="lvl-2">
+<p>可将较低层直接视为不可靠的点对点信道</p>
+</li>
+<li class="lvl-2">
+<p>假设底层信道不会对分组重排序，交付分组可能丢失</p>
+</li>
+</ul>
+<p>2、构造</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>理想模型 rdt1.0</p>
+<ul class="lvl-2">
+<li class="lvl-4">有限状态机 Finite-State Machine，FSM：发送端与接收端各自的机器</li>
+<li class="lvl-4">所有分组从发送方流向接收方</li>
+<li class="lvl-4">接收端不提供任何反馈</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>具有比特差错信道 rdt2.0</p>
+<ul class="lvl-2">
+<li class="lvl-4">本质：停等协议</li>
+<li class="lvl-4">功能：查错检测 接收方反馈 重传（产生冗余数据分组）</li>
+<li class="lvl-4">自动重传协议 Automatic Repeat reQuest，ARQ：基于肯定确认（ACK）和否定确认（NAK）的重传机制的可靠数据传输协议</li>
+<li class="lvl-4">处理 ACK / NAK 受损情况：发送方发送加入数据分组序号的新字段</li>
+<li class="lvl-4">改进
+<ul class="lvl-4">
+<li class="lvl-6">rdt2.1：加入接收方到发送方的肯定和否定确认</li>
+<li class="lvl-6"> rdt2.2：使用 ACK 0 或 ACK 1 的确认信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>具有比特差错的丢包信道 rdt3.0</p>
+<ul class="lvl-2">
+<li class="lvl-4">本质：比特交替协议</li>
+<li class="lvl-4">倒计数计时器 countdown timer：发送分组时启动、响应中断、终止</li>
+</ul>
+</li>
+</ul>
+<p>3、流水线（pipelining）可靠数据传输协议</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>问题：低利用率的网络协议可能限制底层网络硬件所提供的能力</p>
+</li>
+<li class="lvl-2">
+<p>解决：不以停等方式运行，允许发送多个分组而无需等待确认</p>
+</li>
+<li class="lvl-2">
+<p>差错恢复方法</p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>回退 N 步（GBN 协议，P145）</p>
+<ul class="lvl-4">
+<li class="lvl-6">
+<p>本质：滑动窗口协议</p>
+</li>
+<li class="lvl-6">
+<p>设基序号为 base，nextseqnum 位下一个最小的未使用序号：</p>
+<ul class="lvl-6">
+<li class="lvl-8">序号范围 [0, base - 1]：已发送并确认的分组</li>
+<li class="lvl-8">序号范围 [base, nextseqnum - 1]：发送但未确认的分组</li>
+<li class="lvl-8"> [nextseqnum, base + N - 1]：若有上层数据将被立即发送的分组</li>
+<li class="lvl-8"> &gt;= base + N：当前流水线不可被使用的分组</li>
+</ul>
+<p>其中 N 为<strong>窗口长度</strong>，分组的序号范围是 [0, 2^k - 1]，k 为比特数</p>
+</li>
+<li class="lvl-6">
+<p>注：涉及序号运算一律使用模 2^k 运算</p>
+</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p>选择重传（SR 协议，P150）</p>
+<ul class="lvl-4">
+<li class="lvl-6">每个分组拥有自己的逻辑定时器，超时后发送单个分组</li>
+<li class="lvl-6">接收到分组的 ACK 后，标记当前窗口基序号的分组为已接收，并且接收方需重新确认已收到过的序号小于当前窗口基序号的分组；若该分组序号等于 send_base，则移动窗口基序号到具有最小序号的未确认分组处</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p>因特网下的重新排序问题：假定分组的最大存活时间不会超过某个固定最大时间量（默认大约 3min）来避免信道中的冗余分组</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="面向连接的运输：TCP">面向连接的运输：TCP</h2>
+<p>1、建立连接：三次握手，客户发送  - 服务器响应 - 客户响应</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>第三个报文段承载有效载荷</p>
+</li>
+<li class="lvl-2">
+<p>组成：一对主机上的缓存、变量及与进程连接的套接字</p>
+</li>
+<li class="lvl-2">
+<p>辨析：其间的网络元素不参与分配任何缓存和变量</p>
+</li>
+</ul>
+<p>2、最大报文段长度 Max  Segment Size，MSS</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>辨析：仅报文段中应用层数据的最大长度，而非包括首部</p>
+</li>
+<li class="lvl-2">
+<p>由本地发送主机的最大链路层帧长度（最大传输单元 Max Transmission Unit，MTU）设置</p>
+</li>
+<li class="lvl-2">
+<p>要求：保证适合单个链路层帧</p>
+</li>
+<li class="lvl-2">
+<p>典型值大小：1460 字节（以太网与链路层协议中都具有 1500 字节的 MTU）</p>
+</li>
+</ul>
+<p>3、TCP 报文段结构（P154）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>序号字段和确认号字段：各 32 比特，用于实现可靠数据传输</p>
+<ul class="lvl-2">
+<li class="lvl-4">可靠传输服务的关键部分</li>
+<li class="lvl-4">序号是该报文段首字节的字节流编号，确认号是主机期望从另一主机收到的下一字节的序号</li>
+<li class="lvl-4">功能：提供<strong>累积确认</strong>，仅确认到流中至第一个丢失字节为止的字节</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>首部长度字段：4 比特，指示首部的长度</p>
+</li>
+<li class="lvl-2">
+<p>选项字段：可选和变长</p>
+</li>
+<li class="lvl-2">
+<p>标志字段：ACK 确认 RST、SYN、FIN 建立和拆除连接 PSH 提交给上层 URG 指示紧急数据</p>
+</li>
+</ul>
+<p>4、实例：Telnet</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>回显 echo back：远程主机回送每个字符的副本给用户，并显示在 Telnet 用户的屏幕上</p>
+</li>
+<li class="lvl-2">
+<p>被<strong>捎带</strong> piggybacked：指 对客户 to 服务器的数据的确认 被装载在一个承载服务器 to 客户的数据的报文段中</p>
+</li>
+</ul>
+<p>5、往返时间的估计与超时</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>往返时间：仅为传输一次的报文段测量 SampleRTT</p>
+<ul class="lvl-2">
+<li class="lvl-4"><strong>指数加权移动平均</strong> EWMA：更新估计往返时间（EstimatedRTT）</li>
+</ul>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>E</mi><mi>s</mi><mi>t</mi><mi>i</mi><mi>m</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>R</mi><mi>T</mi><mi>T</mi><mo>=</mo><mtext>（</mtext><mn>1</mn><mtext>—</mtext><mi>α</mi><mtext>）</mtext><mo>∗</mo><mi>E</mi><mi>s</mi><mi>t</mi><mi>i</mi><mi>m</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>R</mi><mi>T</mi><mi>T</mi><mo>+</mo><mi>α</mi><mo>∗</mo><mi>S</mi><mi>a</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>R</mi><mi>T</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">EstimatedRTT = （1 — α）* EstimatedRTT + α * SampleRTT
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">ima</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.13889em;">RTT</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">（</span><span class="mord">1—</span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mord cjk_fallback">）</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">ima</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.13889em;">RTT</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">am</span><span class="mord mathnormal" style="margin-right:0.01968em;">pl</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.13889em;">RTT</span></span></span></span></span></p>
+<p>其中，[RFC 6298] 给出的 α 推荐值为 0.125。</p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>DevRTT：RTT 偏差，用于衡量测量往返时间偏离估计往返时间的程度</p>
+</li>
+</ul>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>D</mi><mi>e</mi><mi>v</mi><mi>R</mi><mi>T</mi><mi>T</mi><mo>=</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>β</mi><mo stretchy="false">)</mo><mo>∗</mo><mi>D</mi><mi>e</mi><mi>v</mi><mi>R</mi><mi>T</mi><mi>T</mi><mo>+</mo><mi>β</mi><mo>∗</mo><mi mathvariant="normal">∣</mi><mi>S</mi><mi>a</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>R</mi><mi>T</mi><mi>T</mi><mo>−</mo><mi>E</mi><mi>s</mi><mi>t</mi><mi>i</mi><mi>m</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>R</mi><mi>T</mi><mi>T</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">DevRTT = (1 - β) * DevRTT + β * |SampleRTT - EstimatedRTT|
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">De</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal" style="margin-right:0.13889em;">RTT</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">De</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal" style="margin-right:0.13889em;">RTT</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">am</span><span class="mord mathnormal" style="margin-right:0.01968em;">pl</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.13889em;">RTT</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">ima</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.13889em;">RTT</span><span class="mord">∣</span></span></span></span></span></p>
+<p>其中，β 的推荐值为 0.25。</p>
+</li>
+<li class="lvl-2">
+<p>超时间隔</p>
+</li>
+</ul>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>T</mi><mi>i</mi><mi>m</mi><mi>e</mi><mi>o</mi><mi>u</mi><mi>t</mi><mi>I</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>v</mi><mi>a</mi><mi>l</mi><mo>=</mo><mi>E</mi><mi>s</mi><mi>t</mi><mi>i</mi><mi>m</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>R</mi><mi>T</mi><mi>T</mi><mo>+</mo><mn>4</mn><mo>∗</mo><mi>D</mi><mi>e</mi><mi>v</mi><mi>R</mi><mi>T</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">TimeoutInterval = EstimatedRTT + 4 * DevRTT
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">im</span><span class="mord mathnormal">eo</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">ima</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.13889em;">RTT</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">De</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal" style="margin-right:0.13889em;">RTT</span></span></span></span></span></p>
+<p>​	其中，TimeoutInterval 的推荐初始值为 1s。</p>
+<p>6、可靠数据传输</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>TCP 服务是在 IP 服务的尽力而为服务上创建的一种可靠数据传输服务</p>
+</li>
+<li class="lvl-2">
+<p>超时间隔加倍：避免链路拥塞</p>
+</li>
+<li class="lvl-2">
+<p>收到三个冗余 ACK 后执行<strong>快速重传</strong></p>
+</li>
+<li class="lvl-2">
+<p>差错恢复机制：GBN 与 SR 的结合体，可有选择地确认失序报文段，而非累积确认最后一个正确接收的有序报文段</p>
+</li>
+</ul>
+<p>7、流量控制（P165）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>辨析：拥塞控制是为防止因 IP 网络拥塞而被遏制的情形；而流量控制是为消除发送方使接收方缓存溢出的可能性，是一个速度匹配服务</p>
+</li>
+<li class="lvl-2">
+<p>方式：一对发送方各自维护一个<strong>接收窗口</strong>（rwnd）</p>
+</li>
+<li class="lvl-2">
+<p>定义变量</p>
+<ul class="lvl-2">
+<li class="lvl-4">LastByteRead：另一主机读出流中的最后一个字节的编号</li>
+<li class="lvl-4"> LastByteRevd：放入接收缓存流中的最后一个字节的编号</li>
+</ul>
+</li>
+</ul>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>L</mi><mi>a</mi><mi>s</mi><mi>t</mi><mi>B</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>R</mi><mi>e</mi><mi>v</mi><mi>d</mi><mo>−</mo><mi>L</mi><mi>a</mi><mi>s</mi><mi>t</mi><mi>B</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>R</mi><mi>e</mi><mi>a</mi><mi>d</mi><mo>≤</mo><mi>R</mi><mi>c</mi><mi>v</mi><mi>B</mi><mi>u</mi><mi>f</mi><mi>f</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">LastByteRevd - LastByteRead \le RcvBuffer
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.05017em;">tB</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.05017em;">tB</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">e</span><span class="mord mathnormal">a</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">c</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.10764em;">ff</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>r</mi><mi>w</mi><mi>n</mi><mi>d</mi><mo>=</mo><mi>R</mi><mi>c</mi><mi>v</mi><mi>B</mi><mi>u</mi><mi>f</mi><mi>f</mi><mi>e</mi><mi>r</mi><mo>−</mo><mo stretchy="false">[</mo><mi>L</mi><mi>a</mi><mi>s</mi><mi>t</mi><mi>B</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>R</mi><mi>e</mi><mi>v</mi><mi>d</mi><mo>−</mo><mi>L</mi><mi>a</mi><mi>s</mi><mi>t</mi><mi>B</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>R</mi><mi>e</mi><mi>a</mi><mi>d</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">rwnd = RcvBuffer - [LastByteRevd - LastByteRead]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">c</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.10764em;">ff</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">L</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.05017em;">tB</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.05017em;">tB</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">e</span><span class="mord mathnormal">a</span><span class="mord mathnormal">d</span><span class="mclose">]</span></span></span></span></span></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>注：当接收主机空间耗尽时，由于发送方尽在有数据或有确认要发送是才会发送报文段，因此当接收主机的 rwnd = 0 时，主机将发送仅一个字节数据的报文段以清空接收主机 RcvBuffer，并返回一个包含非 0 的 rwnd 值</p>
+</li>
+</ul>
+<p>8、连接管理</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>3 次握手</p>
+<ul class="lvl-2">
+<li class="lvl-4">客户端发送特殊报文段 to 服务器端，首部的 SYN 比特置 1</li>
+<li class="lvl-4">SYNACK 报文段：服务器端 SYN 比特被置为 1，确认号字段替换为客户端 + 1，服务器选择自己的初始序号</li>
+<li class="lvl-4">客户端分配缓存和变量，连接建立，SYN 比特被置为 0</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>TCP 状态（P168）</p>
+<ul class="lvl-2">
+<li class="lvl-4">SYN cookie：不为未经确认的请求分配资源以杜绝洪泛攻击</li>
+</ul>
+</li>
+</ul>
+<h2 id="拥塞控制原理">拥塞控制原理</h2>
+<p>1、不同情形</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>理想情况，两个发送方、无限缓存的路由器：分组到达速率接近链路容量时，分组经历巨大的排队时延</p>
+</li>
+<li class="lvl-2">
+<p>两个发送方、有限缓存的路由器：还附加执行重传以补偿因缓存溢出而丢失的分组</p>
+</li>
+<li class="lvl-2">
+<p>4 个发送方与有限缓存路由器的多跳路径：被丢弃分组，其上游路由器转发到丢弃过程中使用的传输容量被浪费</p>
+</li>
+</ul>
+<p>2、方法</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>端到端：超时或三次冗余 ACK 确认</p>
+</li>
+<li class="lvl-2">
+<p>网络辅助：路由器向发送方提供显式的网络拥塞状态反馈信息</p>
+<ul class="lvl-2">
+<li class="lvl-4">发送阻塞分组（choke pocket）</li>
+<li class="lvl-4">标记或更新某个字段以指示</li>
+</ul>
+</li>
+</ul>
+<h2 id="TCP拥塞控制">TCP 拥塞控制</h2>
+<p>1、拥塞窗口 congestion window，cwnd</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>L</mi><mi>a</mi><mi>s</mi><mi>t</mi><mi>B</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>S</mi><mi>e</mi><mi>n</mi><mi>t</mi><mo>−</mo><mi>L</mi><mi>a</mi><mi>s</mi><mi>t</mi><mi>B</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>R</mi><mi>e</mi><mi>a</mi><mi>d</mi><mo>≤</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo stretchy="false">{</mo><mi>c</mi><mi>w</mi><mi>n</mi><mi>d</mi><mo separator="true">,</mo><mi>r</mi><mi>w</mi><mi>n</mi><mi>d</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">LastByteSent - LastByteRead \le min\{cwnd, rwnd\}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.05017em;">tB</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.05017em;">tB</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">e</span><span class="mord mathnormal">a</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">min</span><span class="mopen">{</span><span class="mord mathnormal">c</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mclose">}</span></span></span></span></span></p>
+<p>其中，发送速率随 cwnd 变化，约为 cwnd / RTT byte/s。</p>
+<p>2、特性：自计时 self-clocking，得名于 TCP 使用确认来触发增大 cwnd</p>
+<p>3、指导性原则</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>丢失报文段时，适当降低 TCP 发送方的速率</p>
+<ul class="lvl-2">
+<li class="lvl-4">从拥塞控制角度看，应着手减少 cwnd 以降低发送速率</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>当对先前收到的未确认的报文段的确认到达时，可以增加发送方的速率</p>
+<ul class="lvl-2">
+<li class="lvl-4">表明此时的 TCP 链路是畅通的，报文段可顺利交付</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>带宽探测：当未出现丢包前，不断增加速率以响应到达的 ACK；否则才减小速率</p>
+<ul class="lvl-2">
+<li class="lvl-4">“得寸进尺，受挫尚退”</li>
+</ul>
+</li>
+</ul>
+<p>4、<strong>TCP 拥塞控制算法</strong> TCP congestion control algorithm</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>慢启动 slow-start（P179）</p>
+<ul class="lvl-2">
+<li class="lvl-4">def：首次以 1 个 MSS 开始，其后以 2 的幂指数递增，即每过一个 RTT 翻番</li>
+<li class="lvl-4">何时结束增长？
+<ul class="lvl-4">
+<li class="lvl-6">丢包：重新慢启动，设置 cwnd = 1，慢启动阈值 ssthresh = cwnd / 2</li>
+<li class="lvl-6"> 到达或超过慢启动阈值：结束慢启动，启动拥塞避免模式</li>
+<li class="lvl-6">检测到三个冗余 ACK：执行快速重传，进入快速恢复状态</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>拥塞避免</p>
+<ul class="lvl-2">
+<li class="lvl-4">def：到达或超过慢启动阈值时，与其再翻番 cwnd，采用保守方法，仅自增 cwnd</li>
+<li class="lvl-4"> 方法：同慢启动，设置 cwnd = 1，置慢启动阈值 ssthresh = cwnd / 2</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>快速恢复</p>
+<ul class="lvl-2">
+<li class="lvl-4">对于每一个冗余 ACK，cwnd 增加 1；当对丢失报文段 ACK 到达后，再降低 cwnd 进入拥塞避免状态</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>特性：<strong>加性增 乘性减</strong>（Additive-Increase， Multiplicative-Decrease，AIMD P181）</p>
+<ul class="lvl-2">
+<li class="lvl-4">def：每个 RTT 内 cwnd 线性（加性）增加 1MSS，3 个冗余 ACK 减半（乘性减）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>TCP 吞吐量</p>
+<ul class="lvl-2">
+<li class="lvl-4">宏观模型</li>
+</ul>
+</li>
+</ul>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>a</mi><mi>v</mi><msub><mi>g</mi><mtext> 单条连接的吞吐量</mtext></msub><mo> =</mo><mfrac><mrow><mn>0.75</mn><mo>∗</mo><mi>W</mi></mrow><mrow><mi>R</mi><mi>T</mi><mi>T</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">  avg_{单条连接的吞吐量} =  \frac {0.75 * W}{RTT}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cjk_fallback mtight"> 单条连接的吞吐量</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">RTT</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0.75</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>​	其中，W 为丢包时间发生时，窗口长度的字节数。</p>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p>高带宽路径</p>
+</li>
+</ul>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>a</mi><mi>v</mi><msub><mi>g</mi><mtext> 单条连接的吞吐量</mtext></msub><mo> =</mo><mfrac><mrow><mn>1.22</mn><mo>∗</mo><mi>M</mi><mi>S</mi><mi>S</mi></mrow><mrow><mi>R</mi><mi>T</mi><mi>T</mi><mo>∗</mo><msqrt><mi>L</mi></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">avg_{单条连接的吞吐量} =  \frac {1.22 * MSS}{RTT * \sqrt {L}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cjk_fallback mtight"> 单条连接的吞吐量</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.2903em;vertical-align:-0.93em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.1833em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">RTT</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9267em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal">L</span></span></span><span style="top:-2.8867em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewbox="0 0 400000 1080" preserveaspectratio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1133em;"><span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1.22</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">MSS</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.93em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>​	其中，L 为链路的丢包率。</p>
+<p>5、实例：TCP 分岔</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>目的：优化云服务，改善用户体验</p>
+</li>
+<li class="lvl-2">
+<p>手段：部署临近用户的前端服务器 或 利用 TCP 分岔（TCP splitting）来分裂 TCP 连接</p>
+</li>
+<li class="lvl-2">
+<p>公式</p>
+</li>
+</ul>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>4</mn><mo>∗</mo><mi>R</mi><mi>T</mi><msub><mi>T</mi><mrow><mi>F</mi><mi>E</mi></mrow></msub><mo>+</mo><mi>R</mi><mi>T</mi><msub><mi>T</mi><mrow><mi>B</mi><mi>E</mi></mrow></msub><mo>+</mo><mtext> 处理时间</mtext></mrow><annotation encoding="application/x-tex"> 4 * RTT_{FE} + RTT_{BE} + 处理时间
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">RT</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">FE</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">RT</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">BE</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback"> 处理时间</span></span></span></span></span></p>
+<p>其中 FE、BE 分别为客户 to 前端服务器、前端服务器到数据中心（后端服务器）的往返时间</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>效果：降低时延到原来的约 1/4</p>
+</li>
+</ul>
+<p>6、公平性</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>UDP 源可能压制 TCP 流量</p>
+</li>
+<li class="lvl-2">
+<p>并行 TCP 连接占用较大带宽而不常见</p>
+</li>
+</ul>
+<p>7、明确拥塞通告 Explicit Congestion Notification，ECN</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>def：允许网络明确向 TCP 发送方和接收方发送显式拥塞信号</p>
+</li>
+<li class="lvl-2">
+<p>好处：无需再由发送方通过观察分组丢失来推断拥塞</p>
+</li>
+<li class="lvl-2">
+<p>过程：接收主机收到 ECN 拥塞指示 -&gt; 设置 ECN（拥塞通告回显）-&gt; 通知发送方 -&gt; 收到拥塞指示，减半拥塞窗口、设置 CWR 比特（拥塞窗口缩减）</p>
+</li>
+<li class="lvl-2">
+<p>* 利用网络层发送 ECN 信号：数据包拥塞控制协议 DCCP、数据中心 TCP DCTCP</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -394,730 +2232,166 @@ mjx-container[display="true"] + br {
 <p>2、表 table：特定类型数据的结构化清单</p>
 <p>3、行 row /record：表中的一个记录</p>
 <p>4、<strong>主键</strong> primary key：每一行中可以<strong>唯一</strong>标识自己的一列</p>
-<ul>
-<li>前提：任意两行不具有相同值、每行必须具有一个主键值</li>
-<li>习惯：主键值不更新 不重用，不在主键使用可能会更改的值</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>前提：任意两行不具有相同值、每行必须具有一个主键值</p>
+</li>
+<li class="lvl-2">
+<p>习惯：主键值不更新 不重用，不在主键使用可能会更改的值</p>
+</li>
 </ul>
 <p>5、关键字 key word：作为一个保留字</p>
 <p>键入</p>
 <p>1、书写习惯</p>
-<ul>
-<li><p>命令行用分号；结尾多条语句也需用分号分割</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>命令行用分号；结尾多条语句也需用分号分割</p>
 </li>
-<li><p>对于关键字：使用大小写均可，全用大写并分成多行，易于阅读、调试</p>
+<li class="lvl-2">
+<p>对于关键字：使用大小写均可，全用大写并分成多行，易于阅读、调试</p>
 </li>
-<li>在选择多个列时，一定要在列名之间加上逗号吗，<strong>但最后一列不加</strong></li>
+<li class="lvl-2">
+<p>在选择多个列时，一定要在列名之间加上逗号吗，<strong>但最后一列不加</strong></p>
+</li>
 </ul>
 <p>2、使用数据库： USE 数据库名</p>
 <p>显示：SHOW 语句</p>
-<ul>
-<li>SHOW DATABASES：显示所有数据库列表</li>
-<li> SHOW TABLES：显示某个库内所有表的列表</li>
-<li> SHOW COLUMNS FROM：表名显示某个库内所有列的列表<ul>
-<li>快速写法：DESCRIBE 表名</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>SHOW DATABASES：显示所有数据库列表</p>
+</li>
+<li class="lvl-2">
+<p>SHOW TABLES：显示某个库内所有表的列表</p>
+</li>
+<li class="lvl-2">
+<p>SHOW COLUMNS FROM：表名显示某个库内所有列的列表</p>
+<ul class="lvl-2">
+<li class="lvl-4">快速写法：DESCRIBE 表名</li>
 </ul>
 </li>
-<li> SHOW STATUS：显示广泛的服务器信息</li>
-<li> SHOW CREATE DATABASE / TABLE：显示创建的特定数据库或表表示的 Mysql 语句</li>
-<li> SHOW GRANTS：显示授权用户的安全权限</li>
-<li> SHOW ERRORS / WARNINGS：显示服务器的错误或警告信息</li>
+<li class="lvl-2">
+<p>SHOW STATUS：显示广泛的服务器信息</p>
+</li>
+<li class="lvl-2">
+<p>SHOW CREATE DATABASE / TABLE：显示创建的特定数据库或表表示的 Mysql 语句</p>
+</li>
+<li class="lvl-2">
+<p>SHOW GRANTS：显示授权用户的安全权限</p>
+</li>
+<li class="lvl-2">
+<p>SHOW ERRORS / WARNINGS：显示服务器的错误或警告信息</p>
+</li>
 </ul>
 <p>选择：SELECT 语句</p>
-<ul>
-<li>SELECT 列名 FROM 表名：检索，输出的是未排序数据</li>
-<li> SELECT * FROM 表名：检索所有列<ul>
-<li>给定 * 通配符，则返回表中所有列，而且可检索出未知列；但滥用会降低效能</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>SELECT 列名 FROM 表名：检索，输出的是未排序数据</p>
+</li>
+<li class="lvl-2">
+<p>SELECT * FROM 表名：检索所有列</p>
+<ul class="lvl-2">
+<li class="lvl-4">给定 * 通配符，则返回表中所有列，而且可检索出未知列；但滥用会降低效能</li>
 </ul>
 </li>
-<li> SELECT DISTINCT 列名：只返回唯一（去重）的行</li>
-<li> SELECT 列名 FROM 表名 LIMIT 行数：检索指定的行数<ul>
-<li> SELECT 列名 FROM 表名 LIMIT 开始行 行数：检索指定从行号为第一个值的位置开始的行数</li>
-<li>替代语法：SELECT 列名 FROM 表名 LIMIT  行数 OFFSET 开始行</li>
+<li class="lvl-2">
+<p>SELECT DISTINCT 列名：只返回唯一（去重）的行</p>
+</li>
+<li class="lvl-2">
+<p>SELECT 列名 FROM 表名 LIMIT 行数：检索指定的行数</p>
+<ul class="lvl-2">
+<li class="lvl-4">SELECT 列名 FROM 表名 LIMIT 开始行 行数：检索指定从行号为第一个值的位置开始的行数</li>
+<li class="lvl-4">替代语法：SELECT 列名 FROM 表名 LIMIT  行数 OFFSET 开始行</li>
 </ul>
 </li>
-<li> SELECT 表名。列名 FROM 表名：完全限定的列名</li>
+<li class="lvl-2">
+<p>SELECT 表名。列名 FROM 表名：完全限定的列名</p>
+</li>
 </ul>
 <p>排序</p>
 <p>1、子句：一个关键字和所提供的数据组成</p>
 <p>2、ORDER BY 语句</p>
-<ul>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名：以字母顺序排序数据的 ORDER BY 子句</li>
-<li> SELECT 列名 FROM 表名 ORDER BY 子句名 1 子句名 2 ……</li>
-<li>SELECT 列名 FROM 表名 ORDER BY 子句名 DESC：降序排列</li>
-<li> SELECT 列名 FROM 表名 ORDER BY 子句名 1 DESC 子句名 2：子句 1 降序 2 升序<ul>
-<li>即：DESC 只应用到<strong>直接</strong>位于其前面的列名</li>
-<li> ASC asending：默认的情形就是升序，略</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>SELECT 列名 FROM 表名 ORDER BY 子句名：以字母顺序排序数据的 ORDER BY 子句</p>
+</li>
+<li class="lvl-2">
+<p>SELECT 列名 FROM 表名 ORDER BY 子句名 1 子句名 2 ……</p>
+</li>
+<li class="lvl-2">
+<p>SELECT 列名 FROM 表名 ORDER BY 子句名 DESC：降序排列</p>
+</li>
+<li class="lvl-2">
+<p>SELECT 列名 FROM 表名 ORDER BY 子句名 1 DESC 子句名 2：子句 1 降序 2 升序</p>
+<ul class="lvl-2">
+<li class="lvl-4">即：DESC 只应用到<strong>直接</strong>位于其前面的列名</li>
+<li class="lvl-4"> ASC asending：默认的情形就是升序，略</li>
 </ul>
 </li>
-<li> SELECT 列名 FROM 表名 ORDER BY 子句名 LIMIT 行数：按升序显示表中数据指定列子句的指定行数</li>
+<li class="lvl-2">
+<p>SELECT 列名 FROM 表名 ORDER BY 子句名 LIMIT 行数：按升序显示表中数据指定列子句的指定行数</p>
+</li>
 </ul>
 <p>过滤：</p>
 <p>1、通配符 wildcard：用来匹配值的一部分特殊字符</p>
-<ul>
-<li>Mysql 中使用通配符：LIKE 操作符指示，LIKE 是 * 谓词（predicate）</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Mysql 中使用通配符：LIKE 操作符指示，LIKE 是 * 谓词（predicate）</p>
+</li>
 </ul>
 <p>2、搜索模式：由字面值、通配符或两者组合构成的搜索条件</p>
 <p>3、WHERE 子句</p>
-<ul>
-<li>SELECT 列名 FROM 表名 WHERE 数据 =（&lt;= /&gt;= / &gt; / &lt;） 该指定值：只返回指定值的行</li>
-<li>同时使用 ORDER BY：需要让 ORDER BY 位于 WHERE 之后</li>
-<li>不匹配检查：SELECT 列名 FROM 表名 WHERE 数据 &lt;&gt; 值（效果同！=）</li>
-<li>范围值检查：SELECT 列名 FROM 表名 WHERE 数据 BETWEEN 值 1 AND 值 2</li>
-<li> 空值检查：SELECT 列名 FROM 表名 WHERE 数据 IS NULL</li>
-<li> 多限定条件：SELECT 列名 FROM 表名 WHERE 数据 = 值 1 AND 数据 &lt;值 2 OR 数据&gt; 值 3<ul>
-<li> 优先处理 AND 操作符</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>SELECT 列名 FROM 表名 WHERE 数据 =（&lt;= /&gt;= / &gt; / &lt;） 该指定值：只返回指定值的行</p>
+</li>
+<li class="lvl-2">
+<p>同时使用 ORDER BY：需要让 ORDER BY 位于 WHERE 之后</p>
+</li>
+<li class="lvl-2">
+<p>不匹配检查：SELECT 列名 FROM 表名 WHERE 数据 &lt;&gt; 值（效果同！=）</p>
+</li>
+<li class="lvl-2">
+<p>范围值检查：SELECT 列名 FROM 表名 WHERE 数据 BETWEEN 值 1 AND 值 2</p>
+</li>
+<li class="lvl-2">
+<p>空值检查：SELECT 列名 FROM 表名 WHERE 数据 IS NULL</p>
+</li>
+<li class="lvl-2">
+<p>多限定条件：SELECT 列名 FROM 表名 WHERE 数据 = 值 1 AND 数据 &lt;值 2 OR 数据&gt; 值 3</p>
+<ul class="lvl-2">
+<li class="lvl-4">优先处理 AND 操作符</li>
 </ul>
 </li>
-<li>范围选取：SELECT 列名 FROM 表名 WHERE 数据 IN （值 1，值 2）<ul>
-<li>完成与 OR 相同的功能</li>
-<li>直观易管理</li>
-<li>运行更快</li>
-<li>可包含其他 SELECT 语句，动态创建 WHERE 子句</li>
+<li class="lvl-2">
+<p>范围选取：SELECT 列名 FROM 表名 WHERE 数据 IN （值 1，值 2）</p>
+<ul class="lvl-2">
+<li class="lvl-4">完成与 OR 相同的功能</li>
+<li class="lvl-4">直观易管理</li>
+<li class="lvl-4">运行更快</li>
+<li class="lvl-4">可包含其他 SELECT 语句，动态创建 WHERE 子句</li>
 </ul>
 </li>
-<li>否定：SELECT 列名 FROM 表名 WHERE 数据 <strong>NOT</strong> IN （值 1，值 2） ORDER BY 子句名<ul>
-<li>常用于 IN 的复杂句式中取反</li>
+<li class="lvl-2">
+<p>否定：SELECT 列名 FROM 表名 WHERE 数据 <strong>NOT</strong> IN （值 1，值 2） ORDER BY 子句名</p>
+<ul class="lvl-2">
+<li class="lvl-4">常用于 IN 的复杂句式中取反</li>
 </ul>
 </li>
-<li>通配符操作：SELECT 列名 FROM 表名 WHERE 数据 LIKE ‘_字符串 %’<ul>
-<li>% 用于表示接受字符串后续的任意字符<ul>
-<li>‘% 字符串 %’则表示任何位置的匹配</li>
-<li>‘字符串 1% 字符串 2’则表示字符串 1 开头、字符串 2 结尾的匹配</li>
-<li>注意当存在空格时， ‘% 字符串’不会匹配</li>
-<li> NULL 任何情况均不会被匹配</li>
+<li class="lvl-2">
+<p>通配符操作：SELECT 列名 FROM 表名 WHERE 数据 LIKE ‘_字符串 %’</p>
+<ul class="lvl-2">
+<li class="lvl-4">% 用于表示接受字符串后续的任意字符
+<ul class="lvl-4">
+<li class="lvl-6">‘% 字符串 %’则表示任何位置的匹配</li>
+<li class="lvl-6">‘字符串 1% 字符串 2’则表示字符串 1 开头、字符串 2 结尾的匹配</li>
+<li class="lvl-6">注意当存在空格时， ‘% 字符串’不会匹配</li>
+<li class="lvl-6"> NULL 任何情况均不会被匹配</li>
 </ul>
 </li>
-<li>_只匹配单个字符</li>
-<li>通配符的弊端：耗时较长（尤其位于起始处） 使用容易出错</li>
+<li class="lvl-4">_只匹配单个字符</li>
+<li class="lvl-4">通配符的弊端：耗时较长（尤其位于起始处） 使用容易出错</li>
 </ul>
 </li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%BA%94%E7%94%A8%E5%B1%82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hyperspace">
-      <meta itemprop="description" content="blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyper の 个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%BA%94%E7%94%A8%E5%B1%82/" class="post-title-link" itemprop="url">计算机网络（二）：应用层</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-25 20:25:59" itemprop="dateCreated datePublished" datetime="2020-07-25T20:25:59+08:00">2020-07-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-02 00:13:15" itemprop="dateModified" datetime="2022-07-02T00:13:15+08:00">2022-07-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/408/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="应用层协议原理"><a href="#应用层协议原理" class="headerlink" title="应用层协议原理"></a>应用层协议原理</h1><h2 id="网络应用程序体系结构"><a href="#网络应用程序体系结构" class="headerlink" title="网络应用程序体系结构"></a>网络应用程序体系结构</h2><p>1、<strong>客户 - 服务器体系架构</strong>（client-server architecture）</p>
-<ul>
-<li>服务器主机总是打开，接收客户主机请求</li>
-<li>客户之间不相互通信</li>
-</ul>
-<p>2、<strong>P2P 体系结构</strong></p>
-<ul>
-<li>对数据中心的专用服务器仅有最小依赖</li>
-<li>标识：发起通信为客户，等待联系为服务器</li>
-<li>间断连接的主机间使用直接通信<ul>
-<li>这样的一组主机称对等方</li>
-</ul>
-</li>
-<li><strong>自扩展性</strong> self-scalability<ul>
-<li> 向对等方发送文件</li>
-<li>请求产生工作负载，但也为系统增加服务能力</li>
-</ul>
-</li>
-</ul>
-<h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><p>1、进程 process</p>
-<ul>
-<li>def：运行在端系统的一个程序</li>
-<li>通信进程对：每对两个进程互相发送报文</li>
-<li><strong>进程寻址</strong>的要求<ul>
-<li>主机地址</li>
-<li>目的主机需指定接收进程的标识符</li>
-</ul>
-</li>
-</ul>
-<p>2、套接字 socket：向网络发送 / 接收报文的软件接口</p>
-<p>3、应用程序编程接口 <em>API</em></p>
-<ul>
-<li>建立网络应用程序的可编程接口</li>
-<li>运输层的控制<ul>
-<li>选择运输层协议</li>
-<li>部分运输层参数</li>
-</ul>
-</li>
-</ul>
-<h2 id="可供应用程序使用的运输服务"><a href="#可供应用程序使用的运输服务" class="headerlink" title="可供应用程序使用的运输服务"></a>可供应用程序使用的运输服务</h2><p>1、<strong>可靠数据传输</strong>：正确、完全地交付数据</p>
-<p>2、吞吐量</p>
-<ul>
-<li>带宽敏感 / 弹性应用</li>
-</ul>
-<p>3、<strong>定时保证</strong></p>
-<ul>
-<li>交互式实时应用</li>
-</ul>
-<p>4、安全性</p>
-<h2 id="因特网提供的运输服务"><a href="#因特网提供的运输服务" class="headerlink" title="因特网提供的运输服务"></a>因特网提供的运输服务</h2><p>1、TCP 服务</p>
-<ul>
-<li>面向连接：流动前互换运输层控制信息，结束后拆除连接</li>
-<li>可靠数据传送：无差错、按适当顺序交付</li>
-<li><strong>拥塞控制</strong></li>
-<li>无加密机制<ul>
-<li>改进：* 安全套接字层（Secure Socket Layer，SSL）</li>
-</ul>
-</li>
-</ul>
-<p>2、UDP 服务</p>
-<ul>
-<li>轻量级，仅提供最小服务</li>
-<li>不可靠数据传送：不保证到达、可乱序</li>
-<li>可选定数据的传输速率</li>
-<li>无加密机制</li>
-</ul>
-<h2 id="应用层协议"><a href="#应用层协议" class="headerlink" title="应用层协议"></a>应用层协议</h2><p>1、RFC（Request For Comments）文档：一系列以编号排定的文件</p>
-<ul>
-<li>位于公共域中</li>
-<li>收录几乎所有互联网标准</li>
-</ul>
-<p>2、超文本传输协议 HTTP</p>
-<p>3、简单邮件传输协议 SMTP</p>
-<h1 id="HyperText-Transfer-Protocol"><a href="#HyperText-Transfer-Protocol" class="headerlink" title="HyperText Transfer Protocol"></a>HyperText Transfer Protocol</h1><p>1、超文本传输协议 HTTP</p>
-<ul>
-<li>定义报文的结构和客户、服务器进行报文交换的方式</li>
-<li>实现：一个客户程序和一个服务器程序（P65）</li>
-<li>支撑运输协议：<em>TCP</em></li>
-<li> 无状态协议 stateless protocol：不保存关于客户的任何信息</li>
-</ul>
-<p>2、连接方式</p>
-<ul>
-<li><strong>非持续连接</strong> non-persistent connection<ul>
-<li> 请求 / 响应经一单独 TCP 连接发送</li>
-<li>为每个请求对象建立和维护一个全新连接</li>
-<li><strong>三次握手</strong>：发送确认 <em>RTT</em> - 返回确认 <em>RTT</em> - 传输<ul>
-<li>往返时间 Round-Trip Time，<em>RTT</em></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong> 持续连接</strong>（默认）<ul>
-<li>请求 / 响应经相同的 TCP 连接发送</li>
-<li>带流水线（默认）：对对象的请求可依次发出，不必等待未决请求</li>
-</ul>
-</li>
-</ul>
-<p>3、报文格式</p>
-<p><strong>请求报文（P68，CR 回车，LF 换行）</strong></p>
-<ul>
-<li>组成：<ul>
-<li>第一行称<strong>请求行</strong> request line<ul>
-<li> 三个部分：方法字段 URL 字段 HTTP 字段</li>
-</ul>
-</li>
-<li>后继行称<strong>首部行</strong> header line</li>
-<li> 实体体 entity body：POST 方法使用</li>
-</ul>
-</li>
-<li>方法字段：GET POST HEAD PUT DELETE<ul>
-<li>GET：请求对象、提交表单（HTML 表单）</li>
-<li>POST：提交表单</li>
-<li> HEAD：响应请求，但不返回对象<ul>
-<li> * 试跟踪</li>
-</ul>
-</li>
-<li> PUT：常与 Web 发行工具共用，上传对象到指定 Web 服务器指定路径</li>
-<li> DELETE：允许删除 Web 服务器上对象</li>
-</ul>
-</li>
-</ul>
-<p><strong>响应报文（P69）</strong></p>
-<ul>
-<li>组成<ul>
-<li>状态行 status line <ul>
-<li>三个部分：协议版本字段 状态码 相应状态信息</li>
-</ul>
-</li>
-<li>首部行和实体体</li>
-</ul>
-</li>
-<li>常见状态码：200 OK；301 请求对象已经永久转移；400/404；505 不支持的 HTTP 协议版本</li>
-</ul>
-<p>4、Cookie</p>
-<ul>
-<li>组成<ul>
-<li>响应报文中的一个 cookie 首部行</li>
-<li>请求报文中的一个 cookie 首部行</li>
-<li>用户端系统保留的一个 cookie 文件</li>
-<li>位于 Web 站点的一个后端数据库</li>
-</ul>
-</li>
-<li><strong>识别码</strong> Set-cookie：用于标识一个用户<ul>
-<li> * 用户隐私侵害</li>
-</ul>
-</li>
-</ul>
-<p>5、Web 缓存</p>
-<ul>
-<li>Web 缓存器 Web Cache / 代理服务器 <em>proxy server</em><ul>
-<li> 配置后的浏览器请求被定向至代理服务器</li>
-<li>发送给用户服务器的是保存的一份<strong>副本</strong></li>
-<li>从整体上大大降低因特网的流量</li>
-</ul>
-</li>
-<li>内容分发网络 Content Distribution Network，CDN：使大量流量实现本地化</li>
-<li><strong>条件 Get 方法</strong>：执行最新检查<ul>
-<li> If-Modified-Since = Last-Modified -&gt; 304 Not Modified</li>
-</ul>
-</li>
-</ul>
-<h1 id="因特网电子邮件"><a href="#因特网电子邮件" class="headerlink" title="因特网电子邮件"></a>因特网电子邮件</h1><p>1、组成：用户代理（user agent）邮件服务器（mail server）简单邮件传输协议（SMTP）</p>
-<p>2、支撑应用层服务：TCP</p>
-<p>3、SMTP</p>
-<ul>
-<li>因特网电子邮件的核心</li>
-<li>仅能采用简单的 7 比特 ASCII 表示</li>
-<li>传送多谋体数据编码需先转码</li>
-<li>无存留：一般不使用中间邮件服务器</li>
-<li>使用持续连接</li>
-</ul>
-<h5 id="对比HTTP"><a href="#对比HTTP" class="headerlink" title="对比HTTP"></a>对比 HTTP</h5><ul>
-<li>HTTP 不需要对多谋体数据编码转码</li>
-<li> HTTP 是拉协议（pull protocol）而 SMTP 基本上是推协议（push protocol）</li>
-<li>HTTP 封装对象，SMTP 将所有对象存放在一个报文中</li>
-</ul>
-<p>4、邮件报文格式</p>
-<ul>
-<li>首部：From To （Subject，其他可选首部行）</li>
-<li>一个空白行</li>
-<li>报文体（ASCII 格式）</li>
-</ul>
-<p>5、邮件访问协议</p>
-<ul>
-<li>第三版的邮局协议 Post Office Protocol - Version 3，POP3<ul>
-<li> 三个工作阶段<ul>
-<li>特许（authorization）：明文发送用户名和口令以鉴别用户</li>
-<li>事务处理：取回报文；标记 / 删除报文标记、获取邮件统计信息（可选）</li>
-<li>更新：在 quit 命令发出后结束会话</li>
-</ul>
-</li>
-<li>下载方式：下载并删除（不同机器不可读） / 下载并保留（可多端查看）</li>
-<li>优点：会话中不包含状态信息，大大简化了服务的实现</li>
-</ul>
-</li>
-<li>因特网邮件访问协议 Internet Mail Access Protocol，IMAP<ul>
-<li> 实现访问远程服务器文件夹</li>
-<li>维护用户状态信息</li>
-<li>允许用户代理获取报文的某些指定部分（灵活）</li>
-<li>用户 -&gt; 邮件服务器：HTTP  邮件服务器 -&gt; 邮件服务器：SMTP</li>
-</ul>
-</li>
-</ul>
-<h1 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h1><h2 id="提供服务"><a href="#提供服务" class="headerlink" title="提供服务"></a>提供服务</h2><ul>
-<li>核心：主机名 -&gt;IP 名转换的目录服务</li>
-<li>提供主机别名（host aliasing）：此时原名称称规范主机名（canonical hostname）</li>
-<li>邮件服务器别名</li>
-<li>负载分配（load distribution）：每个回答循环响应，在冗余的 Web 服务器间分配负载</li>
-</ul>
-<h2 id="工作机理"><a href="#工作机理" class="headerlink" title="工作机理"></a>工作机理</h2><p>1、实现</p>
-<ul>
-<li>一个分层的 DNS 服务器实现的分布式数据库</li>
-<li>使主机可查询数据库的应用层协议</li>
-</ul>
-<p>2、支撑应用层服务：UDP（53 号端口）</p>
-<p>3、分布式、层次数据库</p>
-<ul>
-<li>集中式的弊端<ul>
-<li>单点故障</li>
-<li>通信容量（traffic volume）</li>
-<li>远距离的集中式数据库</li>
-<li>维护</li>
-</ul>
-</li>
-<li>服务器类型（P87）<ul>
-<li>根 DNS 服务器：提供 TLD 服务器的 IP 地址</li>
-<li>顶级域服务器 TLD：提供权威 DNS 服务器的 IP 地址</li>
-<li>权威 DNS 服务器：提供公共可访问的 DNS 记录</li>
-<li>本地 DNS 服务器</li>
-</ul>
-</li>
-<li><p>查询方式：主机 -&gt; 服务器递归查询，其余均为迭代查询</p>
-<p>4、DNS 缓存</p>
-</li>
-<li><p>将映射缓存在本地存储器中</p>
-</li>
-<li>可绕过根服务器：存在缓存，立即返回 IP 地址</li>
-<li>一段时间丢弃信息（默认：两天）</li>
-</ul>
-<h2 id="DNS记录和报文"><a href="#DNS记录和报文" class="headerlink" title="DNS记录和报文"></a>DNS 记录和报文</h2><p>1、资源记录 Resource Record，RR</p>
-<ul>
-<li>提供主机名到 IP 地址的映射</li>
-<li>格式：（Name，Value，Type，TTL）<ul>
-<li>TTL：记录的生存时间</li>
-</ul>
-</li>
-</ul>
-<p>2、Type 的不同类型</p>
-<ul>
-<li>Type：A <ul>
-<li>Name：主机名 </li>
-<li>Value：主机名对应 IP 地址</li>
-</ul>
-</li>
-<li> Type：NS <ul>
-<li>Name：个域</li>
-<li> Value：可提供主机 IP 地址的权威 DNS 服务器主机名</li>
-</ul>
-</li>
-<li> Type：CNAME <ul>
-<li>Name：别名为 Name 的主机名称</li>
-<li> Value：该主机的规范主机名</li>
-</ul>
-</li>
-<li> Type：MX<ul>
-<li>Name：别名为 Name 的服务器主机名称</li>
-<li> Value：该服务器主机的规范主机名</li>
-</ul>
-</li>
-</ul>
-<p>3、报文格式（P90）</p>
-<ul>
-<li>首部区域（12 字节）：标识符 标志 问题数 回答 / 权威 / 附加 RR 数</li>
-<li>问题区域：名字 类型</li>
-<li>权威区域</li>
-<li>附加区域</li>
-</ul>
-<p>4、插入记录：注册登记机构（registrar）验证域名唯一性，输入 DNS 数据库</p>
-<p>*5、DNS 的健壮性</p>
-<h1 id="P2P文件分发"><a href="#P2P文件分发" class="headerlink" title="P2P文件分发"></a>P2P 文件分发</h1><p>1、def：成对间歇的主机（对等方）彼此直接通信</p>
-<p>2、最小分发时间：</p>
-<script type="math/tex; mode=display">
-D_{P2P}=max\{\frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+{\sum_{r=1}^n}}\}</script><p>3、Bittorrent</p>
-<ul>
-<li>洪流 torrent：参与一个特定文件分发的所有对等方的集合</li>
-<li>块 chunk：典型（256kb）等长文件块</li>
-<li>加入过程：向追踪器注册 - 周期性通知仍在洪流中</li>
-<li>最稀缺优先 rarest first：优先请求那些邻居中副本数量最少的块，以均衡每个洪流的副本数量</li>
-<li>疏通 unchoked：一个时间间隔后重新计算最高速率并修改对等方集合，保证最高速率</li>
-<li> * 分布式散列表 DHT：分布在多个对等方的简单数据库</li>
-</ul>
-<h1 id="视频流和内容分发网-CDN"><a href="#视频流和内容分发网-CDN" class="headerlink" title="视频流和内容分发网 CDN"></a>视频流和内容分发网 CDN</h1><p>1、压缩<strong>比特率</strong>，提高图像质量</p>
-<p>2、流式视频的重要衡量：avg 端到端时延</p>
-<p>3、DASH：经 HTTP 的动态适应流</p>
-<ul>
-<li>告示文件（manifest file）提供比特率和 URL</li>
-<li> 速率决定算法选择后继请求块</li>
-</ul>
-<p>4、CDN</p>
-<ul>
-<li>分类：专用 CDN 第三方 CDN</li>
-<li> 服务器安置原则<ul>
-<li>深入：靠近端用户，改善时延和吞吐量</li>
-<li>邀请做客：邀请到放置在 IXP 的集群，降低维护和管理开销</li>
-</ul>
-</li>
-<li>机制：截获 重定向</li>
-<li> * 实时测量</li>
-<li>案例：油管 Netflix 迅雷</li>
-</ul>
-<h1 id="套接字编程"><a href="#套接字编程" class="headerlink" title="套接字编程"></a>套接字编程</h1><p>1、分类：协议标准定义 或 专用网络的网络应用程序</p>
-<p>2、UDP 套接字</p>
-<ul>
-<li>过程：键入，发送数据至服务器 - 转换报文，发送给客户 - 客户端监视器显示</li>
-<li>需显式创建分组并附上目的地址</li>
-</ul>
-<p>3、TCP 套接字</p>
-<ul>
-<li>欢迎套接字和连接套接字</li>
-<li>仅需将数据放入 TCP 连接</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2020/07/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hyperspace">
-      <meta itemprop="description" content="blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyper の 个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91/" class="post-title-link" itemprop="url">计算机网络（一）：计算机网络与互联网</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-20 20:21:03" itemprop="dateCreated datePublished" datetime="2020-07-20T20:21:03+08:00">2020-07-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-21 11:03:49" itemprop="dateModified" datetime="2022-07-21T11:03:49+08:00">2022-07-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/408/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h1><p>1、<strong>主机</strong> host（<strong>端系统</strong> end system）：所有计算机器的统称，通过<strong>通信链路</strong>（communication link）与<strong>分组交换机</strong>相互连接</p>
-<ul>
-<li>概念辨析：主机 = 端系统</li>
-<li>主机的两大类型：客户（client）和服务器（server）</li>
-</ul>
-<p>2、分组交换机：常用类型为路由器（router）和 链路层交换机（link-layer switch）两种，均朝最终目的地转发分组</p>
-<p>3、<strong>分组</strong> packet：一台端系统向另一台端系统发送数据时，发送端系统将数据分段并为每段加上首部字节所形成的信息包</p>
-<p>4、<strong>路径</strong> path/route：一个分组所经历的一系列通信链路和分组交换机为通过该网络的路径</p>
-<p>5、<strong>因特网服务提供商</strong> ISP：一个由多个分组交换机和多段通信链路组成的网络，提供不同类型的网络接入服务</p>
-<ul>
-<li>可为内容提供者提供因特网接入服务用于直连</li>
-<li>各个 ISP 相互独立管理</li>
-</ul>
-<p>6、<strong>协议</strong> protocol：控制因特网中信息的接收和发送，定义了通信实体间交换、发送和接收报文的<strong>格式</strong>和<strong>顺序</strong>，及报文发送和 / 或接收一条报文或其他事件所采取的动作。</p>
-<ul>
-<li>因特网的主体协议：TCP/IP</li>
-</ul>
-<p>7、分布式应用程序 distributed application：涉及多个相互交换数据的端系统的应用程序</p>
-<p>8、套接字接口 socket interface: 一套发送程序必须遵循的规则集合，规定了交付数据的方式</p>
-<h1 id="二、The-Network-Edge"><a href="#二、The-Network-Edge" class="headerlink" title="二、The Network Edge"></a>二、The Network Edge</h1><p>1、接入网</p>
-<ul>
-<li>数据用户线（DSL）：从本地电话接入的本地电话公司获得</li>
-<li>电缆因特网接入（cable Internet access）：从提供有线电视的公司获得<ul>
-<li> * 混合光纤同轴系统（HFC）</li>
-</ul>
-</li>
-<li>光纤到户（FTTH）</li>
-<li>以太网、WiFi</li>
-<li>4G、LTE（长期演进）</li>
-</ul>
-<p>2、物理媒体：成本相对小</p>
-<ul>
-<li>导引型媒体：双绞铜线、同轴电缆、光纤</li>
-<li>非导引型媒体：无线局域网、数字卫星频道</li>
-</ul>
-<h1 id="三、The-Network-Core"><a href="#三、The-Network-Core" class="headerlink" title="三、The Network Core"></a>三、The Network Core</h1><h2 id="分组交换-packet-switching"><a href="#分组交换-packet-switching" class="headerlink" title="分组交换 packet switching"></a>分组交换 packet switching</h2><p>1、<strong>存储转发传输</strong> store-and-forward transmission</p>
-<ul>
-<li><p>定义 def：在交换机能够开始向输出链路传输该分组的第一个比特之前，必须接收到整个分组</p>
-</li>
-<li><p>端到端时延（简化式）：</p>
-<script type="math/tex; mode=display">
-d_{端到端} = N\frac{L}{R}</script><p>其中，N：路径条数，R：速率 ，L bit/s：分组大小 bit</p>
-</li>
-</ul>
-<p>2、排队时延和分组丢失</p>
-<p>​    对于每条相连的链路，分组交换机具有一个<strong>输出缓存</strong>（ouput buffer），如果已到达分组的链路正在进行另一分组的传输，此时分组承受<strong>排队时延</strong>（queuing delay）；若缓存已占满，新进入的分组出现<strong>丢包</strong>（packet loss）</p>
-<p>3、转发表和路由选择协议</p>
-<p>​    路由器通过<strong>路由选择协议</strong>（routing protocol）自动设置<strong>转发表</strong>（forwarding table），转发表映射目的地址成为输出链路</p>
-<h2 id="电路交换-circuit-switching"><a href="#电路交换-circuit-switching" class="headerlink" title="电路交换 circuit switching"></a>电路交换 circuit switching</h2><p>1、def：通信时创建<strong>端到端连接</strong>（end-to-end connection），预留电路<strong>带宽</strong>（bandwidth）并加以维护，尽最大努力实时交付分组</p>
-<p>2、实现方式</p>
-<ul>
-<li>频分复用（FDM）：在连接期间，链路为每条连接专用一个频段</li>
-<li>时分复用（TDM）：时间划分为固定期间的<strong>帧</strong>，每个帧划分为固定数量的<strong>时隙</strong>；当网络跨越一条链路创建一条链接时，网络为每个帧指定一个时隙，并把这些时隙用于该链接的专用传输</li>
-</ul>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p> 分组交换不适合实时服务（原因：端到端时延不可预测），但提供更好的宽带共享、按需分配也较简单经济；电路交换实时传输，但不考虑需求，即便链接处于<strong>静默期</strong></p>
-<h2 id="网络的网络"><a href="#网络的网络" class="headerlink" title="网络的网络"></a>网络的网络</h2><p>1、ISP 的互联模型（P24）</p>
-<p>2、一些概念</p>
-<ul>
-<li>存在点 PoP：存在于所有层次，提供对接</li>
-<li>多宿 multi-home：可与两个或更多提供商连接</li>
-<li>对等 peer：层次同一级不进行结算，即无需相互付费</li>
-<li>因特网交换点 IXP：一个或多个 ISP 在此处一起对等</li>
-<li> * 我国国家级 ISP：Tian</li>
-</ul>
-<h1 id="四、分组交换网-Packet-Switched-Networks"><a href="#四、分组交换网-Packet-Switched-Networks" class="headerlink" title="四、分组交换网 Packet-Switched Networks"></a>四、分组交换网 Packet-Switched Networks</h1><h2 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h2><p>1、总时延：</p>
-<script type="math/tex; mode=display">
-d_{nodel} = d_{proc} + d_{queue} + d_{trans} + d_{prop}</script><p></p><center>总时延 = 处理时延 + 排队时延 + 传输时延 + 传播时延</center><p></p>
-<ul>
-<li>流量强度：用于估计排队时延的范围<script type="math/tex; mode=display">
-\frac LR</script></li>
-</ul>
-<p>​    设计系统的流量强度不能大于 1，否则排队时延趋于 +∞</p>
-<p>2、端到端时延（一般式）</p>
-<script type="math/tex; mode=display">
-d_{end-end} = N(d_{proc} + d_{trans} + d_{prop})</script><p>​    适用情况：各节点具有不同的时延 / 每个节点具有不同的时延和每个节点存在平均排队时延</p>
-<p>3、瞬时 / 平均吞吐量 instantaneous /average throughtout </p>
-<ul>
-<li>瓶颈链路（bottleneck link）：传输速率前大后小（进水管道宽于出水），吞吐量由两者中的较小者决定。因特网连接中，<strong>接入网</strong>是吞吐量的主要限制因素</li>
-</ul>
-<script type="math/tex; mode=display">
-min\{R_c,R_s\}</script><h1 id="五、协议层次及其服务模型-Protocol-Layers-and-Their-Service-Models"><a href="#五、协议层次及其服务模型-Protocol-Layers-and-Their-Service-Models" class="headerlink" title="五、协议层次及其服务模型 Protocol Layers and Their Service Models"></a>五、协议层次及其服务模型 Protocol Layers and Their Service Models</h1><h2 id="协议分层"><a href="#协议分层" class="headerlink" title="协议分层"></a>协议分层</h2><p>1、优点：概念化 结构化 缺点：单一层可能冗余较低层的功能 违反了层次分离的目标</p>
-<p>2、协议栈 protocol stack</p>
-<ul>
-<li>5 层因特网协议栈：物 链 网 运 应</li>
-<li> 7 层 ISO OSI 参考模型：物 链 网 运 <strong>会话 表示</strong> 应<ul>
-<li>表示层：使通讯的应用程序能够解释交换数据的含义</li>
-<li>会话层：提供数据交换的<strong>定界</strong>和<strong>同步</strong>功能</li>
-</ul>
-</li>
-</ul>
-<p>3、封装 encapsulation</p>
-<h1 id="六、Networks-Under-Attack"><a href="#六、Networks-Under-Attack" class="headerlink" title="*六、Networks Under Attack"></a>* 六、Networks Under Attack</h1><p>1、常见有害程序</p>
-<ul>
-<li>僵尸网络（botnet）</li>
-<li>病毒</li>
-<li>蠕虫</li>
-</ul>
-<p>2、针对服务器 / 网络基础设施</p>
-<ul>
-<li>弱点攻击</li>
-<li>带宽洪泛：短时间大量分组阻塞合法分组到达服务器，如：DDoS 攻击</li>
-<li>连接洪泛：创建大量伪造的半开 / 全开的 TCP 连接，使得主机受困、停止接收合法连接</li>
-</ul>
-<p>3、分组嗅探、伪装</p>
-<ul>
-<li>分组嗅探器（packet sniffer）：记录每个流经的分组副本的<strong>被动</strong>接收机（不向信道注入信息）。难以发觉，可应用密码学规避</li>
-<li> IP 哄骗（IP Spoofing）：将具有虚假源地址的分组注入因特网（主动），可采用端点鉴别</li>
-</ul>
-<h1 id="七、History-of-Computer-Networking"><a href="#七、History-of-Computer-Networking" class="headerlink" title="*七、History of Computer Networking"></a>* 七、History of Computer Networking</h1><ul>
-<li>分组交换的发展（1961-1972）<ul>
-<li>NCP：ARPAnet 端系统间第一台主机 - 主机协议</li>
-</ul>
-</li>
-<li>专用网络和网络互联 Interneting（1972-1980）</li>
-<li>激增和爆炸（1980 - 至今）</li>
 </ul>
 
       
@@ -1137,7 +2411,7 @@ min\{R_c,R_s\}</script><h1 id="五、协议层次及其服务模型-Protocol-Lay
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1205,20 +2479,20 @@ min\{R_c,R_s\}</script><h1 id="五、协议层次及其服务模型-Protocol-Lay
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1252,7 +2526,7 @@ min\{R_c,R_s\}</script><h1 id="五、协议层次及其服务模型-Protocol-Lay
           <h5 class="widget-title">词云图</h5>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intel-SGX/" rel="tag">Intel SGX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL2/" rel="tag">WSL2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intel-SGX/" rel="tag">Intel SGX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL2/" rel="tag">WSL2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8/" rel="tag">可证明安全</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" rel="tag">论文阅读</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
               </canvas>
           </div>
       </div>
@@ -1516,60 +2790,10 @@ window.addEventListener('pjax:success', () => {
 
   
       
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  <script src="//cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.css">
 
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 

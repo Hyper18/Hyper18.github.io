@@ -217,7 +217,7 @@ h6 {
   font-size: 0.875em;
 }
 p {
-  margin: 0 0 20px 0;
+  margin: 0 0 0 0;
 }
 a,
 span.exturl {
@@ -1239,7 +1239,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #62fac9;
+  background: #5effd7;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1633,6 +1633,30 @@ pre .javascript .function {
 }
 .use-motion .collection-header {
   opacity: 0;
+}
+.tips {
+  padding-left: 10px;
+  background-color: rgba(52,152,219,0.3);
+  border-left: 4px solid #3498db;
+  color: #217bb8;
+}
+.success {
+  padding-left: 10px;
+  background-color: rgba(46,204,113,0.3);
+  border-left: 4px solid #2ecc71;
+  color: #25a35a;
+}
+.warning {
+  padding-left: 10px;
+  background-color: rgba(241,196,15,0.3);
+  border-left: 4px solid #f1c40f;
+  color: #c29d0b;
+}
+.danger {
+  padding-left: 10px;
+  background-color: rgba(231,76,60,0.3);
+  border-left: 4px solid #e74c3c;
+  color: #cf2b1a;
 }
 .posts-collapse {
   margin-left: 35px;
@@ -2344,13 +2368,6 @@ ul.breadcrumb li + li:last-child {
   font-weight: normal;
   line-height: 2.4;
   margin: 0;
-}
-mjx-container[jax="CHTML"][display="true"],
-.has-jax {
-  overflow: auto hidden;
-}
-mjx-container + br {
-  display: none;
 }
 .header {
   margin: 0 auto;

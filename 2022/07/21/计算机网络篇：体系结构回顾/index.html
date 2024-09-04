@@ -246,17 +246,17 @@ mjx-container[display="true"] + br {
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">37</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">40</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">25</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">26</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">53</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">57</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -384,7 +384,7 @@ mjx-container[display="true"] + br {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -404,96 +404,141 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="（一）概述"><a href="#（一）概述" class="headerlink" title="（一）概述"></a>（一）概述</h3><h4 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h4><ul>
-<li><p>def </p>
-<ul>
-<li>将分散、具独立功能的计算机系统，通过通信设备与线路连接起来，由功能完善的软件实现资源共享和信息传递的系统</li>
-<li>互连、自治的计算机集合</li>
+        <h3 id="（一）概述">（一）概述</h3>
+<h4 id="计算机网络">计算机网络</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>def</p>
+<ul class="lvl-2">
+<li class="lvl-4">将分散、具独立功能的计算机系统，通过通信设备与线路连接起来，由功能完善的软件实现资源共享和信息传递的系统</li>
+<li class="lvl-4">互连、自治的计算机集合</li>
 </ul>
 </li>
-<li><p>组成</p>
-<ul>
-<li>组成部分： 硬件 软件 协议</li>
-<li>工作方式： 边缘部分（主机） 核心部分（网络、路由器）</li>
-<li>功能组成： <ul>
-<li>资源子网：数据通信，含应用层、表示层和会话层</li>
-<li>通信子网：资源共享，含网络层、数据链路层和物理层</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>性能指标</p>
-<ul>
-<li><p>数据传输率 / 速率：连接在计算机网络上的主机在数字信道上传送数据位数的速率</p>
-</li>
-<li><p>带宽：网络的通信线路传送数据的能力，单位时间内从网络中的一点到另一点所能通过的 “最高数据率”</p>
-</li>
-<li><p>吞吐量：单位时间内通过某网络的数据量</p>
-</li>
-<li><p>时延：数据从网络的一端传送到另一端所需的时间</p>
-<p></p><center>总时延 = 处理时延 + 排队时延 + 传输时延 + 传播时延</center><p></p>
-<script type="math/tex; mode=display">
-d_{nodel} = d_{proc} + d_{queue} + d_{trans} + d_{prop}</script></li>
-<li><p>时延带宽积：以比特为单位的链路长度</p>
-<p></p><center>时延带宽积 = 传播时延 * 带宽</center><p></p>
-</li>
-<li><p>往返时延 RTT：从发送方发送数据开始，到发送方收到接收方的确认经历的时延</p>
-<p></p><center>往返时延 = 传播时延 * 2 + 末端处理时间</center><p></p>
-</li>
-<li><p>利用率</p>
-<script type="math/tex; mode=display">
-信道利用率 = \frac{有数据通过时间}{总时间}</script><script type="math/tex; mode=display">
-网络利用率 = 信道利用率的加权平均</script></li>
+<li class="lvl-2">
+<p>组成</p>
+<ul class="lvl-2">
+<li class="lvl-4">组成部分： 硬件 软件 协议</li>
+<li class="lvl-4">工作方式： 边缘部分（主机） 核心部分（网络、路由器）</li>
+<li class="lvl-4">功能组成：
+<ul class="lvl-4">
+<li class="lvl-6">资源子网：数据通信，含应用层、表示层和会话层</li>
+<li class="lvl-7">通信子网：资源共享，含网络层、数据链路层和物理层</li>
 </ul>
 </li>
 </ul>
-<h3 id="（二）体系结构"><a href="#（二）体系结构" class="headerlink" title="（二）体系结构"></a>（二）体系结构</h3><h4 id="分层结构"><a href="#分层结构" class="headerlink" title="分层结构"></a>分层结构</h4><ul>
-<li>服务数据单元 SDU：为完成用户要求功能而应传送的数据</li>
-<li>协议控制信息 PCI：控制协议操作的信息</li>
-<li>协议数据单元 PDU：对等层次间查传送的数据单位</li>
-</ul>
-<h4 id="OSI参考模型（7层）"><a href="#OSI参考模型（7层）" class="headerlink" title="OSI参考模型（7层）"></a>OSI 参考模型（7 层）</h4><p>物理层（比特流）、数据链路层（帧）、网络层（分组）、运输层（TPDU：TCP 用报文段，UDP 用用户数据报）、会话层（SPDU）、 表示层（PPDU）、应用层（APDU）</p>
-<ul>
-<li>应用层：所有能和用户交互产生网络流量的程序</li>
-<li>表示层：处理两通信系统中交换信息的表示方式<ul>
-<li>数据格式变换、加解密和压缩恢复</li>
-</ul>
 </li>
-<li>会话层：建立同步，向表示层实体 / 用户进程提供建立连接并在连接上有序地传输数据<ul>
-<li>管理会话</li>
-<li>使用校验点可使会话在通信失效时从校验点 / 同步点继续恢复通信，实现数据同步</li>
-</ul>
+<li class="lvl-2">
+<p>性能指标</p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>数据传输率 / 速率：连接在计算机网络上的主机在数字信道上传送数据位数的速率</p>
 </li>
-<li>传输层：负责端到端通信<ul>
-<li>传输单位：报文段 / 用户数据报</li>
-<li>功能：可靠传输 差错控制 流量控制 复用分用</li>
-</ul>
+<li class="lvl-4">
+<p>带宽：网络的通信线路传送数据的能力，单位时间内从网络中的一点到另一点所能通过的 “最高数据率”</p>
 </li>
-<li>网络层：把分组从源端传到目的端，为分组交换网上的不同主机提供通信服务<ul>
-<li>传输单位：数据报</li>
-<li>功能：路由选择 流量控制 查错控制 拥塞控制</li>
-</ul>
+<li class="lvl-4">
+<p>吞吐量：单位时间内通过某网络的数据量</p>
 </li>
-<li>数据链路层：把网络层传下来的数据报组装成帧<ul>
-<li>传输单位：帧</li>
-<li>功能：成帧 差错控制 流量控制 访问控制</li>
-</ul>
+<li class="lvl-4">
+<p>时延：数据从网络的一端传送到另一端所需的时间</p>
+<center>总时延 = 处理时延 + 排队时延 + 传输时延 + 传播时延
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>d</mi><mrow><mi>n</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi>l</mi></mrow></msub><mo>=</mo><msub><mi>d</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>c</mi></mrow></msub><mo>+</mo><msub><mi>d</mi><mrow><mi>q</mi><mi>u</mi><mi>e</mi><mi>u</mi><mi>e</mi></mrow></msub><mo>+</mo><msub><mi>d</mi><mrow><mi>t</mi><mi>r</mi><mi>a</mi><mi>n</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>d</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>p</mi></mrow></msub></mrow><annotation encoding="application/x-tex">d_{nodel} = d_{proc} + d_{queue} + d_{trans} + d_{prop}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">roc</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">q</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">an</span><span class="mord mathnormal mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">ro</span><span class="mord mathnormal mtight">p</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+</center></li>
+<li class="lvl-4">
+<p>时延带宽积：以比特为单位的链路长度</p>
+<center>时延带宽积 = 传播时延 * 带宽
+</center></li>
+<li class="lvl-4">
+<p>往返时延 RTT：从发送方发送数据开始，到发送方收到接收方的确认经历的时延</p>
+<center>往返时延 = 传播时延 * 2 + 末端处理时间
+</center></li>
+<li class="lvl-4">
+<p>利用率</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>信道利用率</mtext><mo> =</mo><mfrac><mtext> 有数据通过时间</mtext><mtext>总时间</mtext></mfrac></mrow><annotation encoding="application/x-tex">信道利用率 = \frac {有数据通过时间}{总时间}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">信道利用率</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"> =</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback"> 总时间</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">有数据通过时间</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>网络利用率</mtext><mo> =</mo><mtext> 信道利用率的加权平均</mtext></mrow><annotation encoding="application/x-tex">网络利用率 = 信道利用率的加权平均
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">网络利用率</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"> =</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback"> 信道利用率的加权平均</span></span></span></span></span></p>
 </li>
-<li>物理层：在物理媒体上实现比特流的透明传输<ul>
-<li>传输单位：比特</li>
-<li>功能：定义接口特性、传输模式、传输速率、比特同步和比特编码</li>
-</ul>
-</li>
-</ul>
-<h4 id="五层参考模型"><a href="#五层参考模型" class="headerlink" title="五层参考模型"></a>五层参考模型</h4><ul>
-<li>层次：应用层 传输层 网络层 数据链路层 物理层<ul>
-<li>将会话层、表示层并入应用层</li>
 </ul>
 </li>
 </ul>
-<h4 id="TCP-IP参考模型（4层）"><a href="#TCP-IP参考模型（4层）" class="headerlink" title="TCP/IP参考模型（4层）"></a>TCP/IP 参考模型（4 层）</h4><ul>
-<li>层次：应用层 传输层 网络层 网络接口层<ul>
-<li>再将物理层和数据链路层合并为网络接口层</li>
+<h3 id="（二）体系结构">（二）体系结构</h3>
+<h4 id="分层结构">分层结构</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>服务数据单元 SDU：为完成用户要求功能而应传送的数据</p>
+</li>
+<li class="lvl-2">
+<p>协议控制信息 PCI：控制协议操作的信息</p>
+</li>
+<li class="lvl-2">
+<p>协议数据单元 PDU：对等层次间查传送的数据单位</p>
+</li>
+</ul>
+<h4 id="OSI参考模型（7层）">OSI 参考模型（7 层）</h4>
+<p>物理层（比特流）、数据链路层（帧）、网络层（分组）、运输层（TPDU：TCP 用报文段，UDP 用用户数据报）、会话层（SPDU）、 表示层（PPDU）、应用层（APDU）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>应用层：所有能和用户交互产生网络流量的程序</p>
+</li>
+<li class="lvl-2">
+<p>表示层：处理两通信系统中交换信息的表示方式</p>
+<ul class="lvl-2">
+<li class="lvl-4">数据格式变换、加解密和压缩恢复</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>会话层：建立同步，向表示层实体 / 用户进程提供建立连接并在连接上有序地传输数据</p>
+<ul class="lvl-2">
+<li class="lvl-4">管理会话</li>
+<li class="lvl-4">使用校验点可使会话在通信失效时从校验点 / 同步点继续恢复通信，实现数据同步</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>传输层：负责端到端通信</p>
+<ul class="lvl-2">
+<li class="lvl-4">传输单位：报文段 / 用户数据报</li>
+<li class="lvl-4">功能：可靠传输 差错控制 流量控制 复用分用</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>网络层：把分组从源端传到目的端，为分组交换网上的不同主机提供通信服务</p>
+<ul class="lvl-2">
+<li class="lvl-4">传输单位：数据报</li>
+<li class="lvl-4">功能：路由选择 流量控制 查错控制 拥塞控制</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>数据链路层：把网络层传下来的数据报组装成帧</p>
+<ul class="lvl-2">
+<li class="lvl-4">传输单位：帧</li>
+<li class="lvl-4">功能：成帧 差错控制 流量控制 访问控制</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>物理层：在物理媒体上实现比特流的透明传输</p>
+<ul class="lvl-2">
+<li class="lvl-4">传输单位：比特</li>
+<li class="lvl-4">功能：定义接口特性、传输模式、传输速率、比特同步和比特编码</li>
+</ul>
+</li>
+</ul>
+<h4 id="五层参考模型">五层参考模型</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>层次：应用层 传输层 网络层 数据链路层 物理层</p>
+<ul class="lvl-2">
+<li class="lvl-4">将会话层、表示层并入应用层</li>
+</ul>
+</li>
+</ul>
+<h4 id="TCP-IP参考模型（4层）">TCP/IP 参考模型（4 层）</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>层次：应用层 传输层 网络层 网络接口层</p>
+<ul class="lvl-2">
+<li class="lvl-4">再将物理层和数据链路层合并为网络接口层</li>
 </ul>
 </li>
 </ul>
@@ -643,20 +688,20 @@ d_{nodel} = d_{proc} + d_{queue} + d_{trans} + d_{prop}</script></li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -690,7 +735,7 @@ d_{nodel} = d_{proc} + d_{queue} + d_{trans} + d_{prop}</script></li>
           <h5 class="widget-title">词云图</h5>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intel-SGX/" rel="tag">Intel SGX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL2/" rel="tag">WSL2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intel-SGX/" rel="tag">Intel SGX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL2/" rel="tag">WSL2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8/" rel="tag">可证明安全</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" rel="tag">论文阅读</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
               </canvas>
           </div>
       </div>
@@ -954,60 +999,10 @@ window.addEventListener('pjax:success', () => {
 
   
       
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  <script src="//cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.css">
 
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
