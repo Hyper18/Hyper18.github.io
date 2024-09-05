@@ -317,7 +317,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88/">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/posts/7bf79933/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -331,7 +331,7 @@ mjx-container[display="true"] + br {
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88/" class="post-title-link" itemprop="url">Redis 原理初探（五）—— 有序集合</a>
+            <a href="/posts/7bf79933/" class="post-title-link" itemprop="url">Redis 原理初探（五）—— 有序集合</a>
         </h2>
 
         <div class="post-meta">
@@ -348,7 +348,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-30 13:58:07" itemprop="dateModified" datetime="2022-06-30T13:58:07+08:00">2022-06-30</time>
+                <time title="修改时间：2024-09-05 13:20:19" itemprop="dateModified" datetime="2024-09-05T13:20:19+08:00">2024-09-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -497,9 +497,9 @@ mjx-container[display="true"] + br {
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ZREVRANK：返回有序集合中成员的排名</span></span><br><span class="line"><span class="comment"># 按照分值从大到小排列</span></span><br><span class="line"><span class="comment"># 注：按照逆序处理有序集合，其工作方式与非逆序大体相同</span></span><br><span class="line">conn.zrevrank(<span class="string">'zset_key'</span>, <span class="string">'c'</span>)</span><br><span class="line"><span class="comment"># ZREVRANGE：返回有序集合给定排名范围内的成员</span></span><br><span class="line"><span class="comment"># 按照分值从大到小排列</span></span><br><span class="line">conn.zrevrange(<span class="string">'zset_key'</span>, <span class="number">0</span>, -<span class="number">1</span>, withscores=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># ZRANGEBYSCORE：返回有序集合中分值介于给定最小与较大范围之间的所有成员</span></span><br><span class="line">conn.zrangebyscore(<span class="string">'zset_key'</span>, <span class="number">0</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="comment"># ZREVRANGEBYSCORE：获取有序集合中分值介于给定最小与较大范围之间的所有成员</span></span><br><span class="line"><span class="comment"># 按照分值从大到小排列</span></span><br><span class="line">conn.zrevrangebyscore(<span class="string">'zset_key'</span>, <span class="number">0</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="comment"># ZREMRANGEBYRANK：移除有序集合中排名介于开始与结束位置之间的所有成员</span></span><br><span class="line">conn.zremrangebyrank(<span class="string">'zset_key'</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment"># ZREMRANGEBYSCORE：移除有序集合中分值介于开始与结束位置之间的所有成员</span></span><br><span class="line">conn.zremrangebyscore(<span class="string">'zset_key'</span>, <span class="number">0</span>, <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="并集与交集命令">并集与交集命令</h4>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">conn.zadd(<span class="string">'zset_key2'</span>, <span class="string">'a'</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="number">2</span>, <span class="string">'c'</span>, <span class="number">3</span>)</span><br><span class="line">conn.zadd(<span class="string">'zset_key3'</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="string">'b'</span>, <span class="number">2</span>, <span class="string">'c'</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment"># ZINTERSCORE：对给定有序集合进行交集运算</span></span><br><span class="line"><span class="comment"># 默认使用sum作为聚合函数，则相当于对各个有序集合中的成员分值做累加操作</span></span><br><span class="line">conn.zinterstore(<span class="string">'zset_key_i'</span>, [<span class="string">'zset_key2'</span>, <span class="string">'zset_key3'</span>])</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<img data-src="/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88/交集运算.png">
+<img data-src="/posts/7bf79933/交集运算.png">
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ZUNIONSTORE：对给定有序集合进行并集运算</span></span><br><span class="line"><span class="comment"># 还可以指定聚合函数为min/max，以适应不同的运算场景</span></span><br><span class="line">conn.zunionstore(<span class="string">'zset_key_u'</span>, [<span class="string">'zset_key2'</span>, <span class="string">'zset_key3'</span>], aggregate=<span class="string">'min'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<img data-src="/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88/并集运算.png">
+<img data-src="/posts/7bf79933/并集运算.png">
 <p><em>【参考】</em><br>
 <em>[1] 《Redis 的设计与实现》</em></p>
 <p><em>[2] 《Redis 实战》</em></p>
@@ -522,7 +522,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%9B%86%E5%90%88/">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/posts/59985090/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -536,7 +536,7 @@ mjx-container[display="true"] + br {
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/11/23/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%20%E9%9B%86%E5%90%88/" class="post-title-link" itemprop="url">Redis 原理初探（四）—— 集合</a>
+            <a href="/posts/59985090/" class="post-title-link" itemprop="url">Redis 原理初探（四）—— 集合</a>
         </h2>
 
         <div class="post-meta">
@@ -553,7 +553,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-30 13:58:04" itemprop="dateModified" datetime="2022-06-30T13:58:04+08:00">2022-06-30</time>
+                <time title="修改时间：2024-09-05 13:20:19" itemprop="dateModified" datetime="2024-09-05T13:20:19+08:00">2024-09-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -684,7 +684,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/posts/50774ef3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -698,7 +698,7 @@ mjx-container[display="true"] + br {
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">Redis 原理初探（三）—— 散列表</a>
+            <a href="/posts/50774ef3/" class="post-title-link" itemprop="url">Redis 原理初探（三）—— 散列表</a>
         </h2>
 
         <div class="post-meta">
@@ -715,7 +715,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-30 13:58:01" itemprop="dateModified" datetime="2022-06-30T13:58:01+08:00">2022-06-30</time>
+                <time title="修改时间：2024-09-05 13:20:19" itemprop="dateModified" datetime="2024-09-05T13:20:19+08:00">2024-09-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -766,7 +766,7 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 </ul>
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/哈希表示例.png">
+<img data-src="/posts/50774ef3/哈希表示例.png">
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 键值对</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dictEntry</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="keyword">void</span> *key; <span class="comment">//键</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> //值</span></span><br><span class="line"><span class="class">    {</span></span><br><span class="line">		<span class="keyword">void</span> *val;         <span class="comment">//可为一个指针</span></span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> tu64; <span class="comment">//可为uint64型整数</span></span><br><span class="line">        <span class="keyword">int</span> ts64;          <span class="comment">//可为int64型整数</span></span><br><span class="line">    } v;</span><br><span class="line">    <span class="comment">//指向下个哈希表节点，形成链表</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">dictEntry</span> *<span class="title">next</span>;</span></span><br><span class="line">} dictEntry;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 底层实现：哈希表</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dictht</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">//哈希表数组</span></span><br><span class="line">    dictEntry **table;</span><br><span class="line">    <span class="comment">//哈希表大小</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> size;</span><br><span class="line">    <span class="comment">//哈希表大小掩码，用于计算索引值</span></span><br><span class="line">    <span class="comment">//总是等于size - 1</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> sizemask;</span><br><span class="line">    <span class="comment">//该哈希表已有节点的数量</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> used;</span><br><span class="line">} dictht;</span><br></pre></td></tr></tbody></table></figure>
 <p>注：sizemask 和哈希值一起决定一个键应该被放到 table 数组的哪个索引上面</p>
 <h4 id="适用场景">适用场景</h4>
@@ -776,7 +776,7 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <h4 id="redis字典">redis 字典</h4>
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/字典示例.png">
+<img data-src="/posts/50774ef3/字典示例.png">
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dictType</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">//计算哈希值的函数</span></span><br><span class="line">    <span class="function"><span class="keyword">unsigned</span> <span class="title">int</span> <span class="params">(*hashFunction)</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *key)</span></span>;</span><br><span class="line">    <span class="comment">//复制键的函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*keyDup)(<span class="keyword">void</span> *privdata, <span class="keyword">const</span> <span class="keyword">void</span> *key);</span><br><span class="line">    <span class="comment">//复制值的函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*valDup)(<span class="keyword">void</span> *privdata, <span class="keyword">const</span> <span class="keyword">void</span> *obj);</span><br><span class="line">    <span class="comment">//对比键的函数</span></span><br><span class="line">    <span class="keyword">int</span> (*keyCompare)(<span class="keyword">void</span> *privdata, <span class="keyword">const</span> <span class="keyword">void</span> *key1, <span class="keyword">const</span> <span class="keyword">void</span> *key2);</span><br><span class="line">    <span class="comment">//销毁键的函数</span></span><br><span class="line">    <span class="keyword">void</span> (*keyDestructor)(<span class="keyword">void</span> *privdata, <span class="keyword">void</span> *key);</span><br><span class="line">    <span class="comment">//销毁值的函数</span></span><br><span class="line">    <span class="keyword">void</span> (*valDestructor)(<span class="keyword">void</span> *privdata, <span class="keyword">void</span> *obj);</span><br><span class="line">} dictType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dict</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">//类型特定函数</span></span><br><span class="line">    dictType *type;</span><br><span class="line">    <span class="comment">//私有数据</span></span><br><span class="line">    <span class="keyword">void</span> *privdata;</span><br><span class="line">    <span class="comment">//哈希表</span></span><br><span class="line">    dictht ht[<span class="number">2</span>];</span><br><span class="line">    <span class="comment">// rehash 索引</span></span><br><span class="line">    <span class="comment">//当rehash 不在进行时，值为-1</span></span><br><span class="line">    <span class="keyword">int</span> rehashidx; <span class="comment">/* rehashing not in progress if rehashidx == -1 */</span></span><br><span class="line">} dict;</span><br></pre></td></tr></tbody></table></figure>
 <p>注：type 属性和 privdata 属性是针对不同类型的键值对，为创建多态字典而设置</p>
 <ul class="lvl-0">
@@ -799,11 +799,11 @@ mjx-container[display="true"] + br {
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用字典设置的哈希函数，计算键key的哈希值</span></span><br><span class="line"><span class="built_in">hash</span> = <span class="built_in">dict</span> -&gt; <span class="built_in">type</span> -&gt; hashFunction(key)</span><br><span class="line"><span class="comment"># 使用哈希表的sizemask 属性和哈希值，计算出索引值</span></span><br><span class="line"><span class="comment"># 根据情况不同，ht[x] 可以是ht[0]或者ht[1]</span></span><br><span class="line">index = <span class="built_in">hash</span> &amp; <span class="built_in">dict</span> -&gt; ht[x].sizemask</span><br></pre></td></tr></tbody></table></figure>
 <p><strong>e.g. 一个完整的添加键值对 &lt;k0, v0&gt; 过程：</strong></p>
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/哈希算法示例.png">
+<img data-src="/posts/50774ef3/哈希算法示例.png">
 <p><strong>Step 1</strong>：使用语句 <code>hash = dict-&gt;type-&gt;hashFunction(k0);</code> 计算的处 k0 的哈希值</p>
 <p><strong>Step 2</strong>：假设计算出的哈希值为 8，则程序继续 <code>index = hash &amp; dict-&gt;ht[0].sizemask = 8 &amp; 3 = 0;</code> 计算得到 k0 的索引值为 0，这表示包含这个键值对的节点应该放置到哈希表数组的索引 0 位置上</p>
 <h4 id="键冲突的解决">键冲突的解决</h4>
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/键冲突解决示例.png">
+<img data-src="/posts/50774ef3/键冲突解决示例.png">
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><strong>链地址法（separate chaining）</strong></p>
@@ -845,13 +845,13 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <p><strong>e.g. 要对图示字典 ht [0] 进行扩展操作</strong>:</p>
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/rehash1.png">
+<img data-src="/posts/50774ef3/rehash1.png">
 <p><strong>Step 1</strong>：ht [0].used 当前的值为 4，4*2=8，而 8（2^3）恰好是第一个大于等于 4 的 2 的 n 次方，所以程序会将 ht [1] 哈希表的大小设置为 8</p>
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/rehash2.png">
+<img data-src="/posts/50774ef3/rehash2.png">
 <p><strong>Step 2</strong>：将 ht [0] 包含的四个键值对都 rehash 到 ht [1]</p>
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/rehash3.png">
+<img data-src="/posts/50774ef3/rehash3.png">
 <p><strong>Step 3</strong>：释放 ht [0]，并将 ht [1] 设置为 ht [0]，然后为 ht [1] 分配一个空白哈希表。执行完毕，程序成功将哈希表的大小从原来的 4 改为了现在的 8</p>
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/rehash4.png">
+<img data-src="/posts/50774ef3/rehash4.png">
 <h4 id="执行条件">执行条件</h4>
 <p>​	当以下条件中任意一个被满足时，程序会自动开始对哈希表执行扩展操作：</p>
 <ul class="lvl-0">
@@ -893,12 +893,12 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <p>e.g. <strong>一次完整的渐进式 rehash 过程：</strong></p>
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash1.png">
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash2.png">
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash3.png">
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash4.png">
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash5.png">
-<img data-src="/2021/11/22/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%20%E6%95%A3%E5%88%97%E8%A1%A8/渐进式rehash6.png">
+<img data-src="/posts/50774ef3/渐进式rehash1.png">
+<img data-src="/posts/50774ef3/渐进式rehash2.png">
+<img data-src="/posts/50774ef3/渐进式rehash3.png">
+<img data-src="/posts/50774ef3/渐进式rehash4.png">
+<img data-src="/posts/50774ef3/渐进式rehash5.png">
+<img data-src="/posts/50774ef3/渐进式rehash6.png">
 <p>注：在渐进式 rehash 进行期间，字典 CRUD 操作会在两个哈希表上都进行；新添加到字典的键值对一律会被保存到 ht [1] 里面，而 ht [0] 则不再进行任何添加操作，以保证 ht [0] 包含的键值对数量会只减不增，并随着 rehash 操作的执行而最终变成空表</p>
 <h2 id="散列表操作">散列表操作</h2>
 <h4 id="常用命令">常用命令</h4>
@@ -928,7 +928,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/posts/466192d5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -942,7 +942,7 @@ mjx-container[display="true"] + br {
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">Redis 原理初探（二）—— 列表</a>
+            <a href="/posts/466192d5/" class="post-title-link" itemprop="url">Redis 原理初探（二）—— 列表</a>
         </h2>
 
         <div class="post-meta">
@@ -959,7 +959,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-30 13:57:58" itemprop="dateModified" datetime="2022-06-30T13:57:58+08:00">2022-06-30</time>
+                <time title="修改时间：2024-09-05 13:20:19" itemprop="dateModified" datetime="2024-09-05T13:20:19+08:00">2024-09-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1065,7 +1065,7 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <h3 id="压缩列表的组成">压缩列表的组成</h3>
-<img data-src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;">
+<img data-src="/posts/466192d5/压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;">
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>zlbytes：4bytes，<strong>记录整个压缩列表占用的内存字节数</strong></p>
@@ -1087,7 +1087,7 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <h3 id="压缩列表结点的构成">压缩列表结点的构成</h3>
-<img data-src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/压缩列表结点的各个组成部分.png" alt="压缩列表结点的各个组成部分">
+<img data-src="/posts/466192d5/压缩列表结点的各个组成部分.png" alt="压缩列表结点的各个组成部分">
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>previous_entry_length：1byte/5bytes，记录<strong>压缩列表中前一个节点的长度</strong></p>
@@ -1097,7 +1097,7 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 </ul>
-<img data-src="/2021/11/21/Redis%E5%8E%9F%E7%90%86%E5%88%9D%E6%8E%A2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%20%E5%88%97%E8%A1%A8/运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;">
+<img data-src="/posts/466192d5/运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;">
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>encoding：记录<strong>节点的 content 属性所保存数据的类型以及长度</strong> D:</p>
@@ -1147,7 +1147,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/2021/11/20/%E7%AD%BE%E5%90%8Dcookie%E4%B8%8E%E4%BB%A4%E7%89%8Ccookie/">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/posts/db91c5a3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1161,7 +1161,7 @@ mjx-container[display="true"] + br {
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/11/20/%E7%AD%BE%E5%90%8Dcookie%E4%B8%8E%E4%BB%A4%E7%89%8Ccookie/" class="post-title-link" itemprop="url">签名 cookie 与令牌 cookie</a>
+            <a href="/posts/db91c5a3/" class="post-title-link" itemprop="url">签名 cookie 与令牌 cookie</a>
         </h2>
 
         <div class="post-meta">
@@ -1178,7 +1178,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-30 13:56:42" itemprop="dateModified" datetime="2022-06-30T13:56:42+08:00">2022-06-30</time>
+                <time title="修改时间：2024-09-05 13:20:19" itemprop="dateModified" datetime="2024-09-05T13:20:19+08:00">2024-09-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
