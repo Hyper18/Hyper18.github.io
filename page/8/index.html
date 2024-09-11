@@ -243,7 +243,7 @@ mjx-container[display="true"] + br {
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">40</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">41</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -253,7 +253,7 @@ mjx-container[display="true"] + br {
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">57</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">58</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -313,6 +313,514 @@ mjx-container[display="true"] + br {
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/posts/882ff97a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyper">
+      <meta itemprop="description" content="终有一日</br>你我将相会</br>在另一维宇宙">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyper の 个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/882ff97a/" class="post-title-link" itemprop="url">分题型基础补全计划（一）—— HTML 篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-04 22:34:37" itemprop="dateCreated datePublished" datetime="2021-11-04T22:34:37+08:00">2021-11-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-09-05 13:20:19" itemprop="dateModified" datetime="2024-09-05T13:20:19+08:00">2024-09-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Java/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/882ff97a/" class="post-meta-item leancloud_visitors" data-flag-title="分题型基础补全计划（一）—— HTML 篇" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="URL样式">URL 样式</h4>
+<p>题型：使用 <code>http://localhost:8080/web01/test.jsp?user=admin&amp;password=admin</code> 进行访问 WEB 应用时候，下列说法哪个是错误的：( )</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A. 表示访问的 web 应用的主机名是 localhost，服务端口是 8080 端口</p>
+</li>
+<li class="lvl-2">
+<p>B. URL 地址中包含了两个参数 user 与 password</p>
+</li>
+<li class="lvl-2">
+<p>C. 使用 HTTP 协议进行访问</p>
+</li>
+<li class="lvl-2">
+<p>D. 使用 POST 请求方法</p>
+</li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="Get方法：查询键值对被附加在URL地址后面一起发送到服务器，如：">Get 方法：查询键值对被附加在 URL 地址后面一起发送到服务器，如：</h5>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scheme://login:password@address:port/path_to_resource?query_string#fragment</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="Post方法：发送给服务器端的数据保存在信息的body中">Post 方法：发送给服务器端的数据保存在信息的 body 中</h5>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8090/api/query?id=3</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="HTTP报文头">HTTP 报文头</h4>
+<p>题型：(单选题) 在 HTTP 请求报文中，发送给服务器的消息主体的媒体类型保存在（ ）中。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A. Accept</p>
+</li>
+<li class="lvl-2">
+<p>B. Accept-Language</p>
+</li>
+<li class="lvl-2">
+<p>C. User-Agent</p>
+</li>
+<li class="lvl-2">
+<p>D. Content-Type</p>
+</li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="Http报头分为：通用报头-请求报头-响应报头-实体报头">Http 报头分为：通用报头 请求报头 响应报头 实体报头</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Accept 属于请求头，代表发送端（客户端）希望接受的数据类型</p>
+</li>
+<li class="lvl-2">
+<p>Content-Type 属于实体头，代表发送端（客户端 | 服务器）发送的实体数据的数据类型</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Accept:text/xml；</span><br><span class="line">Content-Type:text/html</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="背景颜色与背景图像-（body）">背景颜色与背景图像 **（body）**</h4>
+<p>题型 1：在下列的 HTML 中，哪个可以添加背景颜色？</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A <code>&lt;body color="yellow"&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>B <code>&lt;background&gt;yellow&lt;/background&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>C <code>&lt;body bgcolor="yellow"&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>D <code>&lt;body background="yellow"&gt;</code></p>
+</li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="设置背景颜色">设置背景颜色</h5>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">bgcolor</span>=<span class="string">"sample_color"</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>题型 2：在下列的 HTML 中，哪个可以插入背景图像？</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A <code>&lt;body background="background.gif"&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>B <code>&lt;background img="background.gif"&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>C <code>&lt;img src="background.gif" background&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>D <code>&lt;img src="background.gif" body&gt;</code></p>
+</li>
+</ul>
+<p><em>我的答案:</em> A</p>
+<h5 id="设置背景图像">设置背景图像</h5>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">background</span>=<span class="string">"sample.png"</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="超链接的使用-（a）">超链接的使用 **（a）**</h4>
+<p>题型 1：如何制作电子邮件链接？</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A <code>&lt;a href="xxx@yyy"&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>B <code>&lt;mail href="xxx@yyy"&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>C <code>&lt;a href="mailto:xxx@yyy"&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>D <code>&lt;mail&gt;xxx@yyy&lt;/mail&gt;</code></p>
+</li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="使用超链接制作电子邮件链接">使用超链接制作电子邮件链接</h5>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"mailto:sample@qq.com"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>题型 2：如何在新窗口打开链接？</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A <code>&lt;a href="url" new&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>B <code>&lt;a href="url" target=" _blank" &gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>C <code>&lt;a href="url" target="new"&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>D <code>&lt;a href="url" &gt;</code></p>
+</li>
+</ul>
+<p><em>我的答案:</em> B</p>
+<h5 id="在新窗口打开链接">在新窗口打开链接</h5>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"sample-url"</span> <span class="attr">target</span>=<span class="string">" _blank"</span> &gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>题型 3：要将页面的当前位置定义成名为 "vbpos" 和锚，其定义方法正确的是</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A <code>&lt;a href=:vbpos"&gt;&lt;/a&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>B <code>&lt;a href="#vbpos"&gt;vbpos&lt;/a&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>C <code>&lt;a name=vbpos&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>D <code>&lt;a name="vbpos"&gt;&lt;/a&gt;</code></p>
+</li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="name参数：用于指定锚（anchor）的名称">*name 参数：用于指定锚（anchor）的名称</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>注：在 HTML5 中，其效果等同于 id；为了与之前版本网页页面的兼容性，此参数保留了下来；可以把 id 属性视作是 name 属性的升级版本</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#C1"</span>&gt;</span>第一章<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#C2"</span>&gt;</span>第二章<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"#C3"</span>&gt;</span>第三章<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"#C4"</span>&gt;</span>第四章<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>呈现效果：</p>
+<p><a href="#C1">第一章</a><a href="#C2">第二章</a><a id="#C3">第三章</a><a id="#C4">第四章</a></p>
+<h4 id="列表标签的使用">列表标签的使用</h4>
+<p>题型 1：如何产生带有数字列表符号的列表？</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A <code>&lt;ul&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>B <code>&lt;dl&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>C <code>&lt;ol&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>D <code>&lt;list&gt;</code></p>
+</li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="有序列表-（ol-li）">有序列表 **（ol-li）**</h5>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 呈现：</span></span><br><span class="line"><span class="comment">	1. sample_line1</span></span><br><span class="line"><span class="comment">    2. sample_line2</span></span><br><span class="line"><span class="comment">    3. sample_line3 </span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>type 参数：1、a、A、i、I (罗马数字)，表示列表前缀的格式</p>
+</li>
+<li class="lvl-2">
+<p>start 参数：属性值位数字，表示从 type 类型的第几个数字开始</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">"A"</span> <span class="attr">start</span>=<span class="string">"3"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 呈现：</span></span><br><span class="line"><span class="comment">	C. sample_line1</span></span><br><span class="line"><span class="comment">    D. sample_line2</span></span><br><span class="line"><span class="comment">    E. sample_line3 </span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>题型 2：如何产生带有圆点列表符号的列表？</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A <code>&lt;dl&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>B <code>&lt;list&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>C <code>&lt;ol&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>D <code>&lt;ul&gt;</code></p>
+</li>
+</ul>
+<p><em>我的答案:</em> D</p>
+<h5 id="无序列表-（ul-li）">无序列表 **（ul-li）**</h5>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 呈现效果：</span></span><br><span class="line"><span class="comment">	· sample_line1</span></span><br><span class="line"><span class="comment">    · sample_line2</span></span><br><span class="line"><span class="comment">    · sample_line3 </span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>type 参数：属性值有 disc（实心圆默认）、circle（空心圆）、square（实心正方形）、none（取消前缀）</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">type</span>=<span class="string">"none"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 呈现效果：</span></span><br><span class="line"><span class="comment">	sample_line1</span></span><br><span class="line"><span class="comment">    sample_line2</span></span><br><span class="line"><span class="comment">    sample_line3 </span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>sample_line3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h5 id="自定义列表-（dl-dt-dd）"><em>自定义列表</em> *（dl-dt-dd）**</h5>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>~哇咔咔，我是可有可无的标题~<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>一级boss1<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>二级喽喽1-1<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>二级喽喽1-2<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>一级boss2<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>二级喽喽2-1<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>二级喽喽2-2<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>呈现效果：</p>
+<h4>~ 哇咔咔，我是可有可无的标题～</h4>
+<dl>
+    <dt>一级 boss1</dt>
+    	<dd> 二级喽喽 1-1</dd>
+    	<dd> 二级喽喽 1-2</dd>
+    <dt> 一级 boss2</dt>
+    	<dd> 二级喽喽 2-1</dd>
+    	<dd> 二级喽喽 2-2</dd>
+</dl>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>需要注意，在自定义列表中，dt 与 dd 在呈现效果上有一个缩进（tab）的效果。其余两种类型的列表，需要使用 <code>&lt;list&gt;</code> 嵌套完成。</p>
+</li>
+<li class="lvl-2">
+<p>区别简析：自定义列表相比之下，<strong>有缩进、无前缀</strong></p>
+</li>
+</ul>
+<h4 id="文本区与字体标签的使用">文本区与字体标签的使用</h4>
+<p>题型 1：在下列的 HTML 中，哪个可以产生文本区（textarea）</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A <code>&lt;textarea&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>B <code>&lt;input type="textarea"&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>C <code>&lt;input type="textbox"&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>D <code>&lt;input type="text"&gt;</code></p>
+</li>
+</ul>
+<p><em>我的答案:</em> A</p>
+<h5 id="文本区-（textarea）">文本区 <strong>（textarea）</strong></h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>用于定义多行输入</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">"2"</span> <span class="attr">cols</span>=<span class="string">"25"</span>&gt;</span></span><br><span class="line">在Hyperの个人博客，交流技术、分享生活。</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>呈现效果：</p>
+<textarea rows="2" cols="25">在Hyperの个人博客，交流技术、分享生活。
+</textarea>
+<p>题型 2：若要以加粗宋体、12 号字显示 “vbscript” 以下用法中，正确的是</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A <code>&lt;b&gt;&lt;font size=12&gt;vbscript&lt;/b&gt;&lt;/font&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>B <code>&lt;b&gt;&lt;font face="宋体" size=12&gt;vbscript&lt;/font&gt;&lt;/b&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>C <code>&lt;b&gt;&lt;font size=“宋体”size=12&gt;vbscript&lt;/b&gt;&lt;/font&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>D <code>&lt;b&gt;&lt;font size="宋体" fontsize=12&gt;vbscript&lt;/b&gt;&lt;/font&gt;</code></p>
+</li>
+</ul>
+<p><em>我的答案:</em> B</p>
+<h5 id="字体标签-（font）">字体标签 **（font）**</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>规定采用字体的类型、大小、颜色等</p>
+<ul class="lvl-2">
+<li class="lvl-4">face 参数：采用什么字体</li>
+<li class="lvl-4"> color 参数</li>
+<li class="lvl-4"> size 参数：指定大小（默认 <strong>3</strong>），注意只能为 <strong>1~7</strong> 中的整数值 </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">"verdana"</span> <span class="attr">color</span>=<span class="string">"red"</span> <span class="attr">size</span>=<span class="string">4</span>&gt;</span>sample text<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>呈现效果：</p>
+<p><font face="verdana" color="red" size="4>sample" text< font></font></p>
+<h4 id="表格与表单的使用">表格与表单的使用</h4>
+<p>题型 1：要使表格的边框不显示，应设置 border 的值是</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A 1</p>
+</li>
+<li class="lvl-2">
+<p>B 0</p>
+</li>
+<li class="lvl-2">
+<p>C 2</p>
+</li>
+<li class="lvl-2">
+<p>D -1</p>
+</li>
+</ul>
+<p><em>我的答案:</em> B</p>
+<h5 id="表格标签-（table）">表格标签 **（table）**</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>border 参数：规定围绕表格的边框的宽度</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"3"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>Level1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>Level2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>小boss<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>大boss<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>呈现效果：</p>
+<table border="3">
+  <tbody><tr>
+    <th>Level1</th>
+    <th>Level2</th>
+  </tr>
+  <tr>
+    <td> 小 boss</td>
+    <td> 大 boss</td>
+  </tr>
+</tbody></table>
+<p>题型 2：如果要表单提交信息不以附件的形式发送，只要将表单的 “MTME 类型” 设置为</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A text/plain</p>
+</li>
+<li class="lvl-2">
+<p>B password</p>
+</li>
+<li class="lvl-2">
+<p>C submit</p>
+</li>
+<li class="lvl-2">
+<p>D button</p>
+</li>
+</ul>
+<p><em>我的答案:</em> A，本题中 <strong>MTME 类型</strong>意义不明（没有查到具体是什么定义），暂且认为指的是传输的数据格式</p>
+<h5 id="表单标签-（form）">表单标签 **（form）**</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>表单标签用于收集用户输入</p>
+<ul class="lvl-2">
+<li class="lvl-4">input 参数：text（纯文本） radio（单选按钮输入） submit（提交按钮）</li>
+<li class="lvl-4">action 参数：定义在提交表单时执行的动作，一般为提交目标网页</li>
+<li class="lvl-4"> method 参数：post 或 get</li>
+<li class="lvl-4">name 参数：为输入字段设置名称 </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"sample_action_page.php"</span> <span class="attr">method</span>=<span class="string">"GET"</span>&gt;</span></span><br><span class="line"> First name:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"firstname"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"> Last name:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"lastname"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"male"</span> <span class="attr">checked</span>&gt;</span>Male</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"female"</span>&gt;</span>Female</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br></pre></td></tr></tbody></table></figure>
+<p>呈现效果：</p>
+<form action="sample_action_page.php" method="GET">
+ First name:<br>
+<input type="text" name="firstname">
+<br>
+ Last name:<br>
+<input type="text" name="lastname">
+<br>
+<input type="radio" name="sex" value="male" checked>Male
+<br>
+<input type="radio" name="sex" value="female">Female
+<br>
+<input type="submit" value="Submit">
+</form> 
+<h4 id="内嵌标签与隐藏域的使用">内嵌标签与隐藏域的使用</h4>
+<p>题型 1：在网页中若要播放名为 demo.avi 的动画，以下用法中，正确的是</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A <code>&lt;Embed src="demo.avi" autostart=true&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>B <code>&lt;Embed src="demo.avi" autoopen=true&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>C <code>&lt;Embed src="demo.avi" autoopen=true&gt;&lt;/Embed&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>D <code>&lt;Embed src="demo.avi" autostart=true&gt;&lt;/Embed&gt;</code></p>
+</li>
+</ul>
+<p><em>我的答案:</em> A，应为 D</p>
+<h5 id="内嵌标签-（embed）">内嵌标签 **（embed）**</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>定义嵌入的插件</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Embed</span> <span class="attr">src</span>=<span class="string">"sample_video.mp4"</span> /&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>题型 2：在 HTML 中，要创建一个隐藏域，则应设置 <code>&lt;input&gt;</code> 标签的 type 属性为</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A text</p>
+</li>
+<li class="lvl-2">
+<p>B div</p>
+</li>
+<li class="lvl-2">
+<p>C hidden</p>
+</li>
+<li class="lvl-2">
+<p>D adio</p>
+</li>
+</ul>
+<p><em>我的答案:</em> C</p>
+<h5 id="隐藏域">隐藏域</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>对用户不可见，其目的主要有：收集或发送信息、确认用户身份（sessionkey）、在表单具有多个提交按钮时，使用隐藏域予以区分、多表单虽不能同时提交，但可利用隐藏域将其联系起来、存放全局变量（供 js 使用）等，可见 <a target="_blank" rel="noopener" href="https://www.jb51.net/web/100210.html">html 中隐藏域 hidden 的作用介绍及使用示例_HTML/Xhtml_网页制作_脚本之家 (jb51.net)</a></p>
+</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 基本语法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"field＿name"</span> <span class="attr">value</span>=<span class="string">"value"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 示例 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">hidden</span>&gt;</span>我会隐身哦<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>呈现效果（看不见喔）：</p>
+<!-- 基本语法 -->
+<input type="hidden" name="field＿name" value="value">
+<!-- 示例 -->
+<p hidden>我会隐身哦</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -835,192 +1343,6 @@ mjx-container[display="true"] + br {
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/posts/e2d859ae/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hyper">
-      <meta itemprop="description" content="终有一日</br>你我将相会</br>在另一维宇宙">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyper の 个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/e2d859ae/" class="post-title-link" itemprop="url">机器学习题解（二）—— 神经网络</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-09-10 21:08:42" itemprop="dateCreated datePublished" datetime="2021-09-10T21:08:42+08:00">2021-09-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-05 13:20:19" itemprop="dateModified" datetime="2024-09-05T13:20:19+08:00">2024-09-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/posts/e2d859ae/" class="post-meta-item leancloud_visitors" data-flag-title="机器学习题解（二）—— 神经网络" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="ex3-m">ex3.m</h3>
-<h4 id="Part-1-Loading-and-Visualizing-Data">Part 1: Loading and Visualizing Data</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>Load Training Data</p>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load(<span class="string">'ex3data1.mat'</span>); <span class="comment">% training data stored in arrays X, y</span></span><br></pre></td></tr></tbody></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>Visualization</p>
-</li>
-</ul>
-<p><img data-src="/posts/e2d859ae/image-20210910203101080.png" alt="可视化结果"></p>
-<h4 id="Part-2a-Vectorize-Logistic-Regression">Part 2a: Vectorize Logistic Regression</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>Compute the cost of a particular choice of theta. You should set J to the cost.<br>
-Compute the partial derivatives and set grad to the partial derivatives of the cost w.r.t. each parameter in theta</p>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">J = (<span class="number">1</span> / m) * sum(-y .* <span class="built_in">log</span>(sigmoid(X * theta)) - (<span class="number">1</span> - y) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(X * theta))) + (lambda / (<span class="number">2</span> * m)) * sum(theta(<span class="number">2</span>:<span class="built_in">size</span>(theta)) .^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">temp = theta;</span><br><span class="line">temp(<span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">grad = (<span class="number">1</span> / m) * (X' * (sigmoid(X * theta) - y)) + (lambda / m) * temp;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-2b-One-vs-All-Training">Part 2b: One-vs-All Training</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>You should complete the following code to train num_labels logistic regression classifiers with regularization parameter lambda.</p>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Set Initial theta</span></span><br><span class="line">initial_theta = <span class="built_in">zeros</span>(n + <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">% Set options for fminunc</span></span><br><span class="line">options = optimset(<span class="string">'GradObj'</span>, <span class="string">'on'</span>, <span class="string">'MaxIter'</span>, <span class="number">50</span>);</span><br><span class="line"><span class="keyword">for</span> c = <span class="number">1</span>: num_labels</span><br><span class="line">      all_theta(c, :) = fmincg (@(t)(lrCostFunction(t, X, (y == c), lambda)), initial_theta, options);</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-3-Predict-for-One-Vs-All">Part 3: Predict for One-Vs-All</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>Complete the following code to make predictions using your learned logistic regression parameters (one-vs-all).</p>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">predict = sigmoid(X * all_theta');</span><br><span class="line">[~,p] = <span class="built_in">max</span>(predict, [], <span class="number">2</span>); <span class="comment">% ~ means ignore this 1st parameter output</span></span><br></pre></td></tr></tbody></table></figure>
-<h3 id="ex3-nn-m">ex3_nn.m</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>Complete the following code to make predictions using your learned neural network.</p>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">X = [<span class="built_in">ones</span>(m, <span class="number">1</span>) X];</span><br><span class="line">z1 = sigmoid(X * Theta1');</span><br><span class="line">z1 = [<span class="built_in">ones</span>(m, <span class="number">1</span>) z1];</span><br><span class="line">z2 = sigmoid(z1 * Theta2');</span><br><span class="line"></span><br><span class="line">[~, p] = <span class="built_in">max</span>(z2, [], <span class="number">2</span>);</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="ex4-m">ex4.m</h3>
-<h4 id="Part-3-Compute-Cost-Feedforward">Part 3: Compute Cost (Feedforward)</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>Feedforward the neural network and return the cost in the variable J. After implementing Part 1, you can verify that your cost function computation is correct by verifying the cost computed in ex4.m</p>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% input layer</span></span><br><span class="line">a1 = X;</span><br><span class="line"></span><br><span class="line"><span class="comment">% hidden layer</span></span><br><span class="line">X = [<span class="built_in">ones</span>(m, <span class="number">1</span>) X];  <span class="comment">% 5000 * (1 + 400) = 5000 * 401</span></span><br><span class="line">z2 = Theta1 * X'; <span class="comment">% (25 * 401) * (401 * 5000) = 25 * 5000</span></span><br><span class="line">a2 = sigmoid(z2); <span class="comment">% 25 * 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% output layer</span></span><br><span class="line">a2 = [<span class="built_in">ones</span>(m, <span class="number">1</span>) a2']; <span class="comment">% 5000 * (1 + 25) = 5000 * 26</span></span><br><span class="line">z3 = Theta2 * a2'; <span class="comment">% (10 * 26) * (26 * 5000) = 10 * 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% recode the labels as vectors containing only values 0 or 1</span></span><br><span class="line">y_vec = <span class="built_in">zeros</span>(num_labels, m); <span class="comment">% 10 * 5000</span></span><br><span class="line"><span class="comment">% put value 1 for every iterated column</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: m</span><br><span class="line">    y_vec(y(<span class="built_in">i</span>), <span class="built_in">i</span>) = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% cost function</span></span><br><span class="line">h_theta = sigmoid(z3);</span><br><span class="line">J = (<span class="number">-1</span> / m) * sum(sum(y_vec .* <span class="built_in">log</span>(h_theta) + (<span class="number">1</span> - y_vec) .* <span class="built_in">log</span>(<span class="number">1</span> - sigmoid(h_theta))));</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-4-Implement-Regularization">Part 4: Implement Regularization</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>You should now add regularization to your cost function. Notice that you can first compute the unregularized cost function J using your existing nnCostFunction.m and then later add the cost for the regularization terms.</p>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% regularized cost function</span></span><br><span class="line">theta1 = Theta1(:, <span class="number">2</span>:<span class="built_in">size</span>(Theta1, <span class="number">2</span>)); <span class="comment">% size(Theta1, 2) returns the nums of locumns in the matrix</span></span><br><span class="line">theta2 = Theta2(:, <span class="number">2</span>:<span class="built_in">size</span>(Theta2, <span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">J = J + lambda / (<span class="number">2</span> * m) * ( sum(sum(theta1 .^ <span class="number">2</span>)) + sum(sum(theta2 .^ <span class="number">2</span>)) ); <span class="comment">% !sum up separately</span></span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-5-Sigmoid-Gradient">Part 5: Sigmoid Gradient</h4>
-<ul class="lvl-0">
-<li class="lvl-3">
-<p>Implement the sigmoid gradient function</p>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g = sigmoid(z) .* (<span class="number">1</span> - sigmoid(z));</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-6-Initializing-Pameters">Part 6: Initializing Pameters</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>Initialize W randomly so that we break the symmetry while training the neural network</p>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Randomly initialize the weights to small values</span></span><br><span class="line">epsilon_init = <span class="number">0.12</span>;</span><br><span class="line">W = <span class="built_in">rand</span>(L_out, <span class="number">1</span> + L_in) * <span class="number">2</span> * epsilon_init - epsilon_init;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-7-Implement-Backpropagation">Part 7: Implement Backpropagation</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>Implement the backpropagation algorithm to compute the gradients Theta1_grad and Theta2_grad.</p>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> t = <span class="number">1</span>:m</span><br><span class="line">    <span class="comment">% Step1</span></span><br><span class="line">    a1 = X(t, :); <span class="comment">% 1 * 401</span></span><br><span class="line">    a1 = a1'; <span class="comment">% 401 * 1</span></span><br><span class="line">    z2 = Theta1 * a1; <span class="comment">% (25 * 401) * (401 * 1) = 25 * 1</span></span><br><span class="line">    a2 = sigmoid(z2); <span class="comment">% 25 * 1</span></span><br><span class="line">    </span><br><span class="line">    a2 = [<span class="number">1</span>; a2]; <span class="comment">% add bais, (25 + 1) * 1 = 26 * 1</span></span><br><span class="line">    z3 = Theta2 * a2; <span class="comment">% (10 * 26) * (26 * 1) = 10 * 1</span></span><br><span class="line">    a3 = sigmoid(z3); <span class="comment">% 10 * 1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Step2</span></span><br><span class="line">    delta_3 = a3 - y_vec(:, t); <span class="comment">% 10 * 1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">% Step3</span></span><br><span class="line">    delta_2 = (Theta2' * delta_3) .* sigmoidGradient([<span class="number">1</span>; z2]); <span class="comment">% add bais, 26 * 1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Step4</span></span><br><span class="line">    delta_2 = delta_2(<span class="number">2</span>: <span class="keyword">end</span>); <span class="comment">% 25 * 1</span></span><br><span class="line">    </span><br><span class="line">    Theta1_grad = Theta1_grad + delta_2 * a1'; <span class="comment">% 10 * 25, !sum up grad</span></span><br><span class="line">    Theta2_grad = Theta2_grad + delta_3 * a2'; <span class="comment">% 10 * 25</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">    <span class="comment">%Step5</span></span><br><span class="line">    Theta1_grad = (<span class="number">1</span> / m) * Theta1_grad;</span><br><span class="line">    Theta2_grad = (<span class="number">1</span> / m) * Theta2_grad;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Gradient-checking">Gradient checking</h4>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% take a look and try to understand</span></span><br><span class="line">numgrad = <span class="built_in">zeros</span>(<span class="built_in">size</span>(theta));</span><br><span class="line">perturb = <span class="built_in">zeros</span>(<span class="built_in">size</span>(theta));</span><br><span class="line">e = <span class="number">1e-4</span>;</span><br><span class="line"><span class="keyword">for</span> p = <span class="number">1</span>:<span class="built_in">numel</span>(theta)</span><br><span class="line">    <span class="comment">% Set perturbation vector</span></span><br><span class="line">    perturb(p) = e;</span><br><span class="line">    loss1 = J(theta - perturb);</span><br><span class="line">    loss2 = J(theta + perturb);</span><br><span class="line">    <span class="comment">% Compute Numerical Gradient</span></span><br><span class="line">    numgrad(p) = (loss2 - loss1) / (<span class="number">2</span>*e);</span><br><span class="line">    perturb(p) = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
-<h4 id="Part-8-Implement-Regularization">Part 8: Implement Regularization</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>Implement regularization with the cost function and gradients.</p>
-</li>
-</ul>
-<figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Theta1_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) = Theta1_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) + (lambda / m) * Theta1(:, <span class="number">2</span>:<span class="keyword">end</span>);</span><br><span class="line">Theta2_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) = Theta2_grad(:, <span class="number">2</span>:<span class="keyword">end</span>) + (lambda / m) * Theta2(:, <span class="number">2</span>:<span class="keyword">end</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1092,7 +1414,7 @@ Compute the partial derivatives and set grad to the partial derivatives of the c
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1105,7 +1427,7 @@ Compute the partial derivatives and set grad to the partial derivatives of the c
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1139,7 +1461,7 @@ Compute the partial derivatives and set grad to the partial derivatives of the c
           <h5 class="widget-title">词云图</h5>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intel-SGX/" rel="tag">Intel SGX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL2/" rel="tag">WSL2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8/" rel="tag">可证明安全</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" rel="tag">论文阅读</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intel-SGX/" rel="tag">Intel SGX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL2/" rel="tag">WSL2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8/" rel="tag">可证明安全</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/" rel="tag">后量子密码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" rel="tag">论文阅读</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
               </canvas>
           </div>
       </div>
