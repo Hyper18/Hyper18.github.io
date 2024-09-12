@@ -243,7 +243,7 @@ mjx-container[display="true"] + br {
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">41</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">42</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -253,7 +253,7 @@ mjx-container[display="true"] + br {
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">58</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">59</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -313,6 +313,180 @@ mjx-container[display="true"] + br {
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/posts/757521c4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyper">
+      <meta itemprop="description" content="终有一日</br>你我将相会</br>在另一维宇宙">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyper の 个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/757521c4/" class="post-title-link" itemprop="url">设计模式之结构型模式的设计与实现（一）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-08 21:38:37" itemprop="dateCreated datePublished" datetime="2022-01-08T21:38:37+08:00">2022-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-09-05 13:20:19" itemprop="dateModified" datetime="2024-09-05T13:20:19+08:00">2024-09-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/757521c4/" class="post-meta-item leancloud_visitors" data-flag-title="设计模式之结构型模式的设计与实现（一）" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="适配器模式">适配器模式</h2>
+<h3 id="案例">案例</h3>
+<p>​	在现有基础上，如何<strong>扩展</strong>使其能够发出救护车灯光和声音</p>
+<p>​	救护车灯光和声音类已经存在，灯光类类名：AmbulanceLamp，发光方法名：lighting ()；声音类类名：AmbulanceSound，发声方法名：sounding ()</p>
+<h4 id="目标抽象类">目标抽象类</h4>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 目标抽象类：汽车控制类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">CarController</span> </span>{</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>{</span><br><span class="line">      System.out.println(<span class="string">"玩具汽车移动！"</span>);</span><br><span class="line">   }</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 发出声音</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">phonate</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 灯光闪烁</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">twinkle</span><span class="params">()</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="适配器类">适配器类</h4>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 适配器类：警车适配器</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PoliceCarAdapter</span> <span class="keyword">extends</span> <span class="title">CarController</span> </span>{</span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 定义适配者PoliceSound对象、PoliceLamp对象</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">private</span> PoliceSound sound;</span><br><span class="line">   <span class="keyword">private</span> PoliceLamp lamp;</span><br><span class="line">   </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">PoliceCarAdapter</span><span class="params">()</span> </span>{</span><br><span class="line">      sound = <span class="keyword">new</span> PoliceSound();</span><br><span class="line">      lamp = <span class="keyword">new</span> PoliceLamp();</span><br><span class="line">   }</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 调用适配者类PoliceSound的方法，发出警笛声音</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">phonate</span><span class="params">()</span> </span>{</span><br><span class="line">      sound.alarmSound();</span><br><span class="line">   }</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 调用适配者类PoliceLamp的方法，呈现警灯闪烁</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">twinkle</span><span class="params">()</span> </span>{</span><br><span class="line">      lamp.alarmLamp();</span><br><span class="line">   }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 适配器类：救护车适配器</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AmbulanceCarAdapter</span> <span class="keyword">extends</span> <span class="title">CarController</span> </span>{</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 定义适配者AmbulanceSound对象、AmbulanceLamp对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> AmbulanceSound sound;</span><br><span class="line">    <span class="keyword">private</span> AmbulanceLamp lamp;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AmbulanceCarAdapter</span><span class="params">()</span> </span>{</span><br><span class="line">        sound = <span class="keyword">new</span> AmbulanceSound();</span><br><span class="line">        lamp = <span class="keyword">new</span> AmbulanceLamp();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 调用适配者类AmbulanceSound的方法，发出救护车声音</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">phonate</span><span class="params">()</span> </span>{</span><br><span class="line">        sound.sounding();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 调用适配者类AmbulanceLamp的方法，呈现救护车灯闪烁</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">twinkle</span><span class="params">()</span> </span>{</span><br><span class="line">        lamp.lighting();</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="适配者类">适配者类</h4>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 适配者类：警灯类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PoliceLamp</span> </span>{</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">alarmLamp</span><span class="params">()</span> </span>{</span><br><span class="line">      System.out.println(<span class="string">"呈现警灯闪烁！"</span>);</span><br><span class="line">   }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 适配者类：警笛类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PoliceSound</span> </span>{</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">alarmSound</span><span class="params">()</span> </span>{</span><br><span class="line">      System.out.println(<span class="string">"发出警笛声音！"</span>);</span><br><span class="line">   }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 适配者类：救护车灯类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AmbulanceLamp</span> </span>{</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">lighting</span><span class="params">()</span> </span>{</span><br><span class="line">      System.out.println(<span class="string">"呈现救护车灯闪烁！"</span>);</span><br><span class="line">   }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 适配者类：救护车声音类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Vincent</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AmbulanceSound</span> </span>{</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sounding</span><span class="params">()</span> </span>{</span><br><span class="line">      System.out.println(<span class="string">"发出救护车声音！"</span>);</span><br><span class="line">   }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="客户端">客户端</h4>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>{</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">      CarController car ;</span><br><span class="line">      car = (CarController)XMLUtil.getBean();</span><br><span class="line">      car.move();</span><br><span class="line">      car.phonate();</span><br><span class="line">      car.twinkle();</span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="小结">小结</h3>
+<img data-src="/posts/757521c4/适配器模式类图.png">
+<h4 id="角色">角色</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Target（目标抽象类）</p>
+</li>
+</ul>
+<p>​	定义客户所需的接口，可以是抽象类或接口、具体类</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Adapter（适配器类）</p>
+</li>
+</ul>
+<p>​	作为转换器来调用另一个接口，从而对目标抽象类和适配者</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Adaptee（适配者类）</p>
+</li>
+</ul>
+<p>​	定义了一个已经存在的接口，这个接口需要适配，一般是一个具体类，包含客户希望使用的业务方法</p>
+<h4 id="特点">特点</h4>
+<p>​	分为类结构型模式和对象结构型模式两种，前者类之间的耦合度比后者高</p>
+<h4 id="优点">优点</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>将目标类和适配者类解耦，通过引入一个适配器类来重用现有的适配者类，无须修改原有结构</p>
+</li>
+<li class="lvl-2">
+<p>增加了类的透明性和复用性，提高了适配者的复用性，同一个适配者类可以在多个不同的系统中复用</p>
+</li>
+<li class="lvl-2">
+<p>灵活性和扩展性非常好</p>
+</li>
+<li class="lvl-2">
+<p>类适配器模式置换一些适配者的方法很方便；对象适配器模式可以把多个不同的适配者适配到同一个目标，还可以适配一个适配者的子类。</p>
+</li>
+</ul>
+<h4 id="缺点">缺点</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>类适配器模式</p>
+<ul class="lvl-2">
+<li class="lvl-4">一次最多只能适配一个适配者类，不能同时适配多个适配者</li>
+<li class="lvl-4">适配者类不能为最终类</li>
+<li class="lvl-4">目标抽象类只能为接口而不能为类</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>对象适配器模式</p>
+<ul class="lvl-2">
+<li class="lvl-4">在适配器中置换适配者类的某些方法时比较麻烦</li>
+</ul>
+</li>
+</ul>
+<h4 id="适用环境">适用环境</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>系统需要使用一些现有的类，而这些类的接口不符合系统的需要，甚至没有这些类的源代码</p>
+</li>
+<li class="lvl-2">
+<p>创建一个可以重复使用的类，用于和一些彼此之间没有太大关联的类，包括一些可能在将来引进的类一起工作</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1169,232 +1343,6 @@ mjx-container[display="true"] + br {
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/posts/466192d5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hyper">
-      <meta itemprop="description" content="终有一日</br>你我将相会</br>在另一维宇宙">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyper の 个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/466192d5/" class="post-title-link" itemprop="url">Redis 原理初探（二）—— 列表</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-21 11:29:47" itemprop="dateCreated datePublished" datetime="2021-11-21T11:29:47+08:00">2021-11-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-05 13:20:19" itemprop="dateModified" datetime="2024-09-05T13:20:19+08:00">2024-09-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/posts/466192d5/" class="post-meta-item leancloud_visitors" data-flag-title="Redis 原理初探（二）—— 列表" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="链表">链表</h2>
-<h4 id="定义">定义</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>由一系列结点组成的非连续、非顺序的存储结构</p>
-</li>
-<li class="lvl-2">
-<p>作为列表键的底层实现之一</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// listNode</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">listNode</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">// 前置节点</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">listNode</span> *<span class="title">prev</span>;</span></span><br><span class="line">    <span class="comment">// 后置节点</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">listNode</span> *<span class="title">next</span>;</span></span><br><span class="line">    <span class="comment">// 节点值</span></span><br><span class="line">    <span class="keyword">void</span> *value;</span><br><span class="line">} listNode;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="redis链表：双向无环链表">redis 链表：双向无环链表</h4>
-<p>参考可见：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hunternet/p/9967279.html">Redis 数据结构 —— 链表 - Mr 于 - 博客园 (cnblogs.com)</a></p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// list</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">list</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">//表头节点</span></span><br><span class="line">    listNode *head;</span><br><span class="line">    <span class="comment">//表尾节点</span></span><br><span class="line">    listNode *tail;</span><br><span class="line">    <span class="comment">//链表所包含的节点数量</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> len;</span><br><span class="line">    <span class="comment">//节点值复制函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*dup)(<span class="keyword">void</span> *ptr);</span><br><span class="line">    <span class="comment">//节点值释放函数</span></span><br><span class="line">    <span class="keyword">void</span> *(*<span class="built_in">free</span>)(<span class="keyword">void</span> *ptr);</span><br><span class="line">    <span class="comment">//节点值对比函数</span></span><br><span class="line">    <span class="keyword">int</span> (*match)(<span class="keyword">void</span> *ptr, <span class="keyword">void</span> *key);</span><br><span class="line">} <span class="built_in">list</span>;</span><br></pre></td></tr></tbody></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>双向：链表节点有前驱和后继指针，获取的时间复杂度为 O (1)</p>
-</li>
-<li class="lvl-2">
-<p>无环：链表为非循环链表表头节点的前驱和表尾节点的后继指针都指向 Null，对链表的访问以 Null 为终点</p>
-</li>
-<li class="lvl-2">
-<p>带表头指针和表尾指针：通过 list 结构的 head 指针和 tail 指针，程序获取链表的表头节点 和表尾节点的复杂度为 O (1)</p>
-</li>
-<li class="lvl-2">
-<p>带链表长度计数器：程序使用 list 结构的 len 属性来对 list 持有的链表节点进行计数，程序 获取链表中节点数量的复杂度为 O (1)</p>
-</li>
-<li class="lvl-2">
-<p>多态：链表节点使用 void * 指针来保存节点值，并且可以通过 list 结构的 dup、free、 match 三个属性为节点值设置类型特定函数，所以链表可以用于保存各种不同类型的值</p>
-<ul class="lvl-2">
-<li class="lvl-4">dup 函数用于复制链表节点所保存的值</li>
-<li class="lvl-4"> free 函数用于释放链表节点所保存的值</li>
-<li class="lvl-4"> match 函数则用于对比链表节点所保存的值和另一个输入值是否相等</li>
-</ul>
-</li>
-</ul>
-<h4 id="使用场景">使用场景</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>一个列表键包含了数量比较多的元素，又或者列表中包含的元素都是比较长的字符串</p>
-</li>
-</ul>
-<h2 id="压缩列表-Ziplist">压缩列表 (Ziplist)</h2>
-<h4 id="定义-2">定义</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>由一系列特殊编码的连续内存块组成的顺序型（sequential）数据结构</p>
-</li>
-<li class="lvl-2">
-<p>作为列表键和哈希键的底层实现之一</p>
-</li>
-</ul>
-<h4 id="目的">目的</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>节约内存</p>
-</li>
-</ul>
-<h4 id="使用场景-2">使用场景</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>当一个列表键只包含少量列表项，并且每个列表项要么就是小整数值，要么就是长度比较短的字符串</p>
-</li>
-</ul>
-<h3 id="压缩列表的组成">压缩列表的组成</h3>
-<img data-src="/posts/466192d5/压缩列表的各个组成部分.png" alt="压缩列表的各个组成部分" style="zoom:150%;">
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>zlbytes：4bytes，<strong>记录整个压缩列表占用的内存字节数</strong></p>
-</li>
-<li class="lvl-2">
-<p>zltail：4bytes，<strong>记录压缩列表表尾节点距离压缩列表的起始地址有多少字节</strong></p>
-<ul class="lvl-2">
-<li class="lvl-4">偏移量，确定表尾节点的地址</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>zllen：2bytes，<strong>记录了压缩列表包含的节点数量</strong></p>
-</li>
-<li class="lvl-2">
-<p>entryX：列表节点，<strong>节点的长度由节点保存的内容决定</strong></p>
-</li>
-<li class="lvl-2">
-<p>zlend：1byte，值 0xFF 表示 2^8-1=255，<strong>用于标记压缩列表的末端</strong></p>
-</li>
-</ul>
-<h3 id="压缩列表结点的构成">压缩列表结点的构成</h3>
-<img data-src="/posts/466192d5/压缩列表结点的各个组成部分.png" alt="压缩列表结点的各个组成部分">
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>previous_entry_length：1byte/5bytes，记录<strong>压缩列表中前一个节点的长度</strong></p>
-<ul class="lvl-2">
-<li class="lvl-4">前一节点的长度小于 254 字节，previous_entry_length 属性的长度为 1 字节，保存值为前一个结点长度</li>
-<li class="lvl-4">前一节点的长度大于等于 254 字节，previous_entry_length 属性的长度为 5 字节。第一字节会被设置为 0xFE（254），之后的四个字节则用于保存前一节点的长度。</li>
-</ul>
-</li>
-</ul>
-<img data-src="/posts/466192d5/运算前一结点的指针位置.png" alt="运算前一结点的指针位置" style="zoom:50%;">
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>encoding：记录<strong>节点的 content 属性所保存数据的类型以及长度</strong> D:</p>
-</li>
-<li class="lvl-2">
-<p>content：保存节点的值，值的类型和长度由节点的 encoding 属性决定</p>
-<ul class="lvl-2">
-<li class="lvl-4">整数编码：1byte，最高位以 11 开头；content 属性保存整数值，整数值的<strong>类型</strong>和长度由编码除去最高两位之后的其他位记录</li>
-<li class="lvl-4">字节数组编码：1/2/5byte (s)，最高位为 00、01 或者 10；content 属性保存着字节数组，数组的长度由编码除去最高两位之后的其他位记 录</li>
-</ul>
-</li>
-</ul>
-<h3 id="连锁更新">连锁更新</h3>
-<h4 id="定义-3">定义</h4>
-<p>​	由于 previous_entry_length 因更新或删除而在 1byte/5bytes 切换引起的连锁内存重分配现象</p>
-<h4 id="复杂度">复杂度</h4>
-<p>​	最坏情况下，需要对压缩列表执行 N 次空间重分配操作，而每次空间重分配的最坏复杂度为 O（N），所以连锁更新的最坏复杂度为 O（N^2）</p>
-<h2 id="列表操作">列表操作</h2>
-<h4 id="元素的推入和弹出操作">元素的推入和弹出操作</h4>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">'127.0.0.1'</span>, port=<span class="number">6379</span>, password=<span class="string">'123456'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># RPUSH/LPUSH：推入元素，就语义上而言左侧为头，右侧为尾</span></span><br><span class="line"><span class="comment"># 返回的是当前列表的长度</span></span><br><span class="line">conn.rpush(<span class="string">'list_key'</span>, <span class="string">'last'</span>)</span><br><span class="line">conn.lpush(<span class="string">'list_key'</span>, <span class="string">'first'</span>)</span><br><span class="line"><span class="comment"># 可同时推入多个元素</span></span><br><span class="line">conn.rpush(<span class="string">'list_key'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LRANGE：返回列表中从start到end偏移量范围内所有元素</span></span><br><span class="line"><span class="comment"># 注：会同时包含左侧start和右侧end的元素</span></span><br><span class="line">conn.lrange(<span class="string">'list_key'</span>, <span class="number">0</span>, -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LTRIM：从列表左端或右端或两端同时删减任意数量的元素</span></span><br><span class="line"><span class="comment"># 注意只有LTRIM，删除时左开右闭</span></span><br><span class="line">conn.ltrim(<span class="string">'list_key'</span>, <span class="number">2</span>, -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LPOP/RPOP：弹出列表左侧或右侧的元素</span></span><br><span class="line">conn.lpop(<span class="string">'list_key'</span>)</span><br><span class="line">conn.rpop(<span class="string">'list_key'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LINDEX/RINDEX：通过下标获取列表值</span></span><br><span class="line">conn.lindex(<span class="number">1</span>)</span><br><span class="line">conn.rindex(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LREM：精确匹配以删除list集合中（count：指定个数）的值</span></span><br><span class="line">conn.lrem(<span class="string">'list_key'</span>, <span class="number">2</span>, <span class="string">'last'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LSET：将list中指定索引的值设置为给定值</span></span><br><span class="line"><span class="comment"># 前提：当前该索引位置应当存在该值,否则会报错 ERR No such key</span></span><br><span class="line">conn.lset(<span class="string">'list_key'</span>, <span class="number">0</span>, <span class="string">'first_updated'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># LINSERT：往一个list指定索引的前一个/后一个位置插入值</span></span><br><span class="line"><span class="comment"># 若key不存在，则会创建新的list；存在则直接新增内容</span></span><br><span class="line"><span class="comment"># 在两侧进行插入/改动的效率最高，而中间效率相对较慢</span></span><br><span class="line">conn.linsert(<span class="string">'list_key'</span>, <span class="string">'AFTER'</span>, <span class="string">'first_updated'</span>, <span class="string">'second'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="阻塞弹出与元素移动命令">阻塞弹出与元素移动命令</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>常用于<strong>消息传递（messaging）<strong>和</strong>任务队列（task queue）</strong></p>
-</li>
-</ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">conn.rpush(<span class="string">'list_key2'</span>, <span class="string">'item'</span>)</span><br><span class="line"><span class="comment"># BRPOPLPUSH：将最右端（尾）元素从一个列表中弹出，并压入至另一个列表最左端（头）</span></span><br><span class="line"><span class="comment"># 注意参数顺序：需弹出元素list 需压入元素list timeout时间（单位：s）</span></span><br><span class="line"><span class="comment"># 这里若需弹出元素list没有可供弹出元素，则在timeout时间内等待，block直到有新元素可用；否则，返回None</span></span><br><span class="line">conn.brpoplpush(<span class="string">'list_key2'</span>, <span class="string">'list_key'</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># BLPOP/BRPOP：自左向右检查传入的所有列表，对第一个遇到的非空列表进行LPOP/RPOP操作</span></span><br><span class="line"><span class="comment"># timeout：同上处理</span></span><br><span class="line">conn.blpop([<span class="string">'list_key1'</span>, <span class="string">'list_key2'</span>], <span class="number">1</span>)</span><br><span class="line">conn.brpop([<span class="string">'list_key1'</span>, <span class="string">'list_key2'</span>], <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
-<p><em>【参考】</em><br>
-<em>[1] 《Redis 的设计与实现》</em></p>
-<p><em>[2] 《Redis 实战》</em></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1466,7 +1414,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1479,7 +1427,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1513,7 +1461,7 @@ mjx-container[display="true"] + br {
           <h5 class="widget-title">词云图</h5>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intel-SGX/" rel="tag">Intel SGX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL2/" rel="tag">WSL2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8/" rel="tag">可证明安全</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/" rel="tag">后量子密码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" rel="tag">论文阅读</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intel-SGX/" rel="tag">Intel SGX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL2/" rel="tag">WSL2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8/" rel="tag">可证明安全</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/" rel="tag">后量子密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%BC%E5%AF%86%E7%A0%81/" rel="tag">格密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" rel="tag">论文阅读</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
               </canvas>
           </div>
       </div>
