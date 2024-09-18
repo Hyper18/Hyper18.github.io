@@ -509,11 +509,13 @@ coro - corollary，推论</p>
 </li>
 </ul>
 <details open>
-<summary><span class="pre-summary">&nbsp;</span><strong>点击折叠</strong></summary><p>Q1：多大的对象算大对象？</p>
+<summary><span class="pre-summary">&nbsp;</span><strong>点击折叠</strong></summary><p>Q1：为什么新生代默认的分配比例为 8 : 1 : 1？</p>
+<p>A：新生代的对象生命周期较短，Eden 区中绝大多数对象都会在几轮回收后被清除；方便优化标记 - 复制算法的内存利用效率，减少 GC 开销</p>
+<p>Q2：多大的对象算大对象？</p>
 <p>A：大对象是指大于 JVM 设置的 <code>-XX:PretenureSizeThreshold</code> 值的对象，将直接在老年代分配连续内存空间，i.e. 长字符串、数组等。<code>-XX:PretenureSizeThreshold</code> 默认置 0</p>
-<p>Q2：存活多久的对象会进入老年代？</p>
+<p>Q3：存活多久的对象会进入老年代？</p>
 <p>A：<code>-XX:MaxTenuringThreshold</code> 用来定义年龄的阈值，作为年龄计数器：对象在 Eden 出生，经过 Minor GC 依然存活，将移动到 Survivor 中，年龄增加 1 岁，增加到一定年龄则移动到老年代中。<code>-XX:MaxTenuringThreshold</code> 默认置 15</p>
-<p>Q3：新生代中年龄没达到阈值的对象就不会进入老年代吗？</p>
+<p>Q4：新生代中年龄没达到阈值的对象就不会进入老年代吗？</p>
 <p>A：存在<mark>动态对象年龄判定</mark>机制：如果 Survivor 中，相同年龄所有对象大小的总和大于 Survivor 空间的一半，则年龄大于或等于该年龄的对象可直接进入老年代，无需等到 <code>-XX:MaxTenuringThreshold</code> 指定的值</p>
 </details>
 <h5 id="2-1-4-空间分配担保">2.1.4 空间分配担保</h5>
@@ -531,6 +533,50 @@ coro - corollary，推论</p>
 </li>
 <li class="lvl-2">
 <p>Step 3：JVM 根据多次 GC 的结果动态调整担保策略。如果新生代对象的晋升比例较低，JVM 可能在后续 Minor GC 时减少对老年代空间的需求预测；如果晋升对象过多，JVM 可能会更加保守地预留老年代空间</p>
+</li>
+</ul>
+<h4 id="2-2-标记-清除算法">2.2 标记 - 清除算法</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>标记 - 清除（Mark-Sweep），有两类形式：</p>
+<ul class="lvl-2">
+<li class="lvl-4">标记出所有需回收的对象，完成后统一回收已标记的对象</li>
+<li class="lvl-4">标记出所有仍存活的对象，完成后统一回收未标记的对象</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-4">执行效率不稳定：标记、清除两过程的执行速度均和内存中的对象数目成反比</li>
+<li class="lvl-4">内存空间碎片化：这种内存分配方式会产生大量不连续的内存碎片，可能导致连续内存的空间利用率降低，i.e. 无法为大对象分配足够的连续内存</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-3-标记-复制算法">2.3 标记 - 复制算法</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>def  半区复制（Semispace Copying）：将可用内存等分为两块，每次仅使用其中一块。当这块内存空间满时，将其中的所有存活对象复制到另一块上</p>
+</li>
+<li class="lvl-2">
+<p><strong>优点</strong>：实现简单，运行高效。仅需要复制占少数的存活对象，这种内存分配方式不会产生空间碎片，每次复制时时按照堆顶指针的移动来顺序分配存活对象</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：可用内存减半</p>
+</li>
+<li class="lvl-2">
+<p>应用：商用 JVM 常用此方法的变种，i.e. Appel 式回收</p>
+</li>
+</ul>
+<h4 id="2-4-标记-整理算法">2.4 标记 - 整理算法</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>标记 - 整理（Mark-Compact）：针对<mark>老年代</mark>的移动式回收算法。标记出所有仍存活的对象，完成后将这些对象向内存空间一端<strong>移动</strong>（整理），并直接清理掉边界以外的内存</p>
+</li>
+<li class="lvl-2">
+<p><strong>优点</strong>：内存分配和访问快，赋值器（Mutator）的吞吐量更高。赋值器为使用垃圾收集的用户程序</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：内存回收耗时增加，移动存活对象并更新所有引用较为耗时，且需全程暂停用户应用程序（“Stop The World”）才能进行</p>
 </li>
 </ul>
 <p>参考</p>
