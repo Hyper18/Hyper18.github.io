@@ -348,7 +348,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-12 16:18:18" itemprop="dateModified" datetime="2024-09-12T16:18:18+08:00">2024-09-12</time>
+                <time title="修改时间：2024-09-23 15:34:43" itemprop="dateModified" datetime="2024-09-23T15:34:43+08:00">2024-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -544,6 +544,8 @@ mjx-container[display="true"] + br {
 <img data-src="/posts/d208fa12/Dilithium%E6%96%B9%E6%A1%88%E6%89%80%E9%9C%80%E8%BF%90%E7%AE%97%E7%9A%84%E4%BC%AA%E4%BB%A3%E7%A0%81%E8%A1%A8%E7%A4%BA.png" alt></p>
 </li>
 </ul>
+<br>
+<br>
 <p>参考<br>
 [1]  <a target="_blank" rel="noopener" href="https://tches.iacr.org/index.php/TCHES/article/view/839">CRYSTALS-Dilithium: A Lattice-Based Digital Signature Scheme</a><br>
 [2]  <a target="_blank" rel="noopener" href="https://link.springer.com/chapter/10.1007/978-3-319-04852-9_2">An improved compression technique for signatures based on learning with errors</a></p>
@@ -597,7 +599,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-12 16:10:28" itemprop="dateModified" datetime="2024-09-12T16:10:28+08:00">2024-09-12</time>
+                <time title="修改时间：2024-09-23 15:35:03" itemprop="dateModified" datetime="2024-09-23T15:35:03+08:00">2024-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -835,11 +837,14 @@ M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
 <p>两个不同基生成的同一个格的基本区体积相等。</p>
 </li>
 </ul>
+<br>
 <p>注：<br>
 def - definition，定义<br>
 theo - theorem，定理<br>
 lem - lemma，引理<br>
 coro - corollary，推论</p>
+<br>
+<br>
 <p>参考<br>
 [1]  CSE206A Lec1, Daniele Micciancio<br>
 [2]  <a target="_blank" rel="noopener" href="https://blog.csdn.net/forest_LL/article/details/123422976">格密码的基础概念（1）</a><br>
@@ -894,7 +899,7 @@ coro - corollary，推论</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-19 20:19:35" itemprop="dateModified" datetime="2024-09-19T20:19:35+08:00">2024-09-19</time>
+                <time title="修改时间：2024-09-23 15:33:46" itemprop="dateModified" datetime="2024-09-23T15:33:46+08:00">2024-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -927,14 +932,14 @@ coro - corollary，推论</p>
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.5k</span>
+              <span>8.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>8 分钟</span>
             </span>
 
         </div>
@@ -1011,7 +1016,8 @@ coro - corollary，推论</p>
 <h3 id="2-垃圾回收算法">2 垃圾回收算法</h3>
 <h4 id="2-1-分代收集机制">2.1 分代收集机制</h4>
 <h5 id="2-1-1-Java堆内存的划分">2.1.1 Java 堆内存的划分</h5>
-<p><mark>新生代</mark>、<mark>老年代</mark>和永久代</p>
+<p><img data-src="/posts/566ec62f/HotspotHeapStructure.png" alt><br>
+<mark>新生代</mark>、<mark>老年代</mark>和永久代</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>区分：JDK8 前方法区采用永久代实现，JDK8 后为元空间，使用本地内存</p>
@@ -1285,23 +1291,13 @@ def Parallel Scavenge 收集器的老年代版本，JDK 6 开始提供</p>
 </li>
 </ul>
 <h4 id="3-6-Concurrent-Mark-Sweep（CMS）收集器">3.6 Concurrent Mark Sweep（CMS）收集器</h4>
-<p><img data-src="/posts/566ec62f/CMS%E6%94%B6%E9%9B%86%E5%99%A8.png" alt><br>
-def <mark>并发低停顿收集器</mark>（Concurrent Low Pause Collector)，其主要目的是为了获取最短的回收停顿时间，JDK 5 开始提供。运作过程分为四个步骤：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>Step 1：初始标记（CMS initial mark），标记 GC Roots 能直接关联的对象，需要停顿用户线程</p>
-</li>
-<li class="lvl-2">
-<p>Step 2：并发标记（CMS concurrent mark），从 GC Roots 的直接关联对象开始遍历整个对象图，但无需停顿用户线程，即收集器线程可同用户线程一起工作</p>
-</li>
-<li class="lvl-2">
-<p>Step 3：重新标记（CMS remark），修正 Step 2 中因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录，需要停顿用户线程</p>
-</li>
-<li class="lvl-2">
-<p>Step 4：并发清除（CMS concurrent sweep），清理标记对象，无需停顿用户线程</p>
-</li>
-</ul>
-<p>各阶段的执行速度对比：1 \textgreater 3 \textgreater 4 \gg 2</p>
+<p><img data-src="/posts/566ec62f/CMS%E6%94%B6%E9%9B%86%E5%99%A8.png" alt></p>
+<p>def <mark>并发低停顿收集器</mark>（Concurrent Low Pause Collector），其主要目的是为了获取最短的回收停顿时间，JDK 5 开始提供，JDK 9 起不推荐使用（Deprecate)。运作过程分为四个步骤：</p>
+<p>Step 1：<strong>初始标记</strong>（CMS initial mark），标记 GC Roots 能直接关联的对象，需要停顿用户线程</p>
+<p>Step 2：<strong>并发标记</strong>（CMS concurrent mark），进行可达性分析，从 GC Roots 的直接关联对象开始遍历整个堆中的对象图，但无需停顿用户线程，即收集器线程可同用户线程一起工作</p>
+<p>Step 3：<strong>重新标记</strong>（CMS remark），修正 Step 2 中因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录，需要停顿用户线程</p>
+<p>Step 4：<strong>并发清除</strong>（CMS concurrent sweep），清理标记对象，无需停顿用户线程</p>
+<p>各阶段的执行速度对比：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mtext>＞</mtext><mn>3</mn><mtext>＞</mtext><mn>4</mn><mo>≫</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">1 ＞ 3 ＞ 4 \gg 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mord cjk_fallback">＞</span><span class="mord">3</span><span class="mord cjk_fallback">＞</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≫</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><strong>优点</strong>：并发收集、低停顿</p>
@@ -1315,12 +1311,58 @@ def <mark>并发低停顿收集器</mark>（Concurrent Low Pause Collector)，�
 </ul>
 </li>
 </ul>
+<h4 id="3-7-Garbage-First（G1）收集器">3.7 Garbage First（G1）收集器</h4>
+<p><img data-src="/posts/566ec62f/G1%E6%94%B6%E9%9B%86%E5%99%A8.png" alt><br>
+def <mark>全功能的垃圾收集器</mark>（Fully-Featured Garbage Collector），其主要目的是为了建立起 “停顿时间模型”（Pause Prediction Model）的收集器，即能够支持指定在一个长度为 M 毫秒的时间片段内，消耗在垃圾收集上的时间大概率不超过 N 毫秒。因此，G1 收集器开创了基于 Region 的堆内存布局，不再隔离新生代和老年代，把连续的 Java 堆划分为多个大小相等的独立区域（Region)，每一个 Region 都可以根据需要，扮演新生代的 Eden 空间、Survivor 空间，或者老年代空间。JDK 8 Update 40 后正式提供，用于替代 CMS<br>
+<img data-src="/posts/566ec62f/G1%E6%94%B6%E9%9B%86%E5%99%A8%E7%9A%84%E5%A0%86%E5%88%86%E9%85%8D%E7%A4%BA%E4%BE%8B.png" alt></p>
+<p>在不考虑用户线程运行过程中的动作时（如收集器对 Remembered Set 的维护等），G1 收集器的运作过程分为四个步骤：</p>
+<p>Step 1：<strong>初始标记</strong>（Initial Marking），标记 GC Roots 能直接关联到的对象，修改 TAMS 指针的值，需要停顿用户线程</p>
+<p>Step 2：<strong>并发标记</strong>（Concurrent Marking），进行可达性分析，从 GC Roots 的直接关联对象开始遍历整个堆中的对象图，无需停顿用户线程</p>
+<p>Step 3：<strong>最终标记</strong>（Final Marking），再次短暂暂停用户线程，处理遗留的少量 SATB 记录，即修正 Step 2 中因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录</p>
+<p>Step 4：<strong>筛选回收</strong>（Live Data Counting and Evacuation），更新 Region 的统计数据，将各个 Region 的回收价值和成本排序，再自由选择任意个 Region 构成回收集，把回收集中 Region 包含的的存活对象复制到空的 Region 中，最后清理旧 Region 的全部空间。需要停顿用户线程</p>
+<p>* 注：虽然 G1 整体上基于 “标记 - 整理” 算法实现，但从 Step 4 可知，局部（两个 Region 之间）上是基于 “标记 - 复制” 算法实现的</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong></p>
+<ul class="lvl-2">
+<li class="lvl-4">并发收集、可预测的低停顿：可由用户指定 <code>-XX：MaxGCPauseMillis</code> 参数以设置期望的停顿时间（默认为 200ms），从而动态地在吞吐量和延迟之间寻求平衡</li>
+<li class="lvl-4">收集效率高，现在新生代和老年代是一系列（无需连续的）Region 的动态集合，每次收集到的内存空间都是 Region 大小的整数倍，从而有计划地避免在整个 Java 堆中进行全区域的垃圾收集</li>
+<li class="lvl-4">可按收益动态确定回收集</li>
+<li class="lvl-4">不会产生空间碎片</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-4">更高的内存占用（Footprint）负担：相较于其他经典收集器，一般至少需要耗费大约相当于 Java 堆容量 10%~20% 的额外内存来维持 G1 收集器的工作</li>
+<li class="lvl-4">相较于 CMS 收集器，程序运行时带来更高的额外执行负载（Overload）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>应用：HotSpot 虚拟机运行在服务端模式下的<mark>默认</mark>垃圾收集器</p>
+</li>
+</ul>
+<details open>
+<summary><span class="pre-summary">&nbsp;</span><strong>点击折叠</strong></summary><p>Q1：G1 收集器是如何存储大对象的？</p>
+<p>A：G1 收集器有一个特殊的区域 <strong>Humongous Region</strong>，该区域专用于大对象的存储，被视为老年代的一部分。大对象的判定依据为：其大小是否超过单个 Region 一半的容量；大小已超过单个 Region 容量的对象，将被 G1 存放在 N 个连续的 Humongous Region 之中</p>
+<p>Q2：Garbage First 思想在 G1 收集器上是如何体现的？</p>
+<p>A：G1 收集器会在后台维护一个优先级列表，列表维护了各个 Region 中回收所获得的空间大小、回收所需时间的经验值，每次优先处理<mark>回收价值收益最大</mark>的那些 Region</p>
+<p>Q3：如何处理 G1 收集器中的跨 Region 引用？</p>
+<p>A：每个 Region 都有一个 <strong>Remembered Set</strong>，用来记录该 Region 对象的引用对象所在的 Region，避免在可达性分析时将全堆作为 GC Roots 扫描。Remembered Set 实际上通过哈希表存储，Key 是别的 Region 的起始地址，Value 是一个卡表索引号的集合，这些双向卡表同时记录了指向和被指向关系。G1 收集器使用<strong>写后屏障</strong>维护卡表，并使用队列异步处理对卡表的一系列操作</p>
+<p>Q4：在并发标记阶段，G1 收集器如何保证收集线程、用户线程能够并发运行？</p>
+<p>A：先通过<strong>原始快照</strong>（SATB）算法，使用<strong>写前屏障</strong>跟踪并发时的指针变化情况，解决用户线程改变对象引用关系，从而打破原本的对象图结构、使标记结果出现错误的问题；对于程序运行时不断创建的新对象，G1 为每一个 Region 设计了两个名为 TAMS（Top at Mark Start）的指针，将 Region 中的部分空间划给这些新对象，其地址必须要在两个 TAMS 指针的位置以上，G1 收集器将默认 TAMS 指针以上的对象是被隐式标记过的，即这些对象为不纳入回收范围的存活对象。但如果此时 Region 中剩余的空间不足，将冻结用户线程并进行 “Stop The World” 的 Full GC</p>
+<p>Q5：G1 收集器是如何做到可预测的停顿的，为什么 G1 收集器建立的停顿预测模型是可靠的？</p>
+<p>A：基于<strong>衰减均值</strong>（Decaying Average）理论，即相比普通的平均值更容易受到新数据的影响，能更准确地代表 “最近的” 平均状态，即 Region 的统计状态越新越能决定其回收的价值。垃圾收集时，G1 收集器会记录每个 Region 的回收耗时、每个 Region 记忆集里的脏卡数量等各个可测量的步骤花费的成本，并分析得出平均值、标准偏差、置信度等统计信息。在此基础上，预测当前如果进行垃圾回收，哪些 Region 组成的回收集才能在不超过设定停顿时间的约束下获得最大收益</p>
+</details>
+<br>
+<br>
 <p>参考</p>
 <p>[1]  深入理解 Java 虚拟机：JVM 高级特性与最佳实践（第 3 版）</p>
 <p>[2]  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Er4y1r7as">Java JVM 虚拟机 已完结（IDEA 2021 版本）4K 蓝光画质</a></p>
 <p>[3]  <a target="_blank" rel="noopener" href="https://www.pdai.tech/md/java/jvm/java-jvm-gc.html#_4-%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86">Java 全栈知识体系</a></p>
-<p>[4]  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44985305/article/details/139199849">【JVM 垃圾回收（GC）机制（一文读懂）】</a></p>
+<p>[4]  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44985305/article/details/139199849">JVM 垃圾回收（GC）机制（一文读懂）</a></p>
 <p>[5]  <a target="_blank" rel="noopener" href="https://www.oracle.com/technical-resources/articles/java/g1gc.html">Garbage First Garbage Collector Tuning</a></p>
+<p>[6]  <a target="_blank" rel="noopener" href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/G1GettingStarted/index.html">Getting Started with the G1 Garbage Collector</a></p>
 
       
     </div>
@@ -1371,7 +1413,7 @@ def <mark>并发低停顿收集器</mark>（Concurrent Low Pause Collector)，�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-11 12:56:33" itemprop="dateModified" datetime="2024-09-11T12:56:33+08:00">2024-09-11</time>
+                <time title="修改时间：2024-09-23 15:36:17" itemprop="dateModified" datetime="2024-09-23T15:36:17+08:00">2024-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1676,6 +1718,8 @@ e.g.  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.
 </ul>
 <h3 id="4-4-一次一密-One-Time-Pad">4.4 一次一密 One-Time Pad</h3>
 <p>def  令 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>r</mi><mo separator="true">,</mo><mi>R</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">E(m,r,R)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mclose">)</span></span></span></span> 是由公共参数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 和秘密参数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> 对给定消息 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span> 的加密。如果对于来自<mark>同一明文空间</mark>的任意两个不同消息 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">m_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">m_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，在公共参数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 下，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">CT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">CT</span></span></span></span> 可以<mark>等概率</mark>地表示为由秘密参数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">r_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 对消息 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">m_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的加密，或者由秘密参数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">r_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 对消息 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">m_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的加密，即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mo stretchy="false">[</mo><mi>C</mi><mi>T</mi><mo>=</mo><mi>E</mi><mo stretchy="false">(</mo><msub><mi>m</mi><mn>0</mn></msub><mo separator="true">,</mo><msub><mi>r</mi><mn>0</mn></msub><mo separator="true">,</mo><mi>R</mi><mo stretchy="false">)</mo><mo stretchy="false">]</mo><mo>=</mo><mi>P</mi><mi>r</mi><mo stretchy="false">[</mo><mi>C</mi><mi>T</mi><mo>=</mo><mi>E</mi><mo stretchy="false">(</mo><msub><mi>m</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>r</mi><mn>1</mn></msub><mo separator="true">,</mo><mi>R</mi><mo stretchy="false">)</mo><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">Pr[CT=E(m_0,r_0,R)]=Pr[CT=E(m_1,r_1,R)]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.13889em;">CT</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mclose">)]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.13889em;">CT</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mclose">)]</span></span></span></span>，那么密文 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>r</mi><mo separator="true">,</mo><mi>R</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">E(m,r,R)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mclose">)</span></span></span></span> 是一次一密</p>
+<br>
+<br>
 <p>参考资料：</p>
 <p>[1]  安全规约导论，郭富春</p>
 
@@ -1728,7 +1772,7 @@ e.g.  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-11 12:57:28" itemprop="dateModified" datetime="2024-09-11T12:57:28+08:00">2024-09-11</time>
+                <time title="修改时间：2024-09-23 15:36:03" itemprop="dateModified" datetime="2024-09-23T15:36:03+08:00">2024-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -2094,6 +2138,8 @@ e.g.  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.
 <p>在现实世界中，算法是使用伪随机数生成器选择伪随机数</p>
 </li>
 </ul>
+<br>
+<br>
 <p>参考资料：</p>
 <p>[1]  安全规约导论，郭富春</p>
 
