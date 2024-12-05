@@ -36,6 +36,9 @@
 <meta property="og:image" content="https://hyper18.github.io/posts/566ec62f/%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95.png">
 <meta property="og:image" content="https://hyper18.github.io/posts/566ec62f/%E6%A0%87%E8%AE%B0-%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95.png">
 <meta property="og:image" content="https://hyper18.github.io/posts/566ec62f/%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95.png">
+<meta property="og:image" content="https://hyper18.github.io/posts/566ec62f/HotSpot%E6%A0%B9%E8%8A%82%E7%82%B9%E6%9E%9A%E4%B8%BE.png">
+<meta property="og:image" content="https://hyper18.github.io/posts/566ec62f/HotSpot%E5%AE%89%E5%85%A8%E7%82%B9%E4%B8%8E%E8%BD%AE%E8%AF%A2.png">
+<meta property="og:image" content="https://hyper18.github.io/posts/566ec62f/HotSpot%E5%AF%B9%E8%B1%A1%E6%B6%88%E5%A4%B1%E9%97%AE%E9%A2%98.png">
 <meta property="og:image" content="https://hyper18.github.io/posts/566ec62f/%E7%BB%8F%E5%85%B8GC.png">
 <meta property="og:image" content="https://hyper18.github.io/posts/566ec62f/Serial_plus_Serial_Old.png">
 <meta property="og:image" content="https://hyper18.github.io/posts/566ec62f/ParNew%E6%94%B6%E9%9B%86%E5%99%A8.png">
@@ -46,7 +49,7 @@
 <meta property="og:image" content="https://hyper18.github.io/posts/566ec62f/G1%E6%94%B6%E9%9B%86%E5%99%A8.png">
 <meta property="og:image" content="https://hyper18.github.io/posts/566ec62f/G1%E6%94%B6%E9%9B%86%E5%99%A8%E7%9A%84%E5%A0%86%E5%88%86%E9%85%8D%E7%A4%BA%E4%BE%8B.png">
 <meta property="article:published_time" content="2024-08-26T11:53:02.000Z">
-<meta property="article:modified_time" content="2024-11-13T03:34:36.089Z">
+<meta property="article:modified_time" content="2024-12-04T08:06:58.072Z">
 <meta property="article:author" content="Hyper">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="JVM">
@@ -365,7 +368,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 11:34:36" itemprop="dateModified" datetime="2024-11-13T11:34:36+08:00">2024-11-13</time>
+                <time title="修改时间：2024-12-04 16:06:58" itemprop="dateModified" datetime="2024-12-04T16:06:58+08:00">2024-12-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -398,14 +401,14 @@ mjx-container[display="true"] + br {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>10k</span>
+              <span>14k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
+              <span>12 分钟</span>
             </span>
 
         </div>
@@ -630,6 +633,7 @@ mjx-container[display="true"] + br {
 <p>Step 3：JVM 根据多次 GC 的结果动态调整担保策略。如果新生代对象的晋升比例较低，JVM 可能在后续 Minor GC 时减少对老年代空间的需求预测；如果晋升对象过多，JVM 可能会更加保守地预留老年代空间</p>
 </li>
 </ul>
+<p>* 注：JDK 6 Update 24 后，<code>-XX:HandlePromotionFailure</code> 参数不再影响虚拟机的空间分配担保策略。只要老年代的连续空间<mark>大于</mark>新生代对象总大小 / 历次晋升的平均大小，就会进行 Minor GC；否则进行 Full GC</p>
 <h4 id="2-2-标记-清除算法">2.2 标记 - 清除算法</h4>
 <p><img data-src="/posts/566ec62f/%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95.png" alt></p>
 <ul class="lvl-0">
@@ -677,7 +681,142 @@ mjx-container[display="true"] + br {
 <p><strong>缺点</strong>：内存回收耗时增加，移动存活对象并更新所有引用较为耗时，且需全程暂停用户应用程序（“Stop The World”）才能进行</p>
 </li>
 </ul>
-<h3 id="3-经典垃圾收集器">3 经典垃圾收集器</h3>
+<h3 id="3-HotSpot的算法实现">3 HotSpot 的算法实现</h3>
+<h4 id="3-1-根节点枚举">3.1 根节点枚举</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>目前主流 JVM 为准确式垃圾收集，因需确保在一致性的快照中进行可达性分析，GC 时必须停顿所有线程</p>
+</li>
+<li class="lvl-2">
+<p>在 HotSpot 的解决方案里，是使用一组称为 <code>OopMap</code> 的数据结构来记录存放对象引用的位置</p>
+</li>
+<li class="lvl-2">
+<p>一旦类加载动作完成，HotSpot 就会把对象内什么偏移量上是什么类型的数据计算出来，在 JIT 编译过程中会在特定的位置记录下栈和寄存器中哪些位置是引用，这样收集器在扫描时就可以直接得知这些信息，无需真正一个不漏地从方法区等 GC Roots 开始查找</p>
+</li>
+</ul>
+<p><img data-src="/posts/566ec62f/HotSpot%E6%A0%B9%E8%8A%82%E7%82%B9%E6%9E%9A%E4%B8%BE.png" alt><br>
+e.g. HotSpot 虚拟机客户端模式下，生成的一段 String::hashCode () 方法的本地代码。OopMap 位于 0x026eb7a9，指明了 EBX 寄存器和栈中偏移量为 16 的内存区域中各有一个普通对象指针（Ordinary Object Pointer，OOP）的引用，有效范围为从 call 指令开始直到 0x026eb730（指令流的起始位置）+142（OopM ap 记录的偏移量)=0x026eb7be，即 hlt 指令为止</p>
+<h4 id="3-2-安全点">3.2 安全点</h4>
+<p>def HotSpot 没有为每条指令都生成 <code>OopMap</code>，而是只在特定位置记录了这些信息，这些位置称为安全点</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>程序执行时，只有到达安全点时才能暂停并开始 GC</p>
+</li>
+<li class="lvl-2">
+<p>安全点的选取：是否具有让程序长时间执行的特征，e.g. 方法调用、循环跳转、异常跳转</p>
+</li>
+</ul>
+<p>在 GC 前让所有线程跑到安全点的方法：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>抢先式中断（Preemptive Suspension，几乎不使用）：系统首先中断全部用户线程，将不在安全点上中断的用户线程恢复执行，直到跑到安全点上后重新中断</p>
+</li>
+<li class="lvl-2">
+<p>主动式中断（Voluntary Suspension）：不直接对线程操作，仅设置一个标志位（与安全点重合，加上创建对象分配内存的地方），各个线程执行时会不停地主动去轮询这个标志，一旦发现中断标志为真时就自己在最近的安全点上主动中断挂起</p>
+</li>
+</ul>
+<p><img data-src="/posts/566ec62f/HotSpot%E5%AE%89%E5%85%A8%E7%82%B9%E4%B8%8E%E8%BD%AE%E8%AF%A2.png" alt><br>
+e.g. 由于轮询操作在代码中频繁出现，HotSpot 使用内存保护陷阱的方式，把轮询操作精简至只有一条汇编指令。当需要暂停用户线程时，虚拟机把 0x160100 的内存页置为不可读，线程执行到 test 指令时就会产生一个自陷异常信号，然后在预先注册的异常处理器中挂起等待，完成安全点轮询并触发线程中断</p>
+<h4 id="3-3-安全区域">3.3 安全区域</h4>
+<p>def 用户线程处于 Sleep/Blocked 状态时，无法响应虚拟机的中断请求，无法走到安全点再中断；需要确保在某一段代码片段之中的引用关系不会发生变化，即在这个区域中任意地方开始 GC 都是安全的，这个区域称为安全区域</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>当用户线程执行到安全区域中的代码时，首先会标识进入了安全区域，虚拟机 GC 时不会处理已声明在安全区域内的线程</p>
+</li>
+<li class="lvl-2">
+<p>当线程将要离开安全区域时，将检查虚拟机是否已经完成了根节点枚举（或垃圾收集过程中其他需要暂停用户线程的阶段），若完成则继续执行；否则，等待直到收到离开安全区域的信号为止</p>
+</li>
+</ul>
+<h4 id="3-4-记忆集与卡表">3.4 记忆集与卡表</h4>
+<p>def 记录集是记录从非收集区域指向收集区域的指针集合的抽象数据结构，用于缩减 GC Roots 扫描范围</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用非收集区域中所有含跨代引用的对象数组实现</span></span><br><span class="line">Class RememberedSet {</span><br><span class="line">    Object[] set[OBJECT_INTERGENERATIONAL_REFERENCE_SIZE];</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>上述方式记录了非收集区域中的所有含跨代引用对象，维护成本较高；而通过记忆集，只需判断某一块非收集区域是否存在指向收集区域的指针，无需了解这些跨代指针的全部细节。记忆集有三类主流设计思路：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>字长精度</strong>：每个记录精确到一个机器字长（处理器的寻址位数，i.e. 32/64 位，该精度决定机器访问物理内存地址的指针长度），该字包含跨代指针</p>
+</li>
+<li class="lvl-2">
+<p><strong>对象精度</strong>：每个记录精确到一个对象，该对象里有字段含有跨代指针</p>
+</li>
+<li class="lvl-2">
+<p><strong>卡精度</strong>：每个记录精确到一块内存区域，该区域内有对象含有跨代指针</p>
+<ul class="lvl-2">
+<li class="lvl-4">使用<strong>卡表</strong>（Card Table）实现，其中的每个元素对应其标识的内存区域中一块特定大小（i.e. 如下为 512 字节）的内存块，称<strong>卡页</strong>（Card Page）</li>
+<li class="lvl-4">单个卡页中常包含多个对象，存在两类情况：（1）至少一个对象的字段中存在跨代指针，将卡页的标识置为 1，称为这个元素变脏（Dirty），当前卡页称为<strong>脏卡</strong>，将于 GC 时被加入 GC Roots 中一并扫描；（2）若不存在跨代指针，则标识为 0</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HotSpot虚拟机中，卡表为一个字节数组</span></span><br><span class="line">CARD_TABLE[<span class="keyword">this</span> address &gt;&gt; <span class="number">9</span>] = <span class="number">0</span>;</span><br></pre></td></tr></tbody></table></figure>
+<details open>
+<summary><span class="pre-summary">&nbsp;</span><strong>点击折叠</strong></summary><p>Q：记忆集和卡表是什么关系，两者在 JVM 中分别起什么作用？</p>
+<p>A：记忆集作为一种抽象数据结构，记录了从非收集区域指向收集区域的指针集合；而卡表是实现记忆集的一种方式，定义了记忆集的记录精度、与堆内存的映射关系等。记忆集和卡表的关系类似 Map 与 HashMap 的关系，卡表是记忆集的一种具体实现</p>
+</details>
+<h4 id="3-5-写屏障">3.5 写屏障</h4>
+<p>def 写屏障是在其他分代区域对象引用本区域对象并赋值时，用于维护卡表的操作。基本流程包括：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>其他分代区域对象引用本区域对象，赋值时产生一个环形（Around）通知，供程序执行额外的动作</p>
+</li>
+<li class="lvl-2">
+<p>写前屏障（Pre-Write Barrier）：顾名思义，在赋值前进行</p>
+</li>
+<li class="lvl-2">
+<p>写后屏障（Post-Write Barrier）：更常用，G1 以前的收集器均只使用写后屏障</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">oop_field_store</span><span class="params">(oop* field, oop new_value)</span> </span>{</span><br><span class="line">    <span class="comment">// 1. 引用并赋值</span></span><br><span class="line">    *field = new_value;</span><br><span class="line">    <span class="comment">// 2. 写后屏障更新卡表</span></span><br><span class="line">    post_write_barrier(field, new_value);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<details open>
+<summary><span class="pre-summary">&nbsp;</span><strong>点击折叠</strong></summary><p>Q：什么是卡表的 “伪共享” 问题？如何避免这个问题？</p>
+<p>A：伪共享是指当下 CPU 中的缓存系统是以<strong>缓存行</strong>（Cache Line）为单位存储的，考虑高并发场景下，若多个线程同时修改两相互独立的变量，而两者恰好位于同一个缓存行，共享会导致性能降低。解决方式是使用有条件的写保障，即先检查卡表标记，仅在卡页未被标记为过时时记为脏卡。JDK 7 后这一操作可通过 -<code>XX:+UseCondCardMark</code> 参数开启</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (CARD_TABLE [<span class="keyword">this</span> address &gt;&gt; <span class="number">9</span>] != <span class="number">0</span>) {</span><br><span class="line">	CARD_TABLE [<span class="keyword">this</span> address &gt;&gt; <span class="number">9</span>] = <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</details>
+<h4 id="3-6-并发的可达性分析">3.6 并发的可达性分析</h4>
+<h5 id="3-6-1-三色标记（Tri-color-Marking）">3.6.1 三色标记（Tri-color Marking）</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>白色：尚未被垃圾收集器访问过的对象</p>
+<ul class="lvl-2">
+<li class="lvl-4">可达性分析开始时，所有对象均为白色</li>
+<li class="lvl-4">分析结束时，仍为白色的对象是不可达的</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>黑色：已经被 GC 访问过、所有引用均已扫描过的对象</p>
+<ul class="lvl-2">
+<li class="lvl-4">黑色的对象是安全存活的</li>
+<li class="lvl-4">如果有其他对象引用指向黑色对象，则无须重新扫描一遍</li>
+<li class="lvl-4">黑色对象不可能直接（不经过灰色对象）指向某个白色对象</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>灰色：已被 GC 访问过、至少存在一个引用未被扫描过的对象</p>
+</li>
+</ul>
+<h5 id="3-6-2-“对象消失”问题">3.6.2 “对象消失” 问题</h5>
+<p>def 用户线程与收集器并发工作，收集器在对象图上标记颜色，同时用户线程在修改引用关系（修改对象图的结构），则会导致两种后果：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>把原本消亡的对象错误标记为存活：可容忍的，下次 GC 时清理</p>
+</li>
+<li class="lvl-2">
+<p>把原本存活的对象错误标记为已消亡：严重，会导致程序出错，即<strong>对象消失问题</strong></p>
+<ul class="lvl-2">
+<li class="lvl-4">情况 1：赋值器插入了一条或多条从黑色对象到白色对象的新引用</li>
+<li class="lvl-4">情况 2：赋值器删除了全部从灰色对象到该白色对象的直接或间接引用</li>
+</ul>
+</li>
+</ul>
+<p><img data-src="/posts/566ec62f/HotSpot%E5%AF%B9%E8%B1%A1%E6%B6%88%E5%A4%B1%E9%97%AE%E9%A2%98.png" alt></p>
+<p>为解决该问题，需要破坏这两种情况的任意一个，由此分别产生了两种解决方案：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>增量更新</strong>（Incremental Update）：当情况 1 发生时，记录新插入的引用；等待并发扫描结束后，以这些引用关系中的黑色对象为根重新扫描一次，即将这些新插入引用关系的黑色对象视作灰色对象处理</p>
+</li>
+<li class="lvl-2">
+<p><strong>原始快照</strong>（Snapshot At The Beginning，<strong>SATB</strong>）：当情况 2 发生时，记录要删除的引用；等待并发扫描结束后，以这些引用关系中的灰色对象为根重新扫描一次，即按照刚开始扫描（最原始）的对象图快照进行搜索</p>
+</li>
+</ul>
+<h3 id="4-经典垃圾收集器">4 经典垃圾收集器</h3>
 <p><img data-src="/posts/566ec62f/%E7%BB%8F%E5%85%B8GC.png" alt></p>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -742,7 +881,7 @@ mjx-container[display="true"] + br {
 </tr>
 </tbody>
 </table>
-<h4 id="3-1-Serial收集器">3.1 Serial 收集器</h4>
+<h4 id="4-1-Serial收集器">4.1 Serial 收集器</h4>
 <p><img data-src="/posts/566ec62f/Serial_plus_Serial_Old.png" alt><br>
 def 单线程的串行收集器</p>
 <ul class="lvl-0">
@@ -764,7 +903,7 @@ def 单线程的串行收集器</p>
 </ul>
 </li>
 </ul>
-<h4 id="3-2-ParNew收集器">3.2 ParNew 收集器</h4>
+<h4 id="4-2-ParNew收集器">4.2 ParNew 收集器</h4>
 <p><img data-src="/posts/566ec62f/ParNew%E6%94%B6%E9%9B%86%E5%99%A8.png" alt><br>
 def Serial 收集器的多线程并行版本</p>
 <ul class="lvl-0">
@@ -778,7 +917,7 @@ def Serial 收集器的多线程并行版本</p>
 <p>应用：激活 CMS 后的默认新生代收集器，且<mark>只有</mark> ParNew 收集器能与 CMS 收集器配合工作，通过 <code>-XX:+UseConcMarkSweepGC</code> 选项开启</p>
 </li>
 </ul>
-<h4 id="3-3-Parallel-Scavenge收集器">3.3 Parallel Scavenge 收集器</h4>
+<h4 id="4-3-Parallel-Scavenge收集器">4.3 Parallel Scavenge 收集器</h4>
 <p><img data-src="/posts/566ec62f/Parallel_Scavenge_plus_Parallel_Old.png" alt></p>
 <p>def <mark>吞吐量优先</mark>收集器，类似 ParNew 收集器，但其主要目的是为了达到一个可控制的吞吐量（Throughput），即处理器用于运行用户代码的时间与处理器总消耗时间的比值越高越好，有</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>t</mi><mi>h</mi><mi>r</mi><mi>o</mi><mi>u</mi><mi>g</mi><mi>h</mi><mi>p</mi><mi>u</mi><mi>t</mi><mo>=</mo><mfrac><msub><mi>t</mi><mrow><mi>u</mi><mi>s</mi><mi>e</mi><mi>r</mi></mrow></msub><mrow><msub><mi>t</mi><mrow><mi>u</mi><mi>s</mi><mi>e</mi><mi>r</mi></mrow></msub><mo>+</mo><msub><mi>t</mi><mrow><mi>g</mi><mi>c</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">throughput=\frac{t_{user}}{t_{user}+t_{gc}}
@@ -789,7 +928,7 @@ def Serial 收集器的多线程并行版本</p>
 </li>
 </ul>
 <p>* 注：Parallel Scavenge 收集器架构中本身有 PS MarkSweep 收集器进行老年代收集，但其实现与 Serial Old 几乎完全相同，故资料中常以 Serial Old 直接代替 PS MarkSweep</p>
-<h4 id="3-4-Serial-Old收集器">3.4 Serial Old 收集器</h4>
+<h4 id="4-4-Serial-Old收集器">4.4 Serial Old 收集器</h4>
 <p><img data-src="/posts/566ec62f/Serial_plus_Serial_Old.png" alt><br>
 def Serial 收集器的老年代版本</p>
 <ul class="lvl-0">
@@ -802,7 +941,7 @@ def Serial 收集器的老年代版本</p>
 </ul>
 </li>
 </ul>
-<h4 id="3-5-Parallel-Old收集器">3.5 Parallel Old 收集器</h4>
+<h4 id="4-5-Parallel-Old收集器">4.5 Parallel Old 收集器</h4>
 <p><img data-src="/posts/566ec62f/Parallel_Scavenge_plus_Parallel_Old.png" alt><br>
 def Parallel Scavenge 收集器的老年代版本，JDK 6 开始提供</p>
 <ul class="lvl-0">
@@ -810,7 +949,7 @@ def Parallel Scavenge 收集器的老年代版本，JDK 6 开始提供</p>
 <p><strong>优点</strong>：适用注重吞吐量、处理器资源稀缺的环境</p>
 </li>
 </ul>
-<h4 id="3-6-Concurrent-Mark-Sweep（CMS）收集器">3.6 Concurrent Mark Sweep（CMS）收集器</h4>
+<h4 id="4-6-Concurrent-Mark-Sweep（CMS）收集器">4.6 Concurrent Mark Sweep（CMS）收集器</h4>
 <p><img data-src="/posts/566ec62f/CMS%E6%94%B6%E9%9B%86%E5%99%A8.png" alt></p>
 <p>def <mark>并发低停顿收集器</mark>（Concurrent Low Pause Collector），其主要目的是为了获取最短的回收停顿时间，JDK 5 开始提供，JDK 9 起不推荐使用（Deprecate)。运作过程分为四个步骤：</p>
 <p>Step 1：<strong>初始标记</strong>（CMS initial mark），标记 GC Roots 能直接关联的对象，需要停顿用户线程</p>
@@ -831,11 +970,11 @@ def Parallel Scavenge 收集器的老年代版本，JDK 6 开始提供</p>
 </ul>
 </li>
 </ul>
-<h4 id="3-7-Garbage-First（G1）收集器">3.7 Garbage First（G1）收集器</h4>
+<h4 id="4-7-Garbage-First（G1）收集器">4.7 Garbage First（G1）收集器</h4>
 <p><img data-src="/posts/566ec62f/G1%E6%94%B6%E9%9B%86%E5%99%A8.png" alt><br>
 def <mark>全功能的垃圾收集器</mark>（Fully-Featured Garbage Collector），其主要目的是为了建立起 “停顿时间模型”（Pause Prediction Model）的收集器，即能够支持指定在一个长度为 M 毫秒的时间片段内，消耗在垃圾收集上的时间大概率不超过 N 毫秒。因此，G1 收集器开创了基于 Region 的堆内存布局，不再隔离新生代和老年代，把连续的 Java 堆划分为多个大小相等的独立区域（Region)，每一个 Region 都可以根据需要，扮演新生代的 Eden 空间、Survivor 空间，或者老年代空间。JDK 8 Update 40 后正式提供，用于替代 CMS<br>
 <img data-src="/posts/566ec62f/G1%E6%94%B6%E9%9B%86%E5%99%A8%E7%9A%84%E5%A0%86%E5%88%86%E9%85%8D%E7%A4%BA%E4%BE%8B.png" alt></p>
-<p>在不考虑用户线程运行过程中的动作时（如收集器对 Remembered Set 的维护等），G1 收集器的运作过程分为四个步骤：</p>
+<p>在不考虑用户线程运行过程中的动作时（如收集器对记忆集的维护等），G1 收集器的运作过程分为四个步骤：</p>
 <p>Step 1：<strong>初始标记</strong>（Initial Marking），标记 GC Roots 能直接关联到的对象，修改 TAMS 指针的值，需要停顿用户线程</p>
 <p>Step 2：<strong>并发标记</strong>（Concurrent Marking），进行可达性分析，从 GC Roots 的直接关联对象开始遍历整个堆中的对象图，无需停顿用户线程</p>
 <p>Step 3：<strong>最终标记</strong>（Final Marking），再次短暂暂停用户线程，处理遗留的少量 SATB 记录，即修正 Step 2 中因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录</p>
@@ -868,7 +1007,7 @@ def <mark>全功能的垃圾收集器</mark>（Fully-Featured Garbage Collector�
 <p>Q2：Garbage First 思想在 G1 收集器上是如何体现的？</p>
 <p>A：G1 收集器会在后台维护一个优先级列表，列表维护了各个 Region 中回收所获得的空间大小、回收所需时间的经验值，每次优先处理<mark>回收价值收益最大</mark>的那些 Region</p>
 <p>Q3：如何处理 G1 收集器中的跨 Region 引用？</p>
-<p>A：每个 Region 都有一个 <strong>Remembered Set</strong>，用来记录该 Region 对象的引用对象所在的 Region，避免在可达性分析时将全堆作为 GC Roots 扫描。Remembered Set 实际上通过哈希表存储，Key 是别的 Region 的起始地址，Value 是一个卡表索引号的集合，这些双向卡表同时记录了指向和被指向关系。G1 收集器使用<strong>写后屏障</strong>维护卡表，并使用队列异步处理对卡表的一系列操作</p>
+<p>A：每个 Region 都有一个记忆集，用来记录该 Region 对象的引用对象所在的 Region，避免在可达性分析时将全堆作为 GC Roots 扫描。记忆集实际上通过哈希表存储，Key 是别的 Region 的起始地址，Value 是一个卡表索引号的集合，这些双向卡表同时记录了指向和被指向关系。G1 收集器使用<strong>写后屏障</strong>维护卡表，并使用队列异步处理对卡表的一系列操作</p>
 <p>Q4：在并发标记阶段，G1 收集器如何保证收集线程、用户线程能够并发运行？</p>
 <p>A：先通过<strong>原始快照</strong>（SATB）算法，使用<strong>写前屏障</strong>跟踪并发时的指针变化情况，解决用户线程改变对象引用关系，从而打破原本的对象图结构、使标记结果出现错误的问题；对于程序运行时不断创建的新对象，G1 为每一个 Region 设计了两个名为 TAMS（Top at Mark Start）的指针，将 Region 中的部分空间划给这些新对象，其地址必须要在两个 TAMS 指针的位置以上，G1 收集器将默认 TAMS 指针以上的对象是被隐式标记过的，即这些对象为不纳入回收范围的存活对象。但如果此时 Region 中剩余的空间不足，将冻结用户线程并进行 “Stop The World” 的 Full GC</p>
 <p>Q5：G1 收集器是如何做到可预测的停顿的，为什么 G1 收集器建立的停顿预测模型是可靠的？</p>
@@ -884,6 +1023,7 @@ def <mark>全功能的垃圾收集器</mark>（Fully-Featured Garbage Collector�
 <p>[5]  <a target="_blank" rel="noopener" href="https://www.oracle.com/technical-resources/articles/java/g1gc.html">Garbage First Garbage Collector Tuning</a></p>
 <p>[6]  <a target="_blank" rel="noopener" href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/G1GettingStarted/index.html">Getting Started with the G1 Garbage Collector</a></p>
 <p>[7]  <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1041064">《深入理解 Java 虚拟机》（三）垃圾收集器与内存分配策略</a></p>
+<p>[8] Hosking A L, Hudson R L. Remembered sets can also play cards[J]. OOPSLAGC OOP93]. Available for anonymous  FTP from cs. utexas. edu in/pub/garbage/GC93, 1993.</p>
 
     </div>
 
@@ -1014,7 +1154,7 @@ def <mark>全功能的垃圾收集器</mark>（Fully-Featured Garbage Collector�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AF%B9%E8%B1%A1%E5%AD%98%E6%B4%BB%E5%88%A4%E5%AE%9A%E7%AE%97%E6%B3%95"><span class="nav-text">1 对象存活判定算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-text">1.1 引用计数器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95"><span class="nav-text">1.2 可达性分析算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-Java%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-text">1.3 Java 引用类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E5%AF%B9%E8%B1%A1%E6%AD%BB%E4%BA%A1%E5%88%A4%E5%AE%9A"><span class="nav-text">1.4 对象死亡判定</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-1-finalize-%E6%96%B9%E6%B3%95"><span class="nav-text">1.4.1 finalize () 方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-%E6%96%B9%E6%B3%95%E5%8C%BA%E7%9A%84%E5%9B%9E%E6%94%B6"><span class="nav-text">1.5 方法区的回收</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95"><span class="nav-text">2 垃圾回收算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E6%9C%BA%E5%88%B6"><span class="nav-text">2.1 分代收集机制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1-Java%E5%A0%86%E5%86%85%E5%AD%98%E7%9A%84%E5%88%92%E5%88%86"><span class="nav-text">2.1.1 Java 堆内存的划分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-2-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5"><span class="nav-text">2.1.2 垃圾回收策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-3-Minor-GC%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-text">2.1.3 Minor GC 的基本原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-4-%E7%A9%BA%E9%97%B4%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D"><span class="nav-text">2.1.4 空间分配担保</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="nav-text">2.2 标记 - 清除算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E6%A0%87%E8%AE%B0-%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="nav-text">2.3 标记 - 复制算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><span class="nav-text">2.4 标记 - 整理算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%BB%8F%E5%85%B8%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">3 经典垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-Serial%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">3.1 Serial 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-ParNew%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">3.2 ParNew 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-Parallel-Scavenge%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">3.3 Parallel Scavenge 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-Serial-Old%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">3.4 Serial Old 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-Parallel-Old%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">3.5 Parallel Old 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-Concurrent-Mark-Sweep%EF%BC%88CMS%EF%BC%89%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">3.6 Concurrent Mark Sweep（CMS）收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-Garbage-First%EF%BC%88G1%EF%BC%89%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">3.7 Garbage First（G1）收集器</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AF%B9%E8%B1%A1%E5%AD%98%E6%B4%BB%E5%88%A4%E5%AE%9A%E7%AE%97%E6%B3%95"><span class="nav-text">1 对象存活判定算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-text">1.1 引用计数器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95"><span class="nav-text">1.2 可达性分析算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-Java%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-text">1.3 Java 引用类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E5%AF%B9%E8%B1%A1%E6%AD%BB%E4%BA%A1%E5%88%A4%E5%AE%9A"><span class="nav-text">1.4 对象死亡判定</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-1-finalize-%E6%96%B9%E6%B3%95"><span class="nav-text">1.4.1 finalize () 方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-%E6%96%B9%E6%B3%95%E5%8C%BA%E7%9A%84%E5%9B%9E%E6%94%B6"><span class="nav-text">1.5 方法区的回收</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95"><span class="nav-text">2 垃圾回收算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E6%9C%BA%E5%88%B6"><span class="nav-text">2.1 分代收集机制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1-Java%E5%A0%86%E5%86%85%E5%AD%98%E7%9A%84%E5%88%92%E5%88%86"><span class="nav-text">2.1.1 Java 堆内存的划分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-2-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5"><span class="nav-text">2.1.2 垃圾回收策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-3-Minor-GC%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-text">2.1.3 Minor GC 的基本原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-4-%E7%A9%BA%E9%97%B4%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D"><span class="nav-text">2.1.4 空间分配担保</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="nav-text">2.2 标记 - 清除算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E6%A0%87%E8%AE%B0-%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="nav-text">2.3 标记 - 复制算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><span class="nav-text">2.4 标记 - 整理算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-HotSpot%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="nav-text">3 HotSpot 的算法实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E6%A0%B9%E8%8A%82%E7%82%B9%E6%9E%9A%E4%B8%BE"><span class="nav-text">3.1 根节点枚举</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E5%AE%89%E5%85%A8%E7%82%B9"><span class="nav-text">3.2 安全点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-%E5%AE%89%E5%85%A8%E5%8C%BA%E5%9F%9F"><span class="nav-text">3.3 安全区域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-%E8%AE%B0%E5%BF%86%E9%9B%86%E4%B8%8E%E5%8D%A1%E8%A1%A8"><span class="nav-text">3.4 记忆集与卡表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-%E5%86%99%E5%B1%8F%E9%9A%9C"><span class="nav-text">3.5 写屏障</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-%E5%B9%B6%E5%8F%91%E7%9A%84%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90"><span class="nav-text">3.6 并发的可达性分析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-6-1-%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%EF%BC%88Tri-color-Marking%EF%BC%89"><span class="nav-text">3.6.1 三色标记（Tri-color Marking）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-6-2-%E2%80%9C%E5%AF%B9%E8%B1%A1%E6%B6%88%E5%A4%B1%E2%80%9D%E9%97%AE%E9%A2%98"><span class="nav-text">3.6.2 “对象消失” 问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%BB%8F%E5%85%B8%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">4 经典垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-Serial%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">4.1 Serial 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-ParNew%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">4.2 ParNew 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-Parallel-Scavenge%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">4.3 Parallel Scavenge 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-Serial-Old%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">4.4 Serial Old 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-Parallel-Old%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">4.5 Parallel Old 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-Concurrent-Mark-Sweep%EF%BC%88CMS%EF%BC%89%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">4.6 Concurrent Mark Sweep（CMS）收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-Garbage-First%EF%BC%88G1%EF%BC%89%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-text">4.7 Garbage First（G1）收集器</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
