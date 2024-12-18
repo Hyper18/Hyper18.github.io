@@ -49,7 +49,7 @@
 <meta property="og:image" content="https://hyper18.github.io/posts/566ec62f/G1%E6%94%B6%E9%9B%86%E5%99%A8.png">
 <meta property="og:image" content="https://hyper18.github.io/posts/566ec62f/G1%E6%94%B6%E9%9B%86%E5%99%A8%E7%9A%84%E5%A0%86%E5%88%86%E9%85%8D%E7%A4%BA%E4%BE%8B.png">
 <meta property="article:published_time" content="2024-08-26T11:53:02.000Z">
-<meta property="article:modified_time" content="2024-12-04T08:06:58.072Z">
+<meta property="article:modified_time" content="2024-12-18T07:18:04.989Z">
 <meta property="article:author" content="Hyper">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="JVM">
@@ -368,7 +368,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-04 16:06:58" itemprop="dateModified" datetime="2024-12-04T16:06:58+08:00">2024-12-04</time>
+                <time title="修改时间：2024-12-18 15:18:04" itemprop="dateModified" datetime="2024-12-18T15:18:04+08:00">2024-12-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -408,7 +408,7 @@ mjx-container[display="true"] + br {
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>12 分钟</span>
+              <span>13 分钟</span>
             </span>
 
         </div>
@@ -476,19 +476,19 @@ mjx-container[display="true"] + br {
 <p><strong>软引用</strong>（Soft Reference）：有用但非必须的对象，只被软引用关联着的对象，在系统将要发生内存溢出异常前，会把这些对象列进回收范围之中进行第二次回收，如果这次回收还没有足够的内存，才会抛出内存溢出异常</p>
 </li>
 </ul>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br><span class="line">SoftReference&lt;Object&gt; sf = <span class="keyword">new</span> SoftReference&lt;&gt;(obj);</span><br><span class="line"><span class="comment">// 取消强引用绑定关系</span></span><br><span class="line">obj = <span class="keyword">null</span>;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加虚拟机选项-XX:+PrintGCDetails -Xms10M -Xmx10M</span></span><br><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br><span class="line">ReferenceQueue&lt;Object&gt; q = <span class="keyword">new</span> ReferenceQueue&lt;&gt;();</span><br><span class="line">SoftReference&lt;Object&gt; sf = <span class="keyword">new</span> SoftReference&lt;&gt;(obj, q);</span><br><span class="line"><span class="comment">// 取消强引用绑定关系</span></span><br><span class="line">obj = <span class="keyword">null</span>;</span><br><span class="line">System.out.println(sf.get());</span><br><span class="line"><span class="keyword">try</span> {</span><br><span class="line">    List&lt;String&gt; li = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>) {</span><br><span class="line">        li.add(<span class="string">"newObj"</span>);</span><br><span class="line">    }</span><br><span class="line">} <span class="keyword">catch</span> (Throwable t) {</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    发生内存溢出: Java heap space</span></span><br><span class="line"><span class="comment">    当前软引用对象: null</span></span><br><span class="line"><span class="comment">    指向被GC回收对象的引用: java.lang.ref.SoftReference@4554617c</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    System.out.println(<span class="string">"发生内存溢出: "</span> + t.getMessage());</span><br><span class="line">    System.out.println(<span class="string">"当前软引用对象: "</span> + sf.get());</span><br><span class="line">    System.out.println(<span class="string">"指向被GC回收对象的引用: "</span> + q.poll());</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><strong>弱引用</strong>（Weak Reference）：非必须对象，被弱引用关联的对象只能生存到下一次 GC 发生为止，即只要进行 GC 一定回收</p>
 </li>
 </ul>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br><span class="line">WeakReference&lt;Object&gt; wf = <span class="keyword">new</span> WeakReference&lt;&gt;(obj);</span><br><span class="line">obj = <span class="keyword">null</span>;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">WeakReference&lt;Object&gt; wf = <span class="keyword">new</span> WeakReference&lt;&gt;(<span class="keyword">new</span> Object());</span><br><span class="line"><span class="comment">// Output: java.lang.Object@1b6d3586</span></span><br><span class="line">System.out.println(wf.get());</span><br><span class="line"><span class="comment">// 手动发起GC</span></span><br><span class="line">System.gc();</span><br><span class="line"><span class="comment">// Output: null</span></span><br><span class="line">System.out.println(wf.get());</span><br></pre></td></tr></tbody></table></figure>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><strong>虚引用</strong>（Phantom Reference）：虚引用关联的对象会在被收集器回收时收到一个系统通知（仅此而已），该对象在任何情况下都可能被回收。虚引用与对象的存活时间无关，且无法通过虚引用得到关于对象的一个实例</p>
 </li>
 </ul>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br><span class="line">PhantomReference&lt;Object&gt; pf = <span class="keyword">new</span> PhantomReference&lt;&gt;(obj);</span><br><span class="line">obj = <span class="keyword">null</span>;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ReferenceQueue&lt;Object&gt; q = <span class="keyword">new</span> ReferenceQueue&lt;&gt;();</span><br><span class="line"><span class="comment">// 只能使用带队列的构造方法</span></span><br><span class="line">PhantomReference&lt;Object&gt; pf = <span class="keyword">new</span> PhantomReference&lt;&gt;(<span class="keyword">new</span> Object(), q);</span><br><span class="line"><span class="comment">// Output: null</span></span><br><span class="line">System.out.println(pf.get());</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="1-4-对象死亡判定">1.4 对象死亡判定</h4>
 <p>要真正宣告一个对象死亡，至少要经历两次标记过程：</p>
 <ul class="lvl-0">
@@ -1018,12 +1018,13 @@ def <mark>全功能的垃圾收集器</mark>（Fully-Featured Garbage Collector�
 <p>参考</p>
 <p>[1]  深入理解 Java 虚拟机：JVM 高级特性与最佳实践（第 3 版）</p>
 <p>[2]  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Er4y1r7as">Java JVM 虚拟机 已完结（IDEA 2021 版本）4K 蓝光画质</a></p>
-<p>[3]  <a target="_blank" rel="noopener" href="https://www.pdai.tech/md/java/jvm/java-jvm-gc.html#_4-%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86">Java 全栈知识体系</a></p>
-<p>[4]  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44985305/article/details/139199849">JVM 垃圾回收（GC）机制（一文读懂）</a></p>
-<p>[5]  <a target="_blank" rel="noopener" href="https://www.oracle.com/technical-resources/articles/java/g1gc.html">Garbage First Garbage Collector Tuning</a></p>
-<p>[6]  <a target="_blank" rel="noopener" href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/G1GettingStarted/index.html">Getting Started with the G1 Garbage Collector</a></p>
-<p>[7]  <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1041064">《深入理解 Java 虚拟机》（三）垃圾收集器与内存分配策略</a></p>
-<p>[8] Hosking A L, Hudson R L. Remembered sets can also play cards[J]. OOPSLAGC OOP93]. Available for anonymous  FTP from cs. utexas. edu in/pub/garbage/GC93, 1993.</p>
+<p>[3]  <a target="_blank" rel="noopener" href="https://www.itbaima.cn/document/ydd7n3jg8unc3clg?segment=1#doc1-JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86">柏码知识库 | JVM 笔记（二）内存管理</a></p>
+<p>[4]  <a target="_blank" rel="noopener" href="https://www.pdai.tech/md/java/jvm/java-jvm-gc.html#_4-%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86">Java 全栈知识体系</a></p>
+<p>[5]  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44985305/article/details/139199849">JVM 垃圾回收（GC）机制（一文读懂）</a></p>
+<p>[6]  <a target="_blank" rel="noopener" href="https://www.oracle.com/technical-resources/articles/java/g1gc.html">Garbage First Garbage Collector Tuning</a></p>
+<p>[7]  <a target="_blank" rel="noopener" href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/G1GettingStarted/index.html">Getting Started with the G1 Garbage Collector</a></p>
+<p>[8]  <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1041064">《深入理解 Java 虚拟机》（三）垃圾收集器与内存分配策略</a></p>
+<p>[9] Hosking A L, Hudson R L. Remembered sets can also play cards[J]. OOPSLAGC OOP93]. Available for anonymous  FTP from cs. utexas. edu in/pub/garbage/GC93, 1993.</p>
 
     </div>
 
