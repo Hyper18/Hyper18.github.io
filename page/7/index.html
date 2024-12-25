@@ -253,7 +253,7 @@ mjx-container[display="true"] + br {
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">61</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">62</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -313,6 +313,218 @@ mjx-container[display="true"] + br {
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/posts/7bf79933/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Hyper">
+      <meta itemprop="description" content="终有一日</br>你我将相会</br>在另一维宇宙">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyper の 个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/7bf79933/" class="post-title-link" itemprop="url">Redis 原理初探（五）—— 有序集合</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-23 20:15:53" itemprop="dateCreated datePublished" datetime="2021-11-23T20:15:53+08:00">2021-11-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-09-05 13:20:19" itemprop="dateModified" datetime="2024-09-05T13:20:19+08:00">2024-09-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/7bf79933/" class="post-meta-item leancloud_visitors" data-flag-title="Redis 原理初探（五）—— 有序集合" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="跳跃表（skiplist）">跳跃表（skiplist）</h2>
+<h4 id="定义">定义</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在每个节点中维持多个指向其他节点的指针以快速访问节点的一种有序数据结构</p>
+</li>
+<li class="lvl-2">
+<p>有序集合键的底层实现之一</p>
+</li>
+</ul>
+<h4 id="适用场景">适用场景</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>一个有序集合包含的元素数量比较多，又或者有序集合中元素的成员（member）是比较长的字符串</p>
+</li>
+<li class="lvl-2">
+<p>在集群节点中用作内部数据结构</p>
+</li>
+</ul>
+<h3 id="跳跃表结点">跳跃表结点</h3>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 跳跃表结点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">// 层</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistLevel</span></span></span><br><span class="line"><span class="class">    {</span></span><br><span class="line">        <span class="comment">// 前进指针</span></span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span> *<span class="title">forward</span>;</span></span><br><span class="line">        <span class="comment">// 跨度</span></span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> span;</span><br><span class="line">    } level[];</span><br><span class="line">    <span class="comment">// 后退指针</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span> *<span class="title">backward</span>;</span></span><br><span class="line">    <span class="comment">// 分值</span></span><br><span class="line">    <span class="keyword">double</span> score;</span><br><span class="line">    <span class="comment">// 成员对象</span></span><br><span class="line">    robj *obj;</span><br><span class="line">} zskiplistNode;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="层（Level数组）">层（Level 数组）</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>原理：包含多个元素，每个元素包含一个指向其他节点的指针，以加快访问其他节点的速度。一般来说，其访问其他节点的速度与层数正相关。</p>
+</li>
+<li class="lvl-2">
+<p>高度：每次创建一个新跳跃表节点的时候，程序都根据<strong>幂次定律</strong>（power law，越大的数出现概率越小）随机生成一个介于 <strong>1</strong> 和 <strong>32</strong> 之间的值作为 level 数组的大小</p>
+</li>
+</ul>
+<h4 id="前进指针（level-i-forward属性）">前进指针（level [i].forward 属性）</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>def 从表头向表尾方向访问节点的指针</p>
+<ul class="lvl-2">
+<li class="lvl-4">一次可以跳过多个成员</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>用于执行有序集合的遍历操作</p>
+</li>
+</ul>
+<h4 id="跨度（level-i-span属性）">跨度（level [i].span 属性）</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>def 两个节点之间的距离</p>
+<ul class="lvl-2">
+<li class="lvl-4">跨度越大，间距越远</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>注：指向 Null 的所有前进指针的跨度都为 0，因未连向任何节点</p>
+</li>
+<li class="lvl-2">
+<p>用于计算有序集合中成员的排名（rank）</p>
+</li>
+</ul>
+<h4 id="后退指针（level-i-backward属性）">后退指针（level [i].backward 属性）</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>def 从表尾向表头方向访问节点的指针</p>
+<ul class="lvl-2">
+<li class="lvl-4">每个节点只有一个后退指针，这也意味着每次只能通过顺序回退的方式到达有序集合的前一节点，以向前遍历</li>
+</ul>
+</li>
+</ul>
+<h4 id="分值（level-i-score属性）">分值（level [i].score 属性）</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>def double 类型的浮点数</p>
+<ul class="lvl-2">
+<li class="lvl-4">所有节点按照分值从小到大来排序</li>
+</ul>
+</li>
+</ul>
+<h4 id="成员（level-i-obj属性）">成员（level [i].obj 属性）</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>def 指向字符串对象的指针，指向的对象中保存着一个 <strong>SDS</strong> 值</p>
+</li>
+<li class="lvl-2">
+<p>在同一个跳跃表中，各个节点保存的成员对象必须是<strong>唯一</strong>的；多个节点保存的分值可以相同</p>
+</li>
+<li class="lvl-2">
+<p>分值相同的节点将按照成员对象在字典序中的大小来进行排序，成员对象较小的节点会排在前面（靠近表头的方向），而成员对象较大的节点则会排在后面（靠近表尾的方向）</p>
+</li>
+</ul>
+<h3 id="跳跃表">跳跃表</h3>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 跳跃表</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">zskiplist</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">// 表头节点和表尾节点</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span> *<span class="title">header</span>, *<span class="title">tail</span>;</span></span><br><span class="line">    <span class="comment">// 表中节点的数量</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> length;</span><br><span class="line">    <span class="comment">// 表中层数最大的节点的层数</span></span><br><span class="line">    <span class="keyword">int</span> level;</span><br><span class="line">} zskiplist;</span><br></pre></td></tr></tbody></table></figure>
+<p>执行下述操作的时间复杂度均为 O (1)：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>程序定位表头节点和表尾节点：header 和 tail 指针分别指向跳跃表的表头和表尾节点</p>
+</li>
+<li class="lvl-2">
+<p>返回跳跃表的长度：使用 length 属性来记录节点的数量</p>
+</li>
+<li class="lvl-2">
+<p>获取跳跃表中层高最大的那个节点的层数量：使用 level 属性，注：表头节点的层高并不计算在内</p>
+</li>
+</ul>
+<h2 id="有序集合（zset）操作">有序集合（zset）操作</h2>
+<h4 id="常用命令">常用命令</h4>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">'127.0.0.1'</span>, port=<span class="number">6379</span>, password=<span class="number">123456</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ZADD：向有序集合中添加指定成员及对应分值</span></span><br><span class="line"><span class="comment"># 注：此处Python做法与Redis相反，Redis中应先输入分值再输入成员名称</span></span><br><span class="line">conn.zadd(<span class="string">'zset_key'</span>, <span class="string">'a'</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="number">2</span>, <span class="string">'c'</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment"># ZCARD：返回有序集合包含的成员数量</span></span><br><span class="line">conn.zcard(<span class="string">'zset_key'</span>)</span><br><span class="line"><span class="comment"># ZINCRBY：将有序集合中的指定成员的对应分值加上incr量</span></span><br><span class="line">conn.zincrby(<span class="string">'zset_key'</span>, <span class="string">'a'</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment"># ZSCORE：返回指定成员的分值</span></span><br><span class="line">conn.zscore(<span class="string">'zset_key'</span>, <span class="string">'b'</span>)</span><br><span class="line"><span class="comment"># ZRANK：返回指定成员在有序集合中的排名</span></span><br><span class="line"><span class="comment"># 可以先获取指定成员的排名，再根据排名决定ZRANGE的范围</span></span><br><span class="line">conn.zrank(<span class="string">'zset_key'</span>, <span class="string">'c'</span>)</span><br><span class="line"><span class="comment"># ZCOUNT：返回有序集合中介于给定最低和最高分值之间的成员数目</span></span><br><span class="line">conn.zcount(<span class="string">'zset_key'</span>, <span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment"># ZREM：从有序集合中移除指定成员，并返回被移除成员的数目</span></span><br><span class="line">conn.zrem(<span class="string">'zset_key'</span>, <span class="string">'b'</span>)</span><br><span class="line"><span class="comment"># ZRANGE：返回有序集合中排名介于指定开始与结束位置的成员</span></span><br><span class="line"><span class="comment"># 指定withscores参数为真，则会一并返回成员的对应分值</span></span><br><span class="line">conn.zrange(<span class="string">'zset_key'</span>, <span class="number">0</span>, -<span class="number">1</span>, withscores=<span class="literal">True</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="范围性数据的获取与删除命令">范围性数据的获取与删除命令</h4>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ZREVRANK：返回有序集合中成员的排名</span></span><br><span class="line"><span class="comment"># 按照分值从大到小排列</span></span><br><span class="line"><span class="comment"># 注：按照逆序处理有序集合，其工作方式与非逆序大体相同</span></span><br><span class="line">conn.zrevrank(<span class="string">'zset_key'</span>, <span class="string">'c'</span>)</span><br><span class="line"><span class="comment"># ZREVRANGE：返回有序集合给定排名范围内的成员</span></span><br><span class="line"><span class="comment"># 按照分值从大到小排列</span></span><br><span class="line">conn.zrevrange(<span class="string">'zset_key'</span>, <span class="number">0</span>, -<span class="number">1</span>, withscores=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># ZRANGEBYSCORE：返回有序集合中分值介于给定最小与较大范围之间的所有成员</span></span><br><span class="line">conn.zrangebyscore(<span class="string">'zset_key'</span>, <span class="number">0</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="comment"># ZREVRANGEBYSCORE：获取有序集合中分值介于给定最小与较大范围之间的所有成员</span></span><br><span class="line"><span class="comment"># 按照分值从大到小排列</span></span><br><span class="line">conn.zrevrangebyscore(<span class="string">'zset_key'</span>, <span class="number">0</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="comment"># ZREMRANGEBYRANK：移除有序集合中排名介于开始与结束位置之间的所有成员</span></span><br><span class="line">conn.zremrangebyrank(<span class="string">'zset_key'</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment"># ZREMRANGEBYSCORE：移除有序集合中分值介于开始与结束位置之间的所有成员</span></span><br><span class="line">conn.zremrangebyscore(<span class="string">'zset_key'</span>, <span class="number">0</span>, <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="并集与交集命令">并集与交集命令</h4>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">conn.zadd(<span class="string">'zset_key2'</span>, <span class="string">'a'</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="number">2</span>, <span class="string">'c'</span>, <span class="number">3</span>)</span><br><span class="line">conn.zadd(<span class="string">'zset_key3'</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="string">'b'</span>, <span class="number">2</span>, <span class="string">'c'</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment"># ZINTERSCORE：对给定有序集合进行交集运算</span></span><br><span class="line"><span class="comment"># 默认使用sum作为聚合函数，则相当于对各个有序集合中的成员分值做累加操作</span></span><br><span class="line">conn.zinterstore(<span class="string">'zset_key_i'</span>, [<span class="string">'zset_key2'</span>, <span class="string">'zset_key3'</span>])</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<img data-src="/posts/7bf79933/交集运算.png">
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ZUNIONSTORE：对给定有序集合进行并集运算</span></span><br><span class="line"><span class="comment"># 还可以指定聚合函数为min/max，以适应不同的运算场景</span></span><br><span class="line">conn.zunionstore(<span class="string">'zset_key_u'</span>, [<span class="string">'zset_key2'</span>, <span class="string">'zset_key3'</span>], aggregate=<span class="string">'min'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<img data-src="/posts/7bf79933/并集运算.png">
+<p><em>【参考】</em><br>
+<em>[1] 《Redis 的设计与实现》</em></p>
+<p><em>[2] 《Redis 实战》</em></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1079,178 +1291,6 @@ mjx-container[display="true"] + br {
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hyper18.github.io/posts/c5244846/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hyper">
-      <meta itemprop="description" content="终有一日</br>你我将相会</br>在另一维宇宙">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hyper の 个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/c5244846/" class="post-title-link" itemprop="url">Redis 原理初探（一）—— 字符串</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-19 22:47:09" itemprop="dateCreated datePublished" datetime="2021-11-19T22:47:09+08:00">2021-11-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-05 13:20:19" itemprop="dateModified" datetime="2024-09-05T13:20:19+08:00">2024-09-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/posts/c5244846/" class="post-meta-item leancloud_visitors" data-flag-title="Redis 原理初探（一）—— 字符串" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="简单动态字符串（simple-dynamic-string，SDS）">简单动态字符串（simple dynamic string，SDS）</h2>
-<h4 id="定义">定义</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>redis 的默认字符表示，作为一个可被修改的字符串值</p>
-</li>
-<li class="lvl-2">
-<p>作为字符串的底层实现</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="comment">/* data */</span></span><br><span class="line">    <span class="keyword">int</span> len;    -- 数组已使用字节数量</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">free</span>;   -- 数组未使用字节数量</span><br><span class="line">    <span class="keyword">char</span> buf[]; -- 字节数组</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
-<p>注：buf [] 的最后一个字节会用于保存空字符’\0’(同 C style)</p>
-<h3 id="使用SDS而非C-style字符串的好处">使用 SDS 而非 C style 字符串的好处</h3>
-<h4 id="获取字符串长度不为性能瓶颈">获取字符串长度不为性能瓶颈</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>由定义可知，SDS 的结构体中已经保存了数组的长度（len），从而只需使用 STRLEN () 获取值，其对应算法复杂度始终仅为 O (1)；C 字符串由于没有保存该信息，则需要对数组进行遍历得到长度，其算法复杂度为 O (n)</p>
-</li>
-</ul>
-<h4 id="API安全，排除了缓冲区溢出的风险">API 安全，排除了缓冲区溢出的风险</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>对于 C 字符串而言，缓冲区容易溢出其实是不记录数组长度的衍生问题。如考虑下述场景：</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcat</span><span class="params">(<span class="keyword">char</span> *c1, <span class="keyword">const</span> <span class="keyword">char</span> *c2)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
-<p>​	strcat () 方法会假定系统尚且分配了足够的内存给 c1，以容纳 c2 中的所有内容；而 c2 数组长度过长且超出内存限制时，就造成了缓冲区的溢出。这可能会给相邻内存的内容带来意外的后果（如：未指定的意外修改，etc.）</p>
-<p>​	而 SDS 的 API 会自动对 len 进行修改和更新；当当前空间不能满足要求时，则会自动扩展当前 SDS 的空间。对应 redis 中字符串拼接方法为：</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdscat(c1, c2);</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="是二进制安全的">是二进制安全的</h4>
-<p>​	既可存储文本数据、也可存储二进制数据</p>
-<h4 id="兼容部分C-style字符串">兼容部分 C style 字符串</h4>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// string compare</span></span><br><span class="line">strcasecmp(c1-&gt;c2, <span class="string">"hello world"</span>);</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="用途">用途</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>作为数据库中字符串值、整数值和浮点数值的存储</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RPUSH fruits "apple" "banana" "cherry"</span><br><span class="line"><span class="comment">-- output：(integer) 3</span></span><br></pre></td></tr></tbody></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>作为缓冲区（buffer）</p>
-</li>
-</ul>
-<h3 id="空间分配策略">空间分配策略</h3>
-<h4 id="目的">目的</h4>
-<p>​	减少连续执行字符串增长操作所需的内存重分配次数</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>策略 1：空间预分配</p>
-<ul class="lvl-2">
-<li class="lvl-4">当未使用空间足够时，无需进行内存重分配，即没有对字符串进行修改</li>
-<li class="lvl-4">若修改后的字符串长度小于 1MB，将分配与当前数组已使用长度等长的未使用空间</li>
-<li class="lvl-4">若修改后的字符串长度大于 1MB，将分配 1MB 的未使用空间</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>策略 2：惰性空间释放</p>
-<ul class="lvl-2">
-<li class="lvl-4">当空间被释放成为空余空间后，并不会立即对其进行回收，而是先由 free 属性记录下来</li>
-<li class="lvl-4">避免了缩短字符串时所需的内存重分配操作，并为将来可能有的增长操作提供了优化</li>
-<li class="lvl-4">当有实际空间需要时，会通过对应 API 真正完成空余空间的释放</li>
-</ul>
-</li>
-</ul>
-<h2 id="字符串操作">字符串操作</h2>
-<h4 id="自增-自减">自增 / 自减</h4>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取连接</span></span><br><span class="line">conn = redis.Redis()</span><br><span class="line"><span class="comment"># 获取对应key:只要该字符串值可以被解释为整数值，则可进行下述处理</span></span><br><span class="line"></span><br><span class="line">conn.get(<span class="string">'sample_key'</span>)</span><br><span class="line"><span class="comment"># 对该key进行自增操作 incr = short for increase</span></span><br><span class="line">conn.incr(<span class="string">'sample_key'</span>)</span><br><span class="line"><span class="comment"># 也可以以数字形式指定自增参数，下两者效果相同</span></span><br><span class="line"><span class="comment"># INCRBY sample_key 10</span></span><br><span class="line">conn.incr(<span class="string">'sample_key'</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对该key进行自减操作 decr = short for decrease</span></span><br><span class="line"><span class="comment"># DECRBY sample_key 8</span></span><br><span class="line">conn.decr(<span class="string">'sample_key'</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 二次获取当前的数值</span></span><br><span class="line">conn.get(<span class="string">'sample_key'</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h4 id="打包-package-处理结构化数据">打包 (package) 处理结构化数据</h4>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="comment"># 建立连接</span></span><br><span class="line">conn = redis.Redis(host=<span class="string">'127.0.0.1'</span>, port=<span class="number">6379</span>, password=<span class="string">'123456'</span>)</span><br><span class="line"><span class="comment"># 执行APPEND命令：返回的是当前字符串的长度</span></span><br><span class="line"><span class="comment"># 此时前者可不存在或为空串，则得到的新字符串长度显然为后者的长</span></span><br><span class="line">conn.append(<span class="string">'sample_string'</span>, <span class="string">'hello '</span>)</span><br><span class="line">conn.append(<span class="string">'sample_string'</span>, <span class="string">'world!'</span>)</span><br><span class="line"><span class="comment"># 操作后sample_string的长度：12</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SUBSTR：获取字符串子串（部分区间值）</span></span><br><span class="line"><span class="comment"># redis数组索引也是从0开始，则取得的值为llo</span></span><br><span class="line">conn.substr(<span class="string">'sample_string'</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETRANGE：为字符串设置范围</span></span><br><span class="line"><span class="comment"># 设置后仅改变输出的字符串内容</span></span><br><span class="line"><span class="comment"># 字符串长度仍为总长度，而非处理后的范围长度</span></span><br><span class="line">conn.setrange(<span class="string">'sample_string'</span>, <span class="number">0</span>, <span class="string">'H'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SETBIT：单独改变某二进制位</span></span><br></pre></td></tr></tbody></table></figure>
-<p><em>【参考】</em><br>
-<em>[1] 《Redis 的设计与实现》</em></p>
-<p><em>[2] 《Redis 实战》</em></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1322,7 +1362,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1369,7 +1409,7 @@ mjx-container[display="true"] + br {
           <h5 class="widget-title">词云图</h5>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intel-SGX/" rel="tag">Intel SGX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL2/" rel="tag">WSL2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8/" rel="tag">可证明安全</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/" rel="tag">后量子密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A0%E8%AF%81%E4%B9%A6%E7%AD%BE%E5%90%8D/" rel="tag">无证书签名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%BC%E5%AF%86%E7%A0%81/" rel="tag">格密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" rel="tag">论文阅读</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/408/" rel="tag">408</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intel-SGX/" rel="tag">Intel SGX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KNN/" rel="tag">KNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PCA/" rel="tag">PCA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVM/" rel="tag">SVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL2/" rel="tag">WSL2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A/" rel="tag">创新创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8/" rel="tag">可证明安全</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/" rel="tag">后量子密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" rel="tag">大作业</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag">展示</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A2%E6%B5%8B/" rel="tag">异常探测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A0%E8%AF%81%E4%B9%A6%E7%AD%BE%E5%90%8D/" rel="tag">无证书签名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%BC%E5%AF%86%E7%A0%81/" rel="tag">格密码</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E8%B5%9B/" rel="tag">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" rel="tag">论文阅读</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">7</span></li></ul>
               </canvas>
           </div>
       </div>
