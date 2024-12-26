@@ -348,7 +348,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-25 17:14:46" itemprop="dateModified" datetime="2024-12-25T17:14:46+08:00">2024-12-25</time>
+                <time title="修改时间：2024-12-26 11:05:04" itemprop="dateModified" datetime="2024-12-26T11:05:04+08:00">2024-12-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -502,14 +502,15 @@ mjx-container[display="true"] + br {
 <p><strong>魔数</strong>（Magic Number）：为每个 Class 文件的头 4 个字节，唯一作用是确定文件是否为一个能被虚拟机接受的 Class 文件</p>
 </li>
 <li class="lvl-2">
-<p><strong>次版本号</strong>（Minor Version）：第 5、第 6 个字节，JDK1.2 及以后置 0</p>
+<p><strong>次版本号</strong>（Minor Version）：第 5、第 6 个字节，JDK1.2 后置 0</p>
 </li>
 <li class="lvl-2">
-<p><strong>主版本号</strong>（Major Version）：第 7、第 8 个字节，如 52（0x0034）代表的是 JDK8 版本下编译产生的字节码文件</p>
+<p><strong>主版本号</strong>（Major Version）：第 7、第 8 个字节</p>
+<p>e.g. 52（0x0034）代表 JDK8 版本下编译产生的字节码文件</p>
 </li>
 </ul>
 <details open>
-<summary><span class="pre-summary">&nbsp;</span><strong>点击折叠</strong></summary><p>* 注 1：早期 Class 文件使用了 <code>“0xCAFEBABE”</code> 作为魔数，这也和日后 Java 的商标不谋而合，据说象征着著名咖啡品牌 Peet’s Coffee 深受欢迎的 Baristas 咖啡</p>
+<summary><span class="pre-summary">&nbsp;</span><strong>点击折叠</strong></summary><p>* 注 1：据说早期 Class 文件使用 <code>“0xCAFEBABE”</code> 作为魔数象征着著名咖啡品牌 Peet’s Coffee 深受欢迎的 Baristas 咖啡，这也和日后 Java 的商标不谋而合</p>
 <p>* 注 2：根据《Java 虚拟机规范》4.1 节可知，次版本号（minor version）曾在早期版本使用。但在实际的 Java 演化中，JVM 的兼容性几乎完全通过主版本号（major version）来管理：</p>
 <blockquote>
 <p><em>“For a class file whose major_version is 56 or above, the minor_version must be 0 or 65535”</em></p>
@@ -857,13 +858,13 @@ mjx-container[display="true"] + br {
 <p>从开发人员的角度，类加载器可划分为以下类型：</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p>启动类加载器（Bootstrap Class Loader）：负责加载存放在 <code>&lt;JAVA_HOM E&gt;\lib</code> 目录，或在 <code>-Xbootclasspath</code> 参数指定路径下的，并且能被虚拟机识别的类库（如 rt.jar、tools.jar，所有的 <code>java.*</code> 开头的类均被启动类加载器加载）</p>
+<p>启动类加载器（Bootstrap Class Loader）：负责加载存放在 <code>&lt;JAVA_HOME&gt;\lib</code> 目录，或在 <code>-Xbootclasspath</code> 参数指定路径下的，并且能被虚拟机识别的类库（如 rt.jar、tools.jar，所有的 <code>java.*</code> 开头的类均被启动类加载器加载）</p>
 <ul class="lvl-2">
 <li class="lvl-4">启动类加载器无法被 Java 程序直接引用，如果需要向其委派加载请求，可直接使用 null 代替</li>
 </ul>
 </li>
 <li class="lvl-2">
-<p>扩展类加载器（Extension Class Loader）：负责加载 <code>&lt;JAVA_HOM E&gt;\lib\ext</code> 目录中，或由 <code>java.ext.dirs</code> 系统变量指定路径下的所有类库（如 javax.* 开头的类）</p>
+<p>扩展类加载器（Extension Class Loader）：负责加载 <code>&lt;JAVA_HOME&gt;\lib\ext</code> 目录中，或由 <code>java.ext.dirs</code> 系统变量指定路径下的所有类库（如 javax.* 开头的类）</p>
 <ul class="lvl-2">
 <li class="lvl-4">在 <code>sun.misc.Launcher$ExtClassLoader</code> 类实现</li>
 <li class="lvl-4">由于扩展类加载器是由 Java 代码实现的，开发者可直接在程序中使用扩展类加载器加载类</li>
@@ -884,7 +885,7 @@ mjx-container[display="true"] + br {
 <p>要求除顶层的启动类加载器外，其余的类加载器都应有自己的父类加载器</p>
 </li>
 <li class="lvl-2">
-<p>父类加载器是采用组合而非继承关系实现</p>
+<p>父类加载器是采用<mark>组合</mark>而非继承关系实现</p>
 </li>
 </ul>
 <details open>
